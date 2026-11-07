@@ -1,0 +1,79 @@
+{
+  "schema": "agentnexus/acceptance/1.5.1",
+  "status": "BLOCKED",
+  "cpu_qualification": "FAIL",
+  "regression": "FAIL",
+  "source_set_sha256": "3f4c9e1b30f7d956b7be9c6330872cf87f32681f86c39a9b3b09c97c9bc581a0",
+  "source_files": 100,
+  "run_id": "final-2026-11-07T19-55-23-372Z-7880",
+  "counts": {
+    "tests": 305,
+    "failed": 1,
+    "passed": 296,
+    "cancelled": 0,
+    "skipped": 8,
+    "todo": 0,
+    "topLevel": 257,
+    "suites": 0
+  },
+  "exit_code": 1,
+  "strict_tsc": "PASS",
+  "node_syntax": "PASS",
+  "cpu_run_id": "2026-11-07T19-49-58-861Z-25456",
+  "cpu_counts": {
+    "PASS": 2,
+    "FAIL": 56,
+    "INCONCLUSIVE": 0
+  },
+  "production_execution": {
+    "PROCESS": "BLOCKED",
+    "EXTERNAL_EFFECT": "BLOCKED"
+  },
+  "independent_review": "SEE_ORIGINAL_SCOPED_REPORT",
+  "system_deployment_authorized": false,
+  "system_configuration_changes": [],
+  "answers": [
+    [
+      "CPU真实失败原因",
+      "OS_BEHAVIOR_LIMITATION；周期用户态限制没有已资格的超支时延上界；精确内核 cadence 仍 INCONCLUSIVE"
+    ],
+    [
+      "单进程和子进程累计CPU稳定限制",
+      "FAIL，最终58场景 56 FAIL / 2 PASS；预算和容差未放宽"
+    ],
+    [
+      "Host真正创建管理独立Worker",
+      "BLOCKED，候选代码/模型通过，真实账户/Profile/Task未部署"
+    ],
+    [
+      "IPC真实Peer",
+      "PASS，同账户实际 PID/start/SID/image；真实跨账户和有效ACL仍 BLOCKED"
+    ],
+    [
+      "Broker唯一高风险入口",
+      "PASS，代码与独立失败关闭模型；当前实际生产高风险仍 BLOCKED"
+    ],
+    [
+      "Worker无法访问其他项目与管理库",
+      "BLOCKED，未有独立OS用户的实际攻击证据"
+    ],
+    [
+      "文件链接/路径逃逸",
+      "Junction/Hardlink/最终40次TOCTOU原语PASS；symlink与独立隔离BLOCKED；修前TOCTOU fixture FAIL永久保留"
+    ],
+    [
+      "父退出后发现子残留",
+      "PASS，M14/M151特定同账户原语；完整历史与生产Host重启未验证"
+    ],
+    [
+      "ExitProof足以释放",
+      "BLOCKED，未知成员/producer/Sandbox事实仍不完整，五资源保持"
+    ],
+    [
+      "关键活动完整审计",
+      "模型/部分原语接入PASS；独立长期生产完整性 INCONCLUSIVE"
+    ]
+  ],
+  "historical_failures_preserved": true,
+  "remaining_issues": "issue-ledger.json"
+}

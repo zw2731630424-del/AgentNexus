@@ -1,0 +1,47 @@
+{
+  "attempts": [
+    {
+      "id": "freeze-first-ordering",
+      "status": "FAIL",
+      "reason": "WindowsPath sort order differed from canonical case-sensitive relative path order; corrected sort before freezing; no source bytes changed",
+      "computed_noncanonical_hash": "cc4ea54256c9241624bf07c8ddd28ded95d5c22a36f8225160c9dc6717c49c56",
+      "verified_canonical_hash": "a55823fae02fd565249cf0d2af1f3257d2e107b798b05b078b74ba15eb0e109e"
+    },
+    {
+      "id": "baseline-windows-powershell-5",
+      "status": "FAIL",
+      "reason": "operator-selected incompatible powershell.exe for inherited tools requiring PowerShell 7 ConvertFrom-Json -AsHashtable",
+      "source_unchanged": true,
+      "run": "2026-11-07T19-12-47-387Z-18824",
+      "counts": {
+        "tests": 282,
+        "PASS": 253,
+        "FAIL": 20,
+        "NOT_RUN": 9
+      },
+      "record_preserved": true
+    },
+    {
+      "id": "corrected-baseline",
+      "powershell": "PowerShell 7 primary runtime",
+      "run": "2026-11-07T19-16-22-964Z-38000",
+      "counts": {
+        "tests": 289,
+        "PASS": 265,
+        "FAIL": 1,
+        "NOT_RUN": 23
+      }
+    },
+    {
+      "id": "host-account-baseline",
+      "run": "2026-11-07T19-19-25-025Z-18624",
+      "counts": {
+        "tests": 289,
+        "PASS": 276,
+        "FAIL": 0,
+        "NOT_RUN": 13
+      },
+      "cpu_qualification": "FAIL: legacy test accepts 2593.75ms for 80ms budget; not qualification"
+    }
+  ]
+}

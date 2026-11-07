@@ -1,0 +1,513 @@
+{
+  "schema": "agentnexus/m1.5.1/independent-catalog-parse/1",
+  "method": "Complete JSON parse with duplicate-key rejection and recursive visit of every value; selected security contract projection",
+  "catalogs": [
+    {
+      "path": "deliverables/AgentNexus-M1.5/source/config/agentnexus/features.json",
+      "sha256": "1e680f2cb822966123630687f8b9354746c2696164504ee51c3f6c727cd4be45",
+      "json_walk_counts": {
+        "dict": 746,
+        "max_depth": 7,
+        "str": 8249,
+        "list": 1502,
+        "bool": 426,
+        "int": 6
+      },
+      "entries": 170,
+      "duplicate_ids": false,
+      "duplicate_keys": false,
+      "runtime_and_audit_defaults": [
+        {
+          "id": "security.os-sandbox",
+          "kind": "OPTIONAL",
+          "default": "ON"
+        },
+        {
+          "id": "security.workspace-isolation",
+          "kind": "OPTIONAL",
+          "default": "ON"
+        },
+        {
+          "id": "security.vault-persistence",
+          "kind": "OPTIONAL",
+          "default": "ON"
+        },
+        {
+          "id": "runtime.auto-planning",
+          "kind": "OPTIONAL",
+          "default": "OFF"
+        },
+        {
+          "id": "runtime.auto-spawn",
+          "kind": "OPTIONAL",
+          "default": "OFF"
+        },
+        {
+          "id": "runtime.auto-review",
+          "kind": "OPTIONAL",
+          "default": "OFF"
+        },
+        {
+          "id": "runtime.auto-coordinator",
+          "kind": "OPTIONAL",
+          "default": "OFF"
+        },
+        {
+          "id": "runtime.auto-repair",
+          "kind": "OPTIONAL",
+          "default": "OFF"
+        },
+        {
+          "id": "runtime.role.resident",
+          "kind": "OPTIONAL",
+          "default": "ON"
+        },
+        {
+          "id": "runtime.role.lead",
+          "kind": "OPTIONAL",
+          "default": "ON"
+        },
+        {
+          "id": "runtime.role.subagent",
+          "kind": "OPTIONAL",
+          "default": "ON"
+        },
+        {
+          "id": "runtime.role.reviewer",
+          "kind": "OPTIONAL",
+          "default": "ON"
+        },
+        {
+          "id": "runtime.role.coordinator",
+          "kind": "OPTIONAL",
+          "default": "OFF"
+        },
+        {
+          "id": "security.identity.runtime",
+          "kind": "OPTIONAL",
+          "default": "OFF"
+        },
+        {
+          "id": "security.ipc",
+          "kind": "OPTIONAL",
+          "default": "OFF"
+        },
+        {
+          "id": "security.broker",
+          "kind": "OPTIONAL",
+          "default": "OFF"
+        },
+        {
+          "id": "security.sandbox.windows",
+          "kind": "OPTIONAL",
+          "default": "OFF"
+        },
+        {
+          "id": "security.sandbox.linux",
+          "kind": "OPTIONAL",
+          "default": "OFF"
+        },
+        {
+          "id": "security.process.supervisor",
+          "kind": "OPTIONAL",
+          "default": "OFF"
+        },
+        {
+          "id": "security.exit_proof",
+          "kind": "OPTIONAL",
+          "default": "OFF"
+        },
+        {
+          "id": "security.resource_reconciliation",
+          "kind": "OPTIONAL",
+          "default": "OFF"
+        },
+        {
+          "id": "audit.producer.ipc",
+          "kind": "OPTIONAL",
+          "default": "OFF"
+        },
+        {
+          "id": "audit.producer.worker",
+          "kind": "OPTIONAL",
+          "default": "OFF"
+        },
+        {
+          "id": "audit.producer.process",
+          "kind": "OPTIONAL",
+          "default": "OFF"
+        },
+        {
+          "id": "audit.producer.sandbox",
+          "kind": "OPTIONAL",
+          "default": "OFF"
+        },
+        {
+          "id": "runtime.host.production",
+          "kind": "OPTIONAL",
+          "default": "OFF"
+        },
+        {
+          "id": "runtime.worker.production",
+          "kind": "OPTIONAL",
+          "default": "OFF"
+        },
+        {
+          "id": "runtime.ipc.windows.production",
+          "kind": "OPTIONAL",
+          "default": "OFF"
+        },
+        {
+          "id": "runtime.sandbox.windows.production",
+          "kind": "OPTIONAL",
+          "default": "OFF"
+        },
+        {
+          "id": "runtime.file_broker",
+          "kind": "OPTIONAL",
+          "default": "OFF"
+        },
+        {
+          "id": "runtime.process_supervisor",
+          "kind": "OPTIONAL",
+          "default": "OFF"
+        },
+        {
+          "id": "runtime.exit_proof.production",
+          "kind": "OPTIONAL",
+          "default": "OFF"
+        },
+        {
+          "id": "runtime.resource_release.production",
+          "kind": "OPTIONAL",
+          "default": "OFF"
+        },
+        {
+          "id": "audit.producer.broker",
+          "kind": "OPTIONAL",
+          "default": "OFF"
+        },
+        {
+          "id": "audit.producer.file",
+          "kind": "OPTIONAL",
+          "default": "OFF"
+        },
+        {
+          "id": "runtime.broker.production",
+          "kind": "OPTIONAL",
+          "default": "OFF"
+        },
+        {
+          "id": "runtime.bootstrap.host",
+          "kind": "OPTIONAL",
+          "default": "OFF"
+        },
+        {
+          "id": "runtime.bootstrap.worker",
+          "kind": "OPTIONAL",
+          "default": "OFF"
+        },
+        {
+          "id": "runtime.ipc.persistent",
+          "kind": "OPTIONAL",
+          "default": "OFF"
+        },
+        {
+          "id": "runtime.exit_closure",
+          "kind": "OPTIONAL",
+          "default": "OFF"
+        },
+        {
+          "id": "runtime.ubuntu.adapter",
+          "kind": "OPTIONAL",
+          "default": "OFF"
+        }
+      ],
+      "protected_features_default_off": true,
+      "m151_same_bytes_at_reading": true
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.5/source/config/agentnexus/policies.json",
+      "sha256": "2fac46d95ae95f2cb7b506eb6d92299d0a579f9808f05b8d9d41862d8e0c2587",
+      "json_walk_counts": {
+        "dict": 192,
+        "max_depth": 4,
+        "str": 1796,
+        "list": 102,
+        "bool": 44,
+        "int": 1
+      },
+      "entries": 44,
+      "duplicate_ids": false,
+      "duplicate_keys": false,
+      "policy_contracts": [
+        {
+          "id": "P.IDENTITY",
+          "level": "L0",
+          "degradable": false,
+          "enforcement_owner": "可信IPC身份与能力Broker"
+        },
+        {
+          "id": "P.FS_SCOPE",
+          "level": "L0",
+          "degradable": false,
+          "enforcement_owner": "OS执行器/句柄授权"
+        },
+        {
+          "id": "P.REVIEW_RO",
+          "level": "L0",
+          "degradable": false,
+          "enforcement_owner": "OS只读身份/挂载"
+        },
+        {
+          "id": "P.ARCHIVE_APPEND",
+          "level": "L0",
+          "degradable": false,
+          "enforcement_owner": "Archive Writer/文件ACL"
+        },
+        {
+          "id": "P.SECRET_BOUNDARY",
+          "level": "L0",
+          "degradable": false,
+          "enforcement_owner": "Credential Broker/模型出口"
+        },
+        {
+          "id": "P.DB_ATOMIC",
+          "level": "L0",
+          "degradable": false,
+          "enforcement_owner": "唯一约束/条件事务"
+        },
+        {
+          "id": "P.EXPERIMENT_ONCE",
+          "level": "L0",
+          "degradable": false,
+          "enforcement_owner": "独立实验Capability/数据库"
+        },
+        {
+          "id": "P.WORKSPACE_WRITER",
+          "level": "L0",
+          "degradable": false,
+          "enforcement_owner": "Broker租约/OS进程树"
+        },
+        {
+          "id": "P.BUDGET_HARD",
+          "level": "L0",
+          "degradable": false,
+          "enforcement_owner": "Model Gateway原子额度"
+        },
+        {
+          "id": "P.ADMIN_MODE",
+          "level": "L0",
+          "degradable": false,
+          "enforcement_owner": "独立管理Broker/审计库"
+        },
+        {
+          "id": "P.APPROVAL_REPLAY",
+          "level": "L0",
+          "degradable": false,
+          "enforcement_owner": "执行许可存储/原子consume"
+        },
+        {
+          "id": "P.TOOL_CONTRACT",
+          "level": "L0",
+          "degradable": false,
+          "enforcement_owner": "Tool Gateway/执行器"
+        },
+        {
+          "id": "P.GIT_PUBLISH",
+          "level": "L1",
+          "degradable": true,
+          "enforcement_owner": "PDP/PEP/Approval Service"
+        },
+        {
+          "id": "P.DATA_DELETE",
+          "level": "L1",
+          "degradable": true,
+          "enforcement_owner": "PDP/PEP/Approval Service"
+        },
+        {
+          "id": "P.INSTALL",
+          "level": "L1",
+          "degradable": true,
+          "enforcement_owner": "PDP/PEP/Approval Service"
+        },
+        {
+          "id": "P.PROJECT_RULE_CHANGE",
+          "level": "L1",
+          "degradable": true,
+          "enforcement_owner": "PDP/PEP/Approval Service"
+        },
+        {
+          "id": "P.EXPERIMENT_APPROVAL",
+          "level": "L1",
+          "degradable": false,
+          "enforcement_owner": "独立科研执行授权服务"
+        },
+        {
+          "id": "P.BUDGET_INCREASE",
+          "level": "L1",
+          "degradable": false,
+          "enforcement_owner": "Model Gateway管理员配置"
+        },
+        {
+          "id": "P.REVIEW_BINDING",
+          "level": "L2",
+          "degradable": true,
+          "enforcement_owner": "ReviewResult schema/集成服务"
+        },
+        {
+          "id": "P.WORKFLOW_GATES",
+          "level": "L2",
+          "degradable": true,
+          "enforcement_owner": "Workflow Runtime"
+        },
+        {
+          "id": "P.SCIENTIFIC_CLAIM",
+          "level": "L2",
+          "degradable": true,
+          "enforcement_owner": "证据/独立审查"
+        },
+        {
+          "id": "P.STYLE",
+          "level": "L3",
+          "degradable": true,
+          "enforcement_owner": "规则提示/可选linter"
+        },
+        {
+          "id": "P.AUDIT_REQUIRED",
+          "level": "L0",
+          "degradable": false,
+          "enforcement_owner": "Audit Writer / Tool Gateway"
+        },
+        {
+          "id": "P.ARTIFACT_INTEGRITY",
+          "level": "L0",
+          "degradable": false,
+          "enforcement_owner": "Artifact Store"
+        },
+        {
+          "id": "P.EVIDENCE_DOMAINS",
+          "level": "L0",
+          "degradable": false,
+          "enforcement_owner": "Archive / Audit / Decision owners"
+        },
+        {
+          "id": "P.REPLAY_READONLY",
+          "level": "L0",
+          "degradable": false,
+          "enforcement_owner": "Task Reconstruction API"
+        },
+        {
+          "id": "P.DI_NOEXEC",
+          "level": "L0",
+          "degradable": false,
+          "enforcement_owner": "Diagnostic Process Adapter"
+        },
+        {
+          "id": "P.DI_SYNTAX",
+          "level": "L2",
+          "degradable": true,
+          "enforcement_owner": "Development Intelligence / PDP"
+        },
+        {
+          "id": "P.DI_ARGUMENTS",
+          "level": "L2",
+          "degradable": true,
+          "enforcement_owner": "Versioned CLI Schema / PDP"
+        },
+        {
+          "id": "P.DI_ENVIRONMENT",
+          "level": "L2",
+          "degradable": true,
+          "enforcement_owner": "Environment Checker / PDP"
+        },
+        {
+          "id": "P.COMMAND_RISK",
+          "level": "L1",
+          "degradable": true,
+          "enforcement_owner": "PDP / Approval Service"
+        },
+        {
+          "id": "P.SANDBOX_CAPABILITY",
+          "level": "L0",
+          "degradable": false,
+          "enforcement_owner": "Capability Broker / Sandbox"
+        },
+        {
+          "id": "P.PACKAGE_INTEGRITY",
+          "level": "L0",
+          "degradable": false,
+          "enforcement_owner": "Native Package Verifier"
+        },
+        {
+          "id": "P.RESOURCE_BOUNDS",
+          "level": "L0",
+          "degradable": false,
+          "enforcement_owner": "Stream / Queue / Process owners"
+        },
+        {
+          "id": "P.RUNTIME_IDENTITY",
+          "level": "L0",
+          "degradable": false,
+          "enforcement_owner": "Runtime Identity Registry"
+        },
+        {
+          "id": "P.IPC_PEER",
+          "level": "L0",
+          "degradable": false,
+          "enforcement_owner": "Trusted IPC Adapter"
+        },
+        {
+          "id": "P.WORKER_SCOPE",
+          "level": "L0",
+          "degradable": false,
+          "enforcement_owner": "Execution Broker"
+        },
+        {
+          "id": "P.SANDBOX_PROFILE",
+          "level": "L0",
+          "degradable": false,
+          "enforcement_owner": "Sandbox Controller"
+        },
+        {
+          "id": "P.PROCESS_OWNER",
+          "level": "L0",
+          "degradable": false,
+          "enforcement_owner": "Worker Supervisor"
+        },
+        {
+          "id": "P.EXIT_PROOF",
+          "level": "L0",
+          "degradable": false,
+          "enforcement_owner": "ExitProof Verifier"
+        },
+        {
+          "id": "P.RESOURCE_RELEASE",
+          "level": "L0",
+          "degradable": false,
+          "enforcement_owner": "Resource Reconciliation"
+        },
+        {
+          "id": "P.REMOTE_PERMIT",
+          "level": "L0",
+          "degradable": false,
+          "enforcement_owner": "Production Execution Broker"
+        },
+        {
+          "id": "P.FILE_BROKER",
+          "level": "L0",
+          "degradable": false,
+          "enforcement_owner": "File Broker"
+        },
+        {
+          "id": "P.PRODUCTION_QUALIFICATION",
+          "level": "L0",
+          "degradable": false,
+          "enforcement_owner": "Deployment Qualification Owner"
+        }
+      ],
+      "l0_non_degradable": true,
+      "m151_same_bytes_at_reading": true
+    }
+  ]
+}

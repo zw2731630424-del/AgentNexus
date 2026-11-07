@@ -1,0 +1,123 @@
+{
+  "main_regressions": [
+    {
+      "run_id": "baseline-2026-11-07T19-12-47-387Z-18824",
+      "source_set_sha256": "a55823fae02fd565249cf0d2af1f3257d2e107b798b05b078b74ba15eb0e109e",
+      "counts": {
+        "tests": 282,
+        "failed": 20,
+        "passed": 253,
+        "cancelled": 0,
+        "skipped": 9,
+        "todo": 0,
+        "topLevel": 241,
+        "suites": 0
+      },
+      "tsc": "PASS",
+      "exit_code": 1,
+      "raw": "evidence/runs/baseline-2026-11-07T19-12-47-387Z-18824/results.json"
+    },
+    {
+      "run_id": "baseline-corrected-2026-11-07T19-16-22-964Z-38000",
+      "source_set_sha256": "a55823fae02fd565249cf0d2af1f3257d2e107b798b05b078b74ba15eb0e109e",
+      "counts": {
+        "tests": 289,
+        "failed": 1,
+        "passed": 265,
+        "cancelled": 0,
+        "skipped": 23,
+        "todo": 0,
+        "topLevel": 241,
+        "suites": 0
+      },
+      "tsc": "PASS",
+      "exit_code": 1,
+      "raw": "evidence/runs/baseline-corrected-2026-11-07T19-16-22-964Z-38000/results.json"
+    },
+    {
+      "run_id": "baseline-host-account-2026-11-07T19-19-25-025Z-18624",
+      "source_set_sha256": "a55823fae02fd565249cf0d2af1f3257d2e107b798b05b078b74ba15eb0e109e",
+      "counts": {
+        "tests": 289,
+        "failed": 0,
+        "passed": 276,
+        "cancelled": 0,
+        "skipped": 13,
+        "todo": 0,
+        "topLevel": 241,
+        "suites": 0
+      },
+      "tsc": "PASS",
+      "exit_code": 0,
+      "raw": "evidence/runs/baseline-host-account-2026-11-07T19-19-25-025Z-18624/results.json"
+    },
+    {
+      "run_id": "final-2026-11-07T19-34-37-992Z-27356",
+      "source_set_sha256": "4825d2432a01a497a68971fab57909bc9613b38ff087346afbcceba56f7aa9fa",
+      "counts": {
+        "tests": 305,
+        "failed": 2,
+        "passed": 295,
+        "cancelled": 0,
+        "skipped": 8,
+        "todo": 0,
+        "topLevel": 257,
+        "suites": 0
+      },
+      "tsc": "PASS",
+      "exit_code": 1,
+      "raw": "evidence/runs/final-2026-11-07T19-34-37-992Z-27356/results.json"
+    },
+    {
+      "run_id": "final-2026-11-07T19-55-23-372Z-7880",
+      "source_set_sha256": "3f4c9e1b30f7d956b7be9c6330872cf87f32681f86c39a9b3b09c97c9bc581a0",
+      "counts": {
+        "tests": 305,
+        "failed": 1,
+        "passed": 296,
+        "cancelled": 0,
+        "skipped": 8,
+        "todo": 0,
+        "topLevel": 257,
+        "suites": 0
+      },
+      "tsc": "PASS",
+      "exit_code": 1,
+      "raw": "evidence/runs/final-2026-11-07T19-55-23-372Z-7880/results.json"
+    }
+  ],
+  "cpu_qualifications": [
+    {
+      "run_id": "2026-11-07T19-32-42-737Z-19340",
+      "source_set_sha256": "4825d2432a01a497a68971fab57909bc9613b38ff087346afbcceba56f7aa9fa",
+      "counts": {
+        "PASS": 1,
+        "FAIL": 57,
+        "INCONCLUSIVE": 0
+      },
+      "status": "FAIL",
+      "raw": "evidence/cpu-qualification/2026-11-07T19-32-42-737Z-19340/report.json",
+      "exit_observed": 56,
+      "handle_cleanup_observed": 58
+    },
+    {
+      "run_id": "2026-11-07T19-49-58-861Z-25456",
+      "source_set_sha256": "3f4c9e1b30f7d956b7be9c6330872cf87f32681f86c39a9b3b09c97c9bc581a0",
+      "counts": {
+        "PASS": 2,
+        "FAIL": 56,
+        "INCONCLUSIVE": 0
+      },
+      "status": "FAIL",
+      "raw": "evidence/cpu-qualification/2026-11-07T19-49-58-861Z-25456/report.json",
+      "exit_observed": 58,
+      "handle_cleanup_observed": 58
+    }
+  ],
+  "historical_m15_cpu": "evidence/phase0/m15-cpu-original/report.json",
+  "development_runs": [
+    "evidence/runs/m151-focus01",
+    "evidence/runs/m151-life01"
+  ],
+  "all_failures_retained": true
+}

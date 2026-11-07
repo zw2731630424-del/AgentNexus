@@ -1,0 +1,140 @@
+{
+  "schema": "agentnexus/m1.5.1/independent-boundary-probe/1",
+  "generated_at": "2026-11-07T19:35:28.229Z",
+  "node": "v24.15.0",
+  "source": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.5.1\\evidence\\independent-review\\final-source",
+  "data_root": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.5.1\\evidence\\independent-review\\probe-data",
+  "assurance": "ALL_OS_OBSERVATIONS_SIMULATED; REAL_WINDOWS_IS_A_TEST_LABEL",
+  "native_processes_started": 0,
+  "cpu_busy_loops": 0,
+  "cases": [
+    {
+      "id": "GATE_CONSTRUCTOR_ALLOWS_CONTROL_PLANE_INITIALIZATION",
+      "passed": true,
+      "assurance": "SIMULATED_SECURITY_REAL_LOCAL_CRYPTO_SQLITE_ARTIFACT",
+      "detail": {
+        "constructed": true,
+        "native_work": 0
+      }
+    },
+    {
+      "id": "VALID_SIGNED_FULL_CHECKS_CANNOT_OVERRIDE_REAL_WINDOWS_BLOCKER",
+      "passed": true,
+      "assurance": "SIMULATED_SECURITY_REAL_LOCAL_CRYPTO_SQLITE_ARTIFACT",
+      "detail": {
+        "rejected_with": "M151_CPU_HARD_LIMIT_NOT_QUALIFIED",
+        "signed_checks": 15
+      }
+    },
+    {
+      "id": "SIMULATED_CERTIFICATE_REMAINS_MODEL_ONLY",
+      "passed": true,
+      "assurance": "SIMULATED_SECURITY_REAL_LOCAL_CRYPTO_SQLITE_ARTIFACT",
+      "detail": {
+        "model_admitted": true,
+        "unknown_assurance_rejected": true
+      }
+    },
+    {
+      "id": "LEGACY_PROCESS_EXTERNAL_EFFECT_STAY_BLOCKED_WITH_EXACT_APPROVAL_AND_DISABLED_PDP",
+      "passed": true,
+      "assurance": "SIMULATED_SECURITY_REAL_LOCAL_CRYPTO_SQLITE_ARTIFACT",
+      "detail": {
+        "invoked": 0,
+        "result": [
+          {
+            "capability": "PROCESS",
+            "status": "BLOCKED",
+            "reason": "SANDBOX_NOT_VERIFIED"
+          },
+          {
+            "capability": "EXTERNAL_EFFECT",
+            "status": "BLOCKED",
+            "reason": "SANDBOX_NOT_VERIFIED"
+          }
+        ]
+      }
+    },
+    {
+      "id": "EACH_MISSING_ISOLATION_FACT_BLOCKS_EXIT_AUTHORITY",
+      "passed": true,
+      "assurance": "SIMULATED_SECURITY_REAL_LOCAL_CRYPTO_SQLITE_ARTIFACT",
+      "detail": {
+        "synthetic_real_source_string": true,
+        "observed": [
+          {
+            "fact": "network_verified",
+            "state": "EXIT_UNVERIFIED"
+          },
+          {
+            "fact": "filesystem_verified",
+            "state": "EXIT_UNVERIFIED"
+          },
+          {
+            "fact": "limits_verified",
+            "state": "EXIT_UNVERIFIED"
+          }
+        ]
+      }
+    },
+    {
+      "id": "MODEL_UNKNOWN_MEMBERS_AND_UNSETTLED_OUTPUT_NEVER_RELEASE",
+      "passed": true,
+      "assurance": "SIMULATED_SECURITY_REAL_LOCAL_CRYPTO_SQLITE_ARTIFACT",
+      "detail": {
+        "rejected_variants": 3
+      }
+    },
+    {
+      "id": "DURABLE_BOOTSTRAP_AUDIT_FAILURE_PREVENTS_NATIVE_PREPARE",
+      "passed": true,
+      "assurance": "SIMULATED_SECURITY_REAL_LOCAL_CRYPTO_SQLITE_ARTIFACT",
+      "detail": {
+        "nativePrepares": 0,
+        "retained_state": "PREPARING",
+        "failure": "INJECTED_NOT_REAL_DISK_FAILURE"
+      }
+    },
+    {
+      "id": "UNKNOWN_CLOSURE_RETAINS_ALL_FIVE_RESOURCE_CLAIMS",
+      "passed": true,
+      "assurance": "SIMULATED_SECURITY_REAL_LOCAL_CRYPTO_SQLITE_ARTIFACT",
+      "detail": {
+        "closure_state": "EXIT_UNVERIFIED",
+        "claims_held": 5,
+        "real_windows_label_is_synthetic": true
+      }
+    },
+    {
+      "id": "BROKER_AUDIT_FAILURE_QUARANTINES_AND_REPLAY_CANNOT_START",
+      "passed": true,
+      "assurance": "SIMULATED_SECURITY_REAL_LOCAL_CRYPTO_SQLITE_ARTIFACT",
+      "detail": {
+        "starts": 0,
+        "preparations": 0,
+        "consumed": true,
+        "replay_rejected": true,
+        "audit_failure_injected": true,
+        "assurance_is_synthetic": true,
+        "changed_payload_mac_rejected": true
+      }
+    },
+    {
+      "id": "BROKER_REAL_CERTIFICATE_BLOCKED_BEFORE_CONSUMPTION_OR_START",
+      "passed": true,
+      "assurance": "SIMULATED_SECURITY_REAL_LOCAL_CRYPTO_SQLITE_ARTIFACT",
+      "detail": {
+        "starts": 0,
+        "preparations": 0,
+        "consumed": false,
+        "replay_rejected": false,
+        "audit_failure_injected": false,
+        "assurance_is_synthetic": true,
+        "changed_payload_mac_rejected": true
+      }
+    }
+  ],
+  "passed": 10,
+  "failed": 0,
+  "production_qualification": false
+}

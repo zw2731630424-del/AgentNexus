@@ -1,0 +1,177 @@
+{
+  "schema": "agentnexus/m151/independent-retained-evidence-recheck/1",
+  "generated_at": "2026-11-07T19:56:35.480582+00:00",
+  "source_set_sha256_for_all_executed_checks": "4825d2432a01a497a68971fab57909bc9613b38ff087346afbcceba56f7aa9fa",
+  "new_executions": 0,
+  "model": {
+    "passed": 10,
+    "failed": 0,
+    "exit_code": 0,
+    "run": {
+      "path": "deliverables/AgentNexus-M1.5.1/evidence/independent-review/probe-run.json",
+      "bytes": 615,
+      "sha256": "b6be55d9c7f646102e4ab87b6827f16d734e031c55444ff9a41ddaf9e50cc9d8"
+    }
+  },
+  "native_file_primitive": {
+    "status": "PASS_LIMITED",
+    "planned_race_reads": 80,
+    "completed_race_reads": 80,
+    "safe_race_reads": 27,
+    "denied_race_reads": 53,
+    "actual_junction_installs": 40,
+    "swap_attempts": 77,
+    "raw_response_count": 85,
+    "safe_responses_total": 30,
+    "no_payload_denials_total": 55,
+    "denial_codes": {
+      "WIN32_2": 47,
+      "REPARSE_REJECTED": 7,
+      "WIN32_1921": 1
+    },
+    "raw": {
+      "path": "deliverables/AgentNexus-M1.5.1/evidence/independent-review/native-file-probe-u/data/case-p89cis/raw/d80477d3-ed7b-4289-ad1d-8dfaee8a3c2b.jsonl",
+      "bytes": 114219,
+      "sha256": "b3f79c1719d160fe7e64bf91535640f190e05da8c796b82a2475f0a33994c10f"
+    },
+    "first_attempt": {
+      "classification": "HOST_RESTRICTED_INCONCLUSIVE",
+      "error": "EPERM",
+      "completed_race_reads": 0,
+      "result": {
+        "path": "deliverables/AgentNexus-M1.5.1/evidence/independent-review/native-file-probe/data/result.json",
+        "bytes": 2941,
+        "sha256": "81aabac831c1d15ae3a5a7d6b37bdfcccf85b040946b4a7404b5fcd1e8427f5c"
+      }
+    },
+    "reuse_for_final_revision": "Only unchanged FileOperation/Relative and file RPC path are supported; no new whole-source/native/OS run is claimed."
+  },
+  "author_previous_regression": {
+    "source_set_sha256": "4825d2432a01a497a68971fab57909bc9613b38ff087346afbcceba56f7aa9fa",
+    "tests": 305,
+    "counts": {
+      "PASS": 295,
+      "NOT_RUN": 8,
+      "FAIL": 2
+    },
+    "exit_code": 1,
+    "timed_out": false,
+    "failures": [
+      {
+        "type": "test:fail",
+        "name": "M1.4 REAL_WINDOWS_PRIMITIVE: cumulative Job CPU time kills a busy fixture before wall deadline",
+        "nesting": 0,
+        "testNumber": 101,
+        "details": {
+          "duration_ms": 4122.2673,
+          "type": "test",
+          "error": {
+            "message": "CPU_TIME FAIL/BLOCKED: infinite busy fixture accumulated 29218750 ticks and required helper termination (DEADLINE); configuring JOB_TIME is not enforcement evidence\n+ actual - expected\n\n+ '2026-11-07T19:35:21.0333467Z'\n- null\n",
+            "code": "ERR_TEST_FAILURE",
+            "stack": "Error [ERR_TEST_FAILURE]: CPU_TIME FAIL/BLOCKED: infinite busy fixture accumulated 29218750 ticks and required helper termination (DEADLINE); configuring JOB_TIME is not enforcement evidence\n+ actual - expected\n\n+ '2026-11-07T19:35:21.0333467Z'\n- null\n",
+            "cause": "CPU_TIME FAIL/BLOCKED: infinite busy fixture accumulated 29218750 ticks and required helper termination (DEADLINE); configuring JOB_TIME is not enforcement evidence\n+ actual - expected\n\n+ '2026-11-07T19:35:21.0333467Z'\n- null\n"
+          }
+        },
+        "line": 150,
+        "column": 1,
+        "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\m151-final\\verification\\2026-11-07T19-34-37-992Z-27356\\workspace\\tests\\agentnexus\\m14-native.test.ts",
+        "status": "FAIL"
+      },
+      {
+        "type": "test:fail",
+        "name": "M151 REAL_WINDOWS_PRIMITIVE: concurrent directory replacement never returns junction target bytes",
+        "nesting": 0,
+        "testNumber": 175,
+        "details": {
+          "duration_ms": 1184.5192,
+          "type": "test",
+          "error": {
+            "message": "{\"id\":\"m151-18\",\"error\":{\"message\":\"NtCreateFile component\",\"code\":\"WIN32_1921\"},\"ok\":false}",
+            "code": "ERR_TEST_FAILURE",
+            "stack": "Error [ERR_TEST_FAILURE]: {\"id\":\"m151-18\",\"error\":{\"message\":\"NtCreateFile component\",\"code\":\"WIN32_1921\"},\"ok\":false}",
+            "cause": "{\"id\":\"m151-18\",\"error\":{\"message\":\"NtCreateFile component\",\"code\":\"WIN32_1921\"},\"ok\":false}"
+          }
+        },
+        "line": 34,
+        "column": 1,
+        "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\m151-final\\verification\\2026-11-07T19-34-37-992Z-27356\\workspace\\tests\\agentnexus\\m151-boundaries.test.ts",
+        "status": "FAIL"
+      }
+    ],
+    "results": {
+      "path": "deliverables/AgentNexus-M1.5.1/evidence/runs/final-2026-11-07T19-34-37-992Z-27356/results.json",
+      "bytes": 152410,
+      "sha256": "dd234244118d0feda443cbfde86a1f5d799713230276e82abe9ce452a779345f"
+    },
+    "workspace_zip": {
+      "path": "deliverables/AgentNexus-M1.5.1/evidence/runs/final-2026-11-07T19-34-37-992Z-27356/workspace.zip",
+      "bytes": 353186,
+      "sha256": "a0bc35a1c0cd27db097defe9e7aebaf9ea1548d96370f7975ed74d34d1ef315b"
+    },
+    "workspace_matches_previous_snapshot": true,
+    "workspace_source_members": 100,
+    "workspace_non_source_member": "__capture_metadata__.json (parsed; files match previous snapshot)",
+    "data_zip": {
+      "path": "deliverables/AgentNexus-M1.5.1/evidence/runs/final-2026-11-07T19-34-37-992Z-27356/data.zip",
+      "bytes": 38860566,
+      "sha256": "4dbeefe40d6fe88b8137d7e6ef0ee0a41c69459f3c3802167f4b2d7496c0359a"
+    },
+    "integrated_cpu": {
+      "zip_member": "m14-native/native-helper-1794080116952-06783303-d326-4eea-9ada-2d55387fb46a.jsonl",
+      "member_sha256": "a7cdccd72a7424642350e8303acaf4b38b040002265d6cd2353f49fda497afd7",
+      "job_total_cpu_ms": 2921.875,
+      "job_user_cpu_ms": 2812.5,
+      "job_kernel_cpu_ms": 109.375,
+      "termination_reason": "DEADLINE"
+    }
+  },
+  "author_previous_cpu": {
+    "source_set_sha256": "4825d2432a01a497a68971fab57909bc9613b38ff087346afbcceba56f7aa9fa",
+    "planned_cases": 58,
+    "observed_cases": 58,
+    "counts": {
+      "FAIL": 57,
+      "PASS": 1
+    },
+    "independent_arithmetic_recheck": {
+      "path": "deliverables/AgentNexus-M1.5.1/evidence/independent-review/cpu-evidence-recheck.json",
+      "bytes": 37534,
+      "sha256": "9580cb9676f6e390ee3d83e5a0c2801d67fde16218d318a80a9b601970087cf8"
+    },
+    "executed_by_reviewer": false
+  },
+  "author_original_tocTou": {
+    "status": "FAIL_RETAINED",
+    "rpc_responses": 18,
+    "attack_responses_after_baseline": 17,
+    "planned_attacks": 40,
+    "completed": false,
+    "safe_responses": 8,
+    "no_payload_denials": 10,
+    "denial_codes": {
+      "WIN32_2": 8,
+      "REPARSE_REJECTED": 1,
+      "WIN32_1921": 1
+    },
+    "last_response": {
+      "id": "m151-18",
+      "ok": false,
+      "keys": [
+        "error",
+        "id",
+        "ok"
+      ],
+      "error": {
+        "message": "NtCreateFile component",
+        "code": "WIN32_1921"
+      },
+      "has_result": false
+    },
+    "evidence": {
+      "path": "deliverables/AgentNexus-M1.5.1/evidence/independent-review/author-tocTou-evidence.json",
+      "bytes": 10199,
+      "sha256": "79fb84eac6bc8fb3c91f03016aa03bdf34a0d6068c9e300c46dc7b08a0f89da6"
+    }
+  },
+  "new_final_revision_cpu_and_full_regression": "NOT_REEXECUTED_OR_ATTESTED_BY_THIS_REVIEWER; parent-owned subsequent evidence"
+}

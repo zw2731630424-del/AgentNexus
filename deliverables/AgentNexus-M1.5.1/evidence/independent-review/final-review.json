@@ -1,0 +1,1055 @@
+{
+  "schema": "agentnexus/m151/independent-final-review/2",
+  "reviewer": "/root/independent_review",
+  "generated_at": "2026-11-07T19:56:35.480582+00:00",
+  "authoritative_report": true,
+  "replaces_conclusion_of": [
+    "independent-security-review-final.md",
+    "independent-security-review-final.json"
+  ],
+  "code_review_status": "PASS_LIMITED",
+  "acceptance_status": "FAIL/BLOCKED",
+  "production_qualified": false,
+  "conclusion": "No open reproducible product P0/P1 identified in the stated review scope. The final cleanup edit is narrowly consistent with the identified observation race. Known hard cumulative CPU failure, retained integrated TOCTOU test failure, and unqualified production boundaries prevent acceptance or release.",
+  "final_source": {
+    "schema": "agentnexus/m151/independent-readonly-final-bytes/1",
+    "generated_at": "2026-11-07T19:56:35.480582+00:00",
+    "previous_set_sha256": "4825d2432a01a497a68971fab57909bc9613b38ff087346afbcceba56f7aa9fa",
+    "final_set_sha256": "3f4c9e1b30f7d956b7be9c6330872cf87f32681f86c39a9b3b09c97c9bc581a0",
+    "files": 100,
+    "previous_snapshot_unchanged": true,
+    "author_manifest_matches": true,
+    "zip_members_match_exactly": true,
+    "changed_paths_from_previous_freeze": [
+      "src/agentnexus/production/windows/NativeRuntime.cs"
+    ],
+    "added_paths": [],
+    "removed_paths": [],
+    "exact_native_change_is_cleanup_loop_only": true,
+    "unchanged_file_regions": [
+      {
+        "region": "Relative",
+        "unchanged": true,
+        "utf8_sha256": "b61a59616267bfba4d88537faa7fd51c83b4f23a7b7e2453df1efb3f72025d6c",
+        "utf8_bytes": 944,
+        "final_start_line": 179
+      },
+      {
+        "region": "FileOperation",
+        "unchanged": true,
+        "utf8_sha256": "a172b4f2125d1650e0bb9bb5ede975d2fb80037164a516145e6adfafb3a2e51f",
+        "utf8_bytes": 3398,
+        "final_start_line": 180
+      },
+      {
+        "region": "FileBoundaryHelpersAndMethods",
+        "unchanged": true,
+        "utf8_sha256": "020033ab0a1b7c2ddec86fdef304eb7675972a51c784763db513fea528a8e198",
+        "utf8_bytes": 6267,
+        "final_start_line": 174
+      }
+    ],
+    "file_rpc_transport_unchanged": true,
+    "native_runtime_previous_sha256": "31e1367f9e148aa0e1462a5b6b863a976a82b9dd7674c741f9279b7734b9d7e9",
+    "native_runtime_final_sha256": "2c5cf6a60c33b91604763a12d7d5ac970c68a0b87a41510f5d09c5fa540398ca",
+    "author_manifest": {
+      "path": "deliverables/AgentNexus-M1.5.1/source-sha256.json",
+      "bytes": 17662,
+      "sha256": "ef673bf8f49a7d544b7eeedf61ca2e82a0ac825358d1a2eb62ec9809d3c44adb"
+    },
+    "source_zip": {
+      "path": "deliverables/AgentNexus-M1.5.1/AgentNexus-M1.5.1-source.zip",
+      "bytes": 347689,
+      "sha256": "147ebaf81048aa4fbc7b0e6247da7bc9e1234e660cf95cb38b850ead301739b5"
+    },
+    "final_files": [
+      {
+        "path": "config/agentnexus/features.json",
+        "bytes": 402532,
+        "sha256": "1e680f2cb822966123630687f8b9354746c2696164504ee51c3f6c727cd4be45"
+      },
+      {
+        "path": "config/agentnexus/policies.json",
+        "bytes": 97383,
+        "sha256": "2fac46d95ae95f2cb7b506eb6d92299d0a579f9808f05b8d9d41862d8e0c2587"
+      },
+      {
+        "path": "package-lock.json",
+        "bytes": 1496,
+        "sha256": "7cbf422484ca11c1568f1f8c8923190eae4b5a98758266210af3032298d63a46"
+      },
+      {
+        "path": "package.json",
+        "bytes": 478,
+        "sha256": "8a0f3240782b43f0c3d4cc71e4c26043241f11c148624256f65f10947594c00c"
+      },
+      {
+        "path": "src/agentnexus/artifacts.ts",
+        "bytes": 15937,
+        "sha256": "c939b746466cf298c0aff93d537c906317b9fac50238289758d75c413b16fd19"
+      },
+      {
+        "path": "src/agentnexus/bootstrap/config.ts",
+        "bytes": 12928,
+        "sha256": "281e683c0f4fac5a0618deff0976da09ccaca860935cf1c044541f5cf7e5aea0"
+      },
+      {
+        "path": "src/agentnexus/bootstrap/entry.ts",
+        "bytes": 7082,
+        "sha256": "fda08b8be8ffe4d232f3803955e335e8e1f27fdb2eb31738e390cce380ce7fb7"
+      },
+      {
+        "path": "src/agentnexus/bootstrap/exit-closure.ts",
+        "bytes": 4432,
+        "sha256": "c2aacb31be493bd47f697f0397bfae11d37d5f79639596bd3f884f5a65d82dcf"
+      },
+      {
+        "path": "src/agentnexus/bootstrap/launcher-proof.ts",
+        "bytes": 3221,
+        "sha256": "a05e7450e54618e5cde093f283211ab1e0dfc5630e1cd5b365103b2d2a9e0ed2"
+      },
+      {
+        "path": "src/agentnexus/bootstrap/permissions.ts",
+        "bytes": 2307,
+        "sha256": "4019e1c2ee1a663eec62a9e68d4ccb5dd774e88ecb571e532c81c10e39d6b2b7"
+      },
+      {
+        "path": "src/agentnexus/bootstrap/reservations.ts",
+        "bytes": 6251,
+        "sha256": "b62f7dec432c201fd549aa276d303af756c8a8d90fe974be42603097077adc93"
+      },
+      {
+        "path": "src/agentnexus/bootstrap/runtime.ts",
+        "bytes": 19795,
+        "sha256": "f56ee410d95bded16f3af51010f7143cc836f84e4121df0340c7d85d5274b431"
+      },
+      {
+        "path": "src/agentnexus/bootstrap/session.ts",
+        "bytes": 9978,
+        "sha256": "97b0e9435f9468fd9b46f56792f0335ab1d20ec915b832f98b836334662daec5"
+      },
+      {
+        "path": "src/agentnexus/bootstrap/supervisor.ts",
+        "bytes": 12489,
+        "sha256": "58a926b240429ddc4f45595b16566069294541839a549443483ccdeecccea77e"
+      },
+      {
+        "path": "src/agentnexus/bootstrap/ubuntu.ts",
+        "bytes": 3650,
+        "sha256": "42685813efcc56eebfede5097d81d56bb0445cd8fa32a1d0c70e793a9db5a3f3"
+      },
+      {
+        "path": "src/agentnexus/bootstrap/ubuntu/peer_probe.c",
+        "bytes": 867,
+        "sha256": "db6938c1978ae79c2c371ac473fab68619077ca093e6a93b0d6dcbe79581dfba"
+      },
+      {
+        "path": "src/agentnexus/bootstrap/worker.ts",
+        "bytes": 5184,
+        "sha256": "39ee6763699b1db18466e30dab7538499d4f3315a80faaf674d853f620814158"
+      },
+      {
+        "path": "src/agentnexus/checkers/powershell_ast.ps1",
+        "bytes": 3780,
+        "sha256": "90079d41e2083df61ee87456cbe81a4d1863b2f4053df0ab9e78b668e3789ae8"
+      },
+      {
+        "path": "src/agentnexus/checkers/python_ast.py",
+        "bytes": 2998,
+        "sha256": "a9595eca900b49c4ec88e82599c28569b01e543ed8ecb52908ae0772b104fc6e"
+      },
+      {
+        "path": "src/agentnexus/cli.ts",
+        "bytes": 1927,
+        "sha256": "21b22392926ebe706f3d2a382205a7ed0afcf9477b619707df250dd2089334bb"
+      },
+      {
+        "path": "src/agentnexus/control.ts",
+        "bytes": 8234,
+        "sha256": "3a549eb7bf5548b2b0453711899c0b7bfb1ea4d346dfad0bca11d4c166bf46d4"
+      },
+      {
+        "path": "src/agentnexus/diagnostics.ts",
+        "bytes": 31299,
+        "sha256": "d869a291068564eb942b05623f2b8e3f0f8348c40647215e1b85d86eef27d86d"
+      },
+      {
+        "path": "src/agentnexus/features.ts",
+        "bytes": 12008,
+        "sha256": "d6aafeafd88f6fd5660afa6b4f29b68625d70ffc8f8138f90db657b6acacda5e"
+      },
+      {
+        "path": "src/agentnexus/gateway.ts",
+        "bytes": 23204,
+        "sha256": "5ec2cb67afca1858c168b1888fa398ef766d3e18cf9b7f4253d9db51f17d7871"
+      },
+      {
+        "path": "src/agentnexus/host.ts",
+        "bytes": 18869,
+        "sha256": "8856e1ca5fe435f0a75b051c70168295f5fad3e5c98632537af01f7dbc775cf3"
+      },
+      {
+        "path": "src/agentnexus/integrity.ts",
+        "bytes": 18691,
+        "sha256": "172a40c429c9e8a99f8cc1fcee2ef500adb4e7d378f0f6188fbbe7f792edfe66"
+      },
+      {
+        "path": "src/agentnexus/policy-contracts.ts",
+        "bytes": 4137,
+        "sha256": "6d0fdcbbe7cca5ebca6d19c27c8518e55eb33223b1c0e74a32e2e5c8adbcb9af"
+      },
+      {
+        "path": "src/agentnexus/policy.ts",
+        "bytes": 18232,
+        "sha256": "31a6f1250ab2c5e9271181b23cc347b72fd502d7b2bfa229716dd976ee040f49"
+      },
+      {
+        "path": "src/agentnexus/production/audit.ts",
+        "bytes": 1494,
+        "sha256": "51ede7c82086d72707cc965891a673e2addf4cfd6efdf836b534988823c485f8"
+      },
+      {
+        "path": "src/agentnexus/production/authority.ts",
+        "bytes": 12620,
+        "sha256": "47546dbe8f131e27a1ae2ddfafec3f1227c06deee0dc395100e9dc60ee623e05"
+      },
+      {
+        "path": "src/agentnexus/production/broker.ts",
+        "bytes": 17841,
+        "sha256": "dc7a7f7294d9035e97f41058d60b802f804fe8b18e7c232a29906f5de8ee1e3c"
+      },
+      {
+        "path": "src/agentnexus/production/contracts.ts",
+        "bytes": 7169,
+        "sha256": "368e611e224288350ca5a9eeeb883ccdc2b5d02129fbcbd5718cdf1e88f65620"
+      },
+      {
+        "path": "src/agentnexus/production/exit.ts",
+        "bytes": 11644,
+        "sha256": "fce46daa7544c1f6de2544cd4def6856e99c285717d47caed1fbe6362ec9101d"
+      },
+      {
+        "path": "src/agentnexus/production/file-broker.ts",
+        "bytes": 10339,
+        "sha256": "1fdbdf438e2ab5591b56d90a69786cbcf27bacc0290e200e09bc6c4e771f1a51"
+      },
+      {
+        "path": "src/agentnexus/production/host.ts",
+        "bytes": 5540,
+        "sha256": "c849b9d28e583937449b63f863f147dcc51e683ee378edac44fc77245ab5c3ff"
+      },
+      {
+        "path": "src/agentnexus/production/identity.ts",
+        "bytes": 6805,
+        "sha256": "157d276bd002b5b624d40675e41b67d1beab86a1db478ba50b8a64324e24bba1"
+      },
+      {
+        "path": "src/agentnexus/production/native-client.ts",
+        "bytes": 7037,
+        "sha256": "f378c1bf5938ae5821fc1130d60d920874891bdf76fb1a911dc0a9310e9f05e8"
+      },
+      {
+        "path": "src/agentnexus/production/qualification.ts",
+        "bytes": 2691,
+        "sha256": "151529013bfab546831927c4f7f42d3961e268577ab27b5bd7c6de065e187e7f"
+      },
+      {
+        "path": "src/agentnexus/production/resources.ts",
+        "bytes": 2621,
+        "sha256": "949e0713c1ebeca78a1b8c9598aef8414a5166f6371cb4d1f106f311e6a67b2c"
+      },
+      {
+        "path": "src/agentnexus/production/service.ts",
+        "bytes": 1626,
+        "sha256": "4954b7cc8e005d961ee6408dd161046c8337c44dfe3b3439d1a2b289fdc2150d"
+      },
+      {
+        "path": "src/agentnexus/production/transport.ts",
+        "bytes": 6280,
+        "sha256": "1d4d6ca1d680be24aef8e40ee703f66d11ec25e5514cb53c74f2f470a09d120d"
+      },
+      {
+        "path": "src/agentnexus/production/windows-supervisor.ts",
+        "bytes": 9261,
+        "sha256": "7006732045e8e96f66dba6f68c4367ecf947a353f61a63f0b4992ad86746f724"
+      },
+      {
+        "path": "src/agentnexus/production/windows/BootstrapNative.cs",
+        "bytes": 55713,
+        "sha256": "f44ee579f9c3a78419acab4e2a3dc85aab9cca0acc6ceb4e44f40f1a86923e80"
+      },
+      {
+        "path": "src/agentnexus/production/windows/NativeRuntime.cs",
+        "bytes": 67315,
+        "sha256": "2c5cf6a60c33b91604763a12d7d5ac970c68a0b87a41510f5d09c5fa540398ca"
+      },
+      {
+        "path": "src/agentnexus/production/windows/runtime.ps1",
+        "bytes": 8978,
+        "sha256": "7ea9a3fc50965611e21103469c28d47bdeb4893728c193d60074faf9ff2741cd"
+      },
+      {
+        "path": "src/agentnexus/reconciliation.ts",
+        "bytes": 14568,
+        "sha256": "9f65ae9b5b0e4f049efabfadc1cb5ad263ce0b5ea7703a15bb8789f27d3f1906"
+      },
+      {
+        "path": "src/agentnexus/records.ts",
+        "bytes": 6510,
+        "sha256": "393e0a70a20a4dae21287169d1313bae949842cf0f712bacb3ebf432a5ed7800"
+      },
+      {
+        "path": "src/agentnexus/runtime/audit.ts",
+        "bytes": 2003,
+        "sha256": "14f06526c6a48473aca95e5a47077e69b63db646ca1d605af0df8272207584c4"
+      },
+      {
+        "path": "src/agentnexus/runtime/broker.ts",
+        "bytes": 884,
+        "sha256": "611056760e82606bae893c2ed78831adb0e3b8ac102a4206b8af6cafc021efc2"
+      },
+      {
+        "path": "src/agentnexus/runtime/contracts.ts",
+        "bytes": 7187,
+        "sha256": "308378e645233f6317de44399d59eb0a15bbaf4b0f506a2083917a999651b725"
+      },
+      {
+        "path": "src/agentnexus/runtime/control.ts",
+        "bytes": 27386,
+        "sha256": "4b78fdfdbab38bc1d07dafea5fa323c72e1d02eeefbc7071b13f515ef6cec502"
+      },
+      {
+        "path": "src/agentnexus/runtime/ipc.ts",
+        "bytes": 2759,
+        "sha256": "9b8d5c096ffc4b529a5919047d84cff16dfdef495b148f1af7748f49380130a5"
+      },
+      {
+        "path": "src/agentnexus/runtime/windows/NativeProbe.cs",
+        "bytes": 15171,
+        "sha256": "3a96b192e46bca3f5774c8096ca598e4ce723776993062cd363e6a8cfe7e202f"
+      },
+      {
+        "path": "src/agentnexus/storage.ts",
+        "bytes": 33038,
+        "sha256": "a693dde21a10e501c1e7172d1cf24a3dd99317b9bbfcfe2c235631926a33bff0"
+      },
+      {
+        "path": "src/agentnexus/types.ts",
+        "bytes": 6839,
+        "sha256": "7bd207b6d34d63d5d443eedae516abc292942562b6b58ecf2f3ffccd566fdb25"
+      },
+      {
+        "path": "tests/agentnexus/M151LifecycleProbe.cs",
+        "bytes": 3073,
+        "sha256": "02b4e22b1b19fc75cfffd591c4cbad64da6a832fe7f0f04c160800c95ea55ce8"
+      },
+      {
+        "path": "tests/agentnexus/control.test.ts",
+        "bytes": 17191,
+        "sha256": "5434e80937f050429198eb81d73045b291aed433285dc28fdcfa7d4cdb215ef1"
+      },
+      {
+        "path": "tests/agentnexus/diagnostics.test.ts",
+        "bytes": 19171,
+        "sha256": "a3b4a33ceed558659f67af248c6a94f1a9abc6571814a5ba33e22c0c196e9b8f"
+      },
+      {
+        "path": "tests/agentnexus/gateway.test.ts",
+        "bytes": 18503,
+        "sha256": "b9bb3d122ab0e56a4b3cea17cb9a99c41bcebe7ce47b30aea600be6943a9b8ba"
+      },
+      {
+        "path": "tests/agentnexus/integrity.test.ts",
+        "bytes": 21629,
+        "sha256": "2d4f1212dc62716a8281e83eb2ef9e579213c707e6ff97fb5b13c32d39806e80"
+      },
+      {
+        "path": "tests/agentnexus/m14-adapter.test.ts",
+        "bytes": 2160,
+        "sha256": "e40821919ac3eb487768baf155284d4458834c3b95638f50f2ded8581163ee85"
+      },
+      {
+        "path": "tests/agentnexus/m14-broker-child.mjs",
+        "bytes": 4995,
+        "sha256": "bc6800f9f0219114babbe61ffb022302c9892117228947f7eecd633fa77ec58c"
+      },
+      {
+        "path": "tests/agentnexus/m14-native-worker.mjs",
+        "bytes": 1382,
+        "sha256": "501e013660d7f11119f79455cc17669aa47e0bbe7c2c4491071e058e7edd66a5"
+      },
+      {
+        "path": "tests/agentnexus/m14-native.test.ts",
+        "bytes": 20352,
+        "sha256": "4a9994d283d2e5280ab5cefbab701edfb92f12de688ae8474c7280de102681af"
+      },
+      {
+        "path": "tests/agentnexus/m14-production.test.ts",
+        "bytes": 37918,
+        "sha256": "f51c8794d705cefef7caa73b3234791b7dfffb256c92f3f227da0c7eba235d03"
+      },
+      {
+        "path": "tests/agentnexus/m15-bootstrap.test.ts",
+        "bytes": 26114,
+        "sha256": "bca5a8e6103eabe9b1768e57055f45967238ae479253b2dcd8e16733260c807f"
+      },
+      {
+        "path": "tests/agentnexus/m15-cpu-worker.mjs",
+        "bytes": 516,
+        "sha256": "f59b524a7d2e4b8bd0792be3a166f379776c0089f4ac7b44e886c678659570fa"
+      },
+      {
+        "path": "tests/agentnexus/m15-pipe-owner-child.mjs",
+        "bytes": 2689,
+        "sha256": "590f71d73e3ef6c95ebe9b796f3ccec5d01a010921850b423ea566469605e665"
+      },
+      {
+        "path": "tests/agentnexus/m15-pipe.test.ts",
+        "bytes": 23037,
+        "sha256": "ef7dc6676067679a5cacab19db06fca204653632fc3c8e30c6eb0a2a00c1c54f"
+      },
+      {
+        "path": "tests/agentnexus/m151-boundaries.test.ts",
+        "bytes": 7084,
+        "sha256": "c9f6878769708d0d58f1f71e1edc3ca2d7d0b51444de3765870c7495149a09d6"
+      },
+      {
+        "path": "tests/agentnexus/m151-lifecycle-probe.ps1",
+        "bytes": 1447,
+        "sha256": "73c2deb04b67bf5fc7219f16b83d980b6cf0a5c4119f01e5bc1a81102f551774"
+      },
+      {
+        "path": "tests/agentnexus/m151-lifecycle.test.ts",
+        "bytes": 6082,
+        "sha256": "2da7c48040cf0419d872bcfbca5b9dc9e9d9c18407e03ad73ae9a8bb5b324abd"
+      },
+      {
+        "path": "tests/agentnexus/m151-resources.test.ts",
+        "bytes": 3497,
+        "sha256": "038fe2069fd1fe21fb1978606026f54800f2ea9b33b5835b847ec9d692bc90d5"
+      },
+      {
+        "path": "tests/agentnexus/m151-rpc.ts",
+        "bytes": 3612,
+        "sha256": "c66a286325beb733e765683b722a00d2eb604ebf82662fbbdb5dc282633d4ddc"
+      },
+      {
+        "path": "tests/agentnexus/m151-tree-worker.mjs",
+        "bytes": 884,
+        "sha256": "c396fc0ce003cf3b03bd5e23a1c3a305821710dca0cdd24b610042a518e61d52"
+      },
+      {
+        "path": "tests/agentnexus/owned-storage-child.mjs",
+        "bytes": 1885,
+        "sha256": "7a469bfa662d98f39f06b4483eaa1f49809e490817679cce5f7f1fa366133139"
+      },
+      {
+        "path": "tests/agentnexus/reconciliation-child.mjs",
+        "bytes": 2373,
+        "sha256": "17067655828b662d7393ea55805d5438ff8ed0110610f13fc394d82d61a4a521"
+      },
+      {
+        "path": "tests/agentnexus/reconciliation.test.ts",
+        "bytes": 19989,
+        "sha256": "3ddf54e2ec6e741fb7b4003124338bbb41f5e271bd12632e4e4152fae2f61e80"
+      },
+      {
+        "path": "tests/agentnexus/runtime-crash-child.mjs",
+        "bytes": 2474,
+        "sha256": "79cfb0f2b443604ddcffd5da414eccb01aee7b724943b52e6789930078a7f562"
+      },
+      {
+        "path": "tests/agentnexus/runtime-worker.mjs",
+        "bytes": 1097,
+        "sha256": "a77ff4f6f333967e4df0c5c60bf8aa67843263639679180f5de8b6d6e1dd6b65"
+      },
+      {
+        "path": "tests/agentnexus/runtime.test.ts",
+        "bytes": 23844,
+        "sha256": "f71d9405adca5c4490def3cf8ee847d230d82162fa57a423f37195404c787d37"
+      },
+      {
+        "path": "tests/agentnexus/security.test.ts",
+        "bytes": 15318,
+        "sha256": "224fa63e65ffc13805afeda08fe844a439503251bd2f6393695d55dd61e19f50"
+      },
+      {
+        "path": "tests/agentnexus/storage.test.ts",
+        "bytes": 28922,
+        "sha256": "7fe63fae9c892983a20cff6363daea390b95f9535d9aab8b231a79509bf722ea"
+      },
+      {
+        "path": "tests/agentnexus/windows-native.test.ts",
+        "bytes": 3164,
+        "sha256": "358299b2b7f059273a47c5d79acf97c3f71cc35d2339d090f98f5fec47bef506"
+      },
+      {
+        "path": "tools/agentnexus/cpu-qualify-m15.d.mts",
+        "bytes": 732,
+        "sha256": "0127ae8099ad691162c65a2c023eb6a9d8b813782bd04d737391ff2b9ac93265"
+      },
+      {
+        "path": "tools/agentnexus/cpu-qualify-m15.mjs",
+        "bytes": 5947,
+        "sha256": "2f1eab71b9434a838ab551b883a66bfe4937c0f9bd34652a03c6caaf70eb430e"
+      },
+      {
+        "path": "tools/agentnexus/cpu-qualify-m151.ts",
+        "bytes": 8294,
+        "sha256": "25a978fa1160bf81c310ee6644e60804e45251090a22ba2885d7b580a4dc735a"
+      },
+      {
+        "path": "tools/agentnexus/freeze-m13.py",
+        "bytes": 2368,
+        "sha256": "d8285825d51142563da27520752caa232a1426fc5667ee35aa8bf6945a200458"
+      },
+      {
+        "path": "tools/agentnexus/json-reporter.mjs",
+        "bytes": 660,
+        "sha256": "777650bb69740cddc6124b6608d120b2450210bc169d4a0af5f00c81c588c016"
+      },
+      {
+        "path": "tools/agentnexus/package-m12.py",
+        "bytes": 9850,
+        "sha256": "61dcb1c2f319dc6d299e9a8e58f35e6d6f43a585d8b6552c1731b56e1fda7f86"
+      },
+      {
+        "path": "tools/agentnexus/preflight-m14.ps1",
+        "bytes": 2139,
+        "sha256": "19f7e4b735569a699013e7b11f3616b346ff6c3588d9983db2340d9f37353d80"
+      },
+      {
+        "path": "tools/agentnexus/preflight-m15.ps1",
+        "bytes": 3658,
+        "sha256": "40b87eec7f0d713ad9b7d8fee44573e3c7805321554ac88a9ca47ef8bd35d68a"
+      },
+      {
+        "path": "tools/agentnexus/run-tests.mjs",
+        "bytes": 667,
+        "sha256": "7b1b45b072e55e4c2e079e90aa963d94584a871496945ed88b737cb42dd4c0b7"
+      },
+      {
+        "path": "tools/agentnexus/typecheck-m15.mjs",
+        "bytes": 2297,
+        "sha256": "89d962973e40e56991d1eb50c7b964db98ff957e682dd6df896817c563e6b77a"
+      },
+      {
+        "path": "tools/agentnexus/verify-m12.mjs",
+        "bytes": 3523,
+        "sha256": "4874dd19f2ff2d9c522bf9d546aa2ef2bc5ccd3175aeffb518d8657f14450d5f"
+      },
+      {
+        "path": "tools/agentnexus/verify-m13.mjs",
+        "bytes": 3953,
+        "sha256": "e4ee594fa0d5fec08e28ee1eace3986716c1c9b9de24156e3151699e711dad2d"
+      },
+      {
+        "path": "tools/agentnexus/verify-m14.mjs",
+        "bytes": 4722,
+        "sha256": "a19fdee34e0f5b13f53d5471ff30a4d305d88e7f9ed2b36565c02ebee6d7b745"
+      },
+      {
+        "path": "tools/agentnexus/verify-m15.mjs",
+        "bytes": 5477,
+        "sha256": "a05e7a2bb0bbf16324bf5aa8a9319cfa9928cbfca3381f6e41a364960faaff2a"
+      },
+      {
+        "path": "tools/agentnexus/windows-probes.ps1",
+        "bytes": 1712,
+        "sha256": "989b5a0990a0f175340b3a25b04e1d0fa661e6263f16ef1edefccc613be0917a"
+      },
+      {
+        "path": "tsconfig.json",
+        "bytes": 410,
+        "sha256": "9720fe208fe591637285aeae1ce62f012b0b5f3fcb8152a90a8d23dc85a1d50b"
+      }
+    ],
+    "set_definition": "SHA256 of sorted slash path + NUL + lowercase SHA256 + LF",
+    "new_probe_runs_performed": false
+  },
+  "latest_scope": "Read-only byte comparison and code review only. At parent request, no new OS experiment, link creation, process test, model run, CPU load or full regression was performed for the final 3f4c revision.",
+  "independence": {
+    "product_modified": false,
+    "historical_evidence_modified": false,
+    "recursive_delegation": false,
+    "system_account_acl_profile_service_firewall_changes": false,
+    "deployed_provider_keys_accessed": false,
+    "writes": "Reviewer-owned independent-review artifacts and earlier owned fixtures only",
+    "prior_model_run": "10/10 at 4825",
+    "prior_native_file_run": "80/80 at 4825; first EPERM attempt preserved",
+    "final_revision_new_test_executions": 0
+  },
+  "coverage": {
+    "manifest": {
+      "path": "deliverables/AgentNexus-M1.5.1/evidence/independent-review/final-reading-manifest.json",
+      "bytes": 28887,
+      "sha256": "dbaa1a59d7cbd5c98d6285aa092696ddc2f2599e34b4f9ecef41845b40b059e7"
+    },
+    "full_baseline_product_ts": 43,
+    "full_baseline_test_ts": 12,
+    "native_only_test_ts_hash_checked": 2,
+    "adr_range": "001-029",
+    "m12_issue_ledger": "FULL_TEXT_READ",
+    "m15_independent_original_md_json": "FULL_TEXT_READ",
+    "catalogs": "Complete JSON structure parse and traversal, not literal prose review",
+    "historical_input_manifest": {
+      "path": "deliverables/AgentNexus-M1.5.1/evidence/independent-review/reading-manifest.json",
+      "bytes": 47310,
+      "sha256": "027103d4b61ee533a776ff2be52f04ac79d480c8504656b54362fb6cf173c7ea"
+    }
+  },
+  "unresolved_p0_p1_product_findings": [],
+  "observations": [
+    {
+      "id": "M151-IR-LIFECYCLE",
+      "kind": "OBSERVATION_DEFECT",
+      "status": "STATIC_FIX_REVIEWED; FINAL_BEHAVIOR_NOT_RETESTED_HERE",
+      "source": "src/agentnexus/production/windows/NativeRuntime.cs",
+      "line": 269,
+      "reproduction": "Old raw seq-single-8 and parallel-multi-4 show root_exit_observed=false, later members all exited=true, root exit code 123, complete historical counts and settled outputs.",
+      "cause": "The old loop could stop at Job-empty and completed output pumps before retained process handles were signaled. The earlier root sample was false, while later member samples were true.",
+      "fix": "The existing cleanup loop can break early only when the Job is empty, every retained process handle is signaled, and both output pumps completed.",
+      "limits": "This removes the identified premature-break path. Deadline exhaustion still permits unverified observations. Static review is not a new behavioral or timing qualification.",
+      "evidence": {
+        "path": "deliverables/AgentNexus-M1.5.1/evidence/independent-review/lifecycle-observation-correction.json",
+        "bytes": 3219,
+        "sha256": "81eeafb9eb57a61489c8bac8970d83720c86a4c813956c27f6254460301dd164"
+      }
+    },
+    {
+      "id": "M151-IR-TOCTOU-FIXTURE",
+      "kind": "VALIDATION_GAP",
+      "priority": "P2",
+      "status": "ORIGINAL_INTEGRATED_FAIL_RETAINED",
+      "source": "tests/agentnexus/m151-boundaries.test.ts",
+      "line": 34,
+      "reproduction": "Retained full-suite case stops at RPC m151-18 (baseline + 17 attack responses) because valid native refusal WIN32_1921 is outside the assertion whitelist. Error envelope has no result/payload.",
+      "security_disposition": "No returned outside bytes or implementation escape observed in available frames. Incomplete original 40 attacks cannot be passed or closed by the separate probe.",
+      "remediation": "Retain original failing test and raw evidence. Use the independent fixed-count semantic-denial probe as additional limited evidence. Any future fixture change must preserve safe-byte/file-identity and no-payload-denial criteria, with a separate auditable run."
+    },
+    {
+      "id": "M151-IR-CPU",
+      "kind": "CAPABILITY_BLOCKER",
+      "status": "FAIL/BLOCKED",
+      "reproduction": "Retained strict 58-case report independently recomputes to 57 FAIL, 1 PASS. Old integrated CPU test also fails with helper DEADLINE after 2921.875ms cumulative total CPU (2812.5ms user + 109.375ms kernel).",
+      "disposition": "No budget, tolerance or deadline reduction in rigor; production REAL_WINDOWS admission through Host/Broker remains hard-blocked independent of signed certificates. Diagnostic native primitives remain TCB-only evidence, without a production fallback. The lifecycle edit does not alter Job CPU semantics."
+    }
+  ],
+  "lifecycle_correction": {
+    "schema": "agentnexus/m151/independent-lifecycle-observation-correction/1",
+    "generated_at": "2026-11-07T19:56:35.480582+00:00",
+    "raw_source_set_sha256": "4825d2432a01a497a68971fab57909bc9613b38ff087346afbcceba56f7aa9fa",
+    "reviewed_final_set_sha256": "3f4c9e1b30f7d956b7be9c6330872cf87f32681f86c39a9b3b09c97c9bc581a0",
+    "cases": [
+      {
+        "id": "seq-single-8",
+        "raw": {
+          "path": "deliverables/AgentNexus-M1.5.1/evidence/cpu-qualification/2026-11-07T19-32-42-737Z-19340/seq-single-8.stdout.jsonl",
+          "bytes": 7502,
+          "sha256": "0b47ddff3d44474d246117baf1a2dfc9cffd9785f79b7f5ac20873a7c31a029e"
+        },
+        "root_exit_observed": false,
+        "root_exit_observed_at": null,
+        "root_exit_code": 123,
+        "tree_empty_observed": true,
+        "output_producers_settled": true,
+        "history_complete_observed": true,
+        "historical_assigned_processes": 2,
+        "historical_pinned_processes": 2,
+        "members_all_exited": true,
+        "member_exit_codes": [
+          123,
+          123
+        ],
+        "membership_complete": false,
+        "proof_status": "EXIT_UNVERIFIED",
+        "release_authority": false
+      },
+      {
+        "id": "parallel-multi-4",
+        "raw": {
+          "path": "deliverables/AgentNexus-M1.5.1/evidence/cpu-qualification/2026-11-07T19-32-42-737Z-19340/parallel-multi-4.stdout.jsonl",
+          "bytes": 9347,
+          "sha256": "c8f72803dad12a8ca27f5bb15d8b970bd22d122d38c5b1b7619f217d13371cfa"
+        },
+        "root_exit_observed": false,
+        "root_exit_observed_at": null,
+        "root_exit_code": 123,
+        "tree_empty_observed": true,
+        "output_producers_settled": true,
+        "history_complete_observed": true,
+        "historical_assigned_processes": 6,
+        "historical_pinned_processes": 6,
+        "members_all_exited": true,
+        "member_exit_codes": [
+          123,
+          123,
+          123,
+          123,
+          123,
+          123
+        ],
+        "membership_complete": false,
+        "proof_status": "EXIT_UNVERIFIED",
+        "release_authority": false
+      }
+    ],
+    "corrected_classification": "PROCESS_LIFECYCLE_OBSERVATION_RACE; NOT_MISSING_HISTORICAL_MEMBERS",
+    "cause": "The old loop could stop at Job-empty and completed output pumps before retained process handles were signaled. The earlier root sample was false, while later member samples were true.",
+    "reviewed_fix": "The existing cleanup loop can break early only when the Job is empty, every retained process handle is signaled, and both output pumps completed.",
+    "deadline_formula_unchanged": "Math.Max(clock.ElapsedMilliseconds,deadline-80)",
+    "retained_handles": "Root handle is retained at creation; observed child handles are opened with QUERY|SYNCHRONIZE, retained in the same dictionary, and closed only in the existing finally block.",
+    "qualification_unchanged": "membership_complete=false; parentage_complete=false; proof_status=EXIT_UNVERIFIED; release_authority=false",
+    "limits": "This removes the identified premature-break path. Deadline exhaustion still permits unverified observations. Static review is not a new behavioral or timing qualification.",
+    "new_os_or_process_tests_executed": false
+  },
+  "retained_evidence": {
+    "schema": "agentnexus/m151/independent-retained-evidence-recheck/1",
+    "generated_at": "2026-11-07T19:56:35.480582+00:00",
+    "source_set_sha256_for_all_executed_checks": "4825d2432a01a497a68971fab57909bc9613b38ff087346afbcceba56f7aa9fa",
+    "new_executions": 0,
+    "model": {
+      "passed": 10,
+      "failed": 0,
+      "exit_code": 0,
+      "run": {
+        "path": "deliverables/AgentNexus-M1.5.1/evidence/independent-review/probe-run.json",
+        "bytes": 615,
+        "sha256": "b6be55d9c7f646102e4ab87b6827f16d734e031c55444ff9a41ddaf9e50cc9d8"
+      }
+    },
+    "native_file_primitive": {
+      "status": "PASS_LIMITED",
+      "planned_race_reads": 80,
+      "completed_race_reads": 80,
+      "safe_race_reads": 27,
+      "denied_race_reads": 53,
+      "actual_junction_installs": 40,
+      "swap_attempts": 77,
+      "raw_response_count": 85,
+      "safe_responses_total": 30,
+      "no_payload_denials_total": 55,
+      "denial_codes": {
+        "WIN32_2": 47,
+        "REPARSE_REJECTED": 7,
+        "WIN32_1921": 1
+      },
+      "raw": {
+        "path": "deliverables/AgentNexus-M1.5.1/evidence/independent-review/native-file-probe-u/data/case-p89cis/raw/d80477d3-ed7b-4289-ad1d-8dfaee8a3c2b.jsonl",
+        "bytes": 114219,
+        "sha256": "b3f79c1719d160fe7e64bf91535640f190e05da8c796b82a2475f0a33994c10f"
+      },
+      "first_attempt": {
+        "classification": "HOST_RESTRICTED_INCONCLUSIVE",
+        "error": "EPERM",
+        "completed_race_reads": 0,
+        "result": {
+          "path": "deliverables/AgentNexus-M1.5.1/evidence/independent-review/native-file-probe/data/result.json",
+          "bytes": 2941,
+          "sha256": "81aabac831c1d15ae3a5a7d6b37bdfcccf85b040946b4a7404b5fcd1e8427f5c"
+        }
+      },
+      "reuse_for_final_revision": "Only unchanged FileOperation/Relative and file RPC path are supported; no new whole-source/native/OS run is claimed."
+    },
+    "author_previous_regression": {
+      "source_set_sha256": "4825d2432a01a497a68971fab57909bc9613b38ff087346afbcceba56f7aa9fa",
+      "tests": 305,
+      "counts": {
+        "PASS": 295,
+        "NOT_RUN": 8,
+        "FAIL": 2
+      },
+      "exit_code": 1,
+      "timed_out": false,
+      "failures": [
+        {
+          "type": "test:fail",
+          "name": "M1.4 REAL_WINDOWS_PRIMITIVE: cumulative Job CPU time kills a busy fixture before wall deadline",
+          "nesting": 0,
+          "testNumber": 101,
+          "details": {
+            "duration_ms": 4122.2673,
+            "type": "test",
+            "error": {
+              "message": "CPU_TIME FAIL/BLOCKED: infinite busy fixture accumulated 29218750 ticks and required helper termination (DEADLINE); configuring JOB_TIME is not enforcement evidence\n+ actual - expected\n\n+ '2026-11-07T19:35:21.0333467Z'\n- null\n",
+              "code": "ERR_TEST_FAILURE",
+              "stack": "Error [ERR_TEST_FAILURE]: CPU_TIME FAIL/BLOCKED: infinite busy fixture accumulated 29218750 ticks and required helper termination (DEADLINE); configuring JOB_TIME is not enforcement evidence\n+ actual - expected\n\n+ '2026-11-07T19:35:21.0333467Z'\n- null\n",
+              "cause": "CPU_TIME FAIL/BLOCKED: infinite busy fixture accumulated 29218750 ticks and required helper termination (DEADLINE); configuring JOB_TIME is not enforcement evidence\n+ actual - expected\n\n+ '2026-11-07T19:35:21.0333467Z'\n- null\n"
+            }
+          },
+          "line": 150,
+          "column": 1,
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\m151-final\\verification\\2026-11-07T19-34-37-992Z-27356\\workspace\\tests\\agentnexus\\m14-native.test.ts",
+          "status": "FAIL"
+        },
+        {
+          "type": "test:fail",
+          "name": "M151 REAL_WINDOWS_PRIMITIVE: concurrent directory replacement never returns junction target bytes",
+          "nesting": 0,
+          "testNumber": 175,
+          "details": {
+            "duration_ms": 1184.5192,
+            "type": "test",
+            "error": {
+              "message": "{\"id\":\"m151-18\",\"error\":{\"message\":\"NtCreateFile component\",\"code\":\"WIN32_1921\"},\"ok\":false}",
+              "code": "ERR_TEST_FAILURE",
+              "stack": "Error [ERR_TEST_FAILURE]: {\"id\":\"m151-18\",\"error\":{\"message\":\"NtCreateFile component\",\"code\":\"WIN32_1921\"},\"ok\":false}",
+              "cause": "{\"id\":\"m151-18\",\"error\":{\"message\":\"NtCreateFile component\",\"code\":\"WIN32_1921\"},\"ok\":false}"
+            }
+          },
+          "line": 34,
+          "column": 1,
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\m151-final\\verification\\2026-11-07T19-34-37-992Z-27356\\workspace\\tests\\agentnexus\\m151-boundaries.test.ts",
+          "status": "FAIL"
+        }
+      ],
+      "results": {
+        "path": "deliverables/AgentNexus-M1.5.1/evidence/runs/final-2026-11-07T19-34-37-992Z-27356/results.json",
+        "bytes": 152410,
+        "sha256": "dd234244118d0feda443cbfde86a1f5d799713230276e82abe9ce452a779345f"
+      },
+      "workspace_zip": {
+        "path": "deliverables/AgentNexus-M1.5.1/evidence/runs/final-2026-11-07T19-34-37-992Z-27356/workspace.zip",
+        "bytes": 353186,
+        "sha256": "a0bc35a1c0cd27db097defe9e7aebaf9ea1548d96370f7975ed74d34d1ef315b"
+      },
+      "workspace_matches_previous_snapshot": true,
+      "workspace_source_members": 100,
+      "workspace_non_source_member": "__capture_metadata__.json (parsed; files match previous snapshot)",
+      "data_zip": {
+        "path": "deliverables/AgentNexus-M1.5.1/evidence/runs/final-2026-11-07T19-34-37-992Z-27356/data.zip",
+        "bytes": 38860566,
+        "sha256": "4dbeefe40d6fe88b8137d7e6ef0ee0a41c69459f3c3802167f4b2d7496c0359a"
+      },
+      "integrated_cpu": {
+        "zip_member": "m14-native/native-helper-1794080116952-06783303-d326-4eea-9ada-2d55387fb46a.jsonl",
+        "member_sha256": "a7cdccd72a7424642350e8303acaf4b38b040002265d6cd2353f49fda497afd7",
+        "job_total_cpu_ms": 2921.875,
+        "job_user_cpu_ms": 2812.5,
+        "job_kernel_cpu_ms": 109.375,
+        "termination_reason": "DEADLINE"
+      }
+    },
+    "author_previous_cpu": {
+      "source_set_sha256": "4825d2432a01a497a68971fab57909bc9613b38ff087346afbcceba56f7aa9fa",
+      "planned_cases": 58,
+      "observed_cases": 58,
+      "counts": {
+        "FAIL": 57,
+        "PASS": 1
+      },
+      "independent_arithmetic_recheck": {
+        "path": "deliverables/AgentNexus-M1.5.1/evidence/independent-review/cpu-evidence-recheck.json",
+        "bytes": 37534,
+        "sha256": "9580cb9676f6e390ee3d83e5a0c2801d67fde16218d318a80a9b601970087cf8"
+      },
+      "executed_by_reviewer": false
+    },
+    "author_original_tocTou": {
+      "status": "FAIL_RETAINED",
+      "rpc_responses": 18,
+      "attack_responses_after_baseline": 17,
+      "planned_attacks": 40,
+      "completed": false,
+      "safe_responses": 8,
+      "no_payload_denials": 10,
+      "denial_codes": {
+        "WIN32_2": 8,
+        "REPARSE_REJECTED": 1,
+        "WIN32_1921": 1
+      },
+      "last_response": {
+        "id": "m151-18",
+        "ok": false,
+        "keys": [
+          "error",
+          "id",
+          "ok"
+        ],
+        "error": {
+          "message": "NtCreateFile component",
+          "code": "WIN32_1921"
+        },
+        "has_result": false
+      },
+      "evidence": {
+        "path": "deliverables/AgentNexus-M1.5.1/evidence/independent-review/author-tocTou-evidence.json",
+        "bytes": 10199,
+        "sha256": "79fb84eac6bc8fb3c91f03016aa03bdf34a0d6068c9e300c46dc7b08a0f89da6"
+      }
+    },
+    "new_final_revision_cpu_and_full_regression": "NOT_REEXECUTED_OR_ATTESTED_BY_THIS_REVIEWER; parent-owned subsequent evidence"
+  },
+  "reviewed_invariants": [
+    "Bootstrap config hash/enrollment key/source/peer bindings remain in the TCB; untrusted messages cannot supply a replacement qualification public key.",
+    "New capability gate rejects REAL_WINDOWS in Host prepare before reservation/native creation, and in QualificationGate.admit before certificate selection. Broker repeats admit before consumption and before start.",
+    "Legacy PROCESS and EXTERNAL_EFFECT reject even with requires_sandbox=false, exact approval and optional PDP DISABLED; independent probe observed zero handler calls.",
+    "Durable audit failure before native prepare or Broker start leaves unknown state and produces zero prepare/start calls; consumed Permit cannot be replayed.",
+    "WindowsSupervisor network/filesystem/limits observations remain false. Proof rebuild cannot upgrade them through a qualification hash or source label.",
+    "Incomplete tree, unknown outputs/IPC or model evidence cannot release resources; independent closure model retained all five claims.",
+    "Final 3f4c source differs from retained 4825 reviewer copy only in the bounded cleanup-loop condition; all 99 other files and the complete file-operation/RPC path are unchanged."
+  ],
+  "contract_hardening": {
+    "prior_untrusted_certificate_bypass_confirmed": false,
+    "description": "The new fixed resource gate strengthens the current release contract. A trusted qualification key was already a TCB boundary; this review does not relabel intentional TCB signing authority as a Worker vulnerability.",
+    "resource_error": "M151_CPU_HARD_LIMIT_NOT_QUALIFIED"
+  },
+  "remaining_production_blockers": [
+    "Strict cumulative CPU budget is known unqualified. JOB_TIME/readback/rate cap or an incidental PASS cannot authorize production; final Host/Broker REAL_WINDOWS admission remains hard-blocked.",
+    "Actual distinct Host/Launcher/Operator identities, protected startup/config/key ACLs, cross-account IPC, composed network/filesystem/project/database/credential boundaries remain unqualified.",
+    "Native same-account file/tree/pipe/lifecycle primitives and renamed source labels do not constitute full production membership, producer, restart, ExitProof or owner-release evidence.",
+    "OS reboot/hard power loss, hard disk limits and Ubuntu remain separate NOT_RUN/BLOCKED work. Unknown claims and prepared slots have no automatic release fallback.",
+    "The original integrated TOCTOU fixture still fails and is incomplete; the separate successful file probe does not rewrite that outcome.",
+    "This reviewer has not executed or attested the subsequent 3f4c CPU or full-regression run."
+  ],
+  "limitations": [
+    "Final review is static and read-only; the earlier 10 model and 80 native-file attacks belong to OLD_SET 4825, not to a new 3f4c whole-source execution.",
+    "File evidence reuse is restricted to byte-identical Relative/FileOperation, helpers, transport and policy. It says nothing about the changed process cleanup path behavior.",
+    "Synthetic gates/audit/ExitProof checks are model evidence, not OS qualification. The file primitive uses the current account and does not establish distinct-account isolation or production release.",
+    "Inherited native C#/PowerShell and two native-only TS suites are not freshly fully read here; parent-owned semantic scope is explicitly distinguished from targeted reviewer reading.",
+    "No new strict tsc/full regression/CPU/process/lifecycle/pipe/production Host/reboot/Ubuntu experiment was run in this final read-only phase.",
+    "history_complete_observed=true and TotalProcesses==pinned do not imply exit closure or release authority. membership_complete=false is intentionally conservative and must not be misreported as proof that two members were missing."
+  ],
+  "official_error_reference": {
+    "url": "https://learn.microsoft.com/en-us/windows/win32/debug/system-error-codes--1700-3999-",
+    "fact": "1921 is ERROR_CANT_RESOLVE_FILENAME"
+  },
+  "governance_note": "govern.py new was attempted before artifact creation and failed on an existing baseline-corrected runtime Windows long path (WinError 3). Artifacts were created directly in the already-approved deliverable class; no rule change or historical relocation was performed by reviewer. Overall governance is parent acceptance scope.",
+  "artifacts": [
+    {
+      "path": "deliverables/AgentNexus-M1.5.1/evidence/independent-review/reading-manifest.json",
+      "bytes": 47310,
+      "sha256": "027103d4b61ee533a776ff2be52f04ac79d480c8504656b54362fb6cf173c7ea"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.5.1/evidence/independent-review/catalog-analysis.json",
+      "bytes": 14270,
+      "sha256": "719f984f0175057e0afbc141717a96ab6d1a54e03dfdd4d29b6fb9fe49ab89ba"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.5.1/evidence/independent-review/final-source-manifest.json",
+      "bytes": 35797,
+      "sha256": "b048b1c3f5b9d471e4b1b356c1eecc75b397613c425d31986f9315d4337d2993"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.5.1/evidence/independent-review/final-byte-verification.json",
+      "bytes": 638,
+      "sha256": "afde732a54b06f4389c8da9a498fcc669ebb35cf7ed289d1883e36c1974fd503"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.5.1/evidence/independent-review/readonly-final-byte-verification.json",
+      "bytes": 19621,
+      "sha256": "4e7920a297c8abbe8238a0c69475e549f4e627c86d5ea686157892055ebab979"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.5.1/evidence/independent-review/readonly-final-diff.patch",
+      "bytes": 11502,
+      "sha256": "8c145a640908e6c6a3a1d890c9fc83b8a02246ef4080d166005bc721a66eff94"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.5.1/evidence/independent-review/final-reading-manifest.json",
+      "bytes": 28887,
+      "sha256": "dbaa1a59d7cbd5c98d6285aa092696ddc2f2599e34b4f9ecef41845b40b059e7"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.5.1/evidence/independent-review/lifecycle-observation-correction.json",
+      "bytes": 3219,
+      "sha256": "81eeafb9eb57a61489c8bac8970d83720c86a4c813956c27f6254460301dd164"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.5.1/evidence/independent-review/retained-evidence-recheck.json",
+      "bytes": 7351,
+      "sha256": "672ec09b9147d6084ade50906cef6a409b211a32d44639f256fec81264e02d2e"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.5.1/evidence/independent-review/cpu-evidence-recheck.json",
+      "bytes": 37534,
+      "sha256": "9580cb9676f6e390ee3d83e5a0c2801d67fde16218d318a80a9b601970087cf8"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.5.1/evidence/independent-review/native-history-evidence-recheck.json",
+      "bytes": 7787,
+      "sha256": "a8939ddf8ed97964fdd735cbc628ea9eafb56cc695bcadae3834386f054f64f0"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.5.1/evidence/independent-review/author-tocTou-evidence.json",
+      "bytes": 10199,
+      "sha256": "79fb84eac6bc8fb3c91f03016aa03bdf34a0d6068c9e300c46dc7b08a0f89da6"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.5.1/evidence/independent-review/boundary-probe.mjs",
+      "bytes": 16449,
+      "sha256": "bfdbce530329bc11801ef1c0ef4c597049f38861f0bc9e0abb0dc520de3b1b40"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.5.1/evidence/independent-review/boundary-probe.stdout.json",
+      "bytes": 4334,
+      "sha256": "3a8b57eb0322c30e21c2356e05ba9fbfe9509fc980f67da08921976cffc9ccda"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.5.1/evidence/independent-review/boundary-probe.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.5.1/evidence/independent-review/probe-run.json",
+      "bytes": 615,
+      "sha256": "b6be55d9c7f646102e4ab87b6827f16d734e031c55444ff9a41ddaf9e50cc9d8"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.5.1/evidence/independent-review/native-file-boundary-probe.mjs",
+      "bytes": 7891,
+      "sha256": "84233676ce067d43fd7fd741fbf0f202218a8e8bd910342561289a90fec98a3e"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.5.1/evidence/independent-review/native-file-probe/run.json",
+      "bytes": 484,
+      "sha256": "46761dd8567c0eca446ead3032259a73a210d8bb28d5b8a8b58c635b2c82bd9c"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.5.1/evidence/independent-review/native-file-probe/data/result.json",
+      "bytes": 2941,
+      "sha256": "81aabac831c1d15ae3a5a7d6b37bdfcccf85b040946b4a7404b5fcd1e8427f5c"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.5.1/evidence/independent-review/native-file-probe/stdout.json",
+      "bytes": 2941,
+      "sha256": "81aabac831c1d15ae3a5a7d6b37bdfcccf85b040946b4a7404b5fcd1e8427f5c"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.5.1/evidence/independent-review/native-file-probe/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.5.1/evidence/independent-review/native-file-probe-u/run.json",
+      "bytes": 517,
+      "sha256": "c8e7d2458f486ceb4d829e3bcb518324a6b399d4ed42aaa1b3bd1ce7ba3fc3aa"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.5.1/evidence/independent-review/native-file-probe-u/data/result.json",
+      "bytes": 15643,
+      "sha256": "86c3066158e88c6544c9cfa65a28d52bcb54065effbb4ae1ddb441ffbe54bcad"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.5.1/evidence/independent-review/native-file-probe-u/stdout.json",
+      "bytes": 15643,
+      "sha256": "86c3066158e88c6544c9cfa65a28d52bcb54065effbb4ae1ddb441ffbe54bcad"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.5.1/evidence/independent-review/native-file-probe-u/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.5.1/evidence/independent-review/complete-readonly-review.py",
+      "bytes": 36090,
+      "sha256": "3e7095f3293dc5ba126df644d26f5fae13e5975e3df467b74b51c92e9b423eb7"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.5.1/evidence/independent-review/native-file-probe-u/data/case-p89cis/raw/d80477d3-ed7b-4289-ad1d-8dfaee8a3c2b.jsonl",
+      "bytes": 114219,
+      "sha256": "b3f79c1719d160fe7e64bf91535640f190e05da8c796b82a2475f0a33994c10f"
+    }
+  ]
+}

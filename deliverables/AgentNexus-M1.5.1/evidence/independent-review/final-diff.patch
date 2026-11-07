@@ -1,0 +1,524 @@
+diff --git "a/I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.5\\source/package-lock.json" "b/I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.5.1\\evidence\\independent-review\\final-source/package-lock.json"
+index 0717697..6dba192 100644
+--- "a/I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.5\\source/package-lock.json"
++++ "b/I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.5.1\\evidence\\independent-review\\final-source/package-lock.json"
+@@ -1,12 +1,12 @@
+ {
+   "name": "agentnexus",
+-  "version": "0.4.0-m1.5",
++  "version": "0.4.0-m1.5.1",
+   "lockfileVersion": 3,
+   "requires": true,
+   "packages": {
+     "": {
+       "name": "agentnexus",
+-      "version": "0.4.0-m1.5",
++      "version": "0.4.0-m1.5.1",
+       "devDependencies": {
+         "@types/node": "24.10.1",
+         "typescript": "5.9.3"
+diff --git "a/I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.5\\source/package.json" "b/I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.5.1\\evidence\\independent-review\\final-source/package.json"
+index 7d04732..4bf2edb 100644
+--- "a/I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.5\\source/package.json"
++++ "b/I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.5.1\\evidence\\independent-review\\final-source/package.json"
+@@ -1,6 +1,6 @@
+ {
+   "name": "agentnexus",
+-  "version": "0.4.0-m1.5",
++  "version": "0.4.0-m1.5.1",
+   "private": true,
+   "type": "module",
+   "engines": {
+diff --git "a/I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.5\\source/src/agentnexus/bootstrap/runtime.ts" "b/I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.5.1\\evidence\\independent-review\\final-source/src/agentnexus/bootstrap/runtime.ts"
+index f666326..5befa0e 100644
+--- "a/I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.5\\source/src/agentnexus/bootstrap/runtime.ts"
++++ "b/I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.5.1\\evidence\\independent-review\\final-source/src/agentnexus/bootstrap/runtime.ts"
+@@ -33,6 +33,7 @@ import { proveLauncher,requireLauncherProof } from './launcher-proof.ts';
+ import { digestArguments } from './worker.ts';
+ import type { BrokeredInput } from './worker.ts';
+ import { BootstrapReservations } from './reservations.ts';
++import { assertResourceExecutionQualified } from '../production/resources.ts';
+ 
+ async function helper(c:BootstrapConfig):Promise<NativeClient>{return NativeClient.open({powerShell:c.powershell.path,powerShell_hash:c.powershell.sha256,script:c.native.script,script_hash:c.native.script_hash,native_hash:c.native.native_hash,bootstrap_hash:c.native.bootstrap_hash,temporary_directory:c.role==='HOST'?c.host_root:c.launcher_root});}
+ function tool(c:BootstrapConfig):Tool{return {id:'nexus.digest',version:'1',feature_id:'runtime.worker.production',policy_ids:['P.COMMAND_RISK'],capability:'PROCESS',profile_hash:profileHash(c.profile),executable_hash:c.node.sha256};}
+@@ -107,6 +108,7 @@ export async function startHostRuntime(configPath:string,configHash:string,signa
+     const keepAlive=setInterval(()=>{if(closed||busy||link.pending||session.transportBusy)return;void link.call('PING',{},'KEEPALIVE',Date.now()+2000).catch(()=>{broker!.close();supervisor!.close();});},10000);keepAlive.unref();
+     return Object.freeze({
+       async prepare(logical:LogicalIdentity,args:Json){logical=snapshot(logical);args=snapshot(args);invariant(!closed&&!unavailable&&c.enable_features&&logical.project_id===c.resource.project_id&&logical.task_id===c.resource.task_id,'M15_PREPARE_BLOCKED');busy++;let bootstrapId:string|undefined,runtimeId:string|undefined,invoked=false;try{
++        assertResourceExecutionQualified('REAL_WINDOWS');
+         const validated=digestArguments(args);if('file' in validated)invariant(validated.file.resource_id===c.resource.id,'M15_EXACT_FILE_RESOURCE');
+         bootstrapId=await reservations.claim(logical,args);reservations.fence();invoked=true;
+         const handle=await supervisor!.prepare(logical,args),r=await registry.bind(logical,handle,c.profile,broker!.boot_id);runtimeId=r.runtime_id;supervisor!.attach(r,handle);await reservations.bind(bootstrapId,r);
+diff --git "a/I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.5\\source/src/agentnexus/production/qualification.ts" "b/I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.5.1\\evidence\\independent-review\\final-source/src/agentnexus/production/qualification.ts"
+index df0d695..27d997f 100644
+--- "a/I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.5\\source/src/agentnexus/production/qualification.ts"
++++ "b/I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.5.1\\evidence\\independent-review\\final-source/src/agentnexus/production/qualification.ts"
+@@ -4,6 +4,7 @@ import { hash, keys, snapshot } from '../runtime/contracts.ts';
+ import { authenticated } from './contracts.ts';
+ import type { Assurance, Runtime, Signed, Tool } from './contracts.ts';
+ import type { ProcessIdentity } from '../runtime/contracts.ts';
++import { assertResourceExecutionQualified } from './resources.ts';
+ 
+ export const COMBINATION_CHECKS=Object.freeze(['distinct_standard_accounts','peer_identity','restricted_token_readback','appcontainer_zero_network','filesystem_boundary','host_database_denied','cross_project_denied','job_before_resume','child_escape_denied','complete_tree_evidence','producer_eof','resource_limits','file_and_disk_hard_limits','restart_quarantine','audit_failure_closed']);
+ export type Qualification={schema:'agentnexus/qualification/1';profile_hash:string;helper_hash:string;tool_hash:string;host_sid:string;worker_sid:string;os_version:string;assurance:Assurance;checks:string[];evidence_hash:string;expires_at:number};
+@@ -21,6 +22,7 @@ export class QualificationGate {
+     });
+   }
+   admit(r:Runtime,tool:Tool,helperHash:string):Qualification {
++    assertResourceExecutionQualified(r.assurance);
+     const q=this.#entries.find(q=>q.profile_hash===r.profile_hash&&q.tool_hash===tool.executable_hash&&q.helper_hash===helperHash&&q.worker_sid===r.process.principal&&(r.assurance==='SIMULATED'||q.host_sid===this.#host?.principal)&&q.os_version===r.profile.os_version&&q.assurance===r.assurance&&q.expires_at>Date.now());
+     invariant(q&&COMBINATION_CHECKS.every(c=>q.checks.includes(c)),'M14_COMBINATION_NOT_QUALIFIED');
+     if(q.assurance==='REAL_WINDOWS')invariant(q.host_sid!==q.worker_sid,'M14_DISTINCT_IDENTITIES_REQUIRED');
+diff --git "a/I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.5.1\\evidence\\independent-review\\final-source/src/agentnexus/production/resources.ts" "b/I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.5.1\\evidence\\independent-review\\final-source/src/agentnexus/production/resources.ts"
+new file mode 100644
+index 0000000..581ab5f
+--- /dev/null
++++ "b/I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.5.1\\evidence\\independent-review\\final-source/src/agentnexus/production/resources.ts"
+@@ -0,0 +1,35 @@
++import { invariant } from '../types.ts';
++import type { Assurance } from './contracts.ts';
++
++export type ResourceKind = 'CPU' | 'RAM' | 'DISK' | 'PROCESS' | 'IO' | 'NETWORK' | 'MODEL' | 'TIME';
++export type ResourceScope = 'WORKER' | 'PROJECT' | 'PLATFORM';
++export type ResourceMechanism = Readonly<{
++  resource: ResourceKind;
++  mechanism: string;
++  semantics: string;
++  qualification: 'FAIL' | 'NOT_RUN';
++}>;
++
++/** Describes the current implementation, not certificates supplied by a caller.
++ * JOB_TIME is a periodic user-mode limit. Neither a successful Set/Query nor
++ * CPU_RATE_CONTROL_HARD_CAP proves a bounded cumulative execution-time budget.
++ * No application poller substitutes for the missing OS hard guarantee.
++ */
++export const WINDOWS_RESOURCE_MECHANISMS: readonly ResourceMechanism[] = Object.freeze([
++  Object.freeze({resource:'CPU', mechanism:'JOB_TIME', semantics:'Periodic cumulative user-mode check; bounded overshoot not qualified; kernel time excluded', qualification:'FAIL'} as const),
++  Object.freeze({resource:'RAM', mechanism:'JOB_MEMORY/PROCESS_MEMORY', semantics:'Committed memory limits; production composition not qualified', qualification:'NOT_RUN'} as const),
++  Object.freeze({resource:'DISK', mechanism:'FILE_BROKER_BYTE_LIMIT', semantics:'Broker operation bound only; no OS disk quota', qualification:'NOT_RUN'} as const),
++  Object.freeze({resource:'PROCESS', mechanism:'ACTIVE_PROCESS_LIMIT', semantics:'Concurrent Job members; no lifetime process-count budget', qualification:'NOT_RUN'} as const),
++  Object.freeze({resource:'IO', mechanism:'BOUNDED_OUTPUT_STREAM', semantics:'Bounded output and backpressure; no OS disk throughput cap', qualification:'NOT_RUN'} as const),
++  Object.freeze({resource:'NETWORK', mechanism:'ZERO_CAPABILITY_APPCONTAINER_CANDIDATE', semantics:'Requires distinct deployed identity and actual deny tests', qualification:'NOT_RUN'} as const),
++  Object.freeze({resource:'MODEL', mechanism:'NONE', semantics:'Token/rate/cost reservation design only', qualification:'NOT_RUN'} as const),
++  Object.freeze({resource:'TIME', mechanism:'SUPERVISOR_DEADLINE', semantics:'Termination request plus observed exit; no release on a timer', qualification:'NOT_RUN'} as const),
++]);
++
++/** A signed combination certificate cannot override a known failed native
++ * capability in this release. Model protocol tests retain their explicit scope.
++ * There is intentionally no config switch, Policy mode, or feature override.
++ */
++export function assertResourceExecutionQualified(assurance: Assurance): void {
++  invariant(assurance === 'SIMULATED', 'M151_CPU_HARD_LIMIT_NOT_QUALIFIED');
++}
+diff --git "a/I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.5\\source/src/agentnexus/production/windows/NativeRuntime.cs" "b/I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.5.1\\evidence\\independent-review\\final-source/src/agentnexus/production/windows/NativeRuntime.cs"
+index a1a6e2b..ba31e73 100644
+--- "a/I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.5\\source/src/agentnexus/production/windows/NativeRuntime.cs"
++++ "b/I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.5.1\\evidence\\independent-review\\final-source/src/agentnexus/production/windows/NativeRuntime.cs"
+@@ -242,20 +242,20 @@ public static partial class AgentNexusNativeRuntime {
+         string executable=S(p,"executable"),cwd=S(p,"cwd"),expectedHash=S(p,"executable_sha256");Require(expectedHash!=null&&Regex.IsMatch(expectedHash,"^[0-9a-f]{64}$"),"EXECUTABLE_HASH","Pinned executable SHA256 required");var args=Get(p,"args") as IList;Require(args!=null&&args.Count<=32,"ARGUMENT","At most 32 fixed arguments required");var command=new StringBuilder(Quote(executable));foreach(object arg in args){Require(arg is string,"ARGUMENT","Arguments must be strings");command.Append(' ').Append(Quote((string)arg));}Require(command.Length<=30000,"ARGUMENT","Command exceeds bound");
+         var limits=Get(p,"limits") as IDictionary;if(limits==null)limits=new Hashtable();int processes=N(limits,"active_processes",4,1,16),pm=N(limits,"process_memory_bytes",268435456,16777216,Int32.MaxValue),jm=N(limits,"job_memory_bytes",536870912,16777216,Int32.MaxValue),cpu=N(limits,"cpu_rate",2000,1,10000),cpuMs=N(limits,"cpu_ms",1000,1,30000);Require(jm>=pm,"JOB_LIMIT","Job memory must cover process memory");bool streaming=production||Convert.ToBoolean(Get(p,"stream_output",false));int stdoutMax=N(p,"stdout_max_bytes",8192,0,streaming?16777216:12288),stderrMax=N(p,"stderr_max_bytes",8192,0,streaming?16777216:12288);var outputBudget=new OutputBudget{max=N(limits,"output_bytes",stdoutMax+stderrMax,0,33554432)};
+         using(var image=Anchor(executable,false))using(var working=Anchor(cwd,true)) {
+-            Require(HashFile(image.Leaf)==expectedHash,"EXECUTABLE_HASH","Pinned executable bytes mismatched");var exeInfo=FileInfo(image.Leaf,false);string jobId="M14-job-"+Guid.NewGuid().ToString("N");IntPtr job=CreateJobObjectW(IntPtr.Zero,null);Check(job!=IntPtr.Zero,"Create private Job");PROCESS_INFORMATION pi=new PROCESS_INFORMATION();IntPtr original=IntPtr.Zero,restricted=IntPtr.Zero,appSid=IntPtr.Zero,attributes=IntPtr.Zero,handleList=IntPtr.Zero,capabilities=IntPtr.Zero,environment=IntPtr.Zero;bool attrInitialized=false,assigned=false,resumed=false;object restrictedProof=null;IntPtr outRead=IntPtr.Zero,outWrite=IntPtr.Zero,errRead=IntPtr.Zero,errWrite=IntPtr.Zero,inRead=IntPtr.Zero,inWrite=IntPtr.Zero;OutputCapture stdout=null,stderr=null;var pinned=new Dictionary<uint,IntPtr>();var observations=new List<object>();string termination=null,reason=null;int outputLimit=0;var clock=Stopwatch.StartNew();string rootExitAt=null,treeEmptyAt=null,outputAt=null;bool snapshotLost=false;
++            Require(HashFile(image.Leaf)==expectedHash,"EXECUTABLE_HASH","Pinned executable bytes mismatched");var exeInfo=FileInfo(image.Leaf,false);string jobId="M14-job-"+Guid.NewGuid().ToString("N");IntPtr job=CreateJobObjectW(IntPtr.Zero,null);Check(job!=IntPtr.Zero,"Create private Job");PROCESS_INFORMATION pi=new PROCESS_INFORMATION();IntPtr original=IntPtr.Zero,restricted=IntPtr.Zero,appSid=IntPtr.Zero,attributes=IntPtr.Zero,handleList=IntPtr.Zero,capabilities=IntPtr.Zero,environment=IntPtr.Zero;bool attrInitialized=false,assigned=false,resumed=false;object restrictedProof=null;IntPtr outRead=IntPtr.Zero,outWrite=IntPtr.Zero,errRead=IntPtr.Zero,errWrite=IntPtr.Zero,inRead=IntPtr.Zero,inWrite=IntPtr.Zero;OutputCapture stdout=null,stderr=null;var pinned=new Dictionary<uint,IntPtr>();var observations=new List<object>();string termination=null,reason=null;int outputLimit=0;var clock=Stopwatch.StartNew();string rootExitAt=null,treeEmptyAt=null,outputAt=null;bool snapshotLost=false;Dictionary<string,object> nativeResult=null;string createdAt=null,assignedAt=null,resumedAt=null;
+             try {
+                 var setting=new EXTENDED_LIMIT();setting.basic.flags=0x2000|0x8|0x100|0x200|0x4;setting.basic.jobTime=(long)cpuMs*10000;setting.basic.processes=(uint)processes;setting.processMemory=(UIntPtr)(uint)pm;setting.jobMemory=(UIntPtr)(uint)jm;JobSet(job,9,setting);JobSet(job,15,new CPU_LIMIT{flags=1|4,rate=(uint)cpu});JobSet(job,6,0u);var actualLimits=JobGet<EXTENDED_LIMIT>(job,9);var actualCpu=JobGet<CPU_LIMIT>(job,15);Require(actualLimits.basic.flags==setting.basic.flags&&actualLimits.basic.jobTime==setting.basic.jobTime&&actualLimits.basic.processes==(uint)processes&&actualLimits.processMemory==setting.processMemory&&actualLimits.jobMemory==setting.jobMemory&&(actualLimits.basic.flags&0x1800)==0&&actualCpu.flags==5&&actualCpu.rate==(uint)cpu&&JobGet<uint>(job,6)==0,"JOB_VERIFY","Configured Job restrictions not read back exactly");
+                 var sa=new SECURITY_ATTRIBUTES{size=Marshal.SizeOf<SECURITY_ATTRIBUTES>(),inherit=true};Check(CreatePipe(out outRead,out outWrite,ref sa,4096),"Create stdout pipe");Check(CreatePipe(out errRead,out errWrite,ref sa,4096),"Create stderr pipe");Check(CreatePipe(out inRead,out inWrite,ref sa,32768),"Create stdin pipe");Check(SetHandleInformation(outRead,1,0)&&SetHandleInformation(errRead,1,0)&&SetHandleInformation(inWrite,1,0),"Clear parent pipe inheritance");
+                 UIntPtr attrBytes=UIntPtr.Zero;InitializeProcThreadAttributeList(IntPtr.Zero,production?2:1,0,ref attrBytes);Require(attrBytes.ToUInt64()>0,"ATTRIBUTE_LIST","Missing attribute size");attributes=Marshal.AllocHGlobal((int)attrBytes.ToUInt64());Check(InitializeProcThreadAttributeList(attributes,production?2:1,0,ref attrBytes),"Initialize exact inheritance attributes");attrInitialized=true;handleList=Marshal.AllocHGlobal(3*IntPtr.Size);Marshal.WriteIntPtr(handleList,0,inRead);Marshal.WriteIntPtr(handleList,IntPtr.Size,outWrite);Marshal.WriteIntPtr(handleList,2*IntPtr.Size,errWrite);Check(UpdateProcThreadAttribute(attributes,0,new IntPtr(0x20002),handleList,(UIntPtr)(3*IntPtr.Size),IntPtr.Zero,IntPtr.Zero),"Set explicit inherited handle list");
+                 if(production){Check(OpenProcessToken(GetCurrentProcess(),TOKEN_QUERY|TOKEN_DUPLICATE|TOKEN_ADJUST_DEFAULT|TOKEN_ASSIGN_PRIMARY,out original),"Open own launch token");restricted=Restrict(original,restricting,out restrictedProof);appSid=SidMemory(package);capabilities=Marshal.AllocHGlobal(Marshal.SizeOf<SECURITY_CAPABILITIES>());Marshal.StructureToPtr(new SECURITY_CAPABILITIES{appContainer=appSid,capabilities=IntPtr.Zero,count=0},capabilities,false);Check(UpdateProcThreadAttribute(attributes,0,new IntPtr(0x20009),capabilities,(UIntPtr)Marshal.SizeOf<SECURITY_CAPABILITIES>(),IntPtr.Zero,IntPtr.Zero),"Set zero-capability AppContainer");}
+                 var startup=new STARTUPINFOEX();startup.startup.cb=(uint)Marshal.SizeOf<STARTUPINFOEX>();startup.startup.flags=0x100|1;startup.startup.show=0;startup.startup.input=inRead;startup.startup.output=outWrite;startup.startup.error=errWrite;startup.attributes=attributes;string win=Environment.GetFolderPath(Environment.SpecialFolder.Windows);environment=Marshal.StringToHGlobalUni("SystemRoot="+win+"\0WINDIR="+win+"\0TEMP="+cwd+"\0TMP="+cwd+"\0\0");uint flags=0x4|0x400|0x80000|0x08000000;
+-                bool created=production?CreateProcessAsUserW(restricted,executable,command,IntPtr.Zero,IntPtr.Zero,true,flags,environment,cwd,ref startup,out pi):CreateProcessW(executable,command,IntPtr.Zero,IntPtr.Zero,true,flags,environment,cwd,ref startup,out pi);Check(created,production?"CreateProcessAsUser suspended AppContainer":"CreateProcess suspended synthetic fixture");pinned.Add(pi.pid,pi.process);CloseHandle(outWrite);outWrite=IntPtr.Zero;CloseHandle(errWrite);errWrite=IntPtr.Zero;CloseHandle(inRead);inRead=IntPtr.Zero;
++                bool created=production?CreateProcessAsUserW(restricted,executable,command,IntPtr.Zero,IntPtr.Zero,true,flags,environment,cwd,ref startup,out pi):CreateProcessW(executable,command,IntPtr.Zero,IntPtr.Zero,true,flags,environment,cwd,ref startup,out pi);Check(created,production?"CreateProcessAsUser suspended AppContainer":"CreateProcess suspended synthetic fixture");createdAt=DateTime.UtcNow.ToString("o");pinned.Add(pi.pid,pi.process);CloseHandle(outWrite);outWrite=IntPtr.Zero;CloseHandle(errWrite);errWrite=IntPtr.Zero;CloseHandle(inRead);inRead=IntPtr.Zero;
+                 var root=Identity(pi.process,pi.pid,true);var rootToken=(IDictionary)root["token"];if(production){Require(S(root,"principal")==worker&&(bool)rootToken["is_appcontainer"]&&S(rootToken,"appcontainer_sid")==package&&(bool)rootToken["is_restricted"]&&S(rootToken,"integrity_sid")=="S-1-16-4096"&&((IList)rootToken["capabilities"]).Count==0,"SANDBOX_VERIFY","Actual suspended worker token/profile mismatched");bool found=false;foreach(Dictionary<string,object> e in (List<object>)rootToken["restricting_sids"])if(S(e,"sid")==restricting)found=true;Require(found,"SANDBOX_VERIFY","Actual worker lost restricting SID");foreach(Dictionary<string,object> privilege in (List<object>)rootToken["privileges"])Require(S(privilege,"name")=="SeChangeNotifyPrivilege"||((Convert.ToUInt32(privilege["attributes"])&2)==0),"SANDBOX_VERIFY","Worker has an enabled unnecessary privilege");}
+                 if(production){foreach(Dictionary<string,object> privilege in (List<object>)rootToken["privileges"])Require(S(privilege,"name")=="SeChangeNotifyPrivilege","SANDBOX_VERIFY","Actual worker retained an unnecessary privilege");foreach(string disabled in (List<string>)((IDictionary)restrictedProof)["disabled_group_sids"]){bool deny=false;foreach(Dictionary<string,object> group in (List<object>)rootToken["groups"])if(S(group,"sid")==disabled&&(Convert.ToUInt32(group["attributes"])&0x10)!=0)deny=true;Require(deny,"SANDBOX_VERIFY","Actual worker lost a deny-only group restriction");}}
+-                Check(AssignProcessToJobObject(job,pi.process),"Assign suspended worker to Job");assigned=true;bool inJob;Check(IsProcessInJob(pi.process,job,out inJob),"Verify suspended Job assignment");Require(inJob,"JOB_VERIFY","Root not in configured Job");uint[] initial=JobMembers(job);Require(initial.Length==1&&initial[0]==pi.pid,"JOB_VERIFY","Unexpected initial Job membership");
++                Check(AssignProcessToJobObject(job,pi.process),"Assign suspended worker to Job");assigned=true;assignedAt=DateTime.UtcNow.ToString("o");bool inJob;Check(IsProcessInJob(pi.process,job,out inJob),"Verify suspended Job assignment");Require(inJob,"JOB_VERIFY","Root not in configured Job");uint[] initial=JobMembers(job);Require(initial.Length==1&&initial[0]==pi.pid,"JOB_VERIFY","Unexpected initial Job membership");
+                 if(prepared!=null){lock(prepared.gate){prepared.process=pi.process;prepared.job=job;prepared.root=root;prepared.parent=self;prepared.jobId=jobId;prepared.expires=DateTime.UtcNow.AddMilliseconds(prepared.ttl);}prepared.ready.Set();bool committed=prepared.commit.Wait(prepared.ttl);lock(prepared.gate){Require(committed&&!prepared.cancelled&&prepared.consumed&&DateTime.UtcNow<prepared.expires,"PREPARE_CANCELLED","Prepared launch expired or was cancelled before resume");deadline=prepared.runDeadline;}clock.Restart();}
+                 byte[] bootstrap=prepared==null?new byte[0]:prepared.bootstrapInput;using(var input=new FileStream(new SafeFileHandle(inWrite,true),FileAccess.Write,32768,false)){inWrite=IntPtr.Zero;if(bootstrap.Length>0){input.Write(bootstrap,0,bootstrap.Length);input.Flush();}}
+-                Action overflow=delegate{if(Interlocked.Exchange(ref outputLimit,1)==0){Interlocked.CompareExchange(ref termination,DateTime.UtcNow.ToString("o"),null);reason="OUTPUT_LIMIT";TerminateJobObject(job,122);}};stdout=new OutputCapture(outRead,stdoutMax,overflow,"stdout",streaming,outputBudget);outRead=IntPtr.Zero;stderr=new OutputCapture(errRead,stderrMax,overflow,"stderr",streaming,outputBudget);errRead=IntPtr.Zero;Require(clock.ElapsedMilliseconds<deadline,"DEADLINE","Launch setup exceeded deadline");Check(ResumeThread(pi.thread)!=0xffffffff,"Resume verified suspended worker");resumed=true;
++                Action overflow=delegate{if(Interlocked.Exchange(ref outputLimit,1)==0){Interlocked.CompareExchange(ref termination,DateTime.UtcNow.ToString("o"),null);reason="OUTPUT_LIMIT";TerminateJobObject(job,122);}};stdout=new OutputCapture(outRead,stdoutMax,overflow,"stdout",streaming,outputBudget);outRead=IntPtr.Zero;stderr=new OutputCapture(errRead,stderrMax,overflow,"stderr",streaming,outputBudget);errRead=IntPtr.Zero;Require(clock.ElapsedMilliseconds<deadline,"DEADLINE","Launch setup exceeded deadline");Check(ResumeThread(pi.thread)!=0xffffffff,"Resume verified suspended worker");resumed=true;resumedAt=DateTime.UtcNow.ToString("o");
+                 while(clock.ElapsedMilliseconds<Math.Max(1,deadline-Math.Min(1000,Math.Max(400,deadline/2)))){
+                     uint[] ids;try{ids=JobMembers(job);}catch{snapshotLost=true;break;}
+                     foreach(uint id in ids)if(!pinned.ContainsKey(id)){IntPtr h=OpenProcess(QUERY|SYNCHRONIZE,false,id);if(h==IntPtr.Zero){snapshotLost=true;continue;}try{bool member;Check(IsProcessInJob(h,job,out member),"Verify observed child Job membership");Require(member,"JOB_SNAPSHOT","PID was recycled outside the Job");Identity(h,id,false);pinned.Add(id,h);}catch{CloseHandle(h);snapshotLost=true;}}
+@@ -265,11 +265,11 @@ public static partial class AgentNexusNativeRuntime {
+                 long cleanupUntil=Math.Max(clock.ElapsedMilliseconds,deadline-80);while(clock.ElapsedMilliseconds<cleanupUntil){empty=JobMembers(job).Length==0;if(empty&&stdout.pump.IsCompleted&&stderr.pump.IsCompleted)break;Thread.Sleep(2);}empty=JobMembers(job).Length==0;if(rootExitAt==null&&WaitForSingleObject(pi.process,0)==0)rootExitAt=DateTime.UtcNow.ToString("o");if(empty&&treeEmptyAt==null)treeEmptyAt=DateTime.UtcNow.ToString("o");if(stdout.Settled&&stderr.Settled&&outputAt==null)outputAt=DateTime.UtcNow.ToString("o");
+                 var parentIdentities=new Dictionary<uint,IDictionary>();bool parentageComplete=true;
+                 foreach(var entry in pinned){try{uint parentId=ParentPid(entry.Value);if(entry.Key==pi.pid){Require(parentId==Convert.ToUInt32(self["pid"]),"PARENT_OBSERVATION","Root kernel parent differs from launcher");parentIdentities.Add(entry.Key,self);}else{IntPtr parentHandle;Require(pinned.TryGetValue(parentId,out parentHandle),"PARENT_OBSERVATION","An observed child has an unobserved parent");var parentIdentity=Identity(parentHandle,parentId,false);var childIdentity=Identity(entry.Value,entry.Key,false);Require(Int64.Parse(S(parentIdentity,"start_id"))<=Int64.Parse(S(childIdentity,"start_id")),"PARENT_OBSERVATION","Parent PID was reused");parentIdentities.Add(entry.Key,parentIdentity);}}catch{parentageComplete=false;}}
+-                foreach(var entry in pinned){uint code;Check(GetExitCodeProcess(entry.Value,out code),"Read member exit code");observations.Add(Obj("identity",Identity(entry.Value,entry.Key,false),"root",entry.Key==pi.pid,"process_handle_pinned",true,"exited",WaitForSingleObject(entry.Value,0)==0,"exit_code",code,"parent_identity",parentIdentities.ContainsKey(entry.Key)?(object)parentIdentities[entry.Key]:null,"parentage_verified",parentIdentities.ContainsKey(entry.Key)));}
+-                var cpuUsage=JobGet<JOB_ACCOUNTING>(job,1);bool historyComplete=empty&&!snapshotLost&&cpuUsage.activeProcesses==0&&cpuUsage.totalProcesses==(uint)pinned.Count;uint rootCode;Check(GetExitCodeProcess(pi.process,out rootCode),"Read root exit code");return Obj("prepare_id",prepared==null?null:prepared.id,"root",root,"launcher",self,"job_id",jobId,"job_handle_pinned",true,"job_name",null,"job_reopenable",false,"job_limits_readback_verified",true,"job_flags",actualLimits.basic.flags,"job_cpu_rate",actualCpu.rate,"job_cpu_time_ms",cpuMs,"job_total_cpu_100ns",(cpuUsage.userTime+cpuUsage.kernelTime).ToString(),"job_user_cpu_100ns",cpuUsage.userTime.ToString(),"job_kernel_cpu_100ns",cpuUsage.kernelTime.ToString(),"job_cpu_time_scope","USER_MODE","job_cpu_time_end_action","TERMINATE","assigned_before_resume",assigned&&resumed,"explicit_inherited_handle_count",3,"stdin_closed",true,"executable_sha256",expectedHash,"executable_file_id",FileId(exeInfo),"profile_name",profile,"appcontainer_sid",package,"restricted_token_proof",restrictedProof,"sandbox_combination_verified",production,"termination_requested_at",termination,"termination_reason",reason,"root_exit_observed",rootExitAt!=null,"root_exit_observed_at",rootExitAt,"root_exit_code",rootCode,"tree_empty_observed",empty,"tree_empty_observed_at",treeEmptyAt,"output_producers_settled",stdout.Settled&&stderr.Settled,"output_producers_settled_at",outputAt,"stdout",stdout.Snapshot(),"stderr",stderr.Snapshot(),"members",observations,"membership_complete",false,"history_complete_observed",historyComplete,"historical_assigned_processes",cpuUsage.totalProcesses,"historical_pinned_processes",pinned.Count,"active_processes_final",cpuUsage.activeProcesses,"parentage_verified_complete",parentageComplete,"membership_basis","Final Job TotalProcesses must equal all retained pinned identities; missing short-lived members remain unverified","snapshot_observation_failed",snapshotLost,"parentage_complete",false,"proof_status","EXIT_UNVERIFIED","source",production?"REAL_WINDOWS_COMBINATION_CANDIDATE":"REAL_WINDOWS_PRIMITIVE","release_authority",false);
++                foreach(var entry in pinned){uint code;Check(GetExitCodeProcess(entry.Value,out code),"Read member exit code");long pc,pe,pk,pu;Check(GetProcessTimes(entry.Value,out pc,out pe,out pk,out pu),"Read member final CPU times");observations.Add(Obj("user_cpu_100ns",pu.ToString(),"kernel_cpu_100ns",pk.ToString(),"identity",Identity(entry.Value,entry.Key,false),"root",entry.Key==pi.pid,"process_handle_pinned",true,"exited",WaitForSingleObject(entry.Value,0)==0,"exit_code",code,"parent_identity",parentIdentities.ContainsKey(entry.Key)?(object)parentIdentities[entry.Key]:null,"parentage_verified",parentIdentities.ContainsKey(entry.Key)));}
++                var cpuUsage=JobGet<JOB_ACCOUNTING>(job,1);bool historyComplete=empty&&!snapshotLost&&cpuUsage.activeProcesses==0&&cpuUsage.totalProcesses==(uint)pinned.Count;uint rootCode;Check(GetExitCodeProcess(pi.process,out rootCode),"Read root exit code");return nativeResult=Obj("process_created_at",createdAt,"job_assigned_at",assignedAt,"process_resumed_at",resumedAt,"observation_wall_ms",clock.ElapsedMilliseconds,"prepare_id",prepared==null?null:prepared.id,"root",root,"launcher",self,"job_id",jobId,"job_handle_pinned",true,"job_name",null,"job_reopenable",false,"job_limits_readback_verified",true,"job_flags",actualLimits.basic.flags,"job_cpu_rate",actualCpu.rate,"job_cpu_time_ms",cpuMs,"job_total_cpu_100ns",(cpuUsage.userTime+cpuUsage.kernelTime).ToString(),"job_user_cpu_100ns",cpuUsage.userTime.ToString(),"job_kernel_cpu_100ns",cpuUsage.kernelTime.ToString(),"job_cpu_time_scope","USER_MODE","job_cpu_time_end_action","TERMINATE","assigned_before_resume",assigned&&resumed,"explicit_inherited_handle_count",3,"stdin_closed",true,"executable_sha256",expectedHash,"executable_file_id",FileId(exeInfo),"profile_name",profile,"appcontainer_sid",package,"restricted_token_proof",restrictedProof,"sandbox_combination_verified",production,"termination_requested_at",termination,"termination_reason",reason,"root_exit_observed",rootExitAt!=null,"root_exit_observed_at",rootExitAt,"root_exit_code",rootCode,"tree_empty_observed",empty,"tree_empty_observed_at",treeEmptyAt,"output_producers_settled",stdout.Settled&&stderr.Settled,"output_producers_settled_at",outputAt,"stdout",stdout.Snapshot(),"stderr",stderr.Snapshot(),"members",observations,"membership_complete",false,"history_complete_observed",historyComplete,"historical_assigned_processes",cpuUsage.totalProcesses,"historical_pinned_processes",pinned.Count,"active_processes_final",cpuUsage.activeProcesses,"parentage_verified_complete",parentageComplete,"membership_basis","Final Job TotalProcesses must equal all retained pinned identities; missing short-lived members remain unverified","snapshot_observation_failed",snapshotLost,"parentage_complete",false,"proof_status","EXIT_UNVERIFIED","source",production?"REAL_WINDOWS_COMBINATION_CANDIDATE":"REAL_WINDOWS_PRIMITIVE","release_authority",false);
+             }finally{
+                 if(prepared!=null)lock(prepared.gate){prepared.process=IntPtr.Zero;prepared.job=IntPtr.Zero;prepared.finished=true;}
+-                if(assigned){TerminateJobObject(job,124);if(pi.process!=IntPtr.Zero)WaitForSingleObject(pi.process,50);}else if(pi.process!=IntPtr.Zero){TerminateProcess(pi.process,124);WaitForSingleObject(pi.process,50);}if(stdout!=null){stdout.Close();}if(stderr!=null){stderr.Close();}foreach(IntPtr h in pinned.Values)CloseHandle(h);if(pi.thread!=IntPtr.Zero)CloseHandle(pi.thread);foreach(IntPtr h in new[]{outRead,outWrite,errRead,errWrite,inRead,inWrite})if(h!=IntPtr.Zero)CloseHandle(h);if(attrInitialized)DeleteProcThreadAttributeList(attributes);foreach(IntPtr m in new[]{attributes,handleList,capabilities,appSid,environment})if(m!=IntPtr.Zero)Marshal.FreeHGlobal(m);if(restricted!=IntPtr.Zero)CloseHandle(restricted);if(original!=IntPtr.Zero)CloseHandle(original);CloseHandle(job);
++                if(assigned){TerminateJobObject(job,124);if(pi.process!=IntPtr.Zero)WaitForSingleObject(pi.process,50);}else if(pi.process!=IntPtr.Zero){TerminateProcess(pi.process,124);WaitForSingleObject(pi.process,50);}if(stdout!=null){stdout.Close();}if(stderr!=null){stderr.Close();}bool processHandlesClosed=true;foreach(IntPtr h in pinned.Values)processHandlesClosed&=CloseHandle(h);if(pi.thread!=IntPtr.Zero)processHandlesClosed&=CloseHandle(pi.thread);foreach(IntPtr h in new[]{outRead,outWrite,errRead,errWrite,inRead,inWrite})if(h!=IntPtr.Zero)CloseHandle(h);if(attrInitialized)DeleteProcThreadAttributeList(attributes);foreach(IntPtr m in new[]{attributes,handleList,capabilities,appSid,environment})if(m!=IntPtr.Zero)Marshal.FreeHGlobal(m);if(restricted!=IntPtr.Zero)CloseHandle(restricted);if(original!=IntPtr.Zero)CloseHandle(original);bool jobClosed=CloseHandle(job);if(nativeResult!=null){nativeResult["job_handle_close_succeeded"]=jobClosed;nativeResult["process_handles_close_succeeded"]=processHandlesClosed;nativeResult["native_cleanup_observed_at"]=DateTime.UtcNow.ToString("o");}
+             }
+         }
+     }
+diff --git "a/I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.5.1\\evidence\\independent-review\\final-source/tests/agentnexus/M151LifecycleProbe.cs" "b/I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.5.1\\evidence\\independent-review\\final-source/tests/agentnexus/M151LifecycleProbe.cs"
+new file mode 100644
+index 0000000..532b27e
+--- /dev/null
++++ "b/I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.5.1\\evidence\\independent-review\\final-source/tests/agentnexus/M151LifecycleProbe.cs"
+@@ -0,0 +1,32 @@
++// Test fixture only. Controls only caller-supplied synthetic processes after
++// matching their kernel creation time on a retained handle. No release authority.
++using System;
++using System.Text;
++using System.Runtime.InteropServices;
++using System.ComponentModel;
++using System.Collections.Generic;
++public static class M151LifecycleProbe {
++    [DllImport("kernel32.dll",SetLastError=true)] static extern IntPtr OpenProcess(uint access,bool inherit,uint pid);
++    [DllImport("kernel32.dll",SetLastError=true)] public static extern bool CloseHandle(IntPtr handle);
++    [DllImport("kernel32.dll",SetLastError=true)] static extern bool GetProcessTimes(IntPtr handle,out long created,out long exited,out long kernel,out long user);
++    [DllImport("kernel32.dll",SetLastError=true)] static extern uint WaitForSingleObject(IntPtr handle,uint ms);
++    [DllImport("kernel32.dll",SetLastError=true)] static extern bool TerminateProcess(IntPtr handle,uint code);
++    [DllImport("kernel32.dll",CharSet=CharSet.Unicode,SetLastError=true)] static extern bool CreateProcessW(string app,StringBuilder command,IntPtr ps,IntPtr ts,bool inherit,uint flags,IntPtr env,string cwd,ref STARTUPINFO startup,out PROCESS_INFORMATION process);
++    [StructLayout(LayoutKind.Sequential,CharSet=CharSet.Unicode)] struct STARTUPINFO {public uint cb;public string reserved,desktop,title;public uint x,y,xSize,ySize,xChars,yChars,fill,flags;public ushort show,reservedSize;public IntPtr reserved2,input,output,error;}
++    [StructLayout(LayoutKind.Sequential)] struct PROCESS_INFORMATION {public IntPtr process,thread;public uint pid,tid;}
++    public static IntPtr Pin(uint pid,string expected) {
++        IntPtr handle=OpenProcess(0x1000|0x100000,false,pid);
++        if(handle==IntPtr.Zero)throw new Win32Exception(Marshal.GetLastWin32Error());
++        try{long c,e,k,u;if(!GetProcessTimes(handle,out c,out e,out k,out u))throw new Win32Exception(Marshal.GetLastWin32Error());if(c.ToString()!=expected)throw new InvalidOperationException("PROCESS_IDENTITY_MISMATCH");return handle;}
++        catch{CloseHandle(handle);throw;}
++    }
++    public static bool Exited(IntPtr handle,uint ms){return WaitForSingleObject(handle,ms)==0;}
++    public static object Breakaway(string executable,string fixture){
++        if(executable.Contains("\"")||fixture.Contains("\""))throw new ArgumentException("Fixed path spelling");
++        var si=new STARTUPINFO();si.cb=(uint)Marshal.SizeOf<STARTUPINFO>();var pi=new PROCESS_INFORMATION();
++        bool created=CreateProcessW(executable,new StringBuilder("\""+executable+"\" \""+fixture+"\" hold"),IntPtr.Zero,IntPtr.Zero,false,0x01000000|0x08000000,IntPtr.Zero,null,ref si,out pi);
++        int error=created?0:Marshal.GetLastWin32Error();bool cleanup=!created;
++        if(created){try{cleanup=TerminateProcess(pi.process,125)&&Exited(pi.process,3000);}finally{CloseHandle(pi.thread);CloseHandle(pi.process);}}
++        return new Dictionary<string,object>{{"created",created},{"win32_error",error},{"unexpected_child_cleanup_observed",cleanup},{"release_authority",false}};
++    }
++}
+diff --git "a/I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.5.1\\evidence\\independent-review\\final-source/tests/agentnexus/m151-boundaries.test.ts" "b/I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.5.1\\evidence\\independent-review\\final-source/tests/agentnexus/m151-boundaries.test.ts"
+new file mode 100644
+index 0000000..f3dd415
+--- /dev/null
++++ "b/I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.5.1\\evidence\\independent-review\\final-source/tests/agentnexus/m151-boundaries.test.ts"
+@@ -0,0 +1,52 @@
++import test from 'node:test';
++import assert from 'node:assert/strict';
++import { mkdirSync, mkdtempSync, writeFileSync, readFileSync, linkSync, symlinkSync, unlinkSync, rmdirSync, renameSync } from 'node:fs';
++import { join } from 'node:path';
++import { createHash } from 'node:crypto';
++import { fileURLToPath } from 'node:url';
++import { EvidenceRpc, testRoot } from './m151-rpc.ts';
++import type { ProcessIdentity } from '../../src/agentnexus/runtime/contracts.ts';
++
++const windows=process.platform==='win32'&&!!process.env.AGENTNEXUS_TEST_POWERSHELL_PATH;
++type FileResult={content_base64:string;file_id:string;ancestor_handles_pinned:boolean;ancestor_share_delete:boolean;ancestor_share_write:boolean};
++type JobResult={root:ProcessIdentity;members:{identity:ProcessIdentity;exited:boolean;root:boolean}[];root_exit_observed:boolean;tree_empty_observed:boolean;output_producers_settled:boolean;root_exit_observed_at:string;termination_requested_at:string|null;job_handle_close_succeeded:boolean;process_handles_close_succeeded:boolean;membership_complete:boolean;release_authority:boolean;proof_status:string};
++function fixture(t:test.TestContext){mkdirSync(testRoot,{recursive:true});const base=mkdtempSync(join(testRoot,'b-'));const rpc=new EvidenceRpc(join(base,'evidence'));t.after(()=>rpc.close());return {base,rpc};}
++
++for(const kind of ['file','dir','junction','hard'] as const)test(`M151 REAL_WINDOWS_PRIMITIVE: actual ${kind} link cannot escape the directory handle boundary`,{skip:!windows},async t=>{
++  const {base,rpc}=fixture(t),inside=join(base,'inside'),outside=join(base,'outside');mkdirSync(inside);mkdirSync(outside);writeFileSync(join(outside,'value'),'outside-secret');
++  const link=join(inside,'link');
++  try{if(kind==='hard')linkSync(join(outside,'value'),link);else symlinkSync(kind==='file'?join(outside,'value'):outside,link,kind==='file'?'file':kind==='dir'?'dir':'junction');}
++  catch(e){const code=(e as NodeJS.ErrnoException).code;if(['EPERM','EACCES'].includes(code??'')){rpc.record({test:kind,status:'BLOCKED',reason:code,system_configuration_changed:false});t.skip(`BLOCKED: OS refused ${kind} fixture (${code}); no privilege or policy changed`);return;}throw e;}
++  if(kind!=='hard')t.after(()=>{try{unlinkSync(link);}catch{rmdirSync(link);}});
++  const p=await rpc.call('file.read',{root:inside,relative_path:kind==='dir'||kind==='junction'?'link\\value':'link',max_bytes:128});
++  assert.equal(p.ok,false);if(kind==='hard')assert.equal(p.error?.code,'HARDLINK_REJECTED');else assert.ok(['REPARSE_REJECTED','WIN32_1920','WIN32_4390'].includes(p.error?.code??''),JSON.stringify(p));
++  assert.equal(readFileSync(join(outside,'value'),'utf8'),'outside-secret');
++});
++
++test('M151 REAL_WINDOWS_PRIMITIVE: sibling project and management fixture paths are rejected; file byte limit is enforced',{skip:!windows},async t=>{
++  const {base,rpc}=fixture(t),root=join(base,'project-a');mkdirSync(root);for(const d of ['project-b','host']){mkdirSync(join(base,d));writeFileSync(join(base,d,'secret'),'outside');}
++  for(const relative_path of ['..\\project-b\\secret','..\\host\\secret']){const p=await rpc.call('file.read',{root,relative_path,max_bytes:128});assert.equal(p.ok,false);assert.equal(p.error?.code,'PATH_REJECTED');}
++  writeFileSync(join(root,'large'),Buffer.alloc(24576));const p=await rpc.call('file.read',{root,relative_path:'large',max_bytes:4096});assert.equal(p.ok,false);assert.equal(p.error?.code,'FILE_LIMIT');
++  const q=await rpc.call('file.create',{root,relative_path:'output',max_bytes:4,content_base64:Buffer.alloc(5).toString('base64')});assert.equal(q.ok,false);assert.equal(q.error?.code,'FILE_LIMIT');
++  rpc.record({scope:'Actual handle broker against synthetic sibling files; no independent-account isolation or OS disk quota claimed'});
++});
++
++test('M151 REAL_WINDOWS_PRIMITIVE: concurrent directory replacement never returns junction target bytes',{skip:!windows},async t=>{
++  const {base,rpc}=fixture(t),root=join(base,'root'),slot=join(root,'slot'),saved=join(root,'saved'),outside=join(base,'outside');mkdirSync(root);mkdirSync(slot);mkdirSync(outside);writeFileSync(join(slot,'value'),'safe');writeFileSync(join(outside,'value'),'outside-secret');
++  const before=await rpc.good<FileResult>('file.read',{root,relative_path:'slot\\value',max_bytes:128});assert.equal(Buffer.from(before.content_base64,'base64').toString(),'safe');assert.equal(before.ancestor_handles_pinned,true);assert.equal(before.ancestor_share_delete,false);assert.equal(before.ancestor_share_write,false);
++  let attempts=0,swaps=0,active=false;
++  function swap(){attempts++;try{if(active){unlinkSync(slot);renameSync(saved,slot);active=false;}else{renameSync(slot,saved);try{symlinkSync(outside,slot,'junction');active=true;swaps++;}catch(e){renameSync(saved,slot);throw e;}}}catch{/* An OS sharing denial is expected while directory handles are retained. */}}
++  const timer=setInterval(swap,2);let successes=0,rejections=0;
++  try{for(let i=0;i<40;i++){const p=await rpc.call('file.read',{root,relative_path:'slot\\value',max_bytes:128},1000);if(p.ok){const r=p.result as FileResult;assert.equal(Buffer.from(r.content_base64,'base64').toString(),'safe');assert.equal(r.file_id,before.file_id);successes++;}else{assert.ok(['REPARSE_REJECTED','WIN32_1920','WIN32_4390','WIN32_2','WIN32_3','WIN32_5','WIN32_32'].includes(p.error?.code??''),JSON.stringify(p));rejections++;}}}
++  finally{clearInterval(timer);if(active){unlinkSync(slot);renameSync(saved,slot);}}
++  assert.ok(attempts>0);assert.ok(swaps>0,'fixture must actually install junction replacements');assert.equal(successes+rejections,40);rpc.record({test:'TOCTOU',attempts,swaps,successes,rejections,outside_bytes_returned:false});
++});
++
++for(const mode of ['normal','crash','hold','levels','orphan'])test(`M151 REAL_WINDOWS_PRIMITIVE: ${mode} observes root, tree, producers and native handle cleanup separately`,{skip:!windows},async t=>{
++  const {rpc}=fixture(t),worker=fileURLToPath(new URL('./m151-tree-worker.mjs',import.meta.url)),cwd=fileURLToPath(new URL('../../',import.meta.url));
++  const r=await rpc.good<JobResult>('primitive.job',{executable:process.execPath,executable_sha256:createHash('sha256').update(readFileSync(process.execPath)).digest('hex'),args:[worker,mode],cwd,limits:{active_processes:12,process_memory_bytes:268435456,job_memory_bytes:805306368,cpu_rate:10000,cpu_ms:1000},stdout_max_bytes:4096,stderr_max_bytes:4096},mode==='normal'||mode==='crash'?4000:2500);
++  assert.equal(r.root_exit_observed,true);assert.equal(r.tree_empty_observed,true);assert.equal(r.output_producers_settled,true);assert.equal(r.job_handle_close_succeeded,true);assert.equal(r.process_handles_close_succeeded,true);assert.ok(r.members.every(m=>m.exited));
++  if(mode==='levels'||mode==='orphan')assert.ok(r.members.length>=3);
++  if(mode==='orphan'){assert.ok(r.termination_requested_at);assert.ok(Date.parse(r.root_exit_observed_at)<Date.parse(r.termination_requested_at));}
++  assert.equal(r.membership_complete,false);assert.equal(r.release_authority,false);assert.equal(r.proof_status,'EXIT_UNVERIFIED');
++});
+diff --git "a/I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.5.1\\evidence\\independent-review\\final-source/tests/agentnexus/m151-lifecycle-probe.ps1" "b/I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.5.1\\evidence\\independent-review\\final-source/tests/agentnexus/m151-lifecycle-probe.ps1"
+new file mode 100644
+index 0000000..9686d4f
+--- /dev/null
++++ "b/I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.5.1\\evidence\\independent-review\\final-source/tests/agentnexus/m151-lifecycle-probe.ps1"
+@@ -0,0 +1,19 @@
++$ErrorActionPreference='Stop'
++[Console]::OutputEncoding=[Text.UTF8Encoding]::new($false)
++$handles=[Collections.Generic.List[IntPtr]]::new()
++try {
++    Add-Type -Path (Join-Path $PSScriptRoot 'M151LifecycleProbe.cs')
++    $line=[Console]::ReadLine()
++    if ($line.Length -gt 65535) { throw 'Fixture frame limit' }
++    $request=ConvertFrom-Json -InputObject $line -AsHashtable
++    if ($request.mode -eq 'breakaway') { $result=[M151LifecycleProbe]::Breakaway($request.executable,$request.fixture) }
++    elseif ($request.mode -eq 'wait') {
++        if ($request.processes.Count -lt 1 -or $request.processes.Count -gt 16) { throw 'Fixture identity limit' }
++        foreach ($identity in $request.processes) { $handles.Add([M151LifecycleProbe]::Pin([uint32]$identity.pid,[string]$identity.start_id)) }
++        [Console]::WriteLine('{"event":"PINNED"}')
++        $exits=@();foreach ($handle in $handles) { $exits+= [M151LifecycleProbe]::Exited($handle,5000) }
++        $result=@{exits=$exits;processes=$request.processes;release_authority=$false;membership_complete=$false}
++    } else { throw 'Unsupported fixed fixture mode' }
++    [Console]::WriteLine((ConvertTo-Json -InputObject @{ok=$true;result=$result} -Depth 12 -Compress))
++} catch { [Console]::WriteLine((ConvertTo-Json -InputObject @{ok=$false;error=$_.Exception.GetBaseException().Message} -Compress)) }
++finally { foreach ($handle in $handles) { [void][M151LifecycleProbe]::CloseHandle($handle) } }
+diff --git "a/I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.5.1\\evidence\\independent-review\\final-source/tests/agentnexus/m151-lifecycle.test.ts" "b/I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.5.1\\evidence\\independent-review\\final-source/tests/agentnexus/m151-lifecycle.test.ts"
+new file mode 100644
+index 0000000..54d5c36
+--- /dev/null
++++ "b/I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.5.1\\evidence\\independent-review\\final-source/tests/agentnexus/m151-lifecycle.test.ts"
+@@ -0,0 +1,51 @@
++import test from 'node:test';
++import assert from 'node:assert/strict';
++import { spawn } from 'node:child_process';
++import { readFileSync, appendFileSync, mkdirSync, mkdtempSync } from 'node:fs';
++import { createHash } from 'node:crypto';
++import { fileURLToPath } from 'node:url';
++import { join } from 'node:path';
++import { once } from 'node:events';
++import { setTimeout as delay } from 'node:timers/promises';
++import { EvidenceRpc,testRoot } from './m151-rpc.ts';
++import type { ProcessIdentity } from '../../src/agentnexus/runtime/contracts.ts';
++
++const ps=process.env.AGENTNEXUS_TEST_POWERSHELL_PATH;
++const available=process.platform==='win32'&&!!ps;
++const worker=fileURLToPath(new URL('./m151-tree-worker.mjs',import.meta.url));
++const probe=fileURLToPath(new URL('./m151-lifecycle-probe.ps1',import.meta.url));
++type ProbeResult={ok:boolean;error?:string;result?:{exits:boolean[];release_authority:boolean;membership_complete:boolean}};
++async function observe(base:string,processes:ProcessIdentity[],onPinned:()=>void):Promise<ProbeResult>{
++  const child=spawn(ps!,['-NoProfile','-NonInteractive','-File',probe],{shell:false,windowsHide:true,stdio:'pipe'}),closed=once(child,'close');let raw='',stderr='',pinned=false;
++  child.stdout.on('data',(b:Buffer)=>{assert.ok(Buffer.byteLength(raw)+b.length<65536);raw+=b.toString();if(!pinned&&raw.includes('{"event":"PINNED"}')){pinned=true;onPinned();}});
++  child.stderr.on('data',(b:Buffer)=>{assert.ok(stderr.length+b.length<65536);stderr+=b.toString();});
++  const timer=setTimeout(()=>child.kill(),15000);try{child.stdin.end(JSON.stringify({mode:'wait',processes})+'\n');await closed;}finally{clearTimeout(timer);appendFileSync(join(base,'observer.stdout.jsonl'),raw);appendFileSync(join(base,'observer.stderr.txt'),stderr);}
++  const lines=raw.trim().split(/\r?\n/);return JSON.parse(lines[lines.length-1]) as ProbeResult;
++}
++
++test('M151 REAL_WINDOWS_PRIMITIVE: owner death closes its Job and pinned root/descendant producers actually exit',{skip:!available},async t=>{
++  mkdirSync(testRoot,{recursive:true});const base=mkdtempSync(join(testRoot,'owner-')),owner=new EvidenceRpc(join(base,'owner')),identityObserver=new EvidenceRpc(join(base,'identity'));t.after(()=>owner.close());t.after(()=>identityObserver.close());
++  await identityObserver.good('identity',{});
++  const prepared=await owner.good<{prepare_id:string;process:ProcessIdentity}>('primitive.prepare',{executable:process.execPath,executable_sha256:createHash('sha256').update(readFileSync(process.execPath)).digest('hex'),args:[worker,'levels'],cwd:fileURLToPath(new URL('../../',import.meta.url)),prepare_ttl_ms:10000,stream_output:true,limits:{active_processes:12,process_memory_bytes:268435456,job_memory_bytes:805306368,cpu_rate:10000,cpu_ms:5000}});
++  const pending=owner.call('primitive.resume',{prepare_id:prepared.prepare_id,expected_process:prepared.process},15000).then(()=>({unexpected_result:true}),()=>({owner_terminated:true}));
++  let pids:number[]=[];
++  for(let i=0;i<30&&pids.length<2;i++){await delay(50);const lines=readFileSync(owner.log,'utf8').trim().split('\n');let text='';for(const l of lines){const r=JSON.parse(l) as {raw_jsonl?:string};if(r.raw_jsonl){const f=JSON.parse(r.raw_jsonl) as {event?:string;data_base64?:string};if(f.event==='stdout'&&f.data_base64)text+=Buffer.from(f.data_base64,'base64').toString();}}pids=[...new Set([...text.matchAll(/spawned-(\d+)/g)].map(m=>Number(m[1])))];}
++  assert.equal(pids.length,2,'both descendant fixtures must actually start');
++  const identities=[prepared.process];for(const pid of pids)identities.push(await identityObserver.good<ProcessIdentity>('identity',{pid}));
++  const observation=await observe(base,identities,()=>owner.child.kill());assert.equal(observation.ok,true,observation.error);assert.ok(observation.result?.exits.every(Boolean));assert.equal(observation.result?.exits.length,3);assert.equal(observation.result?.release_authority,false);assert.equal(observation.result?.membership_complete,false);assert.deepEqual(await pending,{owner_terminated:true});
++});
++
++test('M151 REAL_WINDOWS_PRIMITIVE: stale creation time is rejected before an exit observation is accepted',{skip:!available},async()=>{
++  mkdirSync(testRoot,{recursive:true});const base=mkdtempSync(join(testRoot,'pid-'));const r=await observe(base,[{os:'windows',principal:'S-1-0-0',pid:process.pid,start_id:'1',os_session:'1'}],()=>{throw Error('stale identity must never be pinned');});assert.equal(r.ok,false);assert.match(r.error??'',/PROCESS_IDENTITY_MISMATCH/);
++});
++
++test('M151 REAL_WINDOWS_PRIMITIVE: CREATE_BREAKAWAY_FROM_JOB is denied by the private Job',{skip:!available},async t=>{
++  mkdirSync(testRoot,{recursive:true});const base=mkdtempSync(join(testRoot,'escape-')),rpc=new EvidenceRpc(join(base,'evidence'));t.after(()=>rpc.close());
++  const prepared=await rpc.good<{prepare_id:string;process:ProcessIdentity}>('primitive.prepare',{executable:ps,executable_sha256:createHash('sha256').update(readFileSync(ps!)).digest('hex'),args:['-NoProfile','-NonInteractive','-File',probe],cwd:fileURLToPath(new URL('../../',import.meta.url)),prepare_ttl_ms:10000,limits:{active_processes:8,process_memory_bytes:268435456,job_memory_bytes:805306368,cpu_rate:10000,cpu_ms:5000},stdout_max_bytes:4096,stderr_max_bytes:4096},4000);
++  const input=Buffer.from(JSON.stringify({mode:'breakaway',executable:process.execPath,fixture:worker})+'\n').toString('base64');
++  const result=await rpc.good<{stdout:{content_base64:string};release_authority:boolean}>('primitive.resume',{prepare_id:prepared.prepare_id,expected_process:prepared.process,bootstrap_input_base64:input},5000);
++  assert.equal(result.release_authority,false);
++  const data=Buffer.from(result.stdout.content_base64,'base64').toString();
++  const packet=JSON.parse(data) as {ok:boolean;result:{created:boolean;win32_error:number;unexpected_child_cleanup_observed:boolean}};
++  assert.equal(packet.ok,true,data);assert.equal(packet.result.created,false);assert.equal(packet.result.win32_error,5);assert.equal(packet.result.unexpected_child_cleanup_observed,true);
++});
+diff --git "a/I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.5.1\\evidence\\independent-review\\final-source/tests/agentnexus/m151-resources.test.ts" "b/I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.5.1\\evidence\\independent-review\\final-source/tests/agentnexus/m151-resources.test.ts"
+new file mode 100644
+index 0000000..96235a5
+--- /dev/null
++++ "b/I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.5.1\\evidence\\independent-review\\final-source/tests/agentnexus/m151-resources.test.ts"
+@@ -0,0 +1,34 @@
++import test from 'node:test';
++import assert from 'node:assert/strict';
++import { generateKeyPairSync } from 'node:crypto';
++import { assertResourceExecutionQualified, WINDOWS_RESOURCE_MECHANISMS } from '../../src/agentnexus/production/resources.ts';
++import { QualificationGate, COMBINATION_CHECKS } from '../../src/agentnexus/production/qualification.ts';
++import type { Qualification } from '../../src/agentnexus/production/qualification.ts';
++import type { Runtime, Tool } from '../../src/agentnexus/production/contracts.ts';
++import { signed } from '../../src/agentnexus/production/contracts.ts';
++import type { SandboxProfile } from '../../src/agentnexus/runtime/contracts.ts';
++import { profileHash } from '../../src/agentnexus/runtime/contracts.ts';
++import { sha256 } from '../../src/agentnexus/types.ts';
++
++test('M151 RESOURCE CONTRACT SIMULATED: valid signed full-check Windows certificate cannot enable a known failed CPU capability', () => {
++  const host={os:'windows' as const,principal:'S-1-5-21-10-20-30-1001',pid:1001,start_id:'10',os_session:'1'};
++  const worker={...host,principal:'S-1-5-21-10-20-30-1002',pid:1002,start_id:'20'};
++  const profile:SandboxProfile={id:'m151',version:1,os:'windows',os_version:'SYNTHETIC',principal:worker.principal,accessible:['task'],read_only:['runtime'],writable:['output'],network:'DENY',limits:{memory_bytes:67108864,cpu_ms:80,wall_ms:4000,file_bytes:4096,processes:4,output_bytes:8192},lifetime:'ONE_OPERATION',exit_requirement:'COMPLETE_PROCESS_TREE'};
++  const helper=sha256('synthetic helper'),key=generateKeyPairSync('ed25519');
++  const tool:Tool={id:'synthetic',version:'1',feature_id:'runtime.worker.production',policy_ids:['P.COMMAND_RISK'],capability:'PROCESS',profile_hash:profileHash(profile),executable_hash:sha256('synthetic executable')};
++  const runtime:Runtime={runtime_id:'runtime',logical:{agent_id:'agent',project_id:'project',task_id:'task',session_id:'session',role:'worker'},process:worker,parent:host,worker_instance_id:'instance',host_boot_id:'host-boot',broker_boot_id:'broker-boot',generation:1,profile,profile_hash:profileHash(profile),state:'ACTIVE',assurance:'REAL_WINDOWS'};
++  const q:Qualification={schema:'agentnexus/qualification/1',profile_hash:runtime.profile_hash,helper_hash:helper,tool_hash:tool.executable_hash,host_sid:host.principal,worker_sid:worker.principal,os_version:profile.os_version,assurance:'REAL_WINDOWS',checks:[...COMBINATION_CHECKS],evidence_hash:sha256('synthetic full certificate'),expires_at:Date.now()+30000};
++  const gate=new QualificationGate(key.publicKey,[signed(q,key.privateKey)],host);
++  assert.throws(()=>gate.admit(runtime,tool,helper),{code:'M151_CPU_HARD_LIMIT_NOT_QUALIFIED'});
++  const simulated={...runtime,assurance:'SIMULATED' as const};
++  const model=new QualificationGate(key.publicKey,[signed({...q,assurance:'SIMULATED'},key.privateKey)],host);
++  assert.equal(model.admit(simulated,tool,helper).assurance,'SIMULATED');
++});
++
++test('M151 RESOURCE CONTRACT: no runtime flag or unsupported assurance opens production', () => {
++  assert.doesNotThrow(()=>assertResourceExecutionQualified('SIMULATED'));
++  assert.throws(()=>assertResourceExecutionQualified('REAL_WINDOWS'),{code:'M151_CPU_HARD_LIMIT_NOT_QUALIFIED'});
++  assert.equal(WINDOWS_RESOURCE_MECHANISMS.find(m=>m.resource==='CPU')?.qualification,'FAIL');
++  assert.equal(Object.isFrozen(WINDOWS_RESOURCE_MECHANISMS),true);
++  for(const mechanism of WINDOWS_RESOURCE_MECHANISMS)assert.equal(Object.isFrozen(mechanism),true);
++});
+diff --git "a/I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.5.1\\evidence\\independent-review\\final-source/tests/agentnexus/m151-rpc.ts" "b/I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.5.1\\evidence\\independent-review\\final-source/tests/agentnexus/m151-rpc.ts"
+new file mode 100644
+index 0000000..ae26380
+--- /dev/null
++++ "b/I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.5.1\\evidence\\independent-review\\final-source/tests/agentnexus/m151-rpc.ts"
+@@ -0,0 +1,38 @@
++import { spawn } from 'node:child_process';
++import type { ChildProcessWithoutNullStreams } from 'node:child_process';
++import { mkdirSync, appendFileSync } from 'node:fs';
++import { resolve, join, isAbsolute } from 'node:path';
++import { fileURLToPath } from 'node:url';
++import { randomUUID } from 'node:crypto';
++import { once } from 'node:events';
++import assert from 'node:assert/strict';
++
++export type Packet={id:string;ok:boolean;result?:unknown;error?:{code:string;message:string};event?:string};
++export class EvidenceRpc {
++  readonly child:ChildProcessWithoutNullStreams;
++  readonly log:string;
++  #serial=0;#buffer=Buffer.alloc(0);#bytes=0;
++  #pending=new Map<string,{resolve:(r:Packet)=>void;reject:(e:Error)=>void;timer:ReturnType<typeof setTimeout>}>();
++  constructor(directory:string){
++    const ps=process.env.AGENTNEXUS_TEST_POWERSHELL_PATH;assert.ok(ps&&isAbsolute(ps));
++    mkdirSync(directory,{recursive:true});this.log=join(directory,randomUUID()+'.jsonl');
++    const runtime=fileURLToPath(new URL('../../src/agentnexus/production/windows/runtime.ps1',import.meta.url));
++    this.child=spawn(ps,['-NoProfile','-NonInteractive','-File',runtime],{shell:false,windowsHide:true,stdio:'pipe'});
++    this.child.stdout.on('data',(chunk:Buffer)=>{
++      let offset=0;
++      while(offset<chunk.length){const end=chunk.indexOf(10,offset),part=chunk.subarray(offset,end<0?chunk.length:end);assert.ok(this.#buffer.length+part.length<65536);this.#buffer=Buffer.concat([this.#buffer,part]);offset=end<0?chunk.length:end+1;if(end<0)break;
++        const raw=this.#buffer.toString('utf8');this.#buffer=Buffer.alloc(0);const p=JSON.parse(raw) as Packet;this.record({at:new Date().toISOString(),direction:'RECEIVED',raw_jsonl:raw+'\n'});if(p.event)continue;const w=this.#pending.get(p.id);if(w){clearTimeout(w.timer);this.#pending.delete(p.id);w.resolve(p);}}
++    });
++    this.child.stderr.on('data',(b:Buffer)=>this.record({at:new Date().toISOString(),direction:'STDERR',base64:b.toString('base64')}));
++    const fail=(e:Error)=>{for(const p of this.#pending.values()){clearTimeout(p.timer);p.reject(e);}this.#pending.clear();};
++    this.child.on('error',fail);this.child.on('exit',(code,signal)=>{this.record({direction:'HELPER_EXIT',code,signal});fail(Error(`Native helper exited ${code}/${signal}`));});
++  }
++  record(value:unknown):void{const line=JSON.stringify(value)+'\n';this.#bytes+=Buffer.byteLength(line);if(this.#bytes>4*1024*1024){this.child.kill();throw Error('Evidence bound');}appendFileSync(this.log,line);}
++  call(op:string,params:Record<string,unknown>,deadline=3000):Promise<Packet>{
++    assert.equal(this.#pending.size,0);const id='m151-'+ ++this.#serial,request={id,op,params,deadline_ms:deadline};this.record({direction:'SENT',request});
++    return new Promise((resolveResult,reject)=>{const timer=setTimeout(()=>{this.#pending.delete(id);this.child.kill();reject(Error('Native deadline'));},deadline+12000);this.#pending.set(id,{resolve:resolveResult,reject,timer});this.child.stdin.write(JSON.stringify(request)+'\n');});
++  }
++  async good<T>(op:string,params:Record<string,unknown>,deadline=3000):Promise<T>{const p=await this.call(op,params,deadline);assert.equal(p.ok,true,JSON.stringify(p.error));return p.result as T;}
++  async close():Promise<void>{if(this.child.exitCode!==null||this.child.signalCode!==null)return;const closed=once(this.child,'close');this.child.stdin.end();const timer=setTimeout(()=>this.child.kill(),1000);try{await closed;}finally{clearTimeout(timer);}}
++}
++export const testRoot=resolve(process.env.AGENTNEXUS_TEST_DATA_ROOT??'.workflow-kit/runtime/m151-data','m151');
+diff --git "a/I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.5.1\\evidence\\independent-review\\final-source/tests/agentnexus/m151-tree-worker.mjs" "b/I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.5.1\\evidence\\independent-review\\final-source/tests/agentnexus/m151-tree-worker.mjs"
+new file mode 100644
+index 0000000..6246c39
+--- /dev/null
++++ "b/I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.5.1\\evidence\\independent-review\\final-source/tests/agentnexus/m151-tree-worker.mjs"
+@@ -0,0 +1,14 @@
++// Only fixed synthetic lifecycle cases. No project data or credentials.
++import { spawn } from 'node:child_process';
++import { fileURLToPath } from 'node:url';
++const [mode,depth='0']=process.argv.slice(2);
++if(mode==='normal')process.stdout.write('normal\n');
++else if(mode==='crash')throw Error('fixed lifecycle crash');
++else if(mode==='hold'){process.stdout.write('producer-alive\n');setInterval(()=>{},1000);}
++else if(mode==='orphan'||mode==='levels'){
++  const n=Number(depth);
++  if(n<2){const child=spawn(process.execPath,[fileURLToPath(import.meta.url),mode,String(n+1)],{shell:false,windowsHide:true,detached:true,stdio:['ignore','inherit','inherit']});child.unref();process.stdout.write(`spawned-${child.pid}\n`);}
++  process.stdout.write(`level-${n}\n`);
++  if(mode==='orphan'&&n===0)setTimeout(()=>process.exit(0),250);
++  else setInterval(()=>{},1000);
++}else process.exitCode=64;
+diff --git "a/I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.5.1\\evidence\\independent-review\\final-source/tools/agentnexus/cpu-qualify-m151.ts" "b/I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.5.1\\evidence\\independent-review\\final-source/tools/agentnexus/cpu-qualify-m151.ts"
+new file mode 100644
+index 0000000..e1d4c32
+--- /dev/null
++++ "b/I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.5.1\\evidence\\independent-review\\final-source/tools/agentnexus/cpu-qualify-m151.ts"
+@@ -0,0 +1,80 @@
++import { spawn } from 'node:child_process';
++import { createWriteStream } from 'node:fs';
++import { mkdir, readFile, writeFile, cp, readdir } from 'node:fs/promises';
++import { createHash } from 'node:crypto';
++import { resolve, join, relative, isAbsolute, sep } from 'node:path';
++import { fileURLToPath } from 'node:url';
++import { pipeline } from 'node:stream/promises';
++import { Transform } from 'node:stream';
++import { once } from 'node:events';
++import { performance } from 'node:perf_hooks';
++import { adjudicateCpu } from './cpu-qualify-m15.mjs';
++import type { CpuObservation } from './cpu-qualify-m15.mjs';
++
++type NativeCpu = CpuObservation & {
++  history_complete_observed:boolean; output_producers_settled:boolean;
++  job_handle_close_succeeded:boolean; process_handles_close_succeeded:boolean;
++  active_processes_final:number; historical_assigned_processes:number;
++  root_exit_code:number; members:unknown[];
++};
++type Packet = {ok:boolean; result?:NativeCpu; error?:{code:string;message:string}};
++type Scenario = {id:string;mode:string;budget:number;deadline:number;load:string;round:number};
++
++/** Qualification retains M1.5's budget and tolerance. One violation fails the run.
++ * Extra repetitions characterize phase/parallelism; finite successes could never
++ * create a documented OS overshoot bound or authorize production automatically.
++ */
++async function main(outputRoot:string):Promise<void>{
++  if(process.platform!=='win32')throw Error('Windows required');
++  const ps=process.env.AGENTNEXUS_TEST_POWERSHELL_PATH;
++  if(!ps||!isAbsolute(ps))throw Error('Absolute PowerShell 7+ required');
++  const source=fileURLToPath(new URL('../../',import.meta.url));
++  const destination=resolve(outputRoot);
++  if(destination===resolve(source)||destination.startsWith(resolve(source)+sep))throw Error('Evidence must be outside source');
++  const runId=new Date().toISOString().replace(/[:.]/g,'-')+'-'+process.pid;
++  const out=join(resolve(outputRoot),runId),workspace=join(out,'source');await mkdir(out,{recursive:true});
++  for(const name of ['src','tests','tools','config','package.json','package-lock.json','tsconfig.json'])await cp(join(source,name),join(workspace,name),{recursive:true,errorOnExist:true,force:false});
++  const files:{path:string;sha256:string;bytes:number}[]=[];
++  async function inventory(dir:string):Promise<void>{for(const e of await readdir(dir,{withFileTypes:true})){const p=join(dir,e.name);if(e.isDirectory())await inventory(p);else if(e.isFile()){const b=await readFile(p);files.push({path:relative(workspace,p).replaceAll('\\','/'),sha256:createHash('sha256').update(b).digest('hex'),bytes:b.length});}else throw Error('Source link refused');}}
++  await inventory(workspace);files.sort((a,b)=>a.path<b.path?-1:a.path>b.path?1:0);
++  const sourceHash=createHash('sha256').update(files.map(f=>f.path+'\0'+f.sha256+'\n').join('')).digest('hex');
++  await writeFile(join(out,'source-manifest.json'),JSON.stringify({files,set_sha256:sourceHash},null,2)+'\n',{flag:'wx'});
++  const nodeHash=createHash('sha256').update(await readFile(process.execPath)).digest('hex');
++  const reports:Record<string,unknown>[]=[];
++  const rounds=12;
++  const plan={run_id:runId,rounds_per_sequential_topology:rounds,concurrent_pairs:8,long_trials:6,
++    budgets:{single:80,multi:300,child:300,long:3000},tolerance:'unchanged M1.5 max(50ms, 5%)',
++    stopping_rule:'run all predetermined cases; any FAIL fails qualification; no rerun selection',
++    statistics:'Descriptive only. Runs share a host and periodic enforcement; not independent Bernoulli trials. No reliability/production claim from a finite sample.',
++    planned_cases:58,source_set_sha256:sourceHash};
++  await writeFile(join(out,'plan.json'),JSON.stringify(plan,null,2)+'\n',{flag:'wx'});
++  async function run(s:Scenario):Promise<void>{
++    const started=performance.now(),started_at=new Date().toISOString();
++    const request={id:s.id,op:'primitive.job',deadline_ms:s.deadline,params:{executable:process.execPath,executable_sha256:nodeHash,args:[join(workspace,'tests/agentnexus/m15-cpu-worker.mjs'),s.mode],cwd:workspace,limits:{active_processes:4,process_memory_bytes:134217728,job_memory_bytes:402653184,cpu_rate:10000,cpu_ms:s.budget},stdout_max_bytes:4096,stderr_max_bytes:4096}};
++    await writeFile(join(out,s.id+'.request.json'),JSON.stringify(request,null,2)+'\n',{flag:'wx'});
++    const child=spawn(ps!,['-NoProfile','-NonInteractive','-File',join(workspace,'src/agentnexus/production/windows/runtime.ps1')],{shell:false,windowsHide:true,cwd:workspace,env:{SystemRoot:process.env.SystemRoot,WINDIR:process.env.WINDIR,TEMP:out,TMP:out,PSModulePath:''},stdio:'pipe'});
++    const closed=once(child,'close'),bound=()=>{let n=0;return new Transform({transform(b:Buffer,_e,cb){n+=b.length;cb(n>1048576?Error('Evidence output bound'):null,b);}});};
++    let timeout=false;const timer=setTimeout(()=>{timeout=true;child.kill();},45000);let code:number|null=null,signal:string|null=null;
++    try{child.stdin.end(JSON.stringify(request)+'\n');await Promise.all([pipeline(child.stdout,bound(),createWriteStream(join(out,s.id+'.stdout.jsonl'),{flags:'wx'})),pipeline(child.stderr,bound(),createWriteStream(join(out,s.id+'.stderr.txt'),{flags:'wx'}))]);[code,signal]=await closed as [number|null,string|null];}finally{clearTimeout(timer);}
++    let packet:Packet|undefined;try{packet=JSON.parse(await readFile(join(out,s.id+'.stdout.jsonl'),'utf8')) as Packet;}catch{}
++    const r=packet?.ok?packet.result:undefined;
++    const base=r?adjudicateCpu(r,s.budget):null;
++    const exitObserved=!!r&&r.root_exit_observed&&r.tree_empty_observed&&r.history_complete_observed&&r.output_producers_settled&&r.active_processes_final===0;
++    const handlesClosed=!!r&&r.job_handle_close_succeeded===true&&r.process_handles_close_succeeded===true;
++    const status=!r||timeout||code!==0?'INCONCLUSIVE':base?.status==='PASS'&&exitObserved&&handlesClosed?'PASS':'FAIL';
++    const record={...s,run_id:runId,started_at,ended_at:new Date().toISOString(),wall_ms:performance.now()-started,...(base??{}),status,
++      qualification_status:status,exit_observed:exitObserved,handle_cleanup_observed:handlesClosed,helper_exit:{code,signal,timeout},error:packet?.error??null,
++      historical_processes:r?.historical_assigned_processes??null,root_exit_code:r?.root_exit_code??null,assurance:'REAL_WINDOWS_PRIMITIVE',production_guarantee:false};
++    reports.push(record);await writeFile(join(out,s.id+'.result.json'),JSON.stringify(record,null,2)+'\n',{flag:'wx'});
++  }
++  for(let round=1;round<=rounds;round++)for(const [mode,budget] of [['single',80],['multi',300],['child',300]] as const)await run({id:`seq-${mode}-${round}`,mode,budget,deadline:6000,load:'ONE_TEST_JOB',round});
++  for(let round=1;round<=6;round++)await run({id:`long-${round}`,mode:'long',budget:3000,deadline:20000,load:'ONE_TEST_JOB',round});
++  for(let round=1;round<=8;round++)await Promise.all([run({id:`parallel-single-${round}`,mode:'single',budget:80,deadline:6000,load:'TWO_INDEPENDENT_JOBS',round}),run({id:`parallel-multi-${round}`,mode:'multi',budget:300,deadline:6000,load:'TWO_INDEPENDENT_JOBS',round})]);
++  const counts={PASS:0,FAIL:0,INCONCLUSIVE:0};for(const r of reports)counts[r.qualification_status as keyof typeof counts]++;
++  const result={schema:'agentnexus/cpu-qualification/1.5.1',run_id:runId,source_set_sha256:sourceHash,node:process.version,node_sha256:nodeHash,powershell:ps,counts,status:counts.FAIL?'FAIL':'INCONCLUSIVE',production_qualified:false,plan,cases:reports,
++    host_restart:'NOT_RUN: distinct deployed Host unavailable',resource_release:'No Writer/Workspace/ProcessSlot/Quota/Sandbox claim released by these primitive observations',
++    failure_classification:'OS_BEHAVIOR_LIMITATION: periodic JOB_TIME has no qualified bounded overshoot; exact kernel cadence remains INCONCLUSIVE'};
++  await writeFile(join(out,'report.json'),JSON.stringify(result,null,2)+'\n',{flag:'wx'});
++  console.log(JSON.stringify({out,run_id:runId,source_set_sha256:sourceHash,counts,status:result.status}));process.exitCode=counts.FAIL?1:2;
++}
++if(process.argv[1]&&resolve(process.argv[1])===resolve(fileURLToPath(import.meta.url))){if(process.argv.length!==4||process.argv[2]!=='--output-root')throw Error('Use --output-root <evidence outside source>');await main(process.argv[3]);}

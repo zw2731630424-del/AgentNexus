@@ -1,0 +1,174 @@
+TAP version 13
+# Subtest: M15-PIPE REAL_WINDOWS_PRIMITIVE: persistent bidirectional frames bind kernel peers and exclude client instance right
+ok 1 - M15-PIPE REAL_WINDOWS_PRIMITIVE: persistent bidirectional frames bind kernel peers and exclude client instance right
+  ---
+  duration_ms: 1221.7151
+  type: 'test'
+  ...
+# Same-account primitive: peer ACE excludes instance creation, but this SID also owns the full-control server ACE. Distinct-SID effective denial remains NOT_RUN.
+# Subtest: M15-PIPE REAL_WINDOWS_PRIMITIVE: first-instance ownership rejects a second native listener
+ok 2 - M15-PIPE REAL_WINDOWS_PRIMITIVE: first-instance ownership rejects a second native listener
+  ---
+  duration_ms: 1258.7686
+  type: 'test'
+  ...
+# Subtest: M15-PIPE REAL_WINDOWS_PRIMITIVE: four listener owners and exact endpoint grammar are bounded without accepting a client
+ok 3 - M15-PIPE REAL_WINDOWS_PRIMITIVE: four listener owners and exact endpoint grammar are bounded without accepting a client
+  ---
+  duration_ms: 1149.3311
+  type: 'test'
+  ...
+# Subtest: M15-PIPE REAL_WINDOWS_PRIMITIVE: forged sid cannot authenticate a persistent native peer
+ok 4 - M15-PIPE REAL_WINDOWS_PRIMITIVE: forged sid cannot authenticate a persistent native peer
+  ---
+  duration_ms: 1195.459
+  type: 'test'
+  ...
+# Subtest: M15-PIPE REAL_WINDOWS_PRIMITIVE: forged image cannot authenticate a persistent native peer
+ok 5 - M15-PIPE REAL_WINDOWS_PRIMITIVE: forged image cannot authenticate a persistent native peer
+  ---
+  duration_ms: 1261.4592
+  type: 'test'
+  ...
+# Subtest: M15-PIPE REAL_WINDOWS_PRIMITIVE: forged hash cannot authenticate a persistent native peer
+ok 6 - M15-PIPE REAL_WINDOWS_PRIMITIVE: forged hash cannot authenticate a persistent native peer
+  ---
+  duration_ms: 1106.3324
+  type: 'test'
+  ...
+# Subtest: M15-PIPE REAL_WINDOWS_PRIMITIVE: forged pid cannot authenticate a persistent native peer
+ok 7 - M15-PIPE REAL_WINDOWS_PRIMITIVE: forged pid cannot authenticate a persistent native peer
+  ---
+  duration_ms: 1153.1393
+  type: 'test'
+  ...
+# Subtest: M15-PIPE REAL_WINDOWS_PRIMITIVE: forged start cannot authenticate a persistent native peer
+ok 8 - M15-PIPE REAL_WINDOWS_PRIMITIVE: forged start cannot authenticate a persistent native peer
+  ---
+  duration_ms: 1111.6231
+  type: 'test'
+  ...
+# Subtest: M15-PIPE REAL_WINDOWS_PRIMITIVE: oversized outbound payload revokes the channel without retry
+ok 9 - M15-PIPE REAL_WINDOWS_PRIMITIVE: oversized outbound payload revokes the channel without retry
+  ---
+  duration_ms: 1260.0003
+  type: 'test'
+  ...
+# Subtest: M15-PIPE REAL_WINDOWS_PRIMITIVE: oversized inbound length destroys a raw same-account connection
+ok 10 - M15-PIPE REAL_WINDOWS_PRIMITIVE: oversized inbound length destroys a raw same-account connection
+  ---
+  duration_ms: 1475.33
+  type: 'test'
+  ...
+# Subtest: M15-PIPE REAL_WINDOWS_PRIMITIVE: read deadline, explicit close and endpoint revocation are terminal
+ok 11 - M15-PIPE REAL_WINDOWS_PRIMITIVE: read deadline, explicit close and endpoint revocation are terminal
+  ---
+  duration_ms: 1539.0702
+  type: 'test'
+  ...
+# Subtest: M15-PIPE REAL_WINDOWS_PRIMITIVE: four live native channels fill owner quota and a closed slot can be reused
+ok 12 - M15-PIPE REAL_WINDOWS_PRIMITIVE: four live native channels fill owner quota and a closed slot can be reused
+  ---
+  duration_ms: 6591.095
+  type: 'test'
+  ...
+# Subtest: M15-ATTEST REAL_WINDOWS_PRIMITIVE: only the actual pinned parent and exact protected file security can attest
+    # Subtest: positive protected-pin attestation
+    ok 1 - positive protected-pin attestation # SKIP NOT_RUN: existing Node image has an unprotected inherited DACL; no ACL was modified. The actual unprotected DACL was rejected.
+      ---
+      duration_ms: 0.1275
+      type: 'test'
+      ...
+    1..1
+ok 13 - M15-ATTEST REAL_WINDOWS_PRIMITIVE: only the actual pinned parent and exact protected file security can attest
+  ---
+  duration_ms: 1897.739
+  type: 'test'
+  ...
+# Subtest: M15-PIPE REAL_WINDOWS_PRIMITIVE: killing the actual Node owner retires its native helper
+ok 14 - M15-PIPE REAL_WINDOWS_PRIMITIVE: killing the actual Node owner retires its native helper
+  ---
+  duration_ms: 1441.1968
+  type: 'test'
+  ...
+# Subtest: M15-PIPE production cross-account protected bootstrap and effective client-instance denial
+ok 15 - M15-PIPE production cross-account protected bootstrap and effective client-instance denial # SKIP NOT_RUN / BLOCKED: approved distinct standard accounts, exact deployment ACL/profile and startup objects are absent; same-account primitives grant no qualification
+  ---
+  duration_ms: 0.0691
+  type: 'test'
+  ...
+# Subtest: M151 REAL_WINDOWS_PRIMITIVE: actual file link cannot escape the directory handle boundary
+ok 16 - M151 REAL_WINDOWS_PRIMITIVE: actual file link cannot escape the directory handle boundary # SKIP BLOCKED: OS refused file fixture (EPERM); no privilege or policy changed
+  ---
+  duration_ms: 1123.9892
+  type: 'test'
+  ...
+# Subtest: M151 REAL_WINDOWS_PRIMITIVE: actual dir link cannot escape the directory handle boundary
+ok 17 - M151 REAL_WINDOWS_PRIMITIVE: actual dir link cannot escape the directory handle boundary # SKIP BLOCKED: OS refused dir fixture (EPERM); no privilege or policy changed
+  ---
+  duration_ms: 1046.6063
+  type: 'test'
+  ...
+# Subtest: M151 REAL_WINDOWS_PRIMITIVE: actual junction link cannot escape the directory handle boundary
+ok 18 - M151 REAL_WINDOWS_PRIMITIVE: actual junction link cannot escape the directory handle boundary
+  ---
+  duration_ms: 1437.6814
+  type: 'test'
+  ...
+# Subtest: M151 REAL_WINDOWS_PRIMITIVE: actual hard link cannot escape the directory handle boundary
+ok 19 - M151 REAL_WINDOWS_PRIMITIVE: actual hard link cannot escape the directory handle boundary
+  ---
+  duration_ms: 1113.9949
+  type: 'test'
+  ...
+# Subtest: M151 REAL_WINDOWS_PRIMITIVE: sibling project and management fixture paths are rejected; file byte limit is enforced
+ok 20 - M151 REAL_WINDOWS_PRIMITIVE: sibling project and management fixture paths are rejected; file byte limit is enforced
+  ---
+  duration_ms: 1110.055
+  type: 'test'
+  ...
+# Subtest: M151 REAL_WINDOWS_PRIMITIVE: concurrent directory replacement never returns junction target bytes
+ok 21 - M151 REAL_WINDOWS_PRIMITIVE: concurrent directory replacement never returns junction target bytes
+  ---
+  duration_ms: 1305.7288
+  type: 'test'
+  ...
+# Subtest: M151 REAL_WINDOWS_PRIMITIVE: normal observes root, tree, producers and native handle cleanup separately
+ok 22 - M151 REAL_WINDOWS_PRIMITIVE: normal observes root, tree, producers and native handle cleanup separately
+  ---
+  duration_ms: 1285.3428
+  type: 'test'
+  ...
+# Subtest: M151 REAL_WINDOWS_PRIMITIVE: crash observes root, tree, producers and native handle cleanup separately
+ok 23 - M151 REAL_WINDOWS_PRIMITIVE: crash observes root, tree, producers and native handle cleanup separately
+  ---
+  duration_ms: 1309.4278
+  type: 'test'
+  ...
+# Subtest: M151 REAL_WINDOWS_PRIMITIVE: hold observes root, tree, producers and native handle cleanup separately
+ok 24 - M151 REAL_WINDOWS_PRIMITIVE: hold observes root, tree, producers and native handle cleanup separately
+  ---
+  duration_ms: 2709.416
+  type: 'test'
+  ...
+# Subtest: M151 REAL_WINDOWS_PRIMITIVE: levels observes root, tree, producers and native handle cleanup separately
+ok 25 - M151 REAL_WINDOWS_PRIMITIVE: levels observes root, tree, producers and native handle cleanup separately
+  ---
+  duration_ms: 2752.8846
+  type: 'test'
+  ...
+# Subtest: M151 REAL_WINDOWS_PRIMITIVE: orphan observes root, tree, producers and native handle cleanup separately
+ok 26 - M151 REAL_WINDOWS_PRIMITIVE: orphan observes root, tree, producers and native handle cleanup separately
+  ---
+  duration_ms: 2720.2507
+  type: 'test'
+  ...
+1..26
+# tests 27
+# suites 0
+# pass 23
+# fail 0
+# cancelled 0
+# skipped 4
+# todo 0
+# duration_ms 41860.6998

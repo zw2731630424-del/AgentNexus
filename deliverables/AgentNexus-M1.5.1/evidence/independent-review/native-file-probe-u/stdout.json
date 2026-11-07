@@ -1,0 +1,605 @@
+{
+  "schema": "agentnexus/m151/independent-native-file-boundary/1",
+  "started_at": "2026-11-07T19:44:47.873Z",
+  "ended_at": "2026-11-07T19:44:49.159Z",
+  "source": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.5.1\\evidence\\independent-review\\final-source",
+  "data": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.5.1\\evidence\\independent-review\\native-file-probe-u\\data\\case-p89cis",
+  "raw_log": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.5.1\\evidence\\independent-review\\native-file-probe-u\\data\\case-p89cis\\raw\\d80477d3-ed7b-4289-ad1d-8dfaee8a3c2b.jsonl",
+  "source_set_sha256": "4825d2432a01a497a68971fab57909bc9613b38ff087346afbcceba56f7aa9fa",
+  "assurance": "REAL_OS_CURRENT_ACCOUNT_FILE_PRIMITIVE; NO CROSS_ACCOUNT_OR_PRODUCTION_QUALIFICATION",
+  "criterion": "Each successful read equals original safe bytes/hash/file identity; every error is a structural native denial without result/payload/canary. Baseline, recovery, real installed junctions and all predetermined attacks required.",
+  "status": "PASS_LIMITED",
+  "failure": null,
+  "planned_race_reads": 80,
+  "completed_race_reads": 80,
+  "baseline_passed": true,
+  "restored_passed": true,
+  "safe_race_reads": 27,
+  "denied_race_reads": 53,
+  "actual_junction_installs": 40,
+  "swap_attempts": 77,
+  "swap_errors": {},
+  "native_denial_codes": {
+    "WIN32_2": 47,
+    "REPARSE_REJECTED": 7,
+    "WIN32_1921": 1
+  },
+  "original_file_id": "aa2894f6:00070000001388ee",
+  "original_failed_suite_test_changed": false,
+  "original_40_attack_sequence_reclassified": false,
+  "production_qualified": false,
+  "release_authority": false,
+  "accounts_acl_profiles_changed": false,
+  "records": [
+    {
+      "stage": "BASELINE",
+      "id": "m151-1",
+      "outcome": "SAFE",
+      "file_id": "aa2894f6:00070000001388ee",
+      "sha256": "8b3369944dd2a3fab39e32d1aeb1f763946a458ae3e6368a46432adc8f3a0860",
+      "bytes": 4
+    },
+    {
+      "stage": "DETERMINISTIC_MISSING_COMPONENT",
+      "id": "m151-2",
+      "outcome": "DENIED_NO_PAYLOAD",
+      "code": "WIN32_2"
+    },
+    {
+      "stage": "DETERMINISTIC_REAL_JUNCTION",
+      "id": "m151-3",
+      "outcome": "DENIED_NO_PAYLOAD",
+      "code": "REPARSE_REJECTED"
+    },
+    {
+      "stage": "RESTORED_BEFORE_RACE",
+      "id": "m151-4",
+      "outcome": "SAFE",
+      "file_id": "aa2894f6:00070000001388ee",
+      "sha256": "8b3369944dd2a3fab39e32d1aeb1f763946a458ae3e6368a46432adc8f3a0860",
+      "bytes": 4
+    },
+    {
+      "stage": "RACE_1",
+      "id": "m151-5",
+      "outcome": "SAFE",
+      "file_id": "aa2894f6:00070000001388ee",
+      "sha256": "8b3369944dd2a3fab39e32d1aeb1f763946a458ae3e6368a46432adc8f3a0860",
+      "bytes": 4
+    },
+    {
+      "stage": "RACE_2",
+      "id": "m151-6",
+      "outcome": "DENIED_NO_PAYLOAD",
+      "code": "WIN32_2"
+    },
+    {
+      "stage": "RACE_3",
+      "id": "m151-7",
+      "outcome": "SAFE",
+      "file_id": "aa2894f6:00070000001388ee",
+      "sha256": "8b3369944dd2a3fab39e32d1aeb1f763946a458ae3e6368a46432adc8f3a0860",
+      "bytes": 4
+    },
+    {
+      "stage": "RACE_4",
+      "id": "m151-8",
+      "outcome": "DENIED_NO_PAYLOAD",
+      "code": "WIN32_2"
+    },
+    {
+      "stage": "RACE_5",
+      "id": "m151-9",
+      "outcome": "DENIED_NO_PAYLOAD",
+      "code": "WIN32_1921"
+    },
+    {
+      "stage": "RACE_6",
+      "id": "m151-10",
+      "outcome": "SAFE",
+      "file_id": "aa2894f6:00070000001388ee",
+      "sha256": "8b3369944dd2a3fab39e32d1aeb1f763946a458ae3e6368a46432adc8f3a0860",
+      "bytes": 4
+    },
+    {
+      "stage": "RACE_7",
+      "id": "m151-11",
+      "outcome": "DENIED_NO_PAYLOAD",
+      "code": "WIN32_2"
+    },
+    {
+      "stage": "RACE_8",
+      "id": "m151-12",
+      "outcome": "SAFE",
+      "file_id": "aa2894f6:00070000001388ee",
+      "sha256": "8b3369944dd2a3fab39e32d1aeb1f763946a458ae3e6368a46432adc8f3a0860",
+      "bytes": 4
+    },
+    {
+      "stage": "RACE_9",
+      "id": "m151-13",
+      "outcome": "DENIED_NO_PAYLOAD",
+      "code": "WIN32_2"
+    },
+    {
+      "stage": "RACE_10",
+      "id": "m151-14",
+      "outcome": "DENIED_NO_PAYLOAD",
+      "code": "WIN32_2"
+    },
+    {
+      "stage": "RACE_11",
+      "id": "m151-15",
+      "outcome": "DENIED_NO_PAYLOAD",
+      "code": "WIN32_2"
+    },
+    {
+      "stage": "RACE_12",
+      "id": "m151-16",
+      "outcome": "DENIED_NO_PAYLOAD",
+      "code": "REPARSE_REJECTED"
+    },
+    {
+      "stage": "RACE_13",
+      "id": "m151-17",
+      "outcome": "DENIED_NO_PAYLOAD",
+      "code": "WIN32_2"
+    },
+    {
+      "stage": "RACE_14",
+      "id": "m151-18",
+      "outcome": "DENIED_NO_PAYLOAD",
+      "code": "WIN32_2"
+    },
+    {
+      "stage": "RACE_15",
+      "id": "m151-19",
+      "outcome": "SAFE",
+      "file_id": "aa2894f6:00070000001388ee",
+      "sha256": "8b3369944dd2a3fab39e32d1aeb1f763946a458ae3e6368a46432adc8f3a0860",
+      "bytes": 4
+    },
+    {
+      "stage": "RACE_16",
+      "id": "m151-20",
+      "outcome": "DENIED_NO_PAYLOAD",
+      "code": "WIN32_2"
+    },
+    {
+      "stage": "RACE_17",
+      "id": "m151-21",
+      "outcome": "SAFE",
+      "file_id": "aa2894f6:00070000001388ee",
+      "sha256": "8b3369944dd2a3fab39e32d1aeb1f763946a458ae3e6368a46432adc8f3a0860",
+      "bytes": 4
+    },
+    {
+      "stage": "RACE_18",
+      "id": "m151-22",
+      "outcome": "DENIED_NO_PAYLOAD",
+      "code": "REPARSE_REJECTED"
+    },
+    {
+      "stage": "RACE_19",
+      "id": "m151-23",
+      "outcome": "DENIED_NO_PAYLOAD",
+      "code": "WIN32_2"
+    },
+    {
+      "stage": "RACE_20",
+      "id": "m151-24",
+      "outcome": "DENIED_NO_PAYLOAD",
+      "code": "WIN32_2"
+    },
+    {
+      "stage": "RACE_21",
+      "id": "m151-25",
+      "outcome": "SAFE",
+      "file_id": "aa2894f6:00070000001388ee",
+      "sha256": "8b3369944dd2a3fab39e32d1aeb1f763946a458ae3e6368a46432adc8f3a0860",
+      "bytes": 4
+    },
+    {
+      "stage": "RACE_22",
+      "id": "m151-26",
+      "outcome": "DENIED_NO_PAYLOAD",
+      "code": "WIN32_2"
+    },
+    {
+      "stage": "RACE_23",
+      "id": "m151-27",
+      "outcome": "SAFE",
+      "file_id": "aa2894f6:00070000001388ee",
+      "sha256": "8b3369944dd2a3fab39e32d1aeb1f763946a458ae3e6368a46432adc8f3a0860",
+      "bytes": 4
+    },
+    {
+      "stage": "RACE_24",
+      "id": "m151-28",
+      "outcome": "DENIED_NO_PAYLOAD",
+      "code": "WIN32_2"
+    },
+    {
+      "stage": "RACE_25",
+      "id": "m151-29",
+      "outcome": "SAFE",
+      "file_id": "aa2894f6:00070000001388ee",
+      "sha256": "8b3369944dd2a3fab39e32d1aeb1f763946a458ae3e6368a46432adc8f3a0860",
+      "bytes": 4
+    },
+    {
+      "stage": "RACE_26",
+      "id": "m151-30",
+      "outcome": "DENIED_NO_PAYLOAD",
+      "code": "WIN32_2"
+    },
+    {
+      "stage": "RACE_27",
+      "id": "m151-31",
+      "outcome": "SAFE",
+      "file_id": "aa2894f6:00070000001388ee",
+      "sha256": "8b3369944dd2a3fab39e32d1aeb1f763946a458ae3e6368a46432adc8f3a0860",
+      "bytes": 4
+    },
+    {
+      "stage": "RACE_28",
+      "id": "m151-32",
+      "outcome": "DENIED_NO_PAYLOAD",
+      "code": "WIN32_2"
+    },
+    {
+      "stage": "RACE_29",
+      "id": "m151-33",
+      "outcome": "SAFE",
+      "file_id": "aa2894f6:00070000001388ee",
+      "sha256": "8b3369944dd2a3fab39e32d1aeb1f763946a458ae3e6368a46432adc8f3a0860",
+      "bytes": 4
+    },
+    {
+      "stage": "RACE_30",
+      "id": "m151-34",
+      "outcome": "DENIED_NO_PAYLOAD",
+      "code": "REPARSE_REJECTED"
+    },
+    {
+      "stage": "RACE_31",
+      "id": "m151-35",
+      "outcome": "DENIED_NO_PAYLOAD",
+      "code": "WIN32_2"
+    },
+    {
+      "stage": "RACE_32",
+      "id": "m151-36",
+      "outcome": "DENIED_NO_PAYLOAD",
+      "code": "WIN32_2"
+    },
+    {
+      "stage": "RACE_33",
+      "id": "m151-37",
+      "outcome": "DENIED_NO_PAYLOAD",
+      "code": "WIN32_2"
+    },
+    {
+      "stage": "RACE_34",
+      "id": "m151-38",
+      "outcome": "SAFE",
+      "file_id": "aa2894f6:00070000001388ee",
+      "sha256": "8b3369944dd2a3fab39e32d1aeb1f763946a458ae3e6368a46432adc8f3a0860",
+      "bytes": 4
+    },
+    {
+      "stage": "RACE_35",
+      "id": "m151-39",
+      "outcome": "DENIED_NO_PAYLOAD",
+      "code": "WIN32_2"
+    },
+    {
+      "stage": "RACE_36",
+      "id": "m151-40",
+      "outcome": "DENIED_NO_PAYLOAD",
+      "code": "REPARSE_REJECTED"
+    },
+    {
+      "stage": "RACE_37",
+      "id": "m151-41",
+      "outcome": "SAFE",
+      "file_id": "aa2894f6:00070000001388ee",
+      "sha256": "8b3369944dd2a3fab39e32d1aeb1f763946a458ae3e6368a46432adc8f3a0860",
+      "bytes": 4
+    },
+    {
+      "stage": "RACE_38",
+      "id": "m151-42",
+      "outcome": "DENIED_NO_PAYLOAD",
+      "code": "WIN32_2"
+    },
+    {
+      "stage": "RACE_39",
+      "id": "m151-43",
+      "outcome": "SAFE",
+      "file_id": "aa2894f6:00070000001388ee",
+      "sha256": "8b3369944dd2a3fab39e32d1aeb1f763946a458ae3e6368a46432adc8f3a0860",
+      "bytes": 4
+    },
+    {
+      "stage": "RACE_40",
+      "id": "m151-44",
+      "outcome": "DENIED_NO_PAYLOAD",
+      "code": "WIN32_2"
+    },
+    {
+      "stage": "RACE_41",
+      "id": "m151-45",
+      "outcome": "DENIED_NO_PAYLOAD",
+      "code": "WIN32_2"
+    },
+    {
+      "stage": "RACE_42",
+      "id": "m151-46",
+      "outcome": "DENIED_NO_PAYLOAD",
+      "code": "WIN32_2"
+    },
+    {
+      "stage": "RACE_43",
+      "id": "m151-47",
+      "outcome": "SAFE",
+      "file_id": "aa2894f6:00070000001388ee",
+      "sha256": "8b3369944dd2a3fab39e32d1aeb1f763946a458ae3e6368a46432adc8f3a0860",
+      "bytes": 4
+    },
+    {
+      "stage": "RACE_44",
+      "id": "m151-48",
+      "outcome": "DENIED_NO_PAYLOAD",
+      "code": "WIN32_2"
+    },
+    {
+      "stage": "RACE_45",
+      "id": "m151-49",
+      "outcome": "DENIED_NO_PAYLOAD",
+      "code": "WIN32_2"
+    },
+    {
+      "stage": "RACE_46",
+      "id": "m151-50",
+      "outcome": "SAFE",
+      "file_id": "aa2894f6:00070000001388ee",
+      "sha256": "8b3369944dd2a3fab39e32d1aeb1f763946a458ae3e6368a46432adc8f3a0860",
+      "bytes": 4
+    },
+    {
+      "stage": "RACE_47",
+      "id": "m151-51",
+      "outcome": "DENIED_NO_PAYLOAD",
+      "code": "WIN32_2"
+    },
+    {
+      "stage": "RACE_48",
+      "id": "m151-52",
+      "outcome": "SAFE",
+      "file_id": "aa2894f6:00070000001388ee",
+      "sha256": "8b3369944dd2a3fab39e32d1aeb1f763946a458ae3e6368a46432adc8f3a0860",
+      "bytes": 4
+    },
+    {
+      "stage": "RACE_49",
+      "id": "m151-53",
+      "outcome": "DENIED_NO_PAYLOAD",
+      "code": "WIN32_2"
+    },
+    {
+      "stage": "RACE_50",
+      "id": "m151-54",
+      "outcome": "DENIED_NO_PAYLOAD",
+      "code": "WIN32_2"
+    },
+    {
+      "stage": "RACE_51",
+      "id": "m151-55",
+      "outcome": "DENIED_NO_PAYLOAD",
+      "code": "WIN32_2"
+    },
+    {
+      "stage": "RACE_52",
+      "id": "m151-56",
+      "outcome": "DENIED_NO_PAYLOAD",
+      "code": "WIN32_2"
+    },
+    {
+      "stage": "RACE_53",
+      "id": "m151-57",
+      "outcome": "SAFE",
+      "file_id": "aa2894f6:00070000001388ee",
+      "sha256": "8b3369944dd2a3fab39e32d1aeb1f763946a458ae3e6368a46432adc8f3a0860",
+      "bytes": 4
+    },
+    {
+      "stage": "RACE_54",
+      "id": "m151-58",
+      "outcome": "DENIED_NO_PAYLOAD",
+      "code": "WIN32_2"
+    },
+    {
+      "stage": "RACE_55",
+      "id": "m151-59",
+      "outcome": "SAFE",
+      "file_id": "aa2894f6:00070000001388ee",
+      "sha256": "8b3369944dd2a3fab39e32d1aeb1f763946a458ae3e6368a46432adc8f3a0860",
+      "bytes": 4
+    },
+    {
+      "stage": "RACE_56",
+      "id": "m151-60",
+      "outcome": "DENIED_NO_PAYLOAD",
+      "code": "REPARSE_REJECTED"
+    },
+    {
+      "stage": "RACE_57",
+      "id": "m151-61",
+      "outcome": "SAFE",
+      "file_id": "aa2894f6:00070000001388ee",
+      "sha256": "8b3369944dd2a3fab39e32d1aeb1f763946a458ae3e6368a46432adc8f3a0860",
+      "bytes": 4
+    },
+    {
+      "stage": "RACE_58",
+      "id": "m151-62",
+      "outcome": "SAFE",
+      "file_id": "aa2894f6:00070000001388ee",
+      "sha256": "8b3369944dd2a3fab39e32d1aeb1f763946a458ae3e6368a46432adc8f3a0860",
+      "bytes": 4
+    },
+    {
+      "stage": "RACE_59",
+      "id": "m151-63",
+      "outcome": "DENIED_NO_PAYLOAD",
+      "code": "WIN32_2"
+    },
+    {
+      "stage": "RACE_60",
+      "id": "m151-64",
+      "outcome": "SAFE",
+      "file_id": "aa2894f6:00070000001388ee",
+      "sha256": "8b3369944dd2a3fab39e32d1aeb1f763946a458ae3e6368a46432adc8f3a0860",
+      "bytes": 4
+    },
+    {
+      "stage": "RACE_61",
+      "id": "m151-65",
+      "outcome": "DENIED_NO_PAYLOAD",
+      "code": "WIN32_2"
+    },
+    {
+      "stage": "RACE_62",
+      "id": "m151-66",
+      "outcome": "SAFE",
+      "file_id": "aa2894f6:00070000001388ee",
+      "sha256": "8b3369944dd2a3fab39e32d1aeb1f763946a458ae3e6368a46432adc8f3a0860",
+      "bytes": 4
+    },
+    {
+      "stage": "RACE_63",
+      "id": "m151-67",
+      "outcome": "DENIED_NO_PAYLOAD",
+      "code": "WIN32_2"
+    },
+    {
+      "stage": "RACE_64",
+      "id": "m151-68",
+      "outcome": "DENIED_NO_PAYLOAD",
+      "code": "WIN32_2"
+    },
+    {
+      "stage": "RACE_65",
+      "id": "m151-69",
+      "outcome": "SAFE",
+      "file_id": "aa2894f6:00070000001388ee",
+      "sha256": "8b3369944dd2a3fab39e32d1aeb1f763946a458ae3e6368a46432adc8f3a0860",
+      "bytes": 4
+    },
+    {
+      "stage": "RACE_66",
+      "id": "m151-70",
+      "outcome": "DENIED_NO_PAYLOAD",
+      "code": "WIN32_2"
+    },
+    {
+      "stage": "RACE_67",
+      "id": "m151-71",
+      "outcome": "DENIED_NO_PAYLOAD",
+      "code": "WIN32_2"
+    },
+    {
+      "stage": "RACE_68",
+      "id": "m151-72",
+      "outcome": "SAFE",
+      "file_id": "aa2894f6:00070000001388ee",
+      "sha256": "8b3369944dd2a3fab39e32d1aeb1f763946a458ae3e6368a46432adc8f3a0860",
+      "bytes": 4
+    },
+    {
+      "stage": "RACE_69",
+      "id": "m151-73",
+      "outcome": "DENIED_NO_PAYLOAD",
+      "code": "WIN32_2"
+    },
+    {
+      "stage": "RACE_70",
+      "id": "m151-74",
+      "outcome": "DENIED_NO_PAYLOAD",
+      "code": "WIN32_2"
+    },
+    {
+      "stage": "RACE_71",
+      "id": "m151-75",
+      "outcome": "SAFE",
+      "file_id": "aa2894f6:00070000001388ee",
+      "sha256": "8b3369944dd2a3fab39e32d1aeb1f763946a458ae3e6368a46432adc8f3a0860",
+      "bytes": 4
+    },
+    {
+      "stage": "RACE_72",
+      "id": "m151-76",
+      "outcome": "DENIED_NO_PAYLOAD",
+      "code": "WIN32_2"
+    },
+    {
+      "stage": "RACE_73",
+      "id": "m151-77",
+      "outcome": "DENIED_NO_PAYLOAD",
+      "code": "WIN32_2"
+    },
+    {
+      "stage": "RACE_74",
+      "id": "m151-78",
+      "outcome": "DENIED_NO_PAYLOAD",
+      "code": "WIN32_2"
+    },
+    {
+      "stage": "RACE_75",
+      "id": "m151-79",
+      "outcome": "DENIED_NO_PAYLOAD",
+      "code": "WIN32_2"
+    },
+    {
+      "stage": "RACE_76",
+      "id": "m151-80",
+      "outcome": "DENIED_NO_PAYLOAD",
+      "code": "WIN32_2"
+    },
+    {
+      "stage": "RACE_77",
+      "id": "m151-81",
+      "outcome": "DENIED_NO_PAYLOAD",
+      "code": "REPARSE_REJECTED"
+    },
+    {
+      "stage": "RACE_78",
+      "id": "m151-82",
+      "outcome": "DENIED_NO_PAYLOAD",
+      "code": "WIN32_2"
+    },
+    {
+      "stage": "RACE_79",
+      "id": "m151-83",
+      "outcome": "SAFE",
+      "file_id": "aa2894f6:00070000001388ee",
+      "sha256": "8b3369944dd2a3fab39e32d1aeb1f763946a458ae3e6368a46432adc8f3a0860",
+      "bytes": 4
+    },
+    {
+      "stage": "RACE_80",
+      "id": "m151-84",
+      "outcome": "DENIED_NO_PAYLOAD",
+      "code": "WIN32_2"
+    },
+    {
+      "stage": "RESTORED_AFTER_RACE",
+      "id": "m151-85",
+      "outcome": "SAFE",
+      "file_id": "aa2894f6:00070000001388ee",
+      "sha256": "8b3369944dd2a3fab39e32d1aeb1f763946a458ae3e6368a46432adc8f3a0860",
+      "bytes": 4
+    }
+  ]
+}

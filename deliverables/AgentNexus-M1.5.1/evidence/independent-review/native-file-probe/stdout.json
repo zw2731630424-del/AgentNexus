@@ -1,0 +1,51 @@
+{
+  "schema": "agentnexus/m151/independent-native-file-boundary/1",
+  "started_at": "2026-11-07T19:43:49.228Z",
+  "ended_at": "2026-11-07T19:43:50.782Z",
+  "source": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.5.1\\evidence\\independent-review\\final-source",
+  "data": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.5.1\\evidence\\independent-review\\native-file-probe\\data\\case-O3aikz",
+  "raw_log": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.5.1\\evidence\\independent-review\\native-file-probe\\data\\case-O3aikz\\raw\\733240c9-98fb-4472-ae48-f20a92ef609c.jsonl",
+  "source_set_sha256": "4825d2432a01a497a68971fab57909bc9613b38ff087346afbcceba56f7aa9fa",
+  "assurance": "REAL_OS_CURRENT_ACCOUNT_FILE_PRIMITIVE; NO CROSS_ACCOUNT_OR_PRODUCTION_QUALIFICATION",
+  "criterion": "Each successful read equals original safe bytes/hash/file identity; every error is a structural native denial without result/payload/canary. Baseline, recovery, real installed junctions and all predetermined attacks required.",
+  "status": "FAIL_OR_INCONCLUSIVE",
+  "failure": {
+    "code": "EPERM",
+    "message": "EPERM: operation not permitted, symlink 'I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.5.1\\evidence\\independent-review\\native-file-probe\\data\\case-O3aikz\\outside' -> 'I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.5.1\\evidence\\independent-review\\native-file-probe\\data\\case-O3aikz\\root\\slot'",
+    "stack": "Error: EPERM: operation not permitted, symlink 'I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.5.1\\evidence\\independent-review\\native-file-probe\\data\\case-O3aikz\\outside' -> 'I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.5.1\\evidence\\independent-review\\native-file-probe\\data\\case-O3aikz\\root\\slot'\n    at symlinkSync (node:fs:1869:11)\n    at file:///I:/AI_AgentNexus/deliverables/AgentNexus-M1.5.1/evidence/independent-review/native-file-boundary-probe.mjs:82:3\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)"
+  },
+  "planned_race_reads": 80,
+  "completed_race_reads": 0,
+  "baseline_passed": true,
+  "restored_passed": false,
+  "safe_race_reads": 0,
+  "denied_race_reads": 0,
+  "actual_junction_installs": 0,
+  "swap_attempts": 0,
+  "swap_errors": {},
+  "native_denial_codes": {
+    "WIN32_2": 1
+  },
+  "original_file_id": "aa2894f6:00020000001388e0",
+  "original_failed_suite_test_changed": false,
+  "original_40_attack_sequence_reclassified": false,
+  "production_qualified": false,
+  "release_authority": false,
+  "accounts_acl_profiles_changed": false,
+  "records": [
+    {
+      "stage": "BASELINE",
+      "id": "m151-1",
+      "outcome": "SAFE",
+      "file_id": "aa2894f6:00020000001388e0",
+      "sha256": "8b3369944dd2a3fab39e32d1aeb1f763946a458ae3e6368a46432adc8f3a0860",
+      "bytes": 4
+    },
+    {
+      "stage": "DETERMINISTIC_MISSING_COMPONENT",
+      "id": "m151-2",
+      "outcome": "DENIED_NO_PAYLOAD",
+      "code": "WIN32_2"
+    }
+  ]
+}

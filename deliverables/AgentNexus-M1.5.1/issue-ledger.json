@@ -1,0 +1,102 @@
+{
+  "schema": "agentnexus/issues/1.5.1",
+  "historical_ledger": "../AgentNexus-M1.2/issue-ledger.json",
+  "historical_open_boundaries": [
+    "OS-01",
+    "SCI-01",
+    "M1.3 identity/exit evidence gaps",
+    "M1.4/M1.5 CPU/production combination gaps"
+  ],
+  "issues": [
+    {
+      "id": "M151-CPU-001",
+      "status": "FAIL",
+      "classifications": [
+        "OS_BEHAVIOR_LIMITATION"
+      ],
+      "title": "严格累计用户态CPU预算没有合格OS上界",
+      "evidence": "evidence/cpu-qualification/2026-11-07T19-49-58-861Z-25456/report.json",
+      "next": "后端能力设计或另行评审明确降级合同；不解除门禁"
+    },
+    {
+      "id": "M151-CPU-003",
+      "status": "INCONCLUSIVE",
+      "title": "最终24/58帧Job/逐进程CPU有小额负差，最大user/kernel各62.5ms",
+      "evidence": "evidence/cpu-accounting-reconciliation.json",
+      "next": "单独研究OS计量语义/更新/归属边界，不把它归咎为负载或用来放宽预算"
+    },
+    {
+      "id": "M151-CPU-002",
+      "status": "FAIL",
+      "classifications": [
+        "TEST_FIXTURE_ERROR"
+      ],
+      "title": "继承CPU测试非DEADLINE即可PASS，未验证预算",
+      "evidence": "cpu-root-cause-report.md",
+      "next": "历史原断言和记录保留，不作资格依据"
+    },
+    {
+      "id": "M151-RESOURCE-001",
+      "status": "PASS",
+      "scope": "FAIL_CLOSED_MODEL",
+      "title": "已知失败能力在Host准备槽前与Broker消费前固定拒绝",
+      "evidence": "source/src/agentnexus/production/resources.ts"
+    },
+    {
+      "id": "M151-IPC-001",
+      "status": "PASS",
+      "scope": "REAL_WINDOWS_SAME_ACCOUNT_PRIMITIVE",
+      "title": "可固定目录的同hash测试runtime让持久Peer测试真实运行",
+      "remaining": "跨SID有效权限/生产pins未测"
+    },
+    {
+      "id": "M151-FILE-001",
+      "status": "BLOCKED",
+      "title": "File/Directory symlink fixture创建EPERM",
+      "next": "单列最小所需权限与变更审批，不擅自改系统"
+    },
+    {
+      "id": "M151-FILE-002",
+      "status": "FAIL",
+      "classifications": [
+        "TEST_FIXTURE_ERROR"
+      ],
+      "title": "TOCTOU原fixture未枚举安全拒绝1921，17次攻击后停止",
+      "next": "原FAIL保留，独立严格补充攻击；未来单独评审fixture"
+    },
+    {
+      "id": "M151-BOOT-001",
+      "status": "BLOCKED",
+      "title": "真实独立Host/Worker、Profile/config/key/Task尚缺"
+    },
+    {
+      "id": "M151-EXIT-001",
+      "status": "BLOCKED",
+      "title": "完整历史/全部外部producer未获生产闭合，不能释放五资源"
+    },
+    {
+      "id": "M151-EXIT-002",
+      "status": "PASS",
+      "scope": "BOUNDED_NATIVE_OBSERVATION_FIX",
+      "classifications": [
+        "PROCESS_LIFECYCLE_RACE"
+      ],
+      "title": "修前Job空/根退出取样时序不一致，原截止内等全部保留句柄；不授释放权"
+    },
+    {
+      "id": "M151-AUDIT-001",
+      "status": "INCONCLUSIVE",
+      "title": "九producer已接线但独立持续生产组合未验"
+    },
+    {
+      "id": "M151-GOVERNANCE-001",
+      "status": "NOT_RUN",
+      "title": "项目/平台RAM/Disk/I/O/Network/Model硬预算未实现"
+    },
+    {
+      "id": "M151-SYSTEM-001",
+      "status": "BLOCKED",
+      "title": "新的逐项系统变更审批尚未批准"
+    }
+  ]
+}

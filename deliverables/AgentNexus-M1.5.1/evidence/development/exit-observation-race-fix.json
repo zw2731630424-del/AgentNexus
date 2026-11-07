@@ -1,0 +1,15 @@
+{
+  "classification": "PROCESS_LIFECYCLE_RACE",
+  "old_set_sha256": "4825d2432a01a497a68971fab57909bc9613b38ff087346afbcceba56f7aa9fa",
+  "new_set_sha256": "3f4c9e1b30f7d956b7be9c6330872cf87f32681f86c39a9b3b09c97c9bc581a0",
+  "native_before_sha256": "31e1367f9e148aa0e1462a5b6b863a976a82b9dd7674c741f9279b7734b9d7e9",
+  "native_after_sha256": "2c5cf6a60c33b91604763a12d7d5ac970c68a0b87a41510f5d09c5fa540398ca",
+  "affected_cases": [
+    "seq-single-8",
+    "parallel-multi-4"
+  ],
+  "old_result": "Job empty and EOF, root_exit_observed false, later members all signaled and GetExitCodeProcess 123; history complete true",
+  "fix": "break in original cleanup window only if all retained process handles signaled, Job empty, pumps completed",
+  "budgets_tolerances_deadlines_unchanged": true,
+  "production_release_authority": false
+}

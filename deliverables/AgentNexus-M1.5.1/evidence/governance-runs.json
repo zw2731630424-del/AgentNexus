@@ -1,0 +1,22 @@
+{
+  "final": {
+    "command": "python -u ai-workflow-kit-v4/tools/govern.py check --target I:\\AI_AgentNexus",
+    "exit_code": 0,
+    "stdout": "Governance check: PASS\n",
+    "stderr": "",
+    "observed_at": "2026-11-07T20:03:28.356348+00:00",
+    "read_only": true,
+    "final_snapshot_recheck": {
+      "exit_code": 0,
+      "stdout": "Governance check: PASS\n",
+      "observed_at": "2026-11-07T20:13:15.574739+00:00"
+    }
+  },
+  "first": {
+    "command": "python ai-workflow-kit-v4/tools/govern.py check --target .",
+    "status": "INTERRUPTED",
+    "exit_code": 1,
+    "stdout_file": "governance-first.log",
+    "reason": "read-only scan was interrupted before completion; final unmodified tool completed successfully"
+  }
+}

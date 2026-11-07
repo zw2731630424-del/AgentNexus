@@ -1,0 +1,68 @@
+{
+  "schema": "agentnexus/m151/independent-lifecycle-observation-correction/1",
+  "generated_at": "2026-11-07T19:56:35.480582+00:00",
+  "raw_source_set_sha256": "4825d2432a01a497a68971fab57909bc9613b38ff087346afbcceba56f7aa9fa",
+  "reviewed_final_set_sha256": "3f4c9e1b30f7d956b7be9c6330872cf87f32681f86c39a9b3b09c97c9bc581a0",
+  "cases": [
+    {
+      "id": "seq-single-8",
+      "raw": {
+        "path": "deliverables/AgentNexus-M1.5.1/evidence/cpu-qualification/2026-11-07T19-32-42-737Z-19340/seq-single-8.stdout.jsonl",
+        "bytes": 7502,
+        "sha256": "0b47ddff3d44474d246117baf1a2dfc9cffd9785f79b7f5ac20873a7c31a029e"
+      },
+      "root_exit_observed": false,
+      "root_exit_observed_at": null,
+      "root_exit_code": 123,
+      "tree_empty_observed": true,
+      "output_producers_settled": true,
+      "history_complete_observed": true,
+      "historical_assigned_processes": 2,
+      "historical_pinned_processes": 2,
+      "members_all_exited": true,
+      "member_exit_codes": [
+        123,
+        123
+      ],
+      "membership_complete": false,
+      "proof_status": "EXIT_UNVERIFIED",
+      "release_authority": false
+    },
+    {
+      "id": "parallel-multi-4",
+      "raw": {
+        "path": "deliverables/AgentNexus-M1.5.1/evidence/cpu-qualification/2026-11-07T19-32-42-737Z-19340/parallel-multi-4.stdout.jsonl",
+        "bytes": 9347,
+        "sha256": "c8f72803dad12a8ca27f5bb15d8b970bd22d122d38c5b1b7619f217d13371cfa"
+      },
+      "root_exit_observed": false,
+      "root_exit_observed_at": null,
+      "root_exit_code": 123,
+      "tree_empty_observed": true,
+      "output_producers_settled": true,
+      "history_complete_observed": true,
+      "historical_assigned_processes": 6,
+      "historical_pinned_processes": 6,
+      "members_all_exited": true,
+      "member_exit_codes": [
+        123,
+        123,
+        123,
+        123,
+        123,
+        123
+      ],
+      "membership_complete": false,
+      "proof_status": "EXIT_UNVERIFIED",
+      "release_authority": false
+    }
+  ],
+  "corrected_classification": "PROCESS_LIFECYCLE_OBSERVATION_RACE; NOT_MISSING_HISTORICAL_MEMBERS",
+  "cause": "The old loop could stop at Job-empty and completed output pumps before retained process handles were signaled. The earlier root sample was false, while later member samples were true.",
+  "reviewed_fix": "The existing cleanup loop can break early only when the Job is empty, every retained process handle is signaled, and both output pumps completed.",
+  "deadline_formula_unchanged": "Math.Max(clock.ElapsedMilliseconds,deadline-80)",
+  "retained_handles": "Root handle is retained at creation; observed child handles are opened with QUERY|SYNCHRONIZE, retained in the same dictionary, and closed only in the existing finally block.",
+  "qualification_unchanged": "membership_complete=false; parentage_complete=false; proof_status=EXIT_UNVERIFIED; release_authority=false",
+  "limits": "This removes the identified premature-break path. Deadline exhaustion still permits unverified observations. Static review is not a new behavioral or timing qualification.",
+  "new_os_or_process_tests_executed": false
+}
