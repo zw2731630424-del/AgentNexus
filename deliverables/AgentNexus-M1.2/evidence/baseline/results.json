@@ -1,0 +1,821 @@
+{
+  "schema": "agentnexus/m1.2/baseline-test-results/1",
+  "counts": {
+    "tests": 135,
+    "passed": 131,
+    "failed": 0,
+    "not_run": 4
+  },
+  "cases": [
+    {
+      "name": "FT-RESOLVE: defaults, child narrowing, ancestor veto, explicit INHERIT",
+      "tap_name": "FT-RESOLVE: defaults, child narrowing, ancestor veto, explicit INHERIT",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "FT: unknown IDs, illegal scopes and non-admin payloads rejected",
+      "tap_name": "FT: unknown IDs, illegal scopes and non-admin payloads rejected",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "FT-DEPENDENCY: rejects partial disable and does not enable a dependency implicitly",
+      "tap_name": "FT-DEPENDENCY: rejects partial disable and does not enable a dependency implicitly",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "FT: mutual conflict, wrong preview hash and stale revision cannot commit",
+      "tap_name": "FT: mutual conflict, wrong preview hash and stale revision cannot commit",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "FT-OFF: live work aborts; failure remains FAILED until explicit recovery",
+      "tap_name": "FT-OFF: live work aborts; failure remains FAILED until explicit recovery",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "FT-RETAIN: configuration survives real reopen, facts remain and old epoch is invalid",
+      "tap_name": "FT-RETAIN: configuration survives real reopen, facts remain and old epoch is invalid",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "FT-INHERIT-OFF: ON to INHERIT must quiesce when default is OFF",
+      "tap_name": "FT-INHERIT-OFF: ON to INHERIT must quiesce when default is OFF",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "FT-LATE-STOP: timeout cannot recover or enable until the old stop actually settles",
+      "tap_name": "FT-LATE-STOP: timeout cannot recover or enable until the old stop actually settles",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "FT catalog is capacity, unimplemented module never becomes enabled from default ON",
+      "tap_name": "FT catalog is capacity, unimplemented module never becomes enabled from default ON",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "P.ADMIN_MODE: forged admin, L0 degradation and missing reason rejected",
+      "tap_name": "P.ADMIN_MODE: forged admin, L0 degradation and missing reason rejected",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "P.ADMIN_MODE: two distinct confirmations, preview binding and challenge replay",
+      "tap_name": "P.ADMIN_MODE: two distinct confirmations, preview binding and challenge replay",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "P.MODE: same denied request has distinct enforce/audit/disabled behavior",
+      "tap_name": "P.MODE: same denied request has distinct enforce/audit/disabled behavior",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "P.MODE: selected IDs and project scope; explicit ENFORCE dominates overlap",
+      "tap_name": "P.MODE: selected IDs and project scope; explicit ENFORCE dominates overlap",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "P.MODE: PDP fault stays closed in ENFORCE and AUDIT_ONLY; DISABLED actually skips PDP",
+      "tap_name": "P.MODE: PDP fault stays closed in ENFORCE and AUDIT_ONLY; DISABLED actually skips PDP",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "P.MODE-EXPIRY: real deadline freezes until persisted-chain preflight",
+      "tap_name": "P.MODE-EXPIRY: real deadline freezes until persisted-chain preflight",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "P.MODE-RECOVERY: reboot never restores a permissive lease without preflight",
+      "tap_name": "P.MODE-RECOVERY: reboot never restores a permissive lease without preflight",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "P.APPROVAL: hash/identity/epoch/expiry bind grants and no self-reported approval",
+      "tap_name": "P.APPROVAL: hash/identity/epoch/expiry bind grants and no self-reported approval",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "P.APPROVAL-EXPIRY: real expiry cannot revive under an in-process clock rollback",
+      "tap_name": "P.APPROVAL-EXPIRY: real expiry cannot revive under an in-process clock rollback",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "Json canonical contract rejects accessors/cycles/nonfinite numbers",
+      "tap_name": "Json canonical contract rejects accessors/cycles/nonfinite numbers",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "JSON uses real JSON.parse and preserves independent safety/authorization dimensions",
+      "tap_name": "JSON uses real JSON.parse and preserves independent safety/authorization dimensions",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "Python AST actually parses valid/invalid source, with explicitly limited coverage",
+      "tap_name": "Python AST actually parses valid/invalid source, with explicitly limited coverage",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "PowerShell Parser actually returns AST diagnostics and UTF-16 positions",
+      "tap_name": "PowerShell Parser actually returns AST diagnostics and UTF-16 positions",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "Python and PowerShell source side effects remain unexecuted",
+      "tap_name": "Python and PowerShell source side effects remain unexecuted",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "all relevant source Feature OFF paths bypass without a configured parser",
+      "tap_name": "all relevant source Feature OFF paths bypass without a configured parser",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "optional environment/safety OFF remains BYPASSED while syntax independently runs",
+      "tap_name": "optional environment/safety OFF remains BYPASSED while syntax independently runs",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "missing parsers and unsupported languages/dialects never produce PASS",
+      "tap_name": "missing parsers and unsupported languages/dialects never produce PASS",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "new document version, same-version hash mismatch and close fence old results",
+      "tap_name": "new document version, same-version hash mismatch and close fence old results",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "real parser requests respect newer versions and Feature epoch changes",
+      "tap_name": "real parser requests respect newer versions and Feature epoch changes",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "AbortSignal, timeout and dispose are bounded and never become PASS",
+      "tap_name": "AbortSignal, timeout and dispose are bounded and never become PASS",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "source/Unicode/request budgets reject before parsing and constructor budgets are fixed",
+      "tap_name": "source/Unicode/request budgets reject before parsing and constructor budgets are fixed",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "queue admission caps concurrent work and recovers after backpressure",
+      "tap_name": "queue admission caps concurrent work and recovers after backpressure",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "PowerShell error floods remain bounded and do not turn truncation into PASS",
+      "tap_name": "PowerShell error floods remain bounded and do not turn truncation into PASS",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "registered Git/Python argv schemas are static, limited and independently typed",
+      "tap_name": "registered Git/Python argv schemas are static, limited and independently typed",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "argv environment checks inspect only the Host file and preserve the actual args result",
+      "tap_name": "argv environment checks inspect only the Host file and preserve the actual args result",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "argv family and values are copied before asynchronous work",
+      "tap_name": "argv family and values are copied before asynchronous work",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "argument Feature OFF bypasses schema and dispose prevents subsequent work",
+      "tap_name": "argument Feature OFF bypasses schema and dispose prevents subsequent work",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "disposeAndWait confirms real interpreter child close and all queued work is drained",
+      "tap_name": "disposeAndWait confirms real interpreter child close and all queued work is drained",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "AT/Context/Artifact: real invocation produces separate hash-linked facts and byte-exact output",
+      "tap_name": "AT/Context/Artifact: real invocation produces separate hash-linked facts and byte-exact output",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "P.MODE+Gateway: same safe synthetic operation blocked/enforced, would-deny, and unevaluated",
+      "tap_name": "P.MODE+Gateway: same safe synthetic operation blocked/enforced, would-deny, and unevaluated",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "P.SANDBOX: DISABLED does not admit arbitrary execution or close independent protection",
+      "tap_name": "P.SANDBOX: DISABLED does not admit arbitrary execution or close independent protection",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "P.IDENTITY: facade has no administration and JSON admin/mode flags cannot elevate",
+      "tap_name": "P.IDENTITY: facade has no administration and JSON admin/mode flags cannot elevate",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "P.APPROVAL_REPLAY: exact approval executes once; altered intent and replay denied",
+      "tap_name": "P.APPROVAL_REPLAY: exact approval executes once; altered intent and replay denied",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "P.DB_ATOMIC: 16 concurrent duplicate requests invoke a real handler at most once",
+      "tap_name": "P.DB_ATOMIC: 16 concurrent duplicate requests invoke a real handler at most once",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "P.WORKSPACE_WRITER: concurrent distinct calls cannot overwrite active resource; modes cannot change mid-action",
+      "tap_name": "P.WORKSPACE_WRITER: concurrent distinct calls cannot overwrite active resource; modes cannot change mid-action",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "AT-IOFAIL-before: actual SQLite readonly persistence failure prevents handler execution",
+      "tap_name": "AT-IOFAIL-before: actual SQLite readonly persistence failure prevents handler execution",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "AT-IOFAIL-after: actual effect with unrecordable result keeps claim and never replays",
+      "tap_name": "AT-IOFAIL-after: actual effect with unrecordable result keeps claim and never replays",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "P.TIMEOUT: timeout retains owned lease until actual handler settlement and never resets claim",
+      "tap_name": "P.TIMEOUT: timeout retains owned lease until actual handler settlement and never resets claim",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "AT-REPLAY: reconstruction is readonly and session scope does not grant peer context",
+      "tap_name": "AT-REPLAY: reconstruction is readonly and session scope does not grant peer context",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "P.IDENTITY-revocation: old facade cannot read or close a replacement session",
+      "tap_name": "P.IDENTITY-revocation: old facade cannot read or close a replacement session",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "P.IDENTITY-close-race: close revokes facade before its first asynchronous cleanup",
+      "tap_name": "P.IDENTITY-close-race: close revokes facade before its first asynchronous cleanup",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "P.TIMEOUT-clock: handler deadline uses elapsed time under a wall-clock rollback",
+      "tap_name": "P.TIMEOUT-clock: handler deadline uses elapsed time under a wall-clock rollback",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "P.MODE-START: a bypass expiring during a real delayed durability barrier cannot execute",
+      "tap_name": "P.MODE-START: a bypass expiring during a real delayed durability barrier cannot execute",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "DI integration: malformed code remains FAIL, checks OFF are BYPASSED, raw/audit continue",
+      "tap_name": "DI integration: malformed code remains FAIL, checks OFF are BYPASSED, raw/audit continue",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "Tool OFF rejects invocation, diagnostics log OFF does not silence core audit, oversized request is bounded",
+      "tap_name": "Tool OFF rejects invocation, diagnostics log OFF does not silence core audit, oversized request is bounded",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "P.ARG_BINDING: mutation by schema or caller cannot replace the authorized snapshot",
+      "tap_name": "P.ARG_BINDING: mutation by schema or caller cannot replace the authorized snapshot",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "DI command checking keeps argv preview as data and cannot execute Git/Python",
+      "tap_name": "DI command checking keeps argv preview as data and cannot execute Git/Python",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "controlled static bytes close over binary, empty and nested same-name files",
+      "tap_name": "controlled static bytes close over binary, empty and nested same-name files",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "empty package permits exactly its manifest, with zero payload budgets",
+      "tap_name": "empty package permits exactly its manifest, with zero payload budgets",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "matching mutable tree is INCONCLUSIVE, never a trusted release root",
+      "tap_name": "matching mutable tree is INCONCLUSIVE, never a trusted release root",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "same-size modified content fails its SHA-256",
+      "tap_name": "same-size modified content fails its SHA-256",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "appended content fails declared byte size",
+      "tap_name": "appended content fails declared byte size",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "missing and unlisted files are both reported by full relative path",
+      "tap_name": "missing and unlisted files are both reported by full relative path",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "sub/manifest.json",
+      "tap_name": "sub/manifest.json",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "validation/SHA256SUMS.txt",
+      "tap_name": "validation/SHA256SUMS.txt",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "unexpected.cjs",
+      "tap_name": "unexpected.cjs",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": ".hidden",
+      "tap_name": ".hidden",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "unlisted nested manifest and SHA256SUMS names are never self exceptions",
+      "tap_name": "unlisted nested manifest and SHA256SUMS names are never self exceptions",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "root manifest is required and cannot list itself",
+      "tap_name": "root manifest is required and cannot list itself",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "root manifest directory and non-directory roots fail",
+      "tap_name": "root manifest directory and non-directory roots fail",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "duplicate JSON keys are rejected despite JSON.parse last-wins semantics",
+      "tap_name": "duplicate JSON keys are rejected despite JSON.parse last-wins semantics",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "duplicate complete path and unsorted arrays fail independently",
+      "tap_name": "duplicate complete path and unsorted arrays fail independently",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "A vs a",
+      "tap_name": "A vs a",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "Dir/a vs dir/b",
+      "tap_name": "Dir/a vs dir/b",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "a vs a/b",
+      "tap_name": "a vs a/b",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "case conflicts include ancestor directories and file-directory prefixes",
+      "tap_name": "case conflicts include ancestor directories and file-directory prefixes",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "\"../outside\"",
+      "tap_name": "\"../outside\"",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "\"./a\"",
+      "tap_name": "\"./a\"",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "\"a//b\"",
+      "tap_name": "\"a//b\"",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "\"/outside\"",
+      "tap_name": "\"/outside\"",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "\"C:/outside\"",
+      "tap_name": "\"C:/outside\"",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "\"//server/share\"",
+      "tap_name": "\"//server/share\"",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "\"a\\\\b\"",
+      "tap_name": "\"a\\\\\\\\b\"",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "\"a:stream\"",
+      "tap_name": "\"a:stream\"",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "\"NUL.txt\"",
+      "tap_name": "\"NUL.txt\"",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "\"COM1\"",
+      "tap_name": "\"COM1\"",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "\"con.tar.gz\"",
+      "tap_name": "\"con.tar.gz\"",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "\"a.\"",
+      "tap_name": "\"a.\"",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "\"a \"",
+      "tap_name": "\"a \"",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "\"PROGRA~1/file\"",
+      "tap_name": "\"PROGRA~1/file\"",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "\"\"",
+      "tap_name": "\"\"",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "\"a\\u0000b\"",
+      "tap_name": "\"a\\\\u0000b\"",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "\"é\"",
+      "tap_name": "\"é\"",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "\"é\"",
+      "tap_name": "\"é\"",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "\"İ\"",
+      "tap_name": "\"İ\"",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "\"a/a/\"",
+      "tap_name": "\"a/a/\"",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "path traversal, device aliases, malformed separators and Unicode reject before payload reads",
+      "tap_name": "path traversal, device aliases, malformed separators and Unicode reject before payload reads",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "schema, digest and byte count reject invalid declarations",
+      "tap_name": "schema, digest and byte count reject invalid declarations",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "canonical encoding rejects whitespace, BOM, bad UTF-8 and equivalent escapes",
+      "tap_name": "canonical encoding rejects whitespace, BOM, bad UTF-8 and equivalent escapes",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "extra empty directory and file-vs-directory mismatch cannot disappear",
+      "tap_name": "extra empty directory and file-vs-directory mismatch cannot disappear",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "file count and total bytes budgets work at exact limit and limit plus one",
+      "tap_name": "file count and total bytes budgets work at exact limit and limit plus one",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "actual unlisted content also consumes size and count budgets",
+      "tap_name": "actual unlisted content also consumes size and count budgets",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "manifest and single-file caps are enforced without reading an oversized payload",
+      "tap_name": "manifest and single-file caps are enforced without reading an oversized payload",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "path length and depth have bounded rejection",
+      "tap_name": "path length and depth have bounded rejection",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "actual default file and directory count limits accept the edge and reject one more",
+      "tap_name": "actual default file and directory count limits accept the edge and reject one more",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "actual 8 MiB files and 16 MiB total accept the edge; declared and actual overflow reject",
+      "tap_name": "actual 8 MiB files and 16 MiB total accept the edge; declared and actual overflow reject",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "maximum component and depth are accepted on an actually created portable path",
+      "tap_name": "maximum component and depth are accepted on an actually created portable path",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "Host cannot expand limits or choose an unknown mode; relative roots reject",
+      "tap_name": "Host cannot expand limits or choose an unknown mode; relative roots reject",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "pre-abort is NOT_RUN; in-flight abort is INCONCLUSIVE with closed file work",
+      "tap_name": "pre-abort is NOT_RUN; in-flight abort is INCONCLUSIVE with closed file work",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "diagnostic count and encoded bytes remain bounded for many extra files",
+      "tap_name": "diagnostic count and encoded bytes remain bounded for many extra files",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "candidate scripts, package metadata and git-looking files are data and never executed",
+      "tap_name": "candidate scripts, package metadata and git-looking files are data and never executed",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "real OS file symlink is rejected without following its target",
+      "tap_name": "real OS file symlink is rejected without following its target",
+      "status": "NOT_RUN",
+      "reason": "NOT_RUN: real OS link fixture unavailable (EPERM); no simulated OS PASS"
+    },
+    {
+      "name": "real OS dir link is rejected",
+      "tap_name": "real OS dir link is rejected",
+      "status": "NOT_RUN",
+      "reason": "NOT_RUN: real OS link fixture unavailable (EPERM); no simulated OS PASS"
+    },
+    {
+      "name": "real OS junction link is rejected",
+      "tap_name": "real OS junction link is rejected",
+      "status": "NOT_RUN",
+      "reason": "NOT_RUN: real OS link fixture unavailable (EPERM); no simulated OS PASS"
+    },
+    {
+      "name": "real OS hardlink to an outside object is rejected by link count",
+      "tap_name": "real OS hardlink to an outside object is rejected by link count",
+      "status": "NOT_RUN",
+      "reason": "NOT_RUN: real OS link fixture unavailable (EPERM); no simulated OS PASS"
+    },
+    {
+      "name": "real SQLite, three independent domain chains and global pagination",
+      "tap_name": "real SQLite, three independent domain chains and global pagination",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "synchronous cross-table transaction, rollback, UNIQUE and business errors do not fault",
+      "tap_name": "synchronous cross-table transaction, rollback, UNIQUE and business errors do not fault",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "agent and session SQL filters apply before LIMIT and preserve global cursor pages",
+      "tap_name": "agent and session SQL filters apply before LIMIT and preserve global cursor pages",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "flush covers its captured target after an empty or older shared flush",
+      "tap_name": "flush covers its captured target after an empty or older shared flush",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "required fields, malformed refs, oversized envelopes and query budgets reject without fault",
+      "tap_name": "required fields, malformed refs, oversized envelopes and query budgets reject without fault",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "outbox high water rejects new records, then drains without unbounded queues",
+      "tap_name": "outbox high water rejects new records, then drains without unbounded queues",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "second writer and live lock recovery are blocked; real owner death is explicit",
+      "tap_name": "second writer and live lock recovery are blocked; real owner death is explicit",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "process crash after file fsync and before receipt reexports no duplicate",
+      "tap_name": "process crash after file fsync and before receipt reexports no duplicate",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "unacknowledged crash tail is preserved then repaired from durable outbox",
+      "tap_name": "unacknowledged crash tail is preserved then repaired from durable outbox",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "actual export I/O failure freezes writes and preserves outbox until explicit recovery",
+      "tap_name": "actual export I/O failure freezes writes and preserves outbox until explicit recovery",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "acknowledged truncation is never silently discarded or rebuilt as success",
+      "tap_name": "acknowledged truncation is never silently discarded or rebuilt as success",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "actual artifact publication I/O failure retains bytes and freezes both record and object admission",
+      "tap_name": "actual artifact publication I/O failure retains bytes and freezes both record and object admission",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "database hash tampering throws, freezes writes and does not fake repair",
+      "tap_name": "database hash tampering throws, freezes writes and does not fake repair",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "32 MiB randomized artifact roundtrip streams with real backpressure and two hashes",
+      "tap_name": "32 MiB randomized artifact roundtrip streams with real backpressure and two hashes",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "cancelled, over-budget and invalid-chunk objects remain incomplete; secret is rejected",
+      "tap_name": "cancelled, over-budget and invalid-chunk objects remain incomplete; secret is rejected",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "early artifact iterator return is not verification; full corrupted stream fails closed",
+      "tap_name": "early artifact iterator return is not verification; full corrupted stream fails closed",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "concurrent artifact admission is bounded and rejects a third stream without queueing",
+      "tap_name": "concurrent artifact admission is bounded and rejects a third stream without queueing",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "abort races a permanently pending source.next without retaining Store writers or accepting late bytes",
+      "tap_name": "abort races a permanently pending source.next without retaining Store writers or accepting late bytes",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "concurrent close calls share the real drain and lock-release promise",
+      "tap_name": "concurrent close calls share the real drain and lock-release promise",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "sealed segments are compressed, chained and verified; stored bit flip is detected",
+      "tap_name": "sealed segments are compressed, chained and verified; stored bit flip is detected",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "name": "process-killed partial artifact remains retained without a complete object reference",
+      "tap_name": "process-killed partial artifact remains retained without a complete object reference",
+      "status": "PASS",
+      "reason": null
+    }
+  ]
+}

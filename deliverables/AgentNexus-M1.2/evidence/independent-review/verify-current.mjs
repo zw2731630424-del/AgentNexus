@@ -1,0 +1,24 @@
+import { cp, mkdir, readFile, writeFile, readdir } from 'node:fs/promises';
+import { spawnSync } from 'node:child_process';
+import { fileURLToPath } from 'node:url';
+import { dirname, join, relative, resolve } from 'node:path';
+import { createHash } from 'node:crypto';
+const review = dirname(fileURLToPath(import.meta.url)); const root = resolve(review, '../../../..');
+const output = join(review, 'revision-' + Date.now().toString(36)); const workspace = join(output, 'workspace');
+await mkdir(workspace, { recursive: true });
+for (const name of ['src', 'tests', 'config', 'package.json']) await cp(join(root, name), join(workspace, name), { recursive: true, force: false, errorOnExist: true });
+const files = [];
+async function inventory(path) { for (const e of (await readdir(path, { withFileTypes: true })).sort((a,b) => a.name.localeCompare(b.name))) { const full = join(path, e.name); if (e.isDirectory()) await inventory(full); else if (e.isFile()) { const bytes = await readFile(full); files.push({ path: relative(workspace, full).replaceAll('\\','/'), bytes: bytes.length, sha256: createHash('sha256').update(bytes).digest('hex') }); } else throw new Error('Non-regular source'); } }
+await inventory(workspace); await writeFile(join(output, 'source-manifest.json'), JSON.stringify({ copied_at: new Date().toISOString(), root, workspace, files }, null, 2) + '\n');
+const env = { ...process.env, NODE_OPTIONS: '', NODE_PATH: '', AGENTNEXUS_TEST_DATA_ROOT: join(review, 'd'), AGENTNEXUS_REVIEW_WORKSPACE: workspace, AGENTNEXUS_REVIEW_RESOURCE: '1', AGENTNEXUS_REVIEW_EVIDENCE: join(output, 'probe-results.json') };
+const tests = ['security','reconciliation','gateway','control'].map(x => `tests/agentnexus/${x}.test.ts`);
+const started = new Date().toISOString();
+const tested = spawnSync(process.execPath, ['--test','--test-concurrency=1','--test-reporter=tap', ...tests], { cwd: workspace, env, shell: false, encoding: 'utf8', timeout: 90000 });
+await writeFile(join(output, 'tests.tap'), tested.stdout ?? ''); await writeFile(join(output, 'tests.stderr.txt'), tested.stderr ?? '');
+await writeFile(join(output, 'test-result.json'), JSON.stringify({ started_at: started, ended_at: new Date().toISOString(), exit_code: tested.status, error: tested.error ? String(tested.error) : null, tests, node: process.version, data_root: env.AGENTNEXUS_TEST_DATA_ROOT }, null, 2) + '\n');
+const probed = spawnSync(process.execPath, [join(review, 'current-probe.mjs')], { cwd: workspace, env, shell: false, encoding: 'utf8', timeout: 15000 });
+await writeFile(join(output, 'probe.stdout.txt'), probed.stdout ?? ''); await writeFile(join(output, 'probe.stderr.txt'), probed.stderr ?? '');
+const producer = spawnSync(process.execPath, [join(review, 'producer-probe.mjs')], { cwd: workspace, env: { ...env, AGENTNEXUS_REVIEW_EVIDENCE: join(output, 'producer-results.json') }, shell: false, encoding: 'utf8', timeout: 15000 });
+await writeFile(join(output, 'producer.stdout.txt'), producer.stdout ?? ''); await writeFile(join(output, 'producer.stderr.txt'), producer.stderr ?? '');
+console.log(JSON.stringify({ output, tests_exit: tested.status, probe_exit: probed.status, producer_exit: producer.status }));
+process.exitCode = tested.status || probed.status || producer.status || (tested.error || probed.error || producer.error ? 1 : 0);

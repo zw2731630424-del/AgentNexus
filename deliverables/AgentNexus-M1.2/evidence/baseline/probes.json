@@ -1,0 +1,58 @@
+{
+  "schema": "agentnexus/m1.2/baseline-probes/1",
+  "local_synthetic_only": true,
+  "results": [
+    {
+      "id": "BASE-POLICY",
+      "observed": {
+        "allowed": true,
+        "facts": [
+          {
+            "policy_id": "P.UNKNOWN",
+            "mode": "ENFORCE",
+            "original_verdict": "ALLOW",
+            "result": "ALLOW",
+            "enforced": true
+          }
+        ],
+        "policy_epoch": 0
+      },
+      "expected_m12": "REJECT_STARTUP"
+    },
+    {
+      "id": "BASE-EMPTY-POLICY-STORE",
+      "observed": {
+        "status": "PASS",
+        "reason": "BROKER_OPERATION_COMPLETE",
+        "operation_id": "a6e26b10-c64e-4160-bb06-acf65a36f347",
+        "intent_hash": "2e62ad0179ffe7470f59ba1613af43f4e7dbc36fc838000fd97cad31910fcd7e",
+        "data": {
+          "store_exposed": true
+        },
+        "stdout_ref": {
+          "artifact_id": "dcfee71c-d405-46a8-afdb-ee57c0a5a11d",
+          "sha256": "edc051378527c3aa8775a00915ed51199e17c8fc92be485ccc3aabca33a4a851",
+          "bytes": 22,
+          "codec": "zstd",
+          "stored_sha256": "03d56fc4856c0ccbffc240d5c6478515a263fa841b3d3dccba759894cd6f5494",
+          "stored_bytes": 35,
+          "media_type": "application/octet-stream",
+          "sensitivity": "NORMAL"
+        },
+        "stderr_ref": {
+          "artifact_id": "3ca1b043-7aad-41a4-8964-db6de769de4f",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0,
+          "codec": "zstd",
+          "stored_sha256": "f96deff1816083fdff8bc3e46c3fe6ca46a6bb49f4d5a00627616c13237a512c",
+          "stored_bytes": 13,
+          "media_type": "application/octet-stream",
+          "sensitivity": "NORMAL"
+        },
+        "audit_event_id": "46b98bd7-1fb2-46c7-a14e-c76ee56f4ffd",
+        "permit_id": "f4e2de3d-712e-4053-a9b2-f98eadce67ba"
+      },
+      "expected_m12": "REJECT_REGISTRATION"
+    }
+  ]
+}

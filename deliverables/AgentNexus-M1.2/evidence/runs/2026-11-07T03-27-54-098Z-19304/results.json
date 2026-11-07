@@ -1,0 +1,2444 @@
+{
+  "schema": "agentnexus/m1.2/verification/1",
+  "started_at": "2026-11-07T03:27:54.182Z",
+  "ended_at": "2026-11-07T03:28:11.975Z",
+  "exit_code": 1,
+  "node": "v24.15.0",
+  "platform": "win32",
+  "test_files": [
+    "tests/agentnexus/control.test.ts",
+    "tests/agentnexus/diagnostics.test.ts",
+    "tests/agentnexus/gateway.test.ts",
+    "tests/agentnexus/integrity.test.ts",
+    "tests/agentnexus/reconciliation.test.ts",
+    "tests/agentnexus/security.test.ts",
+    "tests/agentnexus/storage.test.ts"
+  ],
+  "summary": {
+    "type": "test:summary",
+    "success": false,
+    "counts": {
+      "tests": 171,
+      "failed": 1,
+      "passed": 166,
+      "cancelled": 0,
+      "skipped": 4,
+      "todo": 0,
+      "topLevel": 133,
+      "suites": 0
+    },
+    "duration_ms": 17709.053
+  },
+  "cases": [
+    {
+      "type": "test:pass",
+      "name": "FT-RESOLVE: defaults, child narrowing, ancestor veto, explicit INHERIT",
+      "nesting": 0,
+      "testNumber": 1,
+      "details": {
+        "duration_ms": 84.8572,
+        "type": "test"
+      },
+      "line": 38,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\control.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "FT: unknown IDs, illegal scopes and non-admin payloads rejected",
+      "nesting": 0,
+      "testNumber": 2,
+      "details": {
+        "duration_ms": 37.9025,
+        "type": "test"
+      },
+      "line": 50,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\control.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "FT-DEPENDENCY: rejects partial disable and does not enable a dependency implicitly",
+      "nesting": 0,
+      "testNumber": 3,
+      "details": {
+        "duration_ms": 46.0072,
+        "type": "test"
+      },
+      "line": 57,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\control.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "FT: mutual conflict, wrong preview hash and stale revision cannot commit",
+      "nesting": 0,
+      "testNumber": 4,
+      "details": {
+        "duration_ms": 55.3529,
+        "type": "test"
+      },
+      "line": 65,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\control.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "FT-OFF: live work aborts; failure remains FAILED until explicit recovery",
+      "nesting": 0,
+      "testNumber": 5,
+      "details": {
+        "duration_ms": 54.9136,
+        "type": "test"
+      },
+      "line": 74,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\control.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "FT-RETAIN: configuration survives real reopen, facts remain and old epoch is invalid",
+      "nesting": 0,
+      "testNumber": 6,
+      "details": {
+        "duration_ms": 70.8012,
+        "type": "test"
+      },
+      "line": 88,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\control.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "FT-INHERIT-OFF: ON to INHERIT must quiesce when default is OFF",
+      "nesting": 0,
+      "testNumber": 7,
+      "details": {
+        "duration_ms": 58.6261,
+        "type": "test"
+      },
+      "line": 100,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\control.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "FT-LATE-STOP: timeout cannot recover or enable until the old stop actually settles",
+      "nesting": 0,
+      "testNumber": 8,
+      "details": {
+        "duration_ms": 1056.6215,
+        "type": "test"
+      },
+      "line": 110,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\control.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "FT catalog is capacity, unimplemented module never becomes enabled from default ON",
+      "nesting": 0,
+      "testNumber": 9,
+      "details": {
+        "duration_ms": 45.3236,
+        "type": "test"
+      },
+      "line": 123,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\control.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "P.ADMIN_MODE: forged admin, L0 degradation and missing reason rejected",
+      "nesting": 0,
+      "testNumber": 10,
+      "details": {
+        "duration_ms": 38.8703,
+        "type": "test"
+      },
+      "line": 129,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\control.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "P.ADMIN_MODE: two distinct confirmations, preview binding and challenge replay",
+      "nesting": 0,
+      "testNumber": 11,
+      "details": {
+        "duration_ms": 47.4923,
+        "type": "test"
+      },
+      "line": 137,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\control.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "P.MODE: same denied request has distinct enforce/audit/disabled behavior",
+      "nesting": 0,
+      "testNumber": 12,
+      "details": {
+        "duration_ms": 56.4145,
+        "type": "test"
+      },
+      "line": 148,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\control.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "P.MODE: selected IDs and project scope; explicit ENFORCE dominates overlap",
+      "nesting": 0,
+      "testNumber": 13,
+      "details": {
+        "duration_ms": 54.8954,
+        "type": "test"
+      },
+      "line": 158,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\control.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "P.MODE: PDP fault stays closed in ENFORCE and AUDIT_ONLY; DISABLED actually skips PDP",
+      "nesting": 0,
+      "testNumber": 14,
+      "details": {
+        "duration_ms": 55.3789,
+        "type": "test"
+      },
+      "line": 166,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\control.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "P.MODE-EXPIRY: real deadline freezes until persisted-chain preflight",
+      "nesting": 0,
+      "testNumber": 15,
+      "details": {
+        "duration_ms": 1158.1425,
+        "type": "test"
+      },
+      "line": 173,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\control.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "P.MODE-RECOVERY: reboot never restores a permissive lease without preflight",
+      "nesting": 0,
+      "testNumber": 16,
+      "details": {
+        "duration_ms": 83.5611,
+        "type": "test"
+      },
+      "line": 181,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\control.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "P.APPROVAL: hash/identity/epoch/expiry bind grants and no self-reported approval",
+      "nesting": 0,
+      "testNumber": 17,
+      "details": {
+        "duration_ms": 49.0252,
+        "type": "test"
+      },
+      "line": 190,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\control.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "P.APPROVAL-EXPIRY: real expiry cannot revive under an in-process clock rollback",
+      "nesting": 0,
+      "testNumber": 18,
+      "details": {
+        "duration_ms": 91.4146,
+        "type": "test"
+      },
+      "line": 200,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\control.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "Json canonical contract rejects accessors/cycles/nonfinite numbers",
+      "nesting": 0,
+      "testNumber": 19,
+      "details": {
+        "duration_ms": 0.3349,
+        "type": "test"
+      },
+      "line": 206,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\control.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "JSON uses real JSON.parse and preserves independent safety/authorization dimensions",
+      "nesting": 0,
+      "testNumber": 20,
+      "details": {
+        "duration_ms": 6.1699,
+        "type": "test"
+      },
+      "line": 22,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\diagnostics.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "Python AST actually parses valid/invalid source, with explicitly limited coverage",
+      "nesting": 0,
+      "testNumber": 21,
+      "details": {
+        "duration_ms": 432.2521,
+        "type": "test"
+      },
+      "line": 42,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\diagnostics.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "PowerShell Parser actually returns AST diagnostics and UTF-16 positions",
+      "nesting": 0,
+      "testNumber": 22,
+      "details": {
+        "duration_ms": 905.8725,
+        "type": "test"
+      },
+      "line": 74,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\diagnostics.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "Python and PowerShell source side effects remain unexecuted",
+      "nesting": 0,
+      "testNumber": 23,
+      "details": {
+        "duration_ms": 422.5001,
+        "type": "test"
+      },
+      "line": 88,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\diagnostics.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "all relevant source Feature OFF paths bypass without a configured parser",
+      "nesting": 0,
+      "testNumber": 24,
+      "details": {
+        "duration_ms": 0.499,
+        "type": "test"
+      },
+      "line": 110,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\diagnostics.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "optional environment/safety OFF remains BYPASSED while syntax independently runs",
+      "nesting": 0,
+      "testNumber": 25,
+      "details": {
+        "duration_ms": 0.7666,
+        "type": "test"
+      },
+      "line": 126,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\diagnostics.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "missing parsers and unsupported languages/dialects never produce PASS",
+      "nesting": 0,
+      "testNumber": 26,
+      "details": {
+        "duration_ms": 0.8656,
+        "type": "test"
+      },
+      "line": 136,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\diagnostics.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "new document version, same-version hash mismatch and close fence old results",
+      "nesting": 0,
+      "testNumber": 27,
+      "details": {
+        "duration_ms": 1.8027,
+        "type": "test"
+      },
+      "line": 151,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\diagnostics.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "real parser requests respect newer versions and Feature epoch changes",
+      "nesting": 0,
+      "testNumber": 28,
+      "details": {
+        "duration_ms": 137.8394,
+        "type": "test"
+      },
+      "line": 171,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\diagnostics.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "AbortSignal, timeout and dispose are bounded and never become PASS",
+      "nesting": 0,
+      "testNumber": 29,
+      "details": {
+        "duration_ms": 1.7736,
+        "type": "test"
+      },
+      "line": 193,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\diagnostics.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "source/Unicode/request budgets reject before parsing and constructor budgets are fixed",
+      "nesting": 0,
+      "testNumber": 30,
+      "details": {
+        "duration_ms": 0.6199,
+        "type": "test"
+      },
+      "line": 215,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\diagnostics.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "queue admission caps concurrent work and recovers after backpressure",
+      "nesting": 0,
+      "testNumber": 31,
+      "details": {
+        "duration_ms": 2.1628,
+        "type": "test"
+      },
+      "line": 226,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\diagnostics.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "PowerShell error floods remain bounded and do not turn truncation into PASS",
+      "nesting": 0,
+      "testNumber": 32,
+      "details": {
+        "duration_ms": 578.0662,
+        "type": "test"
+      },
+      "line": 236,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\diagnostics.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "registered Git/Python argv schemas are static, limited and independently typed",
+      "nesting": 0,
+      "testNumber": 33,
+      "details": {
+        "duration_ms": 1.6869,
+        "type": "test"
+      },
+      "line": 247,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\diagnostics.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "argv environment checks inspect only the Host file and preserve the actual args result",
+      "nesting": 0,
+      "testNumber": 34,
+      "details": {
+        "duration_ms": 0.6814,
+        "type": "test"
+      },
+      "line": 271,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\diagnostics.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "argv family and values are copied before asynchronous work",
+      "nesting": 0,
+      "testNumber": 35,
+      "details": {
+        "duration_ms": 0.2517,
+        "type": "test"
+      },
+      "line": 281,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\diagnostics.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "argument Feature OFF bypasses schema and dispose prevents subsequent work",
+      "nesting": 0,
+      "testNumber": 36,
+      "details": {
+        "duration_ms": 0.1946,
+        "type": "test"
+      },
+      "line": 294,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\diagnostics.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "disposeAndWait confirms real interpreter child close and all queued work is drained",
+      "nesting": 0,
+      "testNumber": 37,
+      "details": {
+        "duration_ms": 42.0211,
+        "type": "test"
+      },
+      "line": 305,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\diagnostics.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "AT/Context/Artifact: real invocation produces separate hash-linked facts and byte-exact output",
+      "nesting": 0,
+      "testNumber": 38,
+      "details": {
+        "duration_ms": 158.2861,
+        "type": "test"
+      },
+      "line": 40,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\gateway.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "P.MODE+Gateway: same safe synthetic operation blocked/enforced, would-deny, and unevaluated",
+      "nesting": 0,
+      "testNumber": 39,
+      "details": {
+        "duration_ms": 205.6908,
+        "type": "test"
+      },
+      "line": 53,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\gateway.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "P.SANDBOX: DISABLED does not admit arbitrary execution or close independent protection",
+      "nesting": 0,
+      "testNumber": 40,
+      "details": {
+        "duration_ms": 71.0774,
+        "type": "test"
+      },
+      "line": 63,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\gateway.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "P.IDENTITY: facade has no administration and JSON admin/mode flags cannot elevate",
+      "nesting": 0,
+      "testNumber": 41,
+      "details": {
+        "duration_ms": 56.0367,
+        "type": "test"
+      },
+      "line": 70,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\gateway.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "P.APPROVAL_REPLAY: exact approval executes once; altered intent and replay denied",
+      "nesting": 0,
+      "testNumber": 42,
+      "details": {
+        "duration_ms": 133.4938,
+        "type": "test"
+      },
+      "line": 77,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\gateway.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "P.DB_ATOMIC: 16 concurrent duplicate requests invoke a real handler at most once",
+      "nesting": 0,
+      "testNumber": 43,
+      "details": {
+        "duration_ms": 106.6539,
+        "type": "test"
+      },
+      "line": 89,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\gateway.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "P.WORKSPACE_WRITER: concurrent distinct calls cannot overwrite active resource; modes cannot change mid-action",
+      "nesting": 0,
+      "testNumber": 44,
+      "details": {
+        "duration_ms": 131.137,
+        "type": "test"
+      },
+      "line": 95,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\gateway.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "AT-IOFAIL-before: actual SQLite readonly persistence failure prevents handler execution",
+      "nesting": 0,
+      "testNumber": 45,
+      "details": {
+        "duration_ms": 111.8381,
+        "type": "test"
+      },
+      "line": 108,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\gateway.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "AT-IOFAIL-after: actual effect with unrecordable result keeps claim and never replays",
+      "nesting": 0,
+      "testNumber": 46,
+      "details": {
+        "duration_ms": 104.5748,
+        "type": "test"
+      },
+      "line": 114,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\gateway.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "P.TIMEOUT: timeout retains owned lease until actual handler settlement and never resets claim",
+      "nesting": 0,
+      "testNumber": 47,
+      "details": {
+        "duration_ms": 114.0787,
+        "type": "test"
+      },
+      "line": 123,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\gateway.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "AT-REPLAY: reconstruction is readonly and session scope does not grant peer context",
+      "nesting": 0,
+      "testNumber": 48,
+      "details": {
+        "duration_ms": 116.4013,
+        "type": "test"
+      },
+      "line": 133,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\gateway.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "P.IDENTITY-revocation: old facade cannot read or close a replacement session",
+      "nesting": 0,
+      "testNumber": 49,
+      "details": {
+        "duration_ms": 158.2423,
+        "type": "test"
+      },
+      "line": 142,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\gateway.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "P.IDENTITY-close-race: close revokes facade before its first asynchronous cleanup",
+      "nesting": 0,
+      "testNumber": 50,
+      "details": {
+        "duration_ms": 104.8485,
+        "type": "test"
+      },
+      "line": 148,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\gateway.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "P.TIMEOUT-clock: handler deadline uses elapsed time under a wall-clock rollback",
+      "nesting": 0,
+      "testNumber": 51,
+      "details": {
+        "duration_ms": 106.3504,
+        "type": "test"
+      },
+      "line": 156,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\gateway.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "P.MODE-START: a bypass expiring during a real delayed durability barrier cannot execute",
+      "nesting": 0,
+      "testNumber": 52,
+      "details": {
+        "duration_ms": 494.6813,
+        "type": "test"
+      },
+      "line": 165,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\gateway.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "DI integration: malformed code remains FAIL, checks OFF are BYPASSED, raw/audit continue",
+      "nesting": 0,
+      "testNumber": 53,
+      "details": {
+        "duration_ms": 180.7801,
+        "type": "test"
+      },
+      "line": 174,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\gateway.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "Tool OFF rejects invocation, diagnostics log OFF does not silence core audit, oversized request is bounded",
+      "nesting": 0,
+      "testNumber": 54,
+      "details": {
+        "duration_ms": 78.636,
+        "type": "test"
+      },
+      "line": 185,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\gateway.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "P.ARG_BINDING: mutation by schema or caller cannot replace the authorized snapshot",
+      "nesting": 0,
+      "testNumber": 55,
+      "details": {
+        "duration_ms": 105.4393,
+        "type": "test"
+      },
+      "line": 193,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\gateway.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "DI command checking keeps argv preview as data and cannot execute Git/Python",
+      "nesting": 0,
+      "testNumber": 56,
+      "details": {
+        "duration_ms": 102.8108,
+        "type": "test"
+      },
+      "line": 199,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\gateway.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "controlled static bytes close over binary, empty and nested same-name files",
+      "nesting": 0,
+      "testNumber": 57,
+      "details": {
+        "duration_ms": 27.1852,
+        "type": "test"
+      },
+      "line": 61,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "empty package permits exactly its manifest, with zero payload budgets",
+      "nesting": 0,
+      "testNumber": 58,
+      "details": {
+        "duration_ms": 7.3773,
+        "type": "test"
+      },
+      "line": 80,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "matching mutable tree is INCONCLUSIVE, never a trusted release root",
+      "nesting": 0,
+      "testNumber": 59,
+      "details": {
+        "duration_ms": 7.7979,
+        "type": "test"
+      },
+      "line": 88,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "same-size modified content fails its SHA-256",
+      "nesting": 0,
+      "testNumber": 60,
+      "details": {
+        "duration_ms": 9.3419,
+        "type": "test"
+      },
+      "line": 97,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "appended content fails declared byte size",
+      "nesting": 0,
+      "testNumber": 61,
+      "details": {
+        "duration_ms": 7.4636,
+        "type": "test"
+      },
+      "line": 104,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "missing and unlisted files are both reported by full relative path",
+      "nesting": 0,
+      "testNumber": 62,
+      "details": {
+        "duration_ms": 8.1013,
+        "type": "test"
+      },
+      "line": 111,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "sub/manifest.json",
+      "nesting": 1,
+      "testNumber": 1,
+      "details": {
+        "duration_ms": 8.1084,
+        "type": "test"
+      },
+      "line": 123,
+      "column": 13,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "validation/SHA256SUMS.txt",
+      "nesting": 1,
+      "testNumber": 2,
+      "details": {
+        "duration_ms": 8.9699,
+        "type": "test"
+      },
+      "line": 123,
+      "column": 13,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "unexpected.cjs",
+      "nesting": 1,
+      "testNumber": 3,
+      "details": {
+        "duration_ms": 6.2561,
+        "type": "test"
+      },
+      "line": 123,
+      "column": 13,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": ".hidden",
+      "nesting": 1,
+      "testNumber": 4,
+      "details": {
+        "duration_ms": 6.1325,
+        "type": "test"
+      },
+      "line": 123,
+      "column": 13,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "unlisted nested manifest and SHA256SUMS names are never self exceptions",
+      "nesting": 0,
+      "testNumber": 63,
+      "details": {
+        "duration_ms": 30.3129,
+        "type": "test"
+      },
+      "line": 121,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "root manifest is required and cannot list itself",
+      "nesting": 0,
+      "testNumber": 64,
+      "details": {
+        "duration_ms": 6.8181,
+        "type": "test"
+      },
+      "line": 135,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "root manifest directory and non-directory roots fail",
+      "nesting": 0,
+      "testNumber": 65,
+      "details": {
+        "duration_ms": 4.5956,
+        "type": "test"
+      },
+      "line": 142,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "duplicate JSON keys are rejected despite JSON.parse last-wins semantics",
+      "nesting": 0,
+      "testNumber": 66,
+      "details": {
+        "duration_ms": 6.7234,
+        "type": "test"
+      },
+      "line": 151,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "duplicate complete path and unsorted arrays fail independently",
+      "nesting": 0,
+      "testNumber": 67,
+      "details": {
+        "duration_ms": 6.8031,
+        "type": "test"
+      },
+      "line": 161,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "A vs a",
+      "nesting": 1,
+      "testNumber": 1,
+      "details": {
+        "duration_ms": 4.5442,
+        "type": "test"
+      },
+      "line": 175,
+      "column": 13,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "Dir/a vs dir/b",
+      "nesting": 1,
+      "testNumber": 2,
+      "details": {
+        "duration_ms": 5.7385,
+        "type": "test"
+      },
+      "line": 175,
+      "column": 13,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "a vs a/b",
+      "nesting": 1,
+      "testNumber": 3,
+      "details": {
+        "duration_ms": 4.7224,
+        "type": "test"
+      },
+      "line": 175,
+      "column": 13,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "case conflicts include ancestor directories and file-directory prefixes",
+      "nesting": 0,
+      "testNumber": 68,
+      "details": {
+        "duration_ms": 15.54,
+        "type": "test"
+      },
+      "line": 169,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "\"../outside\"",
+      "nesting": 1,
+      "testNumber": 1,
+      "details": {
+        "duration_ms": 6.0484,
+        "type": "test"
+      },
+      "line": 190,
+      "column": 13,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "\"./a\"",
+      "nesting": 1,
+      "testNumber": 2,
+      "details": {
+        "duration_ms": 6.8778,
+        "type": "test"
+      },
+      "line": 190,
+      "column": 13,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "\"a//b\"",
+      "nesting": 1,
+      "testNumber": 3,
+      "details": {
+        "duration_ms": 5.5311,
+        "type": "test"
+      },
+      "line": 190,
+      "column": 13,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "\"/outside\"",
+      "nesting": 1,
+      "testNumber": 4,
+      "details": {
+        "duration_ms": 5.1549,
+        "type": "test"
+      },
+      "line": 190,
+      "column": 13,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "\"C:/outside\"",
+      "nesting": 1,
+      "testNumber": 5,
+      "details": {
+        "duration_ms": 7.1562,
+        "type": "test"
+      },
+      "line": 190,
+      "column": 13,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "\"//server/share\"",
+      "nesting": 1,
+      "testNumber": 6,
+      "details": {
+        "duration_ms": 5.2596,
+        "type": "test"
+      },
+      "line": 190,
+      "column": 13,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "\"a\\\\b\"",
+      "nesting": 1,
+      "testNumber": 7,
+      "details": {
+        "duration_ms": 4.4768,
+        "type": "test"
+      },
+      "line": 190,
+      "column": 13,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "\"a:stream\"",
+      "nesting": 1,
+      "testNumber": 8,
+      "details": {
+        "duration_ms": 6.1762,
+        "type": "test"
+      },
+      "line": 190,
+      "column": 13,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "\"NUL.txt\"",
+      "nesting": 1,
+      "testNumber": 9,
+      "details": {
+        "duration_ms": 7.0141,
+        "type": "test"
+      },
+      "line": 190,
+      "column": 13,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "\"COM1\"",
+      "nesting": 1,
+      "testNumber": 10,
+      "details": {
+        "duration_ms": 5.8826,
+        "type": "test"
+      },
+      "line": 190,
+      "column": 13,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "\"con.tar.gz\"",
+      "nesting": 1,
+      "testNumber": 11,
+      "details": {
+        "duration_ms": 5.8825,
+        "type": "test"
+      },
+      "line": 190,
+      "column": 13,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "\"a.\"",
+      "nesting": 1,
+      "testNumber": 12,
+      "details": {
+        "duration_ms": 4.7685,
+        "type": "test"
+      },
+      "line": 190,
+      "column": 13,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "\"a \"",
+      "nesting": 1,
+      "testNumber": 13,
+      "details": {
+        "duration_ms": 5.5015,
+        "type": "test"
+      },
+      "line": 190,
+      "column": 13,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "\"PROGRA~1/file\"",
+      "nesting": 1,
+      "testNumber": 14,
+      "details": {
+        "duration_ms": 6.4052,
+        "type": "test"
+      },
+      "line": 190,
+      "column": 13,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "\"\"",
+      "nesting": 1,
+      "testNumber": 15,
+      "details": {
+        "duration_ms": 5.0083,
+        "type": "test"
+      },
+      "line": 190,
+      "column": 13,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "\"a\\u0000b\"",
+      "nesting": 1,
+      "testNumber": 16,
+      "details": {
+        "duration_ms": 5.8204,
+        "type": "test"
+      },
+      "line": 190,
+      "column": 13,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "\"é\"",
+      "nesting": 1,
+      "testNumber": 17,
+      "details": {
+        "duration_ms": 6.0073,
+        "type": "test"
+      },
+      "line": 190,
+      "column": 13,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "\"é\"",
+      "nesting": 1,
+      "testNumber": 18,
+      "details": {
+        "duration_ms": 5.6689,
+        "type": "test"
+      },
+      "line": 190,
+      "column": 13,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "\"İ\"",
+      "nesting": 1,
+      "testNumber": 19,
+      "details": {
+        "duration_ms": 6.8687,
+        "type": "test"
+      },
+      "line": 190,
+      "column": 13,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "\"a/a/\"",
+      "nesting": 1,
+      "testNumber": 20,
+      "details": {
+        "duration_ms": 5.5136,
+        "type": "test"
+      },
+      "line": 190,
+      "column": 13,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "path traversal, device aliases, malformed separators and Unicode reject before payload reads",
+      "nesting": 0,
+      "testNumber": 69,
+      "details": {
+        "duration_ms": 119.3978,
+        "type": "test"
+      },
+      "line": 183,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "schema, digest and byte count reject invalid declarations",
+      "nesting": 0,
+      "testNumber": 70,
+      "details": {
+        "duration_ms": 19.1806,
+        "type": "test"
+      },
+      "line": 203,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "canonical encoding rejects whitespace, BOM, bad UTF-8 and equivalent escapes",
+      "nesting": 0,
+      "testNumber": 71,
+      "details": {
+        "duration_ms": 13.0714,
+        "type": "test"
+      },
+      "line": 220,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "extra empty directory and file-vs-directory mismatch cannot disappear",
+      "nesting": 0,
+      "testNumber": 72,
+      "details": {
+        "duration_ms": 8.1223,
+        "type": "test"
+      },
+      "line": 232,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "file count and total bytes budgets work at exact limit and limit plus one",
+      "nesting": 0,
+      "testNumber": 73,
+      "details": {
+        "duration_ms": 13.5892,
+        "type": "test"
+      },
+      "line": 242,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "actual unlisted content also consumes size and count budgets",
+      "nesting": 0,
+      "testNumber": 74,
+      "details": {
+        "duration_ms": 9.2966,
+        "type": "test"
+      },
+      "line": 252,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "manifest and single-file caps are enforced without reading an oversized payload",
+      "nesting": 0,
+      "testNumber": 75,
+      "details": {
+        "duration_ms": 8.9352,
+        "type": "test"
+      },
+      "line": 261,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "path length and depth have bounded rejection",
+      "nesting": 0,
+      "testNumber": 76,
+      "details": {
+        "duration_ms": 7.6258,
+        "type": "test"
+      },
+      "line": 273,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "actual default file and directory count limits accept the edge and reject one more",
+      "nesting": 0,
+      "testNumber": 77,
+      "details": {
+        "duration_ms": 1303.5135,
+        "type": "test"
+      },
+      "line": 281,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "actual 8 MiB files and 16 MiB total accept the edge; declared and actual overflow reject",
+      "nesting": 0,
+      "testNumber": 78,
+      "details": {
+        "duration_ms": 62.5907,
+        "type": "test"
+      },
+      "line": 303,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "maximum component and depth are accepted on an actually created portable path",
+      "nesting": 0,
+      "testNumber": 79,
+      "details": {
+        "duration_ms": 45.4454,
+        "type": "test"
+      },
+      "line": 318,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "Host cannot expand limits or choose an unknown mode; relative roots reject",
+      "nesting": 0,
+      "testNumber": 80,
+      "details": {
+        "duration_ms": 4.9873,
+        "type": "test"
+      },
+      "line": 327,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "pre-abort is NOT_RUN; in-flight abort is INCONCLUSIVE with closed file work",
+      "nesting": 0,
+      "testNumber": 81,
+      "details": {
+        "duration_ms": 9.7114,
+        "type": "test"
+      },
+      "line": 342,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "diagnostic count and encoded bytes remain bounded for many extra files",
+      "nesting": 0,
+      "testNumber": 82,
+      "details": {
+        "duration_ms": 79.534,
+        "type": "test"
+      },
+      "line": 355,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "candidate scripts, package metadata and git-looking files are data and never executed",
+      "nesting": 0,
+      "testNumber": 83,
+      "details": {
+        "duration_ms": 18.2042,
+        "type": "test"
+      },
+      "line": 366,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "real OS file symlink is rejected without following its target",
+      "nesting": 0,
+      "testNumber": 84,
+      "details": {
+        "duration_ms": 6.1069,
+        "type": "test"
+      },
+      "line": 381,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "skip": "NOT_RUN: real OS link fixture unavailable (EPERM); no simulated OS PASS",
+      "status": "NOT_RUN"
+    },
+    {
+      "type": "test:pass",
+      "name": "real OS dir link is rejected",
+      "nesting": 0,
+      "testNumber": 85,
+      "details": {
+        "duration_ms": 5.1869,
+        "type": "test"
+      },
+      "line": 392,
+      "column": 3,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "skip": "NOT_RUN: real OS link fixture unavailable (EPERM); no simulated OS PASS",
+      "status": "NOT_RUN"
+    },
+    {
+      "type": "test:pass",
+      "name": "real OS junction link is rejected",
+      "nesting": 0,
+      "testNumber": 86,
+      "details": {
+        "duration_ms": 4.9445,
+        "type": "test"
+      },
+      "line": 392,
+      "column": 3,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "skip": "NOT_RUN: real OS link fixture unavailable (EPERM); no simulated OS PASS",
+      "status": "NOT_RUN"
+    },
+    {
+      "type": "test:pass",
+      "name": "real OS hardlink to an outside object is rejected by link count",
+      "nesting": 0,
+      "testNumber": 87,
+      "details": {
+        "duration_ms": 5.7436,
+        "type": "test"
+      },
+      "line": 405,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "skip": "NOT_RUN: real OS link fixture unavailable (EPERM); no simulated OS PASS",
+      "status": "NOT_RUN"
+    },
+    {
+      "type": "test:pass",
+      "name": "M12-REC-APPLIED: exact intent, evidence, append-only audit and single-use adjudication release settled writer",
+      "nesting": 0,
+      "testNumber": 88,
+      "details": {
+        "duration_ms": 136.9037,
+        "type": "test"
+      },
+      "line": 43,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\reconciliation.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M12-REC-NOT-APPLIED: evidence-confirmed absence never automatically reexecutes the original call",
+      "nesting": 0,
+      "testNumber": 89,
+      "details": {
+        "duration_ms": 148.9005,
+        "type": "test"
+      },
+      "line": 60,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\reconciliation.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M12-REC-NEGATIVE: missing evidence, wrong intent, forged authority and invalid outcomes fail closed",
+      "nesting": 0,
+      "testNumber": 90,
+      "details": {
+        "duration_ms": 90.763,
+        "type": "test"
+      },
+      "line": 71,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\reconciliation.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M12-REC-UNKNOWN: quarantine persists over restart and may only advance with a new exact revision/challenge",
+      "nesting": 0,
+      "testNumber": 91,
+      "details": {
+        "duration_ms": 156.9187,
+        "type": "test"
+      },
+      "line": 81,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\reconciliation.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M12-REC-CONCURRENCY: competing administrator challenges create one final adjudication",
+      "nesting": 0,
+      "testNumber": 92,
+      "details": {
+        "duration_ms": 100.8739,
+        "type": "test"
+      },
+      "line": 95,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\reconciliation.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M12-REC-TIMEOUT: effect adjudication cannot release a running executor; explicit later release uses trusted settlement",
+      "nesting": 0,
+      "testNumber": 93,
+      "details": {
+        "duration_ms": 181.7189,
+        "type": "test"
+      },
+      "line": 104,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\reconciliation.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M12-REC-UNKNOWN-EXIT: administrator evidence alone cannot assert executor exit",
+      "nesting": 0,
+      "testNumber": 94,
+      "details": {
+        "duration_ms": 97.0988,
+        "type": "test"
+      },
+      "line": 121,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\reconciliation.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M12-REC-IOFAIL: failed adjudication transaction does not consume authorization or release writer",
+      "nesting": 0,
+      "testNumber": 95,
+      "details": {
+        "duration_ms": 111.9739,
+        "type": "test"
+      },
+      "line": 130,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\reconciliation.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:fail",
+      "name": "M12-REC-OUTPUT-TIMEOUT: late output never becomes PASS and UNKNOWN producer keeps its writer over restart",
+      "nesting": 0,
+      "testNumber": 96,
+      "details": {
+        "duration_ms": 152.0645,
+        "type": "test",
+        "error": {
+          "message": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n  Comparison {\n+   code: 'OPERATION_NOT_RECONCILABLE'\n-   code: 'EXECUTOR_EXIT_NOT_CONFIRMED'\n  }\n",
+          "code": "ERR_TEST_FAILURE",
+          "stack": "Error [ERR_TEST_FAILURE]: Expected values to be strictly deep-equal:\n+ actual - expected\n\n  Comparison {\n+   code: 'OPERATION_NOT_RECONCILABLE'\n-   code: 'EXECUTOR_EXIT_NOT_CONFIRMED'\n  }\n",
+          "cause": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n  Comparison {\n+   code: 'OPERATION_NOT_RECONCILABLE'\n-   code: 'EXECUTOR_EXIT_NOT_CONFIRMED'\n  }\n"
+        }
+      },
+      "line": 138,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\reconciliation.test.ts",
+      "status": "FAIL"
+    },
+    {
+      "type": "test:pass",
+      "name": "M12-REC-CRASH: real process kill at before-call never replays local effect",
+      "nesting": 0,
+      "testNumber": 97,
+      "details": {
+        "duration_ms": 335.524,
+        "type": "test"
+      },
+      "line": 155,
+      "column": 3,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\reconciliation.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M12-REC-CRASH: real process kill at after-call-before-started never replays local effect",
+      "nesting": 0,
+      "testNumber": 98,
+      "details": {
+        "duration_ms": 330.8917,
+        "type": "test"
+      },
+      "line": 155,
+      "column": 3,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\reconciliation.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M12-REC-CRASH: real process kill at handler-before-result never replays local effect",
+      "nesting": 0,
+      "testNumber": 99,
+      "details": {
+        "duration_ms": 324.1352,
+        "type": "test"
+      },
+      "line": 155,
+      "column": 3,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\reconciliation.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M12-REC-CRASH: real process kill at result-before-ack never replays local effect",
+      "nesting": 0,
+      "testNumber": 100,
+      "details": {
+        "duration_ms": 362.3171,
+        "type": "test"
+      },
+      "line": 155,
+      "column": 3,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\reconciliation.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M12-REC-CRASH: real process kill at ack-before-delivery never replays local effect",
+      "nesting": 0,
+      "testNumber": 101,
+      "details": {
+        "duration_ms": 341.1899,
+        "type": "test"
+      },
+      "line": 155,
+      "column": 3,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\reconciliation.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "unknown ID",
+      "nesting": 1,
+      "testNumber": 1,
+      "details": {
+        "duration_ms": 1.5528,
+        "type": "test"
+      },
+      "line": 52,
+      "column": 56,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\security.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "unknown level",
+      "nesting": 1,
+      "testNumber": 2,
+      "details": {
+        "duration_ms": 0.2441,
+        "type": "test"
+      },
+      "line": 52,
+      "column": 56,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\security.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "wrong known level",
+      "nesting": 1,
+      "testNumber": 3,
+      "details": {
+        "duration_ms": 0.2346,
+        "type": "test"
+      },
+      "line": 52,
+      "column": 56,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\security.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "owner",
+      "nesting": 1,
+      "testNumber": 4,
+      "details": {
+        "duration_ms": 0.1931,
+        "type": "test"
+      },
+      "line": 52,
+      "column": 56,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\security.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "degradable",
+      "nesting": 1,
+      "testNumber": 5,
+      "details": {
+        "duration_ms": 0.1879,
+        "type": "test"
+      },
+      "line": 52,
+      "column": 56,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\security.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "missing field",
+      "nesting": 1,
+      "testNumber": 6,
+      "details": {
+        "duration_ms": 0.1764,
+        "type": "test"
+      },
+      "line": 52,
+      "column": 56,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\security.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "empty modes",
+      "nesting": 1,
+      "testNumber": 7,
+      "details": {
+        "duration_ms": 0.1503,
+        "type": "test"
+      },
+      "line": 52,
+      "column": 56,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\security.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "unknown mode",
+      "nesting": 1,
+      "testNumber": 8,
+      "details": {
+        "duration_ms": 0.1821,
+        "type": "test"
+      },
+      "line": 52,
+      "column": 56,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\security.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "invalid mode value",
+      "nesting": 1,
+      "testNumber": 9,
+      "details": {
+        "duration_ms": 0.1966,
+        "type": "test"
+      },
+      "line": 52,
+      "column": 56,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\security.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "unknown authority field",
+      "nesting": 1,
+      "testNumber": 10,
+      "details": {
+        "duration_ms": 0.2295,
+        "type": "test"
+      },
+      "line": 52,
+      "column": 56,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\security.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "permissive default",
+      "nesting": 1,
+      "testNumber": 11,
+      "details": {
+        "duration_ms": 0.1491,
+        "type": "test"
+      },
+      "line": 52,
+      "column": 56,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\security.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M12-PE-CONFIG: closed policy identity and runtime contract reject malformed definitions",
+      "nesting": 0,
+      "testNumber": 102,
+      "details": {
+        "duration_ms": 54.8647,
+        "type": "test"
+      },
+      "line": 38,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\security.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M12-PE-LEVELS: L0 owner, L1 exact approval, L2 implemented dimension, L3 advisory have explicit semantics",
+      "nesting": 0,
+      "testNumber": 103,
+      "details": {
+        "duration_ms": 127.4685,
+        "type": "test"
+      },
+      "line": 58,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\security.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M12-PE-INJECTION: trusted evaluator may only restrict and receives frozen policy/context",
+      "nesting": 0,
+      "testNumber": 104,
+      "details": {
+        "duration_ms": 52.0265,
+        "type": "test"
+      },
+      "line": 75,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\security.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M12-PE-REGISTER: unknown capability, missing declaration, empty effect policy and owner bypass rejected",
+      "nesting": 0,
+      "testNumber": 105,
+      "details": {
+        "duration_ms": 49.9035,
+        "type": "test"
+      },
+      "line": 83,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\security.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M12-PE-MODE-OWNER: even ENFORCE changes cannot persist an independent owner in the application mode table",
+      "nesting": 0,
+      "testNumber": 106,
+      "details": {
+        "duration_ms": 50.3461,
+        "type": "test"
+      },
+      "line": 94,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\security.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M12-PE-CONTEXT: tool sees no KernelStore, database, authorization or administration capability",
+      "nesting": 0,
+      "testNumber": 107,
+      "details": {
+        "duration_ms": 102.4434,
+        "type": "test"
+      },
+      "line": 100,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\security.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M12-PE-MODE: disabled application PDP and advisory policy cannot bypass mandatory side-effect approval",
+      "nesting": 0,
+      "testNumber": 108,
+      "details": {
+        "duration_ms": 153.105,
+        "type": "test"
+      },
+      "line": 112,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\security.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M12-PE-SANDBOX: process/external capabilities stay blocked even if requires_sandbox is false and PDP disabled",
+      "nesting": 0,
+      "testNumber": 109,
+      "details": {
+        "duration_ms": 85.1841,
+        "type": "test"
+      },
+      "line": 123,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\security.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M12-PE-START: approval expiry at the durable START_INTENT barrier prevents invocation",
+      "nesting": 0,
+      "testNumber": 110,
+      "details": {
+        "duration_ms": 378.3785,
+        "type": "test"
+      },
+      "line": 132,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\security.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M12-PE-EPOCH: policy change after permit issuance fences the old exact approval",
+      "nesting": 0,
+      "testNumber": 111,
+      "details": {
+        "duration_ms": 79.4762,
+        "type": "test"
+      },
+      "line": 140,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\security.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M12-PE-RESOURCE: approval binds the exact resource; late resolver changes cannot redirect execution",
+      "nesting": 0,
+      "testNumber": 112,
+      "details": {
+        "duration_ms": 98.0018,
+        "type": "test"
+      },
+      "line": 148,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\security.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "real SQLite, three independent domain chains and global pagination",
+      "nesting": 0,
+      "testNumber": 113,
+      "details": {
+        "duration_ms": 110.672,
+        "type": "test"
+      },
+      "line": 24,
+      "column": 3,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\storage.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "synchronous cross-table transaction, rollback, UNIQUE and business errors do not fault",
+      "nesting": 0,
+      "testNumber": 114,
+      "details": {
+        "duration_ms": 30.9096,
+        "type": "test"
+      },
+      "line": 24,
+      "column": 3,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\storage.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "agent and session SQL filters apply before LIMIT and preserve global cursor pages",
+      "nesting": 0,
+      "testNumber": 115,
+      "details": {
+        "duration_ms": 252.9465,
+        "type": "test"
+      },
+      "line": 24,
+      "column": 3,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\storage.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "flush covers its captured target after an empty or older shared flush",
+      "nesting": 0,
+      "testNumber": 116,
+      "details": {
+        "duration_ms": 36.5606,
+        "type": "test"
+      },
+      "line": 24,
+      "column": 3,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\storage.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "required fields, malformed refs, oversized envelopes and query budgets reject without fault",
+      "nesting": 0,
+      "testNumber": 117,
+      "details": {
+        "duration_ms": 30.3294,
+        "type": "test"
+      },
+      "line": 24,
+      "column": 3,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\storage.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "outbox high water rejects new records, then drains without unbounded queues",
+      "nesting": 0,
+      "testNumber": 118,
+      "details": {
+        "duration_ms": 41.1061,
+        "type": "test"
+      },
+      "line": 24,
+      "column": 3,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\storage.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "second writer and live lock recovery are blocked; real owner death is explicit",
+      "nesting": 0,
+      "testNumber": 119,
+      "details": {
+        "duration_ms": 218.6133,
+        "type": "test"
+      },
+      "line": 24,
+      "column": 3,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\storage.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "process crash after file fsync and before receipt reexports no duplicate",
+      "nesting": 0,
+      "testNumber": 120,
+      "details": {
+        "duration_ms": 201.2901,
+        "type": "test"
+      },
+      "line": 24,
+      "column": 3,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\storage.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "unacknowledged crash tail is preserved then repaired from durable outbox",
+      "nesting": 0,
+      "testNumber": 121,
+      "details": {
+        "duration_ms": 451.5908,
+        "type": "test"
+      },
+      "line": 24,
+      "column": 3,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\storage.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "actual export I/O failure freezes writes and preserves outbox until explicit recovery",
+      "nesting": 0,
+      "testNumber": 122,
+      "details": {
+        "duration_ms": 34.6093,
+        "type": "test"
+      },
+      "line": 24,
+      "column": 3,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\storage.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "acknowledged truncation is never silently discarded or rebuilt as success",
+      "nesting": 0,
+      "testNumber": 123,
+      "details": {
+        "duration_ms": 26.2979,
+        "type": "test"
+      },
+      "line": 24,
+      "column": 3,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\storage.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "actual artifact publication I/O failure retains bytes and freezes both record and object admission",
+      "nesting": 0,
+      "testNumber": 124,
+      "details": {
+        "duration_ms": 30.7964,
+        "type": "test"
+      },
+      "line": 24,
+      "column": 3,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\storage.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "database hash tampering throws, freezes writes and does not fake repair",
+      "nesting": 0,
+      "testNumber": 125,
+      "details": {
+        "duration_ms": 21.6189,
+        "type": "test"
+      },
+      "line": 24,
+      "column": 3,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\storage.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "32 MiB randomized artifact roundtrip streams with real backpressure and two hashes",
+      "nesting": 0,
+      "testNumber": 126,
+      "details": {
+        "duration_ms": 283.0856,
+        "type": "test"
+      },
+      "line": 24,
+      "column": 3,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\storage.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "cancelled, over-budget and invalid-chunk objects remain incomplete; secret is rejected",
+      "nesting": 0,
+      "testNumber": 127,
+      "details": {
+        "duration_ms": 36.3012,
+        "type": "test"
+      },
+      "line": 24,
+      "column": 3,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\storage.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "early artifact iterator return is not verification; full corrupted stream fails closed",
+      "nesting": 0,
+      "testNumber": 128,
+      "details": {
+        "duration_ms": 45.9565,
+        "type": "test"
+      },
+      "line": 24,
+      "column": 3,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\storage.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "concurrent artifact admission is bounded and rejects a third stream without queueing",
+      "nesting": 0,
+      "testNumber": 129,
+      "details": {
+        "duration_ms": 48.4815,
+        "type": "test"
+      },
+      "line": 24,
+      "column": 3,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\storage.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "abort races a permanently pending source.next without retaining Store writers or accepting late bytes",
+      "nesting": 0,
+      "testNumber": 130,
+      "details": {
+        "duration_ms": 24.4101,
+        "type": "test"
+      },
+      "line": 24,
+      "column": 3,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\storage.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "concurrent close calls share the real drain and lock-release promise",
+      "nesting": 0,
+      "testNumber": 131,
+      "details": {
+        "duration_ms": 24.852,
+        "type": "test"
+      },
+      "line": 24,
+      "column": 3,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\storage.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "sealed segments are compressed, chained and verified; stored bit flip is detected",
+      "nesting": 0,
+      "testNumber": 132,
+      "details": {
+        "duration_ms": 116.1222,
+        "type": "test"
+      },
+      "line": 24,
+      "column": 3,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\storage.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "process-killed partial artifact remains retained without a complete object reference",
+      "nesting": 0,
+      "testNumber": 133,
+      "details": {
+        "duration_ms": 221.1756,
+        "type": "test"
+      },
+      "line": 24,
+      "column": 3,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\verification\\2026-11-07T03-27-54-098Z-19304\\workspace\\tests\\agentnexus\\storage.test.ts",
+      "status": "PASS"
+    }
+  ],
+  "isolated_workspace": ".workflow-kit/runtime/AgentNexus-M1.2/verification/2026-11-07T03-27-54-098Z-19304/workspace",
+  "test_data_root": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\data\\mw5uf7qs-19304",
+  "source_manifest": "source-manifest.json",
+  "real_model": false,
+  "os_sandbox": "BLOCKED",
+  "os_identity": "NOT_RUN"
+}

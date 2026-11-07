@@ -4,6 +4,8 @@ import { FeatureRegistry } from './features.ts';
 import { PolicyEngine } from './policy.ts';
 import type { ModeRequest, RuleEvaluator } from './policy.ts';
 import { ToolGateway } from './gateway.ts';
+import { OperationReconciliation } from './reconciliation.ts';
+import type { ReconciliationRequest } from './reconciliation.ts';
 import type { ToolDefinition, ToolRequest } from './gateway.ts';
 import { DevelopmentIntelligence } from './diagnostics.ts';
 import type { ArgumentCheckRequest } from './diagnostics.ts';
@@ -63,25 +65,14 @@ export async function openHost(root: string, options: HostOptions = {}) {
     const nativeModules = ['core.identity','core.state','core.events','core.features','core.admin-audit','core.audit.trail','core.artifact.store','core.archive.raw','core.decision.ledger','policy.mode','tool.test',
       'devint.runtime','devint.command-parser','devint.syntax-validator','devint.argument-validator','devint.environment-checker','devint.command-preview','devint.code-diagnostics','devint.code.python','devint.code.json','devint.command.powershell','devint.command.git','devint.command.python-cli','audit.task-reconstruction'];
     for (const id of nativeModules) if (featureData.some((d: FeatureDefinition) => d.id === id)) features.register(token, id, id.startsWith('devint.') ? { stop: stopDiagnostics, preflight: preflightDiagnostics } : {});
-    // Recover uncertain effects without invoking a handler or reissuing a permit.
-    store.transaction(() => {
-      let after = '';
-      while (true) {
-        const rows = store.db.prepare("SELECT operation_id,state FROM control_operations WHERE operation_id>? AND state IN ('CLAIMED','STARTED','RESULT_RECORDED') ORDER BY operation_id LIMIT 100").all(after) as { operation_id: string; state: string }[];
-        if (!rows.length) break;
-        for (const r of rows) {
-          store.db.prepare("UPDATE control_operations SET state='INDETERMINATE' WHERE operation_id=?").run(r.operation_id);
-          adminEvent(store, 'RECOVERY', 'OPERATION_REQUIRES_RECONCILE', { operation_id: r.operation_id, previous_state: r.state });
-          after = r.operation_id;
-        }
-      }
-    });
+    const reconciliation = new OperationReconciliation(store, checkAdmin, gate, id => gateway.executorRunning(id), id => gateway.requestActive(id));
+    await reconciliation.recover();
     await policy.onBoot();
     if (featureData.some((d: FeatureDefinition) => d.id === 'tool.test')) {
-      gateway.register(token, { id: 'native.echo', version: '1', feature_id: 'tool.test', policy_ids: [], requires_sandbox: false,
+      gateway.register(token, { id: 'native.echo', version: '1', feature_id: 'tool.test', capability: 'PURE', policy_ids: [], requires_sandbox: false,
         schema: args => { boundedJson(args); }, execute: args => ({ data: args }) });
       if (featureData.some((d: FeatureDefinition) => d.id === 'devint.runtime')) gateway.register(token, {
-        id: 'native.diagnostics', version: '1', feature_id: 'tool.test', policy_ids: [], requires_sandbox: false,
+        id: 'native.diagnostics', version: '1', feature_id: 'tool.test', capability: 'READ_ONLY', policy_ids: [], requires_sandbox: false,
         schema: args => {
           invariant(args !== null && typeof args === 'object' && !Array.isArray(args), 'DIAGNOSTIC_SCHEMA');
           const r = args as any;
@@ -113,7 +104,7 @@ export async function openHost(root: string, options: HostOptions = {}) {
         execute: (_args, context) => ({ data: context.validation as unknown as Json }),
       });
       if (featureData.some((d: FeatureDefinition) => d.id === 'devint.runtime')) gateway.register(token, {
-        id: 'native.command-check', version: '1', feature_id: 'tool.test', policy_ids: [], requires_sandbox: false,
+        id: 'native.command-check', version: '1', feature_id: 'tool.test', capability: 'READ_ONLY', policy_ids: [], requires_sandbox: false,
         schema: args => {
           invariant(args !== null && typeof args === 'object' && !Array.isArray(args), 'COMMAND_CHECK_SCHEMA');
           const r = args as any;
@@ -148,6 +139,10 @@ export async function openHost(root: string, options: HostOptions = {}) {
       completePreflight: (scope: Scope) => policy.completePreflight(token, scope),
       approve: (hash: string, identity: Identity, reason: string, lifetimeMs?: number) => policy.approve(token, hash, identity, reason, lifetimeMs),
       registerTool: (definition: ToolDefinition) => gateway.register(token, definition),
+      recordReconciliationEvidence: (evidence: Parameters<OperationReconciliation['recordEvidence']>[1]) => reconciliation.recordEvidence(token, evidence),
+      prepareReconciliation: (request: ReconciliationRequest) => reconciliation.prepare(token, request),
+      commitReconciliation: (id: string, hash: string) => reconciliation.commit(token, id, hash),
+      inspectOperation: (id: string) => reconciliation.inspect(token, id),
       recordDecision: async (decision: Json, status: 'PROPOSED' | 'ACCEPTED', evidence: any[] = []) => {
         boundedJson(decision); const id = uid();
         const identity = { agent_id: 'host-admin', project_id: 'host', task_id: 'administration', session_id: 'host-control' };

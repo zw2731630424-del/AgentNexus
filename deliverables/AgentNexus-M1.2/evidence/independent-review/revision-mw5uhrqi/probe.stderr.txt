@@ -1,0 +1,16 @@
+file:///I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.2/independent-review/revision-mw5uhrqi/workspace/src/agentnexus/types.ts:44
+  if (!ok) throw new NexusError(code, message);
+                 ^
+
+NexusError: STORE_FAULTED
+    at invariant (file:///I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.2/independent-review/revision-mw5uhrqi/workspace/src/agentnexus/types.ts:44:18)
+    at KernelStore.assertWritable (file:///I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.2/independent-review/revision-mw5uhrqi/workspace/src/agentnexus/storage.ts:156:63)
+    at KernelStore.append (file:///I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.2/independent-review/revision-mw5uhrqi/workspace/src/agentnexus/storage.ts:178:10)
+    at KernelStore.audit (file:///I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.2/independent-review/revision-mw5uhrqi/workspace/src/agentnexus/storage.ts:193:56)
+    at file:///I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.2/independent-review/revision-mw5uhrqi/workspace/src/agentnexus/host.ts:185:25
+    at Object.close (file:///I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.2/independent-review/revision-mw5uhrqi/workspace/src/agentnexus/host.ts:192:13)
+    at file:///I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.2/independent-review/current-probe.mjs:39:11 {
+  code: 'STORE_FAULTED'
+}
+
+Node.js v24.15.0

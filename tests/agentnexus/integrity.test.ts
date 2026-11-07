@@ -10,7 +10,7 @@ import type { PackageEntry } from '../../src/agentnexus/integrity.ts';
 import { canonical } from '../../src/agentnexus/types.ts';
 
 // New synthetic fixture text only. Never reads/copies the legacy Kit or user code.
-const fixtureBase = resolve('.workflow-kit/runtime/AgentNexus-v0.4-M1/integrity/fixtures');
+const fixtureBase = resolve(process.env.AGENTNEXUS_TEST_DATA_ROOT ?? '.workflow-kit/runtime/AgentNexus-M1.2/test-data', 'integrity/fixtures');
 const controlled = { sourceMode: 'controlled_static' } as const;
 function hash(value: Uint8Array | string): string { return createHash('sha256').update(value).digest('hex'); }
 function entry(path: string, value: Uint8Array | string = ''): PackageEntry {

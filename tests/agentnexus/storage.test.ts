@@ -11,7 +11,7 @@ import { CHUNK_BYTES } from '../../src/agentnexus/artifacts.ts';
 import { auditEvent, NexusError, now, uid } from '../../src/agentnexus/types.ts';
 import type { AuditInput, Json } from '../../src/agentnexus/types.ts';
 
-const evidenceRoot = resolve('.workflow-kit/runtime/AgentNexus-v0.4-M1/storage');
+const evidenceRoot = resolve(process.env.AGENTNEXUS_TEST_DATA_ROOT ?? '.workflow-kit/runtime/AgentNexus-M1.2/test-data', 'storage');
 const fixtureRoot = join(evidenceRoot, 'fixtures');
 await mkdir(fixtureRoot, { recursive: true });
 const results: { name: string; status: string; elapsed_ms: number }[] = [];

@@ -41,6 +41,16 @@ export function initializeControl(store: KernelStore): void {
     for (const [name, sql] of [['boot_id',"TEXT NOT NULL DEFAULT ''"],['deadline_mono','REAL NOT NULL DEFAULT 0'],['issued_wall','INTEGER NOT NULL DEFAULT 0']])
       if (!columns.has(name)) store.db.exec(`ALTER TABLE ${table} ADD COLUMN ${name} ${sql}`);
   }
+  const operationColumns = new Set((store.db.prepare('PRAGMA table_info(control_operations)').all() as { name: string }[]).map(x => x.name));
+  for (const [name, sql] of [['executor_state',"TEXT NOT NULL DEFAULT 'UNKNOWN'"],['reconcile_revision','INTEGER NOT NULL DEFAULT 0']])
+    if (!operationColumns.has(name)) store.db.exec(`ALTER TABLE control_operations ADD COLUMN ${name} ${sql}`);
+  store.db.exec(`CREATE TABLE IF NOT EXISTS control_reconciliations(
+    id TEXT PRIMARY KEY, request_id TEXT UNIQUE NOT NULL, operation_id TEXT NOT NULL REFERENCES control_operations(operation_id),
+    revision INTEGER NOT NULL, intent_hash TEXT NOT NULL, action TEXT NOT NULL, outcome TEXT NOT NULL,
+    adjudicator TEXT NOT NULL, observed_at TEXT NOT NULL, reason TEXT NOT NULL, evidence TEXT NOT NULL,
+    writer_released INTEGER NOT NULL, audit_event_id TEXT NOT NULL, UNIQUE(operation_id,revision));
+    CREATE TRIGGER IF NOT EXISTS control_reconciliations_no_update BEFORE UPDATE ON control_reconciliations BEGIN SELECT RAISE(ABORT,'append only'); END;
+    CREATE TRIGGER IF NOT EXISTS control_reconciliations_no_delete BEFORE DELETE ON control_reconciliations BEGIN SELECT RAISE(ABORT,'append only'); END;`);
   clockFor(store);
 }
 export function metadata(store: KernelStore) {

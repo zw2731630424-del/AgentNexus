@@ -1,0 +1,437 @@
+TAP version 13
+# Subtest: FT-RESOLVE: defaults, child narrowing, ancestor veto, explicit INHERIT
+ok 1 - FT-RESOLVE: defaults, child narrowing, ancestor veto, explicit INHERIT
+  ---
+  duration_ms: 78.8836
+  type: 'test'
+  ...
+# Subtest: FT: unknown IDs, illegal scopes and non-admin payloads rejected
+ok 2 - FT: unknown IDs, illegal scopes and non-admin payloads rejected
+  ---
+  duration_ms: 37.4921
+  type: 'test'
+  ...
+# Subtest: FT-DEPENDENCY: rejects partial disable and does not enable a dependency implicitly
+ok 3 - FT-DEPENDENCY: rejects partial disable and does not enable a dependency implicitly
+  ---
+  duration_ms: 45.2965
+  type: 'test'
+  ...
+# Subtest: FT: mutual conflict, wrong preview hash and stale revision cannot commit
+ok 4 - FT: mutual conflict, wrong preview hash and stale revision cannot commit
+  ---
+  duration_ms: 53.0261
+  type: 'test'
+  ...
+# Subtest: FT-OFF: live work aborts; failure remains FAILED until explicit recovery
+ok 5 - FT-OFF: live work aborts; failure remains FAILED until explicit recovery
+  ---
+  duration_ms: 52.572
+  type: 'test'
+  ...
+# Subtest: FT-RETAIN: configuration survives real reopen, facts remain and old epoch is invalid
+ok 6 - FT-RETAIN: configuration survives real reopen, facts remain and old epoch is invalid
+  ---
+  duration_ms: 68.8042
+  type: 'test'
+  ...
+# Subtest: FT-INHERIT-OFF: ON to INHERIT must quiesce when default is OFF
+ok 7 - FT-INHERIT-OFF: ON to INHERIT must quiesce when default is OFF
+  ---
+  duration_ms: 55.6553
+  type: 'test'
+  ...
+# Subtest: FT-LATE-STOP: timeout cannot recover or enable until the old stop actually settles
+ok 8 - FT-LATE-STOP: timeout cannot recover or enable until the old stop actually settles
+  ---
+  duration_ms: 1055.2994
+  type: 'test'
+  ...
+# Subtest: FT catalog is capacity, unimplemented module never becomes enabled from default ON
+ok 9 - FT catalog is capacity, unimplemented module never becomes enabled from default ON
+  ---
+  duration_ms: 43.2365
+  type: 'test'
+  ...
+# Subtest: P.ADMIN_MODE: forged admin, L0 degradation and missing reason rejected
+ok 10 - P.ADMIN_MODE: forged admin, L0 degradation and missing reason rejected
+  ---
+  duration_ms: 35.756
+  type: 'test'
+  ...
+# Subtest: P.ADMIN_MODE: two distinct confirmations, preview binding and challenge replay
+ok 11 - P.ADMIN_MODE: two distinct confirmations, preview binding and challenge replay
+  ---
+  duration_ms: 44.6
+  type: 'test'
+  ...
+# Subtest: P.MODE: same denied request has distinct enforce/audit/disabled behavior
+ok 12 - P.MODE: same denied request has distinct enforce/audit/disabled behavior
+  ---
+  duration_ms: 54.2182
+  type: 'test'
+  ...
+# Subtest: P.MODE: selected IDs and project scope; explicit ENFORCE dominates overlap
+ok 13 - P.MODE: selected IDs and project scope; explicit ENFORCE dominates overlap
+  ---
+  duration_ms: 54.4567
+  type: 'test'
+  ...
+# Subtest: P.MODE: PDP fault stays closed in ENFORCE and AUDIT_ONLY; DISABLED actually skips PDP
+ok 14 - P.MODE: PDP fault stays closed in ENFORCE and AUDIT_ONLY; DISABLED actually skips PDP
+  ---
+  duration_ms: 54.8647
+  type: 'test'
+  ...
+# Subtest: P.MODE-EXPIRY: real deadline freezes until persisted-chain preflight
+ok 15 - P.MODE-EXPIRY: real deadline freezes until persisted-chain preflight
+  ---
+  duration_ms: 1162.5691
+  type: 'test'
+  ...
+# Subtest: P.MODE-RECOVERY: reboot never restores a permissive lease without preflight
+ok 16 - P.MODE-RECOVERY: reboot never restores a permissive lease without preflight
+  ---
+  duration_ms: 87.3819
+  type: 'test'
+  ...
+# Subtest: P.APPROVAL: hash/identity/epoch/expiry bind grants and no self-reported approval
+ok 17 - P.APPROVAL: hash/identity/epoch/expiry bind grants and no self-reported approval
+  ---
+  duration_ms: 54.0133
+  type: 'test'
+  ...
+# Subtest: P.APPROVAL-EXPIRY: real expiry cannot revive under an in-process clock rollback
+ok 18 - P.APPROVAL-EXPIRY: real expiry cannot revive under an in-process clock rollback
+  ---
+  duration_ms: 88.6833
+  type: 'test'
+  ...
+# Subtest: Json canonical contract rejects accessors/cycles/nonfinite numbers
+ok 19 - Json canonical contract rejects accessors/cycles/nonfinite numbers
+  ---
+  duration_ms: 0.3041
+  type: 'test'
+  ...
+# Subtest: AT/Context/Artifact: real invocation produces separate hash-linked facts and byte-exact output
+ok 20 - AT/Context/Artifact: real invocation produces separate hash-linked facts and byte-exact output
+  ---
+  duration_ms: 150.9357
+  type: 'test'
+  ...
+# Subtest: P.MODE+Gateway: same safe synthetic operation blocked/enforced, would-deny, and unevaluated
+ok 21 - P.MODE+Gateway: same safe synthetic operation blocked/enforced, would-deny, and unevaluated
+  ---
+  duration_ms: 183.7878
+  type: 'test'
+  ...
+# Subtest: P.SANDBOX: DISABLED does not admit arbitrary execution or close independent protection
+ok 22 - P.SANDBOX: DISABLED does not admit arbitrary execution or close independent protection
+  ---
+  duration_ms: 68.9642
+  type: 'test'
+  ...
+# Subtest: P.IDENTITY: facade has no administration and JSON admin/mode flags cannot elevate
+ok 23 - P.IDENTITY: facade has no administration and JSON admin/mode flags cannot elevate
+  ---
+  duration_ms: 52.7997
+  type: 'test'
+  ...
+# Subtest: P.APPROVAL_REPLAY: exact approval executes once; altered intent and replay denied
+ok 24 - P.APPROVAL_REPLAY: exact approval executes once; altered intent and replay denied
+  ---
+  duration_ms: 141.3974
+  type: 'test'
+  ...
+# Subtest: P.DB_ATOMIC: 16 concurrent duplicate requests invoke a real handler at most once
+ok 25 - P.DB_ATOMIC: 16 concurrent duplicate requests invoke a real handler at most once
+  ---
+  duration_ms: 113.5676
+  type: 'test'
+  ...
+# Subtest: P.WORKSPACE_WRITER: concurrent distinct calls cannot overwrite active resource; modes cannot change mid-action
+ok 26 - P.WORKSPACE_WRITER: concurrent distinct calls cannot overwrite active resource; modes cannot change mid-action
+  ---
+  duration_ms: 129.6146
+  type: 'test'
+  ...
+# Subtest: AT-IOFAIL-before: actual SQLite readonly persistence failure prevents handler execution
+ok 27 - AT-IOFAIL-before: actual SQLite readonly persistence failure prevents handler execution
+  ---
+  duration_ms: 110.2743
+  type: 'test'
+  ...
+# Subtest: AT-IOFAIL-after: actual effect with unrecordable result keeps claim and never replays
+ok 28 - AT-IOFAIL-after: actual effect with unrecordable result keeps claim and never replays
+  ---
+  duration_ms: 106.1213
+  type: 'test'
+  ...
+# Subtest: P.TIMEOUT: timeout retains owned lease until actual handler settlement and never resets claim
+ok 29 - P.TIMEOUT: timeout retains owned lease until actual handler settlement and never resets claim
+  ---
+  duration_ms: 102.7265
+  type: 'test'
+  ...
+# Subtest: AT-REPLAY: reconstruction is readonly and session scope does not grant peer context
+ok 30 - AT-REPLAY: reconstruction is readonly and session scope does not grant peer context
+  ---
+  duration_ms: 103.3483
+  type: 'test'
+  ...
+# Subtest: P.IDENTITY-revocation: old facade cannot read or close a replacement session
+ok 31 - P.IDENTITY-revocation: old facade cannot read or close a replacement session
+  ---
+  duration_ms: 134.5476
+  type: 'test'
+  ...
+# Subtest: P.IDENTITY-close-race: close revokes facade before its first asynchronous cleanup
+ok 32 - P.IDENTITY-close-race: close revokes facade before its first asynchronous cleanup
+  ---
+  duration_ms: 97.7936
+  type: 'test'
+  ...
+# Subtest: P.TIMEOUT-clock: handler deadline uses elapsed time under a wall-clock rollback
+ok 33 - P.TIMEOUT-clock: handler deadline uses elapsed time under a wall-clock rollback
+  ---
+  duration_ms: 101.1996
+  type: 'test'
+  ...
+# Subtest: P.MODE-START: a bypass expiring during a real delayed durability barrier cannot execute
+ok 34 - P.MODE-START: a bypass expiring during a real delayed durability barrier cannot execute
+  ---
+  duration_ms: 500.3448
+  type: 'test'
+  ...
+# Subtest: DI integration: malformed code remains FAIL, checks OFF are BYPASSED, raw/audit continue
+ok 35 - DI integration: malformed code remains FAIL, checks OFF are BYPASSED, raw/audit continue
+  ---
+  duration_ms: 176.5473
+  type: 'test'
+  ...
+# Subtest: Tool OFF rejects invocation, diagnostics log OFF does not silence core audit, oversized request is bounded
+ok 36 - Tool OFF rejects invocation, diagnostics log OFF does not silence core audit, oversized request is bounded
+  ---
+  duration_ms: 72.0618
+  type: 'test'
+  ...
+# Subtest: P.ARG_BINDING: mutation by schema or caller cannot replace the authorized snapshot
+ok 37 - P.ARG_BINDING: mutation by schema or caller cannot replace the authorized snapshot
+  ---
+  duration_ms: 97.4981
+  type: 'test'
+  ...
+# Subtest: DI command checking keeps argv preview as data and cannot execute Git/Python
+ok 38 - DI command checking keeps argv preview as data and cannot execute Git/Python
+  ---
+  duration_ms: 99.5782
+  type: 'test'
+  ...
+# Subtest: M12-REC-APPLIED: exact intent, evidence, append-only audit and single-use adjudication release settled writer
+ok 39 - M12-REC-APPLIED: exact intent, evidence, append-only audit and single-use adjudication release settled writer
+  ---
+  duration_ms: 132.7545
+  type: 'test'
+  ...
+# Subtest: M12-REC-NOT-APPLIED: evidence-confirmed absence never automatically reexecutes the original call
+ok 40 - M12-REC-NOT-APPLIED: evidence-confirmed absence never automatically reexecutes the original call
+  ---
+  duration_ms: 134.1615
+  type: 'test'
+  ...
+# Subtest: M12-REC-NEGATIVE: missing evidence, wrong intent, forged authority and invalid outcomes fail closed
+ok 41 - M12-REC-NEGATIVE: missing evidence, wrong intent, forged authority and invalid outcomes fail closed
+  ---
+  duration_ms: 87.5322
+  type: 'test'
+  ...
+# Subtest: M12-REC-UNKNOWN: quarantine persists over restart and may only advance with a new exact revision/challenge
+ok 42 - M12-REC-UNKNOWN: quarantine persists over restart and may only advance with a new exact revision/challenge
+  ---
+  duration_ms: 147.0474
+  type: 'test'
+  ...
+# Subtest: M12-REC-CONCURRENCY: competing administrator challenges create one final adjudication
+ok 43 - M12-REC-CONCURRENCY: competing administrator challenges create one final adjudication
+  ---
+  duration_ms: 89.7542
+  type: 'test'
+  ...
+# Subtest: M12-REC-TIMEOUT: effect adjudication cannot release a running executor; explicit later release uses trusted settlement
+ok 44 - M12-REC-TIMEOUT: effect adjudication cannot release a running executor; explicit later release uses trusted settlement
+  ---
+  duration_ms: 167.3038
+  type: 'test'
+  ...
+# Subtest: M12-REC-UNKNOWN-EXIT: administrator evidence alone cannot assert executor exit
+ok 45 - M12-REC-UNKNOWN-EXIT: administrator evidence alone cannot assert executor exit
+  ---
+  duration_ms: 92.7934
+  type: 'test'
+  ...
+# Subtest: M12-REC-IOFAIL: failed adjudication transaction does not consume authorization or release writer
+ok 46 - M12-REC-IOFAIL: failed adjudication transaction does not consume authorization or release writer
+  ---
+  duration_ms: 101.0172
+  type: 'test'
+  ...
+# Subtest: M12-REC-CRASH: real process kill at before-call never replays local effect
+ok 47 - M12-REC-CRASH: real process kill at before-call never replays local effect
+  ---
+  duration_ms: 359.6525
+  type: 'test'
+  ...
+# Subtest: M12-REC-CRASH: real process kill at after-call-before-started never replays local effect
+ok 48 - M12-REC-CRASH: real process kill at after-call-before-started never replays local effect
+  ---
+  duration_ms: 274.5408
+  type: 'test'
+  ...
+# Subtest: M12-REC-CRASH: real process kill at handler-before-result never replays local effect
+ok 49 - M12-REC-CRASH: real process kill at handler-before-result never replays local effect
+  ---
+  duration_ms: 302.5803
+  type: 'test'
+  ...
+# Subtest: M12-REC-CRASH: real process kill at result-before-ack never replays local effect
+ok 50 - M12-REC-CRASH: real process kill at result-before-ack never replays local effect
+  ---
+  duration_ms: 333.1789
+  type: 'test'
+  ...
+# Subtest: M12-REC-CRASH: real process kill at ack-before-delivery never replays local effect
+ok 51 - M12-REC-CRASH: real process kill at ack-before-delivery never replays local effect
+  ---
+  duration_ms: 343.666
+  type: 'test'
+  ...
+# Subtest: M12-PE-CONFIG: closed policy identity and runtime contract reject malformed definitions
+    # Subtest: unknown ID
+    ok 1 - unknown ID
+      ---
+      duration_ms: 1.2928
+      type: 'test'
+      ...
+    # Subtest: unknown level
+    ok 2 - unknown level
+      ---
+      duration_ms: 0.1935
+      type: 'test'
+      ...
+    # Subtest: wrong known level
+    ok 3 - wrong known level
+      ---
+      duration_ms: 0.174
+      type: 'test'
+      ...
+    # Subtest: owner
+    ok 4 - owner
+      ---
+      duration_ms: 0.229
+      type: 'test'
+      ...
+    # Subtest: degradable
+    ok 5 - degradable
+      ---
+      duration_ms: 0.188
+      type: 'test'
+      ...
+    # Subtest: missing field
+    ok 6 - missing field
+      ---
+      duration_ms: 0.1693
+      type: 'test'
+      ...
+    # Subtest: empty modes
+    ok 7 - empty modes
+      ---
+      duration_ms: 0.1512
+      type: 'test'
+      ...
+    # Subtest: unknown mode
+    ok 8 - unknown mode
+      ---
+      duration_ms: 0.1585
+      type: 'test'
+      ...
+    # Subtest: invalid mode value
+    ok 9 - invalid mode value
+      ---
+      duration_ms: 0.2012
+      type: 'test'
+      ...
+    # Subtest: unknown authority field
+    ok 10 - unknown authority field
+      ---
+      duration_ms: 0.2001
+      type: 'test'
+      ...
+    # Subtest: permissive default
+    ok 11 - permissive default
+      ---
+      duration_ms: 0.153
+      type: 'test'
+      ...
+    1..11
+ok 52 - M12-PE-CONFIG: closed policy identity and runtime contract reject malformed definitions
+  ---
+  duration_ms: 54.4805
+  type: 'test'
+  ...
+# Subtest: M12-PE-LEVELS: L0 owner, L1 exact approval, L2 implemented dimension, L3 advisory have explicit semantics
+ok 53 - M12-PE-LEVELS: L0 owner, L1 exact approval, L2 implemented dimension, L3 advisory have explicit semantics
+  ---
+  duration_ms: 119.2316
+  type: 'test'
+  ...
+# Subtest: M12-PE-INJECTION: trusted evaluator may only restrict and receives frozen policy/context
+ok 54 - M12-PE-INJECTION: trusted evaluator may only restrict and receives frozen policy/context
+  ---
+  duration_ms: 49.6125
+  type: 'test'
+  ...
+# Subtest: M12-PE-REGISTER: unknown capability, missing declaration, empty effect policy and owner bypass rejected
+ok 55 - M12-PE-REGISTER: unknown capability, missing declaration, empty effect policy and owner bypass rejected
+  ---
+  duration_ms: 51.4284
+  type: 'test'
+  ...
+# Subtest: M12-PE-CONTEXT: tool sees no KernelStore, database, authorization or administration capability
+ok 56 - M12-PE-CONTEXT: tool sees no KernelStore, database, authorization or administration capability
+  ---
+  duration_ms: 110.698
+  type: 'test'
+  ...
+# Subtest: M12-PE-MODE: disabled application PDP and advisory policy cannot bypass mandatory side-effect approval
+ok 57 - M12-PE-MODE: disabled application PDP and advisory policy cannot bypass mandatory side-effect approval
+  ---
+  duration_ms: 147.9612
+  type: 'test'
+  ...
+# Subtest: M12-PE-SANDBOX: process/external capabilities stay blocked even if requires_sandbox is false and PDP disabled
+ok 58 - M12-PE-SANDBOX: process/external capabilities stay blocked even if requires_sandbox is false and PDP disabled
+  ---
+  duration_ms: 86.6719
+  type: 'test'
+  ...
+# Subtest: M12-PE-START: approval expiry at the durable START_INTENT barrier prevents invocation
+ok 59 - M12-PE-START: approval expiry at the durable START_INTENT barrier prevents invocation
+  ---
+  duration_ms: 393.7607
+  type: 'test'
+  ...
+# Subtest: M12-PE-EPOCH: policy change after permit issuance fences the old exact approval
+ok 60 - M12-PE-EPOCH: policy change after permit issuance fences the old exact approval
+  ---
+  duration_ms: 72.6991
+  type: 'test'
+  ...
+1..60
+# tests 71
+# suites 0
+# pass 71
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 9964.6527

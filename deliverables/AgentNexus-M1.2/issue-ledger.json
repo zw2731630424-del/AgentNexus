@@ -1,0 +1,451 @@
+{
+  "schema": "agentnexus/m1.2/issue-ledger/1",
+  "baseline_head": "67063eabcab2e29cdf7cf81f541ac7e244b5936e",
+  "issues": [
+    {
+      "id": "PE-01",
+      "status": "FIXED_VERIFIED",
+      "title": "未知策略及安全元数据严格拒绝",
+      "code_locations": [
+        {
+          "path": "src/agentnexus/policy.ts",
+          "line": 18
+        }
+      ],
+      "evidence": [
+        "evidence/baseline/probes.json",
+        "test-results.json:M12-PE-CONFIG",
+        "test-results.json:M12-PE-LEVELS"
+      ],
+      "acceptance": "已知34个ID及固定level/degradable/owner；完整modes/字段校验；未知值不能ALLOW",
+      "remaining": null
+    },
+    {
+      "id": "PE-02",
+      "status": "FIXED_VERIFIED",
+      "title": "副作用能力声明和独立强制审批",
+      "code_locations": [
+        {
+          "path": "src/agentnexus/gateway.ts",
+          "line": 55
+        }
+      ],
+      "evidence": [
+        "test-results.json:M12-PE-REGISTER",
+        "test-results.json:M12-PE-MODE"
+      ],
+      "acceptance": "LOCAL_WRITE空策略或缺Writer拒绝；应用DISABLED不免除精确审批",
+      "remaining": null
+    },
+    {
+      "id": "PE-03",
+      "status": "FIXED_VERIFIED",
+      "title": "普通工具上下文移除底层Store",
+      "code_locations": [
+        {
+          "path": "src/agentnexus/gateway.ts",
+          "line": 17
+        }
+      ],
+      "evidence": [
+        "evidence/baseline/probes.json",
+        "test-results.json:M12-PE-CONTEXT"
+      ],
+      "acceptance": "上下文无Store/DB/管理/审批能力，身份/资源/诊断副本冻结",
+      "remaining": "恶意同进程代码隔离仍需OS；只允许可信注册代码"
+    },
+    {
+      "id": "PE-04",
+      "status": "HARDENED_VERIFIED_AGENT_BYPASS_NOT_REPRODUCED",
+      "title": "可信Bootstrap与Agent策略控制边界",
+      "code_locations": [
+        {
+          "path": "src/agentnexus/policy.ts",
+          "line": 173
+        }
+      ],
+      "evidence": [
+        "test-results.json:M12-PE-INJECTION",
+        "test-results.json:P.IDENTITY: facade"
+      ],
+      "acceptance": "注入评估器只能收紧默认结果；Agent无注册或管理API",
+      "remaining": "Host原始管理对象仍可信，不能交给不可信JS"
+    },
+    {
+      "id": "PE-05",
+      "status": "PRESERVED_VERIFIED",
+      "title": "期限、Epoch、精确意图、单次审批与Permit",
+      "code_locations": [
+        {
+          "path": "src/agentnexus/gateway.ts",
+          "line": 190
+        }
+      ],
+      "evidence": [
+        "test-results.json:P.APPROVAL_REPLAY",
+        "test-results.json:M12-PE-START",
+        "test-results.json:M12-PE-EPOCH"
+      ],
+      "acceptance": "旧授权、重复消费、过期与不同意图都不得调用执行器",
+      "remaining": null
+    },
+    {
+      "id": "PE-06",
+      "status": "FIXED_VERIFIED",
+      "title": "未知执行类别和未验证沙箱失败关闭",
+      "code_locations": [
+        {
+          "path": "src/agentnexus/gateway.ts",
+          "line": 50
+        }
+      ],
+      "evidence": [
+        "test-results.json:M12-PE-SANDBOX"
+      ],
+      "acceptance": "PROCESS/EXTERNAL_EFFECT无论requires_sandbox取值均BLOCKED",
+      "remaining": "真实OS执行profile未实现"
+    },
+    {
+      "id": "PE-07",
+      "status": "FIXED_VERIFIED",
+      "title": "精确资源绑定及回调TOCTOU",
+      "code_locations": [
+        {
+          "path": "src/agentnexus/gateway.ts",
+          "line": 138
+        }
+      ],
+      "evidence": [
+        "test-results.json:M12-PE-RESOURCE",
+        "evidence/independent-review/revision-mw5uhrqi/probe-results.retry1.json"
+      ],
+      "acceptance": "resource_id纳入intent并匹配各fence；回调/上下文工作先于最后期限检查",
+      "remaining": null
+    },
+    {
+      "id": "REC-01",
+      "status": "IMPLEMENTED_VERIFIED",
+      "title": "有证据的管理员追加裁定",
+      "code_locations": [
+        {
+          "path": "src/agentnexus/reconciliation.ts",
+          "line": 105
+        }
+      ],
+      "evidence": [
+        "test-results.json:M12-REC-APPLIED",
+        "test-results.json:M12-REC-NEGATIVE"
+      ],
+      "acceptance": "绑定原operation/intent/证据/理由/裁定者/时间与一次性challenge",
+      "remaining": null
+    },
+    {
+      "id": "REC-02",
+      "status": "IMPLEMENTED_VERIFIED",
+      "title": "结果裁定与Writer退出确认分离",
+      "code_locations": [
+        {
+          "path": "src/agentnexus/reconciliation.ts",
+          "line": 86
+        }
+      ],
+      "evidence": [
+        "test-results.json:M12-REC-TIMEOUT",
+        "test-results.json:M12-REC-UNKNOWN-EXIT",
+        "test-results.json:M12-REC-OUTPUT-TIMEOUT"
+      ],
+      "acceptance": "UNKNOWN/运行中/未确认producer均不释放，SETTLED才可显式释放",
+      "remaining": "跨崩溃缺退出观察的实例继续隔离；无OS ExitProof API"
+    },
+    {
+      "id": "REC-03",
+      "status": "IMPLEMENTED_VERIFIED",
+      "title": "真实强杀及RESULT/ACK窗口恢复",
+      "code_locations": [
+        {
+          "path": "src/agentnexus/reconciliation.ts",
+          "line": 29
+        }
+      ],
+      "evidence": [
+        "test-results.json:M12-REC-CRASH",
+        "evidence/final-test-data/reconciliation"
+      ],
+      "acceptance": "调用前、调用后STARTED前、handler完成RESULT前、RESULT后ACK前、ACK后回包前均不重执行",
+      "remaining": null
+    },
+    {
+      "id": "REC-04",
+      "status": "IMPLEMENTED_VERIFIED",
+      "title": "并发、重放、不可覆盖和故障事务",
+      "code_locations": [
+        {
+          "path": "src/agentnexus/control.ts",
+          "line": 52
+        }
+      ],
+      "evidence": [
+        "test-results.json:M12-REC-CONCURRENCY",
+        "test-results.json:M12-REC-IOFAIL",
+        "test-results.json:M12-REC-UNKNOWN"
+      ],
+      "acceptance": "revision/CAS+唯一request_id+单次challenge；UPDATE/DELETE拒绝；失败不释放",
+      "remaining": null
+    },
+    {
+      "id": "M12-IR-001",
+      "status": "RESOLVED_AND_INDEPENDENTLY_VERIFIED",
+      "title": "ENFORCE could persist an independent-owner mode that the same runtime refused to read",
+      "code_locations": [
+        {
+          "path": "src/agentnexus/policy.ts",
+          "line": 93
+        }
+      ],
+      "evidence": [
+        "independent-code-review.json",
+        "revision-mw5uhrqi/probe-results.retry1.json: results[0]"
+      ],
+      "acceptance": "独立隔离复核通过，原发现/失败日志保留",
+      "remaining": null
+    },
+    {
+      "id": "M12-IR-002",
+      "status": "RESOLVED_AND_INDEPENDENTLY_VERIFIED",
+      "title": "Completing the handler disabled the timeout while stdout or stderr could still be pending",
+      "code_locations": [
+        {
+          "path": "src/agentnexus/gateway.ts",
+          "line": 100
+        }
+      ],
+      "evidence": [
+        "independent-code-review.json",
+        "revision-mw5uhrqi/probe-results.retry1.json: results[1]"
+      ],
+      "acceptance": "独立隔离复核通过，原发现/失败日志保留",
+      "remaining": null
+    },
+    {
+      "id": "CTRL-001",
+      "status": "PRESERVED_VERIFIED",
+      "title": "实际OFF排空",
+      "code_locations": [
+        {
+          "path": "src/agentnexus/features.ts",
+          "line": 50
+        }
+      ],
+      "evidence": [
+        "test-results.json",
+        "evidence/baseline/all-tests.tap"
+      ],
+      "acceptance": "保留原实现与全部原回归断言；测试路径与新授权夹具适配不删除用例",
+      "remaining": null
+    },
+    {
+      "id": "CTRL-002",
+      "status": "PRESERVED_VERIFIED",
+      "title": "FAILED诊断器不重建",
+      "code_locations": [
+        {
+          "path": "src/agentnexus/host.ts",
+          "line": 87
+        }
+      ],
+      "evidence": [
+        "test-results.json",
+        "evidence/baseline/all-tests.tap"
+      ],
+      "acceptance": "保留原实现与全部原回归断言；测试路径与新授权夹具适配不删除用例",
+      "remaining": null
+    },
+    {
+      "id": "CTRL-003",
+      "status": "PRESERVED_VERIFIED",
+      "title": "审批单调期限与重启失效",
+      "code_locations": [
+        {
+          "path": "src/agentnexus/control.ts",
+          "line": 9
+        }
+      ],
+      "evidence": [
+        "test-results.json",
+        "evidence/baseline/all-tests.tap"
+      ],
+      "acceptance": "保留原实现与全部原回归断言；测试路径与新授权夹具适配不删除用例",
+      "remaining": null
+    },
+    {
+      "id": "CTRL-004",
+      "status": "PRESERVED_VERIFIED",
+      "title": "旧门面不能读取/撤销新会话",
+      "code_locations": [
+        {
+          "path": "src/agentnexus/host.ts",
+          "line": 163
+        }
+      ],
+      "evidence": [
+        "test-results.json",
+        "evidence/baseline/all-tests.tap"
+      ],
+      "acceptance": "保留原实现与全部原回归断言；测试路径与新授权夹具适配不删除用例",
+      "remaining": null
+    },
+    {
+      "id": "CTRL-005",
+      "status": "PRESERVED_VERIFIED",
+      "title": "Agent/Session原始档案隔离",
+      "code_locations": [
+        {
+          "path": "src/agentnexus/storage.ts",
+          "line": 205
+        }
+      ],
+      "evidence": [
+        "test-results.json",
+        "evidence/baseline/all-tests.tap"
+      ],
+      "acceptance": "保留原实现与全部原回归断言；测试路径与新授权夹具适配不删除用例",
+      "remaining": null
+    },
+    {
+      "id": "CTRL-006",
+      "status": "PRESERVED_VERIFIED",
+      "title": "关闭前先撤销会话",
+      "code_locations": [
+        {
+          "path": "src/agentnexus/host.ts",
+          "line": 181
+        }
+      ],
+      "evidence": [
+        "test-results.json",
+        "evidence/baseline/all-tests.tap"
+      ],
+      "acceptance": "保留原实现与全部原回归断言；测试路径与新授权夹具适配不删除用例",
+      "remaining": null
+    },
+    {
+      "id": "CTRL-007",
+      "status": "PRESERVED_VERIFIED",
+      "title": "单调处理器期限",
+      "code_locations": [
+        {
+          "path": "src/agentnexus/gateway.ts",
+          "line": 195
+        }
+      ],
+      "evidence": [
+        "test-results.json",
+        "evidence/baseline/all-tests.tap"
+      ],
+      "acceptance": "保留原实现与全部原回归断言；测试路径与新授权夹具适配不删除用例",
+      "remaining": null
+    },
+    {
+      "id": "CTRL-008",
+      "status": "PRESERVED_VERIFIED",
+      "title": "迟到stop未settled禁止恢复",
+      "code_locations": [
+        {
+          "path": "src/agentnexus/features.ts",
+          "line": 112
+        }
+      ],
+      "evidence": [
+        "test-results.json",
+        "evidence/baseline/all-tests.tap"
+      ],
+      "acceptance": "保留原实现与全部原回归断言；测试路径与新授权夹具适配不删除用例",
+      "remaining": null
+    },
+    {
+      "id": "STOR-REV-01",
+      "status": "PRESERVED_BYTE_IDENTICAL_VERIFIED",
+      "title": "Flush目标序号屏障",
+      "code_locations": [
+        {
+          "path": "src/agentnexus/storage.ts",
+          "line": 230
+        }
+      ],
+      "evidence": [
+        "verification.json",
+        "test-results.json"
+      ],
+      "acceptance": "产品原字节保持，新全量存储回归通过",
+      "remaining": null
+    },
+    {
+      "id": "STOR-REV-02",
+      "status": "PRESERVED_BYTE_IDENTICAL_VERIFIED",
+      "title": "非合作Producer UNKNOWN/失败关闭",
+      "code_locations": [
+        {
+          "path": "src/agentnexus/artifacts.ts",
+          "line": 155
+        }
+      ],
+      "evidence": [
+        "verification.json",
+        "test-results.json"
+      ],
+      "acceptance": "产品原字节保持，新全量存储回归通过",
+      "remaining": null
+    },
+    {
+      "id": "STOR-REV-03",
+      "status": "PRESERVED_BYTE_IDENTICAL_VERIFIED",
+      "title": "统一Close Promise",
+      "code_locations": [
+        {
+          "path": "src/agentnexus/storage.ts",
+          "line": 450
+        }
+      ],
+      "evidence": [
+        "verification.json",
+        "test-results.json"
+      ],
+      "acceptance": "产品原字节保持，新全量存储回归通过",
+      "remaining": null
+    },
+    {
+      "id": "OS-01",
+      "status": "DESIGN_DELIVERED_IMPLEMENTATION_BLOCKED",
+      "title": "独立OS身份/IPC/进程树/凭据隔离",
+      "code_locations": [],
+      "evidence": [
+        "os-security-architecture.md"
+      ],
+      "acceptance": "明确Windows/Linux分别验收；无证据不宣称PASS",
+      "remaining": "所有OS部署对抗NOT_RUN；任意执行BLOCKED"
+    },
+    {
+      "id": "SCI-01",
+      "status": "DESIGN_DELIVERED_RUNTIME_NOT_RUN",
+      "title": "独立科研授权、原子seed Claim与多臂共享合同",
+      "code_locations": [],
+      "evidence": [
+        "scientific-authorization-contract.md"
+      ],
+      "acceptance": "数据合同/状态机/验收计划齐备；三种授权严格区分",
+      "remaining": "不连接其他科研项目，不启动训练或Provider"
+    },
+    {
+      "id": "EVID-01",
+      "status": "INCONCLUSIVE_INPUT_NOT_AVAILABLE",
+      "title": "任务所提本轮独立技术审查原件未提供",
+      "code_locations": [],
+      "evidence": [
+        "original-request.txt",
+        "independent-recheck.md"
+      ],
+      "acceptance": "不将无法定位的报告结论当作已确认缺陷",
+      "remaining": "已完成实际源码复核及本轮新独立审查，不能追认未提供报告的逐条结论"
+    }
+  ]
+}

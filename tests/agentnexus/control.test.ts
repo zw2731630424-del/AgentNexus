@@ -1,4 +1,5 @@
 import test from 'node:test';
+import { readFileSync } from 'node:fs';
 import assert from 'node:assert/strict';
 import { mkdir, mkdtemp } from 'node:fs/promises';
 import { resolve, join } from 'node:path';
@@ -13,13 +14,9 @@ const scopes = ['G','P','A','T'];
 function definition(id: string, state: 'ON'|'OFF' = 'ON', deps: string[] = [], conflicts: string[] = []): FeatureDefinition {
   return { id, kind: 'OPTIONAL', default: state, scopes, depends_on: deps, conflicts };
 }
-const POLICY: PolicyDefinition[] = [
-  { id: 'P.QUALITY', level: 'L2', degradable: true, enforcement_owner: 'PDP', modes: {} },
-  { id: 'P.APPROVAL', level: 'L1', degradable: true, enforcement_owner: 'PDP', modes: {} },
-  { id: 'P.HARD', level: 'L0', degradable: false, enforcement_owner: 'independent owner', modes: {} },
-];
+const POLICY: PolicyDefinition[] = JSON.parse(readFileSync(new URL('../../config/agentnexus/policies.json', import.meta.url), 'utf8')).policies.filter((d: PolicyDefinition) => ['P.DI_SYNTAX','P.COMMAND_RISK','P.IDENTITY'].includes(d.id));
 async function fixture(t: test.TestContext, definitions = [definition('f.free')], extra: Record<string, unknown> = {}) {
-  const base = resolve('.workflow-kit/runtime/AgentNexus-v0.4-M1/controls'); await mkdir(base, { recursive: true });
+  const base = resolve(process.env.AGENTNEXUS_TEST_DATA_ROOT ?? '.workflow-kit/runtime/AgentNexus-M1.2/test-data', 'controls'); await mkdir(base, { recursive: true });
   const root = await mkdtemp(join(base, 'case-'));
   const host = await openHost(root, { definitions, policies: POLICY, ...extra });
   for (const d of definitions) host.administration.registerModule(d.id);
@@ -30,13 +27,13 @@ async function feature(host: Awaited<ReturnType<typeof openHost>>, changes: any[
   const p = await host.administration.previewFeatures(changes, host.administration.metadata().feature_revision);
   await host.administration.commitFeatures(p.challenge_id, p.preview_hash); return p;
 }
-async function mode(host: Awaited<ReturnType<typeof openHost>>, mode: ModeRequest['mode'], ids = ['P.QUALITY'], scope = {}, lifetime = 60000) {
+async function mode(host: Awaited<ReturnType<typeof openHost>>, mode: ModeRequest['mode'], ids = ['P.DI_SYNTAX'], scope = {}, lifetime = 60000) {
   const p = await host.administration.prepareMode({ scope, mode, policy_ids: ids, reason: 'Explicit synthetic kernel verification', expires_at: mode === 'ENFORCE' ? null : new Date(Date.now() + lifetime).toISOString() }, host.administration.metadata().policy_revision);
   await host.administration.confirmMode(p.challenge_id, 'PREVIEW_ACK', p.preview_hash);
   await host.administration.confirmMode(p.challenge_id, 'RISK_ACK', p.preview_hash);
   await host.administration.commitMode(p.challenge_id, p.preview_hash); return p;
 }
-const context = () => ({ identity: ID, intent_hash: 'a'.repeat(64), validation_ok: false });
+const context = () => ({ identity: ID, intent_hash: 'a'.repeat(64), validation: null });
 
 test('FT-RESOLVE: defaults, child narrowing, ancestor veto, explicit INHERIT', async t => {
   const { host } = await fixture(t);
@@ -89,7 +86,7 @@ test('FT-OFF: live work aborts; failure remains FAILED until explicit recovery',
   assert.throws(()=>host.features.acquire('f.free'),{code:'FEATURE_OFF'});
 });
 test('FT-RETAIN: configuration survives real reopen, facts remain and old epoch is invalid', async t => {
-  const base = resolve('.workflow-kit/runtime/AgentNexus-v0.4-M1/controls'); await mkdir(base,{recursive:true});
+  const base = resolve(process.env.AGENTNEXUS_TEST_DATA_ROOT ?? '.workflow-kit/runtime/AgentNexus-M1.2/test-data', 'controls'); await mkdir(base,{recursive:true});
   const root = await mkdtemp(join(base,'restart-')); const defs=[definition('f.free')];
   let host=await openHost(root,{definitions:defs,policies:POLICY}); host.administration.registerModule('f.free');
   const epoch=host.administration.metadata().feature_epoch;
@@ -111,7 +108,7 @@ test('FT-INHERIT-OFF: ON to INHERIT must quiesce when default is OFF', async t =
   await feature(host,[{id:'f.free',scope:{},state:'INHERIT'}]);assert.equal(host.features.resolve('f.free').effective,'OFF');
 });
 test('FT-LATE-STOP: timeout cannot recover or enable until the old stop actually settles',async t=>{
-  const base=resolve('.workflow-kit/runtime/AgentNexus-v0.4-M1/controls');await mkdir(base,{recursive:true});
+  const base=resolve(process.env.AGENTNEXUS_TEST_DATA_ROOT ?? '.workflow-kit/runtime/AgentNexus-M1.2/test-data', 'controls');await mkdir(base,{recursive:true});
   const host=await openHost(await mkdtemp(join(base,'stop-race-')),{definitions:[definition('late')],policies:POLICY});
   let finish!:()=>void,ready=true,preflights=0;const pending=new Promise<void>(r=>finish=r);
   host.administration.registerModule('late',{stop:async()=>{await pending;ready=false;},preflight:async()=>{preflights++;ready=true;}});
@@ -124,21 +121,21 @@ test('FT-LATE-STOP: timeout cannot recover or enable until the old stop actually
   assert.equal(ready,true);assert.equal(host.features.resolve('late').effective,'ON');
 });
 test('FT catalog is capacity, unimplemented module never becomes enabled from default ON', async t => {
-  const base=resolve('.workflow-kit/runtime/AgentNexus-v0.4-M1/controls');await mkdir(base,{recursive:true});
+  const base=resolve(process.env.AGENTNEXUS_TEST_DATA_ROOT ?? '.workflow-kit/runtime/AgentNexus-M1.2/test-data', 'controls');await mkdir(base,{recursive:true});
   const host=await openHost(await mkdtemp(join(base,'catalog-')));t.after(()=>host.close());
   const r=host.features.resolve('native.harness');
   assert.equal(r.desired,'ON');assert.equal(r.effective,'BLOCKED');assert.equal(r.reason,'NOT_IMPLEMENTED');
 });
 test('P.ADMIN_MODE: forged admin, L0 degradation and missing reason rejected', async t => {
   const {host}=await fixture(t);
-  const req:ModeRequest={scope:{},mode:'AUDIT_ONLY',policy_ids:['P.QUALITY'],reason:'verification',expires_at:new Date(Date.now()+60000).toISOString()};
+  const req:ModeRequest={scope:{},mode:'AUDIT_ONLY',policy_ids:['P.DI_SYNTAX'],reason:'verification',expires_at:new Date(Date.now()+60000).toISOString()};
   await assert.rejects(host.policy.prepare({admin:true},req,0),{code:'ADMIN_CAPABILITY_REQUIRED'});
-  await assert.rejects(host.administration.prepareMode({...req,policy_ids:['P.HARD']},0),{code:'NON_DEGRADABLE_POLICY'});
+  await assert.rejects(host.administration.prepareMode({...req,policy_ids:['P.IDENTITY']},0),{code:'NON_DEGRADABLE_POLICY'});
   await assert.rejects(host.administration.prepareMode({...req,reason:''},0),{code:'MODE_REASON_REQUIRED'});
-  assert.equal(host.policy.modeFor('P.QUALITY',{}),'ENFORCE');
+  assert.equal(host.policy.modeFor('P.DI_SYNTAX',{}),'ENFORCE');
 });
 test('P.ADMIN_MODE: two distinct confirmations, preview binding and challenge replay', async t => {
-  const {host}=await fixture(t);const req:ModeRequest={scope:{},mode:'AUDIT_ONLY',policy_ids:['P.QUALITY'],reason:'verification',expires_at:new Date(Date.now()+60000).toISOString()};
+  const {host}=await fixture(t);const req:ModeRequest={scope:{},mode:'AUDIT_ONLY',policy_ids:['P.DI_SYNTAX'],reason:'verification',expires_at:new Date(Date.now()+60000).toISOString()};
   const p=await host.administration.prepareMode(req,0);
   await assert.rejects(host.administration.commitMode(p.challenge_id,p.preview_hash),{code:'DOUBLE_CONFIRM_REQUIRED'});
   await assert.rejects(host.administration.confirmMode(p.challenge_id,'RISK_ACK',p.preview_hash),{code:'CONFIRMATION_ORDER'});
@@ -151,44 +148,44 @@ test('P.ADMIN_MODE: two distinct confirmations, preview binding and challenge re
 test('P.MODE: same denied request has distinct enforce/audit/disabled behavior', async t => {
   let calls=0;
   const {host}=await fixture(t,undefined,{ruleEvaluator:()=>{calls++;return 'DENY';}});
-  assert.equal(host.policy.evaluate(['P.QUALITY'],context()).allowed,false);assert.equal(calls,1);
-  await mode(host,'AUDIT_ONLY');const audit=host.policy.evaluate(['P.QUALITY'],context());
+  assert.equal(host.policy.evaluate(['P.DI_SYNTAX'],context()).allowed,false);assert.equal(calls,1);
+  await mode(host,'AUDIT_ONLY');const audit=host.policy.evaluate(['P.DI_SYNTAX'],context());
   assert.equal(audit.allowed,true);assert.equal(audit.facts[0].result,'WOULD_DENY');assert.equal(calls,2);
-  await mode(host,'DISABLED');const disabled=host.policy.evaluate(['P.QUALITY'],context());
+  await mode(host,'DISABLED');const disabled=host.policy.evaluate(['P.DI_SYNTAX'],context());
   assert.equal(disabled.allowed,true);assert.equal(disabled.facts[0].result,'BYPASSED');assert.equal(disabled.facts[0].original_verdict,'NOT_EVALUATED');assert.equal(calls,2);
-  assert.throws(()=>host.policy.evaluate(['P.HARD'],context()),{code:'INDEPENDENT_POLICY_OWNER'});
+  assert.throws(()=>host.policy.evaluate(['P.IDENTITY'],context()),{code:'INDEPENDENT_POLICY_OWNER'});
 });
 test('P.MODE: selected IDs and project scope; explicit ENFORCE dominates overlap', async t => {
   const {host}=await fixture(t);
-  await mode(host,'DISABLED',['P.QUALITY']);
-  assert.equal(host.policy.modeFor('P.APPROVAL',{project_id:ID.project_id}),'ENFORCE');
-  await mode(host,'ENFORCE',['P.QUALITY'],{project_id:ID.project_id});
-  assert.equal(host.policy.modeFor('P.QUALITY',{project_id:ID.project_id}),'ENFORCE');
-  assert.equal(host.policy.modeFor('P.QUALITY',{project_id:'other'}),'DISABLED');
+  await mode(host,'DISABLED',['P.DI_SYNTAX']);
+  assert.equal(host.policy.modeFor('P.COMMAND_RISK',{project_id:ID.project_id}),'ENFORCE');
+  await mode(host,'ENFORCE',['P.DI_SYNTAX'],{project_id:ID.project_id});
+  assert.equal(host.policy.modeFor('P.DI_SYNTAX',{project_id:ID.project_id}),'ENFORCE');
+  assert.equal(host.policy.modeFor('P.DI_SYNTAX',{project_id:'other'}),'DISABLED');
 });
 test('P.MODE: PDP fault stays closed in ENFORCE and AUDIT_ONLY; DISABLED actually skips PDP', async t => {
   const {host}=await fixture(t,undefined,{ruleEvaluator:()=>{throw new Error('actual local evaluator failure');}});
-  assert.throws(()=>host.policy.evaluate(['P.QUALITY'],context()),{code:'POLICY_UNAVAILABLE'});
-  await mode(host,'AUDIT_ONLY');assert.throws(()=>host.policy.evaluate(['P.QUALITY'],context()),{code:'POLICY_UNAVAILABLE'});
-  assert.equal(host.policy.modeFor('P.QUALITY',{}),'AUDIT_ONLY');
-  await mode(host,'DISABLED');assert.equal(host.policy.evaluate(['P.QUALITY'],context()).allowed,true);
+  assert.throws(()=>host.policy.evaluate(['P.DI_SYNTAX'],context()),{code:'POLICY_UNAVAILABLE'});
+  await mode(host,'AUDIT_ONLY');assert.throws(()=>host.policy.evaluate(['P.DI_SYNTAX'],context()),{code:'POLICY_UNAVAILABLE'});
+  assert.equal(host.policy.modeFor('P.DI_SYNTAX',{}),'AUDIT_ONLY');
+  await mode(host,'DISABLED');assert.equal(host.policy.evaluate(['P.DI_SYNTAX'],context()).allowed,true);
 });
 test('P.MODE-EXPIRY: real deadline freezes until persisted-chain preflight', async t => {
-  const {host}=await fixture(t);await mode(host,'AUDIT_ONLY',['P.QUALITY'],{},1000);
+  const {host}=await fixture(t);await mode(host,'AUDIT_ONLY',['P.DI_SYNTAX'],{},1000);
   await delay(1100);
-  assert.throws(()=>host.policy.evaluate(['P.QUALITY'],context()),{code:'ENFORCE_PENDING_PREFLIGHT'});
+  assert.throws(()=>host.policy.evaluate(['P.DI_SYNTAX'],context()),{code:'ENFORCE_PENDING_PREFLIGHT'});
   await host.store.flush();await host.administration.completePreflight({});
-  assert.equal(host.policy.modeFor('P.QUALITY',{}),'ENFORCE');
-  assert.equal(host.policy.evaluate(['P.QUALITY'],context()).allowed,false);
+  assert.equal(host.policy.modeFor('P.DI_SYNTAX',{}),'ENFORCE');
+  assert.equal(host.policy.evaluate(['P.DI_SYNTAX'],context()).allowed,false);
 });
 test('P.MODE-RECOVERY: reboot never restores a permissive lease without preflight', async t => {
-  const base=resolve('.workflow-kit/runtime/AgentNexus-v0.4-M1/controls');await mkdir(base,{recursive:true});
+  const base=resolve(process.env.AGENTNEXUS_TEST_DATA_ROOT ?? '.workflow-kit/runtime/AgentNexus-M1.2/test-data', 'controls');await mkdir(base,{recursive:true});
   const root=await mkdtemp(join(base,'mode-restart-'));const defs=[definition('f.free')];
   let host=await openHost(root,{definitions:defs,policies:POLICY});host.administration.registerModule('f.free');
   await mode(host,'DISABLED');await host.close();
   host=await openHost(root,{definitions:defs,policies:POLICY});t.after(()=>host.close());
-  assert.throws(()=>host.policy.modeFor('P.QUALITY',{}),{code:'ENFORCE_PENDING_PREFLIGHT'});
-  await host.administration.completePreflight({});assert.equal(host.policy.modeFor('P.QUALITY',{}),'ENFORCE');
+  assert.throws(()=>host.policy.modeFor('P.DI_SYNTAX',{}),{code:'ENFORCE_PENDING_PREFLIGHT'});
+  await host.administration.completePreflight({});assert.equal(host.policy.modeFor('P.DI_SYNTAX',{}),'ENFORCE');
 });
 test('P.APPROVAL: hash/identity/epoch/expiry bind grants and no self-reported approval', async t => {
   const {host}=await fixture(t);

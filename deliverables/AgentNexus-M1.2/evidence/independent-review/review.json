@@ -1,0 +1,509 @@
+{
+  "schema": "agentnexus/m1.2/independent-security-review/1",
+  "created_at": "2026-11-07T03:33:45.804Z",
+  "reviewer": "/root/m12_security_review",
+  "review_mode": "Independent read-only product review; synthetic probes and evidence confined to this delegated runtime directory",
+  "conclusion": "NO_OPEN_FINDINGS_IDENTIFIED_IN_FINAL_REVIEWED_SCOPE",
+  "open_findings": [],
+  "final_candidate_files": [
+    {
+      "path": "src/agentnexus/policy-contracts.ts",
+      "sha256": "80af36e1f1d242f707df635bb5170e7a60e487227d5d819e12f156bf55dff656"
+    },
+    {
+      "path": "src/agentnexus/policy.ts",
+      "sha256": "31a6f1250ab2c5e9271181b23cc347b72fd502d7b2bfa229716dd976ee040f49"
+    },
+    {
+      "path": "src/agentnexus/control.ts",
+      "sha256": "3a549eb7bf5548b2b0453711899c0b7bfb1ea4d346dfad0bca11d4c166bf46d4"
+    },
+    {
+      "path": "src/agentnexus/gateway.ts",
+      "sha256": "5ec2cb67afca1858c168b1888fa398ef766d3e18cf9b7f4253d9db51f17d7871"
+    },
+    {
+      "path": "src/agentnexus/reconciliation.ts",
+      "sha256": "9bba0be9665fbc4f6c8c452dc9538c73a093e91c5517b8e4dae352029ec8a968"
+    },
+    {
+      "path": "src/agentnexus/host.ts",
+      "sha256": "f78c7729204f662e683d82b3ee32d4a15a82a9281fb357ee0545d97b573592a0"
+    }
+  ],
+  "reviewed_test_files": [
+    {
+      "path": "tests/agentnexus/security.test.ts",
+      "sha256": "0dc7a3920ae7af4e18ee317b6fab5a5544b6f4c6c350ab911a11d5610340ad51"
+    },
+    {
+      "path": "tests/agentnexus/reconciliation.test.ts",
+      "sha256": "3ddf54e2ec6e741fb7b4003124338bbb41f5e271bd12632e4e4152fae2f61e80"
+    },
+    {
+      "path": "tests/agentnexus/gateway.test.ts",
+      "sha256": "498c801ed599acaf3754db91030660203a32b36a12a35f3898b741b39c323106"
+    },
+    {
+      "path": "tests/agentnexus/control.test.ts",
+      "sha256": "5434e80937f050429198eb81d73045b291aed433285dc28fdcfa7d4cdb215ef1"
+    }
+  ],
+  "final_candidate_drift": [],
+  "scope": {
+    "product_files": [
+      "src/agentnexus/policy-contracts.ts",
+      "src/agentnexus/policy.ts",
+      "src/agentnexus/control.ts",
+      "src/agentnexus/gateway.ts",
+      "src/agentnexus/reconciliation.ts",
+      "src/agentnexus/host.ts"
+    ],
+    "test_files": [
+      "tests/agentnexus/security.test.ts",
+      "tests/agentnexus/reconciliation.test.ts",
+      "tests/agentnexus/gateway.test.ts",
+      "tests/agentnexus/control.test.ts"
+    ],
+    "designs": [
+      {
+        "path": "deliverables/AgentNexus-M1.2/policy-enforcement-design.md",
+        "sha256": "f9c0876aa58d116e98a15bd2a27a19114d69271650f48731a48012b4c94c7e3f",
+        "coverage": "read in full, including final updated design"
+      },
+      {
+        "path": "deliverables/AgentNexus-M1.2/operation-reconciliation-design.md",
+        "sha256": "5d50858a2f505e4d654d3337b1f7bff4e44d8b74d94372d7732e65029cc79cba",
+        "coverage": "read in full, including final updated design"
+      }
+    ],
+    "threat_boundary": "Trusted local library and registered trusted handlers; Host/bootstrap/raw Store are privileged objects. This is not an OS or malicious same-process JS boundary.",
+    "review_topics": [
+      "policy bypass and privilege escalation",
+      "exact intent/resource/approval binding",
+      "replay and atomic permit consumption",
+      "TOCTOU and last invocation fence",
+      "concurrent reconciliation and challenge consumption",
+      "crash recovery and no automatic retry",
+      "Writer release requires confirmed local settlement",
+      "unknown output producer and false success states"
+    ],
+    "supporting_reads": [
+      {
+        "path": "src/agentnexus/artifacts.ts",
+        "sha256": "f89cd95c7c373e1551d509f82596e54e203f0bb02b2934e1c2108040ef48bc49",
+        "coverage": "full"
+      },
+      {
+        "path": "src/agentnexus/features.ts",
+        "sha256": "d6aafeafd88f6fd5660afa6b4f29b68625d70ffc8f8138f90db657b6acacda5e",
+        "coverage": "full"
+      },
+      {
+        "path": "src/agentnexus/types.ts",
+        "sha256": "101cc13ca1bbb9ec34e7bb8dfdc8360da913829b99458cf3374cc6604fa15d75",
+        "coverage": "full"
+      },
+      {
+        "path": "src/agentnexus/storage.ts",
+        "sha256": "172d0af0556640f6048b74543715841700aaab9938656d7c48298e6f6472ec7d",
+        "coverage": "targeted transaction/flush/fault/recovery/close paths, not a fresh whole-store audit"
+      },
+      {
+        "path": "tests/agentnexus/reconciliation-child.mjs",
+        "sha256": "17067655828b662d7393ea55805d5438ff8ed0110610f13fc394d82d61a4a521",
+        "coverage": "full final crash fixture"
+      }
+    ],
+    "rules": {
+      "root_agents_read": true,
+      "project_rules_index_present": false,
+      "workflow_route_read": true,
+      "matching_workflow": null,
+      "governance_policy_read": true,
+      "subagents_spawned": false
+    }
+  },
+  "snapshots": [
+    {
+      "name": "initial-tested",
+      "copied_at": "2026-11-07T03:25:02.143Z",
+      "manifest": "source-manifest.json",
+      "files": [
+        {
+          "path": "src/agentnexus/policy-contracts.ts",
+          "sha256": "80af36e1f1d242f707df635bb5170e7a60e487227d5d819e12f156bf55dff656"
+        },
+        {
+          "path": "src/agentnexus/policy.ts",
+          "sha256": "44105048c8699ba1ebea395478074b4e0edbcc20ed03cab1f788675a37798f79"
+        },
+        {
+          "path": "src/agentnexus/control.ts",
+          "sha256": "3a549eb7bf5548b2b0453711899c0b7bfb1ea4d346dfad0bca11d4c166bf46d4"
+        },
+        {
+          "path": "src/agentnexus/gateway.ts",
+          "sha256": "07f8bd70f8b90630c1ebc9865b19d368c6417999281fa0aef3830036dd495237"
+        },
+        {
+          "path": "src/agentnexus/reconciliation.ts",
+          "sha256": "719e03e3afc0b3ea5d4a6fc36f0dbc1886406e872a45583323b0a311e5333976"
+        },
+        {
+          "path": "src/agentnexus/host.ts",
+          "sha256": "f78c7729204f662e683d82b3ee32d4a15a82a9281fb357ee0545d97b573592a0"
+        },
+        {
+          "path": "tests/agentnexus/security.test.ts",
+          "sha256": "1e2d59a769fb5557600e52bb16bdbe83af143e3d91f8cf75d9bebe44614ce059"
+        },
+        {
+          "path": "tests/agentnexus/reconciliation.test.ts",
+          "sha256": "81c1066efb8083645f2c89e9a993ca105bef1dd9c346105f5f22cf78e6f68ad9"
+        },
+        {
+          "path": "tests/agentnexus/gateway.test.ts",
+          "sha256": "6385b88a064beb12f9db21b4b06ca02397e916263651f6e3df43ce92af401c87"
+        },
+        {
+          "path": "tests/agentnexus/control.test.ts",
+          "sha256": "5434e80937f050429198eb81d73045b291aed433285dc28fdcfa7d4cdb215ef1"
+        }
+      ],
+      "note": "Parent tightened policy/tool field validation between the first live read and this snapshot; findings and initial tests bind to these actual copied bytes."
+    },
+    {
+      "name": "final-reviewed",
+      "copied_at": "2026-11-07T03:29:53.867Z",
+      "manifest": "revision-mw5uhrqi/source-manifest.json",
+      "files": [
+        {
+          "path": "src/agentnexus/policy-contracts.ts",
+          "sha256": "80af36e1f1d242f707df635bb5170e7a60e487227d5d819e12f156bf55dff656"
+        },
+        {
+          "path": "src/agentnexus/policy.ts",
+          "sha256": "31a6f1250ab2c5e9271181b23cc347b72fd502d7b2bfa229716dd976ee040f49"
+        },
+        {
+          "path": "src/agentnexus/control.ts",
+          "sha256": "3a549eb7bf5548b2b0453711899c0b7bfb1ea4d346dfad0bca11d4c166bf46d4"
+        },
+        {
+          "path": "src/agentnexus/gateway.ts",
+          "sha256": "5ec2cb67afca1858c168b1888fa398ef766d3e18cf9b7f4253d9db51f17d7871"
+        },
+        {
+          "path": "src/agentnexus/reconciliation.ts",
+          "sha256": "9bba0be9665fbc4f6c8c452dc9538c73a093e91c5517b8e4dae352029ec8a968"
+        },
+        {
+          "path": "src/agentnexus/host.ts",
+          "sha256": "f78c7729204f662e683d82b3ee32d4a15a82a9281fb357ee0545d97b573592a0"
+        },
+        {
+          "path": "tests/agentnexus/security.test.ts",
+          "sha256": "0dc7a3920ae7af4e18ee317b6fab5a5544b6f4c6c350ab911a11d5610340ad51"
+        },
+        {
+          "path": "tests/agentnexus/reconciliation.test.ts",
+          "sha256": "3ddf54e2ec6e741fb7b4003124338bbb41f5e271bd12632e4e4152fae2f61e80"
+        },
+        {
+          "path": "tests/agentnexus/gateway.test.ts",
+          "sha256": "498c801ed599acaf3754db91030660203a32b36a12a35f3898b741b39c323106"
+        },
+        {
+          "path": "tests/agentnexus/control.test.ts",
+          "sha256": "5434e80937f050429198eb81d73045b291aed433285dc28fdcfa7d4cdb215ef1"
+        }
+      ],
+      "note": "Final diffs from the initial snapshot were read; the current workspace hashes were compared again when this report was written."
+    }
+  ],
+  "findings": [
+    {
+      "id": "M12-IR-001",
+      "severity": "P2",
+      "status": "RESOLVED_AND_INDEPENDENTLY_VERIFIED",
+      "title": "ENFORCE could persist an independent-owner mode that the same runtime refused to read",
+      "original_locations": [
+        {
+          "path": "src/agentnexus/policy.ts",
+          "line": 93,
+          "role": "prepare skipped the owner restriction for ENFORCE"
+        },
+        {
+          "path": "src/agentnexus/policy.ts",
+          "line": 69,
+          "role": "persisted mode always passed through validateSelection"
+        }
+      ],
+      "affected_sha256": "44105048c8699ba1ebea395478074b4e0edbcc20ed03cab1f788675a37798f79",
+      "impact": "A legitimate administrator request to enforce P.IDENTITY committed successfully, then ordinary policy lookup at that scope and the next openHost failed with INDEPENDENT_POLICY_OWNER. This is persistent availability loss, not an authorization elevation.",
+      "reproduction": [
+        "Open a new synthetic Host.",
+        "PrepareMode with scope={}, mode=ENFORCE, policy_ids=[P.IDENTITY], reason present, expires_at=null.",
+        "Confirm PREVIEW_ACK and RISK_ACK, then CommitMode; commit fulfilled.",
+        "modeFor(P.STYLE,{}) failed with INDEPENDENT_POLICY_OWNER.",
+        "Close and reopen the Host; openHost failed with INDEPENDENT_POLICY_OWNER."
+      ],
+      "original_evidence": "probe-results.json: results[0]",
+      "recommendation": "Use the same independent-owner selection contract before persisting every application mode, including ENFORCE, so valid administrative writes remain readable.",
+      "fix_locations": [
+        {
+          "path": "src/agentnexus/policy.ts",
+          "line": 93
+        }
+      ],
+      "fixed_sha256": "31a6f1250ab2c5e9271181b23cc347b72fd502d7b2bfa229716dd976ee040f49",
+      "verification": {
+        "evidence": "revision-mw5uhrqi/probe-results.retry1.json: results[0]",
+        "result": "Prepare rejected with NON_DEGRADABLE_POLICY; ordinary P.STYLE mode lookup remained ENFORCE and reopen succeeded.",
+        "regression": "M12-PE-MODE-OWNER passed in the final isolated test run."
+      }
+    },
+    {
+      "id": "M12-IR-002",
+      "severity": "P2",
+      "status": "RESOLVED_AND_INDEPENDENTLY_VERIFIED",
+      "title": "Completing the handler disabled the timeout while stdout or stderr could still be pending",
+      "original_locations": [
+        {
+          "path": "src/agentnexus/gateway.ts",
+          "line": 200,
+          "role": "handlerTimer cleared after handler fulfillment"
+        },
+        {
+          "path": "src/agentnexus/gateway.ts",
+          "line": 206,
+          "role": "stdout consumption had no remaining deadline"
+        },
+        {
+          "path": "src/agentnexus/gateway.ts",
+          "line": 207,
+          "role": "stderr consumption had no remaining deadline"
+        }
+      ],
+      "affected_sha256": "07f8bd70f8b90630c1ebc9865b19d368c6417999281fa0aef3830036dd495237",
+      "impact": "An output producer could keep the operation and Writer occupied indefinitely beyond timeout_ms. If it later finished, the expired operation returned PASS and released its Writer. The initial probe did not demonstrate release while the producer remained unconfirmed; the defect was unbounded output time and false post-deadline success.",
+      "reproduction": [
+        "Register an approved synthetic LOCAL_WRITE with timeout_ms=20; execute immediately returns data=null and stdout with next() waiting on a test-controlled promise.",
+        "At 120ms, request was still pending, state STARTED, executor_state UNKNOWN, Writer count 1.",
+        "Resolve next() with done=true.",
+        "The original request returned PASS/BROKER_OPERATION_COMPLETE and operation SUCCEEDED/SETTLED with no Writer."
+      ],
+      "original_evidence": "probe-results.json: results[1]",
+      "recommendation": "Keep an elapsed execution deadline through handler, output consumption, result, and ACK barriers; cancel output on expiry, never convert a late phase to PASS, and preserve UNKNOWN/Writer without an actual producer settlement observation.",
+      "fix_locations": [
+        {
+          "path": "src/agentnexus/gateway.ts",
+          "line": 100,
+          "role": "elapsed deadline check"
+        },
+        {
+          "path": "src/agentnexus/gateway.ts",
+          "line": 195,
+          "role": "timer begins before handler invocation"
+        },
+        {
+          "path": "src/agentnexus/gateway.ts",
+          "line": 217,
+          "role": "output uses cancellation signal"
+        },
+        {
+          "path": "src/agentnexus/gateway.ts",
+          "line": 258,
+          "role": "timer cleared only when the request path finishes"
+        }
+      ],
+      "fixed_sha256": "5ec2cb67afca1858c168b1888fa398ef766d3e18cf9b7f4253d9db51f17d7871",
+      "verification": {
+        "evidence": "revision-mw5uhrqi/probe-results.retry1.json: results[1]",
+        "result": "By 120ms the request returned INCONCLUSIVE/TOOL_TIMEOUT; executor stayed UNKNOWN and Writer remained. The store correctly faulted on unknown producer cleanup. After explicit Store recovery, an administrator release attempt still failed with EXECUTOR_EXIT_NOT_CONFIRMED.",
+        "regression": "M12-REC-OUTPUT-TIMEOUT passed, including restart retention and no replay."
+      }
+    }
+  ],
+  "additional_security_checks": [
+    {
+      "topic": "Exact resource and last authorization fence",
+      "evidence": "revision-mw5uhrqi/probe-results.retry1.json: results[2]",
+      "result": "A trusted resource resolver took 600ms on its final invocation against a 400ms exact approval. Final result was BLOCKED/APPROVAL_EXPIRED_BEFORE_START, executions=0, executor NOT_INVOKED, Writer absent. Source review confirms the resolver and context construction precede the final epoch/clock checks; resource_id is part of intentHash and the frozen execution context."
+    },
+    {
+      "topic": "Unknown output producer cannot be released by adjudication or by restart",
+      "evidence": [
+        "producer-results.json",
+        "revision-mw5uhrqi/producer-results.json"
+      ],
+      "result": "With stdout.next rejecting and iterator.return never acknowledging, the Gateway returned INCONCLUSIVE, executor remained UNKNOWN, incomplete artifact metadata said producer_cleanup=UNKNOWN and producer_exit=NOT_VERIFIED, and Writer remained. ADJUDICATE with release=true failed. A final human outcome without release was appendable; after reopen RELEASE_WRITER still failed with EXECUTOR_EXIT_NOT_CONFIRMED."
+    },
+    {
+      "topic": "Authority and policy boundaries",
+      "evidence": "revision-mw5uhrqi/tests.tap",
+      "result": "Reviewed and tested the frozen Agent/tool context, non-forgeable trusted admin object identity, strict policy/capability fields, default non-allowing evaluator behavior, mandatory exact LOCAL_WRITE approval even when optional policies are disabled, epoch and replay checks. PROCESS and EXTERNAL_EFFECT remain unconditionally SANDBOX_NOT_VERIFIED before application policy evaluation."
+    },
+    {
+      "topic": "Reconciliation concurrency and stale projections",
+      "evidence": "revision-mw5uhrqi/tests.tap",
+      "result": "Reviewed challenge hash/payload/boot/expiry binding, complete evidence reads, gate plus same-transaction rechecks, revision/request uniqueness and append-only records. Inactive CLAIMED/STARTED states are now accepted for adjudication after a store fault, while requestActive veto and running/executor_state exit requirements still govern release. This does not promote unknown exit evidence."
+    }
+  ],
+  "test_runs": [
+    {
+      "started_at": "2026-11-07T03:25:02.145Z",
+      "ended_at": "2026-11-07T03:25:12.184Z",
+      "exit_code": 0,
+      "error": null,
+      "node": "v24.15.0",
+      "tests": [
+        "tests/agentnexus/security.test.ts",
+        "tests/agentnexus/reconciliation.test.ts",
+        "tests/agentnexus/gateway.test.ts",
+        "tests/agentnexus/control.test.ts"
+      ],
+      "data_root": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\independent-review\\d",
+      "evidence_directory": ".",
+      "total": 71,
+      "passed": 71,
+      "failed": 0,
+      "cancelled": 0,
+      "skipped": 0
+    },
+    {
+      "started_at": "2026-11-07T03:29:53.870Z",
+      "ended_at": "2026-11-07T03:30:04.591Z",
+      "exit_code": 0,
+      "error": null,
+      "tests": [
+        "tests/agentnexus/security.test.ts",
+        "tests/agentnexus/reconciliation.test.ts",
+        "tests/agentnexus/gateway.test.ts",
+        "tests/agentnexus/control.test.ts"
+      ],
+      "node": "v24.15.0",
+      "data_root": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\independent-review\\d",
+      "evidence_directory": "revision-mw5uhrqi",
+      "total": 74,
+      "passed": 74,
+      "failed": 0,
+      "cancelled": 0,
+      "skipped": 0
+    }
+  ],
+  "probe_runs": [
+    {
+      "evidence": "probe-results.json",
+      "exit_code": 0,
+      "purpose": "Initial reproduction of both findings"
+    },
+    {
+      "evidence": "producer-results.json",
+      "exit_code": 0,
+      "purpose": "Initial independent unknown-producer negative test"
+    },
+    {
+      "evidence": "revision-mw5uhrqi/probe.stderr.txt",
+      "exit_code": 1,
+      "purpose": "First final probe attempt stopped during cleanup because the reviewer directly closed a session after the expected Store fault; this was a probe cleanup omission, not a product-test failure. Original stderr is preserved."
+    },
+    {
+      "evidence": "revision-mw5uhrqi/probe-results.retry1.json",
+      "exit_code": 0,
+      "purpose": "Only the probe was corrected to explicitly recover the faulted synthetic Store before session close; it was rerun against the same unchanged final source snapshot. Passed test suite was not repeated."
+    },
+    {
+      "evidence": "revision-mw5uhrqi/producer-results.json",
+      "exit_code": 0,
+      "purpose": "Final independent unknown-producer negative test, including restart"
+    }
+  ],
+  "limits": [
+    "This is a bounded review of six product files, four test files, two designs, and the listed supporting paths. Absence of an identified open finding is not proof that the full product is safe.",
+    "All execution was local and synthetic in immutable source copies with AGENTNEXUS_TEST_DATA_ROOT set to the delegated independent-review/d directory. No original/history tests were run in-place.",
+    "No model, external Provider, scientific experiment, production endpoint, Git commit, or push was used.",
+    "OS administrator authentication and peer identity were not verified; arbitrary sandbox/process execution remains BLOCKED. Local capability checks are not an OS authentication or malicious same-process JS guarantee.",
+    "The existing real child kill fixtures validate local crash windows only. They do not prove OS process-tree termination, hard power-loss durability, or real-world side-effect truth.",
+    "A source producer with unconfirmed cleanup remains UNKNOWN after local cancellation or after the old Host exits. The retained Writer may require a future Broker/exit verifier; this review does not grant release authority based on manual outcome evidence alone.",
+    "Hash verification proves the referenced bytes, not the real-world interpretation of administrator evidence.",
+    "An intermediate failed custom probe left only synthetic evidence in this delegated runtime directory; its stderr was retained and no historical evidence was overwritten.",
+    "Final conclusions bind to the recorded final hashes. Later source changes require re-review."
+  ],
+  "status_boundaries": {
+    "trusted_local_review": "COMPLETED_WITH_RECORDED_FINDINGS_RESOLVED",
+    "os_admin_auth": "NOT_RUN",
+    "os_sandbox": "BLOCKED",
+    "os_process_tree_exit": "NOT_RUN",
+    "external_provider": "NOT_RUN",
+    "real_model": "NOT_RUN",
+    "scientific_execution": "NOT_RUN"
+  },
+  "evidence": [
+    {
+      "path": "source-manifest.json",
+      "sha256": "99fd8d116fe31fbf111e846f843e7ce1843b64dc21e00be4a56d986bead53a7b"
+    },
+    {
+      "path": "tests.tap",
+      "sha256": "8fcf4af7e88f03f4a90e0ac0a4b2f2cc842f2f5e9fcc8ba87a5d2a555f172dc8"
+    },
+    {
+      "path": "test-result.json",
+      "sha256": "c19f142ace0b5ad50c3eb4ad194e9650e5a3c19eff22a166bb4c8570f1a1d469"
+    },
+    {
+      "path": "probe.mjs",
+      "sha256": "b44beff9d89c791e0d056ca3b418b61a5d829fb63315d11b0b859c26ca2275fb"
+    },
+    {
+      "path": "probe-results.json",
+      "sha256": "6dda01b4c4573a6b1c9125f7833e61b936b878e3165d78d18789e1cdfde9c2d0"
+    },
+    {
+      "path": "producer-probe.mjs",
+      "sha256": "aa5511200c1e919380b5cad4b0f42d5aef98f3bae6f91b3343f829bbdda68874"
+    },
+    {
+      "path": "producer-results.json",
+      "sha256": "0af6ec412e8a101ec08ac9d7eecc14f5e5ca3bde6eefad002b397e30f266a178"
+    },
+    {
+      "path": "current-probe.mjs",
+      "sha256": "85173ecb3f955e5b657a01d94a5aab57e6323bc680d80ded828fe788e381ba0b"
+    },
+    {
+      "path": "revision-mw5uhrqi/source-manifest.json",
+      "sha256": "68ee0bc94869a99784a0bd8c357cf4238c8620bdf878d2abebd01367a5cf6b23"
+    },
+    {
+      "path": "revision-mw5uhrqi/tests.tap",
+      "sha256": "a32d51fa7aeea4ecd3dd80ece30fb77f4381285f08de9bd2881d0503e179ef97"
+    },
+    {
+      "path": "revision-mw5uhrqi/test-result.json",
+      "sha256": "71e01db206810a1f99526c47e4c29065e604fd8a771c294f0685319995e72a56"
+    },
+    {
+      "path": "revision-mw5uhrqi/probe.stderr.txt",
+      "sha256": "b7a76bcfe9e454ae5160389cf2b8b61ce54fe305131f6006c32a6779d637e55e"
+    },
+    {
+      "path": "revision-mw5uhrqi/probe-results.retry1.json",
+      "sha256": "4e36930f82f920cda0e1de4fa226865abb4366f1f36ab113d04f7c4cb95a0f6f"
+    },
+    {
+      "path": "revision-mw5uhrqi/probe.retry1.stdout.txt",
+      "sha256": "55b5860685bf5a2e447e0836d133841f80c11d64e61b93035e9e6748dd4f87bf"
+    },
+    {
+      "path": "revision-mw5uhrqi/probe.retry1.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "revision-mw5uhrqi/producer-results.json",
+      "sha256": "630e2249486ad64fde9b9c11dadb28c4ea73e4b75fb7212d8e04fb499e36e114"
+    }
+  ]
+}

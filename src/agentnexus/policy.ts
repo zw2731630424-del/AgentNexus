@@ -1,6 +1,7 @@
 import { performance } from 'node:perf_hooks';
-import { boundedJson, canonical, invariant, NexusError, sha256, uid } from './types.ts';
-import type { Identity, Json, PolicyDefinition, Scope } from './types.ts';
+import { boundedJson, canonical, freezeJson, invariant, NexusError, sha256, uid, validateIdentity } from './types.ts';
+import type { Identity, Json, PolicyDefinition, Scope, ValidationResult } from './types.ts';
+import { POLICY_CONTRACTS } from './policy-contracts.ts';
 import { acquireMutation, adminEvent, clockFor, getChallenge, markChallengeConsumed, metadata, newChallenge, scopeKey } from './control.ts';
 import type { AdminCheck, MutationGate } from './control.ts';
 import type { KernelStore } from './storage.ts';
@@ -11,17 +12,36 @@ type ModeState = ModeRequest & { state: PolicyMode | 'ENFORCE_PENDING_PREFLIGHT'
 export type Verdict = 'ALLOW' | 'DENY' | 'REQUIRE_APPROVAL';
 export type PolicyFact = { policy_id: string; mode: PolicyMode; original_verdict: Verdict | 'NOT_EVALUATED'; result: Verdict | 'BYPASSED' | 'WOULD_DENY'; enforced: boolean };
 export type Evaluation = { allowed: boolean; facts: PolicyFact[]; policy_epoch: number };
-export type PolicyContext = { identity: Identity; intent_hash: string; approval_id?: string; validation_ok?: boolean };
+export type PolicyContext = { identity: Identity; intent_hash: string; approval_id?: string; validation?: ValidationResult | null };
 export type RuleEvaluator = (definition: PolicyDefinition, context: PolicyContext, approved: boolean) => Verdict;
+
+export function validatePolicyDefinitions(definitions: PolicyDefinition[]): PolicyDefinition[] {
+  invariant(Array.isArray(definitions) && definitions.length <= 64, 'INVALID_POLICY_DEFINITIONS');
+  const snapshot = JSON.parse(boundedJson(definitions, 262144)) as PolicyDefinition[];
+  const ids = new Set<string>();
+  const fields = new Set(['id','level','degradable','enforcement_owner','modes','version','default_mode','audit_requirements','failure','implementation_status','risk','scope','source','specific_test','test_cases','test_ids','test_status']);
+  for (const d of snapshot) {
+    invariant(d && typeof d === 'object' && !Array.isArray(d), 'INVALID_POLICY_DEFINITION');
+    invariant(Object.keys(d).every(k => fields.has(k)), 'INVALID_POLICY_FIELDS');
+    invariant(!Object.hasOwn(d, 'default_mode') || (d as any).default_mode === 'ENFORCE', 'INVALID_POLICY_DEFAULT_MODE');
+    invariant(typeof d.id === 'string' && Object.hasOwn(POLICY_CONTRACTS, d.id), 'UNKNOWN_POLICY');
+    invariant(!ids.has(d.id), 'DUPLICATE_POLICY'); ids.add(d.id);
+    const [level, degradable, owner] = POLICY_CONTRACTS[d.id];
+    invariant(d.level === level && d.degradable === degradable && d.enforcement_owner === owner, 'INVALID_POLICY_CONTRACT');
+    invariant(d.modes && typeof d.modes === 'object' && !Array.isArray(d.modes) && Object.keys(d.modes).sort().join(',') === 'AUDIT_ONLY,DISABLED,ENFORCE', 'INVALID_POLICY_MODES');
+    for (const value of Object.values(d.modes)) invariant(typeof value === 'string' && value.trim().length > 0 && value.length <= 4096, 'INVALID_POLICY_MODES');
+    freezeJson(d as unknown as Json);
+  }
+  return snapshot;
+}
 
 export class PolicyEngine {
   #store: KernelStore; #definitions: Map<string, PolicyDefinition>; #admin: AdminCheck; #gate: MutationGate;
-  #active: () => number; #boot = uid(); #lastWall = Date.now(); #evaluator: RuleEvaluator;
+  #active: () => number; #boot = uid(); #lastWall = Date.now(); #evaluator?: RuleEvaluator;
   constructor(store: KernelStore, definitions: PolicyDefinition[], checkAdmin: AdminCheck, gate: MutationGate, active: () => number, evaluator?: RuleEvaluator) {
-    this.#store = store; this.#definitions = new Map(definitions.map(d => [d.id, JSON.parse(canonical(d))]));
-    invariant(this.#definitions.size === definitions.length, 'DUPLICATE_POLICY');
+    this.#store = store; this.#definitions = new Map(validatePolicyDefinitions(definitions).map(d => [d.id, d]));
     this.#admin = checkAdmin; this.#gate = gate; this.#active = active;
-    this.#evaluator = evaluator ?? ((d, c, approved) => d.level === 'L1' ? (approved ? 'ALLOW' : 'REQUIRE_APPROVAL') : d.level === 'L2' ? (c.validation_ok === true ? 'ALLOW' : 'DENY') : 'ALLOW');
+    invariant(evaluator === undefined || typeof evaluator === 'function', 'INVALID_RULE_EVALUATOR'); this.#evaluator = evaluator;
   }
   async onBoot(): Promise<void> {
     // Any resumed permissive configuration requires explicit recovery preflight; never extend its lease.
@@ -30,7 +50,7 @@ export class PolicyEngine {
       const page = this.#store.db.prepare('SELECT scope_key,value FROM control_modes ORDER BY scope_key LIMIT 100 OFFSET ?').all(offset) as { scope_key: string; value: string }[];
       if (!page.length) break;
       for (const row of page) {
-        const state = JSON.parse(row.value) as ModeState;
+        const state = this.#modeState(row.value, row.scope_key);
         if (state.state !== 'ENFORCE') this.#freeze(row.scope_key, state, 'RESTART_REQUIRES_PREFLIGHT');
       }
       offset += page.length;
@@ -38,6 +58,30 @@ export class PolicyEngine {
     await this.#store.flush();
   }
   #definition(id: string): PolicyDefinition { const d = this.#definitions.get(id); invariant(d, 'UNKNOWN_POLICY'); return d; }
+  validateSelection(ids: string[]): void {
+    invariant(Array.isArray(ids) && ids.length <= 64 && new Set(ids).size === ids.length, 'INVALID_POLICY_SELECTION');
+    for (const id of ids) { const d = this.#definition(id); invariant(d.degradable && d.level !== 'L0', 'INDEPENDENT_POLICY_OWNER'); }
+  }
+  #modeState(raw: string, key: string): ModeState {
+    const s = JSON.parse(raw) as ModeState;
+    invariant(s && typeof s === 'object' && scopeKey(s.scope) === key && !s.scope.agent_id && !s.scope.task_id, 'INVALID_PERSISTED_MODE');
+    invariant(['ENFORCE','AUDIT_ONLY','DISABLED'].includes(s.mode) && ['ENFORCE','AUDIT_ONLY','DISABLED','ENFORCE_PENDING_PREFLIGHT'].includes(s.state), 'INVALID_PERSISTED_MODE');
+    this.validateSelection(s.policy_ids); invariant(s.policy_ids.length > 0, 'INVALID_PERSISTED_MODE');
+    invariant(s.state === 'ENFORCE_PENDING_PREFLIGHT' || s.state === s.mode, 'INVALID_PERSISTED_MODE');
+    invariant(typeof s.reason === 'string' && s.reason.trim().length > 0 && typeof s.boot_id === 'string' && typeof s.challenge_id === 'string', 'INVALID_PERSISTED_MODE');
+    invariant(Number.isFinite(s.created_wall) && Number.isFinite(s.deadline_mono), 'INVALID_PERSISTED_MODE');
+    invariant(s.mode === 'ENFORCE' ? s.expires_at === null : typeof s.expires_at === 'string' && Number.isFinite(Date.parse(s.expires_at)), 'INVALID_PERSISTED_MODE');
+    return s;
+  }
+  #defaultVerdict(d: PolicyDefinition, c: PolicyContext, approved: boolean): Verdict {
+    if (d.level === 'L1') return approved ? 'ALLOW' : 'REQUIRE_APPROVAL';
+    if (d.level === 'L2') {
+      const dimension = ({ 'P.DI_SYNTAX': 'syntax', 'P.DI_ARGUMENTS': 'args', 'P.DI_ENVIRONMENT': 'environment' } as const)[d.id];
+      const m = metadata(this.#store), v = c.validation;
+      return dimension && v && v.feature_epoch === m.feature_epoch && v.config_revision === m.feature_revision && v.dimensions?.[dimension]?.applicable === true && v.dimensions[dimension].status === 'PASS' ? 'ALLOW' : 'DENY';
+    }
+    return d.level === 'L3' && d.id === 'P.STYLE' ? 'ALLOW' : 'DENY';
+  }
   async prepare(admin: unknown, request: ModeRequest, expectedRevision: number) {
     this.#admin(admin); boundedJson(request);
     invariant(Object.keys(request).sort().join(',') === 'expires_at,mode,policy_ids,reason,scope', 'INVALID_MODE_REQUEST');
@@ -46,7 +90,7 @@ export class PolicyEngine {
     invariant(typeof request.reason === 'string' && request.reason.trim().length > 0 && request.reason.length <= 1024, 'MODE_REASON_REQUIRED');
     invariant(Array.isArray(request.policy_ids) && request.policy_ids.length > 0 && request.policy_ids.length <= 64, 'INVALID_POLICY_SELECTION');
     invariant(new Set(request.policy_ids).size === request.policy_ids.length, 'DUPLICATE_POLICY');
-    for (const id of request.policy_ids) { const d = this.#definition(id); if (request.mode !== 'ENFORCE') invariant(d.degradable && d.level !== 'L0', 'NON_DEGRADABLE_POLICY'); }
+    for (const id of request.policy_ids) { const d = this.#definition(id); invariant(d.degradable && d.level !== 'L0', 'NON_DEGRADABLE_POLICY'); }
     if (request.mode !== 'ENFORCE') {
       const deadline = Date.parse(request.expires_at ?? ''); const max = request.mode === 'AUDIT_ONLY' ? 7200000 : 1800000;
       invariant(Number.isFinite(deadline) && deadline > Date.now() && deadline <= Date.now() + max, 'INVALID_MODE_EXPIRY');
@@ -100,7 +144,7 @@ export class PolicyEngine {
     const matches: PolicyMode[] = [];
     for (const s of [{}, ...(scope.project_id ? [{ project_id: scope.project_id }] : [])]) {
       const key = scopeKey(s); const row = this.#store.db.prepare('SELECT value FROM control_modes WHERE scope_key=?').get(key) as { value: string } | undefined;
-      if (!row) continue; const state = JSON.parse(row.value) as ModeState;
+      if (!row) continue; const state = this.#modeState(row.value, key);
       if (!state.policy_ids.includes(id)) continue;
       if (state.state !== 'ENFORCE' && state.state !== 'ENFORCE_PENDING_PREFLIGHT' && (rollback || state.boot_id !== this.#boot || currentWall < state.created_wall || currentWall >= Date.parse(state.expires_at!) || performance.now() >= state.deadline_mono)) this.#freeze(key, state, 'MODE_EXPIRED_OR_CLOCK_INVALID');
       invariant(state.state !== 'ENFORCE_PENDING_PREFLIGHT', 'ENFORCE_PENDING_PREFLIGHT');
@@ -111,6 +155,9 @@ export class PolicyEngine {
     return matches.includes('DISABLED') ? 'DISABLED' : 'ENFORCE';
   }
   evaluate(ids: string[], context: PolicyContext): Evaluation {
+    this.validateSelection(ids); validateIdentity(context.identity);
+    invariant(/^[a-f0-9]{64}$/.test(context.intent_hash), 'INVALID_INTENT_HASH');
+    context = freezeJson(JSON.parse(boundedJson(context))) as PolicyContext;
     const facts: PolicyFact[] = []; let allowed = true;
     const approved = this.approvalValid(context.approval_id, context.intent_hash, context.identity);
     for (const id of ids) {
@@ -120,7 +167,15 @@ export class PolicyEngine {
       const mode = this.modeFor(id, { project_id: context.identity.project_id });
       if (mode === 'DISABLED') { facts.push({ policy_id: id, mode, original_verdict: 'NOT_EVALUATED', result: 'BYPASSED', enforced: false }); continue; }
       let verdict: Verdict;
-      try { verdict = this.#evaluator(definition, context, approved); }
+      try {
+        verdict = this.#defaultVerdict(definition, context, approved);
+        if (this.#evaluator) {
+          const extension = this.#evaluator(definition, context, approved);
+          invariant(['ALLOW','DENY','REQUIRE_APPROVAL'].includes(extension), 'POLICY_UNAVAILABLE');
+          if (extension === 'DENY' || verdict === 'DENY') verdict = 'DENY';
+          else if (extension === 'REQUIRE_APPROVAL' || verdict === 'REQUIRE_APPROVAL') verdict = 'REQUIRE_APPROVAL';
+        }
+      }
       catch { throw new NexusError('POLICY_UNAVAILABLE'); }
       invariant(['ALLOW', 'DENY', 'REQUIRE_APPROVAL'].includes(verdict), 'POLICY_UNAVAILABLE');
       const blocked = verdict !== 'ALLOW'; if (mode === 'ENFORCE' && blocked) allowed = false;
@@ -139,8 +194,8 @@ export class PolicyEngine {
     return !!r && r.consumed === expectedConsumed && r.intent_hash === hash && r.subject === identity.agent_id && r.project_id === identity.project_id && clockFor(this.#store).valid(r) && r.feature_epoch === m.feature_epoch && r.policy_epoch === m.policy_epoch;
   }
   async approve(admin: unknown, hash: string, identity: Identity, reason: string, lifetimeMs = 60000): Promise<string> {
-    this.#admin(admin); invariant(/^[a-f0-9]{64}$/.test(hash), 'INVALID_INTENT_HASH');
-    invariant(reason.trim() && reason.length <= 1024 && lifetimeMs > 0 && lifetimeMs <= 300000, 'APPROVAL_REASON_OR_EXPIRY');
+    this.#admin(admin); validateIdentity(identity); invariant(/^[a-f0-9]{64}$/.test(hash), 'INVALID_INTENT_HASH');
+    invariant(typeof reason === 'string' && reason.trim() && reason.length <= 1024 && Number.isSafeInteger(lifetimeMs) && lifetimeMs > 0 && lifetimeMs <= 300000, 'APPROVAL_REASON_OR_EXPIRY');
     const id = uid(), m = metadata(this.#store);
     const lease = clockFor(this.#store).issue(lifetimeMs);
     this.#store.transaction(() => {

@@ -86,7 +86,7 @@ test('PowerShell Parser actually returns AST diagnostics and UTF-16 positions', 
 });
 
 test('Python and PowerShell source side effects remain unexecuted', { skip: !existsSync(pythonPath) || !existsSync(powerShellPath) }, async () => {
-  const evidenceRoot = resolve('.workflow-kit/runtime/AgentNexus-v0.4-M1/diagnostics');
+  const evidenceRoot = resolve(process.env.AGENTNEXUS_TEST_DATA_ROOT ?? '.workflow-kit/runtime/AgentNexus-M1.2/test-data', 'diagnostics');
   await mkdir(evidenceRoot, { recursive: true });
   const fixture = await mkdtemp(join(evidenceRoot, 'noexec-'));
   const service = new DevelopmentIntelligence(options);
@@ -269,7 +269,7 @@ test('registered Git/Python argv schemas are static, limited and independently t
 });
 
 test('argv environment checks inspect only the Host file and preserve the actual args result', async () => {
-  const service = new DevelopmentIntelligence({ pythonPath: resolve('.workflow-kit/runtime/AgentNexus-v0.4-M1/diagnostics/missing-python-executable') });
+  const service = new DevelopmentIntelligence({ pythonPath: resolve(process.env.AGENTNEXUS_TEST_DATA_ROOT ?? '.workflow-kit/runtime/AgentNexus-M1.2/test-data', 'diagnostics/missing-python-executable') });
   try {
     const result = await service.checkArguments({ family: 'python', argv: ['--version'], document_uri: 'test:argv-missing-env', version: 1 });
     assert.equal(result.status, 'BLOCKED');

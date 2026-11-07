@@ -1,0 +1,95 @@
+{
+  "node": "v24.15.0",
+  "created_at": "2026-11-07T03:27:24.692Z",
+  "workspace": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.2/independent-review/workspace/",
+  "root": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\independent-review\\d\\producer-CBF7Gs",
+  "cleanupCalled": true,
+  "result": {
+    "status": "INCONCLUSIVE",
+    "reason": "TOOL_FAILED",
+    "operation_id": "c1527a88-b34d-46f9-af67-e2e9b64d12ae",
+    "intent_hash": "ad2825be8f90fb6c471862577156447fd94087d84ad561ebd3bcad230b6b399b",
+    "data": null,
+    "stdout_ref": null,
+    "stderr_ref": null,
+    "audit_event_id": "084fabda-487a-41bc-a585-2897513148c7",
+    "permit_id": "f78961d6-03cd-43aa-aa39-88ed12d91431"
+  },
+  "before": {
+    "operation_id": "c1527a88-b34d-46f9-af67-e2e9b64d12ae",
+    "intent_hash": "ad2825be8f90fb6c471862577156447fd94087d84ad561ebd3bcad230b6b399b",
+    "state": "INDETERMINATE",
+    "executor_state": "UNKNOWN",
+    "reconcile_revision": 0,
+    "workspace": "review:producer",
+    "writer": {
+      "resource": "review:producer",
+      "fence": 1
+    },
+    "adjudications": [],
+    "executor_running": false
+  },
+  "releaseAttempt": {
+    "fulfilled": false,
+    "code": "EXECUTOR_EXIT_NOT_CONFIRMED",
+    "message": "EXECUTOR_EXIT_NOT_CONFIRMED"
+  },
+  "retained": {
+    "adjudication_id": "b5512494-4747-4284-9a23-e22944f36cf5",
+    "operation_id": "c1527a88-b34d-46f9-af67-e2e9b64d12ae",
+    "intent_hash": "ad2825be8f90fb6c471862577156447fd94087d84ad561ebd3bcad230b6b399b",
+    "revision": 1,
+    "outcome": "CONFIRMED_NOT_APPLIED",
+    "writer_released": false,
+    "automatic_retry": false
+  },
+  "incomplete": [
+    {
+      "artifact_id": "d511c2db-8702-4da1-a047-7c1b770f196e",
+      "compressed_bytes_observed": 0,
+      "durable_offset": null,
+      "input_bytes_observed": 0,
+      "producer_cleanup": "UNKNOWN",
+      "producer_exit": "NOT_VERIFIED",
+      "reason": "Error",
+      "stage": "PARTIAL",
+      "status": "INCOMPLETE",
+      "store_output_closed": true
+    }
+  ],
+  "afterReopen": {
+    "operation_id": "c1527a88-b34d-46f9-af67-e2e9b64d12ae",
+    "intent_hash": "ad2825be8f90fb6c471862577156447fd94087d84ad561ebd3bcad230b6b399b",
+    "state": "RECONCILED_NOT_APPLIED",
+    "executor_state": "UNKNOWN",
+    "reconcile_revision": 1,
+    "workspace": "review:producer",
+    "writer": {
+      "resource": "review:producer",
+      "fence": 1
+    },
+    "adjudications": [
+      {
+        "id": "b5512494-4747-4284-9a23-e22944f36cf5",
+        "request_id": "producer-final",
+        "operation_id": "c1527a88-b34d-46f9-af67-e2e9b64d12ae",
+        "revision": 1,
+        "intent_hash": "ad2825be8f90fb6c471862577156447fd94087d84ad561ebd3bcad230b6b399b",
+        "action": "ADJUDICATE",
+        "outcome": "CONFIRMED_NOT_APPLIED",
+        "adjudicator": "host-admin",
+        "observed_at": "2026-11-07T03:27:24.616Z",
+        "reason": "No world effect was present in the synthetic handler",
+        "evidence": "[{\"artifact_id\":\"53394aab-76ea-4e06-8df4-aae7bc407e6f\",\"bytes\":327,\"codec\":\"zstd\",\"media_type\":\"application/json\",\"sensitivity\":\"NORMAL\",\"sha256\":\"072dce8c4e0694766195b2f6452b0dfca1f3c518a8036111b31465d8eb10ee9d\",\"stored_bytes\":277,\"stored_sha256\":\"83ed3a2035e921f5f6935eb044d133ecd1bd6b0d31112e7a7aa6c2b0f92969a5\"}]",
+        "writer_released": 0,
+        "audit_event_id": "b959718d-b1ac-4155-beab-9190eb3fb939"
+      }
+    ],
+    "executor_running": false
+  },
+  "secondRelease": {
+    "fulfilled": false,
+    "code": "EXECUTOR_EXIT_NOT_CONFIRMED",
+    "message": "EXECUTOR_EXIT_NOT_CONFIRMED"
+  }
+}

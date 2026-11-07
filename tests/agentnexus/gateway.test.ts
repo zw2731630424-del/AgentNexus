@@ -11,7 +11,7 @@ import type { Identity, Json } from '../../src/agentnexus/types.ts';
 
 const ID:Identity={agent_id:'worker-a',project_id:'project-a',task_id:'task-a',session_id:'session-a'};
 async function fixture(t:test.TestContext, options:Parameters<typeof openHost>[1]={}) {
-  const base=resolve('.workflow-kit/runtime/AgentNexus-v0.4-M1/gateway');await mkdir(base,{recursive:true});
+  const base=resolve(process.env.AGENTNEXUS_TEST_DATA_ROOT ?? '.workflow-kit/runtime/AgentNexus-M1.2/test-data', 'gateway');await mkdir(base,{recursive:true});
   const root=await mkdtemp(join(base,'case-'));const host=await openHost(root,options);
   const agent=host.bindAgent(ID);
   t.after(async()=>{await agent.close();await host.close();});return{host,agent,root};
@@ -24,13 +24,14 @@ async function setMode(host:Awaited<ReturnType<typeof openHost>>, mode:'ENFORCE'
 }
 function counter(host:Awaited<ReturnType<typeof openHost>>, overrides:Partial<ToolDefinition>={}) {
   host.store.db.exec('CREATE TABLE IF NOT EXISTS synthetic_effects(n INTEGER NOT NULL);INSERT INTO synthetic_effects SELECT 0 WHERE NOT EXISTS(SELECT 1 FROM synthetic_effects)');
-  host.administration.registerTool({id:'fixture.counter',version:'1',feature_id:'tool.test',policy_ids:[],requires_sandbox:false,
+  host.administration.registerTool({id:'fixture.counter',version:'1',feature_id:'tool.test',capability:'LOCAL_WRITE',policy_ids:['P.COMMAND_RISK'],requires_sandbox:false,
     schema:args=>{invariant(args!==null&&typeof args==='object'&&!Array.isArray(args),'COUNTER_SCHEMA');},
     writer_resource:(_args,id)=>id.project_id+':counter',
     execute:()=>{host.store.db.exec('UPDATE synthetic_effects SET n=n+1');return{data:{n:count(host)}};},...overrides});
 }
 function count(host:Awaited<ReturnType<typeof openHost>>):number{return(host.store.db.prepare('SELECT n FROM synthetic_effects').get() as {n:number}).n;}
-const request=(call='call-1'):ToolRequest=>({call_id:call,tool_id:'fixture.counter',tool_version:'1',arguments:{value:1}});
+const request=(call='call-1'):ToolRequest=>({call_id:call,tool_id:'fixture.counter',tool_version:'1',resource_id:ID.project_id+':counter',arguments:{value:1}});
+async function signed(host:Awaited<ReturnType<typeof openHost>>,req:ToolRequest):Promise<ToolRequest>{return {...req,approval_id:await host.administration.approve(intentHash(ID,req),ID,'Explicit synthetic local write authorization')};}
 async function toggle(host:Awaited<ReturnType<typeof openHost>>,changes:any[]) {
   const p=await host.administration.previewFeatures(changes,host.administration.metadata().feature_revision);
   await host.administration.commitFeatures(p.challenge_id,p.preview_hash);
@@ -53,8 +54,8 @@ test('P.MODE+Gateway: same safe synthetic operation blocked/enforced, would-deny
   let calls=0;const{host,agent}=await fixture(t,{ruleEvaluator:()=>{calls++;return'REQUIRE_APPROVAL';}});
   counter(host,{policy_ids:['P.COMMAND_RISK']});
   assert.equal((await agent.request(request('enforce'))).status,'BLOCKED');assert.equal(count(host),0);
-  await setMode(host,'AUDIT_ONLY');assert.equal((await agent.request(request('audit'))).status,'PASS');assert.equal(count(host),1);assert.equal(calls,2);
-  await setMode(host,'DISABLED');assert.equal((await agent.request(request('disabled'))).status,'PASS');assert.equal(count(host),2);assert.equal(calls,2);
+  await setMode(host,'AUDIT_ONLY');assert.equal((await agent.request(await signed(host,request('audit')))).status,'PASS');assert.equal(count(host),1);assert.equal(calls,2);
+  await setMode(host,'DISABLED');assert.equal((await agent.request(await signed(host,request('disabled')))).status,'PASS');assert.equal(count(host),2);assert.equal(calls,2);
   const facts=host.store.query('audit',{project_id:ID.project_id,task_id:ID.task_id,limit:100}).map(x=>x.body as any).filter(x=>x.phase==='POLICY_DECISION');
   assert.ok(facts.some(x=>x.detail.facts[0]?.result==='WOULD_DENY'));
   assert.ok(facts.some(x=>x.detail.facts[0]?.result==='BYPASSED'&&x.detail.facts[0].original_verdict==='NOT_EVALUATED'));
@@ -87,7 +88,7 @@ test('P.APPROVAL_REPLAY: exact approval executes once; altered intent and replay
 });
 test('P.DB_ATOMIC: 16 concurrent duplicate requests invoke a real handler at most once',async t=>{
   const{host,agent}=await fixture(t);counter(host);
-  const results=await Promise.all(Array.from({length:16},()=>agent.request(request('duplicate'))));
+  const req=await signed(host,request('duplicate'));const results=await Promise.all(Array.from({length:16},()=>agent.request(req)));
   assert.equal(results.filter(x=>x.status==='PASS').length,1);assert.equal(count(host),1);
   assert.equal((host.store.db.prepare('SELECT count(*) n FROM control_operations').get() as any).n,1);
 });
@@ -95,9 +96,9 @@ test('P.WORKSPACE_WRITER: concurrent distinct calls cannot overwrite active reso
   const{host,agent}=await fixture(t);let finish!:()=>void,entered!:()=>void;
   const started=new Promise<void>(r=>entered=r),hold=new Promise<void>(r=>finish=r);
   counter(host,{execute:async()=>{entered();await hold;host.store.db.exec('UPDATE synthetic_effects SET n=n+1');return{data:{n:count(host)}};}});
-  const first=agent.request(request('writer-a'));await started;
+  const first=agent.request(await signed(host,request('writer-a')));await started;
   try{
-    const blocked=await agent.request(request('writer-b'));assert.equal(blocked.reason,'WORKSPACE_BUSY');assert.equal(count(host),0);
+    const blocked=await agent.request(await signed(host,request('writer-b')));assert.equal(blocked.reason,'WORKSPACE_BUSY');assert.equal(count(host),0);
     await assert.rejects(setMode(host,'DISABLED'),{code:'ACTIVE_OPERATIONS'});
     assert.equal((host.store.db.prepare('SELECT count(*) n FROM control_writers').get() as any).n,1);
   }finally{finish();}
@@ -108,29 +109,29 @@ test('AT-IOFAIL-before: actual SQLite readonly persistence failure prevents hand
   const{host,agent}=await fixture(t);counter(host);host.store.db.exec('PRAGMA query_only=ON');
   try{const r=await agent.request(request('before-fault'));assert.equal(r.status,'BLOCKED');assert.equal(count(host),0);assert.equal(host.store.faulted,true);assert.equal(host.features.resolve('core.state').health,'FAILED');assert.equal(host.features.resolve('tool.test').effective,'BLOCKED');}
   finally{host.store.db.exec('PRAGMA query_only=OFF');await host.store.recover();}
-  assert.equal((await agent.request(request('after-recover'))).status,'PASS');assert.equal(count(host),1);
+  assert.equal((await agent.request(await signed(host,request('after-recover')))).status,'PASS');assert.equal(count(host),1);
 });
 test('AT-IOFAIL-after: actual effect with unrecordable result keeps claim and never replays',async t=>{
   const{host,agent}=await fixture(t);counter(host,{execute:()=>{host.store.db.exec('UPDATE synthetic_effects SET n=n+1;PRAGMA query_only=ON');return{data:{n:1}};}});
-  const r=await agent.request(request('post-fault'));
+  const submitted=await signed(host,request('post-fault'));const r=await agent.request(submitted);
   assert.equal(r.status,'INCONCLUSIVE');assert.equal(count(host),1);assert.equal(host.store.faulted,true);
   host.store.db.exec('PRAGMA query_only=OFF');await host.store.recover();
-  assert.equal((await agent.request(request('post-fault'))).reason,'DUPLICATE_OPERATION');assert.equal(count(host),1);
+  assert.equal((await agent.request(submitted)).reason,'DUPLICATE_OPERATION');assert.equal(count(host),1);
   assert.equal((host.store.db.prepare('SELECT count(*) n FROM control_writers').get() as any).n,1);
-  assert.equal((await agent.request(request('new-while-uncertain'))).reason,'WORKSPACE_BUSY');assert.equal(count(host),1);
+  assert.equal((await agent.request(await signed(host,request('new-while-uncertain')))).reason,'WORKSPACE_BUSY');assert.equal(count(host),1);
 });
 test('P.TIMEOUT: timeout retains owned lease until actual handler settlement and never resets claim',async t=>{
   const{host,agent}=await fixture(t);let finish!:()=>void;
   const hold=new Promise<void>(r=>finish=r);
   counter(host,{timeout_ms:25,execute:async()=>{await hold;return{data:{done:true}};}});
-  const result=await agent.request(request('timeout'));
+  const result=await agent.request(await signed(host,request('timeout')));
   try{assert.equal(result.status,'INCONCLUSIVE');assert.equal(result.reason,'TOOL_TIMEOUT');assert.equal(host.features.activeCount(),1);assert.equal((host.store.db.prepare('SELECT count(*) n FROM control_writers').get() as any).n,1);}
   finally{finish();await delay(1);}
   assert.equal(host.features.activeCount(),0);
   assert.equal((await agent.request(request('timeout'))).reason,'DUPLICATE_OPERATION');
 });
 test('AT-REPLAY: reconstruction is readonly and session scope does not grant peer context',async t=>{
-  const{host,agent}=await fixture(t);counter(host);assert.equal((await agent.request(request('original'))).status,'PASS');
+  const{host,agent}=await fixture(t);counter(host);assert.equal((await agent.request(await signed(host,request('original')))).status,'PASS');
   const other=host.bindAgent({...ID,agent_id:'reviewer',session_id:'review-session'});t.after(()=>other.close());
   assert.equal(other.context().length,0);assert.ok(other.reconstructTask().records.every(r=>(r.body as any).agent_id==='reviewer'));
   const foreign=host.bindAgent({...ID,project_id:'project-b',session_id:'foreign-session'});t.after(()=>foreign.close());
@@ -157,7 +158,7 @@ test('P.TIMEOUT-clock: handler deadline uses elapsed time under a wall-clock rol
   const hold=new Promise<void>(r=>finish=r);const realNow=Date.now();
   const mocked=t.mock.method(Date,'now',Date.now);
   counter(host,{timeout_ms:20,execute:async()=>{mocked.mock.mockImplementation(()=>realNow-10000);await hold;return{data:null};}});
-  const result=await agent.request(request('clock-timeout'));
+  const result=await agent.request(await signed(host,request('clock-timeout')));
   try{assert.equal(result.reason,'TOOL_TIMEOUT');assert.equal(result.status,'INCONCLUSIVE');}
   finally{mocked.mock.restore();finish();await delay(1);}
 });
@@ -167,7 +168,7 @@ test('P.MODE-START: a bypass expiring during a real delayed durability barrier c
   await host.administration.confirmMode(p.challenge_id,'PREVIEW_ACK',p.preview_hash);await host.administration.confirmMode(p.challenge_id,'RISK_ACK',p.preview_hash);await host.administration.commitMode(p.challenge_id,p.preview_hash);
   const original=host.store.flush.bind(host.store);let delayed=false;
   host.store.flush=async()=>{await original();if(!delayed&&host.store.db.prepare('SELECT 1 FROM control_permits LIMIT 1').get()){delayed=true;await delay(400);}};
-  try{const result=await agent.request(request('expired-during-flush'));assert.equal(result.status,'BLOCKED');assert.equal(result.reason,'ENFORCE_PENDING_PREFLIGHT');assert.equal(count(host),0);}
+  try{const result=await agent.request(await signed(host,request('expired-during-flush')));assert.equal(result.status,'BLOCKED');assert.equal(result.reason,'ENFORCE_PENDING_PREFLIGHT');assert.equal(count(host),0);}
   finally{host.store.flush=original;await original();}
 });
 test('DI integration: malformed code remains FAIL, checks OFF are BYPASSED, raw/audit continue',async t=>{
@@ -192,7 +193,7 @@ test('Tool OFF rejects invocation, diagnostics log OFF does not silence core aud
 test('P.ARG_BINDING: mutation by schema or caller cannot replace the authorized snapshot',async t=>{
   const{host,agent}=await fixture(t);let changed=false;
   counter(host,{schema:args=>{try{(args as any).value=99;}catch{changed=true;}},execute:args=>({data:args})});
-  const req=request('snapshot');const pending=agent.request(req);(req.arguments as any).value=77;
+  const req=await signed(host,request('snapshot'));const pending=agent.request(req);(req.arguments as any).value=77;
   const result=await pending;assert.equal(changed,true);assert.deepEqual(result.data,{value:1});
 });
 test('DI command checking keeps argv preview as data and cannot execute Git/Python',async t=>{

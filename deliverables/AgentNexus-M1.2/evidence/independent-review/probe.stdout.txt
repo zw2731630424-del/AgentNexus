@@ -1,0 +1,75 @@
+[
+  {
+    "probe": "enforce-independent-owner-persists-unreadable-state",
+    "root": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\independent-review\\d\\enforce-qGwBEE",
+    "commit": {
+      "fulfilled": true
+    },
+    "lookup": {
+      "code": "INDEPENDENT_POLICY_OWNER"
+    },
+    "reopen": {
+      "fulfilled": false,
+      "code": "INDEPENDENT_POLICY_OWNER",
+      "message": "INDEPENDENT_POLICY_OWNER"
+    }
+  },
+  {
+    "probe": "output-producer-outlives-tool-timeout",
+    "root": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\independent-review\\d\\output-ykdVSL",
+    "timeout_ms": 20,
+    "observed_after_ms": 120,
+    "beforeFinish": {
+      "returned": false,
+      "nextCalled": true,
+      "active": 1,
+      "operations": [
+        {
+          "state": "STARTED",
+          "executor_state": "UNKNOWN"
+        }
+      ],
+      "writerCount": 1
+    },
+    "result": {
+      "status": "PASS",
+      "reason": "BROKER_OPERATION_COMPLETE",
+      "operation_id": "0226db62-79b7-400c-9f0f-5648aa2421da",
+      "intent_hash": "562dbc387ff89ba45719d43f5dbbe7867975bb44fc05270532bc63bae7a3c891",
+      "data": null,
+      "stdout_ref": {
+        "artifact_id": "f599d6f5-d2b4-4700-8efc-c91d2854e173",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0,
+        "codec": "zstd",
+        "stored_sha256": "f96deff1816083fdff8bc3e46c3fe6ca46a6bb49f4d5a00627616c13237a512c",
+        "stored_bytes": 13,
+        "media_type": "application/octet-stream",
+        "sensitivity": "NORMAL"
+      },
+      "stderr_ref": {
+        "artifact_id": "c77f14ec-70a1-4dea-90d2-acc0b4fb6d9b",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0,
+        "codec": "zstd",
+        "stored_sha256": "f96deff1816083fdff8bc3e46c3fe6ca46a6bb49f4d5a00627616c13237a512c",
+        "stored_bytes": 13,
+        "media_type": "application/octet-stream",
+        "sensitivity": "NORMAL"
+      },
+      "audit_event_id": "9c1d0c45-a30a-45e7-8c5a-fc675b30475e",
+      "permit_id": "b1429d41-571c-4680-9528-32e3ebd64573"
+    },
+    "afterFinish": {
+      "operation_id": "0226db62-79b7-400c-9f0f-5648aa2421da",
+      "intent_hash": "562dbc387ff89ba45719d43f5dbbe7867975bb44fc05270532bc63bae7a3c891",
+      "state": "SUCCEEDED",
+      "executor_state": "SETTLED",
+      "reconcile_revision": 0,
+      "workspace": "review:output",
+      "writer": null,
+      "adjudications": [],
+      "executor_running": false
+    }
+  }
+]

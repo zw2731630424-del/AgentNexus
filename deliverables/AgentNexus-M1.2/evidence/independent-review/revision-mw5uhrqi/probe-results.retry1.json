@@ -1,0 +1,115 @@
+{
+  "node": "v24.15.0",
+  "created_at": "2026-11-07T03:31:05.274Z",
+  "workspace": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\independent-review\\revision-mw5uhrqi\\workspace",
+  "results": [
+    {
+      "probe": "independent-owner-enforce",
+      "root": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\independent-review\\d\\current-mode-I2Ewsz",
+      "prepare": {
+        "fulfilled": false,
+        "code": "NON_DEGRADABLE_POLICY",
+        "message": "NON_DEGRADABLE_POLICY"
+      },
+      "commit": null,
+      "lookup": {
+        "value": "ENFORCE"
+      },
+      "reopen": {
+        "fulfilled": true,
+        "value": "OPENED_AND_CLOSED"
+      }
+    },
+    {
+      "probe": "output-deadline",
+      "root": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\independent-review\\d\\current-output-y6AuEB",
+      "timeout_ms": 20,
+      "observation_ms": 120,
+      "beforeFinish": {
+        "returned": true,
+        "nextCalled": true,
+        "cleanupCalled": true,
+        "active": 0,
+        "faulted": true,
+        "operations": [
+          {
+            "state": "STARTED",
+            "executor_state": "UNKNOWN"
+          }
+        ],
+        "writerCount": 1
+      },
+      "result": {
+        "status": "INCONCLUSIVE",
+        "reason": "TOOL_TIMEOUT",
+        "operation_id": "2dfec3dd-213d-4798-9f4d-23fd7a418c9f",
+        "intent_hash": "9cd3c8cabc640d37d026105ec6730ffffce1bef40db2687018f858083086b2ce",
+        "data": null,
+        "stdout_ref": null,
+        "stderr_ref": null,
+        "audit_event_id": "615bdf7d-0558-4961-9730-6d8dfa372fb5",
+        "permit_id": "e910a853-7e95-4db6-b9d4-ab239febfe82"
+      },
+      "afterFinish": {
+        "operation_id": "2dfec3dd-213d-4798-9f4d-23fd7a418c9f",
+        "intent_hash": "9cd3c8cabc640d37d026105ec6730ffffce1bef40db2687018f858083086b2ce",
+        "state": "STARTED",
+        "executor_state": "UNKNOWN",
+        "reconcile_revision": 0,
+        "workspace": "review:output",
+        "writer": {
+          "resource": "review:output",
+          "fence": 1
+        },
+        "adjudications": [],
+        "executor_running": false
+      },
+      "recovery": {
+        "fulfilled": true,
+        "value": {
+          "records": 10,
+          "exported": 10,
+          "recovered_tail_bytes": 0,
+          "objects": 1,
+          "incomplete": 1
+        }
+      },
+      "releaseAttempt": {
+        "fulfilled": false,
+        "code": "EXECUTOR_EXIT_NOT_CONFIRMED",
+        "message": "EXECUTOR_EXIT_NOT_CONFIRMED"
+      }
+    },
+    {
+      "probe": "resolver-must-precede-last-clock-fence",
+      "root": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\independent-review\\d\\current-resolver-YWH8n6",
+      "approval_lifetime_ms": 400,
+      "resolver_delay_ms": 600,
+      "resolverCalls": 3,
+      "executions": 0,
+      "elapsed_ms": 630,
+      "result": {
+        "status": "BLOCKED",
+        "reason": "APPROVAL_EXPIRED_BEFORE_START",
+        "operation_id": "8ec021af-b8a4-44e0-9246-892cf6df53c7",
+        "intent_hash": "8af0161cf59d692163aa102bf614329e4ff79865fe45e6aa41ba45d7a312e5fa",
+        "data": null,
+        "stdout_ref": null,
+        "stderr_ref": null,
+        "audit_event_id": "f55599d7-9a71-4d3a-a8f4-ba68949a76fe",
+        "permit_id": "76fd95c5-1278-4087-9916-2a5de5d8a618"
+      },
+      "operation": {
+        "operation_id": "8ec021af-b8a4-44e0-9246-892cf6df53c7",
+        "intent_hash": "8af0161cf59d692163aa102bf614329e4ff79865fe45e6aa41ba45d7a312e5fa",
+        "state": "BLOCKED",
+        "executor_state": "NOT_INVOKED",
+        "reconcile_revision": 0,
+        "workspace": "review:resolver",
+        "writer": null,
+        "adjudications": [],
+        "executor_running": false
+      }
+    }
+  ]
+}

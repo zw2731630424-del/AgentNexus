@@ -1,0 +1,50 @@
+{
+  "scenario": "after-call-before-started",
+  "window": {
+    "scenario": "after-call-before-started",
+    "operation_id": "77ca6e52-44df-4d18-b105-af6d6b08bbd6",
+    "intent_hash": "f2a9aacc4c9077bf25e8e9afd246d0820815f748a6eb8a6a3b6781890b065308",
+    "state": "CLAIMED",
+    "executor_state": "UNKNOWN"
+  },
+  "termination": {
+    "code": null,
+    "signal": "SIGKILL"
+  },
+  "recovered": {
+    "recovered": true,
+    "evidence_path": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.2\\independent-review\\d\\reconciliation\\crash-i5b79l\\recovery\\abandoned-lock-bf00459f-ad84-4db2-8bbb-41322e3be64d-e39ff8a9-1f10-4dfe-a948-f444141503c9"
+  },
+  "operation": {
+    "operation_id": "77ca6e52-44df-4d18-b105-af6d6b08bbd6",
+    "intent_hash": "f2a9aacc4c9077bf25e8e9afd246d0820815f748a6eb8a6a3b6781890b065308",
+    "state": "RECONCILED_APPLIED",
+    "executor_state": "UNKNOWN",
+    "reconcile_revision": 1,
+    "workspace": "reconcile-project:effect",
+    "writer": {
+      "resource": "reconcile-project:effect",
+      "fence": 1
+    },
+    "adjudications": [
+      {
+        "id": "b1e321db-769e-4fa0-9b5a-77018b1352dc",
+        "request_id": "adjudicate-1",
+        "operation_id": "77ca6e52-44df-4d18-b105-af6d6b08bbd6",
+        "revision": 1,
+        "intent_hash": "f2a9aacc4c9077bf25e8e9afd246d0820815f748a6eb8a6a3b6781890b065308",
+        "action": "ADJUDICATE",
+        "outcome": "CONFIRMED_APPLIED",
+        "adjudicator": "host-admin",
+        "observed_at": "2026-11-07T03:25:09.921Z",
+        "reason": "Observed the actual local effect and trusted executor settlement",
+        "evidence": "[{\"artifact_id\":\"ec84baf4-91b3-48f5-9b3c-dc248407d551\",\"bytes\":490,\"codec\":\"zstd\",\"media_type\":\"application/json\",\"sensitivity\":\"NORMAL\",\"sha256\":\"c7c3ecedc54f744f629e54297c4949bff0d3426ab2e9a25cabbe41bd25c6e8b7\",\"stored_bytes\":385,\"stored_sha256\":\"7fe3785a713ccfc4695523af91985dde71f24ab2d8fab8f68a5566403a2b58c4\"}]",
+        "writer_released": 0,
+        "audit_event_id": "cded9aab-2231-4435-ba20-4ab4c65e0910"
+      }
+    ],
+    "executor_running": false
+  },
+  "effect": "1",
+  "replay_reason": "DUPLICATE_OPERATION"
+}
