@@ -1,0 +1,238 @@
+{
+  "schema": "agentnexus/m1/integrity-implementation/1",
+  "captured_utc": "2026-11-06T17:09:51.645511+00:00",
+  "status": "IMPLEMENTED_LOCAL_CONTROLLED_STATIC_SCOPE; ROOT_INDEPENDENT_REVIEW_PENDING",
+  "files": [
+    {
+      "path": "src/agentnexus/integrity.ts",
+      "bytes": 18691,
+      "sha256": "172a40c429c9e8a99f8cc1fcee2ef500adb4e7d378f0f6188fbbe7f792edfe66",
+      "provenance": "independently authored in authorized M1; synthetic fixture expressions only",
+      "third_party_expression_imported": false,
+      "project_distribution_license": "NOT_SELECTED_BY_THIS_SUBTASK"
+    },
+    {
+      "path": "tests/agentnexus/integrity.test.ts",
+      "bytes": 21578,
+      "sha256": "ecc6655be30a7d7690f04e5d26c61f09eaaa988ae1075b63327fe98c97c93277",
+      "provenance": "independently authored in authorized M1; synthetic fixture expressions only",
+      "third_party_expression_imported": false,
+      "project_distribution_license": "NOT_SELECTED_BY_THIS_SUBTASK"
+    }
+  ],
+  "imports": {
+    "src/agentnexus/integrity.ts": [
+      "node:crypto",
+      "node:fs",
+      "node:fs",
+      "node:fs/promises",
+      "node:fs/promises",
+      "node:path",
+      "node:util",
+      "./types.ts",
+      "./types.ts"
+    ],
+    "tests/agentnexus/integrity.test.ts": [
+      "node:assert/strict",
+      "node:crypto",
+      "node:fs",
+      "node:fs/promises",
+      "node:path",
+      "node:test",
+      "node:test",
+      "../../src/agentnexus/integrity.ts",
+      "../../src/agentnexus/integrity.ts",
+      "../../src/agentnexus/types.ts"
+    ]
+  },
+  "new_npm_runtime_dependencies": 0,
+  "new_npm_development_dependencies": 0,
+  "kit_source_or_test_imports": 0,
+  "shared_dependency": {
+    "path": "src/agentnexus/types.ts",
+    "sha256_at_test": "273780415d1e00476dcfc52ca901a15527d62f1e74c1a46def5757251afcfcd8",
+    "uses": [
+      "Status",
+      "NexusError",
+      "canonical",
+      "sha256"
+    ],
+    "modified_by_this_subtask": false
+  },
+  "api": {
+    "name": "verifyPackage",
+    "options": [
+      "sourceMode",
+      "maxFiles",
+      "maxTotalBytes",
+      "signal"
+    ],
+    "statuses": [
+      "PASS",
+      "FAIL",
+      "NOT_RUN",
+      "INCONCLUSIVE",
+      "BLOCKED",
+      "BYPASSED"
+    ],
+    "required_result_fields": [
+      "status",
+      "reason",
+      "filesChecked",
+      "bytesChecked",
+      "checks",
+      "details",
+      "detailCount",
+      "detailsTruncated",
+      "manifest_sha256"
+    ]
+  },
+  "manifest": {
+    "schema": "agentnexus/package/1",
+    "profile": "portable-ascii-v1",
+    "self_exceptions": [
+      "manifest.json"
+    ],
+    "canonical": "shared canonical recursively sorted keys + exactly one LF, raw bytes must match",
+    "entries": "sorted unique full relative path, nonnegative safe bytes, lowercase SHA256",
+    "bidirectional": "all payload files and derived directories, no hidden/cache/basename ignore"
+  },
+  "limits": {
+    "maxFiles": 256,
+    "maxTotalBytes": 16777216,
+    "maxFileBytes": 8388608,
+    "maxManifestBytes": 131072,
+    "maxDirectories": 256,
+    "maxEntries": 513,
+    "maxDepth": 12,
+    "maxComponentBytes": 64,
+    "maxRelativeBytes": 240,
+    "maxWindowsAbsoluteCharacters": 240,
+    "readBufferBytes": 65536,
+    "maxDetails": 32,
+    "maxDetailBytes": 8192,
+    "maxDurationMs": 10000,
+    "hashConcurrency": 1
+  },
+  "limits_probe_command_argv": [
+    "D:\\Nodejs\\node.exe",
+    "--input-type=module",
+    "-e",
+    "import { INTEGRITY_LIMITS } from \"./src/agentnexus/integrity.ts\"; console.log(JSON.stringify(INTEGRITY_LIMITS));"
+  ],
+  "budget_implementation": {
+    "streaming": "one file at a time, 64KiB buffer, no payload buffering",
+    "growth_probe": "at most one detection byte beyond file/total cap after metadata size preflight",
+    "details": "at most 32 records and 8192 canonical UTF-8 bytes",
+    "wall_time": "10s monotonic checkpoints between async fs operations, not a hard OS deadline",
+    "hard_RSS_limit": "NOT_IMPLEMENTED; no claim of process/OS enforcement"
+  },
+  "security_scope": {
+    "controlled_static": "only trusted Host may select after exclusively creating quiescent local staging with trusted ancestors and no reparse/ADS; returned checks expose the precondition; no caller/OS identity authentication provided",
+    "mutable": "matching tree is always INCONCLUSIVE/TOCTOU_NOT_CLOSED; known deterministic malformed/hash errors may be FAIL; never PASS",
+    "windows_all_reparse_tags": "NOT_VERIFIED_BY_NODE",
+    "alternate_data_streams": "NOT_ENUMERATED_BY_NODE",
+    "adversarial_TOCTOU": "NOT_CLOSED; no OS admission",
+    "real_OS_link_rejection": "NOT_RUN for four EPERM fixture-creation failures; logic is present but no real OS PASS claimed",
+    "untrusted_candidate_execution": "never import/eval/execute candidates; actual malicious-content sentinel tests PASS",
+    "external_runtime_redistribution_license": "BLOCKED; entire Node/Python/PowerShell distribution closure not performed",
+    "unlicensed_Kit_copy_distribution": "BLOCKED unchanged"
+  },
+  "test_evidence": {
+    "json": ".workflow-kit/runtime/AgentNexus-v0.4-M1/integrity/test-run.json",
+    "tap": ".workflow-kit/runtime/AgentNexus-v0.4-M1/integrity/integrity.tap",
+    "command_argv": [
+      "D:\\Nodejs\\node.exe",
+      "--test",
+      "--test-reporter=tap",
+      "tests/agentnexus/integrity.test.ts"
+    ],
+    "exit_code": 0,
+    "summary": {
+      "tests": 58,
+      "suites": 0,
+      "pass": 54,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 4,
+      "todo": 0,
+      "duration_ms": 1789.3877
+    },
+    "not_run": [
+      "ok 28 - real OS file symlink is rejected without following its target # SKIP NOT_RUN: real OS link fixture unavailable (EPERM); no simulated OS PASS",
+      "ok 29 - real OS dir link is rejected # SKIP NOT_RUN: real OS link fixture unavailable (EPERM); no simulated OS PASS",
+      "ok 30 - real OS junction link is rejected # SKIP NOT_RUN: real OS link fixture unavailable (EPERM); no simulated OS PASS",
+      "ok 31 - real OS hardlink to an outside object is rejected by link count # SKIP NOT_RUN: real OS link fixture unavailable (EPERM); no simulated OS PASS"
+    ],
+    "scope": "actual local Node/fs/hash behavior on new owned synthetic fixtures; no models, Kit code, OS identity boundary, adversarial TOCTOU or bundled runtime license admission"
+  },
+  "verified_cases": [
+    "canonical binary/empty/nested same-name success",
+    "missing/unlisted/hidden/extra empty directory",
+    "same-size SHA and byte-size tamper",
+    "duplicate JSON keys and complete paths",
+    "ancestor case and file-directory conflicts",
+    "absolute/parent/UNC/drive/device/ADS syntax/Unicode profile",
+    "bad UTF8/BOM/noncanonical JSON/schema/sha/size",
+    "single manifest exact self-exception",
+    "actual 256-files + 256-directories + manifest edge",
+    "actual single file 8MiB and total16MiB edge plus overflow",
+    "manifest/relative path/depth/component caps",
+    "tightened Host count/total budgets",
+    "pre/in-flight cancellation",
+    "diagnostic count/byte bounds",
+    "listed and unlisted malicious scripts/package/git metadata never execute"
+  ],
+  "remaining_unverified": [
+    "Ubuntu run",
+    "real OS links blocked by EPERM",
+    "other Windows reparse tags",
+    "ADS enumeration",
+    "OS identity and hostile-writer exclusion",
+    "adversarial TOCTOU",
+    "hard hung-I/O timeout or RSS enforcement",
+    "10s elapsed-budget failure injection",
+    "source license admission for a complete product/runtime distribution"
+  ],
+  "retained_attempts": [
+    {
+      "tap": "attempt-01.tap",
+      "json": "attempt-01.json",
+      "module_test_state": "NOT_RUN",
+      "explanation": "root package.json was temporarily empty during shared bootstrap; Node loader exited ERR_INVALID_PACKAGE_CONFIG before module tests"
+    },
+    {
+      "tap": "attempt-02.tap",
+      "json": "attempt-02.json",
+      "module_test_state": "FAIL_RESOLVED",
+      "explanation": "new combined-limit test expected FILE_COUNT_BUDGET but ENTRY_COUNT_BUDGET correctly took precedence at 514th entry; fixed expectation and added a flat independent file-count overflow case"
+    }
+  ],
+  "validation": {
+    "node_test": "PASS",
+    "governance_check": "PASS",
+    "frozen_design_modified": false,
+    "M0_or_original_kit_modified": false,
+    "root_independent_acceptance": "PENDING",
+    "source_hashes_match_test_run": "PASS"
+  },
+  "performed_actions": {
+    "new_files_via_govern": true,
+    "hooks": false,
+    "commit_push": false,
+    "research_project_execution": false,
+    "model_execution": false,
+    "key_scan": false,
+    "new_dependency_install": false,
+    "candidate_program_execution": false
+  },
+  "evidence_sha256": {
+    "integrity.tap": "219cf8196b126b0c8d96501ec55fc36a814df64c7a7322ab2bae84081fec5818",
+    "test-run.json": "8ffb9dc980a3c23af1deb86d025af8d184bd3d364bcf37a87e56f01d28fc7527",
+    "attempt-01.tap": "af0c62c7d73c4a412421fb57ee11230c8459e0cbd8fcb97e2c178fc2c3428dff",
+    "attempt-01.json": "f5086eddec462029bf31c1484b7c01b2efdea0d991d999e6b9ebb6562561fd6f",
+    "attempt-02.tap": "f75d61f608a6e8c79a9a875560fa2d0f231d2d7681b7eb4f77c9cdd70b86783f",
+    "attempt-02.json": "a4f2252044c9bf459a6f4e378313f44980de6e98f2042fef4defee433557a492",
+    "run_tests.py": "5e8073e5906254ee404373c22756bfcfb0bcd77b3c5e638a2c6a3d292e3e5b7e"
+  }
+}

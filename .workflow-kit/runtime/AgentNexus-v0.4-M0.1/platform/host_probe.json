@@ -1,0 +1,116 @@
+{
+  "schema": "agentnexus/platform-host-probe/0.1",
+  "observed_at": "2026-11-07T00:42:59.4688193+08:00",
+  "read_only_probe": true,
+  "os": "Microsoft Windows NT 10.0.26200.0",
+  "powershell": "7.6.9",
+  "registry": {
+    "ProductName": "Windows 10 Pro",
+    "DisplayVersion": "25H2",
+    "CurrentBuildNumber": "26200",
+    "UBR": 9711
+  },
+  "tools": [
+    {
+      "name": "node",
+      "found": true,
+      "path": "D:\\Nodejs\\node.exe"
+    },
+    {
+      "name": "python",
+      "found": true,
+      "path": "C:\\Users\\28642\\AppData\\Local\\Programs\\Python\\Python312\\python.exe"
+    },
+    {
+      "name": "git",
+      "found": true,
+      "path": "C:\\Program Files\\Git\\cmd\\git.exe"
+    },
+    {
+      "name": "wsl",
+      "found": true,
+      "path": "C:\\WINDOWS\\system32\\wsl.exe"
+    },
+    {
+      "name": "docker",
+      "found": false,
+      "path": null
+    },
+    {
+      "name": "rustc",
+      "found": false,
+      "path": null
+    },
+    {
+      "name": "cargo",
+      "found": false,
+      "path": null
+    },
+    {
+      "name": "cl",
+      "found": false,
+      "path": null
+    },
+    {
+      "name": "clang",
+      "found": false,
+      "path": null
+    },
+    {
+      "name": "clang-cl",
+      "found": false,
+      "path": null
+    },
+    {
+      "name": "cmake",
+      "found": false,
+      "path": null
+    },
+    {
+      "name": "ninja",
+      "found": false,
+      "path": null
+    },
+    {
+      "name": "icacls",
+      "found": true,
+      "path": "C:\\WINDOWS\\system32\\icacls.exe"
+    },
+    {
+      "name": "whoami",
+      "found": true,
+      "path": "C:\\WINDOWS\\system32\\whoami.exe"
+    },
+    {
+      "name": "netsh",
+      "found": true,
+      "path": "C:\\WINDOWS\\system32\\netsh.exe"
+    },
+    {
+      "name": "pwsh",
+      "found": true,
+      "path": "C:\\Program Files\\WindowsApps\\OpenAI.CodexPrimaryRuntime.v26-1104-709-0_26.1104.709.0_x64__3k8sg7r9htsxt\\dependencies\\native\\powershell\\pwsh.exe"
+    }
+  ],
+  "versions": {
+    "python": "Python 3.12.10",
+    "node": "v24.15.0"
+  },
+  "identity": {
+    "privileges": "\"SeChangeNotifyPrivilege\",\"Bypass traverse checking\",\"Enabled\"\r\n\"SeIncreaseWorkingSetPrivilege\",\"Increase a process working set\",\"Disabled\"",
+    "user": "\"desktop-oswald\\28642\",\"S-1-5-21-2532670394-1554971530-4095700938-1001\""
+  },
+  "not_run": [
+    "CreateRestrictedToken",
+    "AppContainer",
+    "Job Objects",
+    "ACL mutation",
+    "WFP mutation",
+    "WSL guest execution",
+    "Ubuntu dynamic probes",
+    "Harness execution",
+    "Provider credentials"
+  ],
+  "interpretation": "PATH discovery and current process identity only; no claim that toolchains are absent from all disks or that a sandbox is implemented.",
+  "workspace_volume": null
+}

@@ -1,0 +1,1100 @@
+{
+  "utc": "2026-11-06T17:54:41.259308+00:00",
+  "command": [
+    "node",
+    "tools/agentnexus/run-tests.mjs"
+  ],
+  "exit_code": 0,
+  "totals": {
+    "tests": 135,
+    "pass": 131,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 4,
+    "todo": 0
+  },
+  "cases": [
+    {
+      "ordinal": 1,
+      "tap_local_ordinal": 1,
+      "tap_indent": 0,
+      "name": "FT-RESOLVE: defaults, child narrowing, ancestor veto, explicit INHERIT",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 2,
+      "tap_local_ordinal": 2,
+      "tap_indent": 0,
+      "name": "FT: unknown IDs, illegal scopes and non-admin payloads rejected",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 3,
+      "tap_local_ordinal": 3,
+      "tap_indent": 0,
+      "name": "FT-DEPENDENCY: rejects partial disable and does not enable a dependency implicitly",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 4,
+      "tap_local_ordinal": 4,
+      "tap_indent": 0,
+      "name": "FT: mutual conflict, wrong preview hash and stale revision cannot commit",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 5,
+      "tap_local_ordinal": 5,
+      "tap_indent": 0,
+      "name": "FT-OFF: live work aborts; failure remains FAILED until explicit recovery",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 6,
+      "tap_local_ordinal": 6,
+      "tap_indent": 0,
+      "name": "FT-RETAIN: configuration survives real reopen, facts remain and old epoch is invalid",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 7,
+      "tap_local_ordinal": 7,
+      "tap_indent": 0,
+      "name": "FT-INHERIT-OFF: ON to INHERIT must quiesce when default is OFF",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 8,
+      "tap_local_ordinal": 8,
+      "tap_indent": 0,
+      "name": "FT-LATE-STOP: timeout cannot recover or enable until the old stop actually settles",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 9,
+      "tap_local_ordinal": 9,
+      "tap_indent": 0,
+      "name": "FT catalog is capacity, unimplemented module never becomes enabled from default ON",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 10,
+      "tap_local_ordinal": 10,
+      "tap_indent": 0,
+      "name": "P.ADMIN_MODE: forged admin, L0 degradation and missing reason rejected",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 11,
+      "tap_local_ordinal": 11,
+      "tap_indent": 0,
+      "name": "P.ADMIN_MODE: two distinct confirmations, preview binding and challenge replay",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 12,
+      "tap_local_ordinal": 12,
+      "tap_indent": 0,
+      "name": "P.MODE: same denied request has distinct enforce/audit/disabled behavior",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 13,
+      "tap_local_ordinal": 13,
+      "tap_indent": 0,
+      "name": "P.MODE: selected IDs and project scope; explicit ENFORCE dominates overlap",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 14,
+      "tap_local_ordinal": 14,
+      "tap_indent": 0,
+      "name": "P.MODE: PDP fault stays closed in ENFORCE and AUDIT_ONLY; DISABLED actually skips PDP",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 15,
+      "tap_local_ordinal": 15,
+      "tap_indent": 0,
+      "name": "P.MODE-EXPIRY: real deadline freezes until persisted-chain preflight",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 16,
+      "tap_local_ordinal": 16,
+      "tap_indent": 0,
+      "name": "P.MODE-RECOVERY: reboot never restores a permissive lease without preflight",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 17,
+      "tap_local_ordinal": 17,
+      "tap_indent": 0,
+      "name": "P.APPROVAL: hash/identity/epoch/expiry bind grants and no self-reported approval",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 18,
+      "tap_local_ordinal": 18,
+      "tap_indent": 0,
+      "name": "P.APPROVAL-EXPIRY: real expiry cannot revive under an in-process clock rollback",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 19,
+      "tap_local_ordinal": 19,
+      "tap_indent": 0,
+      "name": "Json canonical contract rejects accessors/cycles/nonfinite numbers",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 20,
+      "tap_local_ordinal": 20,
+      "tap_indent": 0,
+      "name": "JSON uses real JSON.parse and preserves independent safety/authorization dimensions",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 21,
+      "tap_local_ordinal": 21,
+      "tap_indent": 0,
+      "name": "Python AST actually parses valid/invalid source, with explicitly limited coverage",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 22,
+      "tap_local_ordinal": 22,
+      "tap_indent": 0,
+      "name": "PowerShell Parser actually returns AST diagnostics and UTF-16 positions",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 23,
+      "tap_local_ordinal": 23,
+      "tap_indent": 0,
+      "name": "Python and PowerShell source side effects remain unexecuted",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 24,
+      "tap_local_ordinal": 24,
+      "tap_indent": 0,
+      "name": "all relevant source Feature OFF paths bypass without a configured parser",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 25,
+      "tap_local_ordinal": 25,
+      "tap_indent": 0,
+      "name": "optional environment/safety OFF remains BYPASSED while syntax independently runs",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 26,
+      "tap_local_ordinal": 26,
+      "tap_indent": 0,
+      "name": "missing parsers and unsupported languages/dialects never produce PASS",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 27,
+      "tap_local_ordinal": 27,
+      "tap_indent": 0,
+      "name": "new document version, same-version hash mismatch and close fence old results",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 28,
+      "tap_local_ordinal": 28,
+      "tap_indent": 0,
+      "name": "real parser requests respect newer versions and Feature epoch changes",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 29,
+      "tap_local_ordinal": 29,
+      "tap_indent": 0,
+      "name": "AbortSignal, timeout and dispose are bounded and never become PASS",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 30,
+      "tap_local_ordinal": 30,
+      "tap_indent": 0,
+      "name": "source/Unicode/request budgets reject before parsing and constructor budgets are fixed",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 31,
+      "tap_local_ordinal": 31,
+      "tap_indent": 0,
+      "name": "queue admission caps concurrent work and recovers after backpressure",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 32,
+      "tap_local_ordinal": 32,
+      "tap_indent": 0,
+      "name": "PowerShell error floods remain bounded and do not turn truncation into PASS",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 33,
+      "tap_local_ordinal": 33,
+      "tap_indent": 0,
+      "name": "registered Git/Python argv schemas are static, limited and independently typed",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 34,
+      "tap_local_ordinal": 34,
+      "tap_indent": 0,
+      "name": "argv environment checks inspect only the Host file and preserve the actual args result",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 35,
+      "tap_local_ordinal": 35,
+      "tap_indent": 0,
+      "name": "argv family and values are copied before asynchronous work",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 36,
+      "tap_local_ordinal": 36,
+      "tap_indent": 0,
+      "name": "argument Feature OFF bypasses schema and dispose prevents subsequent work",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 37,
+      "tap_local_ordinal": 37,
+      "tap_indent": 0,
+      "name": "disposeAndWait confirms real interpreter child close and all queued work is drained",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 38,
+      "tap_local_ordinal": 38,
+      "tap_indent": 0,
+      "name": "AT/Context/Artifact: real invocation produces separate hash-linked facts and byte-exact output",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 39,
+      "tap_local_ordinal": 39,
+      "tap_indent": 0,
+      "name": "P.MODE+Gateway: same safe synthetic operation blocked/enforced, would-deny, and unevaluated",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 40,
+      "tap_local_ordinal": 40,
+      "tap_indent": 0,
+      "name": "P.SANDBOX: DISABLED does not admit arbitrary execution or close independent protection",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 41,
+      "tap_local_ordinal": 41,
+      "tap_indent": 0,
+      "name": "P.IDENTITY: facade has no administration and JSON admin/mode flags cannot elevate",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 42,
+      "tap_local_ordinal": 42,
+      "tap_indent": 0,
+      "name": "P.APPROVAL_REPLAY: exact approval executes once; altered intent and replay denied",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 43,
+      "tap_local_ordinal": 43,
+      "tap_indent": 0,
+      "name": "P.DB_ATOMIC: 16 concurrent duplicate requests invoke a real handler at most once",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 44,
+      "tap_local_ordinal": 44,
+      "tap_indent": 0,
+      "name": "P.WORKSPACE_WRITER: concurrent distinct calls cannot overwrite active resource; modes cannot change mid-action",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 45,
+      "tap_local_ordinal": 45,
+      "tap_indent": 0,
+      "name": "AT-IOFAIL-before: actual SQLite readonly persistence failure prevents handler execution",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 46,
+      "tap_local_ordinal": 46,
+      "tap_indent": 0,
+      "name": "AT-IOFAIL-after: actual effect with unrecordable result keeps claim and never replays",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 47,
+      "tap_local_ordinal": 47,
+      "tap_indent": 0,
+      "name": "P.TIMEOUT: timeout retains owned lease until actual handler settlement and never resets claim",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 48,
+      "tap_local_ordinal": 48,
+      "tap_indent": 0,
+      "name": "AT-REPLAY: reconstruction is readonly and session scope does not grant peer context",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 49,
+      "tap_local_ordinal": 49,
+      "tap_indent": 0,
+      "name": "P.IDENTITY-revocation: old facade cannot read or close a replacement session",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 50,
+      "tap_local_ordinal": 50,
+      "tap_indent": 0,
+      "name": "P.IDENTITY-close-race: close revokes facade before its first asynchronous cleanup",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 51,
+      "tap_local_ordinal": 51,
+      "tap_indent": 0,
+      "name": "P.TIMEOUT-clock: handler deadline uses elapsed time under a wall-clock rollback",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 52,
+      "tap_local_ordinal": 52,
+      "tap_indent": 0,
+      "name": "P.MODE-START: a bypass expiring during a real delayed durability barrier cannot execute",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 53,
+      "tap_local_ordinal": 53,
+      "tap_indent": 0,
+      "name": "DI integration: malformed code remains FAIL, checks OFF are BYPASSED, raw/audit continue",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 54,
+      "tap_local_ordinal": 54,
+      "tap_indent": 0,
+      "name": "Tool OFF rejects invocation, diagnostics log OFF does not silence core audit, oversized request is bounded",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 55,
+      "tap_local_ordinal": 55,
+      "tap_indent": 0,
+      "name": "P.ARG_BINDING: mutation by schema or caller cannot replace the authorized snapshot",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 56,
+      "tap_local_ordinal": 56,
+      "tap_indent": 0,
+      "name": "DI command checking keeps argv preview as data and cannot execute Git/Python",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 57,
+      "tap_local_ordinal": 57,
+      "tap_indent": 0,
+      "name": "controlled static bytes close over binary, empty and nested same-name files",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 58,
+      "tap_local_ordinal": 58,
+      "tap_indent": 0,
+      "name": "empty package permits exactly its manifest, with zero payload budgets",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 59,
+      "tap_local_ordinal": 59,
+      "tap_indent": 0,
+      "name": "matching mutable tree is INCONCLUSIVE, never a trusted release root",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 60,
+      "tap_local_ordinal": 60,
+      "tap_indent": 0,
+      "name": "same-size modified content fails its SHA-256",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 61,
+      "tap_local_ordinal": 61,
+      "tap_indent": 0,
+      "name": "appended content fails declared byte size",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 62,
+      "tap_local_ordinal": 62,
+      "tap_indent": 0,
+      "name": "missing and unlisted files are both reported by full relative path",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 63,
+      "tap_local_ordinal": 1,
+      "tap_indent": 4,
+      "name": "sub/manifest.json",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 64,
+      "tap_local_ordinal": 2,
+      "tap_indent": 4,
+      "name": "validation/SHA256SUMS.txt",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 65,
+      "tap_local_ordinal": 3,
+      "tap_indent": 4,
+      "name": "unexpected.cjs",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 66,
+      "tap_local_ordinal": 4,
+      "tap_indent": 4,
+      "name": ".hidden",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 67,
+      "tap_local_ordinal": 63,
+      "tap_indent": 0,
+      "name": "unlisted nested manifest and SHA256SUMS names are never self exceptions",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 68,
+      "tap_local_ordinal": 64,
+      "tap_indent": 0,
+      "name": "root manifest is required and cannot list itself",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 69,
+      "tap_local_ordinal": 65,
+      "tap_indent": 0,
+      "name": "root manifest directory and non-directory roots fail",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 70,
+      "tap_local_ordinal": 66,
+      "tap_indent": 0,
+      "name": "duplicate JSON keys are rejected despite JSON.parse last-wins semantics",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 71,
+      "tap_local_ordinal": 67,
+      "tap_indent": 0,
+      "name": "duplicate complete path and unsorted arrays fail independently",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 72,
+      "tap_local_ordinal": 1,
+      "tap_indent": 4,
+      "name": "A vs a",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 73,
+      "tap_local_ordinal": 2,
+      "tap_indent": 4,
+      "name": "Dir/a vs dir/b",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 74,
+      "tap_local_ordinal": 3,
+      "tap_indent": 4,
+      "name": "a vs a/b",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 75,
+      "tap_local_ordinal": 68,
+      "tap_indent": 0,
+      "name": "case conflicts include ancestor directories and file-directory prefixes",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 76,
+      "tap_local_ordinal": 1,
+      "tap_indent": 4,
+      "name": "\"../outside\"",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 77,
+      "tap_local_ordinal": 2,
+      "tap_indent": 4,
+      "name": "\"./a\"",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 78,
+      "tap_local_ordinal": 3,
+      "tap_indent": 4,
+      "name": "\"a//b\"",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 79,
+      "tap_local_ordinal": 4,
+      "tap_indent": 4,
+      "name": "\"/outside\"",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 80,
+      "tap_local_ordinal": 5,
+      "tap_indent": 4,
+      "name": "\"C:/outside\"",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 81,
+      "tap_local_ordinal": 6,
+      "tap_indent": 4,
+      "name": "\"//server/share\"",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 82,
+      "tap_local_ordinal": 7,
+      "tap_indent": 4,
+      "name": "\"a\\\\\\\\b\"",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 83,
+      "tap_local_ordinal": 8,
+      "tap_indent": 4,
+      "name": "\"a:stream\"",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 84,
+      "tap_local_ordinal": 9,
+      "tap_indent": 4,
+      "name": "\"NUL.txt\"",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 85,
+      "tap_local_ordinal": 10,
+      "tap_indent": 4,
+      "name": "\"COM1\"",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 86,
+      "tap_local_ordinal": 11,
+      "tap_indent": 4,
+      "name": "\"con.tar.gz\"",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 87,
+      "tap_local_ordinal": 12,
+      "tap_indent": 4,
+      "name": "\"a.\"",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 88,
+      "tap_local_ordinal": 13,
+      "tap_indent": 4,
+      "name": "\"a \"",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 89,
+      "tap_local_ordinal": 14,
+      "tap_indent": 4,
+      "name": "\"PROGRA~1/file\"",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 90,
+      "tap_local_ordinal": 15,
+      "tap_indent": 4,
+      "name": "\"\"",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 91,
+      "tap_local_ordinal": 16,
+      "tap_indent": 4,
+      "name": "\"a\\\\u0000b\"",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 92,
+      "tap_local_ordinal": 17,
+      "tap_indent": 4,
+      "name": "\"é\"",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 93,
+      "tap_local_ordinal": 18,
+      "tap_indent": 4,
+      "name": "\"é\"",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 94,
+      "tap_local_ordinal": 19,
+      "tap_indent": 4,
+      "name": "\"İ\"",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 95,
+      "tap_local_ordinal": 20,
+      "tap_indent": 4,
+      "name": "\"a/a/\"",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 96,
+      "tap_local_ordinal": 69,
+      "tap_indent": 0,
+      "name": "path traversal, device aliases, malformed separators and Unicode reject before payload reads",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 97,
+      "tap_local_ordinal": 70,
+      "tap_indent": 0,
+      "name": "schema, digest and byte count reject invalid declarations",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 98,
+      "tap_local_ordinal": 71,
+      "tap_indent": 0,
+      "name": "canonical encoding rejects whitespace, BOM, bad UTF-8 and equivalent escapes",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 99,
+      "tap_local_ordinal": 72,
+      "tap_indent": 0,
+      "name": "extra empty directory and file-vs-directory mismatch cannot disappear",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 100,
+      "tap_local_ordinal": 73,
+      "tap_indent": 0,
+      "name": "file count and total bytes budgets work at exact limit and limit plus one",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 101,
+      "tap_local_ordinal": 74,
+      "tap_indent": 0,
+      "name": "actual unlisted content also consumes size and count budgets",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 102,
+      "tap_local_ordinal": 75,
+      "tap_indent": 0,
+      "name": "manifest and single-file caps are enforced without reading an oversized payload",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 103,
+      "tap_local_ordinal": 76,
+      "tap_indent": 0,
+      "name": "path length and depth have bounded rejection",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 104,
+      "tap_local_ordinal": 77,
+      "tap_indent": 0,
+      "name": "actual default file and directory count limits accept the edge and reject one more",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 105,
+      "tap_local_ordinal": 78,
+      "tap_indent": 0,
+      "name": "actual 8 MiB files and 16 MiB total accept the edge; declared and actual overflow reject",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 106,
+      "tap_local_ordinal": 79,
+      "tap_indent": 0,
+      "name": "maximum component and depth are accepted on an actually created portable path",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 107,
+      "tap_local_ordinal": 80,
+      "tap_indent": 0,
+      "name": "Host cannot expand limits or choose an unknown mode; relative roots reject",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 108,
+      "tap_local_ordinal": 81,
+      "tap_indent": 0,
+      "name": "pre-abort is NOT_RUN; in-flight abort is INCONCLUSIVE with closed file work",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 109,
+      "tap_local_ordinal": 82,
+      "tap_indent": 0,
+      "name": "diagnostic count and encoded bytes remain bounded for many extra files",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 110,
+      "tap_local_ordinal": 83,
+      "tap_indent": 0,
+      "name": "candidate scripts, package metadata and git-looking files are data and never executed",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 111,
+      "tap_local_ordinal": 84,
+      "tap_indent": 0,
+      "name": "real OS file symlink is rejected without following its target",
+      "status": "NOT_RUN",
+      "reason": "NOT_RUN: real OS link fixture unavailable (EPERM); no simulated OS PASS"
+    },
+    {
+      "ordinal": 112,
+      "tap_local_ordinal": 85,
+      "tap_indent": 0,
+      "name": "real OS dir link is rejected",
+      "status": "NOT_RUN",
+      "reason": "NOT_RUN: real OS link fixture unavailable (EPERM); no simulated OS PASS"
+    },
+    {
+      "ordinal": 113,
+      "tap_local_ordinal": 86,
+      "tap_indent": 0,
+      "name": "real OS junction link is rejected",
+      "status": "NOT_RUN",
+      "reason": "NOT_RUN: real OS link fixture unavailable (EPERM); no simulated OS PASS"
+    },
+    {
+      "ordinal": 114,
+      "tap_local_ordinal": 87,
+      "tap_indent": 0,
+      "name": "real OS hardlink to an outside object is rejected by link count",
+      "status": "NOT_RUN",
+      "reason": "NOT_RUN: real OS link fixture unavailable (EPERM); no simulated OS PASS"
+    },
+    {
+      "ordinal": 115,
+      "tap_local_ordinal": 88,
+      "tap_indent": 0,
+      "name": "real SQLite, three independent domain chains and global pagination",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 116,
+      "tap_local_ordinal": 89,
+      "tap_indent": 0,
+      "name": "synchronous cross-table transaction, rollback, UNIQUE and business errors do not fault",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 117,
+      "tap_local_ordinal": 90,
+      "tap_indent": 0,
+      "name": "agent and session SQL filters apply before LIMIT and preserve global cursor pages",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 118,
+      "tap_local_ordinal": 91,
+      "tap_indent": 0,
+      "name": "flush covers its captured target after an empty or older shared flush",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 119,
+      "tap_local_ordinal": 92,
+      "tap_indent": 0,
+      "name": "required fields, malformed refs, oversized envelopes and query budgets reject without fault",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 120,
+      "tap_local_ordinal": 93,
+      "tap_indent": 0,
+      "name": "outbox high water rejects new records, then drains without unbounded queues",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 121,
+      "tap_local_ordinal": 94,
+      "tap_indent": 0,
+      "name": "second writer and live lock recovery are blocked; real owner death is explicit",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 122,
+      "tap_local_ordinal": 95,
+      "tap_indent": 0,
+      "name": "process crash after file fsync and before receipt reexports no duplicate",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 123,
+      "tap_local_ordinal": 96,
+      "tap_indent": 0,
+      "name": "unacknowledged crash tail is preserved then repaired from durable outbox",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 124,
+      "tap_local_ordinal": 97,
+      "tap_indent": 0,
+      "name": "actual export I/O failure freezes writes and preserves outbox until explicit recovery",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 125,
+      "tap_local_ordinal": 98,
+      "tap_indent": 0,
+      "name": "acknowledged truncation is never silently discarded or rebuilt as success",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 126,
+      "tap_local_ordinal": 99,
+      "tap_indent": 0,
+      "name": "actual artifact publication I/O failure retains bytes and freezes both record and object admission",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 127,
+      "tap_local_ordinal": 100,
+      "tap_indent": 0,
+      "name": "database hash tampering throws, freezes writes and does not fake repair",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 128,
+      "tap_local_ordinal": 101,
+      "tap_indent": 0,
+      "name": "32 MiB randomized artifact roundtrip streams with real backpressure and two hashes",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 129,
+      "tap_local_ordinal": 102,
+      "tap_indent": 0,
+      "name": "cancelled, over-budget and invalid-chunk objects remain incomplete; secret is rejected",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 130,
+      "tap_local_ordinal": 103,
+      "tap_indent": 0,
+      "name": "early artifact iterator return is not verification; full corrupted stream fails closed",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 131,
+      "tap_local_ordinal": 104,
+      "tap_indent": 0,
+      "name": "concurrent artifact admission is bounded and rejects a third stream without queueing",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 132,
+      "tap_local_ordinal": 105,
+      "tap_indent": 0,
+      "name": "abort races a permanently pending source.next without retaining Store writers or accepting late bytes",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 133,
+      "tap_local_ordinal": 106,
+      "tap_indent": 0,
+      "name": "concurrent close calls share the real drain and lock-release promise",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 134,
+      "tap_local_ordinal": 107,
+      "tap_indent": 0,
+      "name": "sealed segments are compressed, chained and verified; stored bit flip is detected",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 135,
+      "tap_local_ordinal": 108,
+      "tap_indent": 0,
+      "name": "process-killed partial artifact remains retained without a complete object reference",
+      "status": "PASS",
+      "reason": null
+    }
+  ],
+  "tap_sha256": "7d116aa26a4593a2b3b2964c4717921cd844116756bafb05fd64edbfa8eea372",
+  "scope": "Real local implementations with synthetic data; OS sandbox and models NOT_RUN"
+}

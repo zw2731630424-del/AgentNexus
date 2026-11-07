@@ -1,0 +1,63 @@
+{
+  "kind": "M0 feasibility; synthetic input; no model/backend invoked",
+  "time_utc": "2026-11-06T15:49:18.391445+00:00",
+  "sqlite_version": "3.49.1",
+  "journal_mode": "wal",
+  "results": [
+    {
+      "id": "SQL-CLAIM-RACE",
+      "status": "PASS",
+      "details": {
+        "workers": 16,
+        "winners": 1,
+        "external_actions": 0
+      }
+    },
+    {
+      "id": "SQL-CLAIM-REOPEN",
+      "status": "PASS",
+      "details": {
+        "stdout": "duplicate rejected after process restart",
+        "stderr": ""
+      }
+    },
+    {
+      "id": "SQL-BUDGET-RACE",
+      "status": "PASS",
+      "details": {
+        "workers": 16,
+        "granted": 10,
+        "remaining": 0,
+        "unit": "synthetic integer units"
+      }
+    },
+    {
+      "id": "SQL-OUTBOX-ROLLBACK-DEDUPE",
+      "status": "PASS",
+      "details": {
+        "rolled_back_rows": 0,
+        "committed": 1,
+        "first": 1,
+        "duplicate": 0
+      }
+    },
+    {
+      "id": "FS-TORN-TAIL-PREFIX",
+      "status": "PASS",
+      "details": {
+        "acknowledged_records": 4096,
+        "recovered_complete_records": 4096,
+        "quarantined_bytes": 34,
+        "sha256": "56a6a470ed1cf0eccc5c1236df3b264cf562803c8c57258985bafcd3d29c937e",
+        "power_loss_test": "NOT_RUN"
+      }
+    }
+  ],
+  "not_proven": [
+    "OS sandbox",
+    "real provider billing",
+    "end-to-end exactly once",
+    "hardware power-loss durability",
+    "production archive implementation"
+  ]
+}

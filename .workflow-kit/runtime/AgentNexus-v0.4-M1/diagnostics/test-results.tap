@@ -1,0 +1,118 @@
+TAP version 13
+# Subtest: JSON uses real JSON.parse and preserves independent safety/authorization dimensions
+ok 1 - JSON uses real JSON.parse and preserves independent safety/authorization dimensions
+  ---
+  duration_ms: 8.1581
+  type: 'test'
+  ...
+# Subtest: Python AST actually parses valid/invalid source, with explicitly limited coverage
+ok 2 - Python AST actually parses valid/invalid source, with explicitly limited coverage
+  ---
+  duration_ms: 430.2107
+  type: 'test'
+  ...
+# Subtest: PowerShell Parser actually returns AST diagnostics and UTF-16 positions
+ok 3 - PowerShell Parser actually returns AST diagnostics and UTF-16 positions
+  ---
+  duration_ms: 921.1043
+  type: 'test'
+  ...
+# Subtest: Python and PowerShell source side effects remain unexecuted
+ok 4 - Python and PowerShell source side effects remain unexecuted
+  ---
+  duration_ms: 427.6099
+  type: 'test'
+  ...
+# Subtest: all relevant source Feature OFF paths bypass without a configured parser
+ok 5 - all relevant source Feature OFF paths bypass without a configured parser
+  ---
+  duration_ms: 0.4352
+  type: 'test'
+  ...
+# Subtest: optional environment/safety OFF remains BYPASSED while syntax independently runs
+ok 6 - optional environment/safety OFF remains BYPASSED while syntax independently runs
+  ---
+  duration_ms: 0.5932
+  type: 'test'
+  ...
+# Subtest: missing parsers and unsupported languages/dialects never produce PASS
+ok 7 - missing parsers and unsupported languages/dialects never produce PASS
+  ---
+  duration_ms: 0.5788
+  type: 'test'
+  ...
+# Subtest: new document version, same-version hash mismatch and close fence old results
+ok 8 - new document version, same-version hash mismatch and close fence old results
+  ---
+  duration_ms: 0.9244
+  type: 'test'
+  ...
+# Subtest: real parser requests respect newer versions and Feature epoch changes
+ok 9 - real parser requests respect newer versions and Feature epoch changes
+  ---
+  duration_ms: 208.3987
+  type: 'test'
+  ...
+# Subtest: AbortSignal, timeout and dispose are bounded and never become PASS
+ok 10 - AbortSignal, timeout and dispose are bounded and never become PASS
+  ---
+  duration_ms: 1.4206
+  type: 'test'
+  ...
+# Subtest: source/Unicode/request budgets reject before parsing and constructor budgets are fixed
+ok 11 - source/Unicode/request budgets reject before parsing and constructor budgets are fixed
+  ---
+  duration_ms: 0.802
+  type: 'test'
+  ...
+# Subtest: queue admission caps concurrent work and recovers after backpressure
+ok 12 - queue admission caps concurrent work and recovers after backpressure
+  ---
+  duration_ms: 2.6175
+  type: 'test'
+  ...
+# Subtest: PowerShell error floods remain bounded and do not turn truncation into PASS
+ok 13 - PowerShell error floods remain bounded and do not turn truncation into PASS
+  ---
+  duration_ms: 518.7719
+  type: 'test'
+  ...
+# Subtest: registered Git/Python argv schemas are static, limited and independently typed
+ok 14 - registered Git/Python argv schemas are static, limited and independently typed
+  ---
+  duration_ms: 1.341
+  type: 'test'
+  ...
+# Subtest: argv environment checks inspect only the Host file and preserve the actual args result
+ok 15 - argv environment checks inspect only the Host file and preserve the actual args result
+  ---
+  duration_ms: 0.5739
+  type: 'test'
+  ...
+# Subtest: argv family and values are copied before asynchronous work
+ok 16 - argv family and values are copied before asynchronous work
+  ---
+  duration_ms: 0.1769
+  type: 'test'
+  ...
+# Subtest: argument Feature OFF bypasses schema and dispose prevents subsequent work
+ok 17 - argument Feature OFF bypasses schema and dispose prevents subsequent work
+  ---
+  duration_ms: 0.1707
+  type: 'test'
+  ...
+# Subtest: disposeAndWait confirms real interpreter child close and all queued work is drained
+ok 18 - disposeAndWait confirms real interpreter child close and all queued work is drained
+  ---
+  duration_ms: 136.4489
+  type: 'test'
+  ...
+1..18
+# tests 18
+# suites 0
+# pass 18
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2805.1615

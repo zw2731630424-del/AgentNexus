@@ -1,0 +1,139 @@
+{
+  "scope": "Real local broker/SQLite/artifact/JSON checks with synthetic inputs; no model or shell execution",
+  "root": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-v0.4-M1\\demos\\local-CCvTqN",
+  "deployment": {
+    "status": "BLOCKED",
+    "reason": "OS_ADMIN_AUTH_AND_SANDBOX_NOT_VERIFIED",
+    "api": "LOCAL_TRUSTED_LIBRARY_ONLY",
+    "no_network_listener": true
+  },
+  "echo": {
+    "status": "PASS",
+    "reason": "BROKER_OPERATION_COMPLETE",
+    "operation_id": "ab3b49e7-855a-4475-879d-5a6d0dee29df",
+    "intent_hash": "1638baae27db7886a55584ccebd2908a005a3c8b6f34e3bd221c75fcbeaa45b4",
+    "data": {
+      "message": "AgentNexus native M1",
+      "real_model": false
+    },
+    "stdout_ref": {
+      "artifact_id": "a4c93857-dfea-45b0-9b4a-eb560c3d2145",
+      "sha256": "57c204557b25b00f6c119da95e10e9ca948ac3be3faeacd4cf612e9fc2c8dc03",
+      "bytes": 53,
+      "codec": "zstd",
+      "stored_sha256": "2afe67267df13ff6b0da68a571c047b6b5e9f4b8babc70664f0536ae1d6ebcb7",
+      "stored_bytes": 66,
+      "media_type": "application/octet-stream",
+      "sensitivity": "NORMAL"
+    },
+    "stderr_ref": {
+      "artifact_id": "314313ce-17c4-4fff-b899-8ae332f479f3",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "codec": "zstd",
+      "stored_sha256": "f96deff1816083fdff8bc3e46c3fe6ca46a6bb49f4d5a00627616c13237a512c",
+      "stored_bytes": 13,
+      "media_type": "application/octet-stream",
+      "sensitivity": "NORMAL"
+    },
+    "audit_event_id": "b47cc574-2173-47fe-ade3-844e5f724d4e",
+    "permit_id": "96154381-ec14-48b4-ab78-381b5283003b"
+  },
+  "diagnostics": {
+    "status": "PASS",
+    "reason": "BROKER_OPERATION_COMPLETE",
+    "operation_id": "a4c828cb-9546-4b61-a244-b229de0d9ebb",
+    "intent_hash": "2d39e063d0e8a51d45e4893103cb6193c20aac2019f094adaed288b67a127ded",
+    "data": {
+      "checker_id": "json-parse",
+      "checker_version": "Node-24.15.0",
+      "config_revision": 0,
+      "diagnostics": [
+        {
+          "code": "JSON_SYNTAX_ERROR",
+          "message": "Invalid JSON syntax.",
+          "range": null,
+          "severity": "error"
+        }
+      ],
+      "dimensions": {
+        "args": {
+          "applicable": false,
+          "coverage": "none",
+          "reason": "NOT_APPLICABLE",
+          "status": "NOT_RUN"
+        },
+        "authorization": {
+          "applicable": true,
+          "coverage": "diagnostic service cannot issue permits",
+          "reason": "OWNER_TOOL_GATEWAY",
+          "status": "NOT_RUN"
+        },
+        "environment": {
+          "applicable": true,
+          "coverage": "JSON.parse in the reported Node runtime; OS hard isolation NOT_RUN",
+          "reason": "BUILTIN_PARSER",
+          "status": "PASS"
+        },
+        "safety": {
+          "applicable": true,
+          "coverage": "no OS isolation, resource authorization or target execution established",
+          "reason": "STATIC_ANALYSIS_NOT_SAFETY_PROOF",
+          "status": "INCONCLUSIVE"
+        },
+        "syntax": {
+          "applicable": true,
+          "coverage": "json_parse_only",
+          "reason": "SYNTAX_ERROR",
+          "status": "FAIL"
+        }
+      },
+      "evidence_refs": [],
+      "feature_epoch": 0,
+      "reason": "SYNTAX_ERROR",
+      "request_id": "5f93e6c7-195f-44e5-b228-ebdbe8ed7c32",
+      "source_sha256": "0f80613450ca8072e84f700960a349f2a5d7de23b66f68993d80d08e37607c9a",
+      "status": "FAIL",
+      "timing": {
+        "elapsed_ms": 2.707,
+        "started_at": "2026-11-06T17:55:04.231Z"
+      },
+      "uri": "memory:demo.json",
+      "version": 1
+    },
+    "stdout_ref": {
+      "artifact_id": "f93cf234-faba-432e-9d67-0f71afe8b3c2",
+      "sha256": "add0685018597e870947385d731e9f4c8b9e456b775b99c87481a20d2f526ad1",
+      "bytes": 1189,
+      "codec": "zstd",
+      "stored_sha256": "2c23510c781f08ac1f29e8354993c5035e408a2980bfca154559fd847a3aeee4",
+      "stored_bytes": 699,
+      "media_type": "application/octet-stream",
+      "sensitivity": "NORMAL"
+    },
+    "stderr_ref": {
+      "artifact_id": "fe3c7622-6455-40bb-8ac9-aeec83253888",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "codec": "zstd",
+      "stored_sha256": "f96deff1816083fdff8bc3e46c3fe6ca46a6bb49f4d5a00627616c13237a512c",
+      "stored_bytes": 13,
+      "media_type": "application/octet-stream",
+      "sensitivity": "NORMAL"
+    },
+    "audit_event_id": "9a28350e-41e9-443c-9ade-ac1d659266be",
+    "permit_id": "3f8c83a9-0f24-4102-ac07-9c5a433e2e9b"
+  },
+  "reconstruction": {
+    "events": 18,
+    "next_cursor": 23,
+    "replay": "READ_ONLY_NO_EXECUTOR"
+  },
+  "verification": {
+    "records": 23,
+    "segments": 1,
+    "pending": 0,
+    "objects": 8,
+    "incomplete": 0
+  }
+}

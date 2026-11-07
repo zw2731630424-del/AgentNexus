@@ -1,0 +1,23 @@
+{
+  "scope": "M0 probe and checker development history; final results separately preserved",
+  "events": [
+    {
+      "check": "Zstd initial stream",
+      "status": "INCONCLUSIVE",
+      "reason": "Highly compressible 32MiB input yielded 5808 output bytes below sink high-water mark; no drain event",
+      "evidence": "zstd-probe-initial-results.json"
+    },
+    {
+      "check": "Node SQLite probe initial",
+      "status": "ERROR",
+      "reason": "ERR_WORKER_PATH: Worker received file URL string instead of URL object; fixed and ran fresh v2 fixture",
+      "final_evidence": "node-sqlite-probe-results.json"
+    },
+    {
+      "check": "M0 evidence verifier initial",
+      "status": "FAIL",
+      "reason": "One Compose citation extended to L100 while file has75 lines; corrected to75. Local link checker did not parse supported :line suffix; parser corrected. Raw initial checker result retained",
+      "evidence": "m0-verification-initial.json"
+    }
+  ]
+}

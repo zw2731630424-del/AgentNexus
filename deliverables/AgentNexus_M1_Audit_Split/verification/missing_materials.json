@@ -1,0 +1,37 @@
+{
+  "schema": "agentnexus/split-missing-materials/1",
+  "status": "PASS",
+  "required_available_original_files_missing": [],
+  "items": [
+    {
+      "path": "package-lock.json",
+      "status": "NOT_AVAILABLE",
+      "reason": "No npm packages installed or required; dependencies/devDependencies/transitive npm dependencies all empty. No lockfile fabricated."
+    },
+    {
+      "path": "pnpm-lock.yaml / yarn.lock",
+      "status": "NOT_AVAILABLE",
+      "reason": "Not used by this implementation."
+    },
+    {
+      "path": "tsconfig.json",
+      "status": "NOT_AVAILABLE",
+      "reason": "Node native TypeScript stripping; static tsc NOT_RUN."
+    },
+    {
+      "path": "standalone database migration / configuration schema files",
+      "status": "NOT_AVAILABLE",
+      "reason": "SQL creation and validators are embedded in the preserved src/agentnexus modules, no separate files exist."
+    },
+    {
+      "path": "original intermediate-source/timing/probe-transcript gaps",
+      "status": "NOT_AVAILABLE",
+      "reason": "Use original missing_files.json, preserved verbatim. No absent history regenerated."
+    },
+    {
+      "path": "Node/Python/PowerShell runtime binaries and redistribution closure",
+      "status": "NOT_AVAILABLE",
+      "reason": "Original source-only delivery did not bundle them; versions and purpose are in dependency_inventory.json. No npm lockfile can install these OS runtimes."
+    }
+  ]
+}

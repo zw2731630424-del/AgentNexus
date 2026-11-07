@@ -1,0 +1,549 @@
+{
+  "schema_version": "0.1-design",
+  "status": "M0 DESIGN ONLY; modes are not implemented",
+  "policies": [
+    {
+      "id": "P.IDENTITY",
+      "level": "L0",
+      "enforcement_owner": "可信IPC身份与能力Broker",
+      "scope": "project/task/resource",
+      "default_mode": "ENFORCE",
+      "degradable": false,
+      "risk": "HIGH",
+      "modes": {
+        "ENFORCE": "校验peer身份，禁止payload自报管理员",
+        "AUDIT_ONLY": "校验peer身份，禁止payload自报管理员；独立不变量不随应用审计模式关闭",
+        "DISABLED": "校验peer身份，禁止payload自报管理员；属于独立底层/结构保护，未隐式关闭"
+      },
+      "test_ids": [
+        "P.IDENTITY-POS",
+        "P.IDENTITY-NEG",
+        "P.IDENTITY-BYPASS",
+        "P.IDENTITY-RACE",
+        "P.IDENTITY-RECOVERY",
+        "P.IDENTITY-UPGRADE"
+      ],
+      "implementation_status": "NOT_RUN",
+      "source": "Architecture 15.1-15.9 and v0.4 C; M0 security_review",
+      "failure": "owner不可用时暂停依赖副作用；不自动改模式"
+    },
+    {
+      "id": "P.FS_SCOPE",
+      "level": "L0",
+      "enforcement_owner": "OS执行器/句柄授权",
+      "scope": "project/task/resource",
+      "default_mode": "ENFORCE",
+      "degradable": false,
+      "risk": "HIGH",
+      "modes": {
+        "ENFORCE": "路径/重解析点/硬链接/UNC/ADS边界，操作绑定句柄",
+        "AUDIT_ONLY": "路径/重解析点/硬链接/UNC/ADS边界，操作绑定句柄；独立不变量不随应用审计模式关闭",
+        "DISABLED": "路径/重解析点/硬链接/UNC/ADS边界，操作绑定句柄；属于独立底层/结构保护，未隐式关闭"
+      },
+      "test_ids": [
+        "P.FS_SCOPE-POS",
+        "P.FS_SCOPE-NEG",
+        "P.FS_SCOPE-BYPASS",
+        "P.FS_SCOPE-RACE",
+        "P.FS_SCOPE-RECOVERY",
+        "P.FS_SCOPE-UPGRADE"
+      ],
+      "implementation_status": "NOT_RUN",
+      "source": "Architecture 15.1-15.9 and v0.4 C; M0 security_review",
+      "failure": "owner不可用时暂停依赖副作用；不自动改模式"
+    },
+    {
+      "id": "P.REVIEW_RO",
+      "level": "L0",
+      "enforcement_owner": "OS只读身份/挂载",
+      "scope": "project/task/resource",
+      "default_mode": "ENFORCE",
+      "degradable": false,
+      "risk": "HIGH",
+      "modes": {
+        "ENFORCE": "Reviewer对候选树不可写",
+        "AUDIT_ONLY": "Reviewer对候选树不可写；独立不变量不随应用审计模式关闭",
+        "DISABLED": "Reviewer对候选树不可写；属于独立底层/结构保护，未隐式关闭"
+      },
+      "test_ids": [
+        "P.REVIEW_RO-POS",
+        "P.REVIEW_RO-NEG",
+        "P.REVIEW_RO-BYPASS",
+        "P.REVIEW_RO-RACE",
+        "P.REVIEW_RO-RECOVERY",
+        "P.REVIEW_RO-UPGRADE"
+      ],
+      "implementation_status": "NOT_RUN",
+      "source": "Architecture 15.1-15.9 and v0.4 C; M0 security_review",
+      "failure": "owner不可用时暂停依赖副作用；不自动改模式"
+    },
+    {
+      "id": "P.ARCHIVE_APPEND",
+      "level": "L0",
+      "enforcement_owner": "Archive Writer/文件ACL",
+      "scope": "project/task/resource",
+      "default_mode": "ENFORCE",
+      "degradable": false,
+      "risk": "HIGH",
+      "modes": {
+        "ENFORCE": "原档案只追加；摘要不能覆盖；读取内容哈希校验",
+        "AUDIT_ONLY": "原档案只追加；摘要不能覆盖；读取内容哈希校验；独立不变量不随应用审计模式关闭",
+        "DISABLED": "原档案只追加；摘要不能覆盖；读取内容哈希校验；属于独立底层/结构保护，未隐式关闭"
+      },
+      "test_ids": [
+        "P.ARCHIVE_APPEND-POS",
+        "P.ARCHIVE_APPEND-NEG",
+        "P.ARCHIVE_APPEND-BYPASS",
+        "P.ARCHIVE_APPEND-RACE",
+        "P.ARCHIVE_APPEND-RECOVERY",
+        "P.ARCHIVE_APPEND-UPGRADE"
+      ],
+      "implementation_status": "NOT_RUN",
+      "source": "Architecture 15.1-15.9 and v0.4 C; M0 security_review",
+      "failure": "owner不可用时暂停依赖副作用；不自动改模式"
+    },
+    {
+      "id": "P.SECRET_BOUNDARY",
+      "level": "L0",
+      "enforcement_owner": "Credential Broker/模型出口",
+      "scope": "project/task/resource",
+      "default_mode": "ENFORCE",
+      "degradable": false,
+      "risk": "HIGH",
+      "modes": {
+        "ENFORCE": "Key不进worker/renderer/模型；意外敏感原文加密隔离存储",
+        "AUDIT_ONLY": "Key不进worker/renderer/模型；意外敏感原文加密隔离存储；独立不变量不随应用审计模式关闭",
+        "DISABLED": "Key不进worker/renderer/模型；意外敏感原文加密隔离存储；属于独立底层/结构保护，未隐式关闭"
+      },
+      "test_ids": [
+        "P.SECRET_BOUNDARY-POS",
+        "P.SECRET_BOUNDARY-NEG",
+        "P.SECRET_BOUNDARY-BYPASS",
+        "P.SECRET_BOUNDARY-RACE",
+        "P.SECRET_BOUNDARY-RECOVERY",
+        "P.SECRET_BOUNDARY-UPGRADE"
+      ],
+      "implementation_status": "NOT_RUN",
+      "source": "Architecture 15.1-15.9 and v0.4 C; M0 security_review",
+      "failure": "owner不可用时暂停依赖副作用；不自动改模式"
+    },
+    {
+      "id": "P.DB_ATOMIC",
+      "level": "L0",
+      "enforcement_owner": "唯一约束/条件事务",
+      "scope": "project/task/resource",
+      "default_mode": "ENFORCE",
+      "degradable": false,
+      "risk": "HIGH",
+      "modes": {
+        "ENFORCE": "消息去重、原子claim、事务与检查约束",
+        "AUDIT_ONLY": "消息去重、原子claim、事务与检查约束；独立不变量不随应用审计模式关闭",
+        "DISABLED": "消息去重、原子claim、事务与检查约束；属于独立底层/结构保护，未隐式关闭"
+      },
+      "test_ids": [
+        "P.DB_ATOMIC-POS",
+        "P.DB_ATOMIC-NEG",
+        "P.DB_ATOMIC-BYPASS",
+        "P.DB_ATOMIC-RACE",
+        "P.DB_ATOMIC-RECOVERY",
+        "P.DB_ATOMIC-UPGRADE"
+      ],
+      "implementation_status": "NOT_RUN",
+      "source": "Architecture 15.1-15.9 and v0.4 C; M0 security_review",
+      "failure": "owner不可用时暂停依赖副作用；不自动改模式"
+    },
+    {
+      "id": "P.EXPERIMENT_ONCE",
+      "level": "L0",
+      "enforcement_owner": "独立实验Capability/数据库",
+      "scope": "project/task/resource",
+      "default_mode": "ENFORCE",
+      "degradable": false,
+      "risk": "HIGH",
+      "modes": {
+        "ENFORCE": "精确实验+协议+seed单次claim；不确定结果不得重置或重跑",
+        "AUDIT_ONLY": "精确实验+协议+seed单次claim；不确定结果不得重置或重跑；独立不变量不随应用审计模式关闭",
+        "DISABLED": "精确实验+协议+seed单次claim；不确定结果不得重置或重跑；属于独立底层/结构保护，未隐式关闭"
+      },
+      "test_ids": [
+        "P.EXPERIMENT_ONCE-POS",
+        "P.EXPERIMENT_ONCE-NEG",
+        "P.EXPERIMENT_ONCE-BYPASS",
+        "P.EXPERIMENT_ONCE-RACE",
+        "P.EXPERIMENT_ONCE-RECOVERY",
+        "P.EXPERIMENT_ONCE-UPGRADE"
+      ],
+      "implementation_status": "NOT_RUN",
+      "source": "Architecture 15.1-15.9 and v0.4 C; M0 security_review",
+      "failure": "owner不可用时暂停依赖副作用；不自动改模式"
+    },
+    {
+      "id": "P.WORKSPACE_WRITER",
+      "level": "L0",
+      "enforcement_owner": "Broker租约/OS进程树",
+      "scope": "project/task/resource",
+      "default_mode": "ENFORCE",
+      "degradable": false,
+      "risk": "HIGH",
+      "modes": {
+        "ENFORCE": "同工作区单写者，fencing token与真实进程退出核验",
+        "AUDIT_ONLY": "同工作区单写者，fencing token与真实进程退出核验；独立不变量不随应用审计模式关闭",
+        "DISABLED": "同工作区单写者，fencing token与真实进程退出核验；属于独立底层/结构保护，未隐式关闭"
+      },
+      "test_ids": [
+        "P.WORKSPACE_WRITER-POS",
+        "P.WORKSPACE_WRITER-NEG",
+        "P.WORKSPACE_WRITER-BYPASS",
+        "P.WORKSPACE_WRITER-RACE",
+        "P.WORKSPACE_WRITER-RECOVERY",
+        "P.WORKSPACE_WRITER-UPGRADE"
+      ],
+      "implementation_status": "NOT_RUN",
+      "source": "Architecture 15.1-15.9 and v0.4 C; M0 security_review",
+      "failure": "owner不可用时暂停依赖副作用；不自动改模式"
+    },
+    {
+      "id": "P.BUDGET_HARD",
+      "level": "L0",
+      "enforcement_owner": "Model Gateway原子额度",
+      "scope": "project/task/resource",
+      "default_mode": "ENFORCE",
+      "degradable": false,
+      "risk": "HIGH",
+      "modes": {
+        "ENFORCE": "调用前预留全层级硬预算；换Key不绕过账户限额",
+        "AUDIT_ONLY": "调用前预留全层级硬预算；换Key不绕过账户限额；独立不变量不随应用审计模式关闭",
+        "DISABLED": "调用前预留全层级硬预算；换Key不绕过账户限额；属于独立底层/结构保护，未隐式关闭"
+      },
+      "test_ids": [
+        "P.BUDGET_HARD-POS",
+        "P.BUDGET_HARD-NEG",
+        "P.BUDGET_HARD-BYPASS",
+        "P.BUDGET_HARD-RACE",
+        "P.BUDGET_HARD-RECOVERY",
+        "P.BUDGET_HARD-UPGRADE"
+      ],
+      "implementation_status": "NOT_RUN",
+      "source": "Architecture 15.1-15.9 and v0.4 C; M0 security_review",
+      "failure": "owner不可用时暂停依赖副作用；不自动改模式"
+    },
+    {
+      "id": "P.ADMIN_MODE",
+      "level": "L0",
+      "enforcement_owner": "独立管理Broker/审计库",
+      "scope": "project/task/resource",
+      "default_mode": "ENFORCE",
+      "degradable": false,
+      "risk": "HIGH",
+      "modes": {
+        "ENFORCE": "仅可信管理员切模式；双确认、范围、原因、期限与审计；Agent不得改",
+        "AUDIT_ONLY": "仅可信管理员切模式；双确认、范围、原因、期限与审计；Agent不得改；独立不变量不随应用审计模式关闭",
+        "DISABLED": "仅可信管理员切模式；双确认、范围、原因、期限与审计；Agent不得改；属于独立底层/结构保护，未隐式关闭"
+      },
+      "test_ids": [
+        "P.ADMIN_MODE-POS",
+        "P.ADMIN_MODE-NEG",
+        "P.ADMIN_MODE-BYPASS",
+        "P.ADMIN_MODE-RACE",
+        "P.ADMIN_MODE-RECOVERY",
+        "P.ADMIN_MODE-UPGRADE"
+      ],
+      "implementation_status": "NOT_RUN",
+      "source": "Architecture 15.1-15.9 and v0.4 C; M0 security_review",
+      "failure": "owner不可用时暂停依赖副作用；不自动改模式"
+    },
+    {
+      "id": "P.APPROVAL_REPLAY",
+      "level": "L0",
+      "enforcement_owner": "执行许可存储/原子consume",
+      "scope": "project/task/resource",
+      "default_mode": "ENFORCE",
+      "degradable": false,
+      "risk": "HIGH",
+      "modes": {
+        "ENFORCE": "凭证绑定参数/版本/nonce/次数，原子消费不重放",
+        "AUDIT_ONLY": "凭证绑定参数/版本/nonce/次数，原子消费不重放；独立不变量不随应用审计模式关闭",
+        "DISABLED": "凭证绑定参数/版本/nonce/次数，原子消费不重放；属于独立底层/结构保护，未隐式关闭"
+      },
+      "test_ids": [
+        "P.APPROVAL_REPLAY-POS",
+        "P.APPROVAL_REPLAY-NEG",
+        "P.APPROVAL_REPLAY-BYPASS",
+        "P.APPROVAL_REPLAY-RACE",
+        "P.APPROVAL_REPLAY-RECOVERY",
+        "P.APPROVAL_REPLAY-UPGRADE"
+      ],
+      "implementation_status": "NOT_RUN",
+      "source": "Architecture 15.1-15.9 and v0.4 C; M0 security_review",
+      "failure": "owner不可用时暂停依赖副作用；不自动改模式"
+    },
+    {
+      "id": "P.TOOL_CONTRACT",
+      "level": "L0",
+      "enforcement_owner": "Tool Gateway/执行器",
+      "scope": "project/task/resource",
+      "default_mode": "ENFORCE",
+      "degradable": false,
+      "risk": "HIGH",
+      "modes": {
+        "ENFORCE": "工具Schema、注册身份、执行许可与epoch必须有效",
+        "AUDIT_ONLY": "工具Schema、注册身份、执行许可与epoch必须有效；独立不变量不随应用审计模式关闭",
+        "DISABLED": "工具Schema、注册身份、执行许可与epoch必须有效；属于独立底层/结构保护，未隐式关闭"
+      },
+      "test_ids": [
+        "P.TOOL_CONTRACT-POS",
+        "P.TOOL_CONTRACT-NEG",
+        "P.TOOL_CONTRACT-BYPASS",
+        "P.TOOL_CONTRACT-RACE",
+        "P.TOOL_CONTRACT-RECOVERY",
+        "P.TOOL_CONTRACT-UPGRADE"
+      ],
+      "implementation_status": "NOT_RUN",
+      "source": "Architecture 15.1-15.9 and v0.4 C; M0 security_review",
+      "failure": "owner不可用时暂停依赖副作用；不自动改模式"
+    },
+    {
+      "id": "P.GIT_PUBLISH",
+      "level": "L1",
+      "enforcement_owner": "PDP/PEP/Approval Service",
+      "scope": "project/task/resource",
+      "default_mode": "ENFORCE",
+      "degradable": true,
+      "risk": "HIGH",
+      "modes": {
+        "ENFORCE": "指定仓库/远程/分支/候选SHA的Git commit/merge/push应用审批，无有效人工批准则REQUIRE_APPROVAL",
+        "AUDIT_ONLY": "默认仍执行ENFORCE；仅管理员选定的可降级policy_id记录would-deny并允许符合独立底层能力的请求",
+        "DISABLED": "此作用域内应用策略不评估，记录BYPASSED而非ALLOW；工具开关、独立OS/能力仍可能拒绝"
+      },
+      "test_ids": [
+        "P.GIT_PUBLISH-POS",
+        "P.GIT_PUBLISH-NEG",
+        "P.GIT_PUBLISH-BYPASS",
+        "P.GIT_PUBLISH-TOKEN",
+        "P.GIT_PUBLISH-RACE",
+        "P.GIT_PUBLISH-RECOVERY",
+        "P.GIT_PUBLISH-UPGRADE",
+        "P.GIT_PUBLISH-MODE"
+      ],
+      "implementation_status": "NOT_RUN",
+      "source": "Architecture 15.1-15.9 and v0.4 C; M0 security_review",
+      "failure": "owner不可用时暂停依赖副作用；不自动改模式"
+    },
+    {
+      "id": "P.DATA_DELETE",
+      "level": "L1",
+      "enforcement_owner": "PDP/PEP/Approval Service",
+      "scope": "project/task/resource",
+      "default_mode": "ENFORCE",
+      "degradable": true,
+      "risk": "HIGH",
+      "modes": {
+        "ENFORCE": "精确数据集合与操作参数的删除应用审批，无有效人工批准则REQUIRE_APPROVAL",
+        "AUDIT_ONLY": "默认仍执行ENFORCE；仅管理员选定的可降级policy_id记录would-deny并允许符合独立底层能力的请求",
+        "DISABLED": "此作用域内应用策略不评估，记录BYPASSED而非ALLOW；工具开关、独立OS/能力仍可能拒绝"
+      },
+      "test_ids": [
+        "P.DATA_DELETE-POS",
+        "P.DATA_DELETE-NEG",
+        "P.DATA_DELETE-BYPASS",
+        "P.DATA_DELETE-TOKEN",
+        "P.DATA_DELETE-RACE",
+        "P.DATA_DELETE-RECOVERY",
+        "P.DATA_DELETE-UPGRADE",
+        "P.DATA_DELETE-MODE"
+      ],
+      "implementation_status": "NOT_RUN",
+      "source": "Architecture 15.1-15.9 and v0.4 C; M0 security_review",
+      "failure": "owner不可用时暂停依赖副作用；不自动改模式"
+    },
+    {
+      "id": "P.INSTALL",
+      "level": "L1",
+      "enforcement_owner": "PDP/PEP/Approval Service",
+      "scope": "project/task/resource",
+      "default_mode": "ENFORCE",
+      "degradable": true,
+      "risk": "HIGH",
+      "modes": {
+        "ENFORCE": "软件安装与依赖生命周期脚本的应用审批，无有效人工批准则REQUIRE_APPROVAL",
+        "AUDIT_ONLY": "默认仍执行ENFORCE；仅管理员选定的可降级policy_id记录would-deny并允许符合独立底层能力的请求",
+        "DISABLED": "此作用域内应用策略不评估，记录BYPASSED而非ALLOW；工具开关、独立OS/能力仍可能拒绝"
+      },
+      "test_ids": [
+        "P.INSTALL-POS",
+        "P.INSTALL-NEG",
+        "P.INSTALL-BYPASS",
+        "P.INSTALL-TOKEN",
+        "P.INSTALL-RACE",
+        "P.INSTALL-RECOVERY",
+        "P.INSTALL-UPGRADE",
+        "P.INSTALL-MODE"
+      ],
+      "implementation_status": "NOT_RUN",
+      "source": "Architecture 15.1-15.9 and v0.4 C; M0 security_review",
+      "failure": "owner不可用时暂停依赖副作用；不自动改模式"
+    },
+    {
+      "id": "P.PROJECT_RULE_CHANGE",
+      "level": "L1",
+      "enforcement_owner": "PDP/PEP/Approval Service",
+      "scope": "project/task/resource",
+      "default_mode": "ENFORCE",
+      "degradable": true,
+      "risk": "HIGH",
+      "modes": {
+        "ENFORCE": "项目工作规则变更应用审批，无有效人工批准则REQUIRE_APPROVAL",
+        "AUDIT_ONLY": "默认仍执行ENFORCE；仅管理员选定的可降级policy_id记录would-deny并允许符合独立底层能力的请求",
+        "DISABLED": "此作用域内应用策略不评估，记录BYPASSED而非ALLOW；工具开关、独立OS/能力仍可能拒绝"
+      },
+      "test_ids": [
+        "P.PROJECT_RULE_CHANGE-POS",
+        "P.PROJECT_RULE_CHANGE-NEG",
+        "P.PROJECT_RULE_CHANGE-BYPASS",
+        "P.PROJECT_RULE_CHANGE-TOKEN",
+        "P.PROJECT_RULE_CHANGE-RACE",
+        "P.PROJECT_RULE_CHANGE-RECOVERY",
+        "P.PROJECT_RULE_CHANGE-UPGRADE",
+        "P.PROJECT_RULE_CHANGE-MODE"
+      ],
+      "implementation_status": "NOT_RUN",
+      "source": "Architecture 15.1-15.9 and v0.4 C; M0 security_review",
+      "failure": "owner不可用时暂停依赖副作用；不自动改模式"
+    },
+    {
+      "id": "P.EXPERIMENT_APPROVAL",
+      "level": "L1",
+      "enforcement_owner": "独立科研执行授权服务",
+      "scope": "project/task/resource",
+      "default_mode": "ENFORCE",
+      "degradable": false,
+      "risk": "HIGH",
+      "modes": {
+        "ENFORCE": "需要专属协议的人工授权",
+        "AUDIT_ONLY": "仍需专属授权；不是通用PDP可降级条款",
+        "DISABLED": "仍需专属授权；关闭通用策略不创建科研权限"
+      },
+      "test_ids": [
+        "P.EXPERIMENT_APPROVAL-POS",
+        "P.EXPERIMENT_APPROVAL-NEG",
+        "P.EXPERIMENT_APPROVAL-BYPASS",
+        "P.EXPERIMENT_APPROVAL-RACE",
+        "P.EXPERIMENT_APPROVAL-RECOVERY",
+        "P.EXPERIMENT_APPROVAL-UPGRADE"
+      ],
+      "implementation_status": "NOT_RUN",
+      "source": "Architecture 15.1-15.9 and v0.4 C; M0 security_review",
+      "failure": "owner不可用时暂停依赖副作用；不自动改模式"
+    },
+    {
+      "id": "P.BUDGET_INCREASE",
+      "level": "L1",
+      "enforcement_owner": "Model Gateway管理员配置",
+      "scope": "project/task/resource",
+      "default_mode": "ENFORCE",
+      "degradable": false,
+      "risk": "HIGH",
+      "modes": {
+        "ENFORCE": "预算提高需可信管理员确认",
+        "AUDIT_ONLY": "仍需管理员；余额硬限制独立",
+        "DISABLED": "仍需管理员；旁路不凭空增加余额"
+      },
+      "test_ids": [
+        "P.BUDGET_INCREASE-POS",
+        "P.BUDGET_INCREASE-NEG",
+        "P.BUDGET_INCREASE-BYPASS",
+        "P.BUDGET_INCREASE-RACE",
+        "P.BUDGET_INCREASE-RECOVERY",
+        "P.BUDGET_INCREASE-UPGRADE"
+      ],
+      "implementation_status": "NOT_RUN",
+      "source": "Architecture 15.1-15.9 and v0.4 C; M0 security_review",
+      "failure": "owner不可用时暂停依赖副作用；不自动改模式"
+    },
+    {
+      "id": "P.REVIEW_BINDING",
+      "level": "L2",
+      "enforcement_owner": "ReviewResult schema/集成服务",
+      "scope": "project/task/resource",
+      "default_mode": "ENFORCE",
+      "degradable": true,
+      "risk": "HIGH",
+      "modes": {
+        "ENFORCE": "只有候选/基线/规则/测试配置哈希完全匹配的PASS可用于批准",
+        "AUDIT_ONLY": "评估失败可由选定质量策略旁路，但旧审查不能被改写成新候选PASS",
+        "DISABLED": "可不把审查作为集成前提；历史PASS仍只能对应原候选"
+      },
+      "test_ids": [
+        "P.REVIEW_BINDING-MUTATE",
+        "P.REVIEW_BINDING-STALE",
+        "P.REVIEW_BINDING-BYPASS"
+      ],
+      "implementation_status": "NOT_RUN",
+      "source": "Architecture 15.1-15.9 and v0.4 C; M0 security_review",
+      "failure": "owner不可用时暂停依赖副作用；不自动改模式"
+    },
+    {
+      "id": "P.WORKFLOW_GATES",
+      "level": "L2",
+      "enforcement_owner": "Workflow Runtime",
+      "scope": "project/task/resource",
+      "default_mode": "ENFORCE",
+      "degradable": true,
+      "risk": "MEDIUM",
+      "modes": {
+        "ENFORCE": "已启用Gate验证证据，关闭的Gate为BYPASSED",
+        "AUDIT_ONLY": "选定质量Gate仅记录；跳过不变成PASS",
+        "DISABLED": "应用质量阻断关闭；Gate关闭仍为BYPASSED，NOT_RUN保持原值"
+      },
+      "test_ids": [
+        "P.WORKFLOW_GATES-BYPASSED",
+        "P.WORKFLOW_GATES-NOTRUN",
+        "P.WORKFLOW_GATES-OFF"
+      ],
+      "implementation_status": "NOT_RUN",
+      "source": "Architecture 15.1-15.9 and v0.4 C; M0 security_review",
+      "failure": "owner不可用时暂停依赖副作用；不自动改模式"
+    },
+    {
+      "id": "P.SCIENTIFIC_CLAIM",
+      "level": "L2",
+      "enforcement_owner": "证据/独立审查",
+      "scope": "project/task/resource",
+      "default_mode": "ENFORCE",
+      "degradable": true,
+      "risk": "MEDIUM",
+      "modes": {
+        "ENFORCE": "缺证据为INCONCLUSIVE；程序不能保证科学真值",
+        "AUDIT_ONLY": "可绕过工作推进阻断，不能伪造已运行或已证实",
+        "DISABLED": "不评估质量要求；Result schema仍保留真实测试状态"
+      },
+      "test_ids": [
+        "P.SCIENTIFIC_CLAIM-FAKE",
+        "P.SCIENTIFIC_CLAIM-MISSING"
+      ],
+      "implementation_status": "NOT_RUN",
+      "source": "Architecture 15.1-15.9 and v0.4 C; M0 security_review",
+      "failure": "owner不可用时暂停依赖副作用；不自动改模式"
+    },
+    {
+      "id": "P.STYLE",
+      "level": "L3",
+      "enforcement_owner": "规则提示/可选linter",
+      "scope": "project/task/resource",
+      "default_mode": "ENFORCE",
+      "degradable": true,
+      "risk": "LOW",
+      "modes": {
+        "ENFORCE": "建议并显示差异",
+        "AUDIT_ONLY": "仅记录建议",
+        "DISABLED": "不注入/不检查该应用指导"
+      },
+      "test_ids": [
+        "P.STYLE-OFF"
+      ],
+      "implementation_status": "NOT_RUN",
+      "source": "Architecture 15.1-15.9 and v0.4 C; M0 security_review",
+      "failure": "owner不可用时暂停依赖副作用；不自动改模式"
+    }
+  ]
+}

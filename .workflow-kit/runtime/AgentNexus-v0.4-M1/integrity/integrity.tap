@@ -1,0 +1,361 @@
+TAP version 13
+# Subtest: controlled static bytes close over binary, empty and nested same-name files
+ok 1 - controlled static bytes close over binary, empty and nested same-name files
+  ---
+  duration_ms: 25.3575
+  type: 'test'
+  ...
+# Subtest: empty package permits exactly its manifest, with zero payload budgets
+ok 2 - empty package permits exactly its manifest, with zero payload budgets
+  ---
+  duration_ms: 5.9397
+  type: 'test'
+  ...
+# Subtest: matching mutable tree is INCONCLUSIVE, never a trusted release root
+ok 3 - matching mutable tree is INCONCLUSIVE, never a trusted release root
+  ---
+  duration_ms: 7.2838
+  type: 'test'
+  ...
+# Subtest: same-size modified content fails its SHA-256
+ok 4 - same-size modified content fails its SHA-256
+  ---
+  duration_ms: 7.4722
+  type: 'test'
+  ...
+# Subtest: appended content fails declared byte size
+ok 5 - appended content fails declared byte size
+  ---
+  duration_ms: 5.7553
+  type: 'test'
+  ...
+# Subtest: missing and unlisted files are both reported by full relative path
+ok 6 - missing and unlisted files are both reported by full relative path
+  ---
+  duration_ms: 6.1535
+  type: 'test'
+  ...
+# Subtest: unlisted nested manifest and SHA256SUMS names are never self exceptions
+    # Subtest: sub/manifest.json
+    ok 1 - sub/manifest.json
+      ---
+      duration_ms: 7.3303
+      type: 'test'
+      ...
+    # Subtest: validation/SHA256SUMS.txt
+    ok 2 - validation/SHA256SUMS.txt
+      ---
+      duration_ms: 9.0158
+      type: 'test'
+      ...
+    # Subtest: unexpected.cjs
+    ok 3 - unexpected.cjs
+      ---
+      duration_ms: 6.289
+      type: 'test'
+      ...
+    # Subtest: .hidden
+    ok 4 - .hidden
+      ---
+      duration_ms: 5.6974
+      type: 'test'
+      ...
+    1..4
+ok 7 - unlisted nested manifest and SHA256SUMS names are never self exceptions
+  ---
+  duration_ms: 29.0482
+  type: 'test'
+  ...
+# Subtest: root manifest is required and cannot list itself
+ok 8 - root manifest is required and cannot list itself
+  ---
+  duration_ms: 5.8015
+  type: 'test'
+  ...
+# Subtest: root manifest directory and non-directory roots fail
+ok 9 - root manifest directory and non-directory roots fail
+  ---
+  duration_ms: 5.1489
+  type: 'test'
+  ...
+# Subtest: duplicate JSON keys are rejected despite JSON.parse last-wins semantics
+ok 10 - duplicate JSON keys are rejected despite JSON.parse last-wins semantics
+  ---
+  duration_ms: 6.6665
+  type: 'test'
+  ...
+# Subtest: duplicate complete path and unsorted arrays fail independently
+ok 11 - duplicate complete path and unsorted arrays fail independently
+  ---
+  duration_ms: 5.6725
+  type: 'test'
+  ...
+# Subtest: case conflicts include ancestor directories and file-directory prefixes
+    # Subtest: A vs a
+    ok 1 - A vs a
+      ---
+      duration_ms: 3.6128
+      type: 'test'
+      ...
+    # Subtest: Dir/a vs dir/b
+    ok 2 - Dir/a vs dir/b
+      ---
+      duration_ms: 3.777
+      type: 'test'
+      ...
+    # Subtest: a vs a/b
+    ok 3 - a vs a/b
+      ---
+      duration_ms: 3.1971
+      type: 'test'
+      ...
+    1..3
+ok 12 - case conflicts include ancestor directories and file-directory prefixes
+  ---
+  duration_ms: 10.9714
+  type: 'test'
+  ...
+# Subtest: path traversal, device aliases, malformed separators and Unicode reject before payload reads
+    # Subtest: "../outside"
+    ok 1 - "../outside"
+      ---
+      duration_ms: 5.4017
+      type: 'test'
+      ...
+    # Subtest: "./a"
+    ok 2 - "./a"
+      ---
+      duration_ms: 4.3188
+      type: 'test'
+      ...
+    # Subtest: "a//b"
+    ok 3 - "a//b"
+      ---
+      duration_ms: 5.8812
+      type: 'test'
+      ...
+    # Subtest: "/outside"
+    ok 4 - "/outside"
+      ---
+      duration_ms: 4.2883
+      type: 'test'
+      ...
+    # Subtest: "C:/outside"
+    ok 5 - "C:/outside"
+      ---
+      duration_ms: 5.5516
+      type: 'test'
+      ...
+    # Subtest: "//server/share"
+    ok 6 - "//server/share"
+      ---
+      duration_ms: 5.2519
+      type: 'test'
+      ...
+    # Subtest: "a\\\\b"
+    ok 7 - "a\\\\b"
+      ---
+      duration_ms: 4.6438
+      type: 'test'
+      ...
+    # Subtest: "a:stream"
+    ok 8 - "a:stream"
+      ---
+      duration_ms: 5.0128
+      type: 'test'
+      ...
+    # Subtest: "NUL.txt"
+    ok 9 - "NUL.txt"
+      ---
+      duration_ms: 4.3439
+      type: 'test'
+      ...
+    # Subtest: "COM1"
+    ok 10 - "COM1"
+      ---
+      duration_ms: 4.7259
+      type: 'test'
+      ...
+    # Subtest: "con.tar.gz"
+    ok 11 - "con.tar.gz"
+      ---
+      duration_ms: 4.4007
+      type: 'test'
+      ...
+    # Subtest: "a."
+    ok 12 - "a."
+      ---
+      duration_ms: 4.0913
+      type: 'test'
+      ...
+    # Subtest: "a "
+    ok 13 - "a "
+      ---
+      duration_ms: 3.8119
+      type: 'test'
+      ...
+    # Subtest: "PROGRA~1/file"
+    ok 14 - "PROGRA~1/file"
+      ---
+      duration_ms: 3.6116
+      type: 'test'
+      ...
+    # Subtest: ""
+    ok 15 - ""
+      ---
+      duration_ms: 4.5892
+      type: 'test'
+      ...
+    # Subtest: "a\\u0000b"
+    ok 16 - "a\\u0000b"
+      ---
+      duration_ms: 4.8348
+      type: 'test'
+      ...
+    # Subtest: "é"
+    ok 17 - "é"
+      ---
+      duration_ms: 4.3733
+      type: 'test'
+      ...
+    # Subtest: "é"
+    ok 18 - "é"
+      ---
+      duration_ms: 5.1305
+      type: 'test'
+      ...
+    # Subtest: "İ"
+    ok 19 - "İ"
+      ---
+      duration_ms: 5.2008
+      type: 'test'
+      ...
+    # Subtest: "a/a/"
+    ok 20 - "a/a/"
+      ---
+      duration_ms: 5.1952
+      type: 'test'
+      ...
+    1..20
+ok 13 - path traversal, device aliases, malformed separators and Unicode reject before payload reads
+  ---
+  duration_ms: 96.8778
+  type: 'test'
+  ...
+# Subtest: schema, digest and byte count reject invalid declarations
+ok 14 - schema, digest and byte count reject invalid declarations
+  ---
+  duration_ms: 17.4737
+  type: 'test'
+  ...
+# Subtest: canonical encoding rejects whitespace, BOM, bad UTF-8 and equivalent escapes
+ok 15 - canonical encoding rejects whitespace, BOM, bad UTF-8 and equivalent escapes
+  ---
+  duration_ms: 11.108
+  type: 'test'
+  ...
+# Subtest: extra empty directory and file-vs-directory mismatch cannot disappear
+ok 16 - extra empty directory and file-vs-directory mismatch cannot disappear
+  ---
+  duration_ms: 7.4058
+  type: 'test'
+  ...
+# Subtest: file count and total bytes budgets work at exact limit and limit plus one
+ok 17 - file count and total bytes budgets work at exact limit and limit plus one
+  ---
+  duration_ms: 8.061
+  type: 'test'
+  ...
+# Subtest: actual unlisted content also consumes size and count budgets
+ok 18 - actual unlisted content also consumes size and count budgets
+  ---
+  duration_ms: 5.101
+  type: 'test'
+  ...
+# Subtest: manifest and single-file caps are enforced without reading an oversized payload
+ok 19 - manifest and single-file caps are enforced without reading an oversized payload
+  ---
+  duration_ms: 5.558
+  type: 'test'
+  ...
+# Subtest: path length and depth have bounded rejection
+ok 20 - path length and depth have bounded rejection
+  ---
+  duration_ms: 5.1291
+  type: 'test'
+  ...
+# Subtest: actual default file and directory count limits accept the edge and reject one more
+ok 21 - actual default file and directory count limits accept the edge and reject one more
+  ---
+  duration_ms: 1134.5155
+  type: 'test'
+  ...
+# Subtest: actual 8 MiB files and 16 MiB total accept the edge; declared and actual overflow reject
+ok 22 - actual 8 MiB files and 16 MiB total accept the edge; declared and actual overflow reject
+  ---
+  duration_ms: 53.9937
+  type: 'test'
+  ...
+# Subtest: maximum component and depth are accepted on an actually created portable path
+ok 23 - maximum component and depth are accepted on an actually created portable path
+  ---
+  duration_ms: 33.6235
+  type: 'test'
+  ...
+# Subtest: Host cannot expand limits or choose an unknown mode; relative roots reject
+ok 24 - Host cannot expand limits or choose an unknown mode; relative roots reject
+  ---
+  duration_ms: 4.5037
+  type: 'test'
+  ...
+# Subtest: pre-abort is NOT_RUN; in-flight abort is INCONCLUSIVE with closed file work
+ok 25 - pre-abort is NOT_RUN; in-flight abort is INCONCLUSIVE with closed file work
+  ---
+  duration_ms: 8.2656
+  type: 'test'
+  ...
+# Subtest: diagnostic count and encoded bytes remain bounded for many extra files
+ok 26 - diagnostic count and encoded bytes remain bounded for many extra files
+  ---
+  duration_ms: 57.9299
+  type: 'test'
+  ...
+# Subtest: candidate scripts, package metadata and git-looking files are data and never executed
+ok 27 - candidate scripts, package metadata and git-looking files are data and never executed
+  ---
+  duration_ms: 16.6019
+  type: 'test'
+  ...
+# Subtest: real OS file symlink is rejected without following its target
+ok 28 - real OS file symlink is rejected without following its target # SKIP NOT_RUN: real OS link fixture unavailable (EPERM); no simulated OS PASS
+  ---
+  duration_ms: 5.0574
+  type: 'test'
+  ...
+# Subtest: real OS dir link is rejected
+ok 29 - real OS dir link is rejected # SKIP NOT_RUN: real OS link fixture unavailable (EPERM); no simulated OS PASS
+  ---
+  duration_ms: 4.2569
+  type: 'test'
+  ...
+# Subtest: real OS junction link is rejected
+ok 30 - real OS junction link is rejected # SKIP NOT_RUN: real OS link fixture unavailable (EPERM); no simulated OS PASS
+  ---
+  duration_ms: 4.1898
+  type: 'test'
+  ...
+# Subtest: real OS hardlink to an outside object is rejected by link count
+ok 31 - real OS hardlink to an outside object is rejected by link count # SKIP NOT_RUN: real OS link fixture unavailable (EPERM); no simulated OS PASS
+  ---
+  duration_ms: 3.7314
+  type: 'test'
+  ...
+1..31
+# tests 58
+# suites 0
+# pass 54
+# fail 0
+# cancelled 0
+# skipped 4
+# todo 0
+# duration_ms 1789.3877

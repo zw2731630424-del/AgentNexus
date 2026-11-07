@@ -1,0 +1,6864 @@
+{
+  "schema_version": "0.1-design",
+  "status": "M0 DESIGN ONLY; no switch implemented",
+  "scope_legend": {
+    "G": "global",
+    "P": "project",
+    "A": "agent",
+    "T": "task"
+  },
+  "resolution": "Explicit ancestor OFF is a veto; ON permits narrowing. Closest explicit value applies only without ancestor OFF; default is not an explicit veto. INHERIT contributes no new setting. Core invariants cannot be overridden.",
+  "unknown_feature": "deny enable with UNKNOWN_FEATURE",
+  "features": [
+    {
+      "id": "core.identity",
+      "name": "core / identity",
+      "description": "原生模块 core.identity；关闭时：必要运行底座不可关闭；故障时暂停依赖副作用并进入只读恢复",
+      "version": "0.1-design",
+      "kind": "CORE",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "ON",
+      "scopes": [
+        "G"
+      ],
+      "depends_on": [],
+      "conflicts": [],
+      "risk": "CRITICAL",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "必要运行底座不可关闭；故障时暂停依赖副作用并进入只读恢复",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": true,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "core.state",
+      "name": "core / state",
+      "description": "原生模块 core.state；关闭时：必要运行底座不可关闭；故障时暂停依赖副作用并进入只读恢复",
+      "version": "0.1-design",
+      "kind": "CORE",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "ON",
+      "scopes": [
+        "G"
+      ],
+      "depends_on": [],
+      "conflicts": [],
+      "risk": "CRITICAL",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "必要运行底座不可关闭；故障时暂停依赖副作用并进入只读恢复",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": true,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "core.events",
+      "name": "core / events",
+      "description": "原生模块 core.events；关闭时：必要运行底座不可关闭；故障时暂停依赖副作用并进入只读恢复",
+      "version": "0.1-design",
+      "kind": "CORE",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "ON",
+      "scopes": [
+        "G"
+      ],
+      "depends_on": [],
+      "conflicts": [],
+      "risk": "CRITICAL",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "必要运行底座不可关闭；故障时暂停依赖副作用并进入只读恢复",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": true,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "core.archive.raw",
+      "name": "core / archive / raw",
+      "description": "原生模块 core.archive.raw；关闭时：必要运行底座不可关闭；故障时暂停依赖副作用并进入只读恢复",
+      "version": "0.1-design",
+      "kind": "CORE",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "ON",
+      "scopes": [
+        "G"
+      ],
+      "depends_on": [],
+      "conflicts": [],
+      "risk": "CRITICAL",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "必要运行底座不可关闭；故障时暂停依赖副作用并进入只读恢复",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": true,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "core.features",
+      "name": "core / features",
+      "description": "原生模块 core.features；关闭时：必要运行底座不可关闭；故障时暂停依赖副作用并进入只读恢复",
+      "version": "0.1-design",
+      "kind": "CORE",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "ON",
+      "scopes": [
+        "G"
+      ],
+      "depends_on": [],
+      "conflicts": [],
+      "risk": "CRITICAL",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "必要运行底座不可关闭；故障时暂停依赖副作用并进入只读恢复",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": true,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "core.admin-audit",
+      "name": "core / admin-audit",
+      "description": "原生模块 core.admin-audit；关闭时：必要运行底座不可关闭；故障时暂停依赖副作用并进入只读恢复",
+      "version": "0.1-design",
+      "kind": "CORE",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "ON",
+      "scopes": [
+        "G"
+      ],
+      "depends_on": [],
+      "conflicts": [],
+      "risk": "CRITICAL",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "必要运行底座不可关闭；故障时暂停依赖副作用并进入只读恢复",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": true,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "policy.mode",
+      "name": "policy / mode",
+      "description": "原生模块 policy.mode；关闭时：不是ON/OFF开关；通过独立管理员协议切换ENFORCE/AUDIT_ONLY/DISABLED",
+      "version": "0.1-design",
+      "kind": "MODE",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "ON",
+      "scopes": [
+        "G",
+        "P"
+      ],
+      "depends_on": [
+        "core.identity",
+        "core.admin-audit"
+      ],
+      "conflicts": [],
+      "risk": "CRITICAL",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "mode",
+          "reason",
+          "expires_at",
+          "scope"
+        ],
+        "properties": {
+          "mode": {
+            "enum": [
+              "ENFORCE",
+              "AUDIT_ONLY",
+              "DISABLED"
+            ]
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 1
+          },
+          "expires_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "scope": {
+            "type": "object"
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "不是ON/OFF开关；通过独立管理员协议切换ENFORCE/AUDIT_ONLY/DISABLED",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": true,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ],
+      "mode_default": "ENFORCE",
+      "allowed_modes": [
+        "ENFORCE",
+        "AUDIT_ONLY",
+        "DISABLED"
+      ]
+    },
+    {
+      "id": "security.os-sandbox",
+      "name": "security / os-sandbox",
+      "description": "原生模块 security.os-sandbox；关闭时：不再启动沙箱执行器；仅经独立二次确认的隔离测试项目可选择受限权限本机执行器；工作区范围、凭证与档案控制仍有效",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "ON",
+      "scopes": [
+        "G",
+        "P"
+      ],
+      "depends_on": [],
+      "conflicts": [
+        "execution.local-unsandboxed"
+      ],
+      "risk": "CRITICAL",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "不再启动沙箱执行器；仅经独立二次确认的隔离测试项目可选择受限权限本机执行器；工作区范围、凭证与档案控制仍有效",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": true,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "execution.local-unsandboxed",
+      "name": "execution / local-unsandboxed",
+      "description": "原生模块 execution.local-unsandboxed；关闭时：暂停未沙箱化的本机执行；手工使用已验证的沙箱执行器；不可用于高风险/正式科研任务",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "OFF",
+      "scopes": [
+        "G",
+        "P"
+      ],
+      "depends_on": [
+        "core.identity"
+      ],
+      "conflicts": [
+        "security.os-sandbox"
+      ],
+      "risk": "CRITICAL",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "暂停未沙箱化的本机执行；手工使用已验证的沙箱执行器；不可用于高风险/正式科研任务",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": true,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "security.workspace-isolation",
+      "name": "security / workspace-isolation",
+      "description": "原生模块 security.workspace-isolation；关闭时：暂停新的并行写任务；允许管理员指定专用手工作区，核心项目身份与文件授权范围不消失",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "ON",
+      "scopes": [
+        "G",
+        "P"
+      ],
+      "depends_on": [],
+      "conflicts": [],
+      "risk": "CRITICAL",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "暂停新的并行写任务；允许管理员指定专用手工作区，核心项目身份与文件授权范围不消失",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": true,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "security.vault-persistence",
+      "name": "security / vault-persistence",
+      "description": "原生模块 security.vault-persistence；关闭时：不持久化任何新凭证；已有密文保留；由管理员向Broker临时输入内存凭证，重启须重新输入",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "ON",
+      "scopes": [
+        "G"
+      ],
+      "depends_on": [],
+      "conflicts": [],
+      "risk": "CRITICAL",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "不持久化任何新凭证；已有密文保留；由管理员向Broker临时输入内存凭证，重启须重新输入",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": true,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "archive.integrity-scan",
+      "name": "archive / integrity-scan",
+      "description": "原生模块 archive.integrity-scan；关闭时：停止定期全盘校验；每次写入哈希、读取校验与只追加约束继续；管理员可手动verify",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "ON",
+      "scopes": [
+        "G",
+        "P"
+      ],
+      "depends_on": [
+        "core.archive.raw"
+      ],
+      "conflicts": [],
+      "risk": "HIGH",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "停止定期全盘校验；每次写入哈希、读取校验与只追加约束继续；管理员可手动verify",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": true,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "archive.retrieval-agent",
+      "name": "archive / retrieval-agent",
+      "description": "原生模块 archive.retrieval-agent；关闭时：Archive API/CLI按事件、时间、任务、字节范围手动检索",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "OFF",
+      "scopes": [
+        "G",
+        "P",
+        "A",
+        "T"
+      ],
+      "depends_on": [
+        "core.archive.raw"
+      ],
+      "conflicts": [],
+      "risk": "LOW",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "Archive API/CLI按事件、时间、任务、字节范围手动检索",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": false,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "archive.summary",
+      "name": "archive / summary",
+      "description": "原生模块 archive.summary；关闭时：不生成摘要，使用原始范围；当前模型窗口不足则显式暂停",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "OFF",
+      "scopes": [
+        "G",
+        "P",
+        "A",
+        "T"
+      ],
+      "depends_on": [
+        "core.archive.raw"
+      ],
+      "conflicts": [],
+      "risk": "LOW",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "不生成摘要，使用原始范围；当前模型窗口不足则显式暂停",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": false,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "archive.keyword-index",
+      "name": "archive / keyword-index",
+      "description": "原生模块 archive.keyword-index；关闭时：流式分页扫描原档案，不调用已关闭索引",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "ON",
+      "scopes": [
+        "G",
+        "P"
+      ],
+      "depends_on": [
+        "core.archive.raw"
+      ],
+      "conflicts": [],
+      "risk": "LOW",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "流式分页扫描原档案，不调用已关闭索引",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": false,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "archive.vector-index",
+      "name": "archive / vector-index",
+      "description": "原生模块 archive.vector-index；关闭时：停写停查向量；用户可手动选择已启用关键词或原档案扫描",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "OFF",
+      "scopes": [
+        "G",
+        "P"
+      ],
+      "depends_on": [
+        "core.archive.raw"
+      ],
+      "conflicts": [],
+      "risk": "LOW",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "停写停查向量；用户可手动选择已启用关键词或原档案扫描",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": false,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "archive.knowledge-extract",
+      "name": "archive / knowledge-extract",
+      "description": "原生模块 archive.knowledge-extract；关闭时：不自动整理知识；人工创建有来源的条目",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "OFF",
+      "scopes": [
+        "G",
+        "P",
+        "A",
+        "T"
+      ],
+      "depends_on": [
+        "core.archive.raw"
+      ],
+      "conflicts": [],
+      "risk": "LOW",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "不自动整理知识；人工创建有来源的条目",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": false,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "archive.backup-auto",
+      "name": "archive / backup-auto",
+      "description": "原生模块 archive.backup-auto；关闭时：停止自动备份；手动导出一致性快照，显示恢复点陈旧",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "ON",
+      "scopes": [
+        "G",
+        "P"
+      ],
+      "depends_on": [
+        "core.archive.raw"
+      ],
+      "conflicts": [],
+      "risk": "HIGH",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "停止自动备份；手动导出一致性快照，显示恢复点陈旧",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": true,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "native.harness",
+      "name": "native / harness",
+      "description": "原生模块 native.harness；关闭时：停止原生Agent轮次；保留手工任务与档案管理，可手动选择已验证适配器",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "ON",
+      "scopes": [
+        "G",
+        "P",
+        "A"
+      ],
+      "depends_on": [
+        "core.identity",
+        "core.events",
+        "core.archive.raw",
+        "model.gateway"
+      ],
+      "conflicts": [],
+      "risk": "HIGH",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "停止原生Agent轮次；保留手工任务与档案管理，可手动选择已验证适配器",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": true,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "native.context-assembly",
+      "name": "native / context-assembly",
+      "description": "原生模块 native.context-assembly；关闭时：原生模型轮次暂停；仍可手工检索、编辑任务和恢复档案",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "ON",
+      "scopes": [
+        "G",
+        "P",
+        "A"
+      ],
+      "depends_on": [
+        "native.harness"
+      ],
+      "conflicts": [],
+      "risk": "HIGH",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "原生模型轮次暂停；仍可手工检索、编辑任务和恢复档案",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": true,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "native.checkpoints-auto",
+      "name": "native / checkpoints-auto",
+      "description": "原生模块 native.checkpoints-auto；关闭时：不自动生成工作检查点；核心状态日志和在途执行账本仍持久化",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "ON",
+      "scopes": [
+        "G",
+        "P",
+        "A",
+        "T"
+      ],
+      "depends_on": [
+        "core.state"
+      ],
+      "conflicts": [],
+      "risk": "LOW",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "不自动生成工作检查点；核心状态日志和在途执行账本仍持久化",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": false,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "tool.file",
+      "name": "tool / file",
+      "description": "原生模块 tool.file；关闭时：撤销该工具新调用；用户手动操作并导入结果，其他工具独立继续",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "ON",
+      "scopes": [
+        "G",
+        "P",
+        "A",
+        "T"
+      ],
+      "depends_on": [
+        "core.identity",
+        "core.archive.raw"
+      ],
+      "conflicts": [],
+      "risk": "HIGH",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "撤销该工具新调用；用户手动操作并导入结果，其他工具独立继续",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": true,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "tool.shell",
+      "name": "tool / shell",
+      "description": "原生模块 tool.shell；关闭时：撤销该工具新调用；用户手动操作并导入结果，其他工具独立继续",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "OFF",
+      "scopes": [
+        "G",
+        "P",
+        "A",
+        "T"
+      ],
+      "depends_on": [
+        "core.identity",
+        "core.archive.raw"
+      ],
+      "conflicts": [],
+      "risk": "HIGH",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "撤销该工具新调用；用户手动操作并导入结果，其他工具独立继续",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": true,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "tool.git",
+      "name": "tool / git",
+      "description": "原生模块 tool.git；关闭时：撤销该工具新调用；用户手动操作并导入结果，其他工具独立继续",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "OFF",
+      "scopes": [
+        "G",
+        "P",
+        "A",
+        "T"
+      ],
+      "depends_on": [
+        "core.identity",
+        "core.archive.raw"
+      ],
+      "conflicts": [],
+      "risk": "HIGH",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "撤销该工具新调用；用户手动操作并导入结果，其他工具独立继续",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": true,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "tool.test",
+      "name": "tool / test",
+      "description": "原生模块 tool.test；关闭时：撤销该工具新调用；用户手动操作并导入结果，其他工具独立继续",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "ON",
+      "scopes": [
+        "G",
+        "P",
+        "A",
+        "T"
+      ],
+      "depends_on": [
+        "core.identity",
+        "core.archive.raw"
+      ],
+      "conflicts": [],
+      "risk": "HIGH",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "撤销该工具新调用；用户手动操作并导入结果，其他工具独立继续",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": true,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "adapter.mcp",
+      "name": "adapter / mcp",
+      "description": "原生模块 adapter.mcp；关闭时：关闭该适配器及其自有进程；手动使用已启用原生工具，历史数据保留",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "OFF",
+      "scopes": [
+        "G",
+        "P",
+        "A"
+      ],
+      "depends_on": [
+        "core.identity"
+      ],
+      "conflicts": [],
+      "risk": "HIGH",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "关闭该适配器及其自有进程；手动使用已启用原生工具，历史数据保留",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": true,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "adapter.acp",
+      "name": "adapter / acp",
+      "description": "原生模块 adapter.acp；关闭时：关闭该适配器及其自有进程；手动使用已启用原生工具，历史数据保留",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "OFF",
+      "scopes": [
+        "G",
+        "P",
+        "A"
+      ],
+      "depends_on": [
+        "core.identity"
+      ],
+      "conflicts": [],
+      "risk": "HIGH",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "关闭该适配器及其自有进程；手动使用已启用原生工具，历史数据保留",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": true,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "adapter.lsp",
+      "name": "adapter / lsp",
+      "description": "原生模块 adapter.lsp；关闭时：关闭该适配器及其自有进程；手动使用已启用原生工具，历史数据保留",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "OFF",
+      "scopes": [
+        "G",
+        "P",
+        "A"
+      ],
+      "depends_on": [
+        "core.identity"
+      ],
+      "conflicts": [],
+      "risk": "HIGH",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "关闭该适配器及其自有进程；手动使用已启用原生工具，历史数据保留",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": true,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "adapter.browser",
+      "name": "adapter / browser",
+      "description": "原生模块 adapter.browser；关闭时：关闭该适配器及其自有进程；手动使用已启用原生工具，历史数据保留",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "OFF",
+      "scopes": [
+        "G",
+        "P",
+        "A"
+      ],
+      "depends_on": [
+        "core.identity"
+      ],
+      "conflicts": [],
+      "risk": "HIGH",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "关闭该适配器及其自有进程；手动使用已启用原生工具，历史数据保留",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": true,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "adapter.harness.codex",
+      "name": "adapter / harness / codex",
+      "description": "原生模块 adapter.harness.codex；关闭时：停接收新任务并核对旧进程；人工选择native或另一已验证后端；不隐式切换",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "OFF",
+      "scopes": [
+        "G",
+        "P",
+        "A"
+      ],
+      "depends_on": [
+        "core.identity",
+        "core.archive.raw"
+      ],
+      "conflicts": [],
+      "risk": "HIGH",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "停接收新任务并核对旧进程；人工选择native或另一已验证后端；不隐式切换",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": true,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "adapter.harness.claude",
+      "name": "adapter / harness / claude",
+      "description": "原生模块 adapter.harness.claude；关闭时：停接收新任务并核对旧进程；人工选择native或另一已验证后端；不隐式切换",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "OFF",
+      "scopes": [
+        "G",
+        "P",
+        "A"
+      ],
+      "depends_on": [
+        "core.identity",
+        "core.archive.raw"
+      ],
+      "conflicts": [],
+      "risk": "HIGH",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "停接收新任务并核对旧进程；人工选择native或另一已验证后端；不隐式切换",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": true,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "adapter.harness.zcode",
+      "name": "adapter / harness / zcode",
+      "description": "原生模块 adapter.harness.zcode；关闭时：停接收新任务并核对旧进程；人工选择native或另一已验证后端；不隐式切换",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "OFF",
+      "scopes": [
+        "G",
+        "P",
+        "A"
+      ],
+      "depends_on": [
+        "core.identity",
+        "core.archive.raw"
+      ],
+      "conflicts": [],
+      "risk": "HIGH",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "停接收新任务并核对旧进程；人工选择native或另一已验证后端；不隐式切换",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": true,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "adapter.harness.opencode",
+      "name": "adapter / harness / opencode",
+      "description": "原生模块 adapter.harness.opencode；关闭时：停接收新任务并核对旧进程；人工选择native或另一已验证后端；不隐式切换",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "OFF",
+      "scopes": [
+        "G",
+        "P",
+        "A"
+      ],
+      "depends_on": [
+        "core.identity",
+        "core.archive.raw"
+      ],
+      "conflicts": [],
+      "risk": "HIGH",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "停接收新任务并核对旧进程；人工选择native或另一已验证后端；不隐式切换",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": true,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "runtime.auto-planning",
+      "name": "runtime / auto-planning",
+      "description": "原生模块 runtime.auto-planning；关闭时：用户或Lead手动建立任务",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "OFF",
+      "scopes": [
+        "G",
+        "P",
+        "A",
+        "T"
+      ],
+      "depends_on": [
+        "core.state",
+        "core.events"
+      ],
+      "conflicts": [],
+      "risk": "LOW",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "用户或Lead手动建立任务",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": false,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "runtime.auto-spawn",
+      "name": "runtime / auto-spawn",
+      "description": "原生模块 runtime.auto-spawn；关闭时：仅可信管理员手动创建子Agent",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "OFF",
+      "scopes": [
+        "G",
+        "P",
+        "A",
+        "T"
+      ],
+      "depends_on": [
+        "core.state",
+        "core.events"
+      ],
+      "conflicts": [],
+      "risk": "HIGH",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "仅可信管理员手动创建子Agent",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": true,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "runtime.auto-review",
+      "name": "runtime / auto-review",
+      "description": "原生模块 runtime.auto-review；关闭时：手动发起只读Reviewer",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "OFF",
+      "scopes": [
+        "G",
+        "P",
+        "A",
+        "T"
+      ],
+      "depends_on": [
+        "core.state",
+        "core.events"
+      ],
+      "conflicts": [],
+      "risk": "LOW",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "手动发起只读Reviewer",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": false,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "runtime.auto-coordinator",
+      "name": "runtime / auto-coordinator",
+      "description": "原生模块 runtime.auto-coordinator；关闭时：静态配额与人工排程",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "OFF",
+      "scopes": [
+        "G",
+        "P",
+        "A",
+        "T"
+      ],
+      "depends_on": [
+        "core.state",
+        "core.events"
+      ],
+      "conflicts": [],
+      "risk": "LOW",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "静态配额与人工排程",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": false,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "runtime.auto-repair",
+      "name": "runtime / auto-repair",
+      "description": "原生模块 runtime.auto-repair；关闭时：报告问题，由用户或Lead手动修复",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "OFF",
+      "scopes": [
+        "G",
+        "P",
+        "A",
+        "T"
+      ],
+      "depends_on": [
+        "core.state",
+        "core.events"
+      ],
+      "conflicts": [],
+      "risk": "HIGH",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "报告问题，由用户或Lead手动修复",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": true,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "runtime.role.resident",
+      "name": "runtime / role / resident",
+      "description": "原生模块 runtime.role.resident；关闭时：停止派发该系统角色；Resident语义助手关闭时持久事件服务仍运行；Lead/子Agent改用手工任务，Coordinator改静态配额",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "ON",
+      "scopes": [
+        "G",
+        "P"
+      ],
+      "depends_on": [
+        "core.identity",
+        "core.state"
+      ],
+      "conflicts": [],
+      "risk": "LOW",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "停止派发该系统角色；Resident语义助手关闭时持久事件服务仍运行；Lead/子Agent改用手工任务，Coordinator改静态配额",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": false,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "runtime.role.lead",
+      "name": "runtime / role / lead",
+      "description": "原生模块 runtime.role.lead；关闭时：停止派发该系统角色；Resident语义助手关闭时持久事件服务仍运行；Lead/子Agent改用手工任务，Coordinator改静态配额",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "ON",
+      "scopes": [
+        "G",
+        "P"
+      ],
+      "depends_on": [
+        "core.identity",
+        "core.state"
+      ],
+      "conflicts": [],
+      "risk": "HIGH",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "停止派发该系统角色；Resident语义助手关闭时持久事件服务仍运行；Lead/子Agent改用手工任务，Coordinator改静态配额",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": true,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "runtime.role.subagent",
+      "name": "runtime / role / subagent",
+      "description": "原生模块 runtime.role.subagent；关闭时：停止派发该系统角色；Resident语义助手关闭时持久事件服务仍运行；Lead/子Agent改用手工任务，Coordinator改静态配额",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "ON",
+      "scopes": [
+        "G",
+        "P"
+      ],
+      "depends_on": [
+        "core.identity",
+        "core.state"
+      ],
+      "conflicts": [],
+      "risk": "HIGH",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "停止派发该系统角色；Resident语义助手关闭时持久事件服务仍运行；Lead/子Agent改用手工任务，Coordinator改静态配额",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": true,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "runtime.role.reviewer",
+      "name": "runtime / role / reviewer",
+      "description": "原生模块 runtime.role.reviewer；关闭时：停止派发该系统角色；Resident语义助手关闭时持久事件服务仍运行；Lead/子Agent改用手工任务，Coordinator改静态配额",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "ON",
+      "scopes": [
+        "G",
+        "P"
+      ],
+      "depends_on": [
+        "core.identity",
+        "core.state"
+      ],
+      "conflicts": [],
+      "risk": "LOW",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "停止派发该系统角色；Resident语义助手关闭时持久事件服务仍运行；Lead/子Agent改用手工任务，Coordinator改静态配额",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": false,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "runtime.role.coordinator",
+      "name": "runtime / role / coordinator",
+      "description": "原生模块 runtime.role.coordinator；关闭时：停止派发该系统角色；Resident语义助手关闭时持久事件服务仍运行；Lead/子Agent改用手工任务，Coordinator改静态配额",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "OFF",
+      "scopes": [
+        "G",
+        "P"
+      ],
+      "depends_on": [
+        "core.identity",
+        "core.state"
+      ],
+      "conflicts": [],
+      "risk": "LOW",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "停止派发该系统角色；Resident语义助手关闭时持久事件服务仍运行；Lead/子Agent改用手工任务，Coordinator改静态配额",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": false,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "model.gateway",
+      "name": "model / gateway",
+      "description": "原生模块 model.gateway；关闭时：停止上游模型调用；CLI/档案/手工任务继续，不允许绕开Gateway直读Key",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "ON",
+      "scopes": [
+        "G",
+        "P"
+      ],
+      "depends_on": [
+        "core.identity"
+      ],
+      "conflicts": [],
+      "risk": "HIGH",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "停止上游模型调用；CLI/档案/手工任务继续，不允许绕开Gateway直读Key",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": true,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "model.auto-route",
+      "name": "model / auto-route",
+      "description": "原生模块 model.auto-route；关闭时：手工指定Provider/Model Profile",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "OFF",
+      "scopes": [
+        "G",
+        "P",
+        "A",
+        "T"
+      ],
+      "depends_on": [
+        "model.gateway"
+      ],
+      "conflicts": [],
+      "risk": "LOW",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "手工指定Provider/Model Profile",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": false,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "model.key-round-robin",
+      "name": "model / key-round-robin",
+      "description": "原生模块 model.key-round-robin；关闭时：固定管理员选定CredentialRef",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "OFF",
+      "scopes": [
+        "G",
+        "P",
+        "A",
+        "T"
+      ],
+      "depends_on": [
+        "model.gateway"
+      ],
+      "conflicts": [],
+      "risk": "LOW",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "固定管理员选定CredentialRef",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": false,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "model.provider-failover",
+      "name": "model / provider-failover",
+      "description": "原生模块 model.provider-failover；关闭时：失败后停止并报告；人工选择供应商后新建请求",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "OFF",
+      "scopes": [
+        "G",
+        "P",
+        "A",
+        "T"
+      ],
+      "depends_on": [
+        "model.gateway"
+      ],
+      "conflicts": [],
+      "risk": "HIGH",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "失败后停止并报告；人工选择供应商后新建请求",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": true,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "model.capability-probe",
+      "name": "model / capability-probe",
+      "description": "原生模块 model.capability-probe；关闭时：使用带来源和有效期的手工能力注册，未知能力明确拒绝",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "OFF",
+      "scopes": [
+        "G",
+        "P",
+        "A",
+        "T"
+      ],
+      "depends_on": [
+        "model.gateway"
+      ],
+      "conflicts": [],
+      "risk": "LOW",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "使用带来源和有效期的手工能力注册，未知能力明确拒绝",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": false,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "git.auto-snapshot",
+      "name": "git / auto-snapshot",
+      "description": "原生模块 git.auto-snapshot；关闭时：不自动执行对应Git动作；手工发起仍需独立权限、候选绑定和有效模式判定",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "OFF",
+      "scopes": [
+        "G",
+        "P",
+        "A",
+        "T"
+      ],
+      "depends_on": [
+        "tool.git"
+      ],
+      "conflicts": [],
+      "risk": "HIGH",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "不自动执行对应Git动作；手工发起仍需独立权限、候选绑定和有效模式判定",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": true,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "git.auto-merge",
+      "name": "git / auto-merge",
+      "description": "原生模块 git.auto-merge；关闭时：不自动执行对应Git动作；手工发起仍需独立权限、候选绑定和有效模式判定",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "OFF",
+      "scopes": [
+        "G",
+        "P",
+        "A",
+        "T"
+      ],
+      "depends_on": [
+        "tool.git"
+      ],
+      "conflicts": [],
+      "risk": "HIGH",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "不自动执行对应Git动作；手工发起仍需独立权限、候选绑定和有效模式判定",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": true,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "git.auto-commit",
+      "name": "git / auto-commit",
+      "description": "原生模块 git.auto-commit；关闭时：不自动执行对应Git动作；手工发起仍需独立权限、候选绑定和有效模式判定",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "OFF",
+      "scopes": [
+        "G",
+        "P",
+        "A",
+        "T"
+      ],
+      "depends_on": [
+        "tool.git"
+      ],
+      "conflicts": [],
+      "risk": "HIGH",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "不自动执行对应Git动作；手工发起仍需独立权限、候选绑定和有效模式判定",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": true,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "git.auto-push",
+      "name": "git / auto-push",
+      "description": "原生模块 git.auto-push；关闭时：不自动执行对应Git动作；手工发起仍需独立权限、候选绑定和有效模式判定",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "OFF",
+      "scopes": [
+        "G",
+        "P",
+        "A",
+        "T"
+      ],
+      "depends_on": [
+        "tool.git"
+      ],
+      "conflicts": [],
+      "risk": "HIGH",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "不自动执行对应Git动作；手工发起仍需独立权限、候选绑定和有效模式判定",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": true,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "ui.desktop",
+      "name": "ui / desktop",
+      "description": "原生模块 ui.desktop；关闭时：停止该展示或通知；CLI/API可手动查看原始状态与账目；不删除数据",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "OFF",
+      "scopes": [
+        "G",
+        "P"
+      ],
+      "depends_on": [],
+      "conflicts": [],
+      "risk": "LOW",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "停止该展示或通知；CLI/API可手动查看原始状态与账目；不删除数据",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": false,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "ui.usage-dashboard",
+      "name": "ui / usage-dashboard",
+      "description": "原生模块 ui.usage-dashboard；关闭时：停止该展示或通知；CLI/API可手动查看原始状态与账目；不删除数据",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "ON",
+      "scopes": [
+        "G",
+        "P"
+      ],
+      "depends_on": [],
+      "conflicts": [],
+      "risk": "LOW",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "停止该展示或通知；CLI/API可手动查看原始状态与账目；不删除数据",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": false,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "ui.notifications",
+      "name": "ui / notifications",
+      "description": "原生模块 ui.notifications；关闭时：停止该展示或通知；CLI/API可手动查看原始状态与账目；不删除数据",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "ON",
+      "scopes": [
+        "G",
+        "P"
+      ],
+      "depends_on": [],
+      "conflicts": [],
+      "risk": "LOW",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "停止该展示或通知；CLI/API可手动查看原始状态与账目；不删除数据",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": false,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "ui.reports",
+      "name": "ui / reports",
+      "description": "原生模块 ui.reports；关闭时：停止该展示或通知；CLI/API可手动查看原始状态与账目；不删除数据",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "ON",
+      "scopes": [
+        "G",
+        "P"
+      ],
+      "depends_on": [],
+      "conflicts": [],
+      "risk": "LOW",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "停止该展示或通知；CLI/API可手动查看原始状态与账目；不删除数据",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": false,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "ui.decision-ledger",
+      "name": "ui / decision-ledger",
+      "description": "原生模块 ui.decision-ledger；关闭时：停止该展示或通知；CLI/API可手动查看原始状态与账目；不删除数据",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "ON",
+      "scopes": [
+        "G",
+        "P"
+      ],
+      "depends_on": [],
+      "conflicts": [],
+      "risk": "LOW",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "停止该展示或通知；CLI/API可手动查看原始状态与账目；不删除数据",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": false,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "wf.runtime",
+      "name": "wf / runtime",
+      "description": "原生模块 wf.runtime；关闭时：所有可选工作流停止调用；Gate显示BYPASSED；手工最小任务和独立OS/凭证/审计继续",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "ON",
+      "scopes": [
+        "G",
+        "P"
+      ],
+      "depends_on": [
+        "core.state"
+      ],
+      "conflicts": [],
+      "risk": "HIGH",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "所有可选工作流停止调用；Gate显示BYPASSED；手工最小任务和独立OS/凭证/审计继续",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": true,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "wf.rules.global",
+      "name": "wf / rules / global",
+      "description": "原生模块 wf.rules.global；关闭时：最小平台与用户授权仍有效；不注入可选通用规则",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "ON",
+      "scopes": [
+        "G",
+        "P",
+        "A",
+        "T"
+      ],
+      "depends_on": [
+        "wf.runtime"
+      ],
+      "conflicts": [],
+      "risk": "HIGH",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "最小平台与用户授权仍有效；不注入可选通用规则",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": true,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "wf.rules.project-index",
+      "name": "wf / rules / project-index",
+      "description": "原生模块 wf.rules.project-index；关闭时：不加载可选规则索引；项目隔离和已授权范围保持",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "ON",
+      "scopes": [
+        "G",
+        "P",
+        "A",
+        "T"
+      ],
+      "depends_on": [
+        "wf.runtime"
+      ],
+      "conflicts": [],
+      "risk": "HIGH",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "不加载可选规则索引；项目隔离和已授权范围保持",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": true,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "wf.rules.registration",
+      "name": "wf / rules / registration",
+      "description": "原生模块 wf.rules.registration；关闭时：不自动登记规则；可信管理员手工登记，Agent不能自授规则变更权限",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "ON",
+      "scopes": [
+        "G",
+        "P",
+        "A",
+        "T"
+      ],
+      "depends_on": [
+        "wf.runtime"
+      ],
+      "conflicts": [],
+      "risk": "HIGH",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "不自动登记规则；可信管理员手工登记，Agent不能自授规则变更权限",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": true,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "wf.capabilities",
+      "name": "wf / capabilities",
+      "description": "原生模块 wf.capabilities；关闭时：使用手工能力说明；执行权限仍由Broker核验",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "ON",
+      "scopes": [
+        "G",
+        "P",
+        "A",
+        "T"
+      ],
+      "depends_on": [
+        "wf.runtime"
+      ],
+      "conflicts": [],
+      "risk": "LOW",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "使用手工能力说明；执行权限仍由Broker核验",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": false,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "wf.context",
+      "name": "wf / context",
+      "description": "原生模块 wf.context；关闭时：停止工作流上下文整理；原档案与原生上下文组装继续",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "ON",
+      "scopes": [
+        "G",
+        "P",
+        "A",
+        "T"
+      ],
+      "depends_on": [
+        "wf.runtime"
+      ],
+      "conflicts": [],
+      "risk": "LOW",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "停止工作流上下文整理；原档案与原生上下文组装继续",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": false,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "wf.decisions",
+      "name": "wf / decisions",
+      "description": "原生模块 wf.decisions；关闭时：手工记录PROPOSED/ACCEPTED状态，禁止Agent自批准",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "ON",
+      "scopes": [
+        "G",
+        "P",
+        "A",
+        "T"
+      ],
+      "depends_on": [
+        "wf.runtime"
+      ],
+      "conflicts": [],
+      "risk": "LOW",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "手工记录PROPOSED/ACCEPTED状态，禁止Agent自批准",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": false,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "wf.evidence",
+      "name": "wf / evidence",
+      "description": "原生模块 wf.evidence；关闭时：手工绑定证据引用；原始工具输入输出仍必存",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "ON",
+      "scopes": [
+        "G",
+        "P",
+        "A",
+        "T"
+      ],
+      "depends_on": [
+        "wf.runtime"
+      ],
+      "conflicts": [],
+      "risk": "LOW",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "手工绑定证据引用；原始工具输入输出仍必存",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": false,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "wf.feasibility",
+      "name": "wf / feasibility",
+      "description": "原生模块 wf.feasibility；关闭时：手工进行可行性评估",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "ON",
+      "scopes": [
+        "G",
+        "P",
+        "A",
+        "T"
+      ],
+      "depends_on": [
+        "wf.runtime"
+      ],
+      "conflicts": [],
+      "risk": "LOW",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "手工进行可行性评估",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": false,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "wf.governance",
+      "name": "wf / governance",
+      "description": "原生模块 wf.governance；关闭时：停止可选分类门禁；受保护控制数据仍由OS隔离",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "ON",
+      "scopes": [
+        "G",
+        "P",
+        "A",
+        "T"
+      ],
+      "depends_on": [
+        "wf.runtime"
+      ],
+      "conflicts": [],
+      "risk": "LOW",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "停止可选分类门禁；受保护控制数据仍由OS隔离",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": false,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "wf.governance.service",
+      "name": "wf / governance / service",
+      "description": "原生模块 wf.governance.service；关闭时：停止自动索引/治理扫描；管理员手工检查；不可让Agent编辑控制数据库",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "ON",
+      "scopes": [
+        "G",
+        "P",
+        "A",
+        "T"
+      ],
+      "depends_on": [
+        "wf.runtime"
+      ],
+      "conflicts": [],
+      "risk": "LOW",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "停止自动索引/治理扫描；管理员手工检查；不可让Agent编辑控制数据库",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": false,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "wf.review.strict",
+      "name": "wf / review / strict",
+      "description": "原生模块 wf.review.strict；关闭时：停止严格审查自动门禁；手工启动Reviewer",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "ON",
+      "scopes": [
+        "G",
+        "P",
+        "A",
+        "T"
+      ],
+      "depends_on": [
+        "wf.runtime"
+      ],
+      "conflicts": [],
+      "risk": "LOW",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "停止严格审查自动门禁；手工启动Reviewer",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": false,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "wf.verification",
+      "name": "wf / verification",
+      "description": "原生模块 wf.verification；关闭时：停止工作流验证器自动编排；测试本身可手动运行，结果NOT_RUN/BYPASSED",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "ON",
+      "scopes": [
+        "G",
+        "P",
+        "A",
+        "T"
+      ],
+      "depends_on": [
+        "wf.runtime"
+      ],
+      "conflicts": [],
+      "risk": "LOW",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "停止工作流验证器自动编排；测试本身可手动运行，结果NOT_RUN/BYPASSED",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": false,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "wf.safety-guidance",
+      "name": "wf / safety-guidance",
+      "description": "原生模块 wf.safety-guidance；关闭时：不注入可选提示；程序和OS安全控制仍在",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "ON",
+      "scopes": [
+        "G",
+        "P",
+        "A",
+        "T"
+      ],
+      "depends_on": [
+        "wf.runtime"
+      ],
+      "conflicts": [],
+      "risk": "LOW",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "不注入可选提示；程序和OS安全控制仍在",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": false,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "wf.reference.router",
+      "name": "wf / reference / router",
+      "description": "原生模块 wf.reference.router；关闭时：停止参考资料路由；手工选读",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "ON",
+      "scopes": [
+        "G",
+        "P",
+        "A",
+        "T"
+      ],
+      "depends_on": [
+        "wf.runtime"
+      ],
+      "conflicts": [],
+      "risk": "LOW",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "停止参考资料路由；手工选读",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": false,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "wf.roles.router",
+      "name": "wf / roles / router",
+      "description": "原生模块 wf.roles.router；关闭时：停止自动选工作角色；手工选已启用角色",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "ON",
+      "scopes": [
+        "G",
+        "P",
+        "A",
+        "T"
+      ],
+      "depends_on": [
+        "wf.runtime"
+      ],
+      "conflicts": [],
+      "risk": "LOW",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "停止自动选工作角色；手工选已启用角色",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": false,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "wf.workflow.router",
+      "name": "wf / workflow / router",
+      "description": "原生模块 wf.workflow.router；关闭时：不自动选项目流程；手工选流程",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "ON",
+      "scopes": [
+        "G",
+        "P",
+        "A",
+        "T"
+      ],
+      "depends_on": [
+        "wf.runtime"
+      ],
+      "conflicts": [],
+      "risk": "LOW",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "不自动选项目流程；手工选流程",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": false,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "wf.checks.gate-depth",
+      "name": "wf / checks / gate-depth",
+      "description": "原生模块 wf.checks.gate-depth；关闭时：不自动升级工作深度；手工选择",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "ON",
+      "scopes": [
+        "G",
+        "P",
+        "A",
+        "T"
+      ],
+      "depends_on": [
+        "wf.runtime"
+      ],
+      "conflicts": [],
+      "risk": "LOW",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "不自动升级工作深度；手工选择",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": false,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "wf.checks.measurement",
+      "name": "wf / checks / measurement",
+      "description": "原生模块 wf.checks.measurement；关闭时：不自动执行量测清单，显示BYPASSED",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "ON",
+      "scopes": [
+        "G",
+        "P",
+        "A",
+        "T"
+      ],
+      "depends_on": [
+        "wf.runtime"
+      ],
+      "conflicts": [],
+      "risk": "LOW",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "不自动执行量测清单，显示BYPASSED",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": false,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "wf.checks.protocol",
+      "name": "wf / checks / protocol",
+      "description": "原生模块 wf.checks.protocol；关闭时：不自动执行协议清单，显示BYPASSED；专属实验授权仍必需",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "ON",
+      "scopes": [
+        "G",
+        "P",
+        "A",
+        "T"
+      ],
+      "depends_on": [
+        "wf.runtime"
+      ],
+      "conflicts": [],
+      "risk": "LOW",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "不自动执行协议清单，显示BYPASSED；专属实验授权仍必需",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": false,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "wf.checks.regression",
+      "name": "wf / checks / regression",
+      "description": "原生模块 wf.checks.regression；关闭时：不自动执行回归清单，显示BYPASSED",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "ON",
+      "scopes": [
+        "G",
+        "P",
+        "A",
+        "T"
+      ],
+      "depends_on": [
+        "wf.runtime"
+      ],
+      "conflicts": [],
+      "risk": "LOW",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "不自动执行回归清单，显示BYPASSED",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": false,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "wf.validators.task",
+      "name": "wf / validators / task",
+      "description": "原生模块 wf.validators.task；关闭时：任务保留最小可追踪定义；未验证字段不标PASS",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "ON",
+      "scopes": [
+        "G",
+        "P",
+        "A",
+        "T"
+      ],
+      "depends_on": [
+        "wf.runtime"
+      ],
+      "conflicts": [],
+      "risk": "LOW",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "任务保留最小可追踪定义；未验证字段不标PASS",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": false,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "wf.validators.review",
+      "name": "wf / validators / review",
+      "description": "原生模块 wf.validators.review；关闭时：手工检查候选绑定；核心ReviewResult仍不允许旧版本PASS批准新代码",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "ON",
+      "scopes": [
+        "G",
+        "P",
+        "A",
+        "T"
+      ],
+      "depends_on": [
+        "wf.runtime"
+      ],
+      "conflicts": [],
+      "risk": "LOW",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "手工检查候选绑定；核心ReviewResult仍不允许旧版本PASS批准新代码",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": false,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "wf.validators.package",
+      "name": "wf / validators / package",
+      "description": "原生模块 wf.validators.package；关闭时：停止可选包验证；归档本身的内容哈希与事务仍必需",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "ON",
+      "scopes": [
+        "G",
+        "P",
+        "A",
+        "T"
+      ],
+      "depends_on": [
+        "wf.runtime"
+      ],
+      "conflicts": [],
+      "risk": "LOW",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "停止可选包验证；归档本身的内容哈希与事务仍必需",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": false,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "wf.role.scout",
+      "name": "wf / role / scout",
+      "description": "原生模块 wf.role.scout；关闭时：不再派发该工作配置；可手工选其他已启用角色；Reviewer只读是独立执行约束",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "ON",
+      "scopes": [
+        "G",
+        "P",
+        "A",
+        "T"
+      ],
+      "depends_on": [
+        "wf.runtime"
+      ],
+      "conflicts": [],
+      "risk": "LOW",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "不再派发该工作配置；可手工选其他已启用角色；Reviewer只读是独立执行约束",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": false,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "wf.role.worker",
+      "name": "wf / role / worker",
+      "description": "原生模块 wf.role.worker；关闭时：不再派发该工作配置；可手工选其他已启用角色；Reviewer只读是独立执行约束",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "ON",
+      "scopes": [
+        "G",
+        "P",
+        "A",
+        "T"
+      ],
+      "depends_on": [
+        "wf.runtime"
+      ],
+      "conflicts": [],
+      "risk": "LOW",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "不再派发该工作配置；可手工选其他已启用角色；Reviewer只读是独立执行约束",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": false,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "wf.role.verifier",
+      "name": "wf / role / verifier",
+      "description": "原生模块 wf.role.verifier；关闭时：不再派发该工作配置；可手工选其他已启用角色；Reviewer只读是独立执行约束",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "ON",
+      "scopes": [
+        "G",
+        "P",
+        "A",
+        "T"
+      ],
+      "depends_on": [
+        "wf.runtime"
+      ],
+      "conflicts": [],
+      "risk": "LOW",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "不再派发该工作配置；可手工选其他已启用角色；Reviewer只读是独立执行约束",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": false,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "wf.role.reviewer",
+      "name": "wf / role / reviewer",
+      "description": "原生模块 wf.role.reviewer；关闭时：不再派发该工作配置；可手工选其他已启用角色；Reviewer只读是独立执行约束",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "ON",
+      "scopes": [
+        "G",
+        "P",
+        "A",
+        "T"
+      ],
+      "depends_on": [
+        "wf.runtime"
+      ],
+      "conflicts": [],
+      "risk": "LOW",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "不再派发该工作配置；可手工选其他已启用角色；Reviewer只读是独立执行约束",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": false,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "wf.gate.g0",
+      "name": "wf / gate / g0",
+      "description": "原生模块 wf.gate.g0；关闭时：跳过该Gate并记录BYPASSED、原因和配置版本；不产生PASS；其他Gate可独立工作",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "ON",
+      "scopes": [
+        "G",
+        "P",
+        "A",
+        "T"
+      ],
+      "depends_on": [
+        "wf.runtime"
+      ],
+      "conflicts": [],
+      "risk": "LOW",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "跳过该Gate并记录BYPASSED、原因和配置版本；不产生PASS；其他Gate可独立工作",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": false,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "wf.gate.g1",
+      "name": "wf / gate / g1",
+      "description": "原生模块 wf.gate.g1；关闭时：跳过该Gate并记录BYPASSED、原因和配置版本；不产生PASS；其他Gate可独立工作",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "ON",
+      "scopes": [
+        "G",
+        "P",
+        "A",
+        "T"
+      ],
+      "depends_on": [
+        "wf.runtime"
+      ],
+      "conflicts": [],
+      "risk": "LOW",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "跳过该Gate并记录BYPASSED、原因和配置版本；不产生PASS；其他Gate可独立工作",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": false,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "wf.gate.g2",
+      "name": "wf / gate / g2",
+      "description": "原生模块 wf.gate.g2；关闭时：跳过该Gate并记录BYPASSED、原因和配置版本；不产生PASS；其他Gate可独立工作",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "ON",
+      "scopes": [
+        "G",
+        "P",
+        "A",
+        "T"
+      ],
+      "depends_on": [
+        "wf.runtime"
+      ],
+      "conflicts": [],
+      "risk": "LOW",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "跳过该Gate并记录BYPASSED、原因和配置版本；不产生PASS；其他Gate可独立工作",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": false,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "wf.gate.g3",
+      "name": "wf / gate / g3",
+      "description": "原生模块 wf.gate.g3；关闭时：跳过该Gate并记录BYPASSED、原因和配置版本；不产生PASS；其他Gate可独立工作",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "ON",
+      "scopes": [
+        "G",
+        "P",
+        "A",
+        "T"
+      ],
+      "depends_on": [
+        "wf.runtime"
+      ],
+      "conflicts": [],
+      "risk": "LOW",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "跳过该Gate并记录BYPASSED、原因和配置版本；不产生PASS；其他Gate可独立工作",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": false,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "wf.gate.g4",
+      "name": "wf / gate / g4",
+      "description": "原生模块 wf.gate.g4；关闭时：跳过该Gate并记录BYPASSED、原因和配置版本；不产生PASS；其他Gate可独立工作",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "ON",
+      "scopes": [
+        "G",
+        "P",
+        "A",
+        "T"
+      ],
+      "depends_on": [
+        "wf.runtime"
+      ],
+      "conflicts": [],
+      "risk": "LOW",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "跳过该Gate并记录BYPASSED、原因和配置版本；不产生PASS；其他Gate可独立工作",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": false,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "wf.gate.g5",
+      "name": "wf / gate / g5",
+      "description": "原生模块 wf.gate.g5；关闭时：跳过该Gate并记录BYPASSED、原因和配置版本；不产生PASS；其他Gate可独立工作",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "ON",
+      "scopes": [
+        "G",
+        "P",
+        "A",
+        "T"
+      ],
+      "depends_on": [
+        "wf.runtime"
+      ],
+      "conflicts": [],
+      "risk": "LOW",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "跳过该Gate并记录BYPASSED、原因和配置版本；不产生PASS；其他Gate可独立工作",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": false,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "wf.gate.g6",
+      "name": "wf / gate / g6",
+      "description": "原生模块 wf.gate.g6；关闭时：跳过该Gate并记录BYPASSED、原因和配置版本；不产生PASS；其他Gate可独立工作",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "ON",
+      "scopes": [
+        "G",
+        "P",
+        "A",
+        "T"
+      ],
+      "depends_on": [
+        "wf.runtime"
+      ],
+      "conflicts": [],
+      "risk": "LOW",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "跳过该Gate并记录BYPASSED、原因和配置版本；不产生PASS；其他Gate可独立工作",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": false,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "wf.templates.artifact",
+      "name": "wf / templates / artifact",
+      "description": "原生模块 wf.templates.artifact；关闭时：停止自动生成该模板；保留既有产物，允许用户手工录入最小类型化记录",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "ON",
+      "scopes": [
+        "G",
+        "P",
+        "A",
+        "T"
+      ],
+      "depends_on": [
+        "wf.runtime"
+      ],
+      "conflicts": [],
+      "risk": "LOW",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "停止自动生成该模板；保留既有产物，允许用户手工录入最小类型化记录",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": false,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "wf.templates.checkpoint",
+      "name": "wf / templates / checkpoint",
+      "description": "原生模块 wf.templates.checkpoint；关闭时：停止自动生成该模板；保留既有产物，允许用户手工录入最小类型化记录",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "ON",
+      "scopes": [
+        "G",
+        "P",
+        "A",
+        "T"
+      ],
+      "depends_on": [
+        "wf.runtime"
+      ],
+      "conflicts": [],
+      "risk": "LOW",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "停止自动生成该模板；保留既有产物，允许用户手工录入最小类型化记录",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": false,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "wf.templates.closeout",
+      "name": "wf / templates / closeout",
+      "description": "原生模块 wf.templates.closeout；关闭时：停止自动生成该模板；保留既有产物，允许用户手工录入最小类型化记录",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "ON",
+      "scopes": [
+        "G",
+        "P",
+        "A",
+        "T"
+      ],
+      "depends_on": [
+        "wf.runtime"
+      ],
+      "conflicts": [],
+      "risk": "LOW",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "停止自动生成该模板；保留既有产物，允许用户手工录入最小类型化记录",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": false,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "wf.templates.commands",
+      "name": "wf / templates / commands",
+      "description": "原生模块 wf.templates.commands；关闭时：停止自动生成该模板；保留既有产物，允许用户手工录入最小类型化记录",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "ON",
+      "scopes": [
+        "G",
+        "P",
+        "A",
+        "T"
+      ],
+      "depends_on": [
+        "wf.runtime"
+      ],
+      "conflicts": [],
+      "risk": "LOW",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "停止自动生成该模板；保留既有产物，允许用户手工录入最小类型化记录",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": false,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "wf.templates.decisions",
+      "name": "wf / templates / decisions",
+      "description": "原生模块 wf.templates.decisions；关闭时：停止自动生成该模板；保留既有产物，允许用户手工录入最小类型化记录",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "ON",
+      "scopes": [
+        "G",
+        "P",
+        "A",
+        "T"
+      ],
+      "depends_on": [
+        "wf.runtime"
+      ],
+      "conflicts": [],
+      "risk": "LOW",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "停止自动生成该模板；保留既有产物，允许用户手工录入最小类型化记录",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": false,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "wf.templates.design",
+      "name": "wf / templates / design",
+      "description": "原生模块 wf.templates.design；关闭时：停止自动生成该模板；保留既有产物，允许用户手工录入最小类型化记录",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "ON",
+      "scopes": [
+        "G",
+        "P",
+        "A",
+        "T"
+      ],
+      "depends_on": [
+        "wf.runtime"
+      ],
+      "conflicts": [],
+      "risk": "LOW",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "停止自动生成该模板；保留既有产物，允许用户手工录入最小类型化记录",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": false,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "wf.templates.document",
+      "name": "wf / templates / document",
+      "description": "原生模块 wf.templates.document；关闭时：停止自动生成该模板；保留既有产物，允许用户手工录入最小类型化记录",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "ON",
+      "scopes": [
+        "G",
+        "P",
+        "A",
+        "T"
+      ],
+      "depends_on": [
+        "wf.runtime"
+      ],
+      "conflicts": [],
+      "risk": "LOW",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "停止自动生成该模板；保留既有产物，允许用户手工录入最小类型化记录",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": false,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "wf.templates.experiment",
+      "name": "wf / templates / experiment",
+      "description": "原生模块 wf.templates.experiment；关闭时：停止自动生成该模板；保留既有产物，允许用户手工录入最小类型化记录",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "ON",
+      "scopes": [
+        "G",
+        "P",
+        "A",
+        "T"
+      ],
+      "depends_on": [
+        "wf.runtime"
+      ],
+      "conflicts": [],
+      "risk": "LOW",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "停止自动生成该模板；保留既有产物，允许用户手工录入最小类型化记录",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": false,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "wf.templates.freeze",
+      "name": "wf / templates / freeze",
+      "description": "原生模块 wf.templates.freeze；关闭时：停止自动生成该模板；保留既有产物，允许用户手工录入最小类型化记录",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "ON",
+      "scopes": [
+        "G",
+        "P",
+        "A",
+        "T"
+      ],
+      "depends_on": [
+        "wf.runtime"
+      ],
+      "conflicts": [],
+      "risk": "LOW",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "停止自动生成该模板；保留既有产物，允许用户手工录入最小类型化记录",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": false,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "wf.templates.goal",
+      "name": "wf / templates / goal",
+      "description": "原生模块 wf.templates.goal；关闭时：停止自动生成该模板；保留既有产物，允许用户手工录入最小类型化记录",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "ON",
+      "scopes": [
+        "G",
+        "P",
+        "A",
+        "T"
+      ],
+      "depends_on": [
+        "wf.runtime"
+      ],
+      "conflicts": [],
+      "risk": "LOW",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "停止自动生成该模板；保留既有产物，允许用户手工录入最小类型化记录",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": false,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "wf.templates.knowledge",
+      "name": "wf / templates / knowledge",
+      "description": "原生模块 wf.templates.knowledge；关闭时：停止自动生成该模板；保留既有产物，允许用户手工录入最小类型化记录",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "ON",
+      "scopes": [
+        "G",
+        "P",
+        "A",
+        "T"
+      ],
+      "depends_on": [
+        "wf.runtime"
+      ],
+      "conflicts": [],
+      "risk": "LOW",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "停止自动生成该模板；保留既有产物，允许用户手工录入最小类型化记录",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": false,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "wf.templates.review",
+      "name": "wf / templates / review",
+      "description": "原生模块 wf.templates.review；关闭时：停止自动生成该模板；保留既有产物，允许用户手工录入最小类型化记录",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "ON",
+      "scopes": [
+        "G",
+        "P",
+        "A",
+        "T"
+      ],
+      "depends_on": [
+        "wf.runtime"
+      ],
+      "conflicts": [],
+      "risk": "LOW",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "停止自动生成该模板；保留既有产物，允许用户手工录入最小类型化记录",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": false,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "wf.templates.subtask",
+      "name": "wf / templates / subtask",
+      "description": "原生模块 wf.templates.subtask；关闭时：停止自动生成该模板；保留既有产物，允许用户手工录入最小类型化记录",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "ON",
+      "scopes": [
+        "G",
+        "P",
+        "A",
+        "T"
+      ],
+      "depends_on": [
+        "wf.runtime"
+      ],
+      "conflicts": [],
+      "risk": "LOW",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "停止自动生成该模板；保留既有产物，允许用户手工录入最小类型化记录",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": false,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "wf.templates.contract",
+      "name": "wf / templates / contract",
+      "description": "原生模块 wf.templates.contract；关闭时：停止自动生成该模板；保留既有产物，允许用户手工录入最小类型化记录",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "ON",
+      "scopes": [
+        "G",
+        "P",
+        "A",
+        "T"
+      ],
+      "depends_on": [
+        "wf.runtime"
+      ],
+      "conflicts": [],
+      "risk": "LOW",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "停止自动生成该模板；保留既有产物，允许用户手工录入最小类型化记录",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": false,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "wf.templates.cost",
+      "name": "wf / templates / cost",
+      "description": "原生模块 wf.templates.cost；关闭时：停止自动生成该模板；保留既有产物，允许用户手工录入最小类型化记录",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "ON",
+      "scopes": [
+        "G",
+        "P",
+        "A",
+        "T"
+      ],
+      "depends_on": [
+        "wf.runtime"
+      ],
+      "conflicts": [],
+      "risk": "LOW",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "停止自动生成该模板；保留既有产物，允许用户手工录入最小类型化记录",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": false,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    },
+    {
+      "id": "wf.templates.workflow",
+      "name": "wf / templates / workflow",
+      "description": "原生模块 wf.templates.workflow；关闭时：停止自动生成该模板；保留既有产物，允许用户手工录入最小类型化记录",
+      "version": "0.1-design",
+      "kind": "OPTIONAL",
+      "implementation_status": "DESIGN_ONLY",
+      "default": "ON",
+      "scopes": [
+        "G",
+        "P",
+        "A",
+        "T"
+      ],
+      "depends_on": [
+        "wf.runtime"
+      ],
+      "conflicts": [],
+      "risk": "LOW",
+      "controller": "TRUSTED_ADMIN",
+      "agent_writable": false,
+      "config_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "state": {
+            "enum": [
+              "ON",
+              "OFF",
+              "INHERIT"
+            ]
+          }
+        }
+      },
+      "pre_enable": "校验作用域、依赖、配置版本、授权；执行功能专用预检",
+      "pre_disable": "预览依赖闭包与在途任务；冻结新调用、撤销旧epoch、排空或终止自有工作",
+      "off_behavior": "停止自动生成该模板；保留既有产物，允许用户手工录入最小类型化记录",
+      "recovery": "手动预检、重启；保留旧配置与数据，不自动补跑",
+      "admin_confirmation": false,
+      "health": [
+        "ENABLED",
+        "DISABLED",
+        "DEGRADED",
+        "FAILED",
+        "RECOVERING",
+        "QUIESCING"
+      ],
+      "observability": [
+        "config_revision",
+        "desired_state",
+        "effective_state",
+        "epoch",
+        "owned_processes",
+        "last_error",
+        "last_switch_event"
+      ],
+      "tests": [
+        "FT-RESOLVE",
+        "FT-OFF-NO-WORK",
+        "FT-RETAIN",
+        "FT-DEPENDENCY",
+        "FT-RECOVER"
+      ]
+    }
+  ]
+}

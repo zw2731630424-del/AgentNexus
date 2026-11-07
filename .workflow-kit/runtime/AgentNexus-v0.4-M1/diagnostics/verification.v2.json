@@ -1,0 +1,89 @@
+{
+  "schema": "agentnexus/diagnostics-verification/0.2",
+  "status": "PASS_TARGETED_PYTHON_STARTUP_ONLY",
+  "observed_at": "2026-11-06T17:50:26.641Z",
+  "runtime": {
+    "node": "24.15.0",
+    "platform": "win32"
+  },
+  "scope": "Narrow confirmation of existing Python child -I -B -S startup and the necessary real-spawn argv assertion. Not a rerun or renewed PASS of the whole product.",
+  "change": {
+    "product_source_modified": false,
+    "reason": "diagnostics.ts already used -I -B -S before this task; no redundant product edit was made.",
+    "test_source_modified": "tests/agentnexus/diagnostics.test.ts:42-71",
+    "assertion": "Observe the actual child_process.spawn arguments while forwarding to the real Python interpreter; assert argv prefix equals [\"-I\",\"-B\",\"-S\"]. Restore builtin ESM exports after the test.",
+    "dependencies_added": false
+  },
+  "test": {
+    "command": "node --test --test-reporter=tap --test-name-pattern \"Python AST actually parses\" tests/agentnexus/diagnostics.test.ts",
+    "tests": 1,
+    "pass": 1,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "todo": 0,
+    "coverage": [
+      "real Python ast.parse and required stdlib imports under -S",
+      "actual launch argv prefix -I/-B/-S",
+      "valid/invalid source and parse-only scoping limitation",
+      "UTF-16 Unicode positions, CRLF and absent NUL error location"
+    ],
+    "log": {
+      "file": ".workflow-kit/runtime/AgentNexus-v0.4-M1/diagnostics/test-results.v2.tap",
+      "bytes": 365,
+      "sha256": "2cd56834dc32700442bab5ba891e9c7ef048848807baef0ebbbd45d2f9646011"
+    }
+  },
+  "native_typescript_syntax": "PASS: node --check tests/agentnexus/diagnostics.test.ts",
+  "source_integrity": [
+    {
+      "file": "src/agentnexus/diagnostics.ts",
+      "bytes": 31299,
+      "sha256": "d869a291068564eb942b05623f2b8e3f0f8348c40647215e1b85d86eef27d86d"
+    },
+    {
+      "file": "src/agentnexus/checkers/python_ast.py",
+      "bytes": 2998,
+      "sha256": "a9595eca900b49c4ec88e82599c28569b01e543ed8ecb52908ae0772b104fc6e"
+    },
+    {
+      "file": "src/agentnexus/checkers/powershell_ast.ps1",
+      "bytes": 3780,
+      "sha256": "90079d41e2083df61ee87456cbe81a4d1863b2f4053df0ab9e78b668e3789ae8"
+    },
+    {
+      "file": "tests/agentnexus/diagnostics.test.ts",
+      "bytes": 19069,
+      "sha256": "67eef7a1adfc1b2baceb62ca4cd157d8737332e8595f0d93a63bcfb853257394"
+    },
+    {
+      "file": "src/agentnexus/types.ts",
+      "bytes": 6814,
+      "sha256": "101cc13ca1bbb9ec34e7bb8dfdc8360da913829b99458cf3374cc6604fa15d75"
+    }
+  ],
+  "preserved_v1": [
+    {
+      "file": ".workflow-kit/runtime/AgentNexus-v0.4-M1/diagnostics/verification.json",
+      "bytes": 12044,
+      "sha256": "e2334ddb133a9601fd2a99213e58b94b40fee3e4a3b3b22f4a6c4f6ddaf9a397",
+      "unchanged": true
+    },
+    {
+      "file": ".workflow-kit/runtime/AgentNexus-v0.4-M1/diagnostics/test-results.tap",
+      "bytes": 4166,
+      "sha256": "efd37cab25de4e616f64bba6e4a854b68fb7335c629559b31fb16986cffe4080",
+      "unchanged": true
+    }
+  ],
+  "not_run": [
+    "full product regression; owner runs separately",
+    "OS process-tree isolation/RSS admission",
+    "system-site .pth installation or mutation",
+    "Provider keys/model/scientific workloads"
+  ],
+  "storage_v3_review": {
+    "file": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/storage-integrity-review.v3.json",
+    "scope": "Only the three historical findings; separate source-bound report, no OS/mutable/whole-product PASS."
+  }
+}

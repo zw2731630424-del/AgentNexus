@@ -1,0 +1,176 @@
+{
+  "schema": "agentnexus/m1/control-review-probes/1",
+  "captured_utc": "2026-11-06T17:21:23.723Z",
+  "before_sha256": {
+    "src/agentnexus/types.ts": "273780415d1e00476dcfc52ca901a15527d62f1e74c1a46def5757251afcfcd8",
+    "src/agentnexus/control.ts": "b222860935358032aabcae570865d6d09bca1d22f9b94fcc1961624c895bdccc",
+    "src/agentnexus/features.ts": "2a7f4bc603964dcea120b0ba626fc37864588aa0301f2cabe392093a4437a9ce",
+    "src/agentnexus/policy.ts": "efc03cd86e873e436a7e1bb195227d6c1b98de9f639dea1f87203d75cdf69a8a",
+    "src/agentnexus/gateway.ts": "223d908da4daec469cacc1da8fdcc88f0f2e59af9a981eaff4c1a16c4360d4db",
+    "src/agentnexus/host.ts": "96b2d0bad306956e41cef7942080fd912d5df36d62b7cf68e8bc092e45654f20",
+    "src/agentnexus/storage.ts": "7e3d4c0f065246823db894d0286990bd2111fde52b949d0b04d3554126e18dcb",
+    "src/agentnexus/diagnostics.ts": "d869a291068564eb942b05623f2b8e3f0f8348c40647215e1b85d86eef27d86d"
+  },
+  "after_sha256": {
+    "src/agentnexus/types.ts": "273780415d1e00476dcfc52ca901a15527d62f1e74c1a46def5757251afcfcd8",
+    "src/agentnexus/control.ts": "b222860935358032aabcae570865d6d09bca1d22f9b94fcc1961624c895bdccc",
+    "src/agentnexus/features.ts": "2a7f4bc603964dcea120b0ba626fc37864588aa0301f2cabe392093a4437a9ce",
+    "src/agentnexus/policy.ts": "efc03cd86e873e436a7e1bb195227d6c1b98de9f639dea1f87203d75cdf69a8a",
+    "src/agentnexus/gateway.ts": "223d908da4daec469cacc1da8fdcc88f0f2e59af9a981eaff4c1a16c4360d4db",
+    "src/agentnexus/host.ts": "96b2d0bad306956e41cef7942080fd912d5df36d62b7cf68e8bc092e45654f20",
+    "src/agentnexus/storage.ts": "7e3d4c0f065246823db894d0286990bd2111fde52b949d0b04d3554126e18dcb",
+    "src/agentnexus/diagnostics.ts": "d869a291068564eb942b05623f2b8e3f0f8348c40647215e1b85d86eef27d86d"
+  },
+  "source_changed_during_probe": [],
+  "observations": {
+    "inherit_to_off": {
+      "state_store": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-v0.4-M1\\reviews\\control-state-zVGrnB",
+      "failure": "MODULE_STILL_RUNNING",
+      "resolved": {
+        "id": "review.optional",
+        "desired": "ON",
+        "revision": 1,
+        "epoch": 2,
+        "health": "FAILED",
+        "effective": "BLOCKED",
+        "reason": "FAILED"
+      },
+      "active_count": 1,
+      "lease_aborted": true,
+      "stop_calls": 1
+    },
+    "diagnostics_after_failed_stop": {
+      "state_store": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-v0.4-M1\\reviews\\control-state-Sj22eX",
+      "stop_failure": "MODULE_STILL_RUNNING",
+      "runtime": {
+        "id": "devint.runtime",
+        "desired": "ON",
+        "revision": 0,
+        "epoch": 1,
+        "health": "FAILED",
+        "effective": "BLOCKED",
+        "reason": "FAILED"
+      },
+      "result": {
+        "status": "PASS",
+        "reason": "BROKER_OPERATION_COMPLETE",
+        "operation_id": "a91a8955-1f0e-4d88-b593-485da1f2c45c",
+        "intent_hash": "b607b045566a3edd93bcfc3966f5e857fb38d6260e904f5e9cb0d350350bd4f4",
+        "data": {
+          "checker_id": "disabled",
+          "checker_version": "none",
+          "config_revision": 0,
+          "diagnostics": [],
+          "dimensions": {
+            "args": {
+              "applicable": true,
+              "coverage": "none",
+              "reason": "MODULE_UNAVAILABLE:devint.runtime",
+              "status": "BLOCKED"
+            },
+            "authorization": {
+              "applicable": false,
+              "coverage": "none",
+              "reason": "OWNER_TOOL_GATEWAY",
+              "status": "NOT_RUN"
+            },
+            "environment": {
+              "applicable": true,
+              "coverage": "none",
+              "reason": "MODULE_UNAVAILABLE:devint.runtime",
+              "status": "BLOCKED"
+            },
+            "safety": {
+              "applicable": true,
+              "coverage": "none",
+              "reason": "MODULE_UNAVAILABLE:devint.runtime",
+              "status": "BLOCKED"
+            },
+            "syntax": {
+              "applicable": true,
+              "coverage": "none",
+              "reason": "MODULE_UNAVAILABLE:devint.runtime",
+              "status": "BLOCKED"
+            }
+          },
+          "evidence_refs": [],
+          "feature_epoch": 1,
+          "reason": "MODULE_UNAVAILABLE:devint.runtime",
+          "request_id": "6d61c757-ec3e-40af-a74a-d20546f85ba6",
+          "source_sha256": "a8198524f58e72b56283ab71ebddada22840f108b46ef7165bb3fca9919c5558",
+          "status": "BLOCKED",
+          "timing": {
+            "elapsed_ms": 0,
+            "started_at": "2026-11-06T17:21:23.303Z"
+          },
+          "uri": "review://runtime-blocked.json",
+          "version": 1
+        },
+        "stdout_ref": {
+          "artifact_id": "0ee93d2f-c41e-4d09-ab94-85e1e7289a4b",
+          "sha256": "ffd719815fbb7c832158035334912961dbaa4c81ad5406c5603336510358fb06",
+          "bytes": 1005,
+          "codec": "zstd",
+          "stored_sha256": "505aefeb3b5d243a6906b0f452a91146ef7103cdea1f0bf8fcc9e348a830ef2e",
+          "stored_bytes": 462,
+          "media_type": "application/octet-stream",
+          "sensitivity": "NORMAL"
+        },
+        "stderr_ref": {
+          "artifact_id": "dbb56e66-a483-44d5-af49-aa416dba8656",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0,
+          "codec": "zstd",
+          "stored_sha256": "f96deff1816083fdff8bc3e46c3fe6ca46a6bb49f4d5a00627616c13237a512c",
+          "stored_bytes": 13,
+          "media_type": "application/octet-stream",
+          "sensitivity": "NORMAL"
+        },
+        "audit_event_id": "bd2b3ba9-1127-4d5a-bb8c-c4e6ffab5fc4",
+        "permit_id": "b3ab5cbf-2c01-4017-a3c6-c3e6ac800c08"
+      }
+    },
+    "expired_approval_clock_rollback": {
+      "state_store": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-v0.4-M1\\reviews\\control-state-8ff8ZK",
+      "clock_scope": "logical Date.now override in owned probe process; not OS-clock verification",
+      "initially_valid": true,
+      "valid_after_actual_expiry": false,
+      "valid_after_clock_rollback": false,
+      "handler_executions": 0,
+      "result": {
+        "status": "BLOCKED",
+        "reason": "POLICY_DENIED",
+        "operation_id": "6206c744-28e4-4afb-ae42-ef0856e00470",
+        "intent_hash": "b009795675a81028deead2e85b9a88e4ca417462af41439fac86ac52102bace5",
+        "data": null,
+        "stdout_ref": null,
+        "stderr_ref": null,
+        "audit_event_id": "3b60ae02-2e52-4ef7-a866-72f77c6cb871",
+        "permit_id": null
+      }
+    },
+    "closed_facade": {
+      "state_store": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-v0.4-M1\\reviews\\control-state-gV69Dv",
+      "old_context_rows": 2,
+      "old_audit_rows": 8,
+      "old_context_session_ids": [
+        "review-session",
+        "review-session"
+      ],
+      "replacement_after_old_close": {
+        "code": "SESSION_CLOSED"
+      }
+    },
+    "same_task_other_agent_read": {
+      "state_store": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-v0.4-M1\\reviews\\control-state-2pjrV9",
+      "other_agent_context_rows": 2,
+      "returned_agent_ids": [
+        "review-a",
+        "review-a"
+      ],
+      "classification": "contract confirmation needed: task-wide sharing vs agent-private context"
+    }
+  },
+  "final_product_acceptance": "PENDING_ROOT_FINAL_TESTS",
+  "product_files_modified": false
+}

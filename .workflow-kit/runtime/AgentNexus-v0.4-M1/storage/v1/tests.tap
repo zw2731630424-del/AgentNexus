@@ -1,0 +1,112 @@
+TAP version 13
+# Subtest: real SQLite, three independent domain chains and global pagination
+ok 1 - real SQLite, three independent domain chains and global pagination
+  ---
+  duration_ms: 104.0128
+  type: 'test'
+  ...
+# Subtest: synchronous cross-table transaction, rollback, UNIQUE and business errors do not fault
+ok 2 - synchronous cross-table transaction, rollback, UNIQUE and business errors do not fault
+  ---
+  duration_ms: 28.4037
+  type: 'test'
+  ...
+# Subtest: required fields, malformed refs, oversized envelopes and query budgets reject without fault
+ok 3 - required fields, malformed refs, oversized envelopes and query budgets reject without fault
+  ---
+  duration_ms: 23.0751
+  type: 'test'
+  ...
+# Subtest: outbox high water rejects new records, then drains without unbounded queues
+ok 4 - outbox high water rejects new records, then drains without unbounded queues
+  ---
+  duration_ms: 36.5349
+  type: 'test'
+  ...
+# Subtest: second writer and live lock recovery are blocked; real owner death is explicit
+ok 5 - second writer and live lock recovery are blocked; real owner death is explicit
+  ---
+  duration_ms: 238.2662
+  type: 'test'
+  ...
+# Subtest: process crash after file fsync and before receipt reexports no duplicate
+ok 6 - process crash after file fsync and before receipt reexports no duplicate
+  ---
+  duration_ms: 216.7749
+  type: 'test'
+  ...
+# Subtest: unacknowledged crash tail is preserved then repaired from durable outbox
+ok 7 - unacknowledged crash tail is preserved then repaired from durable outbox
+  ---
+  duration_ms: 452.0618
+  type: 'test'
+  ...
+# Subtest: actual export I/O failure freezes writes and preserves outbox until explicit recovery
+ok 8 - actual export I/O failure freezes writes and preserves outbox until explicit recovery
+  ---
+  duration_ms: 30.6218
+  type: 'test'
+  ...
+# Subtest: acknowledged truncation is never silently discarded or rebuilt as success
+ok 9 - acknowledged truncation is never silently discarded or rebuilt as success
+  ---
+  duration_ms: 19.7031
+  type: 'test'
+  ...
+# Subtest: actual artifact publication I/O failure retains bytes and freezes both record and object admission
+ok 10 - actual artifact publication I/O failure retains bytes and freezes both record and object admission
+  ---
+  duration_ms: 25.546
+  type: 'test'
+  ...
+# Subtest: database hash tampering throws, freezes writes and does not fake repair
+ok 11 - database hash tampering throws, freezes writes and does not fake repair
+  ---
+  duration_ms: 19.0584
+  type: 'test'
+  ...
+# Subtest: 32 MiB randomized artifact roundtrip streams with real backpressure and two hashes
+ok 12 - 32 MiB randomized artifact roundtrip streams with real backpressure and two hashes
+  ---
+  duration_ms: 270.2028
+  type: 'test'
+  ...
+# Subtest: cancelled, over-budget and invalid-chunk objects remain incomplete; secret is rejected
+ok 13 - cancelled, over-budget and invalid-chunk objects remain incomplete; secret is rejected
+  ---
+  duration_ms: 32.9337
+  type: 'test'
+  ...
+# Subtest: early artifact iterator return is not verification; full corrupted stream fails closed
+ok 14 - early artifact iterator return is not verification; full corrupted stream fails closed
+  ---
+  duration_ms: 36.0803
+  type: 'test'
+  ...
+# Subtest: concurrent artifact admission is bounded and rejects a third stream without queueing
+ok 15 - concurrent artifact admission is bounded and rejects a third stream without queueing
+  ---
+  duration_ms: 20.2566
+  type: 'test'
+  ...
+# Subtest: sealed segments are compressed, chained and verified; stored bit flip is detected
+ok 16 - sealed segments are compressed, chained and verified; stored bit flip is detected
+  ---
+  duration_ms: 103.4877
+  type: 'test'
+  ...
+# Subtest: process-killed partial artifact remains retained without a complete object reference
+ok 17 - process-killed partial artifact remains retained without a complete object reference
+  ---
+  duration_ms: 170.4636
+  type: 'test'
+  ...
+1..17
+# tests 17
+# suites 0
+# pass 17
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2023.9801

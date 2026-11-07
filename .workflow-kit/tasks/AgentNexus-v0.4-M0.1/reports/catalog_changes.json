@@ -1,0 +1,1847 @@
+{
+  "baseline_feature_count": 108,
+  "feature_count": 142,
+  "feature_changes": [
+    {
+      "kind": "SUPPLEMENT",
+      "id": "core.identity",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission"
+      ],
+      "added_dependencies": []
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "core.state",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission"
+      ],
+      "added_dependencies": []
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "core.events",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission"
+      ],
+      "added_dependencies": []
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "core.archive.raw",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission",
+        "depends_on"
+      ],
+      "added_dependencies": [
+        "core.artifact.store"
+      ]
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "core.features",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission"
+      ],
+      "added_dependencies": []
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "core.admin-audit",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission",
+        "depends_on"
+      ],
+      "added_dependencies": [
+        "core.audit.trail"
+      ]
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "policy.mode",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission"
+      ],
+      "added_dependencies": []
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "security.os-sandbox",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission"
+      ],
+      "added_dependencies": []
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "execution.local-unsandboxed",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission"
+      ],
+      "added_dependencies": []
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "security.workspace-isolation",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission"
+      ],
+      "added_dependencies": []
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "security.vault-persistence",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission"
+      ],
+      "added_dependencies": []
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "archive.integrity-scan",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission"
+      ],
+      "added_dependencies": []
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "archive.retrieval-agent",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission"
+      ],
+      "added_dependencies": []
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "archive.summary",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission"
+      ],
+      "added_dependencies": []
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "archive.keyword-index",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission"
+      ],
+      "added_dependencies": []
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "archive.vector-index",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission"
+      ],
+      "added_dependencies": []
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "archive.knowledge-extract",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission"
+      ],
+      "added_dependencies": []
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "archive.backup-auto",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission"
+      ],
+      "added_dependencies": []
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "native.harness",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission"
+      ],
+      "added_dependencies": []
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "native.context-assembly",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission"
+      ],
+      "added_dependencies": []
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "native.checkpoints-auto",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission"
+      ],
+      "added_dependencies": []
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "tool.file",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission",
+        "depends_on"
+      ],
+      "added_dependencies": [
+        "core.audit.trail",
+        "core.artifact.store"
+      ]
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "tool.shell",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission",
+        "depends_on"
+      ],
+      "added_dependencies": [
+        "core.audit.trail",
+        "core.artifact.store"
+      ]
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "tool.git",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission",
+        "depends_on"
+      ],
+      "added_dependencies": [
+        "core.audit.trail",
+        "core.artifact.store"
+      ]
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "tool.test",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission",
+        "depends_on"
+      ],
+      "added_dependencies": [
+        "core.audit.trail",
+        "core.artifact.store"
+      ]
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "adapter.mcp",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission"
+      ],
+      "added_dependencies": []
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "adapter.acp",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission"
+      ],
+      "added_dependencies": []
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "adapter.lsp",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission"
+      ],
+      "added_dependencies": []
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "adapter.browser",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission"
+      ],
+      "added_dependencies": []
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "adapter.harness.codex",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission"
+      ],
+      "added_dependencies": []
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "adapter.harness.claude",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission"
+      ],
+      "added_dependencies": []
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "adapter.harness.zcode",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission"
+      ],
+      "added_dependencies": []
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "adapter.harness.opencode",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission"
+      ],
+      "added_dependencies": []
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "runtime.auto-planning",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission"
+      ],
+      "added_dependencies": []
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "runtime.auto-spawn",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission"
+      ],
+      "added_dependencies": []
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "runtime.auto-review",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission"
+      ],
+      "added_dependencies": []
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "runtime.auto-coordinator",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission"
+      ],
+      "added_dependencies": []
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "runtime.auto-repair",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission"
+      ],
+      "added_dependencies": []
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "runtime.role.resident",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission"
+      ],
+      "added_dependencies": []
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "runtime.role.lead",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission"
+      ],
+      "added_dependencies": []
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "runtime.role.subagent",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission"
+      ],
+      "added_dependencies": []
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "runtime.role.reviewer",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission"
+      ],
+      "added_dependencies": []
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "runtime.role.coordinator",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission"
+      ],
+      "added_dependencies": []
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "model.gateway",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission",
+        "depends_on"
+      ],
+      "added_dependencies": [
+        "core.audit.trail",
+        "core.artifact.store"
+      ]
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "model.auto-route",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission"
+      ],
+      "added_dependencies": []
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "model.key-round-robin",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission"
+      ],
+      "added_dependencies": []
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "model.provider-failover",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission"
+      ],
+      "added_dependencies": []
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "model.capability-probe",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission"
+      ],
+      "added_dependencies": []
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "git.auto-snapshot",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission"
+      ],
+      "added_dependencies": []
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "git.auto-merge",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission"
+      ],
+      "added_dependencies": []
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "git.auto-commit",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission"
+      ],
+      "added_dependencies": []
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "git.auto-push",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission"
+      ],
+      "added_dependencies": []
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "ui.desktop",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission"
+      ],
+      "added_dependencies": []
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "ui.usage-dashboard",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission"
+      ],
+      "added_dependencies": []
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "ui.notifications",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission"
+      ],
+      "added_dependencies": []
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "ui.reports",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission"
+      ],
+      "added_dependencies": []
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "ui.decision-ledger",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission"
+      ],
+      "added_dependencies": []
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "wf.runtime",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission"
+      ],
+      "added_dependencies": []
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "wf.rules.global",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission"
+      ],
+      "added_dependencies": []
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "wf.rules.project-index",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission"
+      ],
+      "added_dependencies": []
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "wf.rules.registration",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission"
+      ],
+      "added_dependencies": []
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "wf.capabilities",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission"
+      ],
+      "added_dependencies": []
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "wf.context",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission"
+      ],
+      "added_dependencies": []
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "wf.decisions",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission",
+        "depends_on"
+      ],
+      "added_dependencies": [
+        "core.decision.ledger"
+      ]
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "wf.evidence",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission"
+      ],
+      "added_dependencies": []
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "wf.feasibility",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission"
+      ],
+      "added_dependencies": []
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "wf.governance",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission"
+      ],
+      "added_dependencies": []
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "wf.governance.service",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission"
+      ],
+      "added_dependencies": []
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "wf.review.strict",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission"
+      ],
+      "added_dependencies": []
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "wf.verification",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission"
+      ],
+      "added_dependencies": []
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "wf.safety-guidance",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission"
+      ],
+      "added_dependencies": []
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "wf.reference.router",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission"
+      ],
+      "added_dependencies": []
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "wf.roles.router",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission"
+      ],
+      "added_dependencies": []
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "wf.workflow.router",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission"
+      ],
+      "added_dependencies": []
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "wf.checks.gate-depth",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission"
+      ],
+      "added_dependencies": []
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "wf.checks.measurement",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission"
+      ],
+      "added_dependencies": []
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "wf.checks.protocol",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission"
+      ],
+      "added_dependencies": []
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "wf.checks.regression",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission"
+      ],
+      "added_dependencies": []
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "wf.validators.task",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission"
+      ],
+      "added_dependencies": []
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "wf.validators.review",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission"
+      ],
+      "added_dependencies": []
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "wf.validators.package",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission"
+      ],
+      "added_dependencies": []
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "wf.role.scout",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission"
+      ],
+      "added_dependencies": []
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "wf.role.worker",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission"
+      ],
+      "added_dependencies": []
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "wf.role.verifier",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission"
+      ],
+      "added_dependencies": []
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "wf.role.reviewer",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission"
+      ],
+      "added_dependencies": []
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "wf.gate.g0",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission"
+      ],
+      "added_dependencies": []
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "wf.gate.g1",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission"
+      ],
+      "added_dependencies": []
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "wf.gate.g2",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission"
+      ],
+      "added_dependencies": []
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "wf.gate.g3",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission"
+      ],
+      "added_dependencies": []
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "wf.gate.g4",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission"
+      ],
+      "added_dependencies": []
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "wf.gate.g5",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission"
+      ],
+      "added_dependencies": []
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "wf.gate.g6",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission"
+      ],
+      "added_dependencies": []
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "wf.templates.artifact",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission"
+      ],
+      "added_dependencies": []
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "wf.templates.checkpoint",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission"
+      ],
+      "added_dependencies": []
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "wf.templates.closeout",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission"
+      ],
+      "added_dependencies": []
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "wf.templates.commands",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission"
+      ],
+      "added_dependencies": []
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "wf.templates.decisions",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission"
+      ],
+      "added_dependencies": []
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "wf.templates.design",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission"
+      ],
+      "added_dependencies": []
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "wf.templates.document",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission"
+      ],
+      "added_dependencies": []
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "wf.templates.experiment",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission"
+      ],
+      "added_dependencies": []
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "wf.templates.freeze",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission"
+      ],
+      "added_dependencies": []
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "wf.templates.goal",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission"
+      ],
+      "added_dependencies": []
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "wf.templates.knowledge",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission"
+      ],
+      "added_dependencies": []
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "wf.templates.review",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission"
+      ],
+      "added_dependencies": []
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "wf.templates.subtask",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission"
+      ],
+      "added_dependencies": []
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "wf.templates.contract",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission"
+      ],
+      "added_dependencies": []
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "wf.templates.cost",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission"
+      ],
+      "added_dependencies": []
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "wf.templates.workflow",
+      "changes": [
+        "version",
+        "implementation_status",
+        "previous_definition_sha256",
+        "audit_requirements",
+        "degradation",
+        "runtime_admission"
+      ],
+      "added_dependencies": []
+    },
+    {
+      "kind": "ADD",
+      "id": "core.audit.trail"
+    },
+    {
+      "kind": "ADD",
+      "id": "core.artifact.store"
+    },
+    {
+      "kind": "ADD",
+      "id": "core.decision.ledger"
+    },
+    {
+      "kind": "ADD",
+      "id": "audit.task-reconstruction"
+    },
+    {
+      "kind": "ADD",
+      "id": "audit.integrity-background"
+    },
+    {
+      "kind": "ADD",
+      "id": "audit.export"
+    },
+    {
+      "kind": "ADD",
+      "id": "audit.diagnostic-logs"
+    },
+    {
+      "kind": "ADD",
+      "id": "audit.external-anchor"
+    },
+    {
+      "kind": "ADD",
+      "id": "devint.runtime"
+    },
+    {
+      "kind": "ADD",
+      "id": "devint.command-parser"
+    },
+    {
+      "kind": "ADD",
+      "id": "devint.syntax-validator"
+    },
+    {
+      "kind": "ADD",
+      "id": "devint.command-linter"
+    },
+    {
+      "kind": "ADD",
+      "id": "devint.argument-validator"
+    },
+    {
+      "kind": "ADD",
+      "id": "devint.safety-preflight"
+    },
+    {
+      "kind": "ADD",
+      "id": "devint.environment-checker"
+    },
+    {
+      "kind": "ADD",
+      "id": "devint.command-preview"
+    },
+    {
+      "kind": "ADD",
+      "id": "devint.code-diagnostics"
+    },
+    {
+      "kind": "ADD",
+      "id": "devint.code.python"
+    },
+    {
+      "kind": "ADD",
+      "id": "devint.code.csharp"
+    },
+    {
+      "kind": "ADD",
+      "id": "devint.code.javascript"
+    },
+    {
+      "kind": "ADD",
+      "id": "devint.code.typescript"
+    },
+    {
+      "kind": "ADD",
+      "id": "devint.code.json"
+    },
+    {
+      "kind": "ADD",
+      "id": "devint.code.yaml"
+    },
+    {
+      "kind": "ADD",
+      "id": "devint.code.sql"
+    },
+    {
+      "kind": "ADD",
+      "id": "devint.code.dockerfile"
+    },
+    {
+      "kind": "ADD",
+      "id": "devint.command.bash"
+    },
+    {
+      "kind": "ADD",
+      "id": "devint.command.zsh"
+    },
+    {
+      "kind": "ADD",
+      "id": "devint.command.powershell"
+    },
+    {
+      "kind": "ADD",
+      "id": "devint.command.git"
+    },
+    {
+      "kind": "ADD",
+      "id": "devint.command.python-cli"
+    },
+    {
+      "kind": "ADD",
+      "id": "devint.command.docker-cli"
+    },
+    {
+      "kind": "ADD",
+      "id": "devint.command.custom-cli"
+    },
+    {
+      "kind": "ADD",
+      "id": "sandbox.windows"
+    },
+    {
+      "kind": "ADD",
+      "id": "sandbox.ubuntu"
+    }
+  ],
+  "baseline_policy_count": 22,
+  "policy_count": 34,
+  "policy_changes": [
+    {
+      "kind": "SUPPLEMENT",
+      "id": "P.IDENTITY",
+      "fields": [
+        "version",
+        "test_cases",
+        "test_status",
+        "audit_requirements"
+      ]
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "P.FS_SCOPE",
+      "fields": [
+        "version",
+        "test_cases",
+        "test_status",
+        "audit_requirements"
+      ]
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "P.REVIEW_RO",
+      "fields": [
+        "version",
+        "test_cases",
+        "test_status",
+        "audit_requirements"
+      ]
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "P.ARCHIVE_APPEND",
+      "fields": [
+        "version",
+        "test_cases",
+        "test_status",
+        "audit_requirements"
+      ]
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "P.SECRET_BOUNDARY",
+      "fields": [
+        "version",
+        "test_cases",
+        "test_status",
+        "audit_requirements"
+      ]
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "P.DB_ATOMIC",
+      "fields": [
+        "version",
+        "test_cases",
+        "test_status",
+        "audit_requirements"
+      ]
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "P.EXPERIMENT_ONCE",
+      "fields": [
+        "version",
+        "test_cases",
+        "test_status",
+        "audit_requirements"
+      ]
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "P.WORKSPACE_WRITER",
+      "fields": [
+        "version",
+        "test_cases",
+        "test_status",
+        "audit_requirements"
+      ]
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "P.BUDGET_HARD",
+      "fields": [
+        "version",
+        "test_cases",
+        "test_status",
+        "audit_requirements"
+      ]
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "P.ADMIN_MODE",
+      "fields": [
+        "version",
+        "test_cases",
+        "test_status",
+        "audit_requirements"
+      ]
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "P.APPROVAL_REPLAY",
+      "fields": [
+        "version",
+        "test_cases",
+        "test_status",
+        "audit_requirements"
+      ]
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "P.TOOL_CONTRACT",
+      "fields": [
+        "version",
+        "test_cases",
+        "test_status",
+        "audit_requirements"
+      ]
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "P.GIT_PUBLISH",
+      "fields": [
+        "version",
+        "test_cases",
+        "test_status",
+        "audit_requirements"
+      ]
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "P.DATA_DELETE",
+      "fields": [
+        "version",
+        "test_cases",
+        "test_status",
+        "audit_requirements"
+      ]
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "P.INSTALL",
+      "fields": [
+        "version",
+        "test_cases",
+        "test_status",
+        "audit_requirements"
+      ]
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "P.PROJECT_RULE_CHANGE",
+      "fields": [
+        "version",
+        "test_cases",
+        "test_status",
+        "audit_requirements"
+      ]
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "P.EXPERIMENT_APPROVAL",
+      "fields": [
+        "version",
+        "test_cases",
+        "test_status",
+        "audit_requirements"
+      ]
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "P.BUDGET_INCREASE",
+      "fields": [
+        "version",
+        "test_cases",
+        "test_status",
+        "audit_requirements"
+      ]
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "P.REVIEW_BINDING",
+      "fields": [
+        "version",
+        "test_cases",
+        "test_status",
+        "audit_requirements"
+      ]
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "P.WORKFLOW_GATES",
+      "fields": [
+        "version",
+        "test_cases",
+        "test_status",
+        "audit_requirements"
+      ]
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "P.SCIENTIFIC_CLAIM",
+      "fields": [
+        "version",
+        "test_cases",
+        "test_status",
+        "audit_requirements"
+      ]
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "P.STYLE",
+      "fields": [
+        "version",
+        "test_cases",
+        "test_status",
+        "audit_requirements"
+      ]
+    },
+    {
+      "kind": "ADD",
+      "id": "P.AUDIT_REQUIRED"
+    },
+    {
+      "kind": "ADD",
+      "id": "P.ARTIFACT_INTEGRITY"
+    },
+    {
+      "kind": "ADD",
+      "id": "P.EVIDENCE_DOMAINS"
+    },
+    {
+      "kind": "ADD",
+      "id": "P.REPLAY_READONLY"
+    },
+    {
+      "kind": "ADD",
+      "id": "P.DI_NOEXEC"
+    },
+    {
+      "kind": "ADD",
+      "id": "P.DI_SYNTAX"
+    },
+    {
+      "kind": "ADD",
+      "id": "P.DI_ARGUMENTS"
+    },
+    {
+      "kind": "ADD",
+      "id": "P.DI_ENVIRONMENT"
+    },
+    {
+      "kind": "ADD",
+      "id": "P.COMMAND_RISK"
+    },
+    {
+      "kind": "ADD",
+      "id": "P.SANDBOX_CAPABILITY"
+    },
+    {
+      "kind": "ADD",
+      "id": "P.PACKAGE_INTEGRITY"
+    },
+    {
+      "kind": "ADD",
+      "id": "P.RESOURCE_BOUNDS"
+    }
+  ]
+}

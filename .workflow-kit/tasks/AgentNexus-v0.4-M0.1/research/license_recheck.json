@@ -1,0 +1,1433 @@
+{
+  "schema": "agentnexus/m01/license-recheck/1",
+  "captured_utc": "2026-11-06T16:43:46.915273+00:00",
+  "record_updated_utc": "2026-11-06T16:50:56.340468+00:00",
+  "status": "LOCAL_RECHECK_COMPLETED_NO_NEW_AUTHORIZATION",
+  "task": "AgentNexus-v0.4-M0.1",
+  "scope": {
+    "source": "Workflow Kit v4.0.0 provided 105-file package and SOURCES provenance",
+    "file_count": 105,
+    "total_bytes": 351144,
+    "all_files_byte_rechecked": true,
+    "all_files_utf8_and_license_marker_scanned": true,
+    "new_grant_acquired": false,
+    "upstream_ownership_adjudicated": false,
+    "other_upstreams_reaudited": false
+  },
+  "source_identity": {
+    "standalone_sha256": "4cad510cf666d37e0adb81f39ca3f1f29aa9f3b3ae7313726946e572e51736ec",
+    "standalone_expected_m0_sha256": "4cad510cf666d37e0adb81f39ca3f1f29aa9f3b3ae7313726946e572e51736ec",
+    "handoff_sha256": "f669dad4a6b6937ca3d7c2463b8b2327b3fe2bb8fe2c8a53e6dfb4f2265b3934",
+    "embedded_sha256": "4cad510cf666d37e0adb81f39ca3f1f29aa9f3b3ae7313726946e572e51736ec",
+    "embedded_identical_to_standalone": true,
+    "entry_count": 105,
+    "directory_entries": 0,
+    "duplicate_exact_names": [],
+    "unsafe_unix_file_types": []
+  },
+  "identity_comparison": {
+    "to_m0": {
+      "added": [],
+      "missing": [],
+      "changed": []
+    },
+    "to_source_zip": {
+      "added": [],
+      "missing": [],
+      "changed": []
+    }
+  },
+  "local_license_evidence": {
+    "license_expression": "NOASSERTION",
+    "copyright_holder": "UNKNOWN",
+    "license_or_notice_files": [],
+    "marker_hits": [
+      {
+        "path": "tools/govern.py",
+        "line": 110,
+        "category": "license_copyright_spdx",
+        "matched_tokens_only": [
+          "LICENSE"
+        ]
+      },
+      {
+        "path": "tools/govern.py",
+        "line": 111,
+        "category": "license_copyright_spdx",
+        "matched_tokens_only": [
+          "LICENSE"
+        ]
+      }
+    ],
+    "hit_interpretation": "two target-project filename allowlist entries, not license text or grants",
+    "authorization_found_in_provided_files": false,
+    "authorization_inferred_from_user_upload": false,
+    "source_provenance_is_authorization": false,
+    "external_grants_may_exist": "NOT_DETERMINED"
+  },
+  "sources_recheck": {
+    "path": "SOURCES.json",
+    "sha256": "33514534a4a66372a572e912a05fafe37154fae54e59453a9e3360386b00519d",
+    "top_level_keys": [
+      "merged_version",
+      "source_date",
+      "sources",
+      "current_version",
+      "base_release"
+    ],
+    "all_recursive_keys": [
+      "archive",
+      "base_release",
+      "bytes",
+      "current_version",
+      "entries",
+      "merged_version",
+      "original_manifest_mismatches",
+      "path",
+      "sha256",
+      "source_date",
+      "sources",
+      "version"
+    ],
+    "license_or_copyright_fields": [],
+    "historical_sources": [
+      {
+        "archive": "ai-workflow-kit.zip",
+        "version": "2.5.0",
+        "sha256": "c8350ee1b96b3add5cee244cae730d58d30e252324f24db63d5ac8bac9c933d8",
+        "entry_count": 59,
+        "entry_keys": [
+          "bytes",
+          "path",
+          "sha256"
+        ],
+        "archive_available_at_workspace_root": false,
+        "authorization": "NOT_ASSERTED_BY_HASHES"
+      },
+      {
+        "archive": "ai-workflow-kit_1.zip",
+        "version": "2.6.0",
+        "sha256": "8873c09377ca2dd83a49c00d94abc395ab1bbe84958a5c30f6ccae358941e365",
+        "entry_count": 67,
+        "entry_keys": [
+          "bytes",
+          "path",
+          "sha256"
+        ],
+        "archive_available_at_workspace_root": false,
+        "authorization": "NOT_ASSERTED_BY_HASHES"
+      }
+    ],
+    "base_release": {
+      "archive": "ai-workflow-kit-v3.0.0.zip",
+      "sha256": "97511769c958031664ddca8cfb04aaca7ab065405b16dd0596ed8bd66eb281cb",
+      "version": "3.0.0",
+      "archive_available_at_workspace_root": false
+    },
+    "current_version": "4.0.0",
+    "source_date_is_inherited_claim": "2026-10-27",
+    "rights_holder_identity": "UNKNOWN",
+    "copy_or_distribution_authorization": "NOT_FOUND"
+  },
+  "path_observations": {
+    "all_ascii": true,
+    "casefold_nfc_collisions": [],
+    "hardlinked_files": [],
+    "unknown_or_invalid_link_count_files": [],
+    "reparse_files": [],
+    "os_adversarial_safety_verified": false,
+    "all_ntfs_streams_audited": false,
+    "observation_scope": "current static source default-stream bytes and direct lstat metadata"
+  },
+  "admission": {
+    "kit_source_copy": "BLOCKED",
+    "kit_templates_tests_prompt_text_copy": "BLOCKED",
+    "kit_distribution_or_modified_source_distribution": "BLOCKED",
+    "add_kit_license_or_assume_user_copyright": "NOT_AUTHORIZED",
+    "independent_behavior_implementation": "ALLOWED_WITH_SEPARATE_ACTUAL_CANDIDATE_REVIEW",
+    "legal_clean_room_claim": "NOT_MADE",
+    "private_evidence_retention": "ORIGINAL_EVIDENCE_ONLY; not a redistribution grant"
+  },
+  "remediation_requirements": [
+    {
+      "route": "verified-rights-holder-grant",
+      "required": [
+        "authenticated grantor and authority",
+        "scope tied to files/version/SHA256",
+        "permitted copy/modify/distribution uses",
+        "historical merged rights chain",
+        "required license/notice preservation"
+      ],
+      "status": "NO_NEW_EVIDENCE"
+    },
+    {
+      "route": "verified-existing-license",
+      "required": [
+        "exact upstream release identity",
+        "license and nested exceptions text",
+        "mapping to local file bytes",
+        "copyright and notice coverage"
+      ],
+      "status": "NO_NEW_EVIDENCE"
+    },
+    {
+      "route": "independent-implementation",
+      "required": [
+        "new independent source expression",
+        "own specification and synthetic tests",
+        "actual candidate source/asset provenance ledger",
+        "no imported unlicensed Kit expression"
+      ],
+      "status": "DESIGN_READY_AWAITING_ROOT_ADMISSION"
+    }
+  ],
+  "m1_integrity_contract": {
+    "schema": "agentnexus/package/1",
+    "profile": "portable-ascii-v1",
+    "manifest_exact_relative_path": "manifest.json",
+    "manifest_self_exceptions": [
+      "manifest.json"
+    ],
+    "basename_or_glob_exception": false,
+    "top_level_keys": [
+      "files",
+      "profile",
+      "schema"
+    ],
+    "entry_keys": [
+      "bytes",
+      "path",
+      "sha256"
+    ],
+    "digest": "sha256 lowercase 64hex",
+    "bytes": "nonnegative safe integer within trusted budget",
+    "canonical_encoding": "recursive object keys sorted by JS sort, arrays preserved; JSON.stringify no whitespace + exactly one LF; UTF-8 without BOM",
+    "reject_duplicate_json_keys": "raw complete bytes must equal canonical re-encoding after strict schema validation",
+    "files_sort": "path JS codepoint ascending and unique full relative paths",
+    "bidirectional_rule": "actual_files minus exact manifest.json == manifest.files paths; actual dirs == listed parent dirs",
+    "nested_manifest_and_SHA256SUMS": "ordinary files, must be covered",
+    "path_profile": "ASCII allowlist components; no traversal/absolute/UNC/drive/device/ADS/backslash/control/space/trailing-dot/short-alias/Unicode; reject case and component collisions",
+    "link_rule": "reject symlink/junction/all reparse tags/nonregular/multilink; unknown metadata cannot PASS",
+    "statuses": [
+      "PASS",
+      "FAIL",
+      "NOT_RUN",
+      "INCONCLUSIVE",
+      "BLOCKED",
+      "BYPASSED"
+    ],
+    "controlled_static": "PASS only under Host-controlled exclusive quiescent staging fact and same-version consumption; not self-attested trust",
+    "mutable": "INCONCLUSIVE/TOCTOU_NOT_CLOSED even if all hashes match",
+    "strong_untrusted_mutable_or_distribution_boundary": "BLOCKED pending OS snapshot/identity/handle boundary and actual tests",
+    "implementation_state": "NOT_IMPLEMENTED_BY_THIS_SUBTASK",
+    "budget_state": "initial design upper bounds are proposals; final M1 constants must be recorded alongside actual tests"
+  },
+  "m1_actual_supply_chain_closure": {
+    "status": "PENDING_ACTUAL_M1_CANDIDATE; NOT_CLAIMED_COMPLETE",
+    "scope": "all actually introduced M1 source/test/fixture/config/schema/assets/generated/build/install/package files and all runtime/development/packaging dependency edges",
+    "zero_npm_runtime_target": true,
+    "third_party_product_source_import_target": 0,
+    "kit_in_product_candidate": false,
+    "rules": [
+      "file-level provenance and exact SHA256",
+      "actual artifact/lock version, full license/notice and nested exceptions for any third-party addition",
+      "transitive and native closure for any actual introduced dependency",
+      "generator/template provenance for generated output",
+      "candidate change invalidates previous closure",
+      "no new public project license or user copyright inferred",
+      "no new dependency silently introduced to satisfy OS boundary"
+    ],
+    "independent_new_source_record": "record independent authorship/provenance; distribution license choice belongs to an authorized decision, not assumed by this audit",
+    "external_tools": [
+      {
+        "tool": "Node",
+        "version": "24.15.0",
+        "exe": "D:\\Nodejs\\node.exe",
+        "bundled_or_copied": false,
+        "npm_installs": 0,
+        "api_probe_only": true,
+        "entire_distribution_license_closure": "NOT_PERFORMED",
+        "runtime_redistribution_admission": "BLOCKED"
+      },
+      {
+        "tool": "Python",
+        "version": "3.12.10",
+        "purpose": "optional external trusted read-only probe",
+        "bundled_or_copied": false,
+        "redistribution_license_closure": "OUT_OF_LOCAL_SOURCE_CANDIDATE_SCOPE; not claimed complete"
+      },
+      {
+        "tool": "PowerShell",
+        "version": "7.6.9",
+        "purpose": "optional external trusted read-only probe",
+        "bundled_or_copied": false,
+        "redistribution_license_closure": "OUT_OF_LOCAL_SOURCE_CANDIDATE_SCOPE; not claimed complete"
+      }
+    ],
+    "node_native_third_party_components": "external Node includes embedded third-party components; zero npm does not close whole Node distribution license obligations"
+  },
+  "local_node_probe": {
+    "exe": "D:\\Nodejs\\node.exe",
+    "exit_code": 0,
+    "result": {
+      "node": "v24.15.0",
+      "platform": "win32",
+      "arch": "x64",
+      "noFollowSupported": false,
+      "nlink": "1",
+      "statsKeys": [
+        "dev",
+        "mode",
+        "nlink",
+        "uid",
+        "gid",
+        "rdev",
+        "blksize",
+        "ino",
+        "size",
+        "blocks",
+        "atimeMs",
+        "mtimeMs",
+        "ctimeMs",
+        "birthtimeMs",
+        "atimeNs",
+        "mtimeNs",
+        "ctimeNs",
+        "birthtimeNs"
+      ],
+      "versions": {
+        "node": "24.15.0",
+        "acorn": "8.16.0",
+        "ada": "3.4.4",
+        "amaro": "1.1.8",
+        "ares": "1.34.6",
+        "brotli": "1.2.0",
+        "cldr": "48.0",
+        "icu": "78.2",
+        "llhttp": "9.3.1",
+        "merve": "1.2.2",
+        "modules": "137",
+        "napi": "10",
+        "nbytes": "0.1.3",
+        "ncrypto": "0.0.1",
+        "nghttp2": "1.68.0",
+        "openssl": "3.5.5",
+        "simdjson": "4.5.0",
+        "simdutf": "6.4.0",
+        "sqlite": "3.51.3",
+        "tz": "2026a",
+        "undici": "7.24.4",
+        "unicode": "17.0",
+        "uv": "1.51.0",
+        "uvwasi": "0.0.23",
+        "v8": "13.6.233.17-node.48",
+        "zlib": "1.3.1-e00f703",
+        "zstd": "1.5.7"
+      },
+      "release": {
+        "name": "node",
+        "lts": "Krypton",
+        "sourceUrl": "https://nodejs.org/download/release/v24.15.0/node-v24.15.0.tar.gz",
+        "headersUrl": "https://nodejs.org/download/release/v24.15.0/node-v24.15.0-headers.tar.gz",
+        "libUrl": "https://nodejs.org/download/release/v24.15.0/win-x64/node.lib"
+      }
+    },
+    "scope": "API metadata only; Node binary/distribution license closure NOT_PERFORMED; no runtime or package copied"
+  },
+  "negative_matrix": [
+    {
+      "id": "INT-01",
+      "case": "positive-empty-binary-multilevel",
+      "expected": "controlled_static PASS limited to stated preconditions; mutable INCONCLUSIVE",
+      "state": "PLANNED_NOT_RUN_IN_THIS_SUBTASK"
+    },
+    {
+      "id": "INT-02",
+      "case": "bytes-or-hash-mutated",
+      "expected": "FAIL",
+      "state": "PLANNED_NOT_RUN_IN_THIS_SUBTASK"
+    },
+    {
+      "id": "INT-03",
+      "case": "actual-vs-manifest-missing-unlisted",
+      "expected": "FAIL",
+      "state": "PLANNED_NOT_RUN_IN_THIS_SUBTASK"
+    },
+    {
+      "id": "INT-04",
+      "case": "nested-manifest-and-SHA256SUMS",
+      "expected": "FAIL if unlisted; ordinary covered file if listed",
+      "state": "PLANNED_NOT_RUN_IN_THIS_SUBTASK"
+    },
+    {
+      "id": "INT-05",
+      "case": "manifest-missing-linked-or-listed-self",
+      "expected": "FAIL",
+      "state": "PLANNED_NOT_RUN_IN_THIS_SUBTASK"
+    },
+    {
+      "id": "INT-06",
+      "case": "duplicate-full-path",
+      "expected": "FAIL",
+      "state": "PLANNED_NOT_RUN_IN_THIS_SUBTASK"
+    },
+    {
+      "id": "INT-07",
+      "case": "duplicate-json-key-schema-type-unknown-field",
+      "expected": "FAIL",
+      "state": "PLANNED_NOT_RUN_IN_THIS_SUBTASK"
+    },
+    {
+      "id": "INT-08",
+      "case": "noncanonical-bytes-utf8-bom-whitespace-escape",
+      "expected": "FAIL",
+      "state": "PLANNED_NOT_RUN_IN_THIS_SUBTASK"
+    },
+    {
+      "id": "INT-09",
+      "case": "invalid-sha-and-unsafe-size",
+      "expected": "FAIL",
+      "state": "PLANNED_NOT_RUN_IN_THIS_SUBTASK"
+    },
+    {
+      "id": "INT-10",
+      "case": "absolute-parent-UNC-drive-separator-escape",
+      "expected": "FAIL before target read",
+      "state": "PLANNED_NOT_RUN_IN_THIS_SUBTASK"
+    },
+    {
+      "id": "INT-11",
+      "case": "device-ADS-trailing-dot-space-short-alias",
+      "expected": "FAIL",
+      "state": "PLANNED_NOT_RUN_IN_THIS_SUBTASK"
+    },
+    {
+      "id": "INT-12",
+      "case": "case-and-directory-component-collisions",
+      "expected": "FAIL",
+      "state": "PLANNED_NOT_RUN_IN_THIS_SUBTASK"
+    },
+    {
+      "id": "INT-13",
+      "case": "unicode-nfc-nfd-and-case",
+      "expected": "FAIL under portable-ascii-v1",
+      "state": "PLANNED_NOT_RUN_IN_THIS_SUBTASK"
+    },
+    {
+      "id": "INT-14",
+      "case": "file-dir-prefix-extra-empty-dir-inaccessible-dir",
+      "expected": "FAIL",
+      "state": "PLANNED_NOT_RUN_IN_THIS_SUBTASK"
+    },
+    {
+      "id": "INT-15",
+      "case": "symlink-junction-other-reparse",
+      "expected": "reject; real OS fixture unavailable => NOT_RUN",
+      "state": "PLANNED_NOT_RUN_IN_THIS_SUBTASK"
+    },
+    {
+      "id": "INT-16",
+      "case": "hardlink-and-unknown-link-count",
+      "expected": "multi-link FAIL; unavailable identity INCONCLUSIVE; no simulated OS PASS",
+      "state": "PLANNED_NOT_RUN_IN_THIS_SUBTASK"
+    },
+    {
+      "id": "INT-17",
+      "case": "nonregular-ADS-cross-device-network",
+      "expected": "reject; insufficient OS evidence INCONCLUSIVE/BLOCKED",
+      "state": "PLANNED_NOT_RUN_IN_THIS_SUBTASK"
+    },
+    {
+      "id": "INT-18",
+      "case": "file-directory-read-and-consume-races",
+      "expected": "detected change FAIL; mutable INCONCLUSIVE regardless matching hashes",
+      "state": "PLANNED_NOT_RUN_IN_THIS_SUBTASK"
+    },
+    {
+      "id": "INT-19",
+      "case": "attacker-rewrites-manifest-and-content",
+      "expected": "internal consistency is insufficient; external trusted manifest version required",
+      "state": "PLANNED_NOT_RUN_IN_THIS_SUBTASK"
+    },
+    {
+      "id": "INT-20",
+      "case": "all-budget-boundaries",
+      "expected": "over limit INCONCLUSIVE and bounded cleanup",
+      "state": "PLANNED_NOT_RUN_IN_THIS_SUBTASK"
+    },
+    {
+      "id": "INT-21",
+      "case": "cancel-error-worker-termination",
+      "expected": "no PASS; cleanup evidence",
+      "state": "PLANNED_NOT_RUN_IN_THIS_SUBTASK"
+    },
+    {
+      "id": "INT-22",
+      "case": "malicious-content-sentinel",
+      "expected": "never import/eval/execute; integrity is not malware proof",
+      "state": "PLANNED_NOT_RUN_IN_THIS_SUBTASK"
+    },
+    {
+      "id": "INT-23",
+      "case": "matching-unlicensed-Kit-file",
+      "expected": "license admission remains BLOCKED",
+      "state": "PLANNED_NOT_RUN_IN_THIS_SUBTASK"
+    }
+  ],
+  "technical_primary_sources": [
+    {
+      "id": "node-fs-24.15.0",
+      "url": "https://nodejs.org/download/release/v24.15.0/docs/api/fs.html",
+      "supports": "Windows open flags, lstat/fstat and file identity; API boundary only",
+      "checked_utc": "2026-11-06T16:49:22.842811+00:00",
+      "not_kit_authorization_evidence": true
+    },
+    {
+      "id": "windows-path-names",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/fileio/naming-a-file",
+      "supports": "Windows alias/reserved path constraints",
+      "checked_utc": "2026-11-06T16:49:22.842811+00:00",
+      "not_kit_authorization_evidence": true
+    },
+    {
+      "id": "python-windows-stat",
+      "url": "https://docs.python.org/3.12/library/os.html#os.stat_result",
+      "supports": "Direct Windows stat attributes and reparse tag; no TOCTOU guarantee",
+      "checked_utc": "2026-11-06T16:49:22.842811+00:00",
+      "not_kit_authorization_evidence": true
+    },
+    {
+      "id": "windows-links",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/fileio/hard-links-and-junctions",
+      "supports": "Hard link object aliasing",
+      "checked_utc": "2026-11-06T16:49:22.842811+00:00",
+      "not_kit_authorization_evidence": true
+    },
+    {
+      "id": "windows-createfile",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/fileapi/nf-fileapi-createfilew",
+      "supports": "Open reparse and sharing behavior; not a complete boundary",
+      "checked_utc": "2026-11-06T16:49:22.842811+00:00",
+      "not_kit_authorization_evidence": true
+    },
+    {
+      "id": "windows-file-identity",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/fileapi/ns-fileapi-by_handle_file_information",
+      "supports": "Handle attributes, link count and file identity",
+      "checked_utc": "2026-11-06T16:49:22.842811+00:00",
+      "not_kit_authorization_evidence": true
+    }
+  ],
+  "evidence": {
+    "architecture": "architecture/workflow_license_remediation.md",
+    "raw": ".workflow-kit/runtime/AgentNexus-v0.4-M0.1/integrity/recheck_evidence.json",
+    "probe": ".workflow-kit/runtime/AgentNexus-v0.4-M0.1/integrity/recheck.py",
+    "preservation_before": ".workflow-kit/runtime/AgentNexus-v0.4-M0.1/integrity/preservation_before.json",
+    "preservation_after": ".workflow-kit/runtime/AgentNexus-v0.4-M0.1/integrity/preservation_after.json",
+    "protected_file_count": 11784,
+    "protected_bytes": 469866383,
+    "protection_scope": "complete M0 task/runtime trees, original installed Kit and input ZIPs, active AGENTS/policy",
+    "protection_after_check": "PASS",
+    "protection_after_all_preserved": true,
+    "protection_after_difference": {
+      "added": [],
+      "removed": [],
+      "changed": []
+    },
+    "validation": {
+      "json_and_105_file_closure": "PASS",
+      "canonical_manifest_exception_contract": "PASS",
+      "six_state_contract": "PASS",
+      "23_planned_case_ids": "PASS",
+      "probe_ast": "PASS",
+      "document_local_links": "PASS",
+      "governance_check": "PASS",
+      "M1_product_tests": "NOT_RUN; this subtask only supplies design"
+    },
+    "sha256": {
+      ".workflow-kit/tasks/AgentNexus-v0.4-M0.1/architecture/workflow_license_remediation.md": "8e31ca6fcae1f3d0e0ecd90a30d65a8db701ed4b58102aabeaaf8af68b4ea33d",
+      ".workflow-kit/runtime/AgentNexus-v0.4-M0.1/integrity/recheck.py": "d4c085ba27c964e23cb2ab83a148fc3c6266d95b64d694d036503f9f1e1c14cc",
+      ".workflow-kit/runtime/AgentNexus-v0.4-M0.1/integrity/recheck_evidence.json": "6f9f60cf25ceeb247b3dffc5168528adcb341059d615ee02ae8fcfe88ead708d",
+      ".workflow-kit/runtime/AgentNexus-v0.4-M0.1/integrity/preservation_before.json": "969cf8bc014eb85a8a5b9f54a74d3321898aec670928433df9c211c0f00a9d62",
+      ".workflow-kit/runtime/AgentNexus-v0.4-M0.1/integrity/preservation_after.json": "766bd762fd100900dbe95ee6c131cef091687ac00ec033fc64ba3bff60eeacb7"
+    }
+  },
+  "files": [
+    {
+      "path": ".gitignore",
+      "bytes": 52,
+      "sha256": "fe70f401e980b3084c945b411cad5b584d13cd44a23507c262ad3c4080c5f83e",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "bytes": 3377,
+      "sha256": "e0130c9d3bdf9aa15511c3de24f7af06af7b382bee843274632edcd27b33e767",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "CHEATSHEET.md",
+      "bytes": 1515,
+      "sha256": "380b837ae9322d0ec6b6274886f809a35b74e926632d6abe521942dbd4a9e7e7",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "MERGE-NOTES.md",
+      "bytes": 1924,
+      "sha256": "b73b38cb179d30a99802cc7f634f37dc3c6e3943a20b01da2d04a4b1165c46fd",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "README.md",
+      "bytes": 4149,
+      "sha256": "0eb64535a200b6c14366a5305867705eb35d052c5f35fd837609d71683159505",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "SHA256SUMS.txt",
+      "bytes": 9699,
+      "sha256": "fbe67dfbd725b175b5a20e2d43d5fc88459d6e727e8c7de206a12acea9871ef0",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "SOURCES.json",
+      "bytes": 24162,
+      "sha256": "33514534a4a66372a572e912a05fafe37154fae54e59453a9e3360386b00519d",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "START-HERE.md",
+      "bytes": 3743,
+      "sha256": "f6e7c4b0f29b2093b829054f183b5de3e11b3522825135a722577737503df9be",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "VALIDATION.md",
+      "bytes": 5041,
+      "sha256": "e598af3e7428568614d164f462769d45d1708bf292be9f4e48bc2d1de8e829a5",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "VERSION",
+      "bytes": 7,
+      "sha256": "fd74ec08ccc3f3a67b174c72d055c4ca09326d3d63156c7c36cc7a6309868774",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "examples/GOAL.example.md",
+      "bytes": 1144,
+      "sha256": "5a0301dc1e8001e34ba52c453ce3e70948e9dc1987315ab532bc8907d7447597",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "examples/README.md",
+      "bytes": 363,
+      "sha256": "4e043268e20b4b0b8d7bc701511e69908ddf3a4824aaa812faae753766b5b5c4",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "examples/checkpoint.example.md",
+      "bytes": 557,
+      "sha256": "25a7938e459cbc286e594aa38d85659806811ac7fc5d02366a8a1265fcb6d7f9",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "examples/subtask.example.md",
+      "bytes": 802,
+      "sha256": "f16cf9dce791c53d797772093d4c714244db70e26b009382f0f35083b72ad226",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "examples/task-contract.example.md",
+      "bytes": 686,
+      "sha256": "1277377ab9487235a0edcc0cccc58db3bfa9f9539a89f3b4f5c25cf291dd7387",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "install.bat",
+      "bytes": 308,
+      "sha256": "d46d2990e0ded597dad731b56b87973a41d2844cbd12067a3cbc39717d40f02e",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "install/AGENTS.md",
+      "bytes": 2491,
+      "sha256": "02f12542503340c2c337d711368e8197b6da05a92374a48e2e6da487cd58aef8",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "install/agents/reviewer.md",
+      "bytes": 692,
+      "sha256": "90ce50f6c958c3f5e576b0a5cb0d8f983c41270172bf7667d0add5d69bde55cf",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "install/agents/scout.md",
+      "bytes": 372,
+      "sha256": "42f0fc34c294eb835543e3fb4b031a2ba13edc9edb5fbf3c0442df7bfb8b08aa",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "install/agents/verifier.md",
+      "bytes": 442,
+      "sha256": "7ab64027a5822c4903c5bd75f314e5f92bda42e9d9ecd056a3e394b1f553262b",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "install/agents/worker.md",
+      "bytes": 446,
+      "sha256": "4d2a9355a00f7a1a19d721c54e3ca25b6a9896ca7587089cb434c1cd94597a5c",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "install/project-rules/README.md",
+      "bytes": 828,
+      "sha256": "80c73527ba46c798c16bf55142bac9e76c86b5a0a8d6bd0f18ce85ceee16ce68",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "project-workflows/README.md",
+      "bytes": 1027,
+      "sha256": "1f12071a31eca68714381c3f543ff46ba81b20acd5c951e2eb68aee0f6bc9b21",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "project-workflows/_template/README.md",
+      "bytes": 1085,
+      "sha256": "f089a2de56e3d8600110d3432f574326a92624dd3a2bac21ee695e6b154cd196",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "reference/INDEX.md",
+      "bytes": 2125,
+      "sha256": "e9d00d72d2fd509be071d45f7c3ca5f0d67604de17fcc403391f22f19e55ddf8",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "reference/capabilities.md",
+      "bytes": 1836,
+      "sha256": "5f68828415fd24e642c560b8a59eb4cb4d86cca10aabcc23e86630b6115ef68f",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "reference/checklists/gates.md",
+      "bytes": 1075,
+      "sha256": "1746dec68c37a38cef437518e5c450eb2535cf8747056ba76196e048b65d7ab4",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "reference/checklists/measurement.md",
+      "bytes": 857,
+      "sha256": "750e73b3f4982bf9e9e2822ab64b4350f7a8b24b2dee86f2e6958513c5e923bf",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "reference/checklists/protocol.md",
+      "bytes": 1056,
+      "sha256": "0d7c8320e7094333b228c22ffcb18d141cf369396e10e676c2a16ab795b521e9",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "reference/checklists/regression.md",
+      "bytes": 1705,
+      "sha256": "7e119465347b69e2b7d3b9d08c930313d0a0bedb6f09e1c41bf86280b296c4d2",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "reference/context.md",
+      "bytes": 2343,
+      "sha256": "fe3a28bdbbe22119ad31a84915780c07ed714896d2f9bee823693b9d9267d72f",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "reference/decisions.md",
+      "bytes": 2080,
+      "sha256": "09b62e3ba1f65347d7cbf4c16c72eaed1acb2e5fb3105a5a1bbf8337c77826da",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "reference/evidence.md",
+      "bytes": 1938,
+      "sha256": "22b47365f28fab82c5805c5754ccde2f71fc1e3cc602b0df17deed4d92b3a12f",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "reference/feasibility.md",
+      "bytes": 4443,
+      "sha256": "0ec40580c3c41757a01254bce78bb9828414601dc9febae96ab53ca729d99bab",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "reference/governance.md",
+      "bytes": 5002,
+      "sha256": "bfa6599640a0cd81f9fbfebe6a0f59d2a8b2b07411fb0186b02f1ddeccd20e37",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "reference/project-rules.md",
+      "bytes": 4503,
+      "sha256": "47a78c405e3986ae98e801c6e0f940f9267f165d730ab0362f288aeddfd33079",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "reference/routing.md",
+      "bytes": 4674,
+      "sha256": "3d52863dfef70370db8c3604c68c9db8cf8561468833704a4ce9b506a0ff7397",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "reference/safety.md",
+      "bytes": 2733,
+      "sha256": "d225764bfea03682da204fd86f79f3a0748cd37888bb3a3243453e8771d40694",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "reference/strict-review.md",
+      "bytes": 2811,
+      "sha256": "335aab6565b163eba1a356ecf50d74595d392112e8d7fc98b5889903f607d736",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "reference/templates/FREEZE.md",
+      "bytes": 481,
+      "sha256": "b8c1173b7e3e7cdc46875b070482919873288fc1dd7771e00b88de7da5233bc6",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "reference/templates/GOAL.md",
+      "bytes": 1021,
+      "sha256": "565a62ad0309dad7aaef106c9f93693f5637f88e95167305f38849d8e0f2af81",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "reference/templates/artifact-delivery.md",
+      "bytes": 619,
+      "sha256": "6ada2c3de893cdbec4550e9f07fa0645eb5fdc3dd615d676f6e1cad7fa9fade6",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "reference/templates/checkpoint.md",
+      "bytes": 470,
+      "sha256": "305a0e10833dd42c86b08a31a3525af3774592c3f71e049074ceb24fce7e850d",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "reference/templates/closeout.md",
+      "bytes": 500,
+      "sha256": "e2cc37eebd7f90fe6edd8112bf60306c856d60dbb5527b4c9e53625c0a7eb7b5",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "reference/templates/commands-registry.md",
+      "bytes": 464,
+      "sha256": "a42d1d516778200046d7daee7c9a5f175ad91f379af02d74f514a5ea1531ef59",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "reference/templates/decision-log.md",
+      "bytes": 533,
+      "sha256": "c96c0ed0a8b0eecc22bdccd311c819e099ebdb6f67c622e7dfbe32f9677cdfe2",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "reference/templates/design-brief.md",
+      "bytes": 810,
+      "sha256": "dbacc8779ef166c060687ff5b58fe6356ac467c5dfa4891291e3f6c17d7d2deb",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "reference/templates/document-entry.md",
+      "bytes": 800,
+      "sha256": "7a03c2dbe7c8c42d87443ec79ae21d8d2ec20895b7eb1f6a8e12ecb6bbb73e8a",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "reference/templates/experiment-plan.md",
+      "bytes": 513,
+      "sha256": "ed565a39c3ff6dc98d85b5cfa700d0e9d67eaff2e2c8fa5b2b44892a14119367",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "reference/templates/knowledge-entry.md",
+      "bytes": 446,
+      "sha256": "1d36dc746fd926322c2c6af2bad6994488fbd22c483ba60d5a0a9025d38bf904",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "reference/templates/strict-review-record.md",
+      "bytes": 857,
+      "sha256": "a9f81bd5409531539ad493fb00c6fc1872c325c433d25c5e0b696c2f6ade3488",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "reference/templates/subtask.md",
+      "bytes": 1104,
+      "sha256": "96dbcb9f971c084b8b8871d81771ccf888865010e7308812d758742d86762aa3",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "reference/templates/task-contract.md",
+      "bytes": 619,
+      "sha256": "02a9ca7ff8976f49c54e37ecbc448cb51b6c6b70f2c596c4811f65ced4782be5",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "reference/templates/token-ledger.md",
+      "bytes": 615,
+      "sha256": "9f15d5d0110a8091f2a743e7d8b7243d42ba838c0de756c1a3a3b841c4ea8725",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "reference/verification.md",
+      "bytes": 1810,
+      "sha256": "404a31a173706311c74f3e9c7a2c068a2bf4c026b274ff345d0f723374fa0376",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "reference/workflow.md",
+      "bytes": 4519,
+      "sha256": "e353e4f52fefb47850aa085134790d4952af1649905d6f993682c73bbeac7196",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "tests/test_check_task.py",
+      "bytes": 4807,
+      "sha256": "c298932320ecf2ceb65775ccbfbaef99558e57620634115bf97be969b1da68a7",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "tests/test_govern.py",
+      "bytes": 12804,
+      "sha256": "562f9bef8946a17c4faa539a068442d531ff795fd3a0137b76226be544e6ab03",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "tests/test_lean_modes.py",
+      "bytes": 11806,
+      "sha256": "df4d838de9b2577acaef12e63a7963aeb788f8389252b66fb397916a6c902f62",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "tests/test_manage.py",
+      "bytes": 21054,
+      "sha256": "59cd1904385d5b1fe0d653d05876ecf8ee8d620bdbf97579b2d4a0335368f74f",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "tests/test_project_rules.py",
+      "bytes": 23806,
+      "sha256": "38ad1f160a65b8ec55a8028db2bc05c934561bbcc81a88ba1e072a4cb790a2cf",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "tests/test_review.py",
+      "bytes": 5978,
+      "sha256": "601136e5092a636851858155505b193a931595eb93874bfde5e4a42cc7a07700",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "tools/check-kit.py",
+      "bytes": 6918,
+      "sha256": "4e66b0ee427be16f41f087ca8a9521889eade9ff17803dc885f8ce7d1872a47a",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "tools/check-review.py",
+      "bytes": 6287,
+      "sha256": "5a7d0187534db06070b52e00a00148c74746725fc891a800cb10847bd13557b0",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "tools/check-task.py",
+      "bytes": 8487,
+      "sha256": "73a026a4038f4e55b717198f7761aadefc89d247cc075919049a1c512baf0909",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "tools/govern.py",
+      "bytes": 47383,
+      "sha256": "ef1d398ba503333bf04e269ba97788252d95c84f667acab460d5e90dc64edfc1",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "tools/install.ps1",
+      "bytes": 291,
+      "sha256": "b709c53facbee0d5cb413649fcf48be94035180414a4809ca77ec19c3b5221f5",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "tools/install.sh",
+      "bytes": 93,
+      "sha256": "be63b78642dbbe9989dda4d14b1467021b6bb2cb61af42e9d8ecc565e90dff79",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "tools/manage.py",
+      "bytes": 29569,
+      "sha256": "2e8dd351bbd34d7c121f5bae0dc7571f3432c16fce267c580f6006936ce989c5",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "tools/release.py",
+      "bytes": 2625,
+      "sha256": "ea69b73191132d744c355c8966ef35bd7d5c280fb58ea4ec1a2700be03851581",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "tools/uninstall.ps1",
+      "bytes": 293,
+      "sha256": "6c514fff15ae8e62f2e2118ce722025cd1397ea59ed4ee8ba5ffb0d9dc6312ec",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "tools/uninstall.sh",
+      "bytes": 95,
+      "sha256": "16082ab75e1bff4b0ecfb66fa84704c1cf271f5e506070ea71fe95fe057a0d8d",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "uninstall.bat",
+      "bytes": 312,
+      "sha256": "1fa2d18e3fd6e7d97eabbd00f8a014c31f4fd07ec431a445846e2ae55681f340",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "validation/bash-syntax.txt",
+      "bytes": 100,
+      "sha256": "e7e85a1d98cf4b5e5ddb9cc6de359679f9cba768220ac55186007dd4417841c9",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "validation/examples.txt",
+      "bytes": 309,
+      "sha256": "636e54b3330b184a11549710a887bb01edc027ca293546f8c0b9e7aa5bd10480",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "validation/final-acceptance.txt",
+      "bytes": 1719,
+      "sha256": "deee88d651c94ecd387c2b32031534db7f16ca250b3d992237e1f2c09c311669",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "validation/package-check.txt",
+      "bytes": 37,
+      "sha256": "1238bbb04970e65401502d000a9ef18f4fc63c66e4a3e255c579baa6db4bddb5",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "validation/package-negative.txt",
+      "bytes": 186,
+      "sha256": "e093250b7a86d4ec1f7279e65fe27453ce94c584ab27a71270245945b70f512e",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "validation/results.json",
+      "bytes": 527,
+      "sha256": "1effe505db359ce55993c1e0f078f3f0829b98892c2ae9137f9127217e9da0f4",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "validation/review-fingerprints.txt",
+      "bytes": 97,
+      "sha256": "8a2f1843ddc85ce947daf0b738fe4f80b735597e6504cbe947a3b805daab61fc",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "validation/review.txt",
+      "bytes": 8733,
+      "sha256": "62707be7e4a4544574f9bf448aa0c7078f92b26374aa91681af3b68a2616f60c",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "validation/source-integrity.txt",
+      "bytes": 315,
+      "sha256": "e86b396501b4257195641abd8d1e01ede1f08b8f42ee35eded81fa74582d10a7",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "validation/syntax.txt",
+      "bytes": 34,
+      "sha256": "c339efe4c444cc4703ef18447d71f39ae73ad92d9fa09bd0d76cd964b85ab028",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "validation/unittest.txt",
+      "bytes": 14818,
+      "sha256": "c64123410f9f33224e5c8b18c3274cffbfa58d83ec70dcbf35dfbd614c632d33",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "validation/v3.0.0/bash-syntax.txt",
+      "bytes": 18,
+      "sha256": "c3807c177e5d1a7d1524ec4d1176e369ae71aca9361da7363c762cdc8e04d0a6",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "validation/v3.0.0/bat-error-code.txt",
+      "bytes": 160,
+      "sha256": "912c9d732201442ed9069c51bd509450d75eaf6b14fce82f508db35107779bcc",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "validation/v3.0.0/bat-install.txt",
+      "bytes": 467,
+      "sha256": "022872bf956f07cfc4e6d0ccca566f3167ea257d92104fc600cfacac2a4aa241",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "validation/v3.0.0/bat-uninstall.txt",
+      "bytes": 200,
+      "sha256": "58e8602be654fbe278094cc8dcf35820cad41a6e418a218cb9dbef27dfae91fb",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "validation/v3.0.0/bat-verify.txt",
+      "bytes": 236,
+      "sha256": "bafe3b6cf097444320d1328b890c7b27e7aa43a20cdc1ebf20de2bde275d6cdd",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "validation/v3.0.0/examples.txt",
+      "bytes": 650,
+      "sha256": "2c37ce76968142a81e624b7eec8a52e16e98f56a5d3e4197c1da51e9163eb80d",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "validation/v3.0.0/git-add-negative.txt",
+      "bytes": 103,
+      "sha256": "a497d3607f59cf746ab441bac107af3a7a7d1c8cbb955db9026d69b7dead81fe",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "validation/v3.0.0/git-add.txt",
+      "bytes": 1149,
+      "sha256": "2ff03c557e5342a5d37887ebe453f88c50c158b1c8b2bf956c9189d806cdc7f6",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "validation/v3.0.0/git-clean-negative.txt",
+      "bytes": 143,
+      "sha256": "ca429af59bc92ffa41b86e5d3b68b3d1f2cf6babb045864a50d2fb2bd0cd7411",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "validation/v3.0.0/git-init.txt",
+      "bytes": 198,
+      "sha256": "d7594119685daf4b0d7c28ef9da163b046bbb95612deebdaadeae3350fd50656",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "validation/v3.0.0/git-install.txt",
+      "bytes": 858,
+      "sha256": "2df52f4e50bf448058b028662d214664d39dbcf427235872077ca8f50a187f7c",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "validation/v3.0.0/git-uninstall.txt",
+      "bytes": 268,
+      "sha256": "a3c23a3948fbb0c74aec1268399a23414a3595a3e19fa48533289942d07f509a",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "validation/v3.0.0/local-hook-commit.txt",
+      "bytes": 629,
+      "sha256": "63cfb8776c5b33cca6b90547e16e2321da597f43eff2fd14e3154c2048ac66c0",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "validation/v3.0.0/package-negative.txt",
+      "bytes": 233,
+      "sha256": "81d9e2bea1dc3d746ed9eeb2c8652a432acc6c191231468078423d5bf522c1c8",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "validation/v3.0.0/powershell-install.txt",
+      "bytes": 586,
+      "sha256": "f050a50b140afee5cd96fc3e1ba6fbdf10d989ac129a0186249b6c04f1195300",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "validation/v3.0.0/powershell-uninstall.txt",
+      "bytes": 319,
+      "sha256": "2b0eb60b24aeca3d7b17307e34b455d179b8e937cf0de3b1087f76f1f95ef82f",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "validation/v3.0.0/powershell-verify.txt",
+      "bytes": 243,
+      "sha256": "8347b27fa943dfae523ddb96574b898393e8616ec5732a4c81dc7298242d230f",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "validation/v3.0.0/report.txt",
+      "bytes": 4123,
+      "sha256": "431c23c4a8094f3f1effcc3aee631ec922410e44ef29367c9b9a1cbe4b54a500",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "validation/v3.0.0/results.json",
+      "bytes": 1929,
+      "sha256": "1caa0891669b97d37e904501eb7b7e12c16cba282ab347ecf962d779f9861280",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "validation/v3.0.0/unittest.txt",
+      "bytes": 7439,
+      "sha256": "e1258b4e7189b2042862298887ae35a5059c42d20a5dbc65e5ae3efacbb574f7",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    },
+    {
+      "path": "validation/wrappers.txt",
+      "bytes": 1436,
+      "sha256": "4173bb4e6c48e96bc999c9db6b496d8c952ce8521436afc60f2f760b2627ea1c",
+      "license_expression": "NOASSERTION",
+      "authorization_evidence": "NOT_FOUND_IN_PROVIDED_PACKAGE",
+      "copy_distribution_admission": "BLOCKED"
+    }
+  ],
+  "limits": [
+    "absence of local license markers does not adjudicate ownership or every possible external grant",
+    "hash agreement proves bytes, not source authentication, absence of malware, or copyright permission",
+    "Node-only Windows lstat/realpath checks do not close hostile TOCTOU",
+    "simulated link metadata never counts as real OS link verification",
+    "no entire Node/Python/PowerShell distribution license closure asserted"
+  ],
+  "performed_actions": {
+    "source_recheck": true,
+    "governance_new_registration": true,
+    "m1_product_development": false,
+    "kit_install_test_or_release": false,
+    "hook_install": false,
+    "commit_or_push": false,
+    "network_publish": false,
+    "research_project_or_model_execution": false,
+    "key_scan": false,
+    "license_grant_or_copyright_assignment": false
+  },
+  "local_python_probe": {
+    "version": "3.12.10",
+    "path": "SOURCES.json",
+    "direct_lstat": {
+      "nlink": 1,
+      "dev": 2353738567503090934,
+      "ino": 844424931352209,
+      "file_attributes": 32
+    },
+    "direntry_cached_stat": {
+      "nlink": 0,
+      "dev": 0,
+      "ino": 0,
+      "file_attributes": 32
+    },
+    "meaning": "Windows DirEntry cached dev/ino/nlink can be dummy values; direct lstat was used for all 105 source metadata records; neither API closes TOCTOU"
+  }
+}

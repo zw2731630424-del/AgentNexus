@@ -1,0 +1,32 @@
+TAP version 13
+# node:internal/modules/run_main:76
+#   const type = getNearestParentPackageJSONType(mainPath);
+#                ^
+# Error: Invalid package config \\\\?\\I:\\AI_AgentNexus\\package.json.
+#     at shouldUseESMLoader (node:internal/modules/run_main:76:16)
+#     at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:147:20)
+#     at node:internal/main/run_main_module:33:47 {
+#   code: 'ERR_INVALID_PACKAGE_CONFIG'
+# }
+# Node.js v24.15.0
+# Subtest: tests\\agentnexus\\integrity.test.ts
+not ok 1 - tests\\agentnexus\\integrity.test.ts
+  ---
+  duration_ms: 69.6651
+  type: 'test'
+  location: 'I:\\AI_AgentNexus\\tests\\agentnexus\\integrity.test.ts:1:1'
+  failureType: 'testCodeFailure'
+  exitCode: 1
+  signal: ~
+  error: 'test failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+1..1
+# tests 1
+# suites 0
+# pass 0
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 75.8472

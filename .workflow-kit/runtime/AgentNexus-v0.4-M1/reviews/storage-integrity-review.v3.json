@@ -1,0 +1,148 @@
+{
+  "schema": "agentnexus/storage-integrity-review/0.3",
+  "observed_at": "2026-11-06T17:46:56.405Z",
+  "status": "PASS",
+  "scope": "Independent v3 recheck of exactly STOR-REV-01/02/03; source-limited Store behavior, not whole-product/OS/mutable-tree admission.",
+  "reviewer": "diagnostics_m01",
+  "node": "v24.15.0",
+  "platform": "win32",
+  "run_root": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-v0.4-M1\\reviews\\storage-integrity-probe-v3-kDRBBX",
+  "product_or_test_edits": false,
+  "author_test_logs_rerun_or_overwritten": false,
+  "prior_review": {
+    "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-v0.4-M1\\reviews\\storage-integrity-review.json",
+    "sha256": "49d658b1b43597214f460a52fea42c31afd9896d7180271b5f0a2dfe871da797",
+    "unchanged": true,
+    "historical_status": "CHANGES_REQUIRED retained"
+  },
+  "source_snapshot": [
+    {
+      "file": "src/agentnexus/storage.ts",
+      "bytes": 33030,
+      "sha256": "172d0af0556640f6048b74543715841700aaab9938656d7c48298e6f6472ec7d"
+    },
+    {
+      "file": "src/agentnexus/artifacts.ts",
+      "bytes": 15666,
+      "sha256": "f89cd95c7c373e1551d509f82596e54e203f0bb02b2934e1c2108040ef48bc49"
+    },
+    {
+      "file": "src/agentnexus/records.ts",
+      "bytes": 6510,
+      "sha256": "393e0a70a20a4dae21287169d1313bae949842cf0f712bacb3ebf432a5ed7800"
+    },
+    {
+      "file": "src/agentnexus/integrity.ts",
+      "bytes": 18691,
+      "sha256": "172a40c429c9e8a99f8cc1fcee2ef500adb4e7d378f0f6188fbbe7f792edfe66"
+    },
+    {
+      "file": "src/agentnexus/types.ts",
+      "bytes": 6814,
+      "sha256": "101cc13ca1bbb9ec34e7bb8dfdc8360da913829b99458cf3374cc6604fa15d75"
+    }
+  ],
+  "source_changed_during_probes": [],
+  "probes": [
+    {
+      "id": "FLUSH_TARGET_WINDOW",
+      "original_finding": "STOR-REV-01",
+      "root": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-v0.4-M1\\reviews\\storage-integrity-probe-v3-kDRBBX\\flush-target",
+      "target_seq": 1,
+      "exported_after_both_flushes": 1,
+      "pending_after_both_flushes": 0,
+      "physical_raw_lines": 1,
+      "resolved": true,
+      "active_overlap": {
+        "targets": [
+          2,
+          3
+        ],
+        "exported": 3,
+        "pending": 0
+      }
+    },
+    {
+      "id": "STALLED_SOURCE_ABORT",
+      "original_finding": "STOR-REV-02",
+      "root": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-v0.4-M1\\reviews\\storage-integrity-probe-v3-kDRBBX\\blocked-source-abort",
+      "put_150ms_after_abort": "REJECTED",
+      "put_error": 20,
+      "active_store_puts": 0,
+      "store_faulted_before_close": true,
+      "new_put_error": "STORE_FAULTED",
+      "close_before_source_release": "FULFILLED",
+      "close_error": null,
+      "producer_exited_before_release": false,
+      "metadata": [
+        {
+          "artifact_id": "100baec1-316d-42c3-9ebc-edb6b33956f8",
+          "compressed_bytes_observed": 0,
+          "durable_offset": null,
+          "input_bytes_observed": 5,
+          "producer_cleanup": "UNKNOWN",
+          "producer_exit": "NOT_VERIFIED",
+          "reason": 20,
+          "stage": "PARTIAL",
+          "status": "INCOMPLETE",
+          "store_output_closed": true
+        }
+      ],
+      "objects_before_release": [],
+      "elapsed_ms_before_source_release": 164.49,
+      "producer_exited_after_release": true,
+      "partial_sizes_before_release": {
+        "100baec1-316d-42c3-9ebc-edb6b33956f8.part": 0
+      },
+      "partial_sizes_after_release": {
+        "100baec1-316d-42c3-9ebc-edb6b33956f8.part": 0
+      },
+      "objects_after_release": [],
+      "resolved": true,
+      "scope": "PASS for bounded Store-owned pipeline/file cleanup plus truthful UNKNOWN producer state and fail-closed admission. Not proof that an uncontrolled producer exited before source release."
+    },
+    {
+      "id": "CONCURRENT_CLOSE",
+      "original_finding": "STOR-REV-03",
+      "root": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-v0.4-M1\\reviews\\storage-integrity-probe-v3-kDRBBX\\concurrent-close",
+      "same_promise": true,
+      "first_before_release": "PENDING",
+      "second_before_release": "PENDING",
+      "active_puts_before_release": 1,
+      "writer_lock_before_release": true,
+      "first_after_release": "FULFILLED",
+      "second_after_release": "FULFILLED",
+      "active_puts_final": 0,
+      "writer_lock_final": false,
+      "resolved": true
+    }
+  ],
+  "source_fix_locations": [
+    {
+      "finding": "STOR-REV-01",
+      "file": "src/agentnexus/storage.ts",
+      "start_line": 230,
+      "end_line": 246,
+      "behavior": "entry target fence, recheck after joined flush and bounded target scan"
+    },
+    {
+      "finding": "STOR-REV-02",
+      "file": "src/agentnexus/artifacts.ts",
+      "start_line": 95,
+      "end_line": 168,
+      "behavior": "abort races blocked next; Store output closed; incomplete producer UNKNOWN/NOT_VERIFIED; unknown cleanup faults Store admission"
+    },
+    {
+      "finding": "STOR-REV-03",
+      "file": "src/agentnexus/storage.ts",
+      "start_line": 450,
+      "end_line": 472,
+      "behavior": "all close callers receive the same closePromise"
+    }
+  ],
+  "limits": [
+    "Producer execution/OS process-tree exit is not established by aborting the Store pipeline; UNKNOWN cleanup remains explicit.",
+    "No additional OS link/reparse/ADS/mutable tree, hard RSS, hardware power loss, Ubuntu or whole-product tests were performed.",
+    "Original review and author verification.v3.json/tests.v3.tap were not overwritten."
+  ]
+}

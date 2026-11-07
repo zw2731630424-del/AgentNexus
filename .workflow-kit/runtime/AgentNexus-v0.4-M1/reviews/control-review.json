@@ -1,0 +1,857 @@
+{
+  "schema": "agentnexus/m1/control-readonly-review/1",
+  "updated_utc": "2026-11-06T18:04:03.292442+00:00",
+  "status": "PASS",
+  "final_acceptance": "GRANTED_FOR_THIS_REVIEW_SCOPE_ONLY; OS_AND_WHOLE_PRODUCT_NOT_GRANTED",
+  "reviewed_files": [
+    "src/agentnexus/types.ts",
+    "src/agentnexus/control.ts",
+    "src/agentnexus/features.ts",
+    "src/agentnexus/policy.ts",
+    "src/agentnexus/gateway.ts",
+    "src/agentnexus/host.ts"
+  ],
+  "supporting_reads": [
+    "storage query/transaction/flush",
+    "DIE feature gates",
+    "control/gateway tests",
+    "M0/M0.1 internal protocol and audit design"
+  ],
+  "product_files_modified": false,
+  "findings": [
+    {
+      "id": "CTRL-001",
+      "severity": "P2",
+      "title": "INHERIT resolving OFF skipped work draining",
+      "status": "RESOLVED_AND_BOUND_TO_FINAL_CANDIDATE",
+      "locations": [
+        {
+          "path": "src/agentnexus/features.ts",
+          "line": 115,
+          "role": "current related implementation/fix anchor",
+          "sha256": "2a7f4bc603964dcea120b0ba626fc37864588aa0301f2cabe392093a4437a9ce",
+          "last_probed_sha256": "2a7f4bc603964dcea120b0ba626fc37864588aa0301f2cabe392093a4437a9ce",
+          "current_sha256_at_update": "2a7f4bc603964dcea120b0ba626fc37864588aa0301f2cabe392093a4437a9ce"
+        }
+      ],
+      "reproduction_steps": [
+        "Register OPTIONAL default OFF with a stop callback; change ON and acquire a lease.",
+        "Commit INHERIT. Pre-fix branch checked only literal OFF and skipped cancellation."
+      ],
+      "recommendation": "Drain every overlay-resolved transition to OFF; block completion while owned work remains.",
+      "evidence": {
+        "pre_fix": "STATIC_CONFIRMED; main fixed before first dynamic probe, not a pre-fix runtime PASS",
+        "post_fix": {
+          "state_store": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-v0.4-M1\\reviews\\control-state-mEsK5S",
+          "failure": "MODULE_STILL_RUNNING",
+          "resolved": {
+            "id": "review.optional",
+            "desired": "ON",
+            "revision": 1,
+            "epoch": 2,
+            "health": "FAILED",
+            "effective": "BLOCKED",
+            "reason": "FAILED"
+          },
+          "active_count": 1,
+          "lease_aborted": true,
+          "stop_calls": 1
+        }
+      },
+      "final_locations": [
+        {
+          "path": "src/agentnexus/features.ts",
+          "line": 118,
+          "sha256": "d6aafeafd88f6fd5660afa6b4f29b68625d70ffc8f8138f90db657b6acacda5e"
+        }
+      ]
+    },
+    {
+      "id": "CTRL-002",
+      "severity": "P2",
+      "title": "DIE desired ON bypassed FAILED/BLOCKED health",
+      "status": "RESOLVED_AND_BOUND_TO_FINAL_CANDIDATE",
+      "locations": [
+        {
+          "path": "src/agentnexus/host.ts",
+          "line": 94,
+          "role": "current related implementation/fix anchor",
+          "sha256": "d9566fb1eac23c0406632fe38625c7373b705ee3fff5f7a1f6791e629e75c2b6",
+          "last_probed_sha256": "ac3347f801a58ce5c76d6ca425658bb94fdc56b59c3d003d9b47840062ac9f5c",
+          "current_sha256_at_update": "ac3347f801a58ce5c76d6ca425658bb94fdc56b59c3d003d9b47840062ac9f5c"
+        }
+      ],
+      "reproduction_steps": [
+        "Hold a devint.runtime lease; request OFF to force MODULE_STILL_RUNNING/FAILED.",
+        "Release lease without health recovery; invoke native.diagnostics JSON checker."
+      ],
+      "recommendation": "Gate failed/quiescing/recovering modules before recreating checkers; inspect effective eligibility.",
+      "evidence": {
+        "pre_fix": "STATIC_CONFIRMED; main fixed before first dynamic probe",
+        "post_fix": {
+          "runtime": {
+            "id": "devint.runtime",
+            "desired": "ON",
+            "revision": 0,
+            "epoch": 1,
+            "health": "FAILED",
+            "effective": "BLOCKED",
+            "reason": "FAILED"
+          },
+          "diagnostic_data": {
+            "checker_id": "disabled",
+            "checker_version": "none",
+            "config_revision": 0,
+            "diagnostics": [],
+            "dimensions": {
+              "args": {
+                "applicable": true,
+                "coverage": "none",
+                "reason": "MODULE_UNAVAILABLE:devint.runtime",
+                "status": "BLOCKED"
+              },
+              "authorization": {
+                "applicable": false,
+                "coverage": "none",
+                "reason": "OWNER_TOOL_GATEWAY",
+                "status": "NOT_RUN"
+              },
+              "environment": {
+                "applicable": true,
+                "coverage": "none",
+                "reason": "MODULE_UNAVAILABLE:devint.runtime",
+                "status": "BLOCKED"
+              },
+              "safety": {
+                "applicable": true,
+                "coverage": "none",
+                "reason": "MODULE_UNAVAILABLE:devint.runtime",
+                "status": "BLOCKED"
+              },
+              "syntax": {
+                "applicable": true,
+                "coverage": "none",
+                "reason": "MODULE_UNAVAILABLE:devint.runtime",
+                "status": "BLOCKED"
+              }
+            },
+            "evidence_refs": [],
+            "feature_epoch": 1,
+            "reason": "MODULE_UNAVAILABLE:devint.runtime",
+            "request_id": "d41d3fc0-ddc3-4c6e-8808-415c1c91cf38",
+            "source_sha256": "a8198524f58e72b56283ab71ebddada22840f108b46ef7165bb3fca9919c5558",
+            "status": "BLOCKED",
+            "timing": {
+              "elapsed_ms": 0,
+              "started_at": "2026-11-06T17:25:37.569Z"
+            },
+            "uri": "review://runtime-blocked.json",
+            "version": 1
+          }
+        },
+        "interpretation": "diagnostic data.status BLOCKED is correct; top-level Broker completion PASS is intentional and distinct"
+      },
+      "final_locations": [
+        {
+          "path": "src/agentnexus/host.ts",
+          "line": 100,
+          "sha256": "ac3347f801a58ce5c76d6ca425658bb94fdc56b59c3d003d9b47840062ac9f5c"
+        }
+      ]
+    },
+    {
+      "id": "CTRL-003",
+      "severity": "P1",
+      "title": "Wall-clock-only grant expiry could revive unused approval/permit",
+      "status": "RESOLVED_AND_BOUND_TO_FINAL_CANDIDATE",
+      "locations": [
+        {
+          "path": "src/agentnexus/control.ts",
+          "line": 9,
+          "role": "current related implementation/fix anchor",
+          "sha256": "b222860935358032aabcae570865d6d09bca1d22f9b94fcc1961624c895bdccc",
+          "last_probed_sha256": "b222860935358032aabcae570865d6d09bca1d22f9b94fcc1961624c895bdccc",
+          "current_sha256_at_update": "b222860935358032aabcae570865d6d09bca1d22f9b94fcc1961624c895bdccc"
+        },
+        {
+          "path": "src/agentnexus/policy.ts",
+          "line": 131,
+          "role": "current related implementation/fix anchor",
+          "sha256": "efc03cd86e873e436a7e1bb195227d6c1b98de9f639dea1f87203d75cdf69a8a",
+          "last_probed_sha256": "efc03cd86e873e436a7e1bb195227d6c1b98de9f639dea1f87203d75cdf69a8a",
+          "current_sha256_at_update": "98cadd7673c9d523733bb9fe1d1d62a036516aa63c9c0441a758dc39a14d18d2"
+        }
+      ],
+      "reproduction_steps": [
+        "Mint a 100ms approval and wait 160ms until expiry.",
+        "Roll Date.now back 10s only in the owned probe process; recheck and submit the exact intent."
+      ],
+      "recommendation": "Bind challenges/grants/permits to boot identity plus monotonic deadline and rollback guard; preserve consumed state.",
+      "evidence": {
+        "pre_fix": "STATIC_CONFIRMED; main fixed before first dynamic probe",
+        "post_fix": {
+          "state_store": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-v0.4-M1\\reviews\\control-state-Ymcfiq",
+          "clock_scope": "logical Date.now override in owned probe process; not OS-clock verification",
+          "initially_valid": true,
+          "valid_after_actual_expiry": false,
+          "valid_after_clock_rollback": false,
+          "handler_executions": 0,
+          "result": {
+            "status": "BLOCKED",
+            "reason": "POLICY_DENIED",
+            "operation_id": "97b781e8-df3e-49e9-82bd-56a3a940cd7e",
+            "intent_hash": "b009795675a81028deead2e85b9a88e4ca417462af41439fac86ac52102bace5",
+            "data": null,
+            "stdout_ref": null,
+            "stderr_ref": null,
+            "audit_event_id": "5d8d10b2-4910-40f5-9861-7c05e0ed4c69",
+            "permit_id": null
+          }
+        },
+        "scope": "logical clock control flow only; no OS clock changes"
+      },
+      "final_locations": [
+        {
+          "path": "src/agentnexus/control.ts",
+          "line": 9,
+          "sha256": "b222860935358032aabcae570865d6d09bca1d22f9b94fcc1961624c895bdccc"
+        },
+        {
+          "path": "src/agentnexus/policy.ts",
+          "line": 135,
+          "sha256": "98cadd7673c9d523733bb9fe1d1d62a036516aa63c9c0441a758dc39a14d18d2"
+        }
+      ]
+    },
+    {
+      "id": "CTRL-004",
+      "severity": "P2",
+      "title": "Closed facade retained reads and stale close removed a replacement",
+      "status": "RESOLVED_AND_BOUND_TO_FINAL_CANDIDATE",
+      "locations": [
+        {
+          "path": "src/agentnexus/host.ts",
+          "line": 158,
+          "role": "current related implementation/fix anchor",
+          "sha256": "d9566fb1eac23c0406632fe38625c7373b705ee3fff5f7a1f6791e629e75c2b6",
+          "last_probed_sha256": "ac3347f801a58ce5c76d6ca425658bb94fdc56b59c3d003d9b47840062ac9f5c",
+          "current_sha256_at_update": "ac3347f801a58ce5c76d6ca425658bb94fdc56b59c3d003d9b47840062ac9f5c"
+        },
+        {
+          "path": "src/agentnexus/host.ts",
+          "line": 172,
+          "role": "current related implementation/fix anchor",
+          "sha256": "d9566fb1eac23c0406632fe38625c7373b705ee3fff5f7a1f6791e629e75c2b6",
+          "last_probed_sha256": "ac3347f801a58ce5c76d6ca425658bb94fdc56b59c3d003d9b47840062ac9f5c",
+          "current_sha256_at_update": "ac3347f801a58ce5c76d6ca425658bb94fdc56b59c3d003d9b47840062ac9f5c"
+        }
+      ],
+      "reproduction_steps": [
+        "Close facade A; rebind identical identity as B and record an echo.",
+        "Call A.context/reconstructTask; old A could read B records.",
+        "Call A.close again; old code deleted B and B.request failed SESSION_CLOSED."
+      ],
+      "recommendation": "Check current binding on every entry; make stale close idempotent and identity-bound.",
+      "evidence": {
+        "before": {
+          "state_store": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-v0.4-M1\\reviews\\control-state-gV69Dv",
+          "old_context_rows": 2,
+          "old_audit_rows": 8,
+          "old_context_session_ids": [
+            "review-session",
+            "review-session"
+          ],
+          "replacement_after_old_close": {
+            "code": "SESSION_CLOSED"
+          }
+        },
+        "after": {
+          "state_store": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-v0.4-M1\\reviews\\control-state-35LYw5",
+          "old_context_rows": 0,
+          "old_audit_rows": 0,
+          "context_error": "SESSION_CLOSED",
+          "audit_error": "SESSION_CLOSED",
+          "old_context_session_ids": [],
+          "replacement_after_old_close": {
+            "status": "PASS",
+            "reason": "BROKER_OPERATION_COMPLETE",
+            "operation_id": "b901caff-bcd2-4c4b-8252-550f8999310e",
+            "intent_hash": "98bbd8c4b26febe4a0802cdb20d121d04c85b1efffc3aeb698919490921fff3d",
+            "data": null,
+            "stdout_ref": {
+              "artifact_id": "a0adf79e-9274-4544-8aec-e7d87ce400b6",
+              "sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+              "bytes": 4,
+              "codec": "zstd",
+              "stored_sha256": "db509e5e4f3f8709cee7ab288b5fd21e12d4cec20be94c1d5b4ec12835173edd",
+              "stored_bytes": 17,
+              "media_type": "application/octet-stream",
+              "sensitivity": "NORMAL"
+            },
+            "stderr_ref": {
+              "artifact_id": "ae105068-28bc-4820-aa06-9b1da7786572",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "bytes": 0,
+              "codec": "zstd",
+              "stored_sha256": "f96deff1816083fdff8bc3e46c3fe6ca46a6bb49f4d5a00627616c13237a512c",
+              "stored_bytes": 13,
+              "media_type": "application/octet-stream",
+              "sensitivity": "NORMAL"
+            },
+            "audit_event_id": "befbd251-31a1-435e-89b4-2590a03a1705",
+            "permit_id": "aaa4476c-6c55-43d6-9f07-ad9292760f09"
+          }
+        },
+        "before_source_sha256": "96b2d0bad306956e41cef7942080fd912d5df36d62b7cf68e8bc092e45654f20"
+      },
+      "final_locations": [
+        {
+          "path": "src/agentnexus/host.ts",
+          "line": 168,
+          "sha256": "ac3347f801a58ce5c76d6ca425658bb94fdc56b59c3d003d9b47840062ac9f5c"
+        },
+        {
+          "path": "src/agentnexus/host.ts",
+          "line": 182,
+          "sha256": "ac3347f801a58ce5c76d6ca425658bb94fdc56b59c3d003d9b47840062ac9f5c"
+        }
+      ]
+    },
+    {
+      "id": "CTRL-005",
+      "severity": "P2",
+      "title": "Raw-context queries ignored Agent and Session boundaries",
+      "status": "RESOLVED_AND_BOUND_TO_FINAL_CANDIDATE",
+      "locations": [
+        {
+          "path": "src/agentnexus/host.ts",
+          "line": 171,
+          "role": "current related implementation/fix anchor",
+          "sha256": "d9566fb1eac23c0406632fe38625c7373b705ee3fff5f7a1f6791e629e75c2b6",
+          "last_probed_sha256": "ac3347f801a58ce5c76d6ca425658bb94fdc56b59c3d003d9b47840062ac9f5c",
+          "current_sha256_at_update": "ac3347f801a58ce5c76d6ca425658bb94fdc56b59c3d003d9b47840062ac9f5c"
+        },
+        {
+          "path": "src/agentnexus/storage.ts",
+          "line": 206,
+          "role": "current related implementation/fix anchor",
+          "sha256": "7e3d4c0f065246823db894d0286990bd2111fde52b949d0b04d3554126e18dcb",
+          "last_probed_sha256": "172d0af0556640f6048b74543715841700aaab9938656d7c48298e6f6472ec7d",
+          "current_sha256_at_update": "172d0af0556640f6048b74543715841700aaab9938656d7c48298e6f6472ec7d"
+        }
+      ],
+      "reproduction_steps": [
+        "Bind A and B with same project/task but distinct agent/session.",
+        "Record via A; B.context returned two A records."
+      ],
+      "recommendation": "Apply parameterized project/task/agent/session filters before pagination; broader task reads need a separate explicit trusted authorization.",
+      "evidence": {
+        "confirmed_authorization_contract": "parent clarified raw Agent context is private by default",
+        "before": {
+          "state_store": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-v0.4-M1\\reviews\\control-state-2pjrV9",
+          "other_agent_context_rows": 2,
+          "returned_agent_ids": [
+            "review-a",
+            "review-a"
+          ],
+          "classification": "contract confirmation needed: task-wide sharing vs agent-private context"
+        },
+        "latest_pending": {
+          "state_store": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-v0.4-M1\\reviews\\control-state-6XnAVS",
+          "other_agent_context_rows": 2,
+          "returned_agent_ids": [
+            "review-a",
+            "review-a"
+          ],
+          "classification": "contract confirmation needed: task-wide sharing vs agent-private context"
+        },
+        "storage_final_recheck": "WAITING_STORAGE_AUTHOR"
+      },
+      "latest_pending": null,
+      "verification_after_storage_fix": {
+        "state_store": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-v0.4-M1\\reviews\\control-state-IhqnbK",
+        "other_agent_context_rows": 0,
+        "returned_agent_ids": [],
+        "classification": "contract confirmation needed: task-wide sharing vs agent-private context"
+      },
+      "verification": "Parameterized Agent/Session filters and index observed; actual cross-Agent query returned zero rows.",
+      "final_locations": [
+        {
+          "path": "src/agentnexus/host.ts",
+          "line": 181,
+          "sha256": "ac3347f801a58ce5c76d6ca425658bb94fdc56b59c3d003d9b47840062ac9f5c"
+        },
+        {
+          "path": "src/agentnexus/storage.ts",
+          "line": 209,
+          "sha256": "172d0af0556640f6048b74543715841700aaab9938656d7c48298e6f6472ec7d"
+        }
+      ]
+    },
+    {
+      "id": "CTRL-006",
+      "severity": "P2",
+      "title": "Session close admitted a new request across its first await",
+      "status": "RESOLVED_AND_BOUND_TO_FINAL_CANDIDATE",
+      "locations": [
+        {
+          "path": "src/agentnexus/host.ts",
+          "line": 176,
+          "role": "current related implementation/fix anchor",
+          "sha256": "d9566fb1eac23c0406632fe38625c7373b705ee3fff5f7a1f6791e629e75c2b6",
+          "last_probed_sha256": "ac3347f801a58ce5c76d6ca425658bb94fdc56b59c3d003d9b47840062ac9f5c",
+          "current_sha256_at_update": "ac3347f801a58ce5c76d6ca425658bb94fdc56b59c3d003d9b47840062ac9f5c"
+        }
+      ],
+      "reproduction_steps": [
+        "Call const closing=agent.close().",
+        "Before awaiting closing, submit native.echo in the same tick.",
+        "Intermediate code returned PASS for that newly admitted request."
+      ],
+      "recommendation": "Revoke eligibility before the first await; include closing in all facade guards.",
+      "evidence": {
+        "before": {
+          "state_store": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-v0.4-M1\\reviews\\control-state-8LzVoO",
+          "request_after_close_started": {
+            "status": "PASS",
+            "reason": "BROKER_OPERATION_COMPLETE",
+            "operation_id": "7d8172ca-f340-4917-a725-9dc47ab29d90",
+            "intent_hash": "50e3cfab561237ae7580a2553415f4e930181d7ca11b47e196d143206f036603",
+            "data": {
+              "synthetic": true
+            },
+            "stdout_ref": {
+              "artifact_id": "9bc0823a-26ae-4a65-aec0-42e489deb9bc",
+              "sha256": "a8198524f58e72b56283ab71ebddada22840f108b46ef7165bb3fca9919c5558",
+              "bytes": 18,
+              "codec": "zstd",
+              "stored_sha256": "b49c1e31c5bd30a729308397156d3cd0221eab7a3975f1780eb5c55cab687a39",
+              "stored_bytes": 31,
+              "media_type": "application/octet-stream",
+              "sensitivity": "NORMAL"
+            },
+            "stderr_ref": {
+              "artifact_id": "a1dc7178-a96d-4e8c-b3c9-df537146e326",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "bytes": 0,
+              "codec": "zstd",
+              "stored_sha256": "f96deff1816083fdff8bc3e46c3fe6ca46a6bb49f4d5a00627616c13237a512c",
+              "stored_bytes": 13,
+              "media_type": "application/octet-stream",
+              "sensitivity": "NORMAL"
+            },
+            "audit_event_id": "0a77a0ca-ae41-409e-a42e-bfc25fd5670b",
+            "permit_id": "25e0ed39-3e13-4eb0-9bdd-58c976a15972"
+          }
+        },
+        "after": {
+          "state_store": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-v0.4-M1\\reviews\\control-state-Vs6rN5",
+          "request_after_close_started": {
+            "code": "SESSION_CLOSED"
+          }
+        },
+        "before_source_sha256": "a452097b04a29056904e5f2a167778d149199fee890b1efc7f638eede40d7f00"
+      },
+      "final_locations": [
+        {
+          "path": "src/agentnexus/host.ts",
+          "line": 186,
+          "sha256": "ac3347f801a58ce5c76d6ca425658bb94fdc56b59c3d003d9b47840062ac9f5c"
+        }
+      ]
+    },
+    {
+      "id": "CTRL-007",
+      "severity": "P2",
+      "title": "Handler timeout subtracted wall time after start barrier",
+      "status": "RESOLVED_AND_BOUND_TO_FINAL_CANDIDATE",
+      "locations": [
+        {
+          "path": "src/agentnexus/gateway.ts",
+          "line": 148,
+          "role": "current related implementation/fix anchor",
+          "sha256": "61827aaeef516ae7699b890a0e97ccc51c72902f750a889e22a3bcaa748d6bc7",
+          "last_probed_sha256": "61827aaeef516ae7699b890a0e97ccc51c72902f750a889e22a3bcaa748d6bc7",
+          "current_sha256_at_update": "85ab9f4312f17783ad5a2101c6582e769378489a29f3d62e0919cd3bdb1ff5ec"
+        }
+      ],
+      "reproduction_steps": [
+        "Register pure Promise handler with timeout_ms=20.",
+        "At invocation roll Date.now back 10s in probe process and keep promise pending.",
+        "After 80ms request was still pending; restoring clock and resolving returned PASS."
+      ],
+      "recommendation": "Use performance.now for handler deadline/remaining time; retain ownership until actual settlement independently of timeout response.",
+      "evidence": {
+        "before": {
+          "state_store": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-v0.4-M1\\reviews\\control-state-gy5Dg7",
+          "clock_scope": "logical Date.now override in owned probe; not OS clock verification",
+          "timeout_ms": 20,
+          "request_settled_after_80ms": false,
+          "result": {
+            "status": "PASS",
+            "reason": "BROKER_OPERATION_COMPLETE",
+            "operation_id": "47422234-b3b4-427f-9786-84f016707ac6",
+            "intent_hash": "209aa6625f65a7c141ea332e50a6389cb3321b0671772432eb42b8d12451b823",
+            "data": {
+              "synthetic": true
+            },
+            "stdout_ref": {
+              "artifact_id": "65f75a25-67c9-4c44-97c3-8a6fcdda5fe8",
+              "sha256": "a8198524f58e72b56283ab71ebddada22840f108b46ef7165bb3fca9919c5558",
+              "bytes": 18,
+              "codec": "zstd",
+              "stored_sha256": "b49c1e31c5bd30a729308397156d3cd0221eab7a3975f1780eb5c55cab687a39",
+              "stored_bytes": 31,
+              "media_type": "application/octet-stream",
+              "sensitivity": "NORMAL"
+            },
+            "stderr_ref": {
+              "artifact_id": "9bde0480-a701-446f-8d7f-e7b25f79eea5",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "bytes": 0,
+              "codec": "zstd",
+              "stored_sha256": "f96deff1816083fdff8bc3e46c3fe6ca46a6bb49f4d5a00627616c13237a512c",
+              "stored_bytes": 13,
+              "media_type": "application/octet-stream",
+              "sensitivity": "NORMAL"
+            },
+            "audit_event_id": "ffe2f120-64c6-4950-ae1f-29da6bc094ac",
+            "permit_id": "5e96990a-c357-4601-ac45-329e1bc00909"
+          }
+        },
+        "before_source_sha256": "223d908da4daec469cacc1da8fdcc88f0f2e59af9a981eaff4c1a16c4360d4db",
+        "main_fix_observed": "performance.now deadline and remaining duration",
+        "scope": "logical clock control flow only; not OS-clock verification",
+        "post_fix": {
+          "state_store": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-v0.4-M1\\reviews\\control-state-9A5vMo",
+          "clock_scope": "logical Date.now override in owned probe; not OS clock verification",
+          "timeout_ms": 20,
+          "request_settled_after_80ms": true,
+          "result": {
+            "status": "INCONCLUSIVE",
+            "reason": "TOOL_TIMEOUT",
+            "operation_id": "5a3e6bfd-be4c-47fc-8bab-9532735183b8",
+            "intent_hash": "209aa6625f65a7c141ea332e50a6389cb3321b0671772432eb42b8d12451b823",
+            "data": null,
+            "stdout_ref": null,
+            "stderr_ref": null,
+            "audit_event_id": "6ec9dada-cadb-4775-b4a0-0d84fa6d1565",
+            "permit_id": "311bbc81-c5b5-45b1-9b07-f55852d1600d"
+          }
+        },
+        "before_reference": "control-probes-before-timeout-fix.json.observations.handler_timeout_clock"
+      },
+      "final_locations": [
+        {
+          "path": "src/agentnexus/gateway.ts",
+          "line": 153,
+          "sha256": "85ab9f4312f17783ad5a2101c6582e769378489a29f3d62e0919cd3bdb1ff5ec"
+        }
+      ]
+    },
+    {
+      "id": "CTRL-008",
+      "severity": "P2",
+      "title": "Recovery can race an unsettled timed-out stop",
+      "status": "RESOLVED_AND_BOUND_TO_FINAL_CANDIDATE",
+      "locations": [
+        {
+          "path": "src/agentnexus/features.ts",
+          "line": 121,
+          "sha256_observed": "2a7f4bc603964dcea120b0ba626fc37864588aa0301f2cabe392093a4437a9ce"
+        },
+        {
+          "path": "src/agentnexus/features.ts",
+          "line": 142,
+          "sha256_observed": "2a7f4bc603964dcea120b0ba626fc37864588aa0301f2cabe392093a4437a9ce"
+        }
+      ],
+      "reproduction_steps": [
+        "Register an idle enabled module with stop waiting on a controlled Promise and preflight marking service ready.",
+        "Commit OFF; after 1s stop race throws DRAIN_TIMEOUT, health FAILED, but original stop Promise is still pending.",
+        "Call recoverModule; because #owned is empty, preflight completes and health becomes ENABLED/ON.",
+        "Resolve the original stop; its late cleanup closes the recovered service while Feature resolution remains ENABLED/ON."
+      ],
+      "recommendation": "Track pending stop settlement per module/scope and reject or wait for recover/enable until settled; serialize recover through the mutation gate and prevent stale lifecycle work from changing a newer generation.",
+      "evidence": {
+        "path": "stop-recovery-probe.json",
+        "observed": {
+          "schema": "agentnexus/m1/stop-recovery-probe/1",
+          "captured_utc": "2026-11-06T17:37:05.740Z",
+          "state_store": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-v0.4-M1\\reviews\\stop-recovery-CxjmPi",
+          "features_sha256_before": "2a7f4bc603964dcea120b0ba626fc37864588aa0301f2cabe392093a4437a9ce",
+          "features_sha256_after": "2a7f4bc603964dcea120b0ba626fc37864588aa0301f2cabe392093a4437a9ce",
+          "failure": "DRAIN_TIMEOUT",
+          "failed": {
+            "id": "review.lifecycle",
+            "desired": "ON",
+            "revision": 0,
+            "epoch": 1,
+            "health": "FAILED",
+            "effective": "BLOCKED",
+            "reason": "FAILED"
+          },
+          "recovered": {
+            "id": "review.lifecycle",
+            "desired": "ON",
+            "revision": 0,
+            "epoch": 1,
+            "health": "ENABLED",
+            "effective": "ON",
+            "reason": "READY"
+          },
+          "before_late_stop": {
+            "ready": true,
+            "preflights": 1,
+            "stopSettled": false
+          },
+          "after_late_stop": {
+            "ready": false,
+            "preflights": 1,
+            "stopSettled": true,
+            "resolution": {
+              "id": "review.lifecycle",
+              "desired": "ON",
+              "revision": 0,
+              "epoch": 1,
+              "health": "ENABLED",
+              "effective": "ON",
+              "reason": "READY"
+            }
+          },
+          "scope": "owned synthetic lifecycle only; no product writes or OS work"
+        },
+        "scope": "synthetic module lifecycle, no OS/process actions; no product source writes"
+      },
+      "verification_after_main_fix": {
+        "pending": {
+          "stop_failure": "DRAIN_TIMEOUT",
+          "recovery_failure": "MODULE_STOP_PENDING",
+          "enabling_failure": "MODULE_STOP_PENDING",
+          "active_count": 1,
+          "ready": true,
+          "preflights": 0,
+          "stopSettled": false
+        },
+        "recovered": {
+          "resolution": {
+            "id": "review.lifecycle",
+            "desired": "ON",
+            "revision": 0,
+            "epoch": 1,
+            "health": "ENABLED",
+            "effective": "ON",
+            "reason": "READY"
+          },
+          "ready": true,
+          "preflights": 1,
+          "stopSettled": true
+        }
+      },
+      "final_probe_reference": "final-control-probes.json",
+      "final_locations": [
+        {
+          "path": "src/agentnexus/features.ts",
+          "line": 14,
+          "sha256": "d6aafeafd88f6fd5660afa6b4f29b68625d70ffc8f8138f90db657b6acacda5e"
+        },
+        {
+          "path": "src/agentnexus/features.ts",
+          "line": 153,
+          "sha256": "d6aafeafd88f6fd5660afa6b4f29b68625d70ffc8f8138f90db657b6acacda5e"
+        }
+      ]
+    }
+  ],
+  "latest_probe_source_sha256": {
+    "src/agentnexus/types.ts": "101cc13ca1bbb9ec34e7bb8dfdc8360da913829b99458cf3374cc6604fa15d75",
+    "src/agentnexus/control.ts": "b222860935358032aabcae570865d6d09bca1d22f9b94fcc1961624c895bdccc",
+    "src/agentnexus/features.ts": "2a7f4bc603964dcea120b0ba626fc37864588aa0301f2cabe392093a4437a9ce",
+    "src/agentnexus/policy.ts": "efc03cd86e873e436a7e1bb195227d6c1b98de9f639dea1f87203d75cdf69a8a",
+    "src/agentnexus/gateway.ts": "61827aaeef516ae7699b890a0e97ccc51c72902f750a889e22a3bcaa748d6bc7",
+    "src/agentnexus/host.ts": "ac3347f801a58ce5c76d6ca425658bb94fdc56b59c3d003d9b47840062ac9f5c",
+    "src/agentnexus/storage.ts": "172d0af0556640f6048b74543715841700aaab9938656d7c48298e6f6472ec7d",
+    "src/agentnexus/diagnostics.ts": "d869a291068564eb942b05623f2b8e3f0f8348c40647215e1b85d86eef27d86d"
+  },
+  "source_changed_during_latest_probe": [],
+  "known_main_issues_not_duplicated": [
+    "START_INTENT before invocation vs observed STARTED after invocation",
+    "retain handler lease on lost audit/completion receipt until actual handler settlement"
+  ],
+  "reviewed_non_findings": [
+    "trusted bootstrap token kept out of Agent facade; deployment explicitly BLOCKED for OS identity/sandbox",
+    "arguments/identity snapshot before first await; deep-frozen execution args",
+    "permit+approval consume, writer claim, operation claim and audit append in one synchronous transaction; required flush before handler invocation",
+    "published output refs and RESULT/context same-transaction append; required flush before ACK",
+    "no automatic retry of indeterminate side effects; consumed nonce/unique request guards",
+    "diagnostic outcome is separate from successful Broker completion"
+  ],
+  "limits": [
+    "OS peer authentication/hostile-process isolation remain BLOCKED",
+    "pre-fix CTRL-001..003 dynamic runs were NOT_RUN because main fixed before first probe",
+    "clock probes are local logical overrides, not OS system-clock tests",
+    "Four real OS links NOT_RUN due EPERM; not OS PASS",
+    "Static TypeScript type checking and real model validation remain NOT_RUN",
+    "Kit copy/distribution, runtime redistribution and real OS admin/arbitrary execution remain BLOCKED"
+  ],
+  "evidence": {
+    "command": "node .workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-probes.ts",
+    "exit_code": 0,
+    "initial": "control-probes-initial.json",
+    "intermediate": "control-probes-before-close-race-fix.json",
+    "latest_before_timeout_fix": "control-probes-before-timeout-fix.json",
+    "latest": "control-probes.json",
+    "probe_source": "control-probes.ts",
+    "sha256": {
+      "control-probes-before-close-race-fix.json": "319b8bef22cd43925ec367b3d1dda2ff5d47b5f70a1f73761b0c59dbb2e0c176",
+      "control-probes-before-timeout-fix.json": "11eaae06fde02dc5e2e6b1c3f6ecc4ba3abb04b3b88bbf6281984382369e44cc",
+      "control-probes-initial.json": "b994cc67418c7a8e6f6ae405ef11d312a1c3774e81640e3ab0a1b0edaabd3812",
+      "control-probes.json": "a8d703f12278186cc809a1a84cd40a8f440f133ba8ef5dc5832932e5d0817e6d",
+      "stop-recovery-probe.json": "de96a9aca9d3895c68b3bb82aeb85337787129a33fa9e63480540a34356a1630",
+      "final-control-probes.json": "e16ddd843b637010f105f0986242a35d66b9b42f738d4c54845882ba51cb7dac",
+      "final-control-probes.ts": "3e76ca67b1f039436e75a331f2d2dd6d32f7a5c2b2942afb6364be2e00549ddd"
+    },
+    "probe_source_sha256": "de2381560f636824e80c135e97dd5ded48f4e1fae580238525676532da870368",
+    "final_targeted_command": "node .workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/final-control-probes.ts",
+    "final_targeted_exit_code": 0
+  },
+  "governance": "PASS (main final recorded check and prior reviewer check)",
+  "source_changed_after_latest_probe": [
+    "src/agentnexus/features.ts"
+  ],
+  "local_targeted_recheck": "PASS: earlier seven cases, final CTRL008, static expiry fences, reviewed one-line fault guard and actual final-suite candidate binding",
+  "final_candidate_sha256": {
+    "src/agentnexus/types.ts": "101cc13ca1bbb9ec34e7bb8dfdc8360da913829b99458cf3374cc6604fa15d75",
+    "src/agentnexus/control.ts": "b222860935358032aabcae570865d6d09bca1d22f9b94fcc1961624c895bdccc",
+    "src/agentnexus/features.ts": "d6aafeafd88f6fd5660afa6b4f29b68625d70ffc8f8138f90db657b6acacda5e",
+    "src/agentnexus/policy.ts": "98cadd7673c9d523733bb9fe1d1d62a036516aa63c9c0441a758dc39a14d18d2",
+    "src/agentnexus/gateway.ts": "85ab9f4312f17783ad5a2101c6582e769378489a29f3d62e0919cd3bdb1ff5ec",
+    "src/agentnexus/host.ts": "ac3347f801a58ce5c76d6ca425658bb94fdc56b59c3d003d9b47840062ac9f5c",
+    "src/agentnexus/storage.ts": "172d0af0556640f6048b74543715841700aaab9938656d7c48298e6f6472ec7d",
+    "src/agentnexus/diagnostics.ts": "d869a291068564eb942b05623f2b8e3f0f8348c40647215e1b85d86eef27d86d"
+  },
+  "previous_seven_case_probe_sha256": {
+    "src/agentnexus/types.ts": "101cc13ca1bbb9ec34e7bb8dfdc8360da913829b99458cf3374cc6604fa15d75",
+    "src/agentnexus/control.ts": "b222860935358032aabcae570865d6d09bca1d22f9b94fcc1961624c895bdccc",
+    "src/agentnexus/features.ts": "2a7f4bc603964dcea120b0ba626fc37864588aa0301f2cabe392093a4437a9ce",
+    "src/agentnexus/policy.ts": "efc03cd86e873e436a7e1bb195227d6c1b98de9f639dea1f87203d75cdf69a8a",
+    "src/agentnexus/gateway.ts": "61827aaeef516ae7699b890a0e97ccc51c72902f750a889e22a3bcaa748d6bc7",
+    "src/agentnexus/host.ts": "ac3347f801a58ce5c76d6ca425658bb94fdc56b59c3d003d9b47840062ac9f5c",
+    "src/agentnexus/storage.ts": "172d0af0556640f6048b74543715841700aaab9938656d7c48298e6f6472ec7d",
+    "src/agentnexus/diagnostics.ts": "d869a291068564eb942b05623f2b8e3f0f8348c40647215e1b85d86eef27d86d"
+  },
+  "final_targeted_recheck": "PASS_CTRL008_AND_STATIC_EXPIRY_FENCES",
+  "static_main_expiry_fix_review": {
+    "mode_guard_call_lines": [
+      122,
+      147
+    ],
+    "mode_guard_call_count": 2,
+    "first_guard_before_claim_transaction": true,
+    "second_guard_after_start_intent_flush": true,
+    "no_await_between_last_guard_and_handler": true,
+    "assert_modes_body_uses_modeFor_and_epoch": true,
+    "assert_modes_body_does_not_call_PDP": true,
+    "consumed_permit_rechecked_before_handler": true,
+    "consumed_approval_rechecked_before_handler": true,
+    "scope": "static control-flow inspection only; root owns delayed-flush execution regressions"
+  },
+  "root_final_suite": {
+    "status": "PASS",
+    "final_verification": ".workflow-kit/runtime/AgentNexus-v0.4-M1/final-verification.json",
+    "final_verification_utc": "2026-11-06T17:59:57.797474+00:00",
+    "final_verification_sha256": "04adc9bd1e896e498172c1be426d04a34411b4f9699c429b9c36cde517fe6561",
+    "test_results": ".workflow-kit/runtime/AgentNexus-v0.4-M1/test-results.json",
+    "test_run_utc": "2026-11-06T17:54:41.259308+00:00",
+    "test_results_sha256": "e72ea36f1fbf031c1c750f422bc1ecceed4cc324fc738163bc7a04fe437fb524",
+    "tap": ".workflow-kit/runtime/AgentNexus-v0.4-M1/all-tests.tap",
+    "tap_sha256": "7d116aa26a4593a2b3b2964c4717921cd844116756bafb05fd64edbfa8eea372",
+    "actual_counts": {
+      "tests": 135,
+      "pass": 131,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 4,
+      "todo": 0
+    },
+    "checks": {
+      "count": 12,
+      "all_pass": true
+    },
+    "recorded_tests_reused": true,
+    "cached_candidate_match": "PASS",
+    "not_run": [
+      {
+        "ordinal": 111,
+        "tap_local_ordinal": 84,
+        "tap_indent": 0,
+        "name": "real OS file symlink is rejected without following its target",
+        "status": "NOT_RUN",
+        "reason": "NOT_RUN: real OS link fixture unavailable (EPERM); no simulated OS PASS"
+      },
+      {
+        "ordinal": 112,
+        "tap_local_ordinal": 85,
+        "tap_indent": 0,
+        "name": "real OS dir link is rejected",
+        "status": "NOT_RUN",
+        "reason": "NOT_RUN: real OS link fixture unavailable (EPERM); no simulated OS PASS"
+      },
+      {
+        "ordinal": 113,
+        "tap_local_ordinal": 86,
+        "tap_indent": 0,
+        "name": "real OS junction link is rejected",
+        "status": "NOT_RUN",
+        "reason": "NOT_RUN: real OS link fixture unavailable (EPERM); no simulated OS PASS"
+      },
+      {
+        "ordinal": 114,
+        "tap_local_ordinal": 87,
+        "tap_indent": 0,
+        "name": "real OS hardlink to an outside object is rejected by link count",
+        "status": "NOT_RUN",
+        "reason": "NOT_RUN: real OS link fixture unavailable (EPERM); no simulated OS PASS"
+      }
+    ],
+    "reviewer_reran_full_suite": false,
+    "note": "The 17:54 real suite is reused unchanged; 17:59 completion resumes governance/manifest after the first governance timeout. No new full-suite run is claimed."
+  },
+  "scope": "Independent read-only review of eight remediations and inspected types/control/features/policy/gateway/host code, supporting storage/DIE paths and controlled local probes. Does not approve OS authentication/sandbox or the entire product.",
+  "final_candidate_binding": {
+    "actual_candidate_file_count": 24,
+    "snapshot_manifest": ".workflow-kit/tasks/AgentNexus-v0.4-M0.1/reports/source_snapshot_manifest.json",
+    "snapshot_manifest_sha256": "cebfcaf56d609804276d7109ce84a1db2430d85b45aaa568f2bf41a4680e2403",
+    "snapshot_matches_verification": true,
+    "all_24_current_candidate_bytes_match": true,
+    "current_reviewed_8_files": {
+      "src/agentnexus/types.ts": "101cc13ca1bbb9ec34e7bb8dfdc8360da913829b99458cf3374cc6604fa15d75",
+      "src/agentnexus/control.ts": "b222860935358032aabcae570865d6d09bca1d22f9b94fcc1961624c895bdccc",
+      "src/agentnexus/features.ts": "d6aafeafd88f6fd5660afa6b4f29b68625d70ffc8f8138f90db657b6acacda5e",
+      "src/agentnexus/policy.ts": "98cadd7673c9d523733bb9fe1d1d62a036516aa63c9c0441a758dc39a14d18d2",
+      "src/agentnexus/gateway.ts": "85ab9f4312f17783ad5a2101c6582e769378489a29f3d62e0919cd3bdb1ff5ec",
+      "src/agentnexus/host.ts": "ac3347f801a58ce5c76d6ca425658bb94fdc56b59c3d003d9b47840062ac9f5c",
+      "src/agentnexus/storage.ts": "172d0af0556640f6048b74543715841700aaab9938656d7c48298e6f6472ec7d",
+      "src/agentnexus/diagnostics.ts": "d869a291068564eb942b05623f2b8e3f0f8348c40647215e1b85d86eef27d86d"
+    },
+    "independent_probe_byte_identical_files": 7,
+    "post_probe_delta_review": "PASS_STATIC_SINGLE_FAIL_CLOSED_GUARD; included in the real final suite",
+    "post_probe_delta": {
+      "path": "src/agentnexus/features.ts",
+      "before_sha256": "ca05754e624100b2dd863224efed67edc9cf0f245c6f63ef0069c544a8331ed6",
+      "final_sha256": "d6aafeafd88f6fd5660afa6b4f29b68625d70ffc8f8138f90db657b6acacda5e",
+      "old_source_archive": ".workflow-kit/runtime/AgentNexus-v0.4-M1/final-run-1/m1-source-final.zip",
+      "added_lines": [
+        "    if (this.#store.faulted) return { ...base, effective: 'BLOCKED', reason: 'CORE_STORAGE_UNAVAILABLE', health: 'FAILED' };"
+      ],
+      "removed_lines": []
+    },
+    "source_archive": {
+      "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/m1-source-final.zip",
+      "sha256": "191c92befd644afd142480b1c1b600f95a242437e02ce7d1fec0d20f73b05a54",
+      "bytes": 118106
+    },
+    "source_archive_hash_verified": true
+  },
+  "writes_complete": true
+}

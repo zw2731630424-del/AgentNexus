@@ -1,0 +1,197 @@
+{
+  "schema": "agentnexus/storage-verification/3",
+  "observed_at": "2026-11-06T17:55:03.633Z",
+  "command": "node --test --test-reporter=tap --test-concurrency=1 tests/agentnexus/storage.test.ts",
+  "node": "v24.15.0",
+  "platform": "win32",
+  "scope": "Real Node SQLite/Zstd/filesystem/process restart with synthetic fixtures; no model or sandbox claim.",
+  "status": "PASS",
+  "results": [
+    {
+      "name": "real SQLite, three independent domain chains and global pagination",
+      "status": "PASS",
+      "elapsed_ms": 106.90610000000001
+    },
+    {
+      "name": "synchronous cross-table transaction, rollback, UNIQUE and business errors do not fault",
+      "status": "PASS",
+      "elapsed_ms": 28.350799999999992
+    },
+    {
+      "name": "agent and session SQL filters apply before LIMIT and preserve global cursor pages",
+      "status": "PASS",
+      "elapsed_ms": 220.9697
+    },
+    {
+      "name": "flush covers its captured target after an empty or older shared flush",
+      "status": "PASS",
+      "elapsed_ms": 30.798500000000047
+    },
+    {
+      "name": "required fields, malformed refs, oversized envelopes and query budgets reject without fault",
+      "status": "PASS",
+      "elapsed_ms": 25.28830000000005
+    },
+    {
+      "name": "outbox high water rejects new records, then drains without unbounded queues",
+      "status": "PASS",
+      "elapsed_ms": 36.09649999999999
+    },
+    {
+      "name": "second writer and live lock recovery are blocked; real owner death is explicit",
+      "status": "PASS",
+      "elapsed_ms": 230.36540000000002
+    },
+    {
+      "name": "process crash after file fsync and before receipt reexports no duplicate",
+      "status": "PASS",
+      "elapsed_ms": 205.3846000000001
+    },
+    {
+      "name": "unacknowledged crash tail is preserved then repaired from durable outbox",
+      "status": "PASS",
+      "elapsed_ms": 455.44060000000013
+    },
+    {
+      "name": "actual export I/O failure freezes writes and preserves outbox until explicit recovery",
+      "status": "PASS",
+      "elapsed_ms": 31.950199999999995
+    },
+    {
+      "name": "acknowledged truncation is never silently discarded or rebuilt as success",
+      "status": "PASS",
+      "elapsed_ms": 22.264699999999948
+    },
+    {
+      "name": "actual artifact publication I/O failure retains bytes and freezes both record and object admission",
+      "status": "PASS",
+      "elapsed_ms": 28.903499999999894
+    },
+    {
+      "name": "database hash tampering throws, freezes writes and does not fake repair",
+      "status": "PASS",
+      "elapsed_ms": 20.755300000000034
+    },
+    {
+      "name": "32 MiB randomized artifact roundtrip streams with real backpressure and two hashes",
+      "status": "PASS",
+      "elapsed_ms": 275.69939999999997
+    },
+    {
+      "name": "cancelled, over-budget and invalid-chunk objects remain incomplete; secret is rejected",
+      "status": "PASS",
+      "elapsed_ms": 32.33459999999991
+    },
+    {
+      "name": "early artifact iterator return is not verification; full corrupted stream fails closed",
+      "status": "PASS",
+      "elapsed_ms": 39.86400000000003
+    },
+    {
+      "name": "concurrent artifact admission is bounded and rejects a third stream without queueing",
+      "status": "PASS",
+      "elapsed_ms": 42.32719999999995
+    },
+    {
+      "name": "abort races a permanently pending source.next without retaining Store writers or accepting late bytes",
+      "status": "PASS",
+      "elapsed_ms": 21.508199999999988
+    },
+    {
+      "name": "concurrent close calls share the real drain and lock-release promise",
+      "status": "PASS",
+      "elapsed_ms": 20.333499999999958
+    },
+    {
+      "name": "sealed segments are compressed, chained and verified; stored bit flip is detected",
+      "status": "PASS",
+      "elapsed_ms": 102.95450000000005
+    },
+    {
+      "name": "process-killed partial artifact remains retained without a complete object reference",
+      "status": "PASS",
+      "elapsed_ms": 199.21519999999964
+    }
+  ],
+  "measurements": {
+    "sqlite": "3.51.3",
+    "identity_query": {
+      "rows_before_match": 110,
+      "matching_sequences": [
+        111,
+        113,
+        115
+      ],
+      "index_used": true
+    },
+    "flush_barriers": {
+      "empty_then_target": 1,
+      "older_target": 2,
+      "joined_newer_target": 3
+    },
+    "outbox": {
+      "admitted": 4,
+      "pending_bytes": 7860,
+      "configured_bytes": 8192
+    },
+    "stream": {
+      "input_bytes": 33554432,
+      "stored_bytes": 33555213,
+      "drains": 296,
+      "max_input_chunk": 65536,
+      "max_active_puts": 1,
+      "observed_peak_rss": 134619136,
+      "observed_rss_delta": 52064256,
+      "raw_sha256": "a0b5858c678612d23f8b5c072e961e8babe909c17e6462db82d71acb2ff8e5c4",
+      "stored_sha256": "d117c66d8e50bed6f00be734a9687aeaf88c1ece175042369ccc359b3d7eb6a5"
+    },
+    "stalled_source": {
+      "put_settled_before_source_release": true,
+      "iterator_return_requested": 1,
+      "producer_exit": "NOT_VERIFIED",
+      "store_output_closed": true,
+      "late_bytes_written": false
+    }
+  },
+  "candidate": [
+    {
+      "path": "src/agentnexus/storage.ts",
+      "bytes": 33030,
+      "sha256": "172d0af0556640f6048b74543715841700aaab9938656d7c48298e6f6472ec7d"
+    },
+    {
+      "path": "src/agentnexus/artifacts.ts",
+      "bytes": 15666,
+      "sha256": "f89cd95c7c373e1551d509f82596e54e203f0bb02b2934e1c2108040ef48bc49"
+    },
+    {
+      "path": "src/agentnexus/records.ts",
+      "bytes": 6510,
+      "sha256": "393e0a70a20a4dae21287169d1313bae949842cf0f712bacb3ebf432a5ed7800"
+    },
+    {
+      "path": "tests/agentnexus/storage.test.ts",
+      "bytes": 28870,
+      "sha256": "d0cae519ebfce054002a51b10b292cc870f2bbe01c67706dd1fd9a203525a3da"
+    },
+    {
+      "path": "tests/agentnexus/owned-storage-child.mjs",
+      "bytes": 1885,
+      "sha256": "7a469bfa662d98f39f06b4483eaa1f49809e490817679cce5f7f1fa366133139"
+    }
+  ],
+  "not_run": [
+    "OS administrator/worker authentication",
+    "OS sandbox",
+    "hardware power interruption",
+    "real model",
+    "Provider credentials",
+    "scientific workloads"
+  ],
+  "limits": [
+    "Windows directory fsync is unavailable through this portable Node path; file fsync and process crash recovery are exercised.",
+    "Store is a trusted local library. Public DatabaseSync is not exposed to an Agent and cannot enforce OS isolation."
+  ],
+  "baseline_snapshot": ".workflow-kit/runtime/AgentNexus-v0.4-M1/storage/v1/snapshot.json",
+  "independent_review": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/storage-integrity-review.json"
+}

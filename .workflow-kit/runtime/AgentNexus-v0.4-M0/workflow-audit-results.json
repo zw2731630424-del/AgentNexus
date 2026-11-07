@@ -1,0 +1,81 @@
+{
+  "timestamp": "2026-11-06T23:35:53+0800",
+  "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "discovered": 100,
+  "passed": 91,
+  "skipped": 9,
+  "failures": [],
+  "errors": [],
+  "skip_details": [
+    {
+      "id": "test_govern.GovernCLITest.test_hook_preserves_preexisting_hook_and_disable_keeps_user_docs",
+      "reason": "User boundary: no hook installation or git commit/push, including fixtures"
+    },
+    {
+      "id": "test_govern.GovernCLITest.test_real_commit_rejects_staged_rogue_file_then_chains_original_hook",
+      "reason": "User boundary: no hook installation or git commit/push, including fixtures"
+    },
+    {
+      "id": "test_lean_modes.LeanModeTests.test_full_upgrade_roles_and_explicit_hook",
+      "reason": "User boundary: no hook installation or git commit/push, including fixtures"
+    },
+    {
+      "id": "test_manage.ManagerTests.test_backup_junction_refuses_before_changing_agents",
+      "reason": "junction creation unavailable"
+    },
+    {
+      "id": "test_manage.ManagerTests.test_metadata_symlink_refused",
+      "reason": "directory symlink creation is unavailable"
+    },
+    {
+      "id": "test_project_rules.ProjectRulesTest.test_junction_rule_paths_and_project_roots_are_refused",
+      "reason": "OS denied junction creation: Access is denied."
+    },
+    {
+      "id": "test_project_rules.ProjectRulesTest.test_linked_rule_paths_are_refused",
+      "reason": "symlink creation unavailable without OS privileges"
+    },
+    {
+      "id": "test_project_rules.ProjectRulesTest.test_staged_custom_rule_versions_and_deletions_are_checked",
+      "reason": "User boundary: no hook installation or git commit/push, including fixtures"
+    },
+    {
+      "id": "test_project_rules.ProjectRulesTest.test_staged_renames_cannot_hide_protected_rule_or_policy_deletions",
+      "reason": "User boundary: no hook installation or git commit/push, including fixtures"
+    }
+  ],
+  "policy_not_run": [
+    {
+      "id": "test_govern.GovernCLITest.test_hook_preserves_preexisting_hook_and_disable_keeps_user_docs",
+      "status": "NOT_RUN",
+      "reason": "User boundary: no hook installation or git commit/push, including fixtures"
+    },
+    {
+      "id": "test_govern.GovernCLITest.test_real_commit_rejects_staged_rogue_file_then_chains_original_hook",
+      "status": "NOT_RUN",
+      "reason": "User boundary: no hook installation or git commit/push, including fixtures"
+    },
+    {
+      "id": "test_lean_modes.LeanModeTests.test_full_upgrade_roles_and_explicit_hook",
+      "status": "NOT_RUN",
+      "reason": "User boundary: no hook installation or git commit/push, including fixtures"
+    },
+    {
+      "id": "test_project_rules.ProjectRulesTest.test_staged_custom_rule_versions_and_deletions_are_checked",
+      "status": "NOT_RUN",
+      "reason": "User boundary: no hook installation or git commit/push, including fixtures"
+    },
+    {
+      "id": "test_project_rules.ProjectRulesTest.test_staged_renames_cannot_hide_protected_rule_or_policy_deletions",
+      "status": "NOT_RUN",
+      "reason": "User boundary: no hook installation or git commit/push, including fixtures"
+    }
+  ],
+  "elapsed_seconds": 36.08463978767395,
+  "source_zip_sha256": "4cad510cf666d37e0adb81f39ca3f1f29aa9f3b3ae7313726946e572e51736ec",
+  "environment": {
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "PYTHONUTF8": "1"
+  }
+}

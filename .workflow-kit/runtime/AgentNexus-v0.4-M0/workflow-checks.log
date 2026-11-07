@@ -1,0 +1,20 @@
+COMMAND ['tools/check-kit.py', '--checksums']
+EXIT 0
+Package check: 0 error(s)
+
+COMMAND ['tools/check-task.py', '--strict', 'examples/GOAL.example.md', 'examples/task-contract.example.md', 'examples/subtask.example.md', 'examples/checkpoint.example.md']
+EXIT 0
+OK: examples\GOAL.example.md (goal)
+OK: examples\task-contract.example.md (task)
+OK: examples\subtask.example.md (subtask)
+OK: examples\checkpoint.example.md (checkpoint)
+
+Python AST parsed: 12
+NEGATIVE PROBE nested SHA256SUMS.txt added without manifest update
+EXIT 0
+Package check: 0 error(s)
+HARDLINK PROBE NOT_RUN: os.link owned sandbox fixtures denied by OS: WinError 5. No evidence of successful hardlink boundary test.
+Fixture source moved AFTER tests to workflow-sandbox/.pytest_cache/source, using existing policy ignored_names. Test command logs retain original run path. Subsequent govern check PASS.
+
+FINAL GOVERNANCE: python -B ai-workflow-kit-v4/tools/govern.py check --target I:/AI_AgentNexus
+Governance check: PASS

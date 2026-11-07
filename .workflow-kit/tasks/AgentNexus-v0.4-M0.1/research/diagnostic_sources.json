@@ -1,0 +1,1097 @@
+{
+  "schema": "agentnexus/diagnostic-research/0.2",
+  "status": "DESIGN_ONLY_IMPLEMENTATION_NOT_RUN",
+  "generated_at": "2026-11-06T16:52:01.391706+00:00",
+  "design_file": ".workflow-kit/tasks/AgentNexus-v0.4-M0.1/architecture/development_intelligence_design.md",
+  "source_cache": {
+    "file": ".workflow-kit/runtime/AgentNexus-v0.4-M0.1/diagnostics/acquisition.json",
+    "bytes": 6287094,
+    "sha256": "6c861e4c15c889be1a295b3632b45cce8eec0a6b058b5be4900b583b0468aa66",
+    "successful_sources": 43,
+    "preserved_failed_attempts": 2,
+    "per_source_limit_bytes": 2097152,
+    "body_integrity_check": "ALL_SUCCESSFUL_UTF8_BODIES_HASH_MATCH"
+  },
+  "adoption_boundary": {
+    "copies_in_product": false,
+    "packages_installed": false,
+    "hooks_installed": false,
+    "scientific_experiments_run": false,
+    "provider_keys_read": false,
+    "m1_code_written": false,
+    "licenses": "Fixed source/root license and publisher metadata evidence only; distribution/native/transitive closure NOT_RUN.",
+    "versions": "Research samples are not latest recommendations or an implementation dependency lock.",
+    "source_trust": "Official publisher docs, source repositories and registry metadata only; no third-party tutorial conclusions."
+  },
+  "m1_plan": {
+    "runtime": "Node 24.15.0; no npm dependencies",
+    "real_first_adapters": [
+      "Python 3.12 ast.parse",
+      "PowerShell 7 Language.Parser.ParseInput",
+      "Node JSON.parse"
+    ],
+    "additional_first_checks": [
+      "registered Git/Python argv schemas",
+      "Host-supplied checker/environment identity"
+    ],
+    "authorization_dimension": "NOT_RUN; owner Tool Gateway/PEP",
+    "sql": "NOT_RUN; SQLite prepare has PRAGMA compile-time effects",
+    "free_shell": "BLOCKED until OS capability admission",
+    "other_languages_and_lsp": "NOT_RUN; requested missing dependencies BLOCKED, feature OFF BYPASSED/VALIDATION_BYPASSED"
+  },
+  "local_tool_observations": {
+    "scope": "Read-only PATH discovery and explicitly named installation paths only; no Key/env scan, package install, model call, project code execution or daemon contact.",
+    "observed_date": "2026-11-07 Asia/Shanghai",
+    "commands": [
+      "Get-Command -CommandType Application for the named tool allowlist",
+      "python -I -S -c: sys.executable and sys.version only",
+      "node --version",
+      "git --version",
+      "dotnet --list-sdks",
+      "FileVersionInfo on the two explicitly named SDK Roslyn DLLs",
+      "C:/Program Files/Git/bin/bash.exe --noprofile --norc --version"
+    ],
+    "observations": [
+      {
+        "tool": "python",
+        "path": "C:\\Users\\28642\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "version": "3.12.10",
+        "build": "tags/v3.12.10:0cc8128; MSC v.1943 64 bit AMD64",
+        "finding": "VERSION_OBSERVED",
+        "m1_adapter_validation": "NOT_RUN"
+      },
+      {
+        "tool": "powershell",
+        "version": "7.6.9",
+        "edition": "Core",
+        "platform": "Win32NT",
+        "os": "Microsoft Windows 10.0.26200",
+        "assembly": "System.Management.Automation",
+        "assembly_version": "7.6.0.500",
+        "finding": "VERSION_OBSERVED",
+        "m1_adapter_validation": "NOT_RUN"
+      },
+      {
+        "tool": "node",
+        "path": "D:\\Nodejs\\node.exe",
+        "version": "24.15.0",
+        "finding": "VERSION_OBSERVED",
+        "m1_adapter_validation": "NOT_RUN"
+      },
+      {
+        "tool": "git",
+        "path": "C:\\Program Files\\Git\\cmd\\git.exe",
+        "version": "2.54.0.windows.1",
+        "finding": "VERSION_OBSERVED",
+        "m1_adapter_validation": "NOT_RUN"
+      },
+      {
+        "tool": "dotnet",
+        "path": "C:\\Program Files\\dotnet\\dotnet.exe",
+        "sdks": [
+          "1.1.14",
+          "9.0.304"
+        ],
+        "finding": "VERSION_OBSERVED"
+      },
+      {
+        "tool": "roslyn",
+        "paths": [
+          "C:\\Program Files\\dotnet\\sdk\\9.0.304\\Roslyn\\bincore\\Microsoft.CodeAnalysis.dll",
+          "C:\\Program Files\\dotnet\\sdk\\9.0.304\\Roslyn\\bincore\\Microsoft.CodeAnalysis.CSharp.dll"
+        ],
+        "file_version": "4.1400.25.35903",
+        "product_version": "4.14.0-3.25359.3+6dbcfd2f553ef1ef0ac48878ab17d18c1360735d",
+        "finding": "FILE_METADATA_OBSERVED",
+        "adapter": "NOT_RUN"
+      },
+      {
+        "tool": "bash",
+        "path": "C:\\Program Files\\Git\\bin\\bash.exe",
+        "exists": true,
+        "version_output": "none obtained",
+        "observed_exit_code": -1073741502,
+        "finding": "INCONCLUSIVE",
+        "notes": "No successful parser launch/version evidence; path existence is not availability."
+      },
+      {
+        "tools": [
+          "zsh",
+          "shellcheck",
+          "ruff",
+          "csc",
+          "tsc",
+          "eslint",
+          "docker"
+        ],
+        "finding": "NOT_FOUND_IN_PATH",
+        "notes": "Not a whole-machine absence assertion; no package installation attempted."
+      },
+      {
+        "paths": [
+          "D:\\Nodejs\\node_modules\\typescript\\package.json",
+          "D:\\Nodejs\\node_modules\\eslint\\package.json",
+          "C:\\Program Files\\PowerShell\\7\\Modules\\PSScriptAnalyzer"
+        ],
+        "finding": "NAMED_PATHS_NOT_FOUND"
+      }
+    ],
+    "probe_failures_preserved": [
+      {
+        "operation": "first compound version probe",
+        "result": "PowerShell parse error before command execution; corrected and rerun",
+        "impact": "No availability conclusion taken from failed attempt."
+      },
+      {
+        "operation": "initial public urllib fetch in restricted sandbox",
+        "result": "WinError 10013 network restriction",
+        "impact": "No source conclusion taken; bounded official-source acquisition subsequently completed with approved escalation."
+      },
+      {
+        "operation": "optional source inspection stdout",
+        "result": "GBK UnicodeEncodeError",
+        "impact": "Rerun with ASCII JSON output; no cache content changed."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "python_ast_doc",
+      "project": "python",
+      "kind": "api_documentation",
+      "official_url": "https://raw.githubusercontent.com/python/cpython/v3.12.10/Doc/library/ast.rst",
+      "resolved_url": "https://raw.githubusercontent.com/python/cpython/v3.12.10/Doc/library/ast.rst",
+      "version_evidence": "v3.12.10",
+      "retrieved_at": "2026-11-06T16:42:29.313337+00:00",
+      "http_status": 200,
+      "bytes": 86170,
+      "sha256": "89e64c59836238337bc1087e9ec5c6941d080271c759281ab75c6ab6ff62fdcb",
+      "cache_entry": {
+        "file": ".workflow-kit/runtime/AgentNexus-v0.4-M0.1/diagnostics/acquisition.json",
+        "entry_id": "python_ast_doc",
+        "representation": "UTF-8 text; hash and bytes are the exact fetched UTF-8 payload"
+      },
+      "review_scope": "selected API/documentation/license evidence, not a complete upstream repository or distribution audit",
+      "supported_claims": [
+        "ast.parse produces an AST; parse success is not full compilation or scope validation.",
+        "AST offsets use UTF-8 byte offsets; complex input can exhaust compiler stack."
+      ]
+    },
+    {
+      "id": "python_license",
+      "project": "python",
+      "kind": "license",
+      "official_url": "https://raw.githubusercontent.com/python/cpython/v3.12.10/LICENSE",
+      "resolved_url": "https://raw.githubusercontent.com/python/cpython/v3.12.10/LICENSE",
+      "version_evidence": "v3.12.10",
+      "retrieved_at": "2026-11-06T16:42:26.639875+00:00",
+      "http_status": 200,
+      "bytes": 13936,
+      "sha256": "3b2f81fe21d181c499c59a256c8e1968455d6689d269aa85373bfb6af41da3bf",
+      "cache_entry": {
+        "file": ".workflow-kit/runtime/AgentNexus-v0.4-M0.1/diagnostics/acquisition.json",
+        "entry_id": "python_license",
+        "representation": "UTF-8 text; hash and bytes are the exact fetched UTF-8 payload"
+      },
+      "review_scope": "selected API/documentation/license evidence, not a complete upstream repository or distribution audit",
+      "supported_claims": [
+        "PSF license and historical license chain must be retained according to selected distribution."
+      ]
+    },
+    {
+      "id": "powershell_parser",
+      "project": "powershell",
+      "kind": "source",
+      "official_url": "https://raw.githubusercontent.com/PowerShell/PowerShell/v7.6.9/src/System.Management.Automation/engine/parser/Parser.cs",
+      "resolved_url": "https://raw.githubusercontent.com/PowerShell/PowerShell/v7.6.9/src/System.Management.Automation/engine/parser/Parser.cs",
+      "version_evidence": "v7.6.9",
+      "retrieved_at": "2026-11-06T16:42:32.487566+00:00",
+      "http_status": 200,
+      "bytes": 350533,
+      "sha256": "4b828414e20f48094bc161234de3109fda7a2ac63eda7bf93f03cf15498aa992",
+      "cache_entry": {
+        "file": ".workflow-kit/runtime/AgentNexus-v0.4-M0.1/diagnostics/acquisition.json",
+        "entry_id": "powershell_parser",
+        "representation": "UTF-8 text; hash and bytes are the exact fetched UTF-8 payload"
+      },
+      "review_scope": "selected API/documentation/license evidence, not a complete upstream repository or distribution audit",
+      "supported_claims": [
+        "ParseInput returns ScriptBlockAst and out tokens/ParseError; no user-script invocation is required."
+      ]
+    },
+    {
+      "id": "powershell_license",
+      "project": "powershell",
+      "kind": "license",
+      "official_url": "https://raw.githubusercontent.com/PowerShell/PowerShell/v7.6.9/LICENSE.txt",
+      "resolved_url": "https://raw.githubusercontent.com/PowerShell/PowerShell/v7.6.9/LICENSE.txt",
+      "version_evidence": "v7.6.9",
+      "retrieved_at": "2026-11-06T16:42:28.276382+00:00",
+      "http_status": 200,
+      "bytes": 1074,
+      "sha256": "7c77a44a8acd9b41fdc209864a8016b3d430b5d0e09309818d5b7444336df744",
+      "cache_entry": {
+        "file": ".workflow-kit/runtime/AgentNexus-v0.4-M0.1/diagnostics/acquisition.json",
+        "entry_id": "powershell_license",
+        "representation": "UTF-8 text; hash and bytes are the exact fetched UTF-8 payload"
+      },
+      "review_scope": "selected API/documentation/license evidence, not a complete upstream repository or distribution audit",
+      "supported_claims": [
+        "MIT root license for this PowerShell repository version; not Windows PowerShell 5.1 redistribution approval."
+      ]
+    },
+    {
+      "id": "shellcheck_manual",
+      "project": "shellcheck",
+      "kind": "cli_manual",
+      "official_url": "https://raw.githubusercontent.com/koalaman/shellcheck/v0.11.0/shellcheck.1.md",
+      "resolved_url": "https://raw.githubusercontent.com/koalaman/shellcheck/v0.11.0/shellcheck.1.md",
+      "version_evidence": "v0.11.0",
+      "retrieved_at": "2026-11-06T16:42:28.647863+00:00",
+      "http_status": 200,
+      "bytes": 13800,
+      "sha256": "c0d0e077db2a877ed40c612b67aef336dfbd78f1aa1d5efbef6e8dc5fd160f03",
+      "cache_entry": {
+        "file": ".workflow-kit/runtime/AgentNexus-v0.4-M0.1/diagnostics/acquisition.json",
+        "entry_id": "shellcheck_manual",
+        "representation": "UTF-8 text; hash and bytes are the exact fetched UTF-8 payload"
+      },
+      "review_scope": "selected API/documentation/license evidence, not a complete upstream repository or distribution audit",
+      "supported_claims": [
+        "ShellCheck is static shell analysis; supported dialect selection is explicit and does not establish Zsh support.",
+        "Configuration/source directives must not expand the authorized read scope."
+      ]
+    },
+    {
+      "id": "shellcheck_cabal",
+      "project": "shellcheck",
+      "kind": "package_manifest",
+      "official_url": "https://raw.githubusercontent.com/koalaman/shellcheck/v0.11.0/ShellCheck.cabal",
+      "resolved_url": "https://raw.githubusercontent.com/koalaman/shellcheck/v0.11.0/ShellCheck.cabal",
+      "version_evidence": "v0.11.0",
+      "retrieved_at": "2026-11-06T16:42:30.183419+00:00",
+      "http_status": 200,
+      "bytes": 3962,
+      "sha256": "2f5210cf9b14b9ec487e683a418f188400ff5a703b9fbc6385244fc81dacf92e",
+      "cache_entry": {
+        "file": ".workflow-kit/runtime/AgentNexus-v0.4-M0.1/diagnostics/acquisition.json",
+        "entry_id": "shellcheck_cabal",
+        "representation": "UTF-8 text; hash and bytes are the exact fetched UTF-8 payload"
+      },
+      "review_scope": "selected API/documentation/license evidence, not a complete upstream repository or distribution audit",
+      "supported_claims": [
+        "License field is GPL-3 and refers to LICENSE; this evidence is not normalized into only/or-later without file-header review."
+      ]
+    },
+    {
+      "id": "shellcheck_license",
+      "project": "shellcheck",
+      "kind": "license",
+      "official_url": "https://raw.githubusercontent.com/koalaman/shellcheck/v0.11.0/LICENSE",
+      "resolved_url": "https://raw.githubusercontent.com/koalaman/shellcheck/v0.11.0/LICENSE",
+      "version_evidence": "v0.11.0",
+      "retrieved_at": "2026-11-06T16:42:28.765549+00:00",
+      "http_status": 200,
+      "bytes": 35149,
+      "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986",
+      "cache_entry": {
+        "file": ".workflow-kit/runtime/AgentNexus-v0.4-M0.1/diagnostics/acquisition.json",
+        "entry_id": "shellcheck_license",
+        "representation": "UTF-8 text; hash and bytes are the exact fetched UTF-8 payload"
+      },
+      "review_scope": "selected API/documentation/license evidence, not a complete upstream repository or distribution audit",
+      "supported_claims": [
+        "GPL version 3 text; binary/source distribution and per-file notices remain introduction gates."
+      ]
+    },
+    {
+      "id": "ruff_metadata",
+      "project": "ruff",
+      "kind": "publisher_metadata",
+      "official_url": "https://pypi.org/pypi/ruff/0.11.8/json",
+      "resolved_url": "https://pypi.org/pypi/ruff/0.11.8/json",
+      "version_evidence": "0.11.8",
+      "retrieved_at": "2026-11-06T16:42:33.644176+00:00",
+      "http_status": 200,
+      "bytes": 42258,
+      "sha256": "c6fc28d2abce90d07f89206798720f8d244d54a80e9b266b9b95ca0125c3ad53",
+      "cache_entry": {
+        "file": ".workflow-kit/runtime/AgentNexus-v0.4-M0.1/diagnostics/acquisition.json",
+        "entry_id": "ruff_metadata",
+        "representation": "UTF-8 text; hash and bytes are the exact fetched UTF-8 payload"
+      },
+      "review_scope": "selected API/documentation/license evidence, not a complete upstream repository or distribution audit",
+      "supported_claims": [
+        "Pinned PyPI release metadata declares MIT; this is a research sample, not a current dependency lock."
+      ]
+    },
+    {
+      "id": "ruff_license",
+      "project": "ruff",
+      "kind": "license",
+      "official_url": "https://raw.githubusercontent.com/astral-sh/ruff/0.11.8/LICENSE",
+      "resolved_url": "https://raw.githubusercontent.com/astral-sh/ruff/0.11.8/LICENSE",
+      "version_evidence": "0.11.8",
+      "retrieved_at": "2026-11-06T16:42:32.485435+00:00",
+      "http_status": 200,
+      "bytes": 69789,
+      "sha256": "3209c0b7fb7257c05b16433728c1e974bac40000fef171b8e9e89f095623c954",
+      "cache_entry": {
+        "file": ".workflow-kit/runtime/AgentNexus-v0.4-M0.1/diagnostics/acquisition.json",
+        "entry_id": "ruff_license",
+        "representation": "UTF-8 text; hash and bytes are the exact fetched UTF-8 payload"
+      },
+      "review_scope": "selected API/documentation/license evidence, not a complete upstream repository or distribution audit",
+      "supported_claims": [
+        "MIT main license plus bundled third-party license text; keeping only a one-line MIT label is insufficient."
+      ]
+    },
+    {
+      "id": "roslyn_parser",
+      "project": "roslyn",
+      "kind": "source",
+      "official_url": "https://raw.githubusercontent.com/dotnet/roslyn/6dbcfd2f553ef1ef0ac48878ab17d18c1360735d/src/Compilers/CSharp/Portable/Syntax/CSharpSyntaxTree.cs",
+      "resolved_url": "https://raw.githubusercontent.com/dotnet/roslyn/6dbcfd2f553ef1ef0ac48878ab17d18c1360735d/src/Compilers/CSharp/Portable/Syntax/CSharpSyntaxTree.cs",
+      "version_evidence": "6dbcfd2f553ef1ef0ac48878ab17d18c1360735d",
+      "retrieved_at": "2026-11-06T16:42:30.633895+00:00",
+      "http_status": 200,
+      "bytes": 41480,
+      "sha256": "86211c9b803aeb5e9e9c2f49d05145646641308d2ad0a18e1f611679199e21bf",
+      "cache_entry": {
+        "file": ".workflow-kit/runtime/AgentNexus-v0.4-M0.1/diagnostics/acquisition.json",
+        "entry_id": "roslyn_parser",
+        "representation": "UTF-8 text; hash and bytes are the exact fetched UTF-8 payload"
+      },
+      "review_scope": "selected API/documentation/license evidence, not a complete upstream repository or distribution audit",
+      "supported_claims": [
+        "ParseText produces a syntax tree; GetDiagnostics reports parse diagnostics.",
+        "Project builds, analyzers and source generators are separate capabilities."
+      ]
+    },
+    {
+      "id": "roslyn_license",
+      "project": "roslyn",
+      "kind": "license",
+      "official_url": "https://raw.githubusercontent.com/dotnet/roslyn/6dbcfd2f553ef1ef0ac48878ab17d18c1360735d/License.txt",
+      "resolved_url": "https://raw.githubusercontent.com/dotnet/roslyn/6dbcfd2f553ef1ef0ac48878ab17d18c1360735d/License.txt",
+      "version_evidence": "6dbcfd2f553ef1ef0ac48878ab17d18c1360735d",
+      "retrieved_at": "2026-11-06T16:42:32.159441+00:00",
+      "http_status": 200,
+      "bytes": 1115,
+      "sha256": "ae48df11a335dc1a615f4f938b69cba73bcf4485c4f97af49b38efb0f216353b",
+      "cache_entry": {
+        "file": ".workflow-kit/runtime/AgentNexus-v0.4-M0.1/diagnostics/acquisition.json",
+        "entry_id": "roslyn_license",
+        "representation": "UTF-8 text; hash and bytes are the exact fetched UTF-8 payload"
+      },
+      "review_scope": "selected API/documentation/license evidence, not a complete upstream repository or distribution audit",
+      "supported_claims": [
+        "MIT repository license at the source revision recorded in the installed Roslyn product version."
+      ]
+    },
+    {
+      "id": "typescript_metadata",
+      "project": "typescript",
+      "kind": "publisher_metadata",
+      "official_url": "https://registry.npmjs.org/typescript/5.8.3",
+      "resolved_url": "https://registry.npmjs.org/typescript/5.8.3",
+      "version_evidence": "5.8.3",
+      "retrieved_at": "2026-11-06T16:42:34.730978+00:00",
+      "http_status": 200,
+      "bytes": 3951,
+      "sha256": "903e88bb6d16ca9419e14722378df6b66de31187f3534fb90a18e9ee2b37582e",
+      "cache_entry": {
+        "file": ".workflow-kit/runtime/AgentNexus-v0.4-M0.1/diagnostics/acquisition.json",
+        "entry_id": "typescript_metadata",
+        "representation": "UTF-8 text; hash and bytes are the exact fetched UTF-8 payload"
+      },
+      "review_scope": "selected API/documentation/license evidence, not a complete upstream repository or distribution audit",
+      "supported_claims": [
+        "Fixed research sample metadata declares Apache-2.0; no package installed."
+      ]
+    },
+    {
+      "id": "typescript_api",
+      "project": "typescript",
+      "kind": "source",
+      "official_url": "https://raw.githubusercontent.com/microsoft/TypeScript/v5.8.3/src/services/services.ts",
+      "resolved_url": "https://raw.githubusercontent.com/microsoft/TypeScript/v5.8.3/src/services/services.ts",
+      "version_evidence": "v5.8.3",
+      "retrieved_at": "2026-11-06T16:42:36.227129+00:00",
+      "http_status": 200,
+      "bytes": 158709,
+      "sha256": "0cf7f141470a98c807d984f218c75e826b9970774919435f5a13a76b9a9e4b02",
+      "cache_entry": {
+        "file": ".workflow-kit/runtime/AgentNexus-v0.4-M0.1/diagnostics/acquisition.json",
+        "entry_id": "typescript_api",
+        "representation": "UTF-8 text; hash and bytes are the exact fetched UTF-8 payload"
+      },
+      "review_scope": "selected API/documentation/license evidence, not a complete upstream repository or distribution audit",
+      "supported_claims": [
+        "Language Service distinguishes syntactic and semantic diagnostics; cancellation is passed to compiler diagnostics."
+      ]
+    },
+    {
+      "id": "typescript_license",
+      "project": "typescript",
+      "kind": "license",
+      "official_url": "https://raw.githubusercontent.com/microsoft/TypeScript/v5.8.3/LICENSE.txt",
+      "resolved_url": "https://raw.githubusercontent.com/microsoft/TypeScript/v5.8.3/LICENSE.txt",
+      "version_evidence": "v5.8.3",
+      "retrieved_at": "2026-11-06T16:42:36.819858+00:00",
+      "http_status": 200,
+      "bytes": 9197,
+      "sha256": "a7d00bfd54525bc694b6e32f64c7ebcf5e6b7ae3657be5cc12767bce74654a47",
+      "cache_entry": {
+        "file": ".workflow-kit/runtime/AgentNexus-v0.4-M0.1/diagnostics/acquisition.json",
+        "entry_id": "typescript_license",
+        "representation": "UTF-8 text; hash and bytes are the exact fetched UTF-8 payload"
+      },
+      "review_scope": "selected API/documentation/license evidence, not a complete upstream repository or distribution audit",
+      "supported_claims": [
+        "Apache-2.0 license text; actual introduced assets and dependencies require notice review."
+      ]
+    },
+    {
+      "id": "typescript_latest",
+      "project": "typescript",
+      "kind": "publisher_metadata",
+      "official_url": "https://registry.npmjs.org/typescript/latest",
+      "resolved_url": "https://registry.npmjs.org/typescript/latest",
+      "version_evidence": "7.0.2 observed metadata",
+      "retrieved_at": "2026-11-06T16:42:38.050065+00:00",
+      "http_status": 200,
+      "bytes": 4833,
+      "sha256": "28a8ef314c6bbc3fddb831088f80eb2fcac6351cb618c8ac029f7229f587b8aa",
+      "cache_entry": {
+        "file": ".workflow-kit/runtime/AgentNexus-v0.4-M0.1/diagnostics/acquisition.json",
+        "entry_id": "typescript_latest",
+        "representation": "UTF-8 text; hash and bytes are the exact fetched UTF-8 payload"
+      },
+      "review_scope": "selected API/documentation/license evidence, not a complete upstream repository or distribution audit",
+      "supported_claims": [
+        "Mutable latest endpoint resolved to 7.0.2 during this capture; not a locked implementation choice."
+      ]
+    },
+    {
+      "id": "eslint_metadata",
+      "project": "eslint",
+      "kind": "publisher_metadata",
+      "official_url": "https://registry.npmjs.org/eslint/9.24.0",
+      "resolved_url": "https://registry.npmjs.org/eslint/9.24.0",
+      "version_evidence": "9.24.0",
+      "retrieved_at": "2026-11-06T16:42:34.500083+00:00",
+      "http_status": 200,
+      "bytes": 6859,
+      "sha256": "a2d682374f3a744ee6dc6d7c50583d5a7bd336153e972c539292fc0a3b35e89b",
+      "cache_entry": {
+        "file": ".workflow-kit/runtime/AgentNexus-v0.4-M0.1/diagnostics/acquisition.json",
+        "entry_id": "eslint_metadata",
+        "representation": "UTF-8 text; hash and bytes are the exact fetched UTF-8 payload"
+      },
+      "review_scope": "selected API/documentation/license evidence, not a complete upstream repository or distribution audit",
+      "supported_claims": [
+        "Pinned publisher metadata declares MIT."
+      ]
+    },
+    {
+      "id": "eslint_api",
+      "project": "eslint",
+      "kind": "source",
+      "official_url": "https://raw.githubusercontent.com/eslint/eslint/v9.24.0/lib/eslint/eslint.js",
+      "resolved_url": "https://raw.githubusercontent.com/eslint/eslint/v9.24.0/lib/eslint/eslint.js",
+      "version_evidence": "v9.24.0",
+      "retrieved_at": "2026-11-06T16:42:35.903988+00:00",
+      "http_status": 200,
+      "bytes": 33483,
+      "sha256": "20961517019c0437e11121f9a20c682fca7228f43718820066ac6b97d2e6bab0",
+      "cache_entry": {
+        "file": ".workflow-kit/runtime/AgentNexus-v0.4-M0.1/diagnostics/acquisition.json",
+        "entry_id": "eslint_api",
+        "representation": "UTF-8 text; hash and bytes are the exact fetched UTF-8 payload"
+      },
+      "review_scope": "selected API/documentation/license evidence, not a complete upstream repository or distribution audit",
+      "supported_claims": [
+        "lintText loads configuration for the resolved filename; merely supplying source text does not avoid config code."
+      ]
+    },
+    {
+      "id": "eslint_license",
+      "project": "eslint",
+      "kind": "license",
+      "official_url": "https://raw.githubusercontent.com/eslint/eslint/v9.24.0/LICENSE",
+      "resolved_url": "https://raw.githubusercontent.com/eslint/eslint/v9.24.0/LICENSE",
+      "version_evidence": "v9.24.0",
+      "retrieved_at": "2026-11-06T16:42:37.147699+00:00",
+      "http_status": 200,
+      "bytes": 1094,
+      "sha256": "3b6be04f862a077a4b97929dbf247299360824d9365f8603c263769303ace18c",
+      "cache_entry": {
+        "file": ".workflow-kit/runtime/AgentNexus-v0.4-M0.1/diagnostics/acquisition.json",
+        "entry_id": "eslint_license",
+        "representation": "UTF-8 text; hash and bytes are the exact fetched UTF-8 payload"
+      },
+      "review_scope": "selected API/documentation/license evidence, not a complete upstream repository or distribution audit",
+      "supported_claims": [
+        "MIT root license; plugins, parsers and configs have independent execution and license scopes."
+      ]
+    },
+    {
+      "id": "lsp_commit",
+      "project": "lsp",
+      "kind": "revision_metadata",
+      "official_url": "https://api.github.com/repos/microsoft/language-server-protocol/commits/gh-pages",
+      "resolved_url": "https://api.github.com/repos/microsoft/language-server-protocol/commits/gh-pages",
+      "version_evidence": "440d8b03d784cf0bd3769b1abb33aacc24b586a6",
+      "retrieved_at": "2026-11-06T16:42:39.339793+00:00",
+      "http_status": 200,
+      "bytes": 6220,
+      "sha256": "1ed8622fda1d9e29237eec1ba90e3caf561207f35d523bac8e969ec5d71097eb",
+      "cache_entry": {
+        "file": ".workflow-kit/runtime/AgentNexus-v0.4-M0.1/diagnostics/acquisition.json",
+        "entry_id": "lsp_commit",
+        "representation": "UTF-8 text; hash and bytes are the exact fetched UTF-8 payload"
+      },
+      "review_scope": "selected API/documentation/license evidence, not a complete upstream repository or distribution audit",
+      "supported_claims": [
+        "GitHub commit response freezes the gh-pages revision used for the LSP 3.17 source files."
+      ]
+    },
+    {
+      "id": "zsh_copyright",
+      "project": "zsh",
+      "kind": "license",
+      "official_url": "https://raw.githubusercontent.com/zsh-users/zsh/zsh-5.9/LICENCE",
+      "resolved_url": "https://raw.githubusercontent.com/zsh-users/zsh/zsh-5.9/LICENCE",
+      "version_evidence": "zsh-5.9",
+      "retrieved_at": "2026-11-06T16:42:37.760455+00:00",
+      "http_status": 200,
+      "bytes": 1963,
+      "sha256": "d06fdf3ef9b1ec69d6b9e170b0a9516fbad3523261ff1668bde3bfea6e0ef5f5",
+      "cache_entry": {
+        "file": ".workflow-kit/runtime/AgentNexus-v0.4-M0.1/diagnostics/acquisition.json",
+        "entry_id": "zsh_copyright",
+        "representation": "UTF-8 text; hash and bytes are the exact fetched UTF-8 payload"
+      },
+      "review_scope": "selected API/documentation/license evidence, not a complete upstream repository or distribution audit",
+      "supported_claims": [
+        "Root permissive Zsh terms have explicit per-file and GPL shell-function exceptions; no binary redistribution gate completed."
+      ]
+    },
+    {
+      "id": "dockerfile_parser",
+      "project": "buildkit",
+      "kind": "source",
+      "official_url": "https://raw.githubusercontent.com/moby/buildkit/v0.20.2/frontend/dockerfile/parser/parser.go",
+      "resolved_url": "https://raw.githubusercontent.com/moby/buildkit/v0.20.2/frontend/dockerfile/parser/parser.go",
+      "version_evidence": "v0.20.2",
+      "retrieved_at": "2026-11-06T16:42:37.842321+00:00",
+      "http_status": 200,
+      "bytes": 16492,
+      "sha256": "3d51d89485f5815a32bd85c9a4596590ac90e923f9e2dd32a2b550d0a02efffc",
+      "cache_entry": {
+        "file": ".workflow-kit/runtime/AgentNexus-v0.4-M0.1/diagnostics/acquisition.json",
+        "entry_id": "dockerfile_parser",
+        "representation": "UTF-8 text; hash and bytes are the exact fetched UTF-8 payload"
+      },
+      "review_scope": "selected API/documentation/license evidence, not a complete upstream repository or distribution audit",
+      "supported_claims": [
+        "BuildKit has a standalone Dockerfile parsing package; parsing is a narrower capability than running a build."
+      ]
+    },
+    {
+      "id": "buildkit_license",
+      "project": "buildkit",
+      "kind": "license",
+      "official_url": "https://raw.githubusercontent.com/moby/buildkit/v0.20.2/LICENSE",
+      "resolved_url": "https://raw.githubusercontent.com/moby/buildkit/v0.20.2/LICENSE",
+      "version_evidence": "v0.20.2",
+      "retrieved_at": "2026-11-06T16:42:40.101792+00:00",
+      "http_status": 200,
+      "bytes": 11357,
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "cache_entry": {
+        "file": ".workflow-kit/runtime/AgentNexus-v0.4-M0.1/diagnostics/acquisition.json",
+        "entry_id": "buildkit_license",
+        "representation": "UTF-8 text; hash and bytes are the exact fetched UTF-8 payload"
+      },
+      "review_scope": "selected API/documentation/license evidence, not a complete upstream repository or distribution audit",
+      "supported_claims": [
+        "Apache-2.0 repository license; dependency closure is not audited here."
+      ]
+    },
+    {
+      "id": "yaml_metadata",
+      "project": "yaml",
+      "kind": "publisher_metadata",
+      "official_url": "https://registry.npmjs.org/yaml/2.7.1",
+      "resolved_url": "https://registry.npmjs.org/yaml/2.7.1",
+      "version_evidence": "2.7.1",
+      "retrieved_at": "2026-11-06T16:42:39.381208+00:00",
+      "http_status": 200,
+      "bytes": 3661,
+      "sha256": "5521ce96dc0fef847f6436be66b480789758d4aa7ce4659b76abdc178ca12bf7",
+      "cache_entry": {
+        "file": ".workflow-kit/runtime/AgentNexus-v0.4-M0.1/diagnostics/acquisition.json",
+        "entry_id": "yaml_metadata",
+        "representation": "UTF-8 text; hash and bytes are the exact fetched UTF-8 payload"
+      },
+      "review_scope": "selected API/documentation/license evidence, not a complete upstream repository or distribution audit",
+      "supported_claims": [
+        "Official npm metadata declares ISC, not MIT; package files and dependency closure are not yet audited."
+      ]
+    },
+    {
+      "id": "sqlglot_metadata",
+      "project": "sqlglot",
+      "kind": "publisher_metadata",
+      "official_url": "https://pypi.org/pypi/sqlglot/26.16.3/json",
+      "resolved_url": "https://pypi.org/pypi/sqlglot/26.16.3/json",
+      "version_evidence": "26.16.3",
+      "retrieved_at": "2026-11-06T16:42:39.958767+00:00",
+      "http_status": 200,
+      "bytes": 23382,
+      "sha256": "3fc48317f49df62ed49c1b0455c11bc3d5d27b5eecf803483ec31ee1a42a65fa",
+      "cache_entry": {
+        "file": ".workflow-kit/runtime/AgentNexus-v0.4-M0.1/diagnostics/acquisition.json",
+        "entry_id": "sqlglot_metadata",
+        "representation": "UTF-8 text; hash and bytes are the exact fetched UTF-8 payload"
+      },
+      "review_scope": "selected API/documentation/license evidence, not a complete upstream repository or distribution audit",
+      "supported_claims": [
+        "Fixed PyPI metadata contains MIT license text; not an installed dependency."
+      ]
+    },
+    {
+      "id": "lsp_publish_diagnostics",
+      "project": "lsp",
+      "kind": "protocol_specification",
+      "official_url": "https://raw.githubusercontent.com/microsoft/language-server-protocol/440d8b03d784cf0bd3769b1abb33aacc24b586a6/_specifications/lsp/3.17/language/publishDiagnostics.md",
+      "resolved_url": "https://raw.githubusercontent.com/microsoft/language-server-protocol/440d8b03d784cf0bd3769b1abb33aacc24b586a6/_specifications/lsp/3.17/language/publishDiagnostics.md",
+      "version_evidence": "440d8b03d784cf0bd3769b1abb33aacc24b586a6",
+      "retrieved_at": "2026-11-06T16:42:41.577311+00:00",
+      "http_status": 200,
+      "bytes": 3380,
+      "sha256": "e2f5f5029bc5c0dac9a100ff6d2c34ba0c9f51f64dccbc019e7c63daf4eae0eb",
+      "cache_entry": {
+        "file": ".workflow-kit/runtime/AgentNexus-v0.4-M0.1/diagnostics/acquisition.json",
+        "entry_id": "lsp_publish_diagnostics",
+        "representation": "UTF-8 text; hash and bytes are the exact fetched UTF-8 payload"
+      },
+      "review_scope": "selected API/documentation/license evidence, not a complete upstream repository or distribution audit",
+      "supported_claims": [
+        "Push version is optional; a new diagnostic array replaces the prior array and empty arrays clear prior diagnostics."
+      ]
+    },
+    {
+      "id": "lsp_specification",
+      "project": "lsp",
+      "kind": "protocol_specification",
+      "official_url": "https://raw.githubusercontent.com/microsoft/language-server-protocol/440d8b03d784cf0bd3769b1abb33aacc24b586a6/_specifications/lsp/3.17/specification.md",
+      "resolved_url": "https://raw.githubusercontent.com/microsoft/language-server-protocol/440d8b03d784cf0bd3769b1abb33aacc24b586a6/_specifications/lsp/3.17/specification.md",
+      "version_evidence": "440d8b03d784cf0bd3769b1abb33aacc24b586a6",
+      "retrieved_at": "2026-11-06T16:42:42.283356+00:00",
+      "http_status": 200,
+      "bytes": 42538,
+      "sha256": "6553187ee72c18eb71d583ed25323843f66d70695097d2e0c1b1f0dad00e4363",
+      "cache_entry": {
+        "file": ".workflow-kit/runtime/AgentNexus-v0.4-M0.1/diagnostics/acquisition.json",
+        "entry_id": "lsp_specification",
+        "representation": "UTF-8 text; hash and bytes are the exact fetched UTF-8 payload"
+      },
+      "review_scope": "selected API/documentation/license evidence, not a complete upstream repository or distribution audit",
+      "supported_claims": [
+        "Specification is explicitly LSP 3.17; cancelled requests still need a response.",
+        "Clients should cancel and ignore responses invalidated by state changes."
+      ]
+    },
+    {
+      "id": "lsp_license",
+      "project": "lsp",
+      "kind": "license",
+      "official_url": "https://raw.githubusercontent.com/microsoft/language-server-protocol/440d8b03d784cf0bd3769b1abb33aacc24b586a6/License.txt",
+      "resolved_url": "https://raw.githubusercontent.com/microsoft/language-server-protocol/440d8b03d784cf0bd3769b1abb33aacc24b586a6/License.txt",
+      "version_evidence": "440d8b03d784cf0bd3769b1abb33aacc24b586a6",
+      "retrieved_at": "2026-11-06T16:42:41.781962+00:00",
+      "http_status": 200,
+      "bytes": 18649,
+      "sha256": "95df2e9564862e51d69683a899b6dcc8218d577057bdf67322880769ff85f29e",
+      "cache_entry": {
+        "file": ".workflow-kit/runtime/AgentNexus-v0.4-M0.1/diagnostics/acquisition.json",
+        "entry_id": "lsp_license",
+        "representation": "UTF-8 text; hash and bytes are the exact fetched UTF-8 payload"
+      },
+      "review_scope": "selected API/documentation/license evidence, not a complete upstream repository or distribution audit",
+      "supported_claims": [
+        "Specification repository license is Creative Commons Attribution 4.0; do not apply it to SDKs or language-server binaries."
+      ]
+    },
+    {
+      "id": "bash_manual",
+      "project": "bash",
+      "kind": "cli_manual",
+      "official_url": "https://www.gnu.org/software/bash/manual/bash.html",
+      "resolved_url": "https://www.gnu.org/software/bash/manual/bash.html",
+      "version_evidence": "manual Edition 5.3, 2025-05-18",
+      "retrieved_at": "2026-11-06T16:45:20.305231+00:00",
+      "http_status": 200,
+      "bytes": 1040954,
+      "sha256": "78d0eefbe60cfe7345ffdafede7294f055b04e53bd520360ff699b24f81e2b4b",
+      "cache_entry": {
+        "file": ".workflow-kit/runtime/AgentNexus-v0.4-M0.1/diagnostics/acquisition.json",
+        "entry_id": "bash_manual",
+        "representation": "UTF-8 text; hash and bytes are the exact fetched UTF-8 payload"
+      },
+      "review_scope": "selected API/documentation/license evidence, not a complete upstream repository or distribution audit",
+      "supported_claims": [
+        "-n reads commands without executing them for syntax checking.",
+        "Non-interactive startup can read BASH_ENV; trusted invocation requires startup environment control.",
+        "The manual uses GFDL-1.3-or-later; it is not evidence of the runtime binary license closure."
+      ]
+    },
+    {
+      "id": "zsh_options",
+      "project": "zsh",
+      "kind": "cli_manual",
+      "official_url": "https://zsh.sourceforge.io/Doc/Release/Options.html",
+      "resolved_url": "https://zsh.sourceforge.io/Doc/Release/Options.html",
+      "version_evidence": "Release documentation captured at retrieval time",
+      "retrieved_at": "2026-11-06T16:45:15.328090+00:00",
+      "http_status": 200,
+      "bytes": 206631,
+      "sha256": "d79c24753ebbf5e88d06a6091985d449af5227688040badca5a95d9dfd5a4c70",
+      "cache_entry": {
+        "file": ".workflow-kit/runtime/AgentNexus-v0.4-M0.1/diagnostics/acquisition.json",
+        "entry_id": "zsh_options",
+        "representation": "UTF-8 text; hash and bytes are the exact fetched UTF-8 payload"
+      },
+      "review_scope": "selected API/documentation/license evidence, not a complete upstream repository or distribution audit",
+      "supported_claims": [
+        "NOEXEC/-n is a distinct Zsh option; -f does not eliminate /etc/zshenv."
+      ]
+    },
+    {
+      "id": "zsh_startup",
+      "project": "zsh",
+      "kind": "cli_manual",
+      "official_url": "https://zsh.sourceforge.io/Doc/Release/Files.html",
+      "resolved_url": "https://zsh.sourceforge.io/Doc/Release/Files.html",
+      "version_evidence": "Release documentation captured at retrieval time",
+      "retrieved_at": "2026-11-06T16:45:14.795847+00:00",
+      "http_status": 200,
+      "bytes": 10591,
+      "sha256": "958e8ddb5e266f338fd55dbc3d8a74e2577946b08403b06eae60b5b20f9278ce",
+      "cache_entry": {
+        "file": ".workflow-kit/runtime/AgentNexus-v0.4-M0.1/diagnostics/acquisition.json",
+        "entry_id": "zsh_startup",
+        "representation": "UTF-8 text; hash and bytes are the exact fetched UTF-8 payload"
+      },
+      "review_scope": "selected API/documentation/license evidence, not a complete upstream repository or distribution audit",
+      "supported_claims": [
+        "The system zshenv startup file cannot be bypassed by the ordinary RCS setting; require trusted image and isolation."
+      ]
+    },
+    {
+      "id": "powershell_parser_api",
+      "project": "powershell",
+      "kind": "api_documentation",
+      "official_url": "https://learn.microsoft.com/en-us/dotnet/api/system.management.automation.language.parser.parseinput?view=powershellsdk-7.6.0",
+      "resolved_url": "https://learn.microsoft.com/en-us/dotnet/api/system.management.automation.language.parser.parseinput?view=powershellsdk-7.6.0",
+      "version_evidence": "SDK documentation view 7.6.0",
+      "retrieved_at": "2026-11-06T16:45:15.450215+00:00",
+      "http_status": 200,
+      "bytes": 47229,
+      "sha256": "9d46934039c630c16b3d203d7f50c743e8ed504038c25965f5929662baf58437",
+      "cache_entry": {
+        "file": ".workflow-kit/runtime/AgentNexus-v0.4-M0.1/diagnostics/acquisition.json",
+        "entry_id": "powershell_parser_api",
+        "representation": "UTF-8 text; hash and bytes are the exact fetched UTF-8 payload"
+      },
+      "review_scope": "selected API/documentation/license evidence, not a complete upstream repository or distribution audit",
+      "supported_claims": [
+        "ParseInput parses a supplied string and returns AST, tokens and parse errors."
+      ]
+    },
+    {
+      "id": "roslyn_parser_api",
+      "project": "roslyn",
+      "kind": "api_documentation",
+      "official_url": "https://learn.microsoft.com/en-us/dotnet/api/microsoft.codeanalysis.csharp.csharpsyntaxtree.parsetext?view=roslyn-dotnet-4.14.0",
+      "resolved_url": "https://learn.microsoft.com/en-us/dotnet/api/microsoft.codeanalysis.csharp.csharpsyntaxtree.parsetext?view=roslyn-dotnet-4.14.0",
+      "version_evidence": "API documentation view 4.14.0",
+      "retrieved_at": "2026-11-06T16:45:17.407859+00:00",
+      "http_status": 200,
+      "bytes": 202891,
+      "sha256": "71eafa4414dc78cbe8958f0ad69b7d2e89e9258eab5131ded9c0e0a0b24b68da",
+      "cache_entry": {
+        "file": ".workflow-kit/runtime/AgentNexus-v0.4-M0.1/diagnostics/acquisition.json",
+        "entry_id": "roslyn_parser_api",
+        "representation": "UTF-8 text; hash and bytes are the exact fetched UTF-8 payload"
+      },
+      "review_scope": "selected API/documentation/license evidence, not a complete upstream repository or distribution audit",
+      "supported_claims": [
+        "ParseText supports explicit parse options and a CancellationToken."
+      ]
+    },
+    {
+      "id": "ruff_configuration",
+      "project": "ruff",
+      "kind": "cli_manual",
+      "official_url": "https://raw.githubusercontent.com/astral-sh/ruff/0.11.8/docs/configuration.md",
+      "resolved_url": "https://raw.githubusercontent.com/astral-sh/ruff/0.11.8/docs/configuration.md",
+      "version_evidence": "0.11.8",
+      "retrieved_at": "2026-11-06T16:45:13.951613+00:00",
+      "http_status": 200,
+      "bytes": 28864,
+      "sha256": "4a203eed09cf61ad8ed5a6582c872d0e6366270e202c308951f12b5140d7e688",
+      "cache_entry": {
+        "file": ".workflow-kit/runtime/AgentNexus-v0.4-M0.1/diagnostics/acquisition.json",
+        "entry_id": "ruff_configuration",
+        "representation": "UTF-8 text; hash and bytes are the exact fetched UTF-8 payload"
+      },
+      "review_scope": "selected API/documentation/license evidence, not a complete upstream repository or distribution audit",
+      "supported_claims": [
+        "Pinned CLI supports isolated configuration, no-cache, no-fix and machine-readable output selection."
+      ]
+    },
+    {
+      "id": "lsp_pull_diagnostics_fixed",
+      "project": "lsp",
+      "kind": "protocol_specification",
+      "official_url": "https://raw.githubusercontent.com/microsoft/language-server-protocol/440d8b03d784cf0bd3769b1abb33aacc24b586a6/_specifications/lsp/3.17/language/pullDiagnostics.md",
+      "resolved_url": "https://raw.githubusercontent.com/microsoft/language-server-protocol/440d8b03d784cf0bd3769b1abb33aacc24b586a6/_specifications/lsp/3.17/language/pullDiagnostics.md",
+      "version_evidence": "440d8b03d784cf0bd3769b1abb33aacc24b586a6",
+      "retrieved_at": "2026-11-06T16:45:17.552235+00:00",
+      "http_status": 200,
+      "bytes": 17978,
+      "sha256": "85f1a29f9aad8ad256ee8db385d5060abb4c960de77eb246e327ba448de04eb4",
+      "cache_entry": {
+        "file": ".workflow-kit/runtime/AgentNexus-v0.4-M0.1/diagnostics/acquisition.json",
+        "entry_id": "lsp_pull_diagnostics_fixed",
+        "representation": "UTF-8 text; hash and bytes are the exact fetched UTF-8 payload"
+      },
+      "review_scope": "selected API/documentation/license evidence, not a complete upstream repository or distribution audit",
+      "supported_claims": [
+        "LSP 3.17 pull diagnostics use resultId/previousResultId; cache IDs do not replace document-version binding.",
+        "Higher document versions take precedence; bound cancellation and retries are still host responsibilities."
+      ]
+    },
+    {
+      "id": "eslint_configuration",
+      "project": "eslint",
+      "kind": "api_documentation",
+      "official_url": "https://eslint.org/docs/latest/use/configure/configuration-files",
+      "resolved_url": "https://eslint.org/docs/latest/use/configure/configuration-files",
+      "version_evidence": "latest documentation captured at retrieval time",
+      "retrieved_at": "2026-11-06T16:45:19.485341+00:00",
+      "http_status": 200,
+      "bytes": 238615,
+      "sha256": "57daa243a03b341c3fd11d8eec700b1e62c822e86b9aa433f6a64b7eeafe668a",
+      "cache_entry": {
+        "file": ".workflow-kit/runtime/AgentNexus-v0.4-M0.1/diagnostics/acquisition.json",
+        "entry_id": "eslint_configuration",
+        "representation": "UTF-8 text; hash and bytes are the exact fetched UTF-8 payload"
+      },
+      "review_scope": "selected API/documentation/license evidence, not a complete upstream repository or distribution audit",
+      "supported_claims": [
+        "Flat configs can be JavaScript modules and may import plugins; never load untrusted project configs in the Broker."
+      ]
+    },
+    {
+      "id": "eslint_node_api",
+      "project": "eslint",
+      "kind": "api_documentation",
+      "official_url": "https://eslint.org/docs/latest/integrate/nodejs-api",
+      "resolved_url": "https://eslint.org/docs/latest/integrate/nodejs-api",
+      "version_evidence": "latest documentation captured at retrieval time",
+      "retrieved_at": "2026-11-06T16:45:21.333708+00:00",
+      "http_status": 200,
+      "bytes": 282689,
+      "sha256": "c9b74021d17aaa39d45e9fc7b7954a21236b4adf0033c37ba6bb7a0d9ea356d9",
+      "cache_entry": {
+        "file": ".workflow-kit/runtime/AgentNexus-v0.4-M0.1/diagnostics/acquisition.json",
+        "entry_id": "eslint_node_api",
+        "representation": "UTF-8 text; hash and bytes are the exact fetched UTF-8 payload"
+      },
+      "review_scope": "selected API/documentation/license evidence, not a complete upstream repository or distribution audit",
+      "supported_claims": [
+        "ESLint Node API provides lintText and configuration controls; linting still requires trusted runtime configuration."
+      ]
+    },
+    {
+      "id": "typescript_compiler_api_guide",
+      "project": "typescript",
+      "kind": "api_documentation",
+      "official_url": "https://github.com/microsoft/TypeScript/wiki/Using-the-Compiler-API",
+      "resolved_url": "https://github.com/microsoft/TypeScript/wiki/Using-the-Compiler-API",
+      "version_evidence": "wiki captured at retrieval time",
+      "retrieved_at": "2026-11-06T16:45:20.353830+00:00",
+      "http_status": 200,
+      "bytes": 522810,
+      "sha256": "9ceab601388e5be8c1dc8fee653897fd96ceb33b868b9b7a4a7056feecb7e868",
+      "cache_entry": {
+        "file": ".workflow-kit/runtime/AgentNexus-v0.4-M0.1/diagnostics/acquisition.json",
+        "entry_id": "typescript_compiler_api_guide",
+        "representation": "UTF-8 text; hash and bytes are the exact fetched UTF-8 payload"
+      },
+      "review_scope": "selected API/documentation/license evidence, not a complete upstream repository or distribution audit",
+      "supported_claims": [
+        "Official guide says it describes TypeScript 6.0 and earlier and that 7.1 will have a different API; do not assume compatibility with registry latest 7.0.2."
+      ]
+    },
+    {
+      "id": "docker_checks",
+      "project": "docker",
+      "kind": "api_documentation",
+      "official_url": "https://docs.docker.com/build/checks/",
+      "resolved_url": "https://docs.docker.com/build/checks/",
+      "version_evidence": "Buildx >=0.15.0 and Dockerfile 1.8 documented",
+      "retrieved_at": "2026-11-06T16:45:22.381955+00:00",
+      "http_status": 200,
+      "bytes": 587888,
+      "sha256": "0552641ea77f755e9e7531dad4f62f65089bfe6f3a6b2e3c0012a363cb0c299a",
+      "cache_entry": {
+        "file": ".workflow-kit/runtime/AgentNexus-v0.4-M0.1/diagnostics/acquisition.json",
+        "entry_id": "docker_checks",
+        "representation": "UTF-8 text; hash and bytes are the exact fetched UTF-8 payload"
+      },
+      "review_scope": "selected API/documentation/license evidence, not a complete upstream repository or distribution audit",
+      "supported_claims": [
+        "Build checks can run without build steps, but builder/frontend prerequisites remain; this is not evidence of a local parser or isolated offline execution."
+      ]
+    },
+    {
+      "id": "yaml_specification",
+      "project": "yaml",
+      "kind": "language_specification",
+      "official_url": "https://yaml.org/spec/1.2.2/",
+      "resolved_url": "https://yaml.org/spec/1.2.2/",
+      "version_evidence": "1.2.2 (2021-10-01)",
+      "retrieved_at": "2026-11-06T16:45:23.101240+00:00",
+      "http_status": 200,
+      "bytes": 383078,
+      "sha256": "2fe1bf40792df22ef8b8a5972a34c48e639969222e0bbae605aa9bb2ca85e9ab",
+      "cache_entry": {
+        "file": ".workflow-kit/runtime/AgentNexus-v0.4-M0.1/diagnostics/acquisition.json",
+        "entry_id": "yaml_specification",
+        "representation": "UTF-8 text; hash and bytes are the exact fetched UTF-8 payload"
+      },
+      "review_scope": "selected API/documentation/license evidence, not a complete upstream repository or distribution audit",
+      "supported_claims": [
+        "YAML 1.2.2 is a fixed grammar target; loaders/custom tags must not instantiate arbitrary application objects."
+      ]
+    },
+    {
+      "id": "sqlglot_api",
+      "project": "sqlglot",
+      "kind": "api_documentation",
+      "official_url": "https://sqlglot.com/sqlglot.html",
+      "resolved_url": "https://sqlglot.com/sqlglot.html",
+      "version_evidence": "live API documentation captured at retrieval time",
+      "retrieved_at": "2026-11-06T16:45:24.267720+00:00",
+      "http_status": 200,
+      "bytes": 183419,
+      "sha256": "1bac60e7e929a00d2b687dcc076245fe3ef23d88c19605b09747d9ae80fe6980",
+      "cache_entry": {
+        "file": ".workflow-kit/runtime/AgentNexus-v0.4-M0.1/diagnostics/acquisition.json",
+        "entry_id": "sqlglot_api",
+        "representation": "UTF-8 text; hash and bytes are the exact fetched UTF-8 payload"
+      },
+      "review_scope": "selected API/documentation/license evidence, not a complete upstream repository or distribution audit",
+      "supported_claims": [
+        "The publisher states the parser is intentionally lenient and is not a validator for every real engine; specify the read dialect."
+      ]
+    },
+    {
+      "id": "sqlite_pragma",
+      "project": "sqlite",
+      "kind": "api_documentation",
+      "official_url": "https://sqlite.org/pragma.html",
+      "resolved_url": "https://sqlite.org/pragma.html",
+      "version_evidence": "live official documentation captured at retrieval time",
+      "retrieved_at": "2026-11-06T16:45:29.816310+00:00",
+      "http_status": 200,
+      "bytes": 139936,
+      "sha256": "af75d7d7ab00c29e6eea98618cb1259a3919c308af60a6173215bf9798706034",
+      "cache_entry": {
+        "file": ".workflow-kit/runtime/AgentNexus-v0.4-M0.1/diagnostics/acquisition.json",
+        "entry_id": "sqlite_pragma",
+        "representation": "UTF-8 text; hash and bytes are the exact fetched UTF-8 payload"
+      },
+      "review_scope": "selected API/documentation/license evidence, not a complete upstream repository or distribution audit",
+      "supported_claims": [
+        "Some PRAGMA statements take effect at prepare time; EXPLAIN does not suppress prepare-time effects.",
+        "Therefore arbitrary SQLite prepare cannot be described as side-effect-free parsing; M1 SQL remains NOT_RUN."
+      ]
+    },
+    {
+      "id": "node_json_spec",
+      "project": "ecmascript",
+      "kind": "language_specification",
+      "official_url": "https://tc39.es/ecma262/multipage/structured-data.html#sec-json.parse",
+      "resolved_url": "https://tc39.es/ecma262/multipage/structured-data.html#sec-json.parse",
+      "version_evidence": "ECMA-262 live structured-data section captured at retrieval time",
+      "retrieved_at": "2026-11-06T16:45:30.549385+00:00",
+      "http_status": 200,
+      "bytes": 969119,
+      "sha256": "6790ec6dd123ae87b2e206b15a375a1a8d087fc3d9a4fbdf77adc717aa05a5a1",
+      "cache_entry": {
+        "file": ".workflow-kit/runtime/AgentNexus-v0.4-M0.1/diagnostics/acquisition.json",
+        "entry_id": "node_json_spec",
+        "representation": "UTF-8 text; hash and bytes are the exact fetched UTF-8 payload"
+      },
+      "review_scope": "selected API/documentation/license evidence, not a complete upstream repository or distribution audit",
+      "supported_claims": [
+        "JSON.parse parses JSON text; no reviver is used in the proposed checker."
+      ]
+    },
+    {
+      "id": "node_license",
+      "project": "node",
+      "kind": "license",
+      "official_url": "https://raw.githubusercontent.com/nodejs/node/v24.15.0/LICENSE",
+      "resolved_url": "https://raw.githubusercontent.com/nodejs/node/v24.15.0/LICENSE",
+      "version_evidence": "v24.15.0",
+      "retrieved_at": "2026-11-06T16:45:24.715098+00:00",
+      "http_status": 200,
+      "bytes": 156926,
+      "sha256": "4573185d56580da2b890ba34a85a409257640f1c5632eade4300137266194d18",
+      "cache_entry": {
+        "file": ".workflow-kit/runtime/AgentNexus-v0.4-M0.1/diagnostics/acquisition.json",
+        "entry_id": "node_license",
+        "representation": "UTF-8 text; hash and bytes are the exact fetched UTF-8 payload"
+      },
+      "review_scope": "selected API/documentation/license evidence, not a complete upstream repository or distribution audit",
+      "supported_claims": [
+        "Node main and bundled third-party notices are present; a one-line MIT label does not describe the whole runtime distribution."
+      ]
+    }
+  ],
+  "fetch_failures": [
+    {
+      "id": "lsp_pull_diagnostics",
+      "url": "https://raw.githubusercontent.com/microsoft/language-server-protocol/440d8b03d784cf0bd3769b1abb33aacc24b586a6/_specifications/lsp/3.17/language/diagnostic.md",
+      "retrieved_at": "2026-11-06T16:42:43.619451+00:00",
+      "status": "FETCH_FAILED",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "id": "shellcheck_interface",
+      "url": "https://raw.githubusercontent.com/koalaman/shellcheck/v0.11.0/ShellCheck/Interface.hs",
+      "retrieved_at": "2026-11-06T16:45:15.589063+00:00",
+      "status": "FETCH_FAILED",
+      "error": "HTTP Error 404: Not Found"
+    }
+  ],
+  "failure_resolution": {
+    "lsp_pull_diagnostics": "Wrong diagnostic.md path returned 404; corrected pullDiagnostics.md source was fetched and hashed.",
+    "shellcheck_interface": "Optional header lookup path returned 404; no only/or-later SPDX conclusion was inferred. GPL-3 manifest and GPLv3 text remain the bounded license evidence."
+  },
+  "verification": {
+    "source_cache_hashes": "VERIFIED",
+    "source_parser_tests": "NOT_RUN",
+    "product_tests": "NOT_RUN",
+    "os_isolation_tests": "NOT_RUN",
+    "license_distribution_closure": "NOT_RUN"
+  }
+}

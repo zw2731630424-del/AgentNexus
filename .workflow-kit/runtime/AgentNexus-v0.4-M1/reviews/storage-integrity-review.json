@@ -1,0 +1,602 @@
+{
+  "schema": "agentnexus/storage-integrity-review/0.1",
+  "status": "CHANGES_REQUIRED",
+  "observed_at": "2026-11-06T17:23:29.557Z",
+  "reviewer": "diagnostics_m01 independent of storage/integrity authors",
+  "node": "v24.15.0",
+  "platform": "win32",
+  "run_root": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-v0.4-M1\\reviews\\storage-integrity-probe-hu8ard",
+  "product_and_test_files_read_only": true,
+  "source_snapshot": [
+    {
+      "file": "src/agentnexus/storage.ts",
+      "bytes": 31836,
+      "sha256": "7e3d4c0f065246823db894d0286990bd2111fde52b949d0b04d3554126e18dcb"
+    },
+    {
+      "file": "src/agentnexus/artifacts.ts",
+      "bytes": 12687,
+      "sha256": "4a4d8a5c2ce5461fd67de5a0b2f2094e870bc57ec4a1560c5ad0bdb7f21f4427"
+    },
+    {
+      "file": "src/agentnexus/records.ts",
+      "bytes": 6510,
+      "sha256": "393e0a70a20a4dae21287169d1313bae949842cf0f712bacb3ebf432a5ed7800"
+    },
+    {
+      "file": "src/agentnexus/integrity.ts",
+      "bytes": 18691,
+      "sha256": "172a40c429c9e8a99f8cc1fcee2ef500adb4e7d378f0f6188fbbe7f792edfe66"
+    },
+    {
+      "file": "tests/agentnexus/storage.test.ts",
+      "bytes": 21732,
+      "sha256": "e0f269cd0b73b5d70f5e5d91e8e57c9de905a182e81aaf31db6e7c736e95f923"
+    },
+    {
+      "file": "tests/agentnexus/integrity.test.ts",
+      "bytes": 21578,
+      "sha256": "ecc6655be30a7d7690f04e5d26c61f09eaaa988ae1075b63327fe98c97c93277"
+    },
+    {
+      "file": "tests/agentnexus/owned-storage-child.mjs",
+      "bytes": 1885,
+      "sha256": "7a469bfa662d98f39f06b4483eaa1f49809e490817679cce5f7f1fa366133139"
+    }
+  ],
+  "source_changed_during_probe": [],
+  "probes": [
+    {
+      "id": "FLUSH_TARGET_WINDOW",
+      "root": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-v0.4-M1\\reviews\\storage-integrity-probe-hu8ard\\flush-target",
+      "target_seq": 1,
+      "exported_after_both_flushes": 0,
+      "pending_after_both_flushes": 1,
+      "physical_raw_segments_after_both_flushes": [],
+      "bug_reproduced": true,
+      "pending_after_third_flush": 0
+    },
+    {
+      "id": "STALLED_SOURCE_ABORT",
+      "root": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-v0.4-M1\\reviews\\storage-integrity-probe-hu8ard\\blocked-source-abort",
+      "put_after_abort_150ms": "PENDING",
+      "active_puts_after_abort": 1,
+      "close_after_additional_150ms": "PENDING",
+      "bug_reproduced": true,
+      "put_after_source_release": "REJECTED",
+      "error_after_source_release": "ABORT_ERR",
+      "close_after_source_release": "FULFILLED",
+      "active_puts_final": 0
+    },
+    {
+      "id": "CONCURRENT_CLOSE",
+      "root": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-v0.4-M1\\reviews\\storage-integrity-probe-hu8ard\\concurrent-close",
+      "second_close_returned": true,
+      "first_close_at_second_return": "PENDING",
+      "active_puts_at_second_return": 1,
+      "writer_lock_at_second_return": true,
+      "bug_reproduced": true,
+      "writer_lock_after_first_close": false
+    },
+    {
+      "id": "ACK_CORRUPTION_REJECTED",
+      "root": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-v0.4-M1\\reviews\\storage-integrity-probe-hu8ard\\ack-corruption",
+      "normal": {
+        "records": 2,
+        "segments": 1,
+        "pending": 0,
+        "objects": 1,
+        "incomplete": 0
+      },
+      "verify_error": "ACKNOWLEDGED_TAIL_CORRUPT",
+      "recover_error": "ACKNOWLEDGED_TAIL_CORRUPT",
+      "faulted": true,
+      "raw_size_after_attempts": 2156,
+      "expected_corrupt_size": 2156,
+      "passed": true
+    },
+    {
+      "id": "ARTIFACT_REFS_AND_SECRET",
+      "root": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-v0.4-M1\\reviews\\storage-integrity-probe-hu8ard\\refs-secret",
+      "identical_raw_hash": true,
+      "different_ids": true,
+      "media_types": [
+        "text/plain",
+        "application/json"
+      ],
+      "forged_metadata_error": "ARTIFACT_REF_MISMATCH",
+      "explicit_secret_error": "SECRET_UNSUPPORTED",
+      "healthy_after_request_errors": true,
+      "roundtrip": "same bytes",
+      "content_dedup": "NOT_IMPLEMENTED; UUID object identity, exact full-Ref manifest match",
+      "passed": true
+    },
+    {
+      "id": "INTEGRITY_SCOPE",
+      "root": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-v0.4-M1\\reviews\\storage-integrity-probe-hu8ard\\integrity-controlled",
+      "controlled": {
+        "status": "PASS",
+        "reason": "CONTROLLED_STATIC_CONTENT_MATCH",
+        "filesChecked": 2,
+        "bytesChecked": 29,
+        "manifest_sha256": "3205ae8021f3e476310c4b2690128f020685aa6689ca728750a08b62529a73cc",
+        "details": [],
+        "detailCount": 0,
+        "detailsTruncated": false,
+        "checks": {
+          "schema": true,
+          "canonical": true,
+          "portablePaths": true,
+          "bidirectional": true,
+          "fileContents": true,
+          "secondInventory": true,
+          "sourceMode": "controlled_static",
+          "assurance": "CONTROLLED_STATIC_HOST_PRECONDITION_ONLY",
+          "hostPrecondition": "trusted Host selects mode; controlled_static requires exclusive local staging, trusted ancestors, no hostile writer/reparse/ADS",
+          "allWindowsReparseTags": "NOT_VERIFIED_BY_NODE",
+          "alternateDataStreams": "NOT_ENUMERATED_BY_NODE",
+          "adversarialTOCTOU": "NOT_CLOSED",
+          "deadlineEnforcement": "COOPERATIVE_BETWEEN_FS_OPERATIONS",
+          "runtimeOrLicenseAdmission": "NOT_EVALUATED",
+          "maxOpenFileHandles": 1,
+          "maxFiles": 256,
+          "maxTotalBytes": 16777216
+        }
+      },
+      "mutable": {
+        "status": "INCONCLUSIVE",
+        "reason": "TOCTOU_NOT_CLOSED",
+        "filesChecked": 2,
+        "bytesChecked": 29,
+        "manifest_sha256": "3205ae8021f3e476310c4b2690128f020685aa6689ca728750a08b62529a73cc",
+        "details": [],
+        "detailCount": 0,
+        "detailsTruncated": false,
+        "checks": {
+          "schema": true,
+          "canonical": true,
+          "portablePaths": true,
+          "bidirectional": true,
+          "fileContents": true,
+          "secondInventory": true,
+          "sourceMode": "mutable",
+          "assurance": "NO_OS_ADMISSION",
+          "hostPrecondition": "trusted Host selects mode; controlled_static requires exclusive local staging, trusted ancestors, no hostile writer/reparse/ADS",
+          "allWindowsReparseTags": "NOT_VERIFIED_BY_NODE",
+          "alternateDataStreams": "NOT_ENUMERATED_BY_NODE",
+          "adversarialTOCTOU": "NOT_CLOSED",
+          "deadlineEnforcement": "COOPERATIVE_BETWEEN_FS_OPERATIONS",
+          "runtimeOrLicenseAdmission": "NOT_EVALUATED",
+          "maxOpenFileHandles": 1,
+          "maxFiles": 256,
+          "maxTotalBytes": 16777216
+        }
+      },
+      "unlisted": {
+        "status": "FAIL",
+        "reason": "INVENTORY_MISMATCH",
+        "filesChecked": 0,
+        "bytesChecked": 0,
+        "manifest_sha256": "3205ae8021f3e476310c4b2690128f020685aa6689ca728750a08b62529a73cc",
+        "details": [
+          {
+            "code": "UNLISTED_FILE",
+            "path": "extra.txt"
+          }
+        ],
+        "detailCount": 1,
+        "detailsTruncated": false,
+        "checks": {
+          "schema": true,
+          "canonical": true,
+          "portablePaths": true,
+          "bidirectional": false,
+          "fileContents": false,
+          "secondInventory": false,
+          "sourceMode": "controlled_static",
+          "assurance": "NO_OS_ADMISSION",
+          "hostPrecondition": "trusted Host selects mode; controlled_static requires exclusive local staging, trusted ancestors, no hostile writer/reparse/ADS",
+          "allWindowsReparseTags": "NOT_VERIFIED_BY_NODE",
+          "alternateDataStreams": "NOT_ENUMERATED_BY_NODE",
+          "adversarialTOCTOU": "NOT_CLOSED",
+          "deadlineEnforcement": "COOPERATIVE_BETWEEN_FS_OPERATIONS",
+          "runtimeOrLicenseAdmission": "NOT_EVALUATED",
+          "maxOpenFileHandles": 1,
+          "maxFiles": 256,
+          "maxTotalBytes": 16777216
+        }
+      },
+      "passed": true,
+      "os_link_ads_reparse_tests": "NOT_RUN in this independent review"
+    }
+  ],
+  "completed_at": "2026-11-06T17:26:54.911447+00:00",
+  "summary": {
+    "confirmed_findings": 3,
+    "priority_counts": {
+      "P1": 1,
+      "P2": 2
+    },
+    "independent_synthetic_probes": 6,
+    "author_suite_status": "SOURCE_REVIEWED_NOT_INDEPENDENTLY_RERUN",
+    "product_or_test_edits": false,
+    "scope": "Library behavior and controlled synthetic filesystem fixtures; no model, credentials, scientific workload, installation, OS security change or broad OS admission."
+  },
+  "findings": [
+    {
+      "id": "STOR-REV-01",
+      "priority": "P1",
+      "title": "flush can join an already drained promise without covering the newly appended intent",
+      "locations": [
+        {
+          "path": "I:\\AI_AgentNexus\\src\\agentnexus\\storage.ts",
+          "repository_path": "src/agentnexus/storage.ts",
+          "start_line": 224,
+          "end_line": 228,
+          "source_sha256": "7e3d4c0f065246823db894d0286990bd2111fde52b949d0b04d3554126e18dcb"
+        },
+        {
+          "path": "I:\\AI_AgentNexus\\src\\agentnexus\\storage.ts",
+          "repository_path": "src/agentnexus/storage.ts",
+          "start_line": 230,
+          "end_line": 248,
+          "source_sha256": "7e3d4c0f065246823db894d0286990bd2111fde52b949d0b04d3554126e18dcb"
+        }
+      ],
+      "confidence": "REPRODUCED_WITH_PUBLIC_API",
+      "impact": "A caller can await its post-append flush successfully while that caller's seq remains in anx_outbox and no raw export exists. Gateway uses this promise as the pre-execution intent barrier. The record is still durable in SQLite; this probe establishes premature export-barrier acknowledgement, not demonstrated loss of committed database facts.",
+      "reproduction": {
+        "probe_id": "FLUSH_TARGET_WINDOW",
+        "fixture_precondition": "Fresh KernelStore with an empty durable outbox.",
+        "code": "const first = store.flush();\nconst record = store.audit(event);\nconst second = store.flush();\nawait Promise.all([first, second]);\n// Inspect anx_exports, anx_outbox and the segments directory.",
+        "observed": {
+          "target_seq": 1,
+          "exported_seq": 0,
+          "pending": 1,
+          "raw_segments": [],
+          "pending_after_third_flush": 0
+        },
+        "expected": "Each flush captures an entry target and resolves only when that target seq has an acknowledged, synced export."
+      },
+      "recommendation": "Capture target=max(seq) at flush entry. After joining any existing flush, re-check lastOnDisk >= target; start/wait another export pass if needed. Prefer draining to an explicit target rather than requiring a globally empty outbox. Preserve fault propagation and do not clear or overwrite a newer in-flight promise.",
+      "test_gap": {
+        "location": {
+          "path": "I:\\AI_AgentNexus\\tests\\agentnexus\\storage.test.ts",
+          "repository_path": "tests/agentnexus/storage.test.ts",
+          "start_line": 109,
+          "end_line": 121,
+          "source_sha256": "e0f269cd0b73b5d70f5e5d91e8e57c9de905a182e81aaf31db6e7c736e95f923"
+        },
+        "description": "Existing outbox budget test flushes sequentially; it does not append between an empty/draining flush and its promise-finally cleanup. Add the deterministic public-API overlap above plus active-writer overlap."
+      }
+    },
+    {
+      "id": "STOR-REV-02",
+      "priority": "P2",
+      "title": "Artifact cancellation and store close wait indefinitely for a stalled async producer",
+      "locations": [
+        {
+          "path": "I:\\AI_AgentNexus\\src\\agentnexus\\artifacts.ts",
+          "repository_path": "src/agentnexus/artifacts.ts",
+          "start_line": 82,
+          "end_line": 91,
+          "source_sha256": "4a4d8a5c2ce5461fd67de5a0b2f2094e870bc57ec4a1560c5ad0bdb7f21f4427"
+        },
+        {
+          "path": "I:\\AI_AgentNexus\\src\\agentnexus\\artifacts.ts",
+          "repository_path": "src/agentnexus/artifacts.ts",
+          "start_line": 101,
+          "end_line": 104,
+          "source_sha256": "4a4d8a5c2ce5461fd67de5a0b2f2094e870bc57ec4a1560c5ad0bdb7f21f4427"
+        },
+        {
+          "path": "I:\\AI_AgentNexus\\src\\agentnexus\\artifacts.ts",
+          "repository_path": "src/agentnexus/artifacts.ts",
+          "start_line": 206,
+          "end_line": 207,
+          "source_sha256": "4a4d8a5c2ce5461fd67de5a0b2f2094e870bc57ec4a1560c5ad0bdb7f21f4427"
+        },
+        {
+          "path": "I:\\AI_AgentNexus\\src\\agentnexus\\storage.ts",
+          "repository_path": "src/agentnexus/storage.ts",
+          "start_line": 436,
+          "end_line": 444,
+          "source_sha256": "7e3d4c0f065246823db894d0286990bd2111fde52b949d0b04d3554126e18dcb"
+        }
+      ],
+      "confidence": "REPRODUCED_WITH_GATED_ASYNC_GENERATOR",
+      "impact": "After a source yields one chunk and then awaits an unresolved promise, AbortSignal does not settle put; the active slot remains occupied and KernelStore.close also waits for that put. Two such producers can consume both artifact slots. The existing cancellation test only aborts between cooperative yields. This is a liveness and shutdown gap; incomplete bytes remain retained.",
+      "reproduction": {
+        "probe_id": "STALLED_SOURCE_ABORT",
+        "code": "async function* source() {\n  yield Buffer.from(\"first\");\n  entered(); await gate;\n  yield Buffer.from(\"second\");\n}\nconst put = store.artifacts.put(source(), {signal: controller.signal});\nawait sourceEntered; controller.abort();\n// Observe before resolving gate; then release it for safe fixture cleanup.",
+        "observed": {
+          "put_after_abort_150ms": "PENDING",
+          "active_puts_after_abort": 1,
+          "close_after_additional_150ms": "PENDING",
+          "bug_reproduced": true,
+          "put_after_source_release": "REJECTED",
+          "error_after_source_release": "ABORT_ERR",
+          "close_after_source_release": "FULFILLED",
+          "active_puts_final": 0
+        },
+        "expected": "Cancellation/close has a bounded, truthful outcome even when source.next is not cooperative; unresolved producer ownership cannot be presented as drained."
+      },
+      "recommendation": "Define a cancellable producer contract and propagate the signal to producer ownership, or isolate producer execution behind an owner that can be terminated. Bound close/drain waiting and reject with an explicit quiescing/termination-unconfirmed outcome if the producer has not settled. Keep the active producer/incomplete state and any claim fenced; do not fix this by racing and removing ownership while a live producer remains.",
+      "test_gap": {
+        "locations": [
+          {
+            "path": "I:\\AI_AgentNexus\\tests\\agentnexus\\storage.test.ts",
+            "repository_path": "tests/agentnexus/storage.test.ts",
+            "start_line": 228,
+            "end_line": 240,
+            "source_sha256": "e0f269cd0b73b5d70f5e5d91e8e57c9de905a182e81aaf31db6e7c736e95f923"
+          },
+          {
+            "path": "I:\\AI_AgentNexus\\tests\\agentnexus\\storage.test.ts",
+            "repository_path": "tests/agentnexus/storage.test.ts",
+            "start_line": 254,
+            "end_line": 263,
+            "source_sha256": "e0f269cd0b73b5d70f5e5d91e8e57c9de905a182e81aaf31db6e7c736e95f923"
+          }
+        ],
+        "description": "Add a producer blocked inside next(), abort while blocked, and verify bounded cancellation/close behavior and truthful active ownership; current tests either abort at a yield boundary or explicitly release the source before close."
+      }
+    },
+    {
+      "id": "STOR-REV-03",
+      "priority": "P2",
+      "title": "A concurrent second close resolves before the first close has drained and released its writer lock",
+      "locations": [
+        {
+          "path": "I:\\AI_AgentNexus\\src\\agentnexus\\storage.ts",
+          "repository_path": "src/agentnexus/storage.ts",
+          "start_line": 436,
+          "end_line": 450,
+          "source_sha256": "7e3d4c0f065246823db894d0286990bd2111fde52b949d0b04d3554126e18dcb"
+        }
+      ],
+      "confidence": "REPRODUCED_WITH_PUBLIC_API",
+      "impact": "Once closing=true, another close returns immediately. A shutdown caller can observe a fulfilled close while an artifact stream remains active, the first close is pending and writer.lock still exists. Module shutdown or repeat close callers must await the same completion/failure outcome.",
+      "reproduction": {
+        "probe_id": "CONCURRENT_CLOSE",
+        "code": "const put = store.artifacts.put(gatedSource());\nawait sourceEntered;\nconst first = store.close();\nawait store.close();\n// At this point the first close is pending and writer.lock still exists.\nreleaseSource(); await put; await first;",
+        "observed": {
+          "second_close_returned": true,
+          "first_close_at_second_return": "PENDING",
+          "active_puts_at_second_return": 1,
+          "writer_lock_at_second_return": true,
+          "bug_reproduced": true,
+          "writer_lock_after_first_close": false
+        },
+        "expected": "Every close caller awaits the actual close attempt, including its error. A closing flag alone is not a completed shutdown."
+      },
+      "recommendation": "Cache a closePromise before beginning drain/cleanup and return it for every concurrent/repeated close. Preserve rejection when shutdown cannot be confirmed; do not turn a failed/in-progress close into a resolved promise solely because closing/closed was set.",
+      "test_gap": {
+        "location": {
+          "path": "I:\\AI_AgentNexus\\tests\\agentnexus\\storage.test.ts",
+          "repository_path": "tests/agentnexus/storage.test.ts",
+          "start_line": 254,
+          "end_line": 263,
+          "source_sha256": "e0f269cd0b73b5d70f5e5d91e8e57c9de905a182e81aaf31db6e7c736e95f923"
+        },
+        "description": "The active-stream test releases both streams before its final close. Add simultaneous close calls while a source remains gated, and assert neither resolves before actual drain and lock release."
+      }
+    }
+  ],
+  "confirmed_guarantees": [
+    {
+      "id": "ACK-DAMAGE",
+      "basis": "INDEPENDENT_PROBE_AND_SOURCE",
+      "probe_id": "ACK_CORRUPTION_REJECTED",
+      "result": "Observed ACKNOWLEDGED_TAIL_CORRUPT on truncated acknowledged raw export; verification/recovery faulted and preserved the corrupt byte count instead of silently rebuilding as success.",
+      "locations": [
+        {
+          "path": "I:\\AI_AgentNexus\\src\\agentnexus\\storage.ts",
+          "repository_path": "src/agentnexus/storage.ts",
+          "start_line": 273,
+          "end_line": 299,
+          "source_sha256": "7e3d4c0f065246823db894d0286990bd2111fde52b949d0b04d3554126e18dcb"
+        },
+        {
+          "path": "I:\\AI_AgentNexus\\src\\agentnexus\\storage.ts",
+          "repository_path": "src/agentnexus/storage.ts",
+          "start_line": 341,
+          "end_line": 345,
+          "source_sha256": "7e3d4c0f065246823db894d0286990bd2111fde52b949d0b04d3554126e18dcb"
+        }
+      ]
+    },
+    {
+      "id": "CRASH-WINDOW-DESIGN",
+      "basis": "SOURCE_AND_AUTHOR_TEST_REVIEW_ONLY",
+      "result": "Record+outbox are written in one SQLite transaction; export file sync precedes receipt commit. Complete file-before-receipt lines are synced and acknowledged during recovery. The author has process-kill tests for that window; this independent review did not rerun those test files or hardware power loss.",
+      "locations": [
+        {
+          "path": "I:\\AI_AgentNexus\\src\\agentnexus\\storage.ts",
+          "repository_path": "src/agentnexus/storage.ts",
+          "start_line": 174,
+          "end_line": 188,
+          "source_sha256": "7e3d4c0f065246823db894d0286990bd2111fde52b949d0b04d3554126e18dcb"
+        },
+        {
+          "path": "I:\\AI_AgentNexus\\src\\agentnexus\\storage.ts",
+          "repository_path": "src/agentnexus/storage.ts",
+          "start_line": 244,
+          "end_line": 256,
+          "source_sha256": "7e3d4c0f065246823db894d0286990bd2111fde52b949d0b04d3554126e18dcb"
+        },
+        {
+          "path": "I:\\AI_AgentNexus\\src\\agentnexus\\storage.ts",
+          "repository_path": "src/agentnexus/storage.ts",
+          "start_line": 388,
+          "end_line": 406,
+          "source_sha256": "7e3d4c0f065246823db894d0286990bd2111fde52b949d0b04d3554126e18dcb"
+        },
+        {
+          "path": "I:\\AI_AgentNexus\\tests\\agentnexus\\storage.test.ts",
+          "repository_path": "tests/agentnexus/storage.test.ts",
+          "start_line": 135,
+          "end_line": 158,
+          "source_sha256": "e0f269cd0b73b5d70f5e5d91e8e57c9de905a182e81aaf31db6e7c736e95f923"
+        }
+      ]
+    },
+    {
+      "id": "REF-METADATA",
+      "basis": "INDEPENDENT_PROBE_AND_SOURCE",
+      "probe_id": "ARTIFACT_REFS_AND_SECRET",
+      "result": "A changed media_type on an otherwise genuine Ref was rejected as ARTIFACT_REF_MISMATCH without faulting the store. Exact full-Ref canonical equality is checked before referencing a published object. Identical content is currently stored under distinct UUIDs; content-based deduplication is not implemented and must not be reported as a tested optimization.",
+      "locations": [
+        {
+          "path": "I:\\AI_AgentNexus\\src\\agentnexus\\artifacts.ts",
+          "repository_path": "src/agentnexus/artifacts.ts",
+          "start_line": 76,
+          "end_line": 79,
+          "source_sha256": "4a4d8a5c2ce5461fd67de5a0b2f2094e870bc57ec4a1560c5ad0bdb7f21f4427"
+        },
+        {
+          "path": "I:\\AI_AgentNexus\\src\\agentnexus\\artifacts.ts",
+          "repository_path": "src/agentnexus/artifacts.ts",
+          "start_line": 124,
+          "end_line": 137,
+          "source_sha256": "4a4d8a5c2ce5461fd67de5a0b2f2094e870bc57ec4a1560c5ad0bdb7f21f4427"
+        },
+        {
+          "path": "I:\\AI_AgentNexus\\src\\agentnexus\\records.ts",
+          "repository_path": "src/agentnexus/records.ts",
+          "start_line": 26,
+          "end_line": 36,
+          "source_sha256": "393e0a70a20a4dae21287169d1313bae949842cf0f712bacb3ebf432a5ed7800"
+        }
+      ]
+    },
+    {
+      "id": "SECRET-CLASSIFICATION",
+      "basis": "INDEPENDENT_PROBE_AND_SOURCE",
+      "probe_id": "ARTIFACT_REFS_AND_SECRET",
+      "result": "An explicitly classified sensitivity=SECRET input is rejected as SECRET_UNSUPPORTED. No claim of encryption, credential scanning or perfect detection of unclassified secret bytes is established.",
+      "locations": [
+        {
+          "path": "I:\\AI_AgentNexus\\src\\agentnexus\\artifacts.ts",
+          "repository_path": "src/agentnexus/artifacts.ts",
+          "start_line": 54,
+          "end_line": 62,
+          "source_sha256": "4a4d8a5c2ce5461fd67de5a0b2f2094e870bc57ec4a1560c5ad0bdb7f21f4427"
+        },
+        {
+          "path": "I:\\AI_AgentNexus\\src\\agentnexus\\records.ts",
+          "repository_path": "src/agentnexus/records.ts",
+          "start_line": 26,
+          "end_line": 35,
+          "source_sha256": "393e0a70a20a4dae21287169d1313bae949842cf0f712bacb3ebf432a5ed7800"
+        }
+      ]
+    },
+    {
+      "id": "RESOURCE-SCOPE",
+      "basis": "SOURCE_AND_AUTHOR_TEST_REVIEW_ONLY",
+      "result": "Artifact put admits at most two streams; input chunks, per-object bytes and stored bytes have checks. Raw/stored streams are hashed and complete reads validate both hashes. Event frames, outbox bytes and query pages are bounded. These checks do not establish an OS RSS ceiling, a producer deadline, or a hardware durability guarantee.",
+      "locations": [
+        {
+          "path": "I:\\AI_AgentNexus\\src\\agentnexus\\artifacts.ts",
+          "repository_path": "src/agentnexus/artifacts.ts",
+          "start_line": 54,
+          "end_line": 65,
+          "source_sha256": "4a4d8a5c2ce5461fd67de5a0b2f2094e870bc57ec4a1560c5ad0bdb7f21f4427"
+        },
+        {
+          "path": "I:\\AI_AgentNexus\\src\\agentnexus\\artifacts.ts",
+          "repository_path": "src/agentnexus/artifacts.ts",
+          "start_line": 82,
+          "end_line": 104,
+          "source_sha256": "4a4d8a5c2ce5461fd67de5a0b2f2094e870bc57ec4a1560c5ad0bdb7f21f4427"
+        },
+        {
+          "path": "I:\\AI_AgentNexus\\src\\agentnexus\\artifacts.ts",
+          "repository_path": "src/agentnexus/artifacts.ts",
+          "start_line": 141,
+          "end_line": 174,
+          "source_sha256": "4a4d8a5c2ce5461fd67de5a0b2f2094e870bc57ec4a1560c5ad0bdb7f21f4427"
+        },
+        {
+          "path": "I:\\AI_AgentNexus\\src\\agentnexus\\storage.ts",
+          "repository_path": "src/agentnexus/storage.ts",
+          "start_line": 178,
+          "end_line": 188,
+          "source_sha256": "7e3d4c0f065246823db894d0286990bd2111fde52b949d0b04d3554126e18dcb"
+        },
+        {
+          "path": "I:\\AI_AgentNexus\\src\\agentnexus\\storage.ts",
+          "repository_path": "src/agentnexus/storage.ts",
+          "start_line": 206,
+          "end_line": 216,
+          "source_sha256": "7e3d4c0f065246823db894d0286990bd2111fde52b949d0b04d3554126e18dcb"
+        }
+      ]
+    },
+    {
+      "id": "PACKAGE-INTEGRITY-SCOPE",
+      "basis": "INDEPENDENT_PROBE_AND_SOURCE",
+      "probe_id": "INTEGRITY_SCOPE",
+      "result": "Controlled static matching bytes returned PASS with the stated Host precondition, mutable matching bytes returned INCONCLUSIVE/TOCTOU_NOT_CLOSED, and an extra unlisted file returned FAIL. Full relative paths, canonical encoding, count/byte caps, no source execution and two metadata inventories are present.",
+      "locations": [
+        {
+          "path": "I:\\AI_AgentNexus\\src\\agentnexus\\integrity.ts",
+          "repository_path": "src/agentnexus/integrity.ts",
+          "start_line": 1,
+          "end_line": 27,
+          "source_sha256": "172a40c429c9e8a99f8cc1fcee2ef500adb4e7d378f0f6188fbbe7f792edfe66"
+        },
+        {
+          "path": "I:\\AI_AgentNexus\\src\\agentnexus\\integrity.ts",
+          "repository_path": "src/agentnexus/integrity.ts",
+          "start_line": 293,
+          "end_line": 335,
+          "source_sha256": "172a40c429c9e8a99f8cc1fcee2ef500adb4e7d378f0f6188fbbe7f792edfe66"
+        }
+      ]
+    }
+  ],
+  "scope_limits": {
+    "windows_directory_durability": {
+      "status": "NOT_RUN_FOR_HARDWARE_POWER_LOSS",
+      "source": {
+        "path": "I:\\AI_AgentNexus\\src\\agentnexus\\artifacts.ts",
+        "repository_path": "src/agentnexus/artifacts.ts",
+        "start_line": 23,
+        "end_line": 29,
+        "source_sha256": "4a4d8a5c2ce5461fd67de5a0b2f2094e870bc57ec4a1560c5ad0bdb7f21f4427"
+      },
+      "detail": "syncDirectory returns false on win32; source and author report explicitly disclose this. File fsync and process recovery cannot be expanded into a hard-power-loss admission."
+    },
+    "integrity_source_mode": {
+      "status": "HOST_PRECONDITION_ONLY",
+      "detail": "controlled_static is selected by a trusted Host and does not authenticate that the source is immutable. Root ancestors, hostile writer absence, all reparse tags and ADS absence are external preconditions."
+    },
+    "mutable_reparse_ads_toctou": {
+      "status": "NO_OS_ADMISSION",
+      "detail": "Independent review did not create link/ADS/reparse fixtures or prove adversarial race closure. The implementation explicitly reports allWindowsReparseTags=NOT_VERIFIED_BY_NODE, alternateDataStreams=NOT_ENUMERATED_BY_NODE and adversarialTOCTOU=NOT_CLOSED; cooperative deadline checks occur between filesystem operations."
+    },
+    "storage_os_path_boundary": {
+      "status": "NOT_AN_OS_SANDBOX",
+      "detail": "ensureDirectory checks the selected directory, not all hostile ancestor/reparse/handle races. Store/DatabaseSync remain trusted library objects; private local Host storage and deployment admission are required."
+    },
+    "author_report_handling": {
+      "status": "NOT_AUTOMATICALLY_ACCEPTED",
+      "detail": "Read author tests and storage verification summary, but did not run test files that overwrite author-owned verification artifacts. Only the six listed independent probes are claimed executed here."
+    },
+    "not_run": [
+      "hardware power interruption",
+      "long soak",
+      "OS authentication or sandbox escape",
+      "Ubuntu",
+      "Provider credentials/Key access",
+      "real model execution",
+      "scientific workloads",
+      "complete distribution license closure",
+      "full upstream/native decoder resource proof"
+    ]
+  },
+  "source_changed_after_probe": [],
+  "followup": "Product fixes and independent rerun belong to the main agent/module owner. Findings above bind the recorded reviewed SHA256; a later change does not retroactively erase this evidence."
+}

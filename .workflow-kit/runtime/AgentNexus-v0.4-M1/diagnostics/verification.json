@@ -1,0 +1,352 @@
+{
+  "schema": "agentnexus/diagnostics-verification/0.1",
+  "observed_at": "2026-11-06T17:13:28.161Z",
+  "status": "PASS_WITH_EXPLICIT_NOT_RUN_BOUNDARIES",
+  "evidence_kind": "Real local parser processes on synthetic source; no real model, target Git/Python program, project plugin, installation or scientific experiment.",
+  "runtime": {
+    "node": "24.15.0",
+    "platform": "win32",
+    "architecture": "x64",
+    "python_path": "C:/Users/28642/AppData/Local/Programs/Python/Python312/python.exe",
+    "powershell_path": "C:/Program Files/WindowsApps/OpenAI.CodexPrimaryRuntime.v26-1104-709-0_26.1104.709.0_x64__3k8sg7r9htsxt/dependencies/native/powershell/pwsh.exe"
+  },
+  "api": {
+    "class": "DevelopmentIntelligence",
+    "methods": [
+      "check(request, signal?) -> Promise<ValidationResult>",
+      "checkArguments({family,argv,document_uri,version}, signal?) -> Promise<ValidationResult>",
+      "closeDocument(uri)",
+      "dispose()",
+      "getActivity()",
+      "drain(timeoutMs=1000)",
+      "disposeAndWait(timeoutMs=1000)"
+    ],
+    "argument_families": [
+      "git",
+      "python"
+    ],
+    "status_scope": "Requested syntax/args coverage only; five dimensions remain independent; authorization always NOT_RUN."
+  },
+  "tests": {
+    "command": "node --test --test-reporter=tap tests/agentnexus/diagnostics.test.ts",
+    "tests": 18,
+    "pass": 18,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "todo": 0,
+    "log": {
+      "file": ".workflow-kit/runtime/AgentNexus-v0.4-M1/diagnostics/test-results.tap",
+      "bytes": 4166,
+      "sha256": "efd37cab25de4e616f64bba6e4a854b68fb7335c629559b31fb16986cffe4080"
+    }
+  },
+  "checks": {
+    "native_typescript_syntax": "PASS: node --check on library and test",
+    "governance": "PASS: govern.py check --target I:/AI_AgentNexus"
+  },
+  "parser_observations": [
+    {
+      "input": {
+        "language": "python",
+        "source": "text = '中文 😀'\n",
+        "document_uri": "evidence:python",
+        "version": 1
+      },
+      "result": {
+        "request_id": "1b3668bd-5b74-46aa-8ced-a4009f33460f",
+        "uri": "evidence:python",
+        "version": 1,
+        "source_sha256": "1165921111e7ff84b87f372159779adc8ccafa44eba921003183b9d7702e3ef9",
+        "checker_id": "python-ast",
+        "checker_version": "3.12.10/adapter-a9595eca900b49c4",
+        "feature_epoch": 0,
+        "config_revision": 0,
+        "dimensions": {
+          "syntax": {
+            "status": "PASS",
+            "reason": "AST_PARSE_ONLY",
+            "coverage": "python_parse_only",
+            "applicable": true
+          },
+          "args": {
+            "status": "NOT_RUN",
+            "reason": "NOT_APPLICABLE",
+            "coverage": "none",
+            "applicable": false
+          },
+          "environment": {
+            "status": "PASS",
+            "reason": "TRUSTED_ADAPTER_RESPONDED",
+            "coverage": "fixed interpreter/adapter launch and reported version only; hard RSS/process-tree isolation NOT_RUN",
+            "applicable": true
+          },
+          "safety": {
+            "status": "INCONCLUSIVE",
+            "reason": "STATIC_ANALYSIS_NOT_SAFETY_PROOF",
+            "coverage": "no OS isolation, resource authorization or target execution established",
+            "applicable": true
+          },
+          "authorization": {
+            "status": "NOT_RUN",
+            "reason": "OWNER_TOOL_GATEWAY",
+            "coverage": "diagnostic service cannot issue permits",
+            "applicable": true
+          }
+        },
+        "status": "PASS",
+        "reason": "AST_PARSE_ONLY",
+        "diagnostics": [],
+        "evidence_refs": [],
+        "timing": {
+          "started_at": "2026-11-06T17:13:27.602Z",
+          "elapsed_ms": 79.327
+        }
+      }
+    },
+    {
+      "input": {
+        "language": "powershell",
+        "source": "$text = '中文 😀'\n",
+        "document_uri": "evidence:powershell",
+        "version": 1
+      },
+      "result": {
+        "request_id": "72425cbc-67df-433a-ace5-02a557d00ac2",
+        "uri": "evidence:powershell",
+        "version": 1,
+        "source_sha256": "81acf738438306db51b9585fabe4a56179e521d505423c9273bf2da3e886a8cb",
+        "checker_id": "powershell-ast",
+        "checker_version": "7.6.9/SMA-7.6.0.500/adapter-90079d41e2083df6",
+        "feature_epoch": 0,
+        "config_revision": 0,
+        "dimensions": {
+          "syntax": {
+            "status": "PASS",
+            "reason": "POWERSHELL_PARSE_ONLY",
+            "coverage": "powershell_parse_only",
+            "applicable": true
+          },
+          "args": {
+            "status": "NOT_RUN",
+            "reason": "NOT_APPLICABLE",
+            "coverage": "none",
+            "applicable": false
+          },
+          "environment": {
+            "status": "PASS",
+            "reason": "TRUSTED_ADAPTER_RESPONDED",
+            "coverage": "fixed interpreter/adapter launch and reported version only; hard RSS/process-tree isolation NOT_RUN",
+            "applicable": true
+          },
+          "safety": {
+            "status": "INCONCLUSIVE",
+            "reason": "STATIC_ANALYSIS_NOT_SAFETY_PROOF",
+            "coverage": "no OS isolation, resource authorization or target execution established",
+            "applicable": true
+          },
+          "authorization": {
+            "status": "NOT_RUN",
+            "reason": "OWNER_TOOL_GATEWAY",
+            "coverage": "diagnostic service cannot issue permits",
+            "applicable": true
+          }
+        },
+        "status": "PASS",
+        "reason": "POWERSHELL_PARSE_ONLY",
+        "diagnostics": [],
+        "evidence_refs": [],
+        "timing": {
+          "started_at": "2026-11-06T17:13:27.681Z",
+          "elapsed_ms": 477.527
+        }
+      }
+    },
+    {
+      "input": {
+        "language": "json",
+        "source": "{\"text\":\"中文 😀\"}",
+        "document_uri": "evidence:json",
+        "version": 1
+      },
+      "result": {
+        "request_id": "75c7943f-e37c-41f8-bb9c-ec22641f85d9",
+        "uri": "evidence:json",
+        "version": 1,
+        "source_sha256": "22198e63b72ca91446f9692b05875c93582a1faccd56a36eeb1a461de29c24be",
+        "checker_id": "json-parse",
+        "checker_version": "Node-24.15.0",
+        "feature_epoch": 0,
+        "config_revision": 0,
+        "dimensions": {
+          "syntax": {
+            "status": "PASS",
+            "reason": "JSON_PARSE_ONLY",
+            "coverage": "json_parse_only",
+            "applicable": true
+          },
+          "args": {
+            "status": "NOT_RUN",
+            "reason": "NOT_APPLICABLE",
+            "coverage": "none",
+            "applicable": false
+          },
+          "environment": {
+            "status": "PASS",
+            "reason": "BUILTIN_PARSER",
+            "coverage": "JSON.parse in the reported Node runtime; OS hard isolation NOT_RUN",
+            "applicable": true
+          },
+          "safety": {
+            "status": "INCONCLUSIVE",
+            "reason": "STATIC_ANALYSIS_NOT_SAFETY_PROOF",
+            "coverage": "no OS isolation, resource authorization or target execution established",
+            "applicable": true
+          },
+          "authorization": {
+            "status": "NOT_RUN",
+            "reason": "OWNER_TOOL_GATEWAY",
+            "coverage": "diagnostic service cannot issue permits",
+            "applicable": true
+          }
+        },
+        "status": "PASS",
+        "reason": "JSON_PARSE_ONLY",
+        "diagnostics": [],
+        "evidence_refs": [],
+        "timing": {
+          "started_at": "2026-11-06T17:13:28.158Z",
+          "elapsed_ms": 0.191
+        }
+      }
+    }
+  ],
+  "argv_observation": {
+    "input": {
+      "family": "git",
+      "argv": [
+        "status",
+        "--short"
+      ],
+      "document_uri": "evidence:git-argv",
+      "version": 1
+    },
+    "result": {
+      "request_id": "5740e8b2-114c-497f-9f36-0aa7c8db9af6",
+      "uri": "evidence:git-argv",
+      "version": 1,
+      "source_sha256": "b2fbe14bd5b1d9abf311c452499d628588f25465fd11df3d5d5682d0cae78849",
+      "checker_id": "git-argv-schema",
+      "checker_version": "0.1",
+      "feature_epoch": 0,
+      "config_revision": 0,
+      "dimensions": {
+        "syntax": {
+          "status": "NOT_RUN",
+          "reason": "STRUCTURED_ARGV_NO_SHELL_PARSE",
+          "coverage": "no shell string is interpreted",
+          "applicable": false
+        },
+        "args": {
+          "status": "PASS",
+          "reason": "ARGUMENT_SCHEMA_ONLY",
+          "coverage": "git_argv_registered_subset",
+          "applicable": true
+        },
+        "environment": {
+          "status": "PASS",
+          "reason": "HOST_EXECUTABLE_FILE_EXISTS",
+          "coverage": "configured absolute file only; version, cwd, repository, dependencies and execution NOT_RUN",
+          "applicable": true
+        },
+        "safety": {
+          "status": "INCONCLUSIVE",
+          "reason": "STATIC_ANALYSIS_NOT_SAFETY_PROOF",
+          "coverage": "no OS isolation, resource authorization or target execution established",
+          "applicable": true
+        },
+        "authorization": {
+          "status": "NOT_RUN",
+          "reason": "OWNER_TOOL_GATEWAY",
+          "coverage": "diagnostic service cannot issue permits",
+          "applicable": true
+        }
+      },
+      "status": "PASS",
+      "reason": "ARGUMENT_SCHEMA_ONLY",
+      "diagnostics": [],
+      "evidence_refs": [],
+      "timing": {
+        "started_at": "2026-11-06T17:13:28.159Z",
+        "elapsed_ms": 0.507
+      }
+    }
+  },
+  "activity_after_dispose": {
+    "jobs": 0,
+    "running": 0,
+    "queued": 0,
+    "pendingBytes": 0,
+    "children": 0,
+    "unconfirmedChildren": 0,
+    "documents": 0
+  },
+  "limits": {
+    "source_bytes": 262144,
+    "stdout_bytes": 131072,
+    "stderr_bytes": 32768,
+    "diagnostics": 200,
+    "message_bytes": 1024,
+    "active": 2,
+    "queued": 16,
+    "pending_bytes": 4194304,
+    "document_slots": 128,
+    "default_deadline_ms": 3000,
+    "kill_confirmation_grace_ms": 500,
+    "default_drain_ms": 1000
+  },
+  "not_run": {
+    "os_complete_process_tree_isolation": "NOT_RUN; only known trusted checker child close is observed",
+    "hard_rss_memory_limit": "NOT_RUN",
+    "ubuntu": "NOT_RUN",
+    "lsp": "NOT_RUN",
+    "sql": "NOT_RUN; no SQLite prepare on supplied source",
+    "csharp_javascript_typescript_yaml_dockerfile_bash_zsh": "NOT_RUN",
+    "dependency_distribution_license_closure": "NOT_RUN",
+    "full_python_compilation": "NOT_RUN; ast.parse only",
+    "target_command_execution_and_authorization": "NOT_RUN; no permit issued"
+  },
+  "source_integrity": [
+    {
+      "file": "src/agentnexus/diagnostics.ts",
+      "bytes": 31299,
+      "sha256": "d869a291068564eb942b05623f2b8e3f0f8348c40647215e1b85d86eef27d86d",
+      "scope": "diagnostics single-writer implementation/test"
+    },
+    {
+      "file": "src/agentnexus/checkers/python_ast.py",
+      "bytes": 2998,
+      "sha256": "a9595eca900b49c4ec88e82599c28569b01e543ed8ecb52908ae0772b104fc6e",
+      "scope": "diagnostics single-writer implementation/test"
+    },
+    {
+      "file": "src/agentnexus/checkers/powershell_ast.ps1",
+      "bytes": 3780,
+      "sha256": "90079d41e2083df61ee87456cbe81a4d1863b2f4053df0ab9e78b668e3789ae8",
+      "scope": "diagnostics single-writer implementation/test"
+    },
+    {
+      "file": "tests/agentnexus/diagnostics.test.ts",
+      "bytes": 18607,
+      "sha256": "122140951cbcf352abf266a5fddd56bce34bc7c1abb6056a0495ec27f278293e",
+      "scope": "diagnostics single-writer implementation/test"
+    },
+    {
+      "file": "src/agentnexus/types.ts",
+      "bytes": 6774,
+      "sha256": "273780415d1e00476dcfc52ca901a15527d62f1e74c1a46def5757251afcfcd8",
+      "scope": "read-only frozen shared contract"
+    }
+  ],
+  "initial_probe_note": "An early Node import saw the parent-owned package.json during its empty creation window. It was rerun after the parent completed the package; no diagnostic implementation result was inferred from that setup failure."
+}

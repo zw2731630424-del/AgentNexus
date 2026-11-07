@@ -1,0 +1,71 @@
+{
+  "schema": "agentnexus/m1/final-control-probes/1",
+  "captured_utc": "2026-11-06T17:44:10.816Z",
+  "status": "PASS",
+  "scope": "CTRL-008 controlled Node/SQLite lifecycle plus static final expiry fences; not full product or OS admission",
+  "state_store": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-v0.4-M1\\reviews\\final-stop-recovery-eolaFd",
+  "source_sha256_before": {
+    "src/agentnexus/types.ts": "101cc13ca1bbb9ec34e7bb8dfdc8360da913829b99458cf3374cc6604fa15d75",
+    "src/agentnexus/control.ts": "b222860935358032aabcae570865d6d09bca1d22f9b94fcc1961624c895bdccc",
+    "src/agentnexus/features.ts": "ca05754e624100b2dd863224efed67edc9cf0f245c6f63ef0069c544a8331ed6",
+    "src/agentnexus/policy.ts": "98cadd7673c9d523733bb9fe1d1d62a036516aa63c9c0441a758dc39a14d18d2",
+    "src/agentnexus/gateway.ts": "85ab9f4312f17783ad5a2101c6582e769378489a29f3d62e0919cd3bdb1ff5ec",
+    "src/agentnexus/host.ts": "ac3347f801a58ce5c76d6ca425658bb94fdc56b59c3d003d9b47840062ac9f5c",
+    "src/agentnexus/storage.ts": "172d0af0556640f6048b74543715841700aaab9938656d7c48298e6f6472ec7d",
+    "src/agentnexus/diagnostics.ts": "d869a291068564eb942b05623f2b8e3f0f8348c40647215e1b85d86eef27d86d"
+  },
+  "source_sha256_after": {
+    "src/agentnexus/types.ts": "101cc13ca1bbb9ec34e7bb8dfdc8360da913829b99458cf3374cc6604fa15d75",
+    "src/agentnexus/control.ts": "b222860935358032aabcae570865d6d09bca1d22f9b94fcc1961624c895bdccc",
+    "src/agentnexus/features.ts": "ca05754e624100b2dd863224efed67edc9cf0f245c6f63ef0069c544a8331ed6",
+    "src/agentnexus/policy.ts": "98cadd7673c9d523733bb9fe1d1d62a036516aa63c9c0441a758dc39a14d18d2",
+    "src/agentnexus/gateway.ts": "85ab9f4312f17783ad5a2101c6582e769378489a29f3d62e0919cd3bdb1ff5ec",
+    "src/agentnexus/host.ts": "ac3347f801a58ce5c76d6ca425658bb94fdc56b59c3d003d9b47840062ac9f5c",
+    "src/agentnexus/storage.ts": "172d0af0556640f6048b74543715841700aaab9938656d7c48298e6f6472ec7d",
+    "src/agentnexus/diagnostics.ts": "d869a291068564eb942b05623f2b8e3f0f8348c40647215e1b85d86eef27d86d"
+  },
+  "source_changed": [],
+  "observations": {
+    "pending": {
+      "stop_failure": "DRAIN_TIMEOUT",
+      "recovery_failure": "MODULE_STOP_PENDING",
+      "enabling_failure": "MODULE_STOP_PENDING",
+      "active_count": 1,
+      "ready": true,
+      "preflights": 0,
+      "stopSettled": false
+    },
+    "recovered": {
+      "resolution": {
+        "id": "review.lifecycle",
+        "desired": "ON",
+        "revision": 0,
+        "epoch": 1,
+        "health": "ENABLED",
+        "effective": "ON",
+        "reason": "READY"
+      },
+      "ready": true,
+      "preflights": 1,
+      "stopSettled": true
+    }
+  },
+  "failure": null,
+  "static_expiry_fence_inspection": {
+    "mode_guard_call_lines": [
+      122,
+      147
+    ],
+    "mode_guard_call_count": 2,
+    "first_guard_before_claim_transaction": true,
+    "second_guard_after_start_intent_flush": true,
+    "no_await_between_last_guard_and_handler": true,
+    "assert_modes_body_uses_modeFor_and_epoch": true,
+    "assert_modes_body_does_not_call_PDP": true,
+    "consumed_permit_rechecked_before_handler": true,
+    "consumed_approval_rechecked_before_handler": true,
+    "scope": "static control-flow inspection only; root owns delayed-flush execution regressions"
+  },
+  "root_final_suite": "PENDING_ROOT_FINAL_RESULT",
+  "product_source_modified": false
+}

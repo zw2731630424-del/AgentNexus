@@ -1,0 +1,199 @@
+{
+  "schema": "agentnexus/m01-m1-change-manifest/1",
+  "delivery_version": "0.4-m01-m1.1",
+  "catalog_revision": 2,
+  "utc": "2026-11-06T18:06:14.467034+00:00",
+  "m0_history_preserved": true,
+  "baseline_manifest": {
+    "path": ".workflow-kit/tasks/AgentNexus-v0.4-M0/reports/delivery_manifest.json",
+    "sha256": "c452aa047c5ca7d53db312559c0224d16e3c3ed8b2c5e319d18138a007bdc2af"
+  },
+  "initial_baseline": {
+    "path": ".workflow-kit/runtime/AgentNexus-v0.4-M0.1/baseline.json",
+    "sha256": "b30c5c1d597fb3e383b0cba7e2e3b3d360958967d805ad3f72b9c3302f9a7a6c"
+  },
+  "prior_design_snapshot": ".workflow-kit/runtime/AgentNexus-v0.4-M0.1/design-freeze-v1/admission.json",
+  "catalog_changes": {
+    "old_features": 108,
+    "current_features": 142,
+    "old_policies": 22,
+    "current_policies": 34,
+    "details": "catalog_changes.json",
+    "revision_2_clarifications": [
+      "SQL prepare/PRAGMA exclusion consistent across plan/catalog",
+      "historical implementation status normalized to NOT_RUN for full current contracts; M0 unchanged"
+    ]
+  },
+  "product_source_changes": [
+    {
+      "kind": "ADD",
+      "path": "config/agentnexus/features.json",
+      "bytes": 390886,
+      "sha256": "ed7b7ad4fd9d8e34bc28b9873cc397dd33932b0f27f21eb550f70951361154a7"
+    },
+    {
+      "kind": "ADD",
+      "path": "config/agentnexus/policies.json",
+      "bytes": 91143,
+      "sha256": "74cb43697d45606fb2f3ad716b28a5125b5faff808de8973c3ab28c77e41c7b3"
+    },
+    {
+      "kind": "ADD",
+      "path": "package.json",
+      "bytes": 293,
+      "sha256": "e23288d939a3706e522bf34a1d87802242b418749c37f1e54c5b481562ffd809"
+    },
+    {
+      "kind": "ADD",
+      "path": "src/agentnexus/artifacts.ts",
+      "bytes": 15666,
+      "sha256": "f89cd95c7c373e1551d509f82596e54e203f0bb02b2934e1c2108040ef48bc49"
+    },
+    {
+      "kind": "ADD",
+      "path": "src/agentnexus/checkers/powershell_ast.ps1",
+      "bytes": 3780,
+      "sha256": "90079d41e2083df61ee87456cbe81a4d1863b2f4053df0ab9e78b668e3789ae8"
+    },
+    {
+      "kind": "ADD",
+      "path": "src/agentnexus/checkers/python_ast.py",
+      "bytes": 2998,
+      "sha256": "a9595eca900b49c4ec88e82599c28569b01e543ed8ecb52908ae0772b104fc6e"
+    },
+    {
+      "kind": "ADD",
+      "path": "src/agentnexus/cli.ts",
+      "bytes": 1928,
+      "sha256": "458b10cdbe3236b0e5ace1439334095bc30243fafeaf071273de956d22511b15"
+    },
+    {
+      "kind": "ADD",
+      "path": "src/agentnexus/control.ts",
+      "bytes": 7027,
+      "sha256": "b222860935358032aabcae570865d6d09bca1d22f9b94fcc1961624c895bdccc"
+    },
+    {
+      "kind": "ADD",
+      "path": "src/agentnexus/diagnostics.ts",
+      "bytes": 31299,
+      "sha256": "d869a291068564eb942b05623f2b8e3f0f8348c40647215e1b85d86eef27d86d"
+    },
+    {
+      "kind": "ADD",
+      "path": "src/agentnexus/features.ts",
+      "bytes": 12008,
+      "sha256": "d6aafeafd88f6fd5660afa6b4f29b68625d70ffc8f8138f90db657b6acacda5e"
+    },
+    {
+      "kind": "ADD",
+      "path": "src/agentnexus/gateway.ts",
+      "bytes": 18759,
+      "sha256": "85ab9f4312f17783ad5a2101c6582e769378489a29f3d62e0919cd3bdb1ff5ec"
+    },
+    {
+      "kind": "ADD",
+      "path": "src/agentnexus/host.ts",
+      "bytes": 16750,
+      "sha256": "ac3347f801a58ce5c76d6ca425658bb94fdc56b59c3d003d9b47840062ac9f5c"
+    },
+    {
+      "kind": "ADD",
+      "path": "src/agentnexus/integrity.ts",
+      "bytes": 18691,
+      "sha256": "172a40c429c9e8a99f8cc1fcee2ef500adb4e7d378f0f6188fbbe7f792edfe66"
+    },
+    {
+      "kind": "ADD",
+      "path": "src/agentnexus/policy.ts",
+      "bytes": 13815,
+      "sha256": "98cadd7673c9d523733bb9fe1d1d62a036516aa63c9c0441a758dc39a14d18d2"
+    },
+    {
+      "kind": "ADD",
+      "path": "src/agentnexus/records.ts",
+      "bytes": 6510,
+      "sha256": "393e0a70a20a4dae21287169d1313bae949842cf0f712bacb3ebf432a5ed7800"
+    },
+    {
+      "kind": "ADD",
+      "path": "src/agentnexus/storage.ts",
+      "bytes": 33030,
+      "sha256": "172d0af0556640f6048b74543715841700aaab9938656d7c48298e6f6472ec7d"
+    },
+    {
+      "kind": "ADD",
+      "path": "src/agentnexus/types.ts",
+      "bytes": 6814,
+      "sha256": "101cc13ca1bbb9ec34e7bb8dfdc8360da913829b99458cf3374cc6604fa15d75"
+    },
+    {
+      "kind": "ADD",
+      "path": "tests/agentnexus/control.test.ts",
+      "bytes": 16933,
+      "sha256": "c392c452fad08a00ce91c0b010f27bc99699c5b9c3e58416a08b9f8413f79441"
+    },
+    {
+      "kind": "ADD",
+      "path": "tests/agentnexus/diagnostics.test.ts",
+      "bytes": 19069,
+      "sha256": "67eef7a1adfc1b2baceb62ca4cd157d8737332e8595f0d93a63bcfb853257394"
+    },
+    {
+      "kind": "ADD",
+      "path": "tests/agentnexus/gateway.test.ts",
+      "bytes": 17859,
+      "sha256": "96620a3ee83c8b1c65e798ab575fe4ff2a9ccd62ecf69f090d0b70e06fa73824"
+    },
+    {
+      "kind": "ADD",
+      "path": "tests/agentnexus/integrity.test.ts",
+      "bytes": 21578,
+      "sha256": "ecc6655be30a7d7690f04e5d26c61f09eaaa988ae1075b63327fe98c97c93277"
+    },
+    {
+      "kind": "ADD",
+      "path": "tests/agentnexus/owned-storage-child.mjs",
+      "bytes": 1885,
+      "sha256": "7a469bfa662d98f39f06b4483eaa1f49809e490817679cce5f7f1fa366133139"
+    },
+    {
+      "kind": "ADD",
+      "path": "tests/agentnexus/storage.test.ts",
+      "bytes": 28870,
+      "sha256": "d0cae519ebfce054002a51b10b292cc870f2bbe01c67706dd1fd9a203525a3da"
+    },
+    {
+      "kind": "ADD",
+      "path": "tools/agentnexus/run-tests.mjs",
+      "bytes": 667,
+      "sha256": "7b1b45b072e55e4c2e079e90aa963d94584a871496945ed88b737cb42dd4c0b7"
+    }
+  ],
+  "design_changes": [
+    "Four requested independent designs",
+    "Versioned catalogs and protocols/implementation plan",
+    "ADR006-009 and limited UUID artifact layout decision",
+    "Source/rights recheck and primary technical evidence"
+  ],
+  "fixes": {
+    "control_review": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-review.json",
+    "control_findings": 8,
+    "storage_review": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/storage-integrity-review.v3.json",
+    "storage_findings": 3,
+    "additional_root_guards": [
+      "Mode/Permit/Approval validity rechecked immediately before effect",
+      "Feature health BLOCKED/FAILED while required storage is faulted"
+    ]
+  },
+  "prohibited_actions_performed": {
+    "research_projects_modified_or_run": false,
+    "formal_experiments": false,
+    "git_commit_or_push": false,
+    "hooks_installed": false,
+    "api_key_scan": false,
+    "os_accounts_acl_firewall_modified": false,
+    "npm_install_or_third_party_product_source_copy": false
+  },
+  "run_history": ".workflow-kit/runtime/AgentNexus-v0.4-M1/run-history.json"
+}

@@ -1,0 +1,1618 @@
+{
+  "schema": "agentnexus/m1-test-matrix/1",
+  "scope": "Actual final cases and remaining full policy/OS contracts are separate",
+  "totals": {
+    "tests": 135,
+    "pass": 131,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 4,
+    "todo": 0
+  },
+  "actual_cases": [
+    {
+      "ordinal": 1,
+      "tap_local_ordinal": 1,
+      "tap_indent": 0,
+      "name": "FT-RESOLVE: defaults, child narrowing, ancestor veto, explicit INHERIT",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 2,
+      "tap_local_ordinal": 2,
+      "tap_indent": 0,
+      "name": "FT: unknown IDs, illegal scopes and non-admin payloads rejected",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 3,
+      "tap_local_ordinal": 3,
+      "tap_indent": 0,
+      "name": "FT-DEPENDENCY: rejects partial disable and does not enable a dependency implicitly",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 4,
+      "tap_local_ordinal": 4,
+      "tap_indent": 0,
+      "name": "FT: mutual conflict, wrong preview hash and stale revision cannot commit",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 5,
+      "tap_local_ordinal": 5,
+      "tap_indent": 0,
+      "name": "FT-OFF: live work aborts; failure remains FAILED until explicit recovery",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 6,
+      "tap_local_ordinal": 6,
+      "tap_indent": 0,
+      "name": "FT-RETAIN: configuration survives real reopen, facts remain and old epoch is invalid",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 7,
+      "tap_local_ordinal": 7,
+      "tap_indent": 0,
+      "name": "FT-INHERIT-OFF: ON to INHERIT must quiesce when default is OFF",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 8,
+      "tap_local_ordinal": 8,
+      "tap_indent": 0,
+      "name": "FT-LATE-STOP: timeout cannot recover or enable until the old stop actually settles",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 9,
+      "tap_local_ordinal": 9,
+      "tap_indent": 0,
+      "name": "FT catalog is capacity, unimplemented module never becomes enabled from default ON",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 10,
+      "tap_local_ordinal": 10,
+      "tap_indent": 0,
+      "name": "P.ADMIN_MODE: forged admin, L0 degradation and missing reason rejected",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 11,
+      "tap_local_ordinal": 11,
+      "tap_indent": 0,
+      "name": "P.ADMIN_MODE: two distinct confirmations, preview binding and challenge replay",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 12,
+      "tap_local_ordinal": 12,
+      "tap_indent": 0,
+      "name": "P.MODE: same denied request has distinct enforce/audit/disabled behavior",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 13,
+      "tap_local_ordinal": 13,
+      "tap_indent": 0,
+      "name": "P.MODE: selected IDs and project scope; explicit ENFORCE dominates overlap",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 14,
+      "tap_local_ordinal": 14,
+      "tap_indent": 0,
+      "name": "P.MODE: PDP fault stays closed in ENFORCE and AUDIT_ONLY; DISABLED actually skips PDP",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 15,
+      "tap_local_ordinal": 15,
+      "tap_indent": 0,
+      "name": "P.MODE-EXPIRY: real deadline freezes until persisted-chain preflight",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 16,
+      "tap_local_ordinal": 16,
+      "tap_indent": 0,
+      "name": "P.MODE-RECOVERY: reboot never restores a permissive lease without preflight",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 17,
+      "tap_local_ordinal": 17,
+      "tap_indent": 0,
+      "name": "P.APPROVAL: hash/identity/epoch/expiry bind grants and no self-reported approval",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 18,
+      "tap_local_ordinal": 18,
+      "tap_indent": 0,
+      "name": "P.APPROVAL-EXPIRY: real expiry cannot revive under an in-process clock rollback",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 19,
+      "tap_local_ordinal": 19,
+      "tap_indent": 0,
+      "name": "Json canonical contract rejects accessors/cycles/nonfinite numbers",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 20,
+      "tap_local_ordinal": 20,
+      "tap_indent": 0,
+      "name": "JSON uses real JSON.parse and preserves independent safety/authorization dimensions",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 21,
+      "tap_local_ordinal": 21,
+      "tap_indent": 0,
+      "name": "Python AST actually parses valid/invalid source, with explicitly limited coverage",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 22,
+      "tap_local_ordinal": 22,
+      "tap_indent": 0,
+      "name": "PowerShell Parser actually returns AST diagnostics and UTF-16 positions",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 23,
+      "tap_local_ordinal": 23,
+      "tap_indent": 0,
+      "name": "Python and PowerShell source side effects remain unexecuted",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 24,
+      "tap_local_ordinal": 24,
+      "tap_indent": 0,
+      "name": "all relevant source Feature OFF paths bypass without a configured parser",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 25,
+      "tap_local_ordinal": 25,
+      "tap_indent": 0,
+      "name": "optional environment/safety OFF remains BYPASSED while syntax independently runs",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 26,
+      "tap_local_ordinal": 26,
+      "tap_indent": 0,
+      "name": "missing parsers and unsupported languages/dialects never produce PASS",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 27,
+      "tap_local_ordinal": 27,
+      "tap_indent": 0,
+      "name": "new document version, same-version hash mismatch and close fence old results",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 28,
+      "tap_local_ordinal": 28,
+      "tap_indent": 0,
+      "name": "real parser requests respect newer versions and Feature epoch changes",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 29,
+      "tap_local_ordinal": 29,
+      "tap_indent": 0,
+      "name": "AbortSignal, timeout and dispose are bounded and never become PASS",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 30,
+      "tap_local_ordinal": 30,
+      "tap_indent": 0,
+      "name": "source/Unicode/request budgets reject before parsing and constructor budgets are fixed",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 31,
+      "tap_local_ordinal": 31,
+      "tap_indent": 0,
+      "name": "queue admission caps concurrent work and recovers after backpressure",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 32,
+      "tap_local_ordinal": 32,
+      "tap_indent": 0,
+      "name": "PowerShell error floods remain bounded and do not turn truncation into PASS",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 33,
+      "tap_local_ordinal": 33,
+      "tap_indent": 0,
+      "name": "registered Git/Python argv schemas are static, limited and independently typed",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 34,
+      "tap_local_ordinal": 34,
+      "tap_indent": 0,
+      "name": "argv environment checks inspect only the Host file and preserve the actual args result",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 35,
+      "tap_local_ordinal": 35,
+      "tap_indent": 0,
+      "name": "argv family and values are copied before asynchronous work",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 36,
+      "tap_local_ordinal": 36,
+      "tap_indent": 0,
+      "name": "argument Feature OFF bypasses schema and dispose prevents subsequent work",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 37,
+      "tap_local_ordinal": 37,
+      "tap_indent": 0,
+      "name": "disposeAndWait confirms real interpreter child close and all queued work is drained",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 38,
+      "tap_local_ordinal": 38,
+      "tap_indent": 0,
+      "name": "AT/Context/Artifact: real invocation produces separate hash-linked facts and byte-exact output",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 39,
+      "tap_local_ordinal": 39,
+      "tap_indent": 0,
+      "name": "P.MODE+Gateway: same safe synthetic operation blocked/enforced, would-deny, and unevaluated",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 40,
+      "tap_local_ordinal": 40,
+      "tap_indent": 0,
+      "name": "P.SANDBOX: DISABLED does not admit arbitrary execution or close independent protection",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 41,
+      "tap_local_ordinal": 41,
+      "tap_indent": 0,
+      "name": "P.IDENTITY: facade has no administration and JSON admin/mode flags cannot elevate",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 42,
+      "tap_local_ordinal": 42,
+      "tap_indent": 0,
+      "name": "P.APPROVAL_REPLAY: exact approval executes once; altered intent and replay denied",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 43,
+      "tap_local_ordinal": 43,
+      "tap_indent": 0,
+      "name": "P.DB_ATOMIC: 16 concurrent duplicate requests invoke a real handler at most once",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 44,
+      "tap_local_ordinal": 44,
+      "tap_indent": 0,
+      "name": "P.WORKSPACE_WRITER: concurrent distinct calls cannot overwrite active resource; modes cannot change mid-action",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 45,
+      "tap_local_ordinal": 45,
+      "tap_indent": 0,
+      "name": "AT-IOFAIL-before: actual SQLite readonly persistence failure prevents handler execution",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 46,
+      "tap_local_ordinal": 46,
+      "tap_indent": 0,
+      "name": "AT-IOFAIL-after: actual effect with unrecordable result keeps claim and never replays",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 47,
+      "tap_local_ordinal": 47,
+      "tap_indent": 0,
+      "name": "P.TIMEOUT: timeout retains owned lease until actual handler settlement and never resets claim",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 48,
+      "tap_local_ordinal": 48,
+      "tap_indent": 0,
+      "name": "AT-REPLAY: reconstruction is readonly and session scope does not grant peer context",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 49,
+      "tap_local_ordinal": 49,
+      "tap_indent": 0,
+      "name": "P.IDENTITY-revocation: old facade cannot read or close a replacement session",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 50,
+      "tap_local_ordinal": 50,
+      "tap_indent": 0,
+      "name": "P.IDENTITY-close-race: close revokes facade before its first asynchronous cleanup",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 51,
+      "tap_local_ordinal": 51,
+      "tap_indent": 0,
+      "name": "P.TIMEOUT-clock: handler deadline uses elapsed time under a wall-clock rollback",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 52,
+      "tap_local_ordinal": 52,
+      "tap_indent": 0,
+      "name": "P.MODE-START: a bypass expiring during a real delayed durability barrier cannot execute",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 53,
+      "tap_local_ordinal": 53,
+      "tap_indent": 0,
+      "name": "DI integration: malformed code remains FAIL, checks OFF are BYPASSED, raw/audit continue",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 54,
+      "tap_local_ordinal": 54,
+      "tap_indent": 0,
+      "name": "Tool OFF rejects invocation, diagnostics log OFF does not silence core audit, oversized request is bounded",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 55,
+      "tap_local_ordinal": 55,
+      "tap_indent": 0,
+      "name": "P.ARG_BINDING: mutation by schema or caller cannot replace the authorized snapshot",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 56,
+      "tap_local_ordinal": 56,
+      "tap_indent": 0,
+      "name": "DI command checking keeps argv preview as data and cannot execute Git/Python",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 57,
+      "tap_local_ordinal": 57,
+      "tap_indent": 0,
+      "name": "controlled static bytes close over binary, empty and nested same-name files",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 58,
+      "tap_local_ordinal": 58,
+      "tap_indent": 0,
+      "name": "empty package permits exactly its manifest, with zero payload budgets",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 59,
+      "tap_local_ordinal": 59,
+      "tap_indent": 0,
+      "name": "matching mutable tree is INCONCLUSIVE, never a trusted release root",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 60,
+      "tap_local_ordinal": 60,
+      "tap_indent": 0,
+      "name": "same-size modified content fails its SHA-256",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 61,
+      "tap_local_ordinal": 61,
+      "tap_indent": 0,
+      "name": "appended content fails declared byte size",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 62,
+      "tap_local_ordinal": 62,
+      "tap_indent": 0,
+      "name": "missing and unlisted files are both reported by full relative path",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 63,
+      "tap_local_ordinal": 1,
+      "tap_indent": 4,
+      "name": "sub/manifest.json",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 64,
+      "tap_local_ordinal": 2,
+      "tap_indent": 4,
+      "name": "validation/SHA256SUMS.txt",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 65,
+      "tap_local_ordinal": 3,
+      "tap_indent": 4,
+      "name": "unexpected.cjs",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 66,
+      "tap_local_ordinal": 4,
+      "tap_indent": 4,
+      "name": ".hidden",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 67,
+      "tap_local_ordinal": 63,
+      "tap_indent": 0,
+      "name": "unlisted nested manifest and SHA256SUMS names are never self exceptions",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 68,
+      "tap_local_ordinal": 64,
+      "tap_indent": 0,
+      "name": "root manifest is required and cannot list itself",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 69,
+      "tap_local_ordinal": 65,
+      "tap_indent": 0,
+      "name": "root manifest directory and non-directory roots fail",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 70,
+      "tap_local_ordinal": 66,
+      "tap_indent": 0,
+      "name": "duplicate JSON keys are rejected despite JSON.parse last-wins semantics",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 71,
+      "tap_local_ordinal": 67,
+      "tap_indent": 0,
+      "name": "duplicate complete path and unsorted arrays fail independently",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 72,
+      "tap_local_ordinal": 1,
+      "tap_indent": 4,
+      "name": "A vs a",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 73,
+      "tap_local_ordinal": 2,
+      "tap_indent": 4,
+      "name": "Dir/a vs dir/b",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 74,
+      "tap_local_ordinal": 3,
+      "tap_indent": 4,
+      "name": "a vs a/b",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 75,
+      "tap_local_ordinal": 68,
+      "tap_indent": 0,
+      "name": "case conflicts include ancestor directories and file-directory prefixes",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 76,
+      "tap_local_ordinal": 1,
+      "tap_indent": 4,
+      "name": "\"../outside\"",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 77,
+      "tap_local_ordinal": 2,
+      "tap_indent": 4,
+      "name": "\"./a\"",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 78,
+      "tap_local_ordinal": 3,
+      "tap_indent": 4,
+      "name": "\"a//b\"",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 79,
+      "tap_local_ordinal": 4,
+      "tap_indent": 4,
+      "name": "\"/outside\"",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 80,
+      "tap_local_ordinal": 5,
+      "tap_indent": 4,
+      "name": "\"C:/outside\"",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 81,
+      "tap_local_ordinal": 6,
+      "tap_indent": 4,
+      "name": "\"//server/share\"",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 82,
+      "tap_local_ordinal": 7,
+      "tap_indent": 4,
+      "name": "\"a\\\\\\\\b\"",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 83,
+      "tap_local_ordinal": 8,
+      "tap_indent": 4,
+      "name": "\"a:stream\"",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 84,
+      "tap_local_ordinal": 9,
+      "tap_indent": 4,
+      "name": "\"NUL.txt\"",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 85,
+      "tap_local_ordinal": 10,
+      "tap_indent": 4,
+      "name": "\"COM1\"",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 86,
+      "tap_local_ordinal": 11,
+      "tap_indent": 4,
+      "name": "\"con.tar.gz\"",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 87,
+      "tap_local_ordinal": 12,
+      "tap_indent": 4,
+      "name": "\"a.\"",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 88,
+      "tap_local_ordinal": 13,
+      "tap_indent": 4,
+      "name": "\"a \"",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 89,
+      "tap_local_ordinal": 14,
+      "tap_indent": 4,
+      "name": "\"PROGRA~1/file\"",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 90,
+      "tap_local_ordinal": 15,
+      "tap_indent": 4,
+      "name": "\"\"",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 91,
+      "tap_local_ordinal": 16,
+      "tap_indent": 4,
+      "name": "\"a\\\\u0000b\"",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 92,
+      "tap_local_ordinal": 17,
+      "tap_indent": 4,
+      "name": "\"é\"",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 93,
+      "tap_local_ordinal": 18,
+      "tap_indent": 4,
+      "name": "\"é\"",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 94,
+      "tap_local_ordinal": 19,
+      "tap_indent": 4,
+      "name": "\"İ\"",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 95,
+      "tap_local_ordinal": 20,
+      "tap_indent": 4,
+      "name": "\"a/a/\"",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 96,
+      "tap_local_ordinal": 69,
+      "tap_indent": 0,
+      "name": "path traversal, device aliases, malformed separators and Unicode reject before payload reads",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 97,
+      "tap_local_ordinal": 70,
+      "tap_indent": 0,
+      "name": "schema, digest and byte count reject invalid declarations",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 98,
+      "tap_local_ordinal": 71,
+      "tap_indent": 0,
+      "name": "canonical encoding rejects whitespace, BOM, bad UTF-8 and equivalent escapes",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 99,
+      "tap_local_ordinal": 72,
+      "tap_indent": 0,
+      "name": "extra empty directory and file-vs-directory mismatch cannot disappear",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 100,
+      "tap_local_ordinal": 73,
+      "tap_indent": 0,
+      "name": "file count and total bytes budgets work at exact limit and limit plus one",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 101,
+      "tap_local_ordinal": 74,
+      "tap_indent": 0,
+      "name": "actual unlisted content also consumes size and count budgets",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 102,
+      "tap_local_ordinal": 75,
+      "tap_indent": 0,
+      "name": "manifest and single-file caps are enforced without reading an oversized payload",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 103,
+      "tap_local_ordinal": 76,
+      "tap_indent": 0,
+      "name": "path length and depth have bounded rejection",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 104,
+      "tap_local_ordinal": 77,
+      "tap_indent": 0,
+      "name": "actual default file and directory count limits accept the edge and reject one more",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 105,
+      "tap_local_ordinal": 78,
+      "tap_indent": 0,
+      "name": "actual 8 MiB files and 16 MiB total accept the edge; declared and actual overflow reject",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 106,
+      "tap_local_ordinal": 79,
+      "tap_indent": 0,
+      "name": "maximum component and depth are accepted on an actually created portable path",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 107,
+      "tap_local_ordinal": 80,
+      "tap_indent": 0,
+      "name": "Host cannot expand limits or choose an unknown mode; relative roots reject",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 108,
+      "tap_local_ordinal": 81,
+      "tap_indent": 0,
+      "name": "pre-abort is NOT_RUN; in-flight abort is INCONCLUSIVE with closed file work",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 109,
+      "tap_local_ordinal": 82,
+      "tap_indent": 0,
+      "name": "diagnostic count and encoded bytes remain bounded for many extra files",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 110,
+      "tap_local_ordinal": 83,
+      "tap_indent": 0,
+      "name": "candidate scripts, package metadata and git-looking files are data and never executed",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 111,
+      "tap_local_ordinal": 84,
+      "tap_indent": 0,
+      "name": "real OS file symlink is rejected without following its target",
+      "status": "NOT_RUN",
+      "reason": "NOT_RUN: real OS link fixture unavailable (EPERM); no simulated OS PASS"
+    },
+    {
+      "ordinal": 112,
+      "tap_local_ordinal": 85,
+      "tap_indent": 0,
+      "name": "real OS dir link is rejected",
+      "status": "NOT_RUN",
+      "reason": "NOT_RUN: real OS link fixture unavailable (EPERM); no simulated OS PASS"
+    },
+    {
+      "ordinal": 113,
+      "tap_local_ordinal": 86,
+      "tap_indent": 0,
+      "name": "real OS junction link is rejected",
+      "status": "NOT_RUN",
+      "reason": "NOT_RUN: real OS link fixture unavailable (EPERM); no simulated OS PASS"
+    },
+    {
+      "ordinal": 114,
+      "tap_local_ordinal": 87,
+      "tap_indent": 0,
+      "name": "real OS hardlink to an outside object is rejected by link count",
+      "status": "NOT_RUN",
+      "reason": "NOT_RUN: real OS link fixture unavailable (EPERM); no simulated OS PASS"
+    },
+    {
+      "ordinal": 115,
+      "tap_local_ordinal": 88,
+      "tap_indent": 0,
+      "name": "real SQLite, three independent domain chains and global pagination",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 116,
+      "tap_local_ordinal": 89,
+      "tap_indent": 0,
+      "name": "synchronous cross-table transaction, rollback, UNIQUE and business errors do not fault",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 117,
+      "tap_local_ordinal": 90,
+      "tap_indent": 0,
+      "name": "agent and session SQL filters apply before LIMIT and preserve global cursor pages",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 118,
+      "tap_local_ordinal": 91,
+      "tap_indent": 0,
+      "name": "flush covers its captured target after an empty or older shared flush",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 119,
+      "tap_local_ordinal": 92,
+      "tap_indent": 0,
+      "name": "required fields, malformed refs, oversized envelopes and query budgets reject without fault",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 120,
+      "tap_local_ordinal": 93,
+      "tap_indent": 0,
+      "name": "outbox high water rejects new records, then drains without unbounded queues",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 121,
+      "tap_local_ordinal": 94,
+      "tap_indent": 0,
+      "name": "second writer and live lock recovery are blocked; real owner death is explicit",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 122,
+      "tap_local_ordinal": 95,
+      "tap_indent": 0,
+      "name": "process crash after file fsync and before receipt reexports no duplicate",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 123,
+      "tap_local_ordinal": 96,
+      "tap_indent": 0,
+      "name": "unacknowledged crash tail is preserved then repaired from durable outbox",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 124,
+      "tap_local_ordinal": 97,
+      "tap_indent": 0,
+      "name": "actual export I/O failure freezes writes and preserves outbox until explicit recovery",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 125,
+      "tap_local_ordinal": 98,
+      "tap_indent": 0,
+      "name": "acknowledged truncation is never silently discarded or rebuilt as success",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 126,
+      "tap_local_ordinal": 99,
+      "tap_indent": 0,
+      "name": "actual artifact publication I/O failure retains bytes and freezes both record and object admission",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 127,
+      "tap_local_ordinal": 100,
+      "tap_indent": 0,
+      "name": "database hash tampering throws, freezes writes and does not fake repair",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 128,
+      "tap_local_ordinal": 101,
+      "tap_indent": 0,
+      "name": "32 MiB randomized artifact roundtrip streams with real backpressure and two hashes",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 129,
+      "tap_local_ordinal": 102,
+      "tap_indent": 0,
+      "name": "cancelled, over-budget and invalid-chunk objects remain incomplete; secret is rejected",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 130,
+      "tap_local_ordinal": 103,
+      "tap_indent": 0,
+      "name": "early artifact iterator return is not verification; full corrupted stream fails closed",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 131,
+      "tap_local_ordinal": 104,
+      "tap_indent": 0,
+      "name": "concurrent artifact admission is bounded and rejects a third stream without queueing",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 132,
+      "tap_local_ordinal": 105,
+      "tap_indent": 0,
+      "name": "abort races a permanently pending source.next without retaining Store writers or accepting late bytes",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 133,
+      "tap_local_ordinal": 106,
+      "tap_indent": 0,
+      "name": "concurrent close calls share the real drain and lock-release promise",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 134,
+      "tap_local_ordinal": 107,
+      "tap_indent": 0,
+      "name": "sealed segments are compressed, chained and verified; stored bit flip is detected",
+      "status": "PASS",
+      "reason": null
+    },
+    {
+      "ordinal": 135,
+      "tap_local_ordinal": 108,
+      "tap_indent": 0,
+      "name": "process-killed partial artifact remains retained without a complete object reference",
+      "status": "PASS",
+      "reason": null
+    }
+  ],
+  "catalog_policy_contracts": [
+    {
+      "policy_id": "P.IDENTITY",
+      "full_policy_status": "BLOCKED",
+      "reason": "Full owner/OS/model/workflow acceptance not inferred from local kernel tests",
+      "test_ids": [
+        "P.IDENTITY-BYPASS",
+        "P.IDENTITY-MODE",
+        "P.IDENTITY-NEG",
+        "P.IDENTITY-POS",
+        "P.IDENTITY-RACE",
+        "P.IDENTITY-RECOVERY",
+        "P.IDENTITY-UPGRADE"
+      ]
+    },
+    {
+      "policy_id": "P.FS_SCOPE",
+      "full_policy_status": "BLOCKED",
+      "reason": "Full owner/OS/model/workflow acceptance not inferred from local kernel tests",
+      "test_ids": [
+        "P.FS_SCOPE-BYPASS",
+        "P.FS_SCOPE-MODE",
+        "P.FS_SCOPE-NEG",
+        "P.FS_SCOPE-POS",
+        "P.FS_SCOPE-RACE",
+        "P.FS_SCOPE-RECOVERY",
+        "P.FS_SCOPE-UPGRADE"
+      ]
+    },
+    {
+      "policy_id": "P.REVIEW_RO",
+      "full_policy_status": "BLOCKED",
+      "reason": "Full owner/OS/model/workflow acceptance not inferred from local kernel tests",
+      "test_ids": [
+        "P.REVIEW_RO-BYPASS",
+        "P.REVIEW_RO-MODE",
+        "P.REVIEW_RO-NEG",
+        "P.REVIEW_RO-POS",
+        "P.REVIEW_RO-RACE",
+        "P.REVIEW_RO-RECOVERY",
+        "P.REVIEW_RO-UPGRADE"
+      ]
+    },
+    {
+      "policy_id": "P.ARCHIVE_APPEND",
+      "full_policy_status": "BLOCKED",
+      "reason": "Full owner/OS/model/workflow acceptance not inferred from local kernel tests",
+      "test_ids": [
+        "P.ARCHIVE_APPEND-BYPASS",
+        "P.ARCHIVE_APPEND-MODE",
+        "P.ARCHIVE_APPEND-NEG",
+        "P.ARCHIVE_APPEND-POS",
+        "P.ARCHIVE_APPEND-RACE",
+        "P.ARCHIVE_APPEND-RECOVERY",
+        "P.ARCHIVE_APPEND-UPGRADE"
+      ]
+    },
+    {
+      "policy_id": "P.SECRET_BOUNDARY",
+      "full_policy_status": "BLOCKED",
+      "reason": "Full owner/OS/model/workflow acceptance not inferred from local kernel tests",
+      "test_ids": [
+        "P.SECRET_BOUNDARY-BYPASS",
+        "P.SECRET_BOUNDARY-MODE",
+        "P.SECRET_BOUNDARY-NEG",
+        "P.SECRET_BOUNDARY-POS",
+        "P.SECRET_BOUNDARY-RACE",
+        "P.SECRET_BOUNDARY-RECOVERY",
+        "P.SECRET_BOUNDARY-UPGRADE"
+      ]
+    },
+    {
+      "policy_id": "P.DB_ATOMIC",
+      "full_policy_status": "BLOCKED",
+      "reason": "Full owner/OS/model/workflow acceptance not inferred from local kernel tests",
+      "test_ids": [
+        "P.DB_ATOMIC-BYPASS",
+        "P.DB_ATOMIC-MODE",
+        "P.DB_ATOMIC-NEG",
+        "P.DB_ATOMIC-POS",
+        "P.DB_ATOMIC-RACE",
+        "P.DB_ATOMIC-RECOVERY",
+        "P.DB_ATOMIC-UPGRADE"
+      ]
+    },
+    {
+      "policy_id": "P.EXPERIMENT_ONCE",
+      "full_policy_status": "BLOCKED",
+      "reason": "Full owner/OS/model/workflow acceptance not inferred from local kernel tests",
+      "test_ids": [
+        "P.EXPERIMENT_ONCE-BYPASS",
+        "P.EXPERIMENT_ONCE-MODE",
+        "P.EXPERIMENT_ONCE-NEG",
+        "P.EXPERIMENT_ONCE-POS",
+        "P.EXPERIMENT_ONCE-RACE",
+        "P.EXPERIMENT_ONCE-RECOVERY",
+        "P.EXPERIMENT_ONCE-UPGRADE"
+      ]
+    },
+    {
+      "policy_id": "P.WORKSPACE_WRITER",
+      "full_policy_status": "BLOCKED",
+      "reason": "Full owner/OS/model/workflow acceptance not inferred from local kernel tests",
+      "test_ids": [
+        "P.WORKSPACE_WRITER-BYPASS",
+        "P.WORKSPACE_WRITER-MODE",
+        "P.WORKSPACE_WRITER-NEG",
+        "P.WORKSPACE_WRITER-POS",
+        "P.WORKSPACE_WRITER-RACE",
+        "P.WORKSPACE_WRITER-RECOVERY",
+        "P.WORKSPACE_WRITER-UPGRADE"
+      ]
+    },
+    {
+      "policy_id": "P.BUDGET_HARD",
+      "full_policy_status": "BLOCKED",
+      "reason": "Full owner/OS/model/workflow acceptance not inferred from local kernel tests",
+      "test_ids": [
+        "P.BUDGET_HARD-BYPASS",
+        "P.BUDGET_HARD-MODE",
+        "P.BUDGET_HARD-NEG",
+        "P.BUDGET_HARD-POS",
+        "P.BUDGET_HARD-RACE",
+        "P.BUDGET_HARD-RECOVERY",
+        "P.BUDGET_HARD-UPGRADE"
+      ]
+    },
+    {
+      "policy_id": "P.ADMIN_MODE",
+      "full_policy_status": "BLOCKED",
+      "reason": "Full owner/OS/model/workflow acceptance not inferred from local kernel tests",
+      "test_ids": [
+        "P.ADMIN_MODE-BYPASS",
+        "P.ADMIN_MODE-MODE",
+        "P.ADMIN_MODE-NEG",
+        "P.ADMIN_MODE-POS",
+        "P.ADMIN_MODE-RACE",
+        "P.ADMIN_MODE-RECOVERY",
+        "P.ADMIN_MODE-UPGRADE"
+      ]
+    },
+    {
+      "policy_id": "P.APPROVAL_REPLAY",
+      "full_policy_status": "BLOCKED",
+      "reason": "Full owner/OS/model/workflow acceptance not inferred from local kernel tests",
+      "test_ids": [
+        "P.APPROVAL_REPLAY-BYPASS",
+        "P.APPROVAL_REPLAY-MODE",
+        "P.APPROVAL_REPLAY-NEG",
+        "P.APPROVAL_REPLAY-POS",
+        "P.APPROVAL_REPLAY-RACE",
+        "P.APPROVAL_REPLAY-RECOVERY",
+        "P.APPROVAL_REPLAY-UPGRADE"
+      ]
+    },
+    {
+      "policy_id": "P.TOOL_CONTRACT",
+      "full_policy_status": "BLOCKED",
+      "reason": "Full owner/OS/model/workflow acceptance not inferred from local kernel tests",
+      "test_ids": [
+        "P.TOOL_CONTRACT-BYPASS",
+        "P.TOOL_CONTRACT-MODE",
+        "P.TOOL_CONTRACT-NEG",
+        "P.TOOL_CONTRACT-POS",
+        "P.TOOL_CONTRACT-RACE",
+        "P.TOOL_CONTRACT-RECOVERY",
+        "P.TOOL_CONTRACT-UPGRADE"
+      ]
+    },
+    {
+      "policy_id": "P.GIT_PUBLISH",
+      "full_policy_status": "NOT_RUN",
+      "reason": "Full owner/OS/model/workflow acceptance not inferred from local kernel tests",
+      "test_ids": [
+        "P.GIT_PUBLISH-BYPASS",
+        "P.GIT_PUBLISH-MODE",
+        "P.GIT_PUBLISH-NEG",
+        "P.GIT_PUBLISH-POS",
+        "P.GIT_PUBLISH-RACE",
+        "P.GIT_PUBLISH-RECOVERY",
+        "P.GIT_PUBLISH-TOKEN",
+        "P.GIT_PUBLISH-UPGRADE"
+      ]
+    },
+    {
+      "policy_id": "P.DATA_DELETE",
+      "full_policy_status": "NOT_RUN",
+      "reason": "Full owner/OS/model/workflow acceptance not inferred from local kernel tests",
+      "test_ids": [
+        "P.DATA_DELETE-BYPASS",
+        "P.DATA_DELETE-MODE",
+        "P.DATA_DELETE-NEG",
+        "P.DATA_DELETE-POS",
+        "P.DATA_DELETE-RACE",
+        "P.DATA_DELETE-RECOVERY",
+        "P.DATA_DELETE-TOKEN",
+        "P.DATA_DELETE-UPGRADE"
+      ]
+    },
+    {
+      "policy_id": "P.INSTALL",
+      "full_policy_status": "NOT_RUN",
+      "reason": "Full owner/OS/model/workflow acceptance not inferred from local kernel tests",
+      "test_ids": [
+        "P.INSTALL-BYPASS",
+        "P.INSTALL-MODE",
+        "P.INSTALL-NEG",
+        "P.INSTALL-POS",
+        "P.INSTALL-RACE",
+        "P.INSTALL-RECOVERY",
+        "P.INSTALL-TOKEN",
+        "P.INSTALL-UPGRADE"
+      ]
+    },
+    {
+      "policy_id": "P.PROJECT_RULE_CHANGE",
+      "full_policy_status": "NOT_RUN",
+      "reason": "Full owner/OS/model/workflow acceptance not inferred from local kernel tests",
+      "test_ids": [
+        "P.PROJECT_RULE_CHANGE-BYPASS",
+        "P.PROJECT_RULE_CHANGE-MODE",
+        "P.PROJECT_RULE_CHANGE-NEG",
+        "P.PROJECT_RULE_CHANGE-POS",
+        "P.PROJECT_RULE_CHANGE-RACE",
+        "P.PROJECT_RULE_CHANGE-RECOVERY",
+        "P.PROJECT_RULE_CHANGE-TOKEN",
+        "P.PROJECT_RULE_CHANGE-UPGRADE"
+      ]
+    },
+    {
+      "policy_id": "P.EXPERIMENT_APPROVAL",
+      "full_policy_status": "NOT_RUN",
+      "reason": "Full owner/OS/model/workflow acceptance not inferred from local kernel tests",
+      "test_ids": [
+        "P.EXPERIMENT_APPROVAL-BYPASS",
+        "P.EXPERIMENT_APPROVAL-MODE",
+        "P.EXPERIMENT_APPROVAL-NEG",
+        "P.EXPERIMENT_APPROVAL-POS",
+        "P.EXPERIMENT_APPROVAL-RACE",
+        "P.EXPERIMENT_APPROVAL-RECOVERY",
+        "P.EXPERIMENT_APPROVAL-UPGRADE"
+      ]
+    },
+    {
+      "policy_id": "P.BUDGET_INCREASE",
+      "full_policy_status": "NOT_RUN",
+      "reason": "Full owner/OS/model/workflow acceptance not inferred from local kernel tests",
+      "test_ids": [
+        "P.BUDGET_INCREASE-BYPASS",
+        "P.BUDGET_INCREASE-MODE",
+        "P.BUDGET_INCREASE-NEG",
+        "P.BUDGET_INCREASE-POS",
+        "P.BUDGET_INCREASE-RACE",
+        "P.BUDGET_INCREASE-RECOVERY",
+        "P.BUDGET_INCREASE-UPGRADE"
+      ]
+    },
+    {
+      "policy_id": "P.REVIEW_BINDING",
+      "full_policy_status": "NOT_RUN",
+      "reason": "Full owner/OS/model/workflow acceptance not inferred from local kernel tests",
+      "test_ids": [
+        "P.REVIEW_BINDING-BYPASS",
+        "P.REVIEW_BINDING-MODE",
+        "P.REVIEW_BINDING-MUTATE",
+        "P.REVIEW_BINDING-NEG",
+        "P.REVIEW_BINDING-POS",
+        "P.REVIEW_BINDING-RACE",
+        "P.REVIEW_BINDING-RECOVERY",
+        "P.REVIEW_BINDING-STALE",
+        "P.REVIEW_BINDING-UPGRADE"
+      ]
+    },
+    {
+      "policy_id": "P.WORKFLOW_GATES",
+      "full_policy_status": "NOT_RUN",
+      "reason": "Full owner/OS/model/workflow acceptance not inferred from local kernel tests",
+      "test_ids": [
+        "P.WORKFLOW_GATES-BYPASS",
+        "P.WORKFLOW_GATES-BYPASSED",
+        "P.WORKFLOW_GATES-MODE",
+        "P.WORKFLOW_GATES-NEG",
+        "P.WORKFLOW_GATES-NOTRUN",
+        "P.WORKFLOW_GATES-OFF",
+        "P.WORKFLOW_GATES-POS",
+        "P.WORKFLOW_GATES-RACE",
+        "P.WORKFLOW_GATES-RECOVERY",
+        "P.WORKFLOW_GATES-UPGRADE"
+      ]
+    },
+    {
+      "policy_id": "P.SCIENTIFIC_CLAIM",
+      "full_policy_status": "NOT_RUN",
+      "reason": "Full owner/OS/model/workflow acceptance not inferred from local kernel tests",
+      "test_ids": [
+        "P.SCIENTIFIC_CLAIM-BYPASS",
+        "P.SCIENTIFIC_CLAIM-FAKE",
+        "P.SCIENTIFIC_CLAIM-MISSING",
+        "P.SCIENTIFIC_CLAIM-MODE",
+        "P.SCIENTIFIC_CLAIM-NEG",
+        "P.SCIENTIFIC_CLAIM-POS",
+        "P.SCIENTIFIC_CLAIM-RACE",
+        "P.SCIENTIFIC_CLAIM-RECOVERY",
+        "P.SCIENTIFIC_CLAIM-UPGRADE"
+      ]
+    },
+    {
+      "policy_id": "P.STYLE",
+      "full_policy_status": "NOT_RUN",
+      "reason": "Full owner/OS/model/workflow acceptance not inferred from local kernel tests",
+      "test_ids": [
+        "P.STYLE-BYPASS",
+        "P.STYLE-MODE",
+        "P.STYLE-NEG",
+        "P.STYLE-OFF",
+        "P.STYLE-POS",
+        "P.STYLE-RACE",
+        "P.STYLE-RECOVERY",
+        "P.STYLE-UPGRADE"
+      ]
+    },
+    {
+      "policy_id": "P.AUDIT_REQUIRED",
+      "full_policy_status": "BLOCKED",
+      "reason": "Full owner/OS/model/workflow acceptance not inferred from local kernel tests",
+      "test_ids": [
+        "P.AUDIT_REQUIRED-BYPASS",
+        "P.AUDIT_REQUIRED-MODE",
+        "P.AUDIT_REQUIRED-NEG",
+        "P.AUDIT_REQUIRED-POS",
+        "P.AUDIT_REQUIRED-RACE",
+        "P.AUDIT_REQUIRED-RECOVERY",
+        "P.AUDIT_REQUIRED-UPGRADE"
+      ]
+    },
+    {
+      "policy_id": "P.ARTIFACT_INTEGRITY",
+      "full_policy_status": "BLOCKED",
+      "reason": "Full owner/OS/model/workflow acceptance not inferred from local kernel tests",
+      "test_ids": [
+        "P.ARTIFACT_INTEGRITY-BYPASS",
+        "P.ARTIFACT_INTEGRITY-MODE",
+        "P.ARTIFACT_INTEGRITY-NEG",
+        "P.ARTIFACT_INTEGRITY-POS",
+        "P.ARTIFACT_INTEGRITY-RACE",
+        "P.ARTIFACT_INTEGRITY-RECOVERY",
+        "P.ARTIFACT_INTEGRITY-UPGRADE"
+      ]
+    },
+    {
+      "policy_id": "P.EVIDENCE_DOMAINS",
+      "full_policy_status": "BLOCKED",
+      "reason": "Full owner/OS/model/workflow acceptance not inferred from local kernel tests",
+      "test_ids": [
+        "P.EVIDENCE_DOMAINS-BYPASS",
+        "P.EVIDENCE_DOMAINS-MODE",
+        "P.EVIDENCE_DOMAINS-NEG",
+        "P.EVIDENCE_DOMAINS-POS",
+        "P.EVIDENCE_DOMAINS-RACE",
+        "P.EVIDENCE_DOMAINS-RECOVERY",
+        "P.EVIDENCE_DOMAINS-UPGRADE"
+      ]
+    },
+    {
+      "policy_id": "P.REPLAY_READONLY",
+      "full_policy_status": "BLOCKED",
+      "reason": "Full owner/OS/model/workflow acceptance not inferred from local kernel tests",
+      "test_ids": [
+        "P.REPLAY_READONLY-BYPASS",
+        "P.REPLAY_READONLY-MODE",
+        "P.REPLAY_READONLY-NEG",
+        "P.REPLAY_READONLY-POS",
+        "P.REPLAY_READONLY-RACE",
+        "P.REPLAY_READONLY-RECOVERY",
+        "P.REPLAY_READONLY-UPGRADE"
+      ]
+    },
+    {
+      "policy_id": "P.DI_NOEXEC",
+      "full_policy_status": "BLOCKED",
+      "reason": "Full owner/OS/model/workflow acceptance not inferred from local kernel tests",
+      "test_ids": [
+        "P.DI_NOEXEC-BYPASS",
+        "P.DI_NOEXEC-MODE",
+        "P.DI_NOEXEC-NEG",
+        "P.DI_NOEXEC-POS",
+        "P.DI_NOEXEC-RACE",
+        "P.DI_NOEXEC-RECOVERY",
+        "P.DI_NOEXEC-UPGRADE"
+      ]
+    },
+    {
+      "policy_id": "P.DI_SYNTAX",
+      "full_policy_status": "NOT_RUN",
+      "reason": "Full owner/OS/model/workflow acceptance not inferred from local kernel tests",
+      "test_ids": [
+        "P.DI_SYNTAX-BYPASS",
+        "P.DI_SYNTAX-MODE",
+        "P.DI_SYNTAX-NEG",
+        "P.DI_SYNTAX-POS",
+        "P.DI_SYNTAX-RACE",
+        "P.DI_SYNTAX-RECOVERY",
+        "P.DI_SYNTAX-UPGRADE"
+      ]
+    },
+    {
+      "policy_id": "P.DI_ARGUMENTS",
+      "full_policy_status": "NOT_RUN",
+      "reason": "Full owner/OS/model/workflow acceptance not inferred from local kernel tests",
+      "test_ids": [
+        "P.DI_ARGUMENTS-BYPASS",
+        "P.DI_ARGUMENTS-MODE",
+        "P.DI_ARGUMENTS-NEG",
+        "P.DI_ARGUMENTS-POS",
+        "P.DI_ARGUMENTS-RACE",
+        "P.DI_ARGUMENTS-RECOVERY",
+        "P.DI_ARGUMENTS-UPGRADE"
+      ]
+    },
+    {
+      "policy_id": "P.DI_ENVIRONMENT",
+      "full_policy_status": "NOT_RUN",
+      "reason": "Full owner/OS/model/workflow acceptance not inferred from local kernel tests",
+      "test_ids": [
+        "P.DI_ENVIRONMENT-BYPASS",
+        "P.DI_ENVIRONMENT-MODE",
+        "P.DI_ENVIRONMENT-NEG",
+        "P.DI_ENVIRONMENT-POS",
+        "P.DI_ENVIRONMENT-RACE",
+        "P.DI_ENVIRONMENT-RECOVERY",
+        "P.DI_ENVIRONMENT-UPGRADE"
+      ]
+    },
+    {
+      "policy_id": "P.COMMAND_RISK",
+      "full_policy_status": "NOT_RUN",
+      "reason": "Full owner/OS/model/workflow acceptance not inferred from local kernel tests",
+      "test_ids": [
+        "P.COMMAND_RISK-BYPASS",
+        "P.COMMAND_RISK-MODE",
+        "P.COMMAND_RISK-NEG",
+        "P.COMMAND_RISK-POS",
+        "P.COMMAND_RISK-RACE",
+        "P.COMMAND_RISK-RECOVERY",
+        "P.COMMAND_RISK-UPGRADE"
+      ]
+    },
+    {
+      "policy_id": "P.SANDBOX_CAPABILITY",
+      "full_policy_status": "BLOCKED",
+      "reason": "Full owner/OS/model/workflow acceptance not inferred from local kernel tests",
+      "test_ids": [
+        "P.SANDBOX_CAPABILITY-BYPASS",
+        "P.SANDBOX_CAPABILITY-MODE",
+        "P.SANDBOX_CAPABILITY-NEG",
+        "P.SANDBOX_CAPABILITY-POS",
+        "P.SANDBOX_CAPABILITY-RACE",
+        "P.SANDBOX_CAPABILITY-RECOVERY",
+        "P.SANDBOX_CAPABILITY-UPGRADE"
+      ]
+    },
+    {
+      "policy_id": "P.PACKAGE_INTEGRITY",
+      "full_policy_status": "BLOCKED",
+      "reason": "Full owner/OS/model/workflow acceptance not inferred from local kernel tests",
+      "test_ids": [
+        "P.PACKAGE_INTEGRITY-BYPASS",
+        "P.PACKAGE_INTEGRITY-MODE",
+        "P.PACKAGE_INTEGRITY-NEG",
+        "P.PACKAGE_INTEGRITY-POS",
+        "P.PACKAGE_INTEGRITY-RACE",
+        "P.PACKAGE_INTEGRITY-RECOVERY",
+        "P.PACKAGE_INTEGRITY-UPGRADE"
+      ]
+    },
+    {
+      "policy_id": "P.RESOURCE_BOUNDS",
+      "full_policy_status": "BLOCKED",
+      "reason": "Full owner/OS/model/workflow acceptance not inferred from local kernel tests",
+      "test_ids": [
+        "P.RESOURCE_BOUNDS-BYPASS",
+        "P.RESOURCE_BOUNDS-MODE",
+        "P.RESOURCE_BOUNDS-NEG",
+        "P.RESOURCE_BOUNDS-POS",
+        "P.RESOURCE_BOUNDS-RACE",
+        "P.RESOURCE_BOUNDS-RECOVERY",
+        "P.RESOURCE_BOUNDS-UPGRADE"
+      ]
+    }
+  ],
+  "not_run": [
+    {
+      "item": "real provider/model/billing",
+      "status": "NOT_RUN"
+    },
+    {
+      "item": "OS administrator/worker identities",
+      "status": "NOT_RUN"
+    },
+    {
+      "item": "Windows/Ubuntu sandbox adversarial matrix",
+      "status": "NOT_RUN"
+    },
+    {
+      "item": "real external Harness",
+      "status": "NOT_RUN"
+    },
+    {
+      "item": "LSP/SQL/Roslyn/TS/Ruff/YAML/Dockerfile integration",
+      "status": "NOT_RUN"
+    },
+    {
+      "item": "hard power loss and long soak",
+      "status": "NOT_RUN"
+    },
+    {
+      "item": "static TypeScript compiler type check",
+      "status": "NOT_RUN"
+    },
+    {
+      "item": "real scientific experiments (not authorized)",
+      "status": "NOT_RUN"
+    }
+  ]
+}

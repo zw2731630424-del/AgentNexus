@@ -1,0 +1,42 @@
+{
+  "schema": "agentnexus/m1/integrity-test-run/1",
+  "started_utc": "2026-11-06T17:08:17.263695+00:00",
+  "ended_utc": "2026-11-06T17:08:19.129540+00:00",
+  "command_argv": [
+    "D:\\Nodejs\\node.exe",
+    "--test",
+    "--test-reporter=tap",
+    "tests/agentnexus/integrity.test.ts"
+  ],
+  "cwd": "I:\\AI_AgentNexus",
+  "exit_code": 0,
+  "elapsed_seconds": 1.875,
+  "platform": "Windows-11-10.0.26200-SP0",
+  "node_version": "v24.15.0",
+  "tap": ".workflow-kit/runtime/AgentNexus-v0.4-M1/integrity/integrity.tap",
+  "tap_sha256": "219cf8196b126b0c8d96501ec55fc36a814df64c7a7322ab2bae84081fec5818",
+  "tap_bytes": 9705,
+  "summary": {
+    "tests": 58,
+    "suites": 0,
+    "pass": 54,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 4,
+    "todo": 0,
+    "duration_ms": 1789.3877
+  },
+  "not_run_real_os_tests": [
+    "ok 28 - real OS file symlink is rejected without following its target # SKIP NOT_RUN: real OS link fixture unavailable (EPERM); no simulated OS PASS",
+    "ok 29 - real OS dir link is rejected # SKIP NOT_RUN: real OS link fixture unavailable (EPERM); no simulated OS PASS",
+    "ok 30 - real OS junction link is rejected # SKIP NOT_RUN: real OS link fixture unavailable (EPERM); no simulated OS PASS",
+    "ok 31 - real OS hardlink to an outside object is rejected by link count # SKIP NOT_RUN: real OS link fixture unavailable (EPERM); no simulated OS PASS"
+  ],
+  "source_sha256": {
+    "src/agentnexus/integrity.ts": "172a40c429c9e8a99f8cc1fcee2ef500adb4e7d378f0f6188fbbe7f792edfe66",
+    "tests/agentnexus/integrity.test.ts": "ecc6655be30a7d7690f04e5d26c61f09eaaa988ae1075b63327fe98c97c93277",
+    "src/agentnexus/types.ts": "273780415d1e00476dcfc52ca901a15527d62f1e74c1a46def5757251afcfcd8"
+  },
+  "scope": "actual local Node/fs/hash behavior on new owned synthetic fixtures; no models, Kit code, OS identity boundary, adversarial TOCTOU or bundled runtime license admission",
+  "status": "PASS"
+}

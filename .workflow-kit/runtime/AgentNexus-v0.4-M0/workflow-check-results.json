@@ -1,0 +1,38 @@
+[
+  {
+    "command": "python -B tools/check-kit.py --checksums",
+    "exit": 0,
+    "stdout": "Package check: 0 error(s)",
+    "scope": "pristine isolated source copy"
+  },
+  {
+    "command": "python -B tools/check-task.py --strict examples/GOAL.example.md examples/task-contract.example.md examples/subtask.example.md examples/checkpoint.example.md",
+    "exit": 0,
+    "result": "four OK"
+  },
+  {
+    "command": "ast.parse all six tool Python files and six test Python files",
+    "exit": 0,
+    "files": 12
+  },
+  {
+    "probe": "validation/audit-probe/SHA256SUMS.txt inserted without modifying root manifest",
+    "expected": "nonzero checksum completeness failure",
+    "actual_exit": 0,
+    "stdout": "Package check: 0 error(s)",
+    "finding": "WFK-01",
+    "cleanup": "injected file and directory removed"
+  },
+  {
+    "probe": "hardlink identity containment",
+    "status": "NOT_RUN",
+    "reason": "os.link of owned sandbox fixtures denied by OS, WinError 5"
+  },
+  {
+    "event": "sandbox source move after tests",
+    "old_path": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-v0.4-M0\\workflow-sandbox\\ai-workflow-kit-v4",
+    "current_path": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-v0.4-M0\\workflow-sandbox\\.pytest_cache\\source",
+    "reason": "policy already ignores .pytest_cache; archived install/AGENTS.md must not become active project rule",
+    "govern_after": "PASS"
+  }
+]

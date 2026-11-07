@@ -1,0 +1,122 @@
+{
+  "schema": "agentnexus/independent-package-verification/1",
+  "status": "PASS",
+  "started_utc": "2026-11-07T00:14:19.251584+00:00",
+  "ended_utc": "2026-11-07T00:15:29.169175+00:00",
+  "verifier": "Python stdlib, no AgentNexus runtime/product imports or product test execution",
+  "zip": {
+    "name": "AgentNexus_M1_Independent_Audit_Package.zip",
+    "bytes": 417954999,
+    "sha256": "e4bb0e83e855a2a56b9a51cd5daedbe161328c42bb3b61923b7db420d6e10b4a"
+  },
+  "manifest_sha256": "94300afea17a9976611368800df425715dca5fec7b6447d675b8b393fc60ca67",
+  "payload_files": 14098,
+  "archive_files_including_manifest": 14099,
+  "extracted_directory": "\\\\?\\C:\\Users\\28642\\.codex\\visualizations\\2026\\11\\06\\01a1b17a-8a97-75c1-b739-34fe99357da5\\AgentNexus-M1-Audit-6dn6a8uk\\independent-verification\\independent-extract-s6e1dug9",
+  "checks": [
+    {
+      "id": "ZIP_SHA256",
+      "status": "PASS",
+      "expected_supplied": true
+    },
+    {
+      "id": "PATH_TRAVERSAL_DUPLICATES_CASE_AND_TYPES",
+      "status": "PASS",
+      "entries": 14099
+    },
+    {
+      "id": "BIDIRECTIONAL_ARCHIVE_AND_MANIFEST_SET",
+      "status": "PASS",
+      "payload_files": 14098
+    },
+    {
+      "id": "ZIP_CRC_AND_STREAM_HASHES",
+      "status": "PASS",
+      "files": 14099
+    },
+    {
+      "id": "EXTRACTED_TREE_INDEPENDENT_REHASH_AND_BIDIRECTIONAL_SET",
+      "status": "PASS",
+      "files": 14099
+    },
+    {
+      "id": "ALL_CURRENT_RUNTIME_AND_TEST_FILES_INCLUDED",
+      "status": "PASS",
+      "files": 24
+    },
+    {
+      "id": "PRIMARY_TEST_SOURCE_AND_LOG_REFERENCES",
+      "status": "PASS",
+      "cases": 135
+    }
+  ],
+  "errors": [],
+  "self_hash_rule": "Only exact root audit_package_manifest.json is self-excluded; its digest is checked by detached manifest/ZIP hash and reported here. Nested same-name files are ordinary payload.",
+  "original_workspace_preservation": {
+    "status": "PASS",
+    "checked_files": 14121,
+    "errors": [],
+    "checked_utc": "2026-11-07T00:15:41.443806+00:00"
+  },
+  "historical_manifest_checks": {
+    "status": "PASS",
+    "manifest_records_checked": {
+      "M0_delivery": 23,
+      "M01_delivery": 78,
+      "complete_M0_preservation": 11784
+    },
+    "errors": []
+  },
+  "governance": {
+    "status": "PASS",
+    "exit_code": 0,
+    "schema": "agentnexus/audit-governance-check/1",
+    "started_utc": "2026-11-07T00:12:02.736266+00:00",
+    "ended_utc": "2026-11-07T00:12:21.423795+00:00",
+    "elapsed_seconds": 18.687999999994645,
+    "command": [
+      "C:\\Users\\28642\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+      "-B",
+      "-X",
+      "utf8",
+      "ai-workflow-kit-v4/tools/govern.py",
+      "check",
+      "--target",
+      "."
+    ],
+    "scope": "Read-only lite governance after byte-exact stage relocation outside original workspace",
+    "prior_failure": {
+      "json": "governance_check.staged_copy_failure.json",
+      "log": "governance_check.staged_copy_failure.log",
+      "reason": "Archived AGENTS.md copies inside stage were recognized as new live rules; relocated newly created stage, no original rule edits"
+    },
+    "mutation_policy": "check only; no new/refresh/rules/hooks action used; original-file preservation separately rehashed"
+  },
+  "staging_and_extraction_location": {
+    "outside_original_workspace": true,
+    "temporary_container": "C:\\Users\\28642\\.codex\\visualizations\\2026\\11\\06\\01a1b17a-8a97-75c1-b739-34fe99357da5\\AgentNexus-M1-Audit-6dn6a8uk",
+    "stage": "C:\\Users\\28642\\.codex\\visualizations\\2026\\11\\06\\01a1b17a-8a97-75c1-b739-34fe99357da5\\AgentNexus-M1-Audit-6dn6a8uk\\stage",
+    "verification_parent": "C:\\Users\\28642\\.codex\\visualizations\\2026\\11\\06\\01a1b17a-8a97-75c1-b739-34fe99357da5\\AgentNexus-M1-Audit-6dn6a8uk\\independent-verification",
+    "relocated_new_stage_files": 14093,
+    "copy_hash_verification": "PASS",
+    "original_project_files_moved": false,
+    "utc": "2026-11-07T00:10:37.834423+00:00",
+    "reason": "Preserve archived AGENTS.md as review data without activating copies as new workspace rules. No governance policy changes."
+  },
+  "required_evidence_missing": [],
+  "sensitive_information_check": {
+    "status": "PASS",
+    "report": "sensitive_information_exclusion_report.json",
+    "excluded_count": 39,
+    "scope": "Packaged candidates only; no existing live key lookup"
+  },
+  "complete_registration_and_original_byte_copy": {
+    "status": "PASS",
+    "expected_equals_actual_stage_file_set": true,
+    "unregistered_files": [],
+    "all_original_delivery_files_included": 50,
+    "original_files_copied_byte_exact": 14082,
+    "new_packaging_material_files": 16
+  },
+  "completion_scope": "All current implementation/current tests/required original final evidence included; unrecorded historical times and intermediate source gaps explicitly NOT_AVAILABLE. No source/test/config/rule/history modified; no product tests rerun."
+}

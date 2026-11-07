@@ -1,0 +1,1978 @@
+{
+  "schema": "agentnexus/audit-missing-materials/1",
+  "generated_utc": "2026-11-07T00:11:40.228600+00:00",
+  "status": "PASS",
+  "required_current_source_missing": [],
+  "required_original_evidence_missing": [],
+  "historical_evidence_limitations_present": true,
+  "items": [
+    {
+      "path_or_record": "package-lock.json",
+      "status": "NOT_AVAILABLE",
+      "reason": "Zero direct/dev npm dependencies and no npm install; no lockfile was created or used.",
+      "blocks_current_source_and_final_evidence_packaging": false
+    },
+    {
+      "path_or_record": "tsconfig.json",
+      "status": "NOT_AVAILABLE",
+      "reason": "Node native erasable TypeScript execution is used; no standalone TypeScript build configuration or tsc validation exists.",
+      "blocks_current_source_and_final_evidence_packaging": false
+    },
+    {
+      "path_or_record": "standalone/database_migrations/",
+      "status": "NOT_AVAILABLE",
+      "reason": "Database creation/schema is embedded in src/agentnexus/storage.ts and control/feature/policy/gateway SQL. No separate migration files exist.",
+      "blocks_current_source_and_final_evidence_packaging": false
+    },
+    {
+      "path_or_record": "standalone/configuration_schema/",
+      "status": "NOT_AVAILABLE",
+      "reason": "Type definitions and validators are embedded in src/agentnexus/types.ts/features.ts/policy.ts/gateway.ts. No separate schema directory exists.",
+      "blocks_current_source_and_final_evidence_packaging": false
+    },
+    {
+      "path_or_record": "historical/final_integrated_test_exact_start_end_timestamps",
+      "status": "NOT_AVAILABLE",
+      "reason": "Only historical verifier run marker and TAP durations exist; per-test and exact final test process absolute boundaries were not recorded.",
+      "blocks_current_source_and_final_evidence_packaging": false
+    },
+    {
+      "path_or_record": "historical/gateway_initial_integration_raw_transcript_88be73",
+      "status": "NOT_AVAILABLE",
+      "reason": "Original run-history.json records 14 pass/1 fail. The raw tool transcript was not saved as a local file; not recreated.",
+      "blocks_current_source_and_final_evidence_packaging": false
+    },
+    {
+      "path_or_record": "historical/storage_integrity_review_inline_probe_source",
+      "status": "NOT_AVAILABLE",
+      "reason": "Storage review JSON and resulting fixtures are retained, but the inline reviewer probe program was not saved as a standalone local file. Current storage regressions are included.",
+      "blocks_current_source_and_final_evidence_packaging": false
+    },
+    {
+      "path_or_record": "historical/stop_recovery_probe_inline_source",
+      "status": "NOT_AVAILABLE",
+      "reason": "stop-recovery-probe.json exists; no separate program for that inline probe was retained.",
+      "blocks_current_source_and_final_evidence_packaging": false
+    },
+    {
+      "path_or_record": "deployment/runtime_binary_redistribution_license_closure",
+      "status": "NOT_AVAILABLE",
+      "reason": "External Node/Python/PowerShell binaries were not bundled or fully audited for redistribution; original report status BLOCKED.",
+      "blocks_current_source_and_final_evidence_packaging": false
+    },
+    {
+      "path_or_record": "validation/real_provider_OS_sandbox_typecheck_powercut_soak",
+      "status": "NOT_AVAILABLE",
+      "reason": "Original verification declares these NOT_RUN/BLOCKED; no records or implementations invented.",
+      "blocks_current_source_and_final_evidence_packaging": false
+    },
+    {
+      "path_or_record": "historical/intermediate_attempt_source_versions",
+      "status": "NOT_AVAILABLE",
+      "reason": "Some early failed/intermediate attempts retained source hashes but not full historical source bytes. Current final test/source bytes are complete; original failure logs are present. Do not rerun these old attempts against current files as if versions matched.",
+      "versions": [
+        {
+          "original_records": [
+            {
+              "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-probes-before-close-race-fix.json",
+              "json_pointer": "/before_sha256/src~1agentnexus~1features.ts"
+            },
+            {
+              "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-probes-before-close-race-fix.json",
+              "json_pointer": "/after_sha256/src~1agentnexus~1features.ts"
+            },
+            {
+              "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-probes-before-timeout-fix.json",
+              "json_pointer": "/before_sha256/src~1agentnexus~1features.ts"
+            },
+            {
+              "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-probes-before-timeout-fix.json",
+              "json_pointer": "/after_sha256/src~1agentnexus~1features.ts"
+            },
+            {
+              "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-probes-initial.json",
+              "json_pointer": "/before_sha256/src~1agentnexus~1features.ts"
+            },
+            {
+              "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-probes-initial.json",
+              "json_pointer": "/after_sha256/src~1agentnexus~1features.ts"
+            },
+            {
+              "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-probes.json",
+              "json_pointer": "/before_sha256/src~1agentnexus~1features.ts"
+            },
+            {
+              "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-probes.json",
+              "json_pointer": "/after_sha256/src~1agentnexus~1features.ts"
+            },
+            {
+              "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-review.json",
+              "json_pointer": "/findings/0/locations/0"
+            },
+            {
+              "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-review.json",
+              "json_pointer": "/latest_probe_source_sha256/src~1agentnexus~1features.ts"
+            },
+            {
+              "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-review.json",
+              "json_pointer": "/previous_seven_case_probe_sha256/src~1agentnexus~1features.ts"
+            }
+          ],
+          "source_path": "src/agentnexus/features.ts",
+          "sha256": "2a7f4bc603964dcea120b0ba626fc37864588aa0301f2cabe392093a4437a9ce",
+          "retained_matching_locations": [],
+          "status": "NOT_AVAILABLE"
+        },
+        {
+          "original_records": [
+            {
+              "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-probes-before-close-race-fix.json",
+              "json_pointer": "/before_sha256/src~1agentnexus~1gateway.ts"
+            },
+            {
+              "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-probes-before-close-race-fix.json",
+              "json_pointer": "/after_sha256/src~1agentnexus~1gateway.ts"
+            },
+            {
+              "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-probes-before-timeout-fix.json",
+              "json_pointer": "/before_sha256/src~1agentnexus~1gateway.ts"
+            },
+            {
+              "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-probes-before-timeout-fix.json",
+              "json_pointer": "/after_sha256/src~1agentnexus~1gateway.ts"
+            },
+            {
+              "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-probes-initial.json",
+              "json_pointer": "/before_sha256/src~1agentnexus~1gateway.ts"
+            },
+            {
+              "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-probes-initial.json",
+              "json_pointer": "/after_sha256/src~1agentnexus~1gateway.ts"
+            }
+          ],
+          "source_path": "src/agentnexus/gateway.ts",
+          "sha256": "223d908da4daec469cacc1da8fdcc88f0f2e59af9a981eaff4c1a16c4360d4db",
+          "retained_matching_locations": [],
+          "status": "NOT_AVAILABLE"
+        },
+        {
+          "original_records": [
+            {
+              "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-probes.json",
+              "json_pointer": "/before_sha256/src~1agentnexus~1gateway.ts"
+            },
+            {
+              "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-probes.json",
+              "json_pointer": "/after_sha256/src~1agentnexus~1gateway.ts"
+            },
+            {
+              "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-review.json",
+              "json_pointer": "/findings/6/locations/0"
+            },
+            {
+              "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-review.json",
+              "json_pointer": "/latest_probe_source_sha256/src~1agentnexus~1gateway.ts"
+            },
+            {
+              "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-review.json",
+              "json_pointer": "/previous_seven_case_probe_sha256/src~1agentnexus~1gateway.ts"
+            }
+          ],
+          "source_path": "src/agentnexus/gateway.ts",
+          "sha256": "61827aaeef516ae7699b890a0e97ccc51c72902f750a889e22a3bcaa748d6bc7",
+          "retained_matching_locations": [],
+          "status": "NOT_AVAILABLE"
+        },
+        {
+          "original_records": [
+            {
+              "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-probes-before-timeout-fix.json",
+              "json_pointer": "/before_sha256/src~1agentnexus~1host.ts"
+            },
+            {
+              "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-probes-before-timeout-fix.json",
+              "json_pointer": "/after_sha256/src~1agentnexus~1host.ts"
+            }
+          ],
+          "source_path": "src/agentnexus/host.ts",
+          "sha256": "1aaac029d09a2724be8c4f30767fa1da79a1720cca6c8788966c6020e407e78a",
+          "retained_matching_locations": [],
+          "status": "NOT_AVAILABLE"
+        },
+        {
+          "original_records": [
+            {
+              "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-probes-initial.json",
+              "json_pointer": "/before_sha256/src~1agentnexus~1host.ts"
+            },
+            {
+              "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-probes-initial.json",
+              "json_pointer": "/after_sha256/src~1agentnexus~1host.ts"
+            }
+          ],
+          "source_path": "src/agentnexus/host.ts",
+          "sha256": "96b2d0bad306956e41cef7942080fd912d5df36d62b7cf68e8bc092e45654f20",
+          "retained_matching_locations": [],
+          "status": "NOT_AVAILABLE"
+        },
+        {
+          "original_records": [
+            {
+              "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-probes-before-close-race-fix.json",
+              "json_pointer": "/before_sha256/src~1agentnexus~1host.ts"
+            },
+            {
+              "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-probes-before-close-race-fix.json",
+              "json_pointer": "/after_sha256/src~1agentnexus~1host.ts"
+            }
+          ],
+          "source_path": "src/agentnexus/host.ts",
+          "sha256": "a452097b04a29056904e5f2a167778d149199fee890b1efc7f638eede40d7f00",
+          "retained_matching_locations": [],
+          "status": "NOT_AVAILABLE"
+        },
+        {
+          "original_records": [
+            {
+              "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-review.json",
+              "json_pointer": "/findings/1/locations/0"
+            },
+            {
+              "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-review.json",
+              "json_pointer": "/findings/3/locations/0"
+            },
+            {
+              "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-review.json",
+              "json_pointer": "/findings/3/locations/1"
+            },
+            {
+              "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-review.json",
+              "json_pointer": "/findings/4/locations/0"
+            },
+            {
+              "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-review.json",
+              "json_pointer": "/findings/5/locations/0"
+            }
+          ],
+          "source_path": "src/agentnexus/host.ts",
+          "sha256": "d9566fb1eac23c0406632fe38625c7373b705ee3fff5f7a1f6791e629e75c2b6",
+          "retained_matching_locations": [],
+          "status": "NOT_AVAILABLE"
+        },
+        {
+          "original_records": [
+            {
+              "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/integrity/attempt-01.json",
+              "json_pointer": "/source_sha256/src~1agentnexus~1integrity.ts"
+            },
+            {
+              "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/integrity/attempt-02.json",
+              "json_pointer": "/source_sha256/src~1agentnexus~1integrity.ts"
+            }
+          ],
+          "source_path": "src/agentnexus/integrity.ts",
+          "sha256": "bca7c1099e4336a2afac0c7a0947eeb19d23e4e71dcd79684105e04d154829d0",
+          "retained_matching_locations": [],
+          "status": "NOT_AVAILABLE"
+        },
+        {
+          "original_records": [
+            {
+              "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-probes-before-close-race-fix.json",
+              "json_pointer": "/before_sha256/src~1agentnexus~1policy.ts"
+            },
+            {
+              "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-probes-before-close-race-fix.json",
+              "json_pointer": "/after_sha256/src~1agentnexus~1policy.ts"
+            },
+            {
+              "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-probes-before-timeout-fix.json",
+              "json_pointer": "/before_sha256/src~1agentnexus~1policy.ts"
+            },
+            {
+              "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-probes-before-timeout-fix.json",
+              "json_pointer": "/after_sha256/src~1agentnexus~1policy.ts"
+            },
+            {
+              "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-probes-initial.json",
+              "json_pointer": "/before_sha256/src~1agentnexus~1policy.ts"
+            },
+            {
+              "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-probes-initial.json",
+              "json_pointer": "/after_sha256/src~1agentnexus~1policy.ts"
+            },
+            {
+              "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-probes.json",
+              "json_pointer": "/before_sha256/src~1agentnexus~1policy.ts"
+            },
+            {
+              "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-probes.json",
+              "json_pointer": "/after_sha256/src~1agentnexus~1policy.ts"
+            },
+            {
+              "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-review.json",
+              "json_pointer": "/findings/2/locations/1"
+            },
+            {
+              "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-review.json",
+              "json_pointer": "/latest_probe_source_sha256/src~1agentnexus~1policy.ts"
+            },
+            {
+              "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-review.json",
+              "json_pointer": "/previous_seven_case_probe_sha256/src~1agentnexus~1policy.ts"
+            }
+          ],
+          "source_path": "src/agentnexus/policy.ts",
+          "sha256": "efc03cd86e873e436a7e1bb195227d6c1b98de9f639dea1f87203d75cdf69a8a",
+          "retained_matching_locations": [],
+          "status": "NOT_AVAILABLE"
+        },
+        {
+          "original_records": [
+            {
+              "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/integrity/attempt-01.json",
+              "json_pointer": "/source_sha256/src~1agentnexus~1types.ts"
+            }
+          ],
+          "source_path": "src/agentnexus/types.ts",
+          "sha256": "25405c2752b9d5fa7466fa479507473c12d52acd57ba616683a54d3a7dd3028a",
+          "retained_matching_locations": [],
+          "status": "NOT_AVAILABLE"
+        },
+        {
+          "original_records": [
+            {
+              "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/diagnostics/verification.json",
+              "json_pointer": "/source_integrity/4"
+            },
+            {
+              "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/integrity/attempt-02.json",
+              "json_pointer": "/source_sha256/src~1agentnexus~1types.ts"
+            },
+            {
+              "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/integrity/test-run.json",
+              "json_pointer": "/source_sha256/src~1agentnexus~1types.ts"
+            },
+            {
+              "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-probes-initial.json",
+              "json_pointer": "/before_sha256/src~1agentnexus~1types.ts"
+            },
+            {
+              "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-probes-initial.json",
+              "json_pointer": "/after_sha256/src~1agentnexus~1types.ts"
+            }
+          ],
+          "source_path": "src/agentnexus/types.ts",
+          "sha256": "273780415d1e00476dcfc52ca901a15527d62f1e74c1a46def5757251afcfcd8",
+          "retained_matching_locations": [],
+          "status": "NOT_AVAILABLE"
+        },
+        {
+          "original_records": [
+            {
+              "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/diagnostics/verification.json",
+              "json_pointer": "/source_integrity/3"
+            }
+          ],
+          "source_path": "tests/agentnexus/diagnostics.test.ts",
+          "sha256": "122140951cbcf352abf266a5fddd56bce34bc7c1abb6056a0495ec27f278293e",
+          "retained_matching_locations": [],
+          "status": "NOT_AVAILABLE"
+        },
+        {
+          "original_records": [
+            {
+              "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/integrity/attempt-01.json",
+              "json_pointer": "/source_sha256/tests~1agentnexus~1integrity.test.ts"
+            }
+          ],
+          "source_path": "tests/agentnexus/integrity.test.ts",
+          "sha256": "7c18d10d572f3b984e7d20ab6722a5a0cdf0755a41c94a684339fbcd6bcfbfc1",
+          "retained_matching_locations": [],
+          "status": "NOT_AVAILABLE"
+        },
+        {
+          "original_records": [
+            {
+              "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/integrity/attempt-02.json",
+              "json_pointer": "/source_sha256/tests~1agentnexus~1integrity.test.ts"
+            }
+          ],
+          "source_path": "tests/agentnexus/integrity.test.ts",
+          "sha256": "802d2ab1c441e87d88c77da998752ee3a6b5e4298c5ccf20b2c56facfe7e1567",
+          "retained_matching_locations": [],
+          "status": "NOT_AVAILABLE"
+        }
+      ],
+      "blocks_current_source_and_final_evidence_packaging": false
+    }
+  ],
+  "historical_attempt_source_availability": [
+    {
+      "original_records": [
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/final-verification.json",
+          "json_pointer": "/candidate_files/0"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/license-closure.json",
+          "json_pointer": "/files/0"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/final-run-1/final-verification.json",
+          "json_pointer": "/candidate_files/0"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/final-run-1/license-closure.json",
+          "json_pointer": "/files/0"
+        }
+      ],
+      "source_path": "config/agentnexus/features.json",
+      "sha256": "ed7b7ad4fd9d8e34bc28b9873cc397dd33932b0f27f21eb550f70951361154a7",
+      "retained_matching_locations": [
+        ".workflow-kit/tasks/AgentNexus-v0.4-M0.1/architecture/feature_catalog.json",
+        "config/agentnexus/features.json",
+        ".workflow-kit/runtime/AgentNexus-v0.4-M1/m1-source-final.zip!/config/agentnexus/features.json",
+        ".workflow-kit/runtime/AgentNexus-v0.4-M1/final-run-1/m1-source-final.zip!/config/agentnexus/features.json"
+      ],
+      "status": "AVAILABLE"
+    },
+    {
+      "original_records": [
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/final-verification.json",
+          "json_pointer": "/candidate_files/1"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/license-closure.json",
+          "json_pointer": "/files/1"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/final-run-1/final-verification.json",
+          "json_pointer": "/candidate_files/1"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/final-run-1/license-closure.json",
+          "json_pointer": "/files/1"
+        }
+      ],
+      "source_path": "config/agentnexus/policies.json",
+      "sha256": "74cb43697d45606fb2f3ad716b28a5125b5faff808de8973c3ab28c77e41c7b3",
+      "retained_matching_locations": [
+        ".workflow-kit/runtime/AgentNexus-v0.4-M0.1/design-freeze-v1/architecture/policy_catalog.json",
+        ".workflow-kit/tasks/AgentNexus-v0.4-M0.1/architecture/policy_catalog.json",
+        "config/agentnexus/policies.json",
+        ".workflow-kit/runtime/AgentNexus-v0.4-M1/m1-source-final.zip!/config/agentnexus/policies.json",
+        ".workflow-kit/runtime/AgentNexus-v0.4-M1/final-run-1/m1-source-final.zip!/config/agentnexus/policies.json"
+      ],
+      "status": "AVAILABLE"
+    },
+    {
+      "original_records": [
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/final-verification.json",
+          "json_pointer": "/candidate_files/2"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/license-closure.json",
+          "json_pointer": "/files/2"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/final-run-1/final-verification.json",
+          "json_pointer": "/candidate_files/2"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/final-run-1/license-closure.json",
+          "json_pointer": "/files/2"
+        }
+      ],
+      "source_path": "package.json",
+      "sha256": "e23288d939a3706e522bf34a1d87802242b418749c37f1e54c5b481562ffd809",
+      "retained_matching_locations": [
+        "package.json",
+        ".workflow-kit/runtime/AgentNexus-v0.4-M1/m1-source-final.zip!/package.json",
+        ".workflow-kit/runtime/AgentNexus-v0.4-M1/final-run-1/m1-source-final.zip!/package.json"
+      ],
+      "status": "AVAILABLE"
+    },
+    {
+      "original_records": [
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/storage/verification.json",
+          "json_pointer": "/candidate/1"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/storage/v1/verification.json",
+          "json_pointer": "/candidate/1"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/storage-integrity-review.json",
+          "json_pointer": "/source_snapshot/1"
+        }
+      ],
+      "source_path": "src/agentnexus/artifacts.ts",
+      "sha256": "4a4d8a5c2ce5461fd67de5a0b2f2094e870bc57ec4a1560c5ad0bdb7f21f4427",
+      "retained_matching_locations": [
+        ".workflow-kit/runtime/AgentNexus-v0.4-M1/storage/v1/artifacts.ts"
+      ],
+      "status": "AVAILABLE"
+    },
+    {
+      "original_records": [
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/final-verification.json",
+          "json_pointer": "/candidate_files/3"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/license-closure.json",
+          "json_pointer": "/files/3"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/storage/verification.v3.json",
+          "json_pointer": "/candidate/1"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/storage-integrity-review.v3.json",
+          "json_pointer": "/source_snapshot/1"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/final-run-1/final-verification.json",
+          "json_pointer": "/candidate_files/3"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/final-run-1/license-closure.json",
+          "json_pointer": "/files/3"
+        }
+      ],
+      "source_path": "src/agentnexus/artifacts.ts",
+      "sha256": "f89cd95c7c373e1551d509f82596e54e203f0bb02b2934e1c2108040ef48bc49",
+      "retained_matching_locations": [
+        "src/agentnexus/artifacts.ts",
+        ".workflow-kit/runtime/AgentNexus-v0.4-M1/m1-source-final.zip!/src/agentnexus/artifacts.ts",
+        ".workflow-kit/runtime/AgentNexus-v0.4-M1/final-run-1/m1-source-final.zip!/src/agentnexus/artifacts.ts"
+      ],
+      "status": "AVAILABLE"
+    },
+    {
+      "original_records": [
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/final-verification.json",
+          "json_pointer": "/candidate_files/4"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/license-closure.json",
+          "json_pointer": "/files/4"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/diagnostics/verification.json",
+          "json_pointer": "/source_integrity/2"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/diagnostics/verification.v2.json",
+          "json_pointer": "/source_integrity/2"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/final-run-1/final-verification.json",
+          "json_pointer": "/candidate_files/4"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/final-run-1/license-closure.json",
+          "json_pointer": "/files/4"
+        }
+      ],
+      "source_path": "src/agentnexus/checkers/powershell_ast.ps1",
+      "sha256": "90079d41e2083df61ee87456cbe81a4d1863b2f4053df0ab9e78b668e3789ae8",
+      "retained_matching_locations": [
+        "src/agentnexus/checkers/powershell_ast.ps1",
+        ".workflow-kit/runtime/AgentNexus-v0.4-M1/m1-source-final.zip!/src/agentnexus/checkers/powershell_ast.ps1",
+        ".workflow-kit/runtime/AgentNexus-v0.4-M1/final-run-1/m1-source-final.zip!/src/agentnexus/checkers/powershell_ast.ps1"
+      ],
+      "status": "AVAILABLE"
+    },
+    {
+      "original_records": [
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/final-verification.json",
+          "json_pointer": "/candidate_files/5"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/license-closure.json",
+          "json_pointer": "/files/5"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/diagnostics/verification.json",
+          "json_pointer": "/source_integrity/1"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/diagnostics/verification.v2.json",
+          "json_pointer": "/source_integrity/1"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/final-run-1/final-verification.json",
+          "json_pointer": "/candidate_files/5"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/final-run-1/license-closure.json",
+          "json_pointer": "/files/5"
+        }
+      ],
+      "source_path": "src/agentnexus/checkers/python_ast.py",
+      "sha256": "a9595eca900b49c4ec88e82599c28569b01e543ed8ecb52908ae0772b104fc6e",
+      "retained_matching_locations": [
+        "src/agentnexus/checkers/python_ast.py",
+        ".workflow-kit/runtime/AgentNexus-v0.4-M1/m1-source-final.zip!/src/agentnexus/checkers/python_ast.py",
+        ".workflow-kit/runtime/AgentNexus-v0.4-M1/final-run-1/m1-source-final.zip!/src/agentnexus/checkers/python_ast.py"
+      ],
+      "status": "AVAILABLE"
+    },
+    {
+      "original_records": [
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/final-verification.json",
+          "json_pointer": "/candidate_files/6"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/license-closure.json",
+          "json_pointer": "/files/6"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/final-run-1/final-verification.json",
+          "json_pointer": "/candidate_files/6"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/final-run-1/license-closure.json",
+          "json_pointer": "/files/6"
+        }
+      ],
+      "source_path": "src/agentnexus/cli.ts",
+      "sha256": "458b10cdbe3236b0e5ace1439334095bc30243fafeaf071273de956d22511b15",
+      "retained_matching_locations": [
+        "src/agentnexus/cli.ts",
+        ".workflow-kit/runtime/AgentNexus-v0.4-M1/m1-source-final.zip!/src/agentnexus/cli.ts",
+        ".workflow-kit/runtime/AgentNexus-v0.4-M1/final-run-1/m1-source-final.zip!/src/agentnexus/cli.ts"
+      ],
+      "status": "AVAILABLE"
+    },
+    {
+      "original_records": [
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/final-verification.json",
+          "json_pointer": "/candidate_files/7"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/license-closure.json",
+          "json_pointer": "/files/7"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-probes-before-close-race-fix.json",
+          "json_pointer": "/before_sha256/src~1agentnexus~1control.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-probes-before-close-race-fix.json",
+          "json_pointer": "/after_sha256/src~1agentnexus~1control.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-probes-before-timeout-fix.json",
+          "json_pointer": "/before_sha256/src~1agentnexus~1control.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-probes-before-timeout-fix.json",
+          "json_pointer": "/after_sha256/src~1agentnexus~1control.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-probes-initial.json",
+          "json_pointer": "/before_sha256/src~1agentnexus~1control.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-probes-initial.json",
+          "json_pointer": "/after_sha256/src~1agentnexus~1control.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-probes.json",
+          "json_pointer": "/before_sha256/src~1agentnexus~1control.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-probes.json",
+          "json_pointer": "/after_sha256/src~1agentnexus~1control.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-review.json",
+          "json_pointer": "/findings/2/locations/0"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-review.json",
+          "json_pointer": "/findings/2/final_locations/0"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-review.json",
+          "json_pointer": "/latest_probe_source_sha256/src~1agentnexus~1control.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-review.json",
+          "json_pointer": "/final_candidate_sha256/src~1agentnexus~1control.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-review.json",
+          "json_pointer": "/previous_seven_case_probe_sha256/src~1agentnexus~1control.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-review.json",
+          "json_pointer": "/final_candidate_binding/current_reviewed_8_files/src~1agentnexus~1control.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/final-control-probes.json",
+          "json_pointer": "/source_sha256_before/src~1agentnexus~1control.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/final-control-probes.json",
+          "json_pointer": "/source_sha256_after/src~1agentnexus~1control.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/final-run-1/final-verification.json",
+          "json_pointer": "/candidate_files/7"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/final-run-1/license-closure.json",
+          "json_pointer": "/files/7"
+        }
+      ],
+      "source_path": "src/agentnexus/control.ts",
+      "sha256": "b222860935358032aabcae570865d6d09bca1d22f9b94fcc1961624c895bdccc",
+      "retained_matching_locations": [
+        "src/agentnexus/control.ts",
+        ".workflow-kit/runtime/AgentNexus-v0.4-M1/m1-source-final.zip!/src/agentnexus/control.ts",
+        ".workflow-kit/runtime/AgentNexus-v0.4-M1/final-run-1/m1-source-final.zip!/src/agentnexus/control.ts"
+      ],
+      "status": "AVAILABLE"
+    },
+    {
+      "original_records": [
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/final-verification.json",
+          "json_pointer": "/candidate_files/8"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/license-closure.json",
+          "json_pointer": "/files/8"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/diagnostics/verification.json",
+          "json_pointer": "/source_integrity/0"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/diagnostics/verification.v2.json",
+          "json_pointer": "/source_integrity/0"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-probes-before-close-race-fix.json",
+          "json_pointer": "/before_sha256/src~1agentnexus~1diagnostics.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-probes-before-close-race-fix.json",
+          "json_pointer": "/after_sha256/src~1agentnexus~1diagnostics.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-probes-before-timeout-fix.json",
+          "json_pointer": "/before_sha256/src~1agentnexus~1diagnostics.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-probes-before-timeout-fix.json",
+          "json_pointer": "/after_sha256/src~1agentnexus~1diagnostics.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-probes-initial.json",
+          "json_pointer": "/before_sha256/src~1agentnexus~1diagnostics.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-probes-initial.json",
+          "json_pointer": "/after_sha256/src~1agentnexus~1diagnostics.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-probes.json",
+          "json_pointer": "/before_sha256/src~1agentnexus~1diagnostics.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-probes.json",
+          "json_pointer": "/after_sha256/src~1agentnexus~1diagnostics.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-review.json",
+          "json_pointer": "/latest_probe_source_sha256/src~1agentnexus~1diagnostics.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-review.json",
+          "json_pointer": "/final_candidate_sha256/src~1agentnexus~1diagnostics.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-review.json",
+          "json_pointer": "/previous_seven_case_probe_sha256/src~1agentnexus~1diagnostics.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-review.json",
+          "json_pointer": "/final_candidate_binding/current_reviewed_8_files/src~1agentnexus~1diagnostics.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/final-control-probes.json",
+          "json_pointer": "/source_sha256_before/src~1agentnexus~1diagnostics.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/final-control-probes.json",
+          "json_pointer": "/source_sha256_after/src~1agentnexus~1diagnostics.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/final-run-1/final-verification.json",
+          "json_pointer": "/candidate_files/8"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/final-run-1/license-closure.json",
+          "json_pointer": "/files/8"
+        }
+      ],
+      "source_path": "src/agentnexus/diagnostics.ts",
+      "sha256": "d869a291068564eb942b05623f2b8e3f0f8348c40647215e1b85d86eef27d86d",
+      "retained_matching_locations": [
+        "src/agentnexus/diagnostics.ts",
+        ".workflow-kit/runtime/AgentNexus-v0.4-M1/m1-source-final.zip!/src/agentnexus/diagnostics.ts",
+        ".workflow-kit/runtime/AgentNexus-v0.4-M1/final-run-1/m1-source-final.zip!/src/agentnexus/diagnostics.ts"
+      ],
+      "status": "AVAILABLE"
+    },
+    {
+      "original_records": [
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-probes-before-close-race-fix.json",
+          "json_pointer": "/before_sha256/src~1agentnexus~1features.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-probes-before-close-race-fix.json",
+          "json_pointer": "/after_sha256/src~1agentnexus~1features.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-probes-before-timeout-fix.json",
+          "json_pointer": "/before_sha256/src~1agentnexus~1features.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-probes-before-timeout-fix.json",
+          "json_pointer": "/after_sha256/src~1agentnexus~1features.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-probes-initial.json",
+          "json_pointer": "/before_sha256/src~1agentnexus~1features.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-probes-initial.json",
+          "json_pointer": "/after_sha256/src~1agentnexus~1features.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-probes.json",
+          "json_pointer": "/before_sha256/src~1agentnexus~1features.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-probes.json",
+          "json_pointer": "/after_sha256/src~1agentnexus~1features.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-review.json",
+          "json_pointer": "/findings/0/locations/0"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-review.json",
+          "json_pointer": "/latest_probe_source_sha256/src~1agentnexus~1features.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-review.json",
+          "json_pointer": "/previous_seven_case_probe_sha256/src~1agentnexus~1features.ts"
+        }
+      ],
+      "source_path": "src/agentnexus/features.ts",
+      "sha256": "2a7f4bc603964dcea120b0ba626fc37864588aa0301f2cabe392093a4437a9ce",
+      "retained_matching_locations": [],
+      "status": "NOT_AVAILABLE"
+    },
+    {
+      "original_records": [
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/final-control-probes.json",
+          "json_pointer": "/source_sha256_before/src~1agentnexus~1features.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/final-control-probes.json",
+          "json_pointer": "/source_sha256_after/src~1agentnexus~1features.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/final-run-1/final-verification.json",
+          "json_pointer": "/candidate_files/9"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/final-run-1/license-closure.json",
+          "json_pointer": "/files/9"
+        }
+      ],
+      "source_path": "src/agentnexus/features.ts",
+      "sha256": "ca05754e624100b2dd863224efed67edc9cf0f245c6f63ef0069c544a8331ed6",
+      "retained_matching_locations": [
+        ".workflow-kit/runtime/AgentNexus-v0.4-M1/final-run-1/m1-source-final.zip!/src/agentnexus/features.ts"
+      ],
+      "status": "AVAILABLE"
+    },
+    {
+      "original_records": [
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/final-verification.json",
+          "json_pointer": "/candidate_files/9"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/license-closure.json",
+          "json_pointer": "/files/9"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-review.json",
+          "json_pointer": "/findings/0/final_locations/0"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-review.json",
+          "json_pointer": "/findings/7/final_locations/0"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-review.json",
+          "json_pointer": "/findings/7/final_locations/1"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-review.json",
+          "json_pointer": "/final_candidate_sha256/src~1agentnexus~1features.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-review.json",
+          "json_pointer": "/final_candidate_binding/current_reviewed_8_files/src~1agentnexus~1features.ts"
+        }
+      ],
+      "source_path": "src/agentnexus/features.ts",
+      "sha256": "d6aafeafd88f6fd5660afa6b4f29b68625d70ffc8f8138f90db657b6acacda5e",
+      "retained_matching_locations": [
+        "src/agentnexus/features.ts",
+        ".workflow-kit/runtime/AgentNexus-v0.4-M1/m1-source-final.zip!/src/agentnexus/features.ts"
+      ],
+      "status": "AVAILABLE"
+    },
+    {
+      "original_records": [
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-probes-before-close-race-fix.json",
+          "json_pointer": "/before_sha256/src~1agentnexus~1gateway.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-probes-before-close-race-fix.json",
+          "json_pointer": "/after_sha256/src~1agentnexus~1gateway.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-probes-before-timeout-fix.json",
+          "json_pointer": "/before_sha256/src~1agentnexus~1gateway.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-probes-before-timeout-fix.json",
+          "json_pointer": "/after_sha256/src~1agentnexus~1gateway.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-probes-initial.json",
+          "json_pointer": "/before_sha256/src~1agentnexus~1gateway.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-probes-initial.json",
+          "json_pointer": "/after_sha256/src~1agentnexus~1gateway.ts"
+        }
+      ],
+      "source_path": "src/agentnexus/gateway.ts",
+      "sha256": "223d908da4daec469cacc1da8fdcc88f0f2e59af9a981eaff4c1a16c4360d4db",
+      "retained_matching_locations": [],
+      "status": "NOT_AVAILABLE"
+    },
+    {
+      "original_records": [
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-probes.json",
+          "json_pointer": "/before_sha256/src~1agentnexus~1gateway.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-probes.json",
+          "json_pointer": "/after_sha256/src~1agentnexus~1gateway.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-review.json",
+          "json_pointer": "/findings/6/locations/0"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-review.json",
+          "json_pointer": "/latest_probe_source_sha256/src~1agentnexus~1gateway.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-review.json",
+          "json_pointer": "/previous_seven_case_probe_sha256/src~1agentnexus~1gateway.ts"
+        }
+      ],
+      "source_path": "src/agentnexus/gateway.ts",
+      "sha256": "61827aaeef516ae7699b890a0e97ccc51c72902f750a889e22a3bcaa748d6bc7",
+      "retained_matching_locations": [],
+      "status": "NOT_AVAILABLE"
+    },
+    {
+      "original_records": [
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/final-verification.json",
+          "json_pointer": "/candidate_files/10"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/license-closure.json",
+          "json_pointer": "/files/10"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-review.json",
+          "json_pointer": "/findings/6/final_locations/0"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-review.json",
+          "json_pointer": "/final_candidate_sha256/src~1agentnexus~1gateway.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-review.json",
+          "json_pointer": "/final_candidate_binding/current_reviewed_8_files/src~1agentnexus~1gateway.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/final-control-probes.json",
+          "json_pointer": "/source_sha256_before/src~1agentnexus~1gateway.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/final-control-probes.json",
+          "json_pointer": "/source_sha256_after/src~1agentnexus~1gateway.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/final-run-1/final-verification.json",
+          "json_pointer": "/candidate_files/10"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/final-run-1/license-closure.json",
+          "json_pointer": "/files/10"
+        }
+      ],
+      "source_path": "src/agentnexus/gateway.ts",
+      "sha256": "85ab9f4312f17783ad5a2101c6582e769378489a29f3d62e0919cd3bdb1ff5ec",
+      "retained_matching_locations": [
+        "src/agentnexus/gateway.ts",
+        ".workflow-kit/runtime/AgentNexus-v0.4-M1/m1-source-final.zip!/src/agentnexus/gateway.ts",
+        ".workflow-kit/runtime/AgentNexus-v0.4-M1/final-run-1/m1-source-final.zip!/src/agentnexus/gateway.ts"
+      ],
+      "status": "AVAILABLE"
+    },
+    {
+      "original_records": [
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-probes-before-timeout-fix.json",
+          "json_pointer": "/before_sha256/src~1agentnexus~1host.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-probes-before-timeout-fix.json",
+          "json_pointer": "/after_sha256/src~1agentnexus~1host.ts"
+        }
+      ],
+      "source_path": "src/agentnexus/host.ts",
+      "sha256": "1aaac029d09a2724be8c4f30767fa1da79a1720cca6c8788966c6020e407e78a",
+      "retained_matching_locations": [],
+      "status": "NOT_AVAILABLE"
+    },
+    {
+      "original_records": [
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-probes-initial.json",
+          "json_pointer": "/before_sha256/src~1agentnexus~1host.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-probes-initial.json",
+          "json_pointer": "/after_sha256/src~1agentnexus~1host.ts"
+        }
+      ],
+      "source_path": "src/agentnexus/host.ts",
+      "sha256": "96b2d0bad306956e41cef7942080fd912d5df36d62b7cf68e8bc092e45654f20",
+      "retained_matching_locations": [],
+      "status": "NOT_AVAILABLE"
+    },
+    {
+      "original_records": [
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-probes-before-close-race-fix.json",
+          "json_pointer": "/before_sha256/src~1agentnexus~1host.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-probes-before-close-race-fix.json",
+          "json_pointer": "/after_sha256/src~1agentnexus~1host.ts"
+        }
+      ],
+      "source_path": "src/agentnexus/host.ts",
+      "sha256": "a452097b04a29056904e5f2a167778d149199fee890b1efc7f638eede40d7f00",
+      "retained_matching_locations": [],
+      "status": "NOT_AVAILABLE"
+    },
+    {
+      "original_records": [
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/final-verification.json",
+          "json_pointer": "/candidate_files/11"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/license-closure.json",
+          "json_pointer": "/files/11"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-probes.json",
+          "json_pointer": "/before_sha256/src~1agentnexus~1host.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-probes.json",
+          "json_pointer": "/after_sha256/src~1agentnexus~1host.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-review.json",
+          "json_pointer": "/findings/1/final_locations/0"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-review.json",
+          "json_pointer": "/findings/3/final_locations/0"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-review.json",
+          "json_pointer": "/findings/3/final_locations/1"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-review.json",
+          "json_pointer": "/findings/4/final_locations/0"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-review.json",
+          "json_pointer": "/findings/5/final_locations/0"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-review.json",
+          "json_pointer": "/latest_probe_source_sha256/src~1agentnexus~1host.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-review.json",
+          "json_pointer": "/final_candidate_sha256/src~1agentnexus~1host.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-review.json",
+          "json_pointer": "/previous_seven_case_probe_sha256/src~1agentnexus~1host.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-review.json",
+          "json_pointer": "/final_candidate_binding/current_reviewed_8_files/src~1agentnexus~1host.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/final-control-probes.json",
+          "json_pointer": "/source_sha256_before/src~1agentnexus~1host.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/final-control-probes.json",
+          "json_pointer": "/source_sha256_after/src~1agentnexus~1host.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/final-run-1/final-verification.json",
+          "json_pointer": "/candidate_files/11"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/final-run-1/license-closure.json",
+          "json_pointer": "/files/11"
+        }
+      ],
+      "source_path": "src/agentnexus/host.ts",
+      "sha256": "ac3347f801a58ce5c76d6ca425658bb94fdc56b59c3d003d9b47840062ac9f5c",
+      "retained_matching_locations": [
+        "src/agentnexus/host.ts",
+        ".workflow-kit/runtime/AgentNexus-v0.4-M1/m1-source-final.zip!/src/agentnexus/host.ts",
+        ".workflow-kit/runtime/AgentNexus-v0.4-M1/final-run-1/m1-source-final.zip!/src/agentnexus/host.ts"
+      ],
+      "status": "AVAILABLE"
+    },
+    {
+      "original_records": [
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-review.json",
+          "json_pointer": "/findings/1/locations/0"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-review.json",
+          "json_pointer": "/findings/3/locations/0"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-review.json",
+          "json_pointer": "/findings/3/locations/1"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-review.json",
+          "json_pointer": "/findings/4/locations/0"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-review.json",
+          "json_pointer": "/findings/5/locations/0"
+        }
+      ],
+      "source_path": "src/agentnexus/host.ts",
+      "sha256": "d9566fb1eac23c0406632fe38625c7373b705ee3fff5f7a1f6791e629e75c2b6",
+      "retained_matching_locations": [],
+      "status": "NOT_AVAILABLE"
+    },
+    {
+      "original_records": [
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/final-verification.json",
+          "json_pointer": "/candidate_files/12"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/license-closure.json",
+          "json_pointer": "/files/12"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/integrity/implementation.json",
+          "json_pointer": "/files/0"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/integrity/test-run.json",
+          "json_pointer": "/source_sha256/src~1agentnexus~1integrity.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/storage-integrity-review.json",
+          "json_pointer": "/source_snapshot/3"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/storage-integrity-review.v3.json",
+          "json_pointer": "/source_snapshot/3"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/final-run-1/final-verification.json",
+          "json_pointer": "/candidate_files/12"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/final-run-1/license-closure.json",
+          "json_pointer": "/files/12"
+        }
+      ],
+      "source_path": "src/agentnexus/integrity.ts",
+      "sha256": "172a40c429c9e8a99f8cc1fcee2ef500adb4e7d378f0f6188fbbe7f792edfe66",
+      "retained_matching_locations": [
+        "src/agentnexus/integrity.ts",
+        ".workflow-kit/runtime/AgentNexus-v0.4-M1/m1-source-final.zip!/src/agentnexus/integrity.ts",
+        ".workflow-kit/runtime/AgentNexus-v0.4-M1/final-run-1/m1-source-final.zip!/src/agentnexus/integrity.ts"
+      ],
+      "status": "AVAILABLE"
+    },
+    {
+      "original_records": [
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/integrity/attempt-01.json",
+          "json_pointer": "/source_sha256/src~1agentnexus~1integrity.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/integrity/attempt-02.json",
+          "json_pointer": "/source_sha256/src~1agentnexus~1integrity.ts"
+        }
+      ],
+      "source_path": "src/agentnexus/integrity.ts",
+      "sha256": "bca7c1099e4336a2afac0c7a0947eeb19d23e4e71dcd79684105e04d154829d0",
+      "retained_matching_locations": [],
+      "status": "NOT_AVAILABLE"
+    },
+    {
+      "original_records": [
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/final-verification.json",
+          "json_pointer": "/candidate_files/13"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/license-closure.json",
+          "json_pointer": "/files/13"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-review.json",
+          "json_pointer": "/findings/2/final_locations/1"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-review.json",
+          "json_pointer": "/final_candidate_sha256/src~1agentnexus~1policy.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-review.json",
+          "json_pointer": "/final_candidate_binding/current_reviewed_8_files/src~1agentnexus~1policy.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/final-control-probes.json",
+          "json_pointer": "/source_sha256_before/src~1agentnexus~1policy.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/final-control-probes.json",
+          "json_pointer": "/source_sha256_after/src~1agentnexus~1policy.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/final-run-1/final-verification.json",
+          "json_pointer": "/candidate_files/13"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/final-run-1/license-closure.json",
+          "json_pointer": "/files/13"
+        }
+      ],
+      "source_path": "src/agentnexus/policy.ts",
+      "sha256": "98cadd7673c9d523733bb9fe1d1d62a036516aa63c9c0441a758dc39a14d18d2",
+      "retained_matching_locations": [
+        "src/agentnexus/policy.ts",
+        ".workflow-kit/runtime/AgentNexus-v0.4-M1/m1-source-final.zip!/src/agentnexus/policy.ts",
+        ".workflow-kit/runtime/AgentNexus-v0.4-M1/final-run-1/m1-source-final.zip!/src/agentnexus/policy.ts"
+      ],
+      "status": "AVAILABLE"
+    },
+    {
+      "original_records": [
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-probes-before-close-race-fix.json",
+          "json_pointer": "/before_sha256/src~1agentnexus~1policy.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-probes-before-close-race-fix.json",
+          "json_pointer": "/after_sha256/src~1agentnexus~1policy.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-probes-before-timeout-fix.json",
+          "json_pointer": "/before_sha256/src~1agentnexus~1policy.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-probes-before-timeout-fix.json",
+          "json_pointer": "/after_sha256/src~1agentnexus~1policy.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-probes-initial.json",
+          "json_pointer": "/before_sha256/src~1agentnexus~1policy.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-probes-initial.json",
+          "json_pointer": "/after_sha256/src~1agentnexus~1policy.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-probes.json",
+          "json_pointer": "/before_sha256/src~1agentnexus~1policy.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-probes.json",
+          "json_pointer": "/after_sha256/src~1agentnexus~1policy.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-review.json",
+          "json_pointer": "/findings/2/locations/1"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-review.json",
+          "json_pointer": "/latest_probe_source_sha256/src~1agentnexus~1policy.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-review.json",
+          "json_pointer": "/previous_seven_case_probe_sha256/src~1agentnexus~1policy.ts"
+        }
+      ],
+      "source_path": "src/agentnexus/policy.ts",
+      "sha256": "efc03cd86e873e436a7e1bb195227d6c1b98de9f639dea1f87203d75cdf69a8a",
+      "retained_matching_locations": [],
+      "status": "NOT_AVAILABLE"
+    },
+    {
+      "original_records": [
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/final-verification.json",
+          "json_pointer": "/candidate_files/14"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/license-closure.json",
+          "json_pointer": "/files/14"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/storage/verification.json",
+          "json_pointer": "/candidate/2"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/storage/verification.v3.json",
+          "json_pointer": "/candidate/2"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/storage/v1/verification.json",
+          "json_pointer": "/candidate/2"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/storage-integrity-review.json",
+          "json_pointer": "/source_snapshot/2"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/storage-integrity-review.v3.json",
+          "json_pointer": "/source_snapshot/2"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/final-run-1/final-verification.json",
+          "json_pointer": "/candidate_files/14"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/final-run-1/license-closure.json",
+          "json_pointer": "/files/14"
+        }
+      ],
+      "source_path": "src/agentnexus/records.ts",
+      "sha256": "393e0a70a20a4dae21287169d1313bae949842cf0f712bacb3ebf432a5ed7800",
+      "retained_matching_locations": [
+        ".workflow-kit/runtime/AgentNexus-v0.4-M1/storage/v1/records.ts",
+        "src/agentnexus/records.ts",
+        ".workflow-kit/runtime/AgentNexus-v0.4-M1/m1-source-final.zip!/src/agentnexus/records.ts",
+        ".workflow-kit/runtime/AgentNexus-v0.4-M1/final-run-1/m1-source-final.zip!/src/agentnexus/records.ts"
+      ],
+      "status": "AVAILABLE"
+    },
+    {
+      "original_records": [
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/final-verification.json",
+          "json_pointer": "/candidate_files/15"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/license-closure.json",
+          "json_pointer": "/files/15"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/storage/verification.v3.json",
+          "json_pointer": "/candidate/0"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-probes.json",
+          "json_pointer": "/before_sha256/src~1agentnexus~1storage.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-probes.json",
+          "json_pointer": "/after_sha256/src~1agentnexus~1storage.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-review.json",
+          "json_pointer": "/findings/4/final_locations/1"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-review.json",
+          "json_pointer": "/latest_probe_source_sha256/src~1agentnexus~1storage.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-review.json",
+          "json_pointer": "/final_candidate_sha256/src~1agentnexus~1storage.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-review.json",
+          "json_pointer": "/previous_seven_case_probe_sha256/src~1agentnexus~1storage.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-review.json",
+          "json_pointer": "/final_candidate_binding/current_reviewed_8_files/src~1agentnexus~1storage.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/final-control-probes.json",
+          "json_pointer": "/source_sha256_before/src~1agentnexus~1storage.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/final-control-probes.json",
+          "json_pointer": "/source_sha256_after/src~1agentnexus~1storage.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/storage-integrity-review.v3.json",
+          "json_pointer": "/source_snapshot/0"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/final-run-1/final-verification.json",
+          "json_pointer": "/candidate_files/15"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/final-run-1/license-closure.json",
+          "json_pointer": "/files/15"
+        }
+      ],
+      "source_path": "src/agentnexus/storage.ts",
+      "sha256": "172d0af0556640f6048b74543715841700aaab9938656d7c48298e6f6472ec7d",
+      "retained_matching_locations": [
+        "src/agentnexus/storage.ts",
+        ".workflow-kit/runtime/AgentNexus-v0.4-M1/m1-source-final.zip!/src/agentnexus/storage.ts",
+        ".workflow-kit/runtime/AgentNexus-v0.4-M1/final-run-1/m1-source-final.zip!/src/agentnexus/storage.ts"
+      ],
+      "status": "AVAILABLE"
+    },
+    {
+      "original_records": [
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/storage/verification.json",
+          "json_pointer": "/candidate/0"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/storage/v1/verification.json",
+          "json_pointer": "/candidate/0"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-probes-before-close-race-fix.json",
+          "json_pointer": "/before_sha256/src~1agentnexus~1storage.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-probes-before-close-race-fix.json",
+          "json_pointer": "/after_sha256/src~1agentnexus~1storage.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-probes-before-timeout-fix.json",
+          "json_pointer": "/before_sha256/src~1agentnexus~1storage.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-probes-before-timeout-fix.json",
+          "json_pointer": "/after_sha256/src~1agentnexus~1storage.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-probes-initial.json",
+          "json_pointer": "/before_sha256/src~1agentnexus~1storage.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-probes-initial.json",
+          "json_pointer": "/after_sha256/src~1agentnexus~1storage.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-review.json",
+          "json_pointer": "/findings/4/locations/1"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/storage-integrity-review.json",
+          "json_pointer": "/source_snapshot/0"
+        }
+      ],
+      "source_path": "src/agentnexus/storage.ts",
+      "sha256": "7e3d4c0f065246823db894d0286990bd2111fde52b949d0b04d3554126e18dcb",
+      "retained_matching_locations": [
+        ".workflow-kit/runtime/AgentNexus-v0.4-M1/storage/v1/storage.ts"
+      ],
+      "status": "AVAILABLE"
+    },
+    {
+      "original_records": [
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/final-verification.json",
+          "json_pointer": "/candidate_files/16"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/license-closure.json",
+          "json_pointer": "/files/16"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/diagnostics/verification.v2.json",
+          "json_pointer": "/source_integrity/4"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-probes-before-close-race-fix.json",
+          "json_pointer": "/before_sha256/src~1agentnexus~1types.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-probes-before-close-race-fix.json",
+          "json_pointer": "/after_sha256/src~1agentnexus~1types.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-probes-before-timeout-fix.json",
+          "json_pointer": "/before_sha256/src~1agentnexus~1types.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-probes-before-timeout-fix.json",
+          "json_pointer": "/after_sha256/src~1agentnexus~1types.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-probes.json",
+          "json_pointer": "/before_sha256/src~1agentnexus~1types.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-probes.json",
+          "json_pointer": "/after_sha256/src~1agentnexus~1types.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-review.json",
+          "json_pointer": "/latest_probe_source_sha256/src~1agentnexus~1types.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-review.json",
+          "json_pointer": "/final_candidate_sha256/src~1agentnexus~1types.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-review.json",
+          "json_pointer": "/previous_seven_case_probe_sha256/src~1agentnexus~1types.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-review.json",
+          "json_pointer": "/final_candidate_binding/current_reviewed_8_files/src~1agentnexus~1types.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/final-control-probes.json",
+          "json_pointer": "/source_sha256_before/src~1agentnexus~1types.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/final-control-probes.json",
+          "json_pointer": "/source_sha256_after/src~1agentnexus~1types.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/storage-integrity-review.v3.json",
+          "json_pointer": "/source_snapshot/4"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/final-run-1/final-verification.json",
+          "json_pointer": "/candidate_files/16"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/final-run-1/license-closure.json",
+          "json_pointer": "/files/16"
+        }
+      ],
+      "source_path": "src/agentnexus/types.ts",
+      "sha256": "101cc13ca1bbb9ec34e7bb8dfdc8360da913829b99458cf3374cc6604fa15d75",
+      "retained_matching_locations": [
+        "src/agentnexus/types.ts",
+        ".workflow-kit/runtime/AgentNexus-v0.4-M1/m1-source-final.zip!/src/agentnexus/types.ts",
+        ".workflow-kit/runtime/AgentNexus-v0.4-M1/final-run-1/m1-source-final.zip!/src/agentnexus/types.ts"
+      ],
+      "status": "AVAILABLE"
+    },
+    {
+      "original_records": [
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/integrity/attempt-01.json",
+          "json_pointer": "/source_sha256/src~1agentnexus~1types.ts"
+        }
+      ],
+      "source_path": "src/agentnexus/types.ts",
+      "sha256": "25405c2752b9d5fa7466fa479507473c12d52acd57ba616683a54d3a7dd3028a",
+      "retained_matching_locations": [],
+      "status": "NOT_AVAILABLE"
+    },
+    {
+      "original_records": [
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/diagnostics/verification.json",
+          "json_pointer": "/source_integrity/4"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/integrity/attempt-02.json",
+          "json_pointer": "/source_sha256/src~1agentnexus~1types.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/integrity/test-run.json",
+          "json_pointer": "/source_sha256/src~1agentnexus~1types.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-probes-initial.json",
+          "json_pointer": "/before_sha256/src~1agentnexus~1types.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/control-probes-initial.json",
+          "json_pointer": "/after_sha256/src~1agentnexus~1types.ts"
+        }
+      ],
+      "source_path": "src/agentnexus/types.ts",
+      "sha256": "273780415d1e00476dcfc52ca901a15527d62f1e74c1a46def5757251afcfcd8",
+      "retained_matching_locations": [],
+      "status": "NOT_AVAILABLE"
+    },
+    {
+      "original_records": [
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/final-verification.json",
+          "json_pointer": "/candidate_files/17"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/license-closure.json",
+          "json_pointer": "/files/17"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/final-run-1/final-verification.json",
+          "json_pointer": "/candidate_files/17"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/final-run-1/license-closure.json",
+          "json_pointer": "/files/17"
+        }
+      ],
+      "source_path": "tests/agentnexus/control.test.ts",
+      "sha256": "c392c452fad08a00ce91c0b010f27bc99699c5b9c3e58416a08b9f8413f79441",
+      "retained_matching_locations": [
+        "tests/agentnexus/control.test.ts",
+        ".workflow-kit/runtime/AgentNexus-v0.4-M1/m1-source-final.zip!/tests/agentnexus/control.test.ts",
+        ".workflow-kit/runtime/AgentNexus-v0.4-M1/final-run-1/m1-source-final.zip!/tests/agentnexus/control.test.ts"
+      ],
+      "status": "AVAILABLE"
+    },
+    {
+      "original_records": [
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/diagnostics/verification.json",
+          "json_pointer": "/source_integrity/3"
+        }
+      ],
+      "source_path": "tests/agentnexus/diagnostics.test.ts",
+      "sha256": "122140951cbcf352abf266a5fddd56bce34bc7c1abb6056a0495ec27f278293e",
+      "retained_matching_locations": [],
+      "status": "NOT_AVAILABLE"
+    },
+    {
+      "original_records": [
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/final-verification.json",
+          "json_pointer": "/candidate_files/18"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/license-closure.json",
+          "json_pointer": "/files/18"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/diagnostics/verification.v2.json",
+          "json_pointer": "/source_integrity/3"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/final-run-1/final-verification.json",
+          "json_pointer": "/candidate_files/18"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/final-run-1/license-closure.json",
+          "json_pointer": "/files/18"
+        }
+      ],
+      "source_path": "tests/agentnexus/diagnostics.test.ts",
+      "sha256": "67eef7a1adfc1b2baceb62ca4cd157d8737332e8595f0d93a63bcfb853257394",
+      "retained_matching_locations": [
+        "tests/agentnexus/diagnostics.test.ts",
+        ".workflow-kit/runtime/AgentNexus-v0.4-M1/m1-source-final.zip!/tests/agentnexus/diagnostics.test.ts",
+        ".workflow-kit/runtime/AgentNexus-v0.4-M1/final-run-1/m1-source-final.zip!/tests/agentnexus/diagnostics.test.ts"
+      ],
+      "status": "AVAILABLE"
+    },
+    {
+      "original_records": [
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/final-run-1/final-verification.json",
+          "json_pointer": "/candidate_files/19"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/final-run-1/license-closure.json",
+          "json_pointer": "/files/19"
+        }
+      ],
+      "source_path": "tests/agentnexus/gateway.test.ts",
+      "sha256": "030655a357b66b656e3dcdadeab44848b26c5eb2a1dc82d29787987abf62aba1",
+      "retained_matching_locations": [
+        ".workflow-kit/runtime/AgentNexus-v0.4-M1/final-run-1/m1-source-final.zip!/tests/agentnexus/gateway.test.ts"
+      ],
+      "status": "AVAILABLE"
+    },
+    {
+      "original_records": [
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/final-verification.json",
+          "json_pointer": "/candidate_files/19"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/license-closure.json",
+          "json_pointer": "/files/19"
+        }
+      ],
+      "source_path": "tests/agentnexus/gateway.test.ts",
+      "sha256": "96620a3ee83c8b1c65e798ab575fe4ff2a9ccd62ecf69f090d0b70e06fa73824",
+      "retained_matching_locations": [
+        "tests/agentnexus/gateway.test.ts",
+        ".workflow-kit/runtime/AgentNexus-v0.4-M1/m1-source-final.zip!/tests/agentnexus/gateway.test.ts"
+      ],
+      "status": "AVAILABLE"
+    },
+    {
+      "original_records": [
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/integrity/attempt-01.json",
+          "json_pointer": "/source_sha256/tests~1agentnexus~1integrity.test.ts"
+        }
+      ],
+      "source_path": "tests/agentnexus/integrity.test.ts",
+      "sha256": "7c18d10d572f3b984e7d20ab6722a5a0cdf0755a41c94a684339fbcd6bcfbfc1",
+      "retained_matching_locations": [],
+      "status": "NOT_AVAILABLE"
+    },
+    {
+      "original_records": [
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/integrity/attempt-02.json",
+          "json_pointer": "/source_sha256/tests~1agentnexus~1integrity.test.ts"
+        }
+      ],
+      "source_path": "tests/agentnexus/integrity.test.ts",
+      "sha256": "802d2ab1c441e87d88c77da998752ee3a6b5e4298c5ccf20b2c56facfe7e1567",
+      "retained_matching_locations": [],
+      "status": "NOT_AVAILABLE"
+    },
+    {
+      "original_records": [
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/final-verification.json",
+          "json_pointer": "/candidate_files/20"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/license-closure.json",
+          "json_pointer": "/files/20"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/integrity/implementation.json",
+          "json_pointer": "/files/1"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/integrity/test-run.json",
+          "json_pointer": "/source_sha256/tests~1agentnexus~1integrity.test.ts"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/storage-integrity-review.json",
+          "json_pointer": "/source_snapshot/5"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/final-run-1/final-verification.json",
+          "json_pointer": "/candidate_files/20"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/final-run-1/license-closure.json",
+          "json_pointer": "/files/20"
+        }
+      ],
+      "source_path": "tests/agentnexus/integrity.test.ts",
+      "sha256": "ecc6655be30a7d7690f04e5d26c61f09eaaa988ae1075b63327fe98c97c93277",
+      "retained_matching_locations": [
+        "tests/agentnexus/integrity.test.ts",
+        ".workflow-kit/runtime/AgentNexus-v0.4-M1/m1-source-final.zip!/tests/agentnexus/integrity.test.ts",
+        ".workflow-kit/runtime/AgentNexus-v0.4-M1/final-run-1/m1-source-final.zip!/tests/agentnexus/integrity.test.ts"
+      ],
+      "status": "AVAILABLE"
+    },
+    {
+      "original_records": [
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/final-verification.json",
+          "json_pointer": "/candidate_files/21"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/license-closure.json",
+          "json_pointer": "/files/21"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/storage/verification.json",
+          "json_pointer": "/candidate/4"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/storage/verification.v3.json",
+          "json_pointer": "/candidate/4"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/storage/v1/verification.json",
+          "json_pointer": "/candidate/4"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/storage-integrity-review.json",
+          "json_pointer": "/source_snapshot/6"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/final-run-1/final-verification.json",
+          "json_pointer": "/candidate_files/21"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/final-run-1/license-closure.json",
+          "json_pointer": "/files/21"
+        }
+      ],
+      "source_path": "tests/agentnexus/owned-storage-child.mjs",
+      "sha256": "7a469bfa662d98f39f06b4483eaa1f49809e490817679cce5f7f1fa366133139",
+      "retained_matching_locations": [
+        ".workflow-kit/runtime/AgentNexus-v0.4-M1/storage/v1/owned-storage-child.mjs",
+        "tests/agentnexus/owned-storage-child.mjs",
+        ".workflow-kit/runtime/AgentNexus-v0.4-M1/m1-source-final.zip!/tests/agentnexus/owned-storage-child.mjs",
+        ".workflow-kit/runtime/AgentNexus-v0.4-M1/final-run-1/m1-source-final.zip!/tests/agentnexus/owned-storage-child.mjs"
+      ],
+      "status": "AVAILABLE"
+    },
+    {
+      "original_records": [
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/final-verification.json",
+          "json_pointer": "/candidate_files/22"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/license-closure.json",
+          "json_pointer": "/files/22"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/storage/verification.v3.json",
+          "json_pointer": "/candidate/3"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/final-run-1/final-verification.json",
+          "json_pointer": "/candidate_files/22"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/final-run-1/license-closure.json",
+          "json_pointer": "/files/22"
+        }
+      ],
+      "source_path": "tests/agentnexus/storage.test.ts",
+      "sha256": "d0cae519ebfce054002a51b10b292cc870f2bbe01c67706dd1fd9a203525a3da",
+      "retained_matching_locations": [
+        "tests/agentnexus/storage.test.ts",
+        ".workflow-kit/runtime/AgentNexus-v0.4-M1/m1-source-final.zip!/tests/agentnexus/storage.test.ts",
+        ".workflow-kit/runtime/AgentNexus-v0.4-M1/final-run-1/m1-source-final.zip!/tests/agentnexus/storage.test.ts"
+      ],
+      "status": "AVAILABLE"
+    },
+    {
+      "original_records": [
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/storage/verification.json",
+          "json_pointer": "/candidate/3"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/storage/v1/verification.json",
+          "json_pointer": "/candidate/3"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/reviews/storage-integrity-review.json",
+          "json_pointer": "/source_snapshot/4"
+        }
+      ],
+      "source_path": "tests/agentnexus/storage.test.ts",
+      "sha256": "e0f269cd0b73b5d70f5e5d91e8e57c9de905a182e81aaf31db6e7c736e95f923",
+      "retained_matching_locations": [
+        ".workflow-kit/runtime/AgentNexus-v0.4-M1/storage/v1/storage.test.ts"
+      ],
+      "status": "AVAILABLE"
+    },
+    {
+      "original_records": [
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/final-verification.json",
+          "json_pointer": "/candidate_files/23"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/license-closure.json",
+          "json_pointer": "/files/23"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/final-run-1/final-verification.json",
+          "json_pointer": "/candidate_files/23"
+        },
+        {
+          "path": ".workflow-kit/runtime/AgentNexus-v0.4-M1/final-run-1/license-closure.json",
+          "json_pointer": "/files/23"
+        }
+      ],
+      "source_path": "tools/agentnexus/run-tests.mjs",
+      "sha256": "7b1b45b072e55e4c2e079e90aa963d94584a871496945ed88b737cb42dd4c0b7",
+      "retained_matching_locations": [
+        "tools/agentnexus/run-tests.mjs",
+        ".workflow-kit/runtime/AgentNexus-v0.4-M1/m1-source-final.zip!/tools/agentnexus/run-tests.mjs",
+        ".workflow-kit/runtime/AgentNexus-v0.4-M1/final-run-1/m1-source-final.zip!/tools/agentnexus/run-tests.mjs"
+      ],
+      "status": "AVAILABLE"
+    }
+  ],
+  "meaning": "PASS covers complete current implementation/current tests and required original final evidence. It does not assert all intermediate historical source versions or unrecorded timestamps exist."
+}

@@ -1,0 +1,34 @@
+{
+  "kind": "M0 synthetic real Zstandard stream; not real-model validation",
+  "node": "v24.15.0",
+  "time_utc": "2026-11-06T15:49:18.700Z",
+  "results": [
+    {
+      "id": "ZSTD-ROUNDTRIP",
+      "status": "PASS",
+      "bytes": 33554432,
+      "decodedBytes": 33554432,
+      "input_sha256": "21ac35fb7ce46a48c40212491ad6335ec848a948a3fc00200857f570c9346c25",
+      "decoded_sha256": "21ac35fb7ce46a48c40212491ad6335ec848a948a3fc00200857f570c9346c25"
+    },
+    {
+      "id": "ZSTD-CORRUPTION",
+      "status": "PASS",
+      "checksum": true
+    },
+    {
+      "id": "ZSTD-STREAM-PIPELINE",
+      "status": "INCONCLUSIVE",
+      "chunk_size": 65536,
+      "drain_events": 0,
+      "observed_peak_rss": 62021632,
+      "compressed_bytes": 5808
+    }
+  ],
+  "limitations": [
+    "Node Zstandard API is experimental",
+    "RSS observation is not a soak test",
+    "no hardware power-cut test",
+    "no product archive or provider calls"
+  ]
+}

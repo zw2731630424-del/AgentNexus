@@ -1,0 +1,221 @@
+{
+  "schema": "agentnexus/m1/control-review-probes/1",
+  "captured_utc": "2026-11-06T17:32:01.655Z",
+  "before_sha256": {
+    "src/agentnexus/types.ts": "101cc13ca1bbb9ec34e7bb8dfdc8360da913829b99458cf3374cc6604fa15d75",
+    "src/agentnexus/control.ts": "b222860935358032aabcae570865d6d09bca1d22f9b94fcc1961624c895bdccc",
+    "src/agentnexus/features.ts": "2a7f4bc603964dcea120b0ba626fc37864588aa0301f2cabe392093a4437a9ce",
+    "src/agentnexus/policy.ts": "efc03cd86e873e436a7e1bb195227d6c1b98de9f639dea1f87203d75cdf69a8a",
+    "src/agentnexus/gateway.ts": "61827aaeef516ae7699b890a0e97ccc51c72902f750a889e22a3bcaa748d6bc7",
+    "src/agentnexus/host.ts": "ac3347f801a58ce5c76d6ca425658bb94fdc56b59c3d003d9b47840062ac9f5c",
+    "src/agentnexus/storage.ts": "172d0af0556640f6048b74543715841700aaab9938656d7c48298e6f6472ec7d",
+    "src/agentnexus/diagnostics.ts": "d869a291068564eb942b05623f2b8e3f0f8348c40647215e1b85d86eef27d86d"
+  },
+  "after_sha256": {
+    "src/agentnexus/types.ts": "101cc13ca1bbb9ec34e7bb8dfdc8360da913829b99458cf3374cc6604fa15d75",
+    "src/agentnexus/control.ts": "b222860935358032aabcae570865d6d09bca1d22f9b94fcc1961624c895bdccc",
+    "src/agentnexus/features.ts": "2a7f4bc603964dcea120b0ba626fc37864588aa0301f2cabe392093a4437a9ce",
+    "src/agentnexus/policy.ts": "efc03cd86e873e436a7e1bb195227d6c1b98de9f639dea1f87203d75cdf69a8a",
+    "src/agentnexus/gateway.ts": "61827aaeef516ae7699b890a0e97ccc51c72902f750a889e22a3bcaa748d6bc7",
+    "src/agentnexus/host.ts": "ac3347f801a58ce5c76d6ca425658bb94fdc56b59c3d003d9b47840062ac9f5c",
+    "src/agentnexus/storage.ts": "172d0af0556640f6048b74543715841700aaab9938656d7c48298e6f6472ec7d",
+    "src/agentnexus/diagnostics.ts": "d869a291068564eb942b05623f2b8e3f0f8348c40647215e1b85d86eef27d86d"
+  },
+  "source_changed_during_probe": [],
+  "observations": {
+    "inherit_to_off": {
+      "state_store": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-v0.4-M1\\reviews\\control-state-RQ80yS",
+      "failure": "MODULE_STILL_RUNNING",
+      "resolved": {
+        "id": "review.optional",
+        "desired": "ON",
+        "revision": 1,
+        "epoch": 2,
+        "health": "FAILED",
+        "effective": "BLOCKED",
+        "reason": "FAILED"
+      },
+      "active_count": 1,
+      "lease_aborted": true,
+      "stop_calls": 1
+    },
+    "diagnostics_after_failed_stop": {
+      "state_store": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-v0.4-M1\\reviews\\control-state-PWpRSi",
+      "stop_failure": "MODULE_STILL_RUNNING",
+      "runtime": {
+        "id": "devint.runtime",
+        "desired": "ON",
+        "revision": 0,
+        "epoch": 1,
+        "health": "FAILED",
+        "effective": "BLOCKED",
+        "reason": "FAILED"
+      },
+      "result": {
+        "status": "PASS",
+        "reason": "BROKER_OPERATION_COMPLETE",
+        "operation_id": "1b97f63e-04f4-4fc3-a116-8f958b47c888",
+        "intent_hash": "b607b045566a3edd93bcfc3966f5e857fb38d6260e904f5e9cb0d350350bd4f4",
+        "data": {
+          "checker_id": "unavailable",
+          "checker_version": "none",
+          "config_revision": 0,
+          "diagnostics": [],
+          "dimensions": {
+            "args": {
+              "applicable": true,
+              "coverage": "none",
+              "reason": "MODULE_UNAVAILABLE:devint.runtime",
+              "status": "BLOCKED"
+            },
+            "authorization": {
+              "applicable": false,
+              "coverage": "none",
+              "reason": "OWNER_TOOL_GATEWAY",
+              "status": "NOT_RUN"
+            },
+            "environment": {
+              "applicable": true,
+              "coverage": "none",
+              "reason": "MODULE_UNAVAILABLE:devint.runtime",
+              "status": "BLOCKED"
+            },
+            "safety": {
+              "applicable": true,
+              "coverage": "none",
+              "reason": "MODULE_UNAVAILABLE:devint.runtime",
+              "status": "BLOCKED"
+            },
+            "syntax": {
+              "applicable": true,
+              "coverage": "none",
+              "reason": "MODULE_UNAVAILABLE:devint.runtime",
+              "status": "BLOCKED"
+            }
+          },
+          "evidence_refs": [],
+          "feature_epoch": 1,
+          "reason": "MODULE_UNAVAILABLE:devint.runtime",
+          "request_id": "188d14d8-04da-4334-905c-2ee3ef1da6fc",
+          "source_sha256": "a8198524f58e72b56283ab71ebddada22840f108b46ef7165bb3fca9919c5558",
+          "status": "BLOCKED",
+          "timing": {
+            "elapsed_ms": 0,
+            "started_at": "2026-11-06T17:32:00.959Z"
+          },
+          "uri": "review://runtime-blocked.json",
+          "version": 1
+        },
+        "stdout_ref": {
+          "artifact_id": "73019a8e-85fd-436e-b952-90bf238c9238",
+          "sha256": "59ad33292511cebb7cb09c6c322c2524b9591654803d43bf961117ddd12d32b6",
+          "bytes": 1008,
+          "codec": "zstd",
+          "stored_sha256": "d0f1b0509280c41d00d04b552d53b16e920b0cb33044bef3bd22e191d5786cdd",
+          "stored_bytes": 462,
+          "media_type": "application/octet-stream",
+          "sensitivity": "NORMAL"
+        },
+        "stderr_ref": {
+          "artifact_id": "0d24b3ce-18e2-40d6-be96-08ad13d696ea",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0,
+          "codec": "zstd",
+          "stored_sha256": "f96deff1816083fdff8bc3e46c3fe6ca46a6bb49f4d5a00627616c13237a512c",
+          "stored_bytes": 13,
+          "media_type": "application/octet-stream",
+          "sensitivity": "NORMAL"
+        },
+        "audit_event_id": "c6e70d98-7267-4390-bb8b-ebc2c4d24e2d",
+        "permit_id": "4a73f29d-ed0b-40f3-bd4f-fefb37f1214b"
+      }
+    },
+    "expired_approval_clock_rollback": {
+      "state_store": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-v0.4-M1\\reviews\\control-state-GDjq7p",
+      "clock_scope": "logical Date.now override in owned probe process; not OS-clock verification",
+      "initially_valid": true,
+      "valid_after_actual_expiry": false,
+      "valid_after_clock_rollback": false,
+      "handler_executions": 0,
+      "result": {
+        "status": "BLOCKED",
+        "reason": "POLICY_DENIED",
+        "operation_id": "39f1a0dd-5734-4e85-9e23-2d0a54ec3285",
+        "intent_hash": "b009795675a81028deead2e85b9a88e4ca417462af41439fac86ac52102bace5",
+        "data": null,
+        "stdout_ref": null,
+        "stderr_ref": null,
+        "audit_event_id": "496ccdfe-4ccc-45fa-8c80-f838387a2d01",
+        "permit_id": null
+      }
+    },
+    "closed_facade": {
+      "state_store": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-v0.4-M1\\reviews\\control-state-9wLXsi",
+      "old_context_rows": 0,
+      "old_audit_rows": 0,
+      "context_error": "SESSION_CLOSED",
+      "audit_error": "SESSION_CLOSED",
+      "old_context_session_ids": [],
+      "replacement_after_old_close": {
+        "status": "PASS",
+        "reason": "BROKER_OPERATION_COMPLETE",
+        "operation_id": "14bca61b-e093-498d-b0ef-dd6e94f646e9",
+        "intent_hash": "98bbd8c4b26febe4a0802cdb20d121d04c85b1efffc3aeb698919490921fff3d",
+        "data": null,
+        "stdout_ref": {
+          "artifact_id": "bee7fc26-295d-42df-b37e-b90133430d1e",
+          "sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+          "bytes": 4,
+          "codec": "zstd",
+          "stored_sha256": "db509e5e4f3f8709cee7ab288b5fd21e12d4cec20be94c1d5b4ec12835173edd",
+          "stored_bytes": 17,
+          "media_type": "application/octet-stream",
+          "sensitivity": "NORMAL"
+        },
+        "stderr_ref": {
+          "artifact_id": "f7fe10f7-bf4e-4554-865a-28a24e484ebe",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0,
+          "codec": "zstd",
+          "stored_sha256": "f96deff1816083fdff8bc3e46c3fe6ca46a6bb49f4d5a00627616c13237a512c",
+          "stored_bytes": 13,
+          "media_type": "application/octet-stream",
+          "sensitivity": "NORMAL"
+        },
+        "audit_event_id": "07fd0e20-eb36-43fd-9f3d-78d304966adf",
+        "permit_id": "0d3a4475-fa76-40c9-87f3-dbb7b0570ce9"
+      }
+    },
+    "same_task_other_agent_read": {
+      "state_store": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-v0.4-M1\\reviews\\control-state-IhqnbK",
+      "other_agent_context_rows": 0,
+      "returned_agent_ids": [],
+      "classification": "contract confirmation needed: task-wide sharing vs agent-private context"
+    },
+    "session_close_request_race": {
+      "state_store": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-v0.4-M1\\reviews\\control-state-SXviKo",
+      "request_after_close_started": {
+        "code": "SESSION_CLOSED"
+      }
+    },
+    "handler_timeout_clock": {
+      "state_store": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-v0.4-M1\\reviews\\control-state-9A5vMo",
+      "clock_scope": "logical Date.now override in owned probe; not OS clock verification",
+      "timeout_ms": 20,
+      "request_settled_after_80ms": true,
+      "result": {
+        "status": "INCONCLUSIVE",
+        "reason": "TOOL_TIMEOUT",
+        "operation_id": "5a3e6bfd-be4c-47fc-8bab-9532735183b8",
+        "intent_hash": "209aa6625f65a7c141ea332e50a6389cb3321b0671772432eb42b8d12451b823",
+        "data": null,
+        "stdout_ref": null,
+        "stderr_ref": null,
+        "audit_event_id": "6ec9dada-cadb-4775-b4a0-0d84fa6d1565",
+        "permit_id": "311bbc81-c5b5-45b1-9b07-f55852d1600d"
+      }
+    }
+  },
+  "final_product_acceptance": "PENDING_ROOT_FINAL_TESTS",
+  "product_files_modified": false
+}

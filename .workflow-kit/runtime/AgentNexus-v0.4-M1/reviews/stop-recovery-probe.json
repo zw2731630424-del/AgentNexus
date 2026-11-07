@@ -1,0 +1,46 @@
+{
+  "schema": "agentnexus/m1/stop-recovery-probe/1",
+  "captured_utc": "2026-11-06T17:37:05.740Z",
+  "state_store": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-v0.4-M1\\reviews\\stop-recovery-CxjmPi",
+  "features_sha256_before": "2a7f4bc603964dcea120b0ba626fc37864588aa0301f2cabe392093a4437a9ce",
+  "features_sha256_after": "2a7f4bc603964dcea120b0ba626fc37864588aa0301f2cabe392093a4437a9ce",
+  "failure": "DRAIN_TIMEOUT",
+  "failed": {
+    "id": "review.lifecycle",
+    "desired": "ON",
+    "revision": 0,
+    "epoch": 1,
+    "health": "FAILED",
+    "effective": "BLOCKED",
+    "reason": "FAILED"
+  },
+  "recovered": {
+    "id": "review.lifecycle",
+    "desired": "ON",
+    "revision": 0,
+    "epoch": 1,
+    "health": "ENABLED",
+    "effective": "ON",
+    "reason": "READY"
+  },
+  "before_late_stop": {
+    "ready": true,
+    "preflights": 1,
+    "stopSettled": false
+  },
+  "after_late_stop": {
+    "ready": false,
+    "preflights": 1,
+    "stopSettled": true,
+    "resolution": {
+      "id": "review.lifecycle",
+      "desired": "ON",
+      "revision": 0,
+      "epoch": 1,
+      "health": "ENABLED",
+      "effective": "ON",
+      "reason": "READY"
+    }
+  },
+  "scope": "owned synthetic lifecycle only; no product writes or OS work"
+}

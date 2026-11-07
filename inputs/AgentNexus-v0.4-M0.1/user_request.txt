@@ -1,0 +1,332 @@
+# AgentNexus — M0.1 补充设计与 M1 开发任务
+
+你继续担任 AgentNexus 项目的主要架构与工程执行者。
+
+目前 AgentNexus v0.4 的 M0 研究阶段已经完成。不要重新执行一遍 M0，也不要推翻已经形成的研究成果。
+
+本轮任务是在现有 M0 成果上进行补充设计，解决新增需求，并在满足准入条件后启动 M1。
+
+## 一、首先读取现有交付
+
+完整读取当前仓库中的：
+
+1. M0_report.md
+2. verification.md
+3. delivery_manifest.json
+4. architecture/feature_catalog.md
+5. architecture/feature_catalog.json
+6. architecture/policy_catalog.md
+7. architecture/policy_catalog.json
+8. architecture/internal_protocols.md
+9. architecture/workflow_kit_mapping.md
+10. architecture/implementation_plan.md
+11. 全部五份 ADR
+12. research/ 下的源码研究、许可证、安全审计材料
+
+如果完整 M0 交付目录仍然存在，应读取全部相关文件，而不是只依赖 M0_report.md。
+
+保留原始 M0 交付和哈希，不覆盖、不修改历史证据。
+
+## 二、M0.1：补充总体架构设计
+
+本轮新增四项正式设计。
+
+### 任务 1：Audit Trail Engine（全操作审计系统）
+
+建立独立的操作审计模块。
+
+目标是让 AgentNexus 能够追踪所有 Agent 的实际操作。
+
+需要覆盖：
+
+- Shell 命令及参数。
+- 文件读取、创建、修改、删除。
+- Git 操作。
+- 工具调用及返回结果。
+- 模型调用及 Token、费用。
+- Agent 创建、唤醒、暂停、恢复和终止。
+- Agent 之间的消息。
+- Policy 判断和授权。
+- 工作流执行及 Gate 结果。
+- 项目规则、配置和决策变更。
+- 实验启动、停止和执行状态。
+- 进程异常、超时和恢复操作。
+
+每个操作至少记录：
+
+- 全局唯一 Operation ID。
+- Event ID。
+- Agent ID。
+- Project ID。
+- Task ID。
+- Session ID。
+- 操作类型。
+- 操作参数或安全化后的参数引用。
+- 操作时间。
+- 工作目录。
+- 执行前状态。
+- Policy 判定及授权引用。
+- 实际执行状态。
+- 退出代码。
+- stdout / stderr 档案引用。
+- 执行后的状态变化。
+- 相关产物及 SHA256。
+
+采用追加式事件记录、哈希校验和分段存储。
+
+大型日志、输出和文件不能全部塞入数据库，应使用流式写入和独立 Artifact Store。
+
+特别注意：
+
+Audit Trail 必须与 Context Archive 分开。
+
+- Context Archive：保存 Agent 的原始交互经历。
+- Audit Trail：保存 Agent 实际执行的操作。
+- Artifact Store：保存实际产物。
+- Decision Ledger：保存正式决策。
+
+四者通过 ID 和证据引用关联。
+
+需要设计操作重建功能，可以通过 Task ID 还原某项任务的完整执行过程。
+
+Replay 默认只允许只读重建，不能自动重新执行历史命令。
+
+审计系统的核心记录不能因为关闭普通日志或诊断功能而丢失。
+
+### 任务 2：Development Intelligence Engine
+
+建立开发智能检查引擎，解决 Agent 编写命令和代码时经常出现的语法错误、参数错误和环境错误。
+
+至少包含：
+
+1. Command Parser。
+2. Syntax Validator。
+3. Command Linter。
+4. Argument Validator。
+5. Safety Preflight。
+6. Environment Checker。
+7. Command Preview。
+8. Code Diagnostics。
+
+重点支持：
+
+**命令检查：**
+- Bash。
+- Zsh。
+- PowerShell。
+- Git。
+- Python CLI。
+- Docker CLI。
+- 常用系统命令及自定义 CLI。
+
+**代码诊断：**
+- Python。
+- C#。
+- JavaScript / TypeScript。
+- JSON。
+- YAML。
+- SQL。
+- Dockerfile。
+
+优先研究和复用成熟 Parser、Linter、Compiler、LSP，不要重新编写所有语言的解析器。
+
+重点研究：
+- Bash Parser、bash -n、ShellCheck。
+- PowerShell AST Parser。
+- Python AST、Ruff。
+- Roslyn。
+- TypeScript Compiler、ESLint。
+- Language Server Protocol。
+
+实现 IDE 式实时诊断，让 Agent 在编写代码时就能发现语法错误和明显问题。
+
+命令执行之前，尽可能完成：
+
+语法检查 → 参数检查 → 风险检查 → 环境检查 → 权限检查 → 执行。
+
+需要明确区分：
+
+- 语法正确。
+- 参数有效。
+- 环境满足。
+- 操作安全。
+- 操作获得授权。
+
+这五项不能混为一谈。
+
+检查器关闭时标记 VALIDATION_BYPASSED，不得伪装为检查通过。
+
+### 任务 3：完善工作流套件的许可证与原生完整性机制
+
+M0 已经发现原始 Workflow Kit 缺少 LICENSE / NOTICE 授权正文，并且 check-kit / release 存在 basename 匹配导致的完整性漏检。
+
+必须处理：
+
+1. 重新核实工作流套件的版权归属和授权状态。
+2. 不得自行推断用户拥有未明确授予的版权。
+3. 对缺少授权的代码和表达，不得直接复制或发行。
+4. 优先采用独立规格和干净实现。
+5. 对第三方依赖建立完整许可证闭包。
+6. 保留原始套件和来源指纹。
+7. AgentNexus 原生验证器使用完整相对路径进行双向清单校验。
+8. 检查重复路径、路径规范化冲突、符号链接和目录逃逸。
+9. 新增恶意文件、遗漏文件、嵌套同名文件等负向测试。
+
+不要修改原始 Workflow Kit。
+
+### 任务 4：Windows / Ubuntu 双平台安全设计
+
+M0 已经指出 Windows 隔离尚未实测。
+
+现在补充：
+
+- Windows 独立管理身份。
+- Windows ACL。
+- 受限 Token。
+- Job Objects。
+- 进程树管理。
+- 文件系统隔离。
+- 网络访问控制。
+- 外部 Harness 隔离。
+- Ubuntu 独立用户、权限和进程隔离。
+- Linux Namespace、seccomp 等适用机制的研究。
+- 两个平台的统一 Sandbox 接口。
+
+不能仅仅因为某个函数使用了受限权限，就宣称完整沙箱已经实现。
+
+必须设计实际绕过测试。
+
+## 三、更新 Feature Catalog 和 Policy Catalog
+
+将以上新增功能正式纳入现有目录。
+
+不要只新增几个名称。
+
+每个 Feature 必须具有：
+
+- Feature ID。
+- 功能说明。
+- 默认状态。
+- 可配置作用域。
+- 依赖和冲突。
+- 配置 Schema。
+- 关闭行为。
+- 降级方案。
+- 恢复流程。
+- 健康状态。
+- 审计要求。
+- 测试 ID。
+
+Policy 必须明确：
+
+- L0-L3 分类。
+- ENFORCE 行为。
+- AUDIT_ONLY 行为。
+- DISABLED 行为。
+- 正向测试。
+- 反向测试。
+- 绕过测试。
+- 并发测试。
+- 故障恢复测试。
+
+保留已有 108 项 Feature 和 22 条 Policy 的历史版本，新增内容应通过版本化变更记录管理。
+
+## 四、更新内部协议
+
+重点检查以下模块之间的数据关系：
+
+- Policy Enforcement Plane。
+- Tool Gateway。
+- Audit Trail Engine。
+- Context Archive。
+- Artifact Store。
+- Development Intelligence Engine。
+- Feature Registry。
+- Model Gateway。
+
+必须明确：
+
+一次命令从模型生成到最终执行，会经过哪些模块，产生哪些事件，保存哪些证据。
+
+检查是否存在：
+
+- 审计事件丢失。
+- 双重写入不一致。
+- 操作结果无法追踪。
+- 关闭模块后仍然隐式运行。
+- Policy 关闭后意外关闭其他安全保护。
+- 审计存储故障导致不安全继续执行。
+- 过期授权或重复执行。
+- 多 Agent 并发覆盖文件。
+
+## 五、M0.1 交付物
+
+在原有目录结构下新增或更新：
+
+1. `architecture/audit_trail_design.md`
+2. `architecture/development_intelligence_design.md`
+3. `architecture/platform_security_windows_linux.md`
+4. `architecture/workflow_license_remediation.md`
+5. `architecture/feature_catalog.md`
+6. `architecture/feature_catalog.json`
+7. `architecture/policy_catalog.md`
+8. `architecture/policy_catalog.json`
+9. `architecture/internal_protocols.md`
+10. `architecture/implementation_plan.md`
+11. 新增 ADR。
+12. `reports/M0.1_report.md`
+
+必须生成变更清单和哈希记录。
+
+不得覆盖原始 M0 报告、原始验证记录和原始交付清单。
+
+## 六、M1：满足准入条件后开始开发
+
+M0.1 设计完成后，检查许可证、模块边界和安全准入条件。
+
+在不涉及未授权代码复用、且不需要用户额外授权的范围内，开始 M1。
+
+M1 优先实现：
+
+1. Feature Registry / Module Manager。
+2. Policy Enforcement 三模式。
+3. Context Archive。
+4. Audit Trail Engine。
+5. Tool Gateway。
+6. Development Intelligence 的基础接口和首批实际检查器。
+
+其中 Audit Trail、Tool Gateway、Policy Enforcement 应共同设计和测试。
+
+不要先开发大量 Agent 功能，再补这些基础设施。
+
+对于尚未关闭的许可证、Windows 隔离或真实模型联调问题，明确标记 BLOCKED / NOT_RUN，不得假装通过，也不必因此停止所有独立且合法的开发工作。
+
+## 七、工程纪律
+
+- 保留完整历史证据。
+- 不覆盖原始 M0 交付。
+- 不无限累积内存。
+- 必须流式写盘、分块处理、背压和检查点。
+- 不修改现有科研项目。
+- 不运行正式科研实验。
+- 不自动 commit / push。
+- 不安装 Git hooks。
+- 不扫描或读取未经授权的 API Key。
+- 不把模拟测试冒充真实测试。
+- 不进行无关的生产级过度工程化。
+
+每项工作明确标记：
+
+PASS / FAIL / NOT_RUN / INCONCLUSIVE / BLOCKED / BYPASSED。
+
+## 八、执行方式
+
+先完成 M0.1 的资料检查和设计修订，再根据准入结果推进 M1。
+
+可以并行开展相互独立的研究和实现任务，但必须由主执行者统一规格、代码接口和验收。
+
+不要因为某个 Agent 完成了任务就自动认为任务通过。
+
+所有重要修改必须有审计记录、测试证据和可恢复状态。
+
+现在开始。先读取完整 M0 交付，建立变更基线，然后执行 M0.1。完成设计后，在授权范围内继续 M1，不要只输出计划就停止。

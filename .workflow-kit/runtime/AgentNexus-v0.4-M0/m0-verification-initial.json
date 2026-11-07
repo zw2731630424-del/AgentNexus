@@ -1,0 +1,1953 @@
+{
+  "time_utc": "2026-11-06T16:20:06.147881+00:00",
+  "scope": "M0 evidence and document verification; not product test",
+  "checks": [
+    {
+      "id": "INPUT-HANDOFF",
+      "status": "PASS",
+      "details": {}
+    },
+    {
+      "id": "INPUT-AgentNexus_v0.4_Architecture.md",
+      "status": "PASS",
+      "details": {}
+    },
+    {
+      "id": "INPUT-AgentNexus_v0.4_Codex_Task.md",
+      "status": "PASS",
+      "details": {}
+    },
+    {
+      "id": "INPUT-AgentNexus_v0.4_Codex_Start_Prompt.md",
+      "status": "PASS",
+      "details": {}
+    },
+    {
+      "id": "INPUT-ai-workflow-kit-v4.0.0.zip",
+      "status": "PASS",
+      "details": {}
+    },
+    {
+      "id": "WORKFLOW-ORIGINAL-UNCHANGED",
+      "status": "PASS",
+      "details": {
+        "files": 105
+      }
+    },
+    {
+      "id": "RULES-UNCHANGED",
+      "status": "PASS",
+      "details": {}
+    },
+    {
+      "id": "SOURCE-HASHES",
+      "status": "PASS",
+      "details": {
+        "checked_hash_records": 11508,
+        "snapshots": 11
+      }
+    },
+    {
+      "id": "FEATURE-CATALOG-STRUCTURE",
+      "status": "PASS",
+      "details": {
+        "count": 108,
+        "errors": [],
+        "behavior": "NOT_RUN"
+      }
+    },
+    {
+      "id": "POLICY-CATALOG-STRUCTURE",
+      "status": "PASS",
+      "details": {
+        "count": 22,
+        "errors": [],
+        "behavior": "NOT_RUN"
+      }
+    },
+    {
+      "id": "IMMUTABLE-SOURCE-CITATIONS",
+      "status": "FAIL",
+      "details": {
+        "citations": 207,
+        "errors": [
+          {
+            "document": "research\\primary_harness_audit.md",
+            "line_bounds": "https://github.com/microsoft/Agensh/blob/2dae4e14a653da48549fd9aa093f834841475d6c/docker/docker_compose.team.yml#L1-L100",
+            "file_lines": 75
+          }
+        ]
+      }
+    },
+    {
+      "id": "LOCAL-DELIVERY-LINKS",
+      "status": "FAIL",
+      "details": {
+        "errors": [
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/templates/artifact-delivery.md:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/templates/checkpoint.md:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/templates/closeout.md:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/templates/commands-registry.md:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/templates/decision-log.md:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/templates/design-brief.md:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/templates/document-entry.md:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/templates/experiment-plan.md:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/templates/FREEZE.md:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/templates/GOAL.md:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/templates/knowledge-entry.md:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/templates/strict-review-record.md:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/templates/subtask.md:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/templates/task-contract.md:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/templates/token-ledger.md:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/.gitignore:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/CHANGELOG.md:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/CHEATSHEET.md:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/examples/checkpoint.example.md:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/examples/GOAL.example.md:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/examples/README.md:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/examples/subtask.example.md:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/examples/task-contract.example.md:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/install/agents/reviewer.md:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/install/agents/scout.md:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/install/agents/verifier.md:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/install/agents/worker.md:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/install/AGENTS.md:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/install/project-rules/README.md:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/install.bat:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/MERGE-NOTES.md:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/project-workflows/_template/README.md:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/project-workflows/README.md:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/README.md:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/capabilities.md:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/checklists/gates.md:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/checklists/measurement.md:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/checklists/protocol.md:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/checklists/regression.md:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/context.md:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/decisions.md:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/evidence.md:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/feasibility.md:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/governance.md:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/INDEX.md:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/project-rules.md:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/routing.md:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/safety.md:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/strict-review.md:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/templates/artifact-delivery.md:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/templates/checkpoint.md:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/templates/closeout.md:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/templates/commands-registry.md:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/templates/decision-log.md:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/templates/design-brief.md:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/templates/document-entry.md:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/templates/experiment-plan.md:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/templates/FREEZE.md:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/templates/GOAL.md:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/templates/knowledge-entry.md:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/templates/strict-review-record.md:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/templates/subtask.md:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/templates/task-contract.md:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/templates/token-ledger.md:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/verification.md:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/workflow.md:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/SHA256SUMS.txt:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/SOURCES.json:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/START-HERE.md:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/tests/test_check_task.py:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/tests/test_govern.py:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/tests/test_lean_modes.py:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/tests/test_manage.py:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/tests/test_project_rules.py:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/tests/test_review.py:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/tools/check-kit.py:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/tools/check-review.py:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/tools/check-task.py:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/tools/govern.py:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/tools/install.ps1:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/tools/install.sh:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/tools/manage.py:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/tools/release.py:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/tools/uninstall.ps1:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/tools/uninstall.sh:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/uninstall.bat:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/bash-syntax.txt:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/examples.txt:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/final-acceptance.txt:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/package-check.txt:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/package-negative.txt:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/results.json:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/review-fingerprints.txt:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/review.txt:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/source-integrity.txt:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/syntax.txt:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/unittest.txt:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/v3.0.0/bash-syntax.txt:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/v3.0.0/bat-error-code.txt:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/v3.0.0/bat-install.txt:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/v3.0.0/bat-uninstall.txt:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/v3.0.0/bat-verify.txt:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/v3.0.0/examples.txt:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/v3.0.0/git-add-negative.txt:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/v3.0.0/git-add.txt:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/v3.0.0/git-clean-negative.txt:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/v3.0.0/git-init.txt:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/v3.0.0/git-install.txt:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/v3.0.0/git-uninstall.txt:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/v3.0.0/local-hook-commit.txt:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/v3.0.0/package-negative.txt:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/v3.0.0/powershell-install.txt:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/v3.0.0/powershell-uninstall.txt:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/v3.0.0/powershell-verify.txt:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/v3.0.0/report.txt:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/v3.0.0/results.json:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/v3.0.0/unittest.txt:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/wrappers.txt:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/VALIDATION.md:1"
+          },
+          {
+            "document": "architecture\\workflow_kit_mapping.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/VERSION:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/.gitignore:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/CHANGELOG.md:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/CHEATSHEET.md:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/examples/checkpoint.example.md:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/examples/GOAL.example.md:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/examples/README.md:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/examples/subtask.example.md:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/examples/task-contract.example.md:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/install/agents/reviewer.md:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/install/agents/scout.md:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/install/agents/verifier.md:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/install/agents/worker.md:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/install/AGENTS.md:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/install/project-rules/README.md:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/install.bat:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/MERGE-NOTES.md:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/project-workflows/_template/README.md:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/project-workflows/README.md:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/README.md:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/capabilities.md:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/checklists/gates.md:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/checklists/measurement.md:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/checklists/protocol.md:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/checklists/regression.md:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/context.md:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/decisions.md:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/evidence.md:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/feasibility.md:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/governance.md:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/INDEX.md:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/project-rules.md:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/routing.md:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/safety.md:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/strict-review.md:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/templates/artifact-delivery.md:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/templates/checkpoint.md:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/templates/closeout.md:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/templates/commands-registry.md:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/templates/decision-log.md:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/templates/design-brief.md:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/templates/document-entry.md:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/templates/experiment-plan.md:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/templates/FREEZE.md:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/templates/GOAL.md:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/templates/knowledge-entry.md:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/templates/strict-review-record.md:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/templates/subtask.md:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/templates/task-contract.md:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/templates/token-ledger.md:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/verification.md:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/workflow.md:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/SHA256SUMS.txt:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/SOURCES.json:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/START-HERE.md:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/tests/test_check_task.py:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/tests/test_govern.py:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/tests/test_lean_modes.py:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/tests/test_manage.py:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/tests/test_project_rules.py:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/tests/test_review.py:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/tools/check-kit.py:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/tools/check-review.py:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/tools/check-task.py:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/tools/govern.py:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/tools/install.ps1:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/tools/install.sh:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/tools/manage.py:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/tools/release.py:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/tools/uninstall.ps1:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/tools/uninstall.sh:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/uninstall.bat:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/bash-syntax.txt:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/examples.txt:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/final-acceptance.txt:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/package-check.txt:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/package-negative.txt:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/results.json:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/review-fingerprints.txt:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/review.txt:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/source-integrity.txt:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/syntax.txt:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/unittest.txt:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/v3.0.0/bash-syntax.txt:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/v3.0.0/bat-error-code.txt:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/v3.0.0/bat-install.txt:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/v3.0.0/bat-uninstall.txt:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/v3.0.0/bat-verify.txt:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/v3.0.0/examples.txt:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/v3.0.0/git-add-negative.txt:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/v3.0.0/git-add.txt:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/v3.0.0/git-clean-negative.txt:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/v3.0.0/git-init.txt:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/v3.0.0/git-install.txt:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/v3.0.0/git-uninstall.txt:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/v3.0.0/local-hook-commit.txt:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/v3.0.0/package-negative.txt:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/v3.0.0/powershell-install.txt:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/v3.0.0/powershell-uninstall.txt:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/v3.0.0/powershell-verify.txt:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/v3.0.0/report.txt:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/v3.0.0/results.json:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/v3.0.0/unittest.txt:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/wrappers.txt:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/VALIDATION.md:1"
+          },
+          {
+            "document": "research\\workflow_kit_audit.md",
+            "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/VERSION:1"
+          }
+        ]
+      }
+    },
+    {
+      "id": "WORKFLOW-ISOLATED-RESULTS",
+      "status": "PASS",
+      "details": {
+        "passed": 91,
+        "skipped": 9
+      }
+    },
+    {
+      "id": "STORAGE-FEASIBILITY-RESULTS",
+      "status": "PASS",
+      "details": {
+        "assertions": 11,
+        "scope": "synthetic real SQLite/filesystem/Zstd only; product/model NOT_RUN"
+      }
+    },
+    {
+      "id": "DELIVERABLES",
+      "status": "PASS",
+      "details": {
+        "required": 16,
+        "adrs": 5
+      }
+    },
+    {
+      "id": "GOVERNANCE",
+      "status": "PASS",
+      "details": {
+        "exit_code": 0,
+        "log": ".workflow-kit/runtime/AgentNexus-v0.4-M0/govern-final.log"
+      }
+    }
+  ],
+  "issues": [
+    {
+      "id": "IMMUTABLE-SOURCE-CITATIONS",
+      "citations": 207,
+      "errors": [
+        {
+          "document": "research\\primary_harness_audit.md",
+          "line_bounds": "https://github.com/microsoft/Agensh/blob/2dae4e14a653da48549fd9aa093f834841475d6c/docker/docker_compose.team.yml#L1-L100",
+          "file_lines": 75
+        }
+      ]
+    },
+    {
+      "id": "LOCAL-DELIVERY-LINKS",
+      "errors": [
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/templates/artifact-delivery.md:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/templates/checkpoint.md:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/templates/closeout.md:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/templates/commands-registry.md:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/templates/decision-log.md:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/templates/design-brief.md:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/templates/document-entry.md:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/templates/experiment-plan.md:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/templates/FREEZE.md:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/templates/GOAL.md:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/templates/knowledge-entry.md:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/templates/strict-review-record.md:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/templates/subtask.md:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/templates/task-contract.md:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/templates/token-ledger.md:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/.gitignore:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/CHANGELOG.md:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/CHEATSHEET.md:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/examples/checkpoint.example.md:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/examples/GOAL.example.md:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/examples/README.md:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/examples/subtask.example.md:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/examples/task-contract.example.md:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/install/agents/reviewer.md:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/install/agents/scout.md:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/install/agents/verifier.md:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/install/agents/worker.md:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/install/AGENTS.md:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/install/project-rules/README.md:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/install.bat:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/MERGE-NOTES.md:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/project-workflows/_template/README.md:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/project-workflows/README.md:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/README.md:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/capabilities.md:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/checklists/gates.md:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/checklists/measurement.md:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/checklists/protocol.md:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/checklists/regression.md:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/context.md:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/decisions.md:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/evidence.md:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/feasibility.md:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/governance.md:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/INDEX.md:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/project-rules.md:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/routing.md:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/safety.md:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/strict-review.md:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/templates/artifact-delivery.md:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/templates/checkpoint.md:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/templates/closeout.md:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/templates/commands-registry.md:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/templates/decision-log.md:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/templates/design-brief.md:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/templates/document-entry.md:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/templates/experiment-plan.md:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/templates/FREEZE.md:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/templates/GOAL.md:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/templates/knowledge-entry.md:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/templates/strict-review-record.md:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/templates/subtask.md:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/templates/task-contract.md:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/templates/token-ledger.md:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/verification.md:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/workflow.md:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/SHA256SUMS.txt:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/SOURCES.json:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/START-HERE.md:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/tests/test_check_task.py:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/tests/test_govern.py:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/tests/test_lean_modes.py:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/tests/test_manage.py:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/tests/test_project_rules.py:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/tests/test_review.py:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/tools/check-kit.py:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/tools/check-review.py:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/tools/check-task.py:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/tools/govern.py:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/tools/install.ps1:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/tools/install.sh:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/tools/manage.py:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/tools/release.py:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/tools/uninstall.ps1:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/tools/uninstall.sh:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/uninstall.bat:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/bash-syntax.txt:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/examples.txt:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/final-acceptance.txt:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/package-check.txt:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/package-negative.txt:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/results.json:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/review-fingerprints.txt:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/review.txt:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/source-integrity.txt:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/syntax.txt:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/unittest.txt:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/v3.0.0/bash-syntax.txt:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/v3.0.0/bat-error-code.txt:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/v3.0.0/bat-install.txt:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/v3.0.0/bat-uninstall.txt:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/v3.0.0/bat-verify.txt:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/v3.0.0/examples.txt:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/v3.0.0/git-add-negative.txt:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/v3.0.0/git-add.txt:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/v3.0.0/git-clean-negative.txt:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/v3.0.0/git-init.txt:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/v3.0.0/git-install.txt:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/v3.0.0/git-uninstall.txt:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/v3.0.0/local-hook-commit.txt:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/v3.0.0/package-negative.txt:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/v3.0.0/powershell-install.txt:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/v3.0.0/powershell-uninstall.txt:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/v3.0.0/powershell-verify.txt:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/v3.0.0/report.txt:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/v3.0.0/results.json:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/v3.0.0/unittest.txt:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/wrappers.txt:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/VALIDATION.md:1"
+        },
+        {
+          "document": "architecture\\workflow_kit_mapping.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/VERSION:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/.gitignore:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/CHANGELOG.md:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/CHEATSHEET.md:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/examples/checkpoint.example.md:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/examples/GOAL.example.md:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/examples/README.md:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/examples/subtask.example.md:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/examples/task-contract.example.md:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/install/agents/reviewer.md:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/install/agents/scout.md:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/install/agents/verifier.md:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/install/agents/worker.md:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/install/AGENTS.md:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/install/project-rules/README.md:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/install.bat:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/MERGE-NOTES.md:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/project-workflows/_template/README.md:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/project-workflows/README.md:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/README.md:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/capabilities.md:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/checklists/gates.md:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/checklists/measurement.md:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/checklists/protocol.md:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/checklists/regression.md:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/context.md:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/decisions.md:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/evidence.md:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/feasibility.md:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/governance.md:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/INDEX.md:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/project-rules.md:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/routing.md:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/safety.md:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/strict-review.md:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/templates/artifact-delivery.md:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/templates/checkpoint.md:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/templates/closeout.md:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/templates/commands-registry.md:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/templates/decision-log.md:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/templates/design-brief.md:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/templates/document-entry.md:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/templates/experiment-plan.md:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/templates/FREEZE.md:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/templates/GOAL.md:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/templates/knowledge-entry.md:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/templates/strict-review-record.md:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/templates/subtask.md:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/templates/task-contract.md:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/templates/token-ledger.md:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/verification.md:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/reference/workflow.md:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/SHA256SUMS.txt:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/SOURCES.json:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/START-HERE.md:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/tests/test_check_task.py:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/tests/test_govern.py:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/tests/test_lean_modes.py:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/tests/test_manage.py:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/tests/test_project_rules.py:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/tests/test_review.py:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/tools/check-kit.py:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/tools/check-review.py:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/tools/check-task.py:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/tools/govern.py:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/tools/install.ps1:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/tools/install.sh:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/tools/manage.py:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/tools/release.py:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/tools/uninstall.ps1:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/tools/uninstall.sh:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/uninstall.bat:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/bash-syntax.txt:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/examples.txt:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/final-acceptance.txt:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/package-check.txt:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/package-negative.txt:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/results.json:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/review-fingerprints.txt:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/review.txt:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/source-integrity.txt:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/syntax.txt:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/unittest.txt:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/v3.0.0/bash-syntax.txt:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/v3.0.0/bat-error-code.txt:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/v3.0.0/bat-install.txt:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/v3.0.0/bat-uninstall.txt:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/v3.0.0/bat-verify.txt:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/v3.0.0/examples.txt:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/v3.0.0/git-add-negative.txt:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/v3.0.0/git-add.txt:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/v3.0.0/git-clean-negative.txt:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/v3.0.0/git-init.txt:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/v3.0.0/git-install.txt:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/v3.0.0/git-uninstall.txt:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/v3.0.0/local-hook-commit.txt:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/v3.0.0/package-negative.txt:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/v3.0.0/powershell-install.txt:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/v3.0.0/powershell-uninstall.txt:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/v3.0.0/powershell-verify.txt:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/v3.0.0/report.txt:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/v3.0.0/results.json:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/v3.0.0/unittest.txt:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/validation/wrappers.txt:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/VALIDATION.md:1"
+        },
+        {
+          "document": "research\\workflow_kit_audit.md",
+          "missing_link": "I:/AI_AgentNexus/ai-workflow-kit-v4/VERSION:1"
+        }
+      ]
+    }
+  ],
+  "snapshots": 11,
+  "hash_records": 11508,
+  "immutable_citations": 207,
+  "workflow": {
+    "discovered": 100,
+    "passed": 91,
+    "skipped": 9
+  },
+  "storage_assertions": 11,
+  "real_models": "NOT_RUN",
+  "upstream_harness_tests": "NOT_RUN",
+  "os_security_product_conformance": "NOT_RUN"
+}

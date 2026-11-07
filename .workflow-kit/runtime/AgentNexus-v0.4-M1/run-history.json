@@ -1,0 +1,62 @@
+{
+  "schema": "agentnexus/m1-run-history/1",
+  "records": [
+    {
+      "phase": "module_initial_runs",
+      "status": "PASS",
+      "scope": "Original author module runs retained, not final integrated acceptance",
+      "paths": [
+        "storage/verification.json",
+        "diagnostics/verification.json",
+        "integrity/test-run.json"
+      ]
+    },
+    {
+      "phase": "gateway_initial_integration",
+      "status": "FAIL",
+      "observed_tests": 15,
+      "pass": 14,
+      "fail": 1,
+      "failure": "AT-REPLAY peer session saw two context records before SQL identity filters were connected",
+      "source": "Actual execution transcript chunk 88be73; root added regression and integrated Store filters. Not recast as PASS."
+    },
+    {
+      "phase": "first_complete_acceptance",
+      "status": "PASS",
+      "path": "final-run-1/final-verification.json",
+      "scope": "Before one-line Store-fault health display clarification; source ZIP and 8 logs preserved"
+    },
+    {
+      "phase": "second_complete_tests",
+      "status": "PASS",
+      "test_run_utc": "2026-11-06T17:54:41.259308+00:00",
+      "tests": {
+        "tests": 135,
+        "pass": 131,
+        "fail": 0,
+        "cancelled": 0,
+        "skipped": 4,
+        "todo": 0
+      },
+      "tap_sha256": "7d116aa26a4593a2b3b2964c4717921cd844116756bafb05fd64edbfa8eea372"
+    },
+    {
+      "phase": "governance_60_second_budget",
+      "status": "INCONCLUSIVE",
+      "reason": "Actual subprocess timeout during final scanning; tests already completed, old final JSON was not used as new acceptance"
+    },
+    {
+      "phase": "resume_governance_and_finalize",
+      "status": "PASS",
+      "verification_sha256": "04adc9bd1e896e498172c1be426d04a34411b4f9699c429b9c36cde517fe6561",
+      "exact_tested_candidate_rechecked": true,
+      "tests_rerun": false,
+      "governance_log_sha256": "74b9b169f20d84d2bc14b03ada594625dda519a7f855845ca917f6ec53661344"
+    },
+    {
+      "phase": "storage_v2",
+      "status": "NOT_RUN",
+      "reason": "Only empty paths were reserved; no test execution or PASS claimed"
+    }
+  ]
+}

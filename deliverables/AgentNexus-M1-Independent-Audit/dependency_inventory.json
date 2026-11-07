@@ -1,0 +1,88 @@
+{
+  "schema": "agentnexus/audit-dependencies/1",
+  "generated_utc": "2026-11-07T00:04:34.062068+00:00",
+  "package": {
+    "path": "package.json",
+    "sha256": "e23288d939a3706e522bf34a1d87802242b418749c37f1e54c5b481562ffd809",
+    "version": "0.4.0-m1.1",
+    "private": true
+  },
+  "direct_npm_dependencies": [],
+  "direct_npm_dev_dependencies": [],
+  "introduced_transitive_npm_dependencies": [],
+  "lockfile": {
+    "status": "NOT_AVAILABLE",
+    "reason": "No dependency installation and no npm packages in this actual implementation."
+  },
+  "Node_builtins": [
+    "node:assert/strict",
+    "node:async_hooks",
+    "node:child_process",
+    "node:crypto",
+    "node:events",
+    "node:fs",
+    "node:fs/promises",
+    "node:module",
+    "node:os",
+    "node:path",
+    "node:perf_hooks",
+    "node:sqlite",
+    "node:stream",
+    "node:stream/promises",
+    "node:test",
+    "node:timers/promises",
+    "node:url",
+    "node:util",
+    "node:zlib"
+  ],
+  "packaging_environment": {
+    "python": "3.12.10",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "node": {
+      "node": "v24.15.0",
+      "sqlite": "3.51.3",
+      "zstd": "1.5.7",
+      "platform": "win32",
+      "arch": "x64"
+    }
+  },
+  "original_execution_environment": {
+    "node": "v24.15.0",
+    "sqlite": "3.51.3",
+    "zstd": "1.5.7",
+    "platform": "win32"
+  },
+  "external_local_tools": [
+    {
+      "name": "Node",
+      "version_in_original_run": "24.15.0",
+      "purpose": "Native TypeScript stripping, SQLite and Zstd builtins, node:test",
+      "bundled": false
+    },
+    {
+      "name": "Python",
+      "version_in_original_host_record": "3.12.10",
+      "purpose": "stdlib-only AST checker; explicit trusted executable",
+      "bundled": false
+    },
+    {
+      "name": "PowerShell",
+      "version_in_original_host_record": "7.6.9",
+      "purpose": "System.Management.Automation.Language.Parser; explicit trusted executable",
+      "bundled": false
+    }
+  ],
+  "license_evidence": [
+    ".workflow-kit/runtime/AgentNexus-v0.4-M1/license-closure.json",
+    ".workflow-kit/tasks/AgentNexus-v0.4-M0/research/license_inventory.md",
+    ".workflow-kit/tasks/AgentNexus-v0.4-M0.1/research/license_recheck.json",
+    ".workflow-kit/tasks/AgentNexus-v0.4-M0.1/architecture/workflow_license_remediation.md"
+  ],
+  "third_party_product_code_introduced": false,
+  "research_caches_are_runtime_dependencies": false,
+  "project_public_license_selected": false,
+  "runtime_binary_distribution_closure": "BLOCKED",
+  "workflow_kit_copy_and_distribution_grant": "NOASSERTION/BLOCKED as recorded in original audit",
+  "distribution_scope": "Private technical review materials, not a licensed product/runtime binary distribution. Original third-party license/NOTICE files remain alongside research source where available. No new legal conclusion is asserted.",
+  "build": "No npm install or build step required for current Node 24.15.0 native TypeScript execution. tsc/static typecheck NOT_RUN. OS sandbox/admin identity and real provider integrations are not supplied."
+}
