@@ -1,0 +1,47 @@
+{
+  "scenario": "before-call",
+  "window": {
+    "scenario": "before-call",
+    "operation_id": "2520ddc2-3fdc-4f8a-8aac-ec2362d032b2",
+    "intent_hash": "451abe11b3e3a53f4b79c0eef917192946e601937aa61e3204c71f3c712a4641",
+    "state": "CLAIMED",
+    "executor_state": "NOT_INVOKED"
+  },
+  "termination": {
+    "code": null,
+    "signal": "SIGKILL"
+  },
+  "recovered": {
+    "recovered": true,
+    "evidence_path": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.3\\data\\mw60l574-15440\\reconciliation\\crash-tcMUPN\\recovery\\abandoned-lock-a7c16705-e361-4161-9742-30143f81f1ad-85cb0685-433e-4b81-b262-090bb693e2be"
+  },
+  "operation": {
+    "operation_id": "2520ddc2-3fdc-4f8a-8aac-ec2362d032b2",
+    "intent_hash": "451abe11b3e3a53f4b79c0eef917192946e601937aa61e3204c71f3c712a4641",
+    "state": "RECONCILED_NOT_APPLIED",
+    "executor_state": "NOT_INVOKED",
+    "reconcile_revision": 1,
+    "workspace": "reconcile-project:effect",
+    "writer": null,
+    "adjudications": [
+      {
+        "id": "b9ee781c-ac8f-4c12-8262-58c6d7f96b2d",
+        "request_id": "adjudicate-1",
+        "operation_id": "2520ddc2-3fdc-4f8a-8aac-ec2362d032b2",
+        "revision": 1,
+        "intent_hash": "451abe11b3e3a53f4b79c0eef917192946e601937aa61e3204c71f3c712a4641",
+        "action": "ADJUDICATE",
+        "outcome": "CONFIRMED_NOT_APPLIED",
+        "adjudicator": "host-admin",
+        "observed_at": "2026-11-07T06:20:40.030Z",
+        "reason": "Observed the actual local effect and trusted executor settlement",
+        "evidence": "[{\"artifact_id\":\"d2752366-abb8-42d1-b973-23688dffe996\",\"bytes\":479,\"codec\":\"zstd\",\"media_type\":\"application/json\",\"sensitivity\":\"NORMAL\",\"sha256\":\"ce6cc80e3df53b094fdce88d50a8a8e48615c4d1279591ebb7c8fee9f5d6163c\",\"stored_bytes\":378,\"stored_sha256\":\"621bcaa0edcbd133383e603337f9c3aa3295de8f63e8c5fdf75221a28046ae84\"}]",
+        "writer_released": 1,
+        "audit_event_id": "8ef46673-18ef-4449-b887-2632400a6595"
+      }
+    ],
+    "executor_running": false
+  },
+  "effect": "",
+  "replay_reason": "DUPLICATE_OPERATION"
+}

@@ -13,10 +13,14 @@ import { initializeControl, adminEvent, contains, metadata } from './control.ts'
 import { auditEvent, boundedJson, canonical, invariant, now, sha256, uid, validateIdentity } from './types.ts';
 import type { DiagnosticRequest, FeatureDefinition, Identity, Json, PolicyDefinition, Scope, ValidationResult } from './types.ts';
 import type { FeatureChange, Module } from './features.ts';
+import { RuntimeControl } from './runtime/control.ts';
+import { ExecutionBroker } from './runtime/broker.ts';
+import type { ObservationProvider } from './runtime/contracts.ts';
 
 export type HostOptions = {
   pythonPath?: string; powerShellPath?: string; ruleEvaluator?: RuleEvaluator;
   definitions?: FeatureDefinition[]; policies?: PolicyDefinition[];
+  runtimeObservationProvider?: ObservationProvider; // Trusted transport bootstrap only; never Agent input.
 };
 
 export async function openHost(root: string, options: HostOptions = {}) {
@@ -33,6 +37,10 @@ export async function openHost(root: string, options: HostOptions = {}) {
     const features = new FeatureRegistry(store, featureData, checkAdmin, gate);
     const policy = new PolicyEngine(store, policyData, checkAdmin, gate, () => features.activeCount(), options.ruleEvaluator);
     const gateway = new ToolGateway(store, features, policy, checkAdmin, gate);
+    const runtime = new RuntimeControl(store, checkAdmin, options.runtimeObservationProvider ?? {
+      assurance: 'MODEL', peer: async () => { throw new Error('NATIVE_TRANSPORT_NOT_DEPLOYED'); }, exit: async () => { throw new Error('NATIVE_SUPERVISOR_NOT_DEPLOYED'); },
+    }, id => { try { return features.resolve(id).effective === 'ON'; } catch { return false; } });
+    const broker = new ExecutionBroker();
     type Binding = { identity: Identity; scope: Scope; diagnostics: DevelopmentIntelligence | null; active: number; closing: boolean; closePromise: Promise<void> | null };
     const bindings = new Map<string, Binding>();
     let closed = false;
@@ -66,6 +74,7 @@ export async function openHost(root: string, options: HostOptions = {}) {
       'devint.runtime','devint.command-parser','devint.syntax-validator','devint.argument-validator','devint.environment-checker','devint.command-preview','devint.code-diagnostics','devint.code.python','devint.code.json','devint.command.powershell','devint.command.git','devint.command.python-cli','audit.task-reconstruction'];
     for (const id of nativeModules) if (featureData.some((d: FeatureDefinition) => d.id === id)) features.register(token, id, id.startsWith('devint.') ? { stop: stopDiagnostics, preflight: preflightDiagnostics } : {});
     const reconciliation = new OperationReconciliation(store, checkAdmin, gate, id => gateway.executorRunning(id), id => gateway.requestActive(id));
+    await runtime.recover();
     await reconciliation.recover();
     await policy.onBoot();
     if (featureData.some((d: FeatureDefinition) => d.id === 'tool.test')) {
@@ -143,6 +152,18 @@ export async function openHost(root: string, options: HostOptions = {}) {
       prepareReconciliation: (request: ReconciliationRequest) => reconciliation.prepare(token, request),
       commitReconciliation: (id: string, hash: string) => reconciliation.commit(token, id, hash),
       inspectOperation: (id: string) => reconciliation.inspect(token, id),
+      runtime: Object.freeze({
+        create: (...args: Parameters<RuntimeControl['create']> extends [unknown, ...infer R] ? R : never) => runtime.create(token, ...args),
+        authenticate: (id: string, channel: object) => runtime.authenticate(token, id, channel),
+        activate: (handle: object) => runtime.activate(token, handle),
+        issue: (handle: object, scope: Parameters<RuntimeControl['issue']>[2], lifetime?: number) => runtime.issue(token, handle, scope, lifetime),
+        revoke: (id: string, reason: string) => runtime.revoke(token, id, reason),
+        inspect: (id: string) => runtime.inspect(token, id),
+        observeExit: (id: string, operation: string) => runtime.observeExit(token, id, operation),
+        reserve: (id: string, operation: string, resources: Parameters<RuntimeControl['reserve']>[3]) => runtime.reserve(token,id,operation,resources),
+        release: (id: string, operation: string, proof: string) => runtime.release(token,id,operation,proof),
+        brokerStatus: () => broker.status(),
+      }),
       recordDecision: async (decision: Json, status: 'PROPOSED' | 'ACCEPTED', evidence: any[] = []) => {
         boundedJson(decision); const id = uid();
         const identity = { agent_id: 'host-admin', project_id: 'host', task_id: 'administration', session_id: 'host-control' };
@@ -182,6 +203,8 @@ export async function openHost(root: string, options: HostOptions = {}) {
           b.closePromise = (async () => {
             let auditFailure: unknown = null;
             const operation = uid();
+            try { await runtime.revokeScope(token, frozen, 'Logical Agent session is closing'); }
+            catch (error) { auditFailure = error; }
             try { store.audit(auditEvent(frozen, { operation_id: operation, operation_type: 'AGENT_LIFECYCLE', phase: 'SESSION_REVOKING', execution_status: 'REVOKING', cwd: store.root })); await store.flush(); }
             catch (error) { auditFailure = error; }
             if (b.diagnostics) { if ('disposeAndWait' in b.diagnostics) await (b.diagnostics as any).disposeAndWait(); else b.diagnostics.dispose(); }
@@ -203,7 +226,7 @@ export async function openHost(root: string, options: HostOptions = {}) {
         if (hostClosePromise) return hostClosePromise;
         invariant(features.activeCount() === 0 && ![...bindings.values()].some(b => b.active !== 0), 'ACTIVE_OPERATIONS');
         closed = true;
-        hostClosePromise = (async () => { await stopDiagnostics({}); bindings.clear(); await store.close(); })();
+        hostClosePromise = (async () => { await runtime.close(); await stopDiagnostics({}); bindings.clear(); await store.close(); })();
         return hostClosePromise;
       },
     });

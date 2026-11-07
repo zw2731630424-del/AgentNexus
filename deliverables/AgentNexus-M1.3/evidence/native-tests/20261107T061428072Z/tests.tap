@@ -1,0 +1,53 @@
+TAP version 13
+# Subtest: M13-WINDOWS: actual native primitives; no full sandbox or release authority inferred
+    # Subtest: job-normal
+    ok 1 - job-normal
+      ---
+      duration_ms: 0.6794
+      type: 'test'
+      ...
+    # Subtest: job-hold
+    ok 2 - job-hold
+      ---
+      duration_ms: 0.1218
+      type: 'test'
+      ...
+    # Subtest: job-orphan
+    ok 3 - job-orphan # SKIP Parent-exited/child-alive window not observed in this managed environment
+      ---
+      duration_ms: 0.1273
+      type: 'test'
+      ...
+    # Subtest: pipe-True
+    ok 4 - pipe-True # SKIP Native observation unavailable: Pipe child exit 2: EPERM\\n
+      ---
+      duration_ms: 0.0619
+      type: 'test'
+      ...
+    # Subtest: pipe-False
+    ok 5 - pipe-False # SKIP Native observation unavailable: Pipe child exit 2: EPERM\\n
+      ---
+      duration_ms: 0.0859
+      type: 'test'
+      ...
+    # Subtest: restricted-token
+    ok 6 - restricted-token
+      ---
+      duration_ms: 0.0937
+      type: 'test'
+      ...
+    1..6
+ok 1 - M13-WINDOWS: actual native primitives; no full sandbox or release authority inferred
+  ---
+  duration_ms: 20441.793
+  type: 'test'
+  ...
+1..1
+# tests 7
+# suites 0
+# pass 4
+# fail 0
+# cancelled 0
+# skipped 3
+# todo 0
+# duration_ms 20606.7775

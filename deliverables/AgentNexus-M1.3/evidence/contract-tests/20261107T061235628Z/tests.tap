@@ -1,0 +1,124 @@
+TAP version 13
+# Subtest: M13-IDENTITY: only trusted bootstrap creates bindings; malformed logical/process/profile denied
+ok 1 - M13-IDENTITY: only trusted bootstrap creates bindings; malformed logical/process/profile denied
+  ---
+  duration_ms: 527.5391
+  type: 'test'
+  ...
+# Subtest: M13-IDENTITY: real peer tuple required; PID reuse, SID and session mismatch rejected in contract model
+ok 2 - M13-IDENTITY: real peer tuple required; PID reuse, SID and session mismatch rejected in contract model
+  ---
+  duration_ms: 66.5666
+  type: 'test'
+  ...
+# Subtest: M13-IDENTITY: CREATED/AUTHENTICATED/ACTIVE/REVOKING/REVOKED audited; revoke is immediate
+ok 3 - M13-IDENTITY: CREATED/AUTHENTICATED/ACTIVE/REVOKING/REVOKED audited; revoke is immediate
+  ---
+  duration_ms: 91.1499
+  type: 'test'
+  ...
+# Subtest: M13-IPC: exact contract request consumes one capability and returns no execution authority
+ok 4 - M13-IPC: exact contract request consumes one capability and returns no execution authority
+  ---
+  duration_ms: 89.7614
+  type: 'test'
+  ...
+# Subtest: M13-IPC: authenticated Worker cannot change logical/runtime/task/instance/resource/profile/payload
+ok 5 - M13-IPC: authenticated Worker cannot change logical/runtime/task/instance/resource/profile/payload
+  ---
+  duration_ms: 156.0238
+  type: 'test'
+  ...
+# Subtest: M13-IPC: concurrent duplicate, request/operation and nonce replay reject atomically
+ok 6 - M13-IPC: concurrent duplicate, request/operation and nonce replay reject atomically
+  ---
+  duration_ms: 120.121
+  type: 'test'
+  ...
+# Subtest: M13-IPC: MAC tamper, invalid UTF8, unknown/duplicate keys and malformed frame fail closed
+ok 7 - M13-IPC: MAC tamper, invalid UTF8, unknown/duplicate keys and malformed frame fail closed
+  ---
+  duration_ms: 69.4574
+  type: 'test'
+  ...
+# Subtest: M13-IPC: expiry, clock lease and epochs reject old capabilities
+ok 8 - M13-IPC: expiry, clock lease and epochs reject old capabilities
+  ---
+  duration_ms: 134.6258
+  type: 'test'
+  ...
+# Subtest: M13-IPC: revocation while peer observation is pending fences consume
+ok 9 - M13-IPC: revocation while peer observation is pending fences consume
+  ---
+  duration_ms: 81.6645
+  type: 'test'
+  ...
+# Subtest: M13-IPC: authorization barrier failure consumes no second request and retains original operation
+ok 10 - M13-IPC: authorization barrier failure consumes no second request and retains original operation
+  ---
+  duration_ms: 84.7796
+  type: 'test'
+  ...
+# Subtest: M13-FEATURE: OFF blocks new IPC; Broker remains blocked for every capability and mode
+ok 11 - M13-FEATURE: OFF blocks new IPC; Broker remains blocked for every capability and mode
+  ---
+  duration_ms: 74.589
+  type: 'test'
+  ...
+# Subtest: M13-IPC: PROCESS capability cannot use protocol-only admission
+ok 12 - M13-IPC: PROCESS capability cannot use protocol-only admission
+  ---
+  duration_ms: 77.2917
+  type: 'test'
+  ...
+# Subtest: M13-RECOVERY: IPC loss preserves operation ID and all five resource reservations
+ok 13 - M13-RECOVERY: IPC loss preserves operation ID and all five resource reservations
+  ---
+  duration_ms: 90.5077
+  type: 'test'
+  ...
+# Subtest: M13-EXIT: incomplete evidence, parent-only exit and even complete MODEL proof cannot release
+ok 14 - M13-EXIT: incomplete evidence, parent-only exit and even complete MODEL proof cannot release
+  ---
+  duration_ms: 84.8946
+  type: 'test'
+  ...
+# Subtest: M13-EXIT: termination request is separate from tree exit and abnormal exit is independent state
+ok 15 - M13-EXIT: termination request is separate from tree exit and abnormal exit is independent state
+  ---
+  duration_ms: 80.3539
+  type: 'test'
+  ...
+# Subtest: M13-EXIT: mismatched start identity and untrusted proof source are rejected
+ok 16 - M13-EXIT: mismatched start identity and untrusted proof source are rejected
+  ---
+  duration_ms: 71.0406
+  type: 'test'
+  ...
+# Subtest: M13-RECOVERY: new Host boot quarantines old identities and resources; original M12 Writer remains
+ok 17 - M13-RECOVERY: new Host boot quarantines old identities and resources; original M12 Writer remains
+  ---
+  duration_ms: 122.3052
+  type: 'test'
+  ...
+# Subtest: M13-AUDIT: Worker producer cannot declare RESULT; correlation records append
+ok 18 - M13-AUDIT: Worker producer cannot declare RESULT; correlation records append
+  ---
+  duration_ms: 68.5373
+  type: 'test'
+  ...
+# Subtest: M13-FEATURE: Host Agent facade has no runtime/admin and independent owners cannot be disabled
+ok 19 - M13-FEATURE: Host Agent facade has no runtime/admin and independent owners cannot be disabled
+  ---
+  duration_ms: 181.6467
+  type: 'test'
+  ...
+1..19
+# tests 19
+# suites 0
+# pass 19
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2518.6671

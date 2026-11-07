@@ -1,0 +1,170 @@
+TAP version 13
+# Subtest: M13-IDENTITY: only trusted bootstrap creates bindings; malformed logical/process/profile denied
+ok 1 - M13-IDENTITY: only trusted bootstrap creates bindings; malformed logical/process/profile denied
+  ---
+  duration_ms: 55.5268
+  type: 'test'
+  ...
+# Subtest: M13-IDENTITY: real peer tuple required; PID reuse, SID and session mismatch rejected in contract model
+ok 2 - M13-IDENTITY: real peer tuple required; PID reuse, SID and session mismatch rejected in contract model
+  ---
+  duration_ms: 44.1389
+  type: 'test'
+  ...
+# Subtest: M13-IDENTITY: CREATED/AUTHENTICATED/ACTIVE/REVOKING/REVOKED audited; revoke is immediate
+ok 3 - M13-IDENTITY: CREATED/AUTHENTICATED/ACTIVE/REVOKING/REVOKED audited; revoke is immediate
+  ---
+  duration_ms: 52.3244
+  type: 'test'
+  ...
+# Subtest: M13-IPC: exact contract request consumes one capability and returns no execution authority
+ok 4 - M13-IPC: exact contract request consumes one capability and returns no execution authority
+  ---
+  duration_ms: 52.4974
+  type: 'test'
+  ...
+# Subtest: M13-IPC: authenticated Worker cannot change logical/runtime/task/instance/resource/profile/payload
+ok 5 - M13-IPC: authenticated Worker cannot change logical/runtime/task/instance/resource/profile/payload
+  ---
+  duration_ms: 91.431
+  type: 'test'
+  ...
+# Subtest: M13-IPC: concurrent duplicate, request/operation and nonce replay reject atomically
+ok 6 - M13-IPC: concurrent duplicate, request/operation and nonce replay reject atomically
+  ---
+  duration_ms: 75.8397
+  type: 'test'
+  ...
+# Subtest: M13-IPC: MAC tamper, invalid UTF8, unknown/duplicate keys and malformed frame fail closed
+ok 7 - M13-IPC: MAC tamper, invalid UTF8, unknown/duplicate keys and malformed frame fail closed
+  ---
+  duration_ms: 45.1195
+  type: 'test'
+  ...
+# Subtest: M13-IPC: expiry, clock lease and epochs reject old capabilities
+ok 8 - M13-IPC: expiry, clock lease and epochs reject old capabilities
+  ---
+  duration_ms: 105.9087
+  type: 'test'
+  ...
+# Subtest: M13-IPC: revocation while peer observation is pending fences consume
+ok 9 - M13-IPC: revocation while peer observation is pending fences consume
+  ---
+  duration_ms: 62.3928
+  type: 'test'
+  ...
+# Subtest: M13-IPC: authorization barrier failure consumes no second request and retains original operation
+ok 10 - M13-IPC: authorization barrier failure consumes no second request and retains original operation
+  ---
+  duration_ms: 51.3941
+  type: 'test'
+  ...
+# Subtest: M13-FEATURE: OFF blocks new IPC; Broker remains blocked for every capability and mode
+ok 11 - M13-FEATURE: OFF blocks new IPC; Broker remains blocked for every capability and mode
+  ---
+  duration_ms: 48.3177
+  type: 'test'
+  ...
+# Subtest: M13-IPC: PROCESS capability cannot use protocol-only admission
+ok 12 - M13-IPC: PROCESS capability cannot use protocol-only admission
+  ---
+  duration_ms: 47.9402
+  type: 'test'
+  ...
+# Subtest: M13-RECOVERY: IPC loss preserves operation ID and all five resource reservations
+ok 13 - M13-RECOVERY: IPC loss preserves operation ID and all five resource reservations
+  ---
+  duration_ms: 55.0184
+  type: 'test'
+  ...
+# Subtest: M13-EXIT: incomplete evidence, parent-only exit and even complete MODEL proof cannot release
+ok 14 - M13-EXIT: incomplete evidence, parent-only exit and even complete MODEL proof cannot release
+  ---
+  duration_ms: 49.4159
+  type: 'test'
+  ...
+# Subtest: M13-EXIT: termination request is separate from tree exit and abnormal exit is independent state
+ok 15 - M13-EXIT: termination request is separate from tree exit and abnormal exit is independent state
+  ---
+  duration_ms: 48.9171
+  type: 'test'
+  ...
+# Subtest: M13-EXIT: mismatched start identity and untrusted proof source are rejected
+ok 16 - M13-EXIT: mismatched start identity and untrusted proof source are rejected
+  ---
+  duration_ms: 44.0368
+  type: 'test'
+  ...
+# Subtest: M13-RECOVERY: new Host boot quarantines old identities and resources; original M12 Writer remains
+ok 17 - M13-RECOVERY: new Host boot quarantines old identities and resources; original M12 Writer remains
+  ---
+  duration_ms: 68.519
+  type: 'test'
+  ...
+# Subtest: M13-AUDIT: Worker producer cannot declare RESULT; correlation records append
+ok 18 - M13-AUDIT: Worker producer cannot declare RESULT; correlation records append
+  ---
+  duration_ms: 40.1605
+  type: 'test'
+  ...
+# Subtest: M13-FEATURE: Host Agent facade has no runtime/admin and independent owners cannot be disabled
+ok 19 - M13-FEATURE: Host Agent facade has no runtime/admin and independent owners cannot be disabled
+  ---
+  duration_ms: 102.5244
+  type: 'test'
+  ...
+# Subtest: M13-IR: exit observation cannot attach to unowned operation; one-operation profile is fixed
+ok 20 - M13-IR: exit observation cannot attach to unowned operation; one-operation profile is fixed
+  ---
+  duration_ms: 43.7697
+  type: 'test'
+  ...
+# Subtest: M13-IR: stalled peer observation times out; unresolved native work remains bounded
+not ok 21 - M13-IR: stalled peer observation times out; unresolved native work remains bounded
+  ---
+  duration_ms: 255.7287
+  type: 'test'
+  location: 'I:\\AI_AgentNexus\\tests\\agentnexus\\runtime.test.ts:170:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    The expression evaluated to a falsy value:
+    
+      assert.ok((await Promise.all(stuck)).every(x=>x==='RUNTIME_OBSERVATION_TIMEOUT'))
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (file:///I:/AI_AgentNexus/tests/agentnexus/runtime.test.ts:173:27)
+    async Test.run (node:internal/test_runner/test:1208:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:831:7)
+  ...
+# Subtest: M13-IR: terminal observed exit recycles authenticated connection slots without releasing resources
+ok 22 - M13-IR: terminal observed exit recycles authenticated connection slots without releasing resources
+  ---
+  duration_ms: 468.6083
+  type: 'test'
+  ...
+# Subtest: M13-IR: logical session close revokes its runtime binding
+ok 23 - M13-IR: logical session close revokes its runtime binding
+  ---
+  duration_ms: 58.9014
+  type: 'test'
+  ...
+# Subtest: M13-IR: contradictory root or tree observations cannot create proof
+ok 24 - M13-IR: contradictory root or tree observations cannot create proof
+  ---
+  duration_ms: 43.5901
+  type: 'test'
+  ...
+1..24
+# tests 24
+# suites 0
+# pass 23
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2180.4052

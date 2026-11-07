@@ -10604,6 +10604,299 @@
         "sandbox.ubuntu-RECOVERY"
       ],
       "runtime_admission": "NOT_RUN: implementation evidence recorded separately"
+    },
+    {
+      "id": "security.identity.runtime",
+      "kind": "OPTIONAL",
+      "default": "OFF",
+      "scopes": [
+        "G"
+      ],
+      "depends_on": [
+        "core.identity",
+        "core.state"
+      ],
+      "conflicts": [],
+      "version": "0.4.0-m1.3",
+      "implementation_status": "CONTRACT_ONLY_DEPLOYMENT_BLOCKED",
+      "off_behavior": "Deny protected execution; retain unknown reservations; no direct Host access",
+      "degradation": "BLOCKED; no fallback",
+      "recovery": "Trusted bootstrap and platform-specific acceptance; old sessions never revived",
+      "tests": [
+        "M13-IDENTITY",
+        "M13-IPC",
+        "M13-RECOVERY",
+        "M13-EXIT",
+        "M13-FEATURE"
+      ]
+    },
+    {
+      "id": "security.ipc",
+      "kind": "OPTIONAL",
+      "default": "OFF",
+      "scopes": [
+        "G"
+      ],
+      "depends_on": [
+        "security.identity.runtime"
+      ],
+      "conflicts": [],
+      "version": "0.4.0-m1.3",
+      "implementation_status": "CONTRACT_ONLY_DEPLOYMENT_BLOCKED",
+      "off_behavior": "Deny protected execution; retain unknown reservations; no direct Host access",
+      "degradation": "BLOCKED; no fallback",
+      "recovery": "Trusted bootstrap and platform-specific acceptance; old sessions never revived",
+      "tests": [
+        "M13-IDENTITY",
+        "M13-IPC",
+        "M13-RECOVERY",
+        "M13-EXIT",
+        "M13-FEATURE"
+      ]
+    },
+    {
+      "id": "security.broker",
+      "kind": "OPTIONAL",
+      "default": "OFF",
+      "scopes": [
+        "G"
+      ],
+      "depends_on": [
+        "security.ipc",
+        "security.exit_proof"
+      ],
+      "conflicts": [],
+      "version": "0.4.0-m1.3",
+      "implementation_status": "CONTRACT_ONLY_DEPLOYMENT_BLOCKED",
+      "off_behavior": "Deny protected execution; retain unknown reservations; no direct Host access",
+      "degradation": "BLOCKED; no fallback",
+      "recovery": "Trusted bootstrap and platform-specific acceptance; old sessions never revived",
+      "tests": [
+        "M13-IDENTITY",
+        "M13-IPC",
+        "M13-RECOVERY",
+        "M13-EXIT",
+        "M13-FEATURE"
+      ]
+    },
+    {
+      "id": "security.sandbox.windows",
+      "kind": "OPTIONAL",
+      "default": "OFF",
+      "scopes": [
+        "G"
+      ],
+      "depends_on": [
+        "security.process.supervisor"
+      ],
+      "conflicts": [],
+      "version": "0.4.0-m1.3",
+      "implementation_status": "CONTRACT_ONLY_DEPLOYMENT_BLOCKED",
+      "off_behavior": "Deny protected execution; retain unknown reservations; no direct Host access",
+      "degradation": "BLOCKED; no fallback",
+      "recovery": "Trusted bootstrap and platform-specific acceptance; old sessions never revived",
+      "tests": [
+        "M13-IDENTITY",
+        "M13-IPC",
+        "M13-RECOVERY",
+        "M13-EXIT",
+        "M13-FEATURE"
+      ]
+    },
+    {
+      "id": "security.sandbox.linux",
+      "kind": "OPTIONAL",
+      "default": "OFF",
+      "scopes": [
+        "G"
+      ],
+      "depends_on": [
+        "security.process.supervisor"
+      ],
+      "conflicts": [],
+      "version": "0.4.0-m1.3",
+      "implementation_status": "CONTRACT_ONLY_DEPLOYMENT_BLOCKED",
+      "off_behavior": "Deny protected execution; retain unknown reservations; no direct Host access",
+      "degradation": "BLOCKED; no fallback",
+      "recovery": "Trusted bootstrap and platform-specific acceptance; old sessions never revived",
+      "tests": [
+        "M13-IDENTITY",
+        "M13-IPC",
+        "M13-RECOVERY",
+        "M13-EXIT",
+        "M13-FEATURE"
+      ]
+    },
+    {
+      "id": "security.process.supervisor",
+      "kind": "OPTIONAL",
+      "default": "OFF",
+      "scopes": [
+        "G"
+      ],
+      "depends_on": [
+        "security.identity.runtime"
+      ],
+      "conflicts": [],
+      "version": "0.4.0-m1.3",
+      "implementation_status": "CONTRACT_ONLY_DEPLOYMENT_BLOCKED",
+      "off_behavior": "Deny protected execution; retain unknown reservations; no direct Host access",
+      "degradation": "BLOCKED; no fallback",
+      "recovery": "Trusted bootstrap and platform-specific acceptance; old sessions never revived",
+      "tests": [
+        "M13-IDENTITY",
+        "M13-IPC",
+        "M13-RECOVERY",
+        "M13-EXIT",
+        "M13-FEATURE"
+      ]
+    },
+    {
+      "id": "security.exit_proof",
+      "kind": "OPTIONAL",
+      "default": "OFF",
+      "scopes": [
+        "G"
+      ],
+      "depends_on": [
+        "security.process.supervisor"
+      ],
+      "conflicts": [],
+      "version": "0.4.0-m1.3",
+      "implementation_status": "CONTRACT_ONLY_DEPLOYMENT_BLOCKED",
+      "off_behavior": "Deny protected execution; retain unknown reservations; no direct Host access",
+      "degradation": "BLOCKED; no fallback",
+      "recovery": "Trusted bootstrap and platform-specific acceptance; old sessions never revived",
+      "tests": [
+        "M13-IDENTITY",
+        "M13-IPC",
+        "M13-RECOVERY",
+        "M13-EXIT",
+        "M13-FEATURE"
+      ]
+    },
+    {
+      "id": "security.resource_reconciliation",
+      "kind": "OPTIONAL",
+      "default": "OFF",
+      "scopes": [
+        "G"
+      ],
+      "depends_on": [
+        "security.exit_proof"
+      ],
+      "conflicts": [],
+      "version": "0.4.0-m1.3",
+      "implementation_status": "CONTRACT_ONLY_DEPLOYMENT_BLOCKED",
+      "off_behavior": "Deny protected execution; retain unknown reservations; no direct Host access",
+      "degradation": "BLOCKED; no fallback",
+      "recovery": "Trusted bootstrap and platform-specific acceptance; old sessions never revived",
+      "tests": [
+        "M13-IDENTITY",
+        "M13-IPC",
+        "M13-RECOVERY",
+        "M13-EXIT",
+        "M13-FEATURE"
+      ]
+    },
+    {
+      "id": "audit.producer.ipc",
+      "kind": "OPTIONAL",
+      "default": "OFF",
+      "scopes": [
+        "G"
+      ],
+      "depends_on": [
+        "security.ipc",
+        "core.audit.trail"
+      ],
+      "conflicts": [],
+      "version": "0.4.0-m1.3",
+      "implementation_status": "CONTRACT_ONLY_DEPLOYMENT_BLOCKED",
+      "off_behavior": "Deny protected execution; retain unknown reservations; no direct Host access",
+      "degradation": "BLOCKED; no fallback",
+      "recovery": "Trusted bootstrap and platform-specific acceptance; old sessions never revived",
+      "tests": [
+        "M13-IDENTITY",
+        "M13-IPC",
+        "M13-RECOVERY",
+        "M13-EXIT",
+        "M13-FEATURE"
+      ]
+    },
+    {
+      "id": "audit.producer.worker",
+      "kind": "OPTIONAL",
+      "default": "OFF",
+      "scopes": [
+        "G"
+      ],
+      "depends_on": [
+        "security.identity.runtime",
+        "core.audit.trail"
+      ],
+      "conflicts": [],
+      "version": "0.4.0-m1.3",
+      "implementation_status": "CONTRACT_ONLY_DEPLOYMENT_BLOCKED",
+      "off_behavior": "Deny protected execution; retain unknown reservations; no direct Host access",
+      "degradation": "BLOCKED; no fallback",
+      "recovery": "Trusted bootstrap and platform-specific acceptance; old sessions never revived",
+      "tests": [
+        "M13-IDENTITY",
+        "M13-IPC",
+        "M13-RECOVERY",
+        "M13-EXIT",
+        "M13-FEATURE"
+      ]
+    },
+    {
+      "id": "audit.producer.process",
+      "kind": "OPTIONAL",
+      "default": "OFF",
+      "scopes": [
+        "G"
+      ],
+      "depends_on": [
+        "security.process.supervisor",
+        "core.audit.trail"
+      ],
+      "conflicts": [],
+      "version": "0.4.0-m1.3",
+      "implementation_status": "CONTRACT_ONLY_DEPLOYMENT_BLOCKED",
+      "off_behavior": "Deny protected execution; retain unknown reservations; no direct Host access",
+      "degradation": "BLOCKED; no fallback",
+      "recovery": "Trusted bootstrap and platform-specific acceptance; old sessions never revived",
+      "tests": [
+        "M13-IDENTITY",
+        "M13-IPC",
+        "M13-RECOVERY",
+        "M13-EXIT",
+        "M13-FEATURE"
+      ]
+    },
+    {
+      "id": "audit.producer.sandbox",
+      "kind": "OPTIONAL",
+      "default": "OFF",
+      "scopes": [
+        "G"
+      ],
+      "depends_on": [
+        "core.audit.trail"
+      ],
+      "conflicts": [],
+      "version": "0.4.0-m1.3",
+      "implementation_status": "CONTRACT_ONLY_DEPLOYMENT_BLOCKED",
+      "off_behavior": "Deny protected execution; retain unknown reservations; no direct Host access",
+      "degradation": "BLOCKED; no fallback",
+      "recovery": "Trusted bootstrap and platform-specific acceptance; old sessions never revived",
+      "tests": [
+        "M13-IDENTITY",
+        "M13-IPC",
+        "M13-RECOVERY",
+        "M13-EXIT",
+        "M13-FEATURE"
+      ]
     }
   ],
   "baseline": {

@@ -51,7 +51,7 @@ test('M12-PE-CONFIG: closed policy identity and runtime contract reject malforme
   ];
   for (const [name, change, code] of variants) await t.test(name, () => assert.throws(() => validatePolicyDefinitions([change(policy())]), { code }));
   assert.throws(() => validatePolicyDefinitions([policy(), policy()]), { code: 'DUPLICATE_POLICY' });
-  assert.equal(validatePolicyDefinitions(catalog).length, 34);
+  assert.equal(validatePolicyDefinitions(catalog).length, 41); // Original 34 plus seven independent runtime owners.
   const base = resolve(process.env.AGENTNEXUS_TEST_DATA_ROOT ?? '.workflow-kit/runtime/AgentNexus-M1.2/test-data', 'security'); await mkdir(base, { recursive: true });
   await assert.rejects(openHost(await mkdtemp(join(base, 'bad-startup-')), { policies: [{ ...policy(), level: 'L9' } as any] }), { code: 'INVALID_POLICY_CONTRACT' });
 });

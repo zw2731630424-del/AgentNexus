@@ -1,5 +1,12 @@
 // Reviewed runtime policy identities. Catalog prose never grants execution authority.
 export const POLICY_CONTRACTS: Readonly<Record<string, readonly [string, boolean, string]>> = Object.freeze({
+  'P.RUNTIME_IDENTITY': ['L0', false, 'Runtime Identity Registry'],
+  'P.IPC_PEER': ['L0', false, 'Trusted IPC Adapter'],
+  'P.WORKER_SCOPE': ['L0', false, 'Execution Broker'],
+  'P.SANDBOX_PROFILE': ['L0', false, 'Sandbox Controller'],
+  'P.PROCESS_OWNER': ['L0', false, 'Worker Supervisor'],
+  'P.EXIT_PROOF': ['L0', false, 'ExitProof Verifier'],
+  'P.RESOURCE_RELEASE': ['L0', false, 'Resource Reconciliation'],
   "P.IDENTITY": [
     "L0",
     false,

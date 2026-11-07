@@ -1929,6 +1929,160 @@
         "epoch",
         "evidence_refs"
       ]
+    },
+    {
+      "id": "P.RUNTIME_IDENTITY",
+      "level": "L0",
+      "degradable": false,
+      "enforcement_owner": "Runtime Identity Registry",
+      "default_mode": "ENFORCE",
+      "version": "0.4.0-m1.3",
+      "scope": "runtime/operation/resource",
+      "modes": {
+        "ENFORCE": "Independent owner always enforces; unavailable implementation DENY/BLOCKED",
+        "AUDIT_ONLY": "Independent owner always enforces; unavailable implementation DENY/BLOCKED",
+        "DISABLED": "Independent owner always enforces; unavailable implementation DENY/BLOCKED"
+      },
+      "failure": "DENY/BLOCKED; retain UNKNOWN resources",
+      "implementation_status": "CONTRACT_ONLY_OS_DEPLOYMENT_BLOCKED",
+      "test_ids": [
+        "M13-IDENTITY",
+        "M13-IPC",
+        "M13-EXIT",
+        "M13-FEATURE"
+      ]
+    },
+    {
+      "id": "P.IPC_PEER",
+      "level": "L0",
+      "degradable": false,
+      "enforcement_owner": "Trusted IPC Adapter",
+      "default_mode": "ENFORCE",
+      "version": "0.4.0-m1.3",
+      "scope": "runtime/operation/resource",
+      "modes": {
+        "ENFORCE": "Independent owner always enforces; unavailable implementation DENY/BLOCKED",
+        "AUDIT_ONLY": "Independent owner always enforces; unavailable implementation DENY/BLOCKED",
+        "DISABLED": "Independent owner always enforces; unavailable implementation DENY/BLOCKED"
+      },
+      "failure": "DENY/BLOCKED; retain UNKNOWN resources",
+      "implementation_status": "CONTRACT_ONLY_OS_DEPLOYMENT_BLOCKED",
+      "test_ids": [
+        "M13-IDENTITY",
+        "M13-IPC",
+        "M13-EXIT",
+        "M13-FEATURE"
+      ]
+    },
+    {
+      "id": "P.WORKER_SCOPE",
+      "level": "L0",
+      "degradable": false,
+      "enforcement_owner": "Execution Broker",
+      "default_mode": "ENFORCE",
+      "version": "0.4.0-m1.3",
+      "scope": "runtime/operation/resource",
+      "modes": {
+        "ENFORCE": "Independent owner always enforces; unavailable implementation DENY/BLOCKED",
+        "AUDIT_ONLY": "Independent owner always enforces; unavailable implementation DENY/BLOCKED",
+        "DISABLED": "Independent owner always enforces; unavailable implementation DENY/BLOCKED"
+      },
+      "failure": "DENY/BLOCKED; retain UNKNOWN resources",
+      "implementation_status": "CONTRACT_ONLY_OS_DEPLOYMENT_BLOCKED",
+      "test_ids": [
+        "M13-IDENTITY",
+        "M13-IPC",
+        "M13-EXIT",
+        "M13-FEATURE"
+      ]
+    },
+    {
+      "id": "P.SANDBOX_PROFILE",
+      "level": "L0",
+      "degradable": false,
+      "enforcement_owner": "Sandbox Controller",
+      "default_mode": "ENFORCE",
+      "version": "0.4.0-m1.3",
+      "scope": "runtime/operation/resource",
+      "modes": {
+        "ENFORCE": "Independent owner always enforces; unavailable implementation DENY/BLOCKED",
+        "AUDIT_ONLY": "Independent owner always enforces; unavailable implementation DENY/BLOCKED",
+        "DISABLED": "Independent owner always enforces; unavailable implementation DENY/BLOCKED"
+      },
+      "failure": "DENY/BLOCKED; retain UNKNOWN resources",
+      "implementation_status": "CONTRACT_ONLY_OS_DEPLOYMENT_BLOCKED",
+      "test_ids": [
+        "M13-IDENTITY",
+        "M13-IPC",
+        "M13-EXIT",
+        "M13-FEATURE"
+      ]
+    },
+    {
+      "id": "P.PROCESS_OWNER",
+      "level": "L0",
+      "degradable": false,
+      "enforcement_owner": "Worker Supervisor",
+      "default_mode": "ENFORCE",
+      "version": "0.4.0-m1.3",
+      "scope": "runtime/operation/resource",
+      "modes": {
+        "ENFORCE": "Independent owner always enforces; unavailable implementation DENY/BLOCKED",
+        "AUDIT_ONLY": "Independent owner always enforces; unavailable implementation DENY/BLOCKED",
+        "DISABLED": "Independent owner always enforces; unavailable implementation DENY/BLOCKED"
+      },
+      "failure": "DENY/BLOCKED; retain UNKNOWN resources",
+      "implementation_status": "CONTRACT_ONLY_OS_DEPLOYMENT_BLOCKED",
+      "test_ids": [
+        "M13-IDENTITY",
+        "M13-IPC",
+        "M13-EXIT",
+        "M13-FEATURE"
+      ]
+    },
+    {
+      "id": "P.EXIT_PROOF",
+      "level": "L0",
+      "degradable": false,
+      "enforcement_owner": "ExitProof Verifier",
+      "default_mode": "ENFORCE",
+      "version": "0.4.0-m1.3",
+      "scope": "runtime/operation/resource",
+      "modes": {
+        "ENFORCE": "Independent owner always enforces; unavailable implementation DENY/BLOCKED",
+        "AUDIT_ONLY": "Independent owner always enforces; unavailable implementation DENY/BLOCKED",
+        "DISABLED": "Independent owner always enforces; unavailable implementation DENY/BLOCKED"
+      },
+      "failure": "DENY/BLOCKED; retain UNKNOWN resources",
+      "implementation_status": "CONTRACT_ONLY_OS_DEPLOYMENT_BLOCKED",
+      "test_ids": [
+        "M13-IDENTITY",
+        "M13-IPC",
+        "M13-EXIT",
+        "M13-FEATURE"
+      ]
+    },
+    {
+      "id": "P.RESOURCE_RELEASE",
+      "level": "L0",
+      "degradable": false,
+      "enforcement_owner": "Resource Reconciliation",
+      "default_mode": "ENFORCE",
+      "version": "0.4.0-m1.3",
+      "scope": "runtime/operation/resource",
+      "modes": {
+        "ENFORCE": "Independent owner always enforces; unavailable implementation DENY/BLOCKED",
+        "AUDIT_ONLY": "Independent owner always enforces; unavailable implementation DENY/BLOCKED",
+        "DISABLED": "Independent owner always enforces; unavailable implementation DENY/BLOCKED"
+      },
+      "failure": "DENY/BLOCKED; retain UNKNOWN resources",
+      "implementation_status": "CONTRACT_ONLY_OS_DEPLOYMENT_BLOCKED",
+      "test_ids": [
+        "M13-IDENTITY",
+        "M13-IPC",
+        "M13-EXIT",
+        "M13-FEATURE"
+      ]
     }
   ],
   "baseline": {

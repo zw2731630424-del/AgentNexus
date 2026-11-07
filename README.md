@@ -1,6 +1,8 @@
 # AgentNexus
 
-AgentNexus v0.4 的原生 Harness 研究与受限本地内核，当前版本 `0.4.0-m1.2`。
+AgentNexus v0.4 的原生 Harness 研究与受限本地内核，当前版本 `0.4.0-m1.3`。
+
+M1.3 增加 Runtime Identity/Trusted IPC 协议状态机、审计 SDK、资源隔离恢复和 Windows 原语探针。完整 OS 部署和独立执行 Broker 仍 **BLOCKED**；PROCESS/EXTERNAL_EFFECT 不开放。平台真实证据、独立审查与系统部署授权清单见 [M1.3 交付](deliverables/AgentNexus-M1.3/README.md)。
 
 当前实现包含 Feature Registry、Policy 三模式、Tool Gateway、Context Archive、Audit Trail、Artifact Store，以及 JSON / Python AST / PowerShell AST 开发诊断。运行边界为**可信本地库**，完整安全部署仍 **BLOCKED**：OS 管理身份与任意执行沙箱、真实 Provider、Key 池、费用、完整工作流/五 Agent、Vault、全部审计生产者和长期运行验收尚未完成。
 
