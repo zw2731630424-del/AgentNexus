@@ -1,0 +1,25 @@
+﹣ M15-PIPE REAL_WINDOWS_PRIMITIVE: persistent bidirectional frames bind kernel peers and exclude client instance right (1250.7844ms) # NOT_RUN: host AppContainer denies this exact user-SID-only named pipe; no permission fallback
+✔ M15-PIPE REAL_WINDOWS_PRIMITIVE: first-instance ownership rejects a second native listener (1378.286ms)
+✔ M15-PIPE REAL_WINDOWS_PRIMITIVE: four listener owners and exact endpoint grammar are bounded without accepting a client (1300.5894ms)
+﹣ M15-PIPE REAL_WINDOWS_PRIMITIVE: forged sid cannot authenticate a persistent native peer (1275.3436ms) # NOT_RUN: exact pipe connection denied by host sandbox
+﹣ M15-PIPE REAL_WINDOWS_PRIMITIVE: forged image cannot authenticate a persistent native peer (1338.221ms) # NOT_RUN: exact pipe connection denied by host sandbox
+﹣ M15-PIPE REAL_WINDOWS_PRIMITIVE: forged hash cannot authenticate a persistent native peer (1377.8557ms) # NOT_RUN: exact pipe connection denied by host sandbox
+✔ M15-PIPE REAL_WINDOWS_PRIMITIVE: forged pid cannot authenticate a persistent native peer (1240.9228ms)
+✔ M15-PIPE REAL_WINDOWS_PRIMITIVE: forged start cannot authenticate a persistent native peer (1339.6741ms)
+﹣ M15-PIPE REAL_WINDOWS_PRIMITIVE: oversized outbound payload revokes the channel without retry (1245.3593ms) # NOT_RUN: host AppContainer denies this exact user-SID-only named pipe; no permission fallback
+✔ M15-PIPE REAL_WINDOWS_PRIMITIVE: oversized inbound length destroys a raw same-account connection (1492.6124ms)
+﹣ M15-PIPE REAL_WINDOWS_PRIMITIVE: read deadline, explicit close and endpoint revocation are terminal (1293.0263ms) # NOT_RUN: host AppContainer denies this exact user-SID-only named pipe; no permission fallback
+﹣ M15-PIPE REAL_WINDOWS_PRIMITIVE: four live native channels fill owner quota and a closed slot can be reused (1200.1815ms) # NOT_RUN: host AppContainer denies this exact user-SID-only named pipe; no permission fallback
+▶ M15-ATTEST REAL_WINDOWS_PRIMITIVE: only the actual pinned parent and exact protected file security can attest
+  ﹣ positive protected-pin attestation (0.2214ms) # NOT_RUN: existing Node image has an unprotected inherited DACL; no ACL was modified. The actual unprotected DACL was rejected.
+✔ M15-ATTEST REAL_WINDOWS_PRIMITIVE: only the actual pinned parent and exact protected file security can attest (1708.7356ms)
+✔ M15-PIPE REAL_WINDOWS_PRIMITIVE: killing the actual Node owner retires its native helper (1337.7817ms)
+﹣ M15-PIPE production cross-account protected bootstrap and effective client-instance denial (0.1044ms) # NOT_RUN / BLOCKED: approved distinct standard accounts, exact deployment ACL/profile and startup objects are absent; same-account primitives grant no qualification
+ℹ tests 16
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 9
+ℹ todo 0
+ℹ duration_ms 18920.4867

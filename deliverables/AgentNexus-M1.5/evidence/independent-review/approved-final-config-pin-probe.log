@@ -1,0 +1,61 @@
+{
+  "schema": "agentnexus/config-pin-probe/1",
+  "timestamp": "2026-11-07T10:57:37.487Z",
+  "assurance": "SIMULATED",
+  "scope": "Pure config-pin mapping and a fake native attestation adapter; no complete deployment config, OS version, account, ACL, process pin or production attestation is exercised.",
+  "source_sha256": "281e683c0f4fac5a0618deff0976da09ccaca860935cf1c044541f5cf7e5aea0",
+  "stable_during_probe": true,
+  "results": [
+    {
+      "attack": "case-folded-config",
+      "accepted": true,
+      "reason": null,
+      "passed": true
+    },
+    {
+      "attack": "wrong-config-path",
+      "accepted": false,
+      "reason": {
+        "code": "M15_CONFIG_PIN_REQUIRED",
+        "message": "M15_CONFIG_PIN_REQUIRED"
+      },
+      "passed": true
+    },
+    {
+      "attack": "config-inside-code",
+      "accepted": false,
+      "reason": {
+        "code": "M15_CONFIG_OUTSIDE_CODE_REQUIRED",
+        "message": "M15_CONFIG_OUTSIDE_CODE_REQUIRED"
+      },
+      "passed": true
+    },
+    {
+      "attack": "consistent-os-two-batches",
+      "accepted": true,
+      "reason": null,
+      "batches": 2,
+      "passed": true
+    },
+    {
+      "attack": "wrong-os-version",
+      "accepted": false,
+      "reason": {
+        "code": "M15_OS_ATTESTATION",
+        "message": "M15_OS_ATTESTATION"
+      },
+      "batches": 1,
+      "passed": true
+    },
+    {
+      "attack": "changed-parent-between-batches",
+      "accepted": false,
+      "reason": {
+        "code": "M15_BOOTSTRAP_PROCESS_CHANGED",
+        "message": "M15_BOOTSTRAP_PROCESS_CHANGED"
+      },
+      "batches": 2,
+      "passed": true
+    }
+  ]
+}

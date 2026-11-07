@@ -1,0 +1,5 @@
+Node 24.15.0; TypeScript 5.9.3; @types/node 24.10.1; strict noEmit NodeNext; full src/tests/tools
+src/agentnexus/production/exit.ts(58,3): error TS2322: Type '{ evidence_hash: string; schema: "agentnexus/exit-proof/2"; proof_id: string; grant: Grant; observation: ExitEvidence; stdout_ref: ArtifactRef | null; ... 4 more ...; qualification_evidence_hash: string; }' is not assignable to type 'ExitProof'.
+  Types of property 'state' are incompatible.
+    Type 'string' is not assignable to type '"EXIT_VERIFIED" | "EXIT_UNVERIFIED"'.
+tests/agentnexus/m14-production.test.ts(241,120): error TS2353: Object literal may only specify known properties, and 'windowsHide' does not exist in type 'ForkOptions'.

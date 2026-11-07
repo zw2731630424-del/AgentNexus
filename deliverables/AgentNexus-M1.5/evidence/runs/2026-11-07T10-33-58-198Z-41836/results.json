@@ -1,0 +1,4071 @@
+{
+  "schema": "agentnexus/m1.5/verification/1",
+  "started_at": "2026-11-07T10:34:06.764Z",
+  "ended_at": "2026-11-07T10:36:29.529Z",
+  "node": "v24.15.0",
+  "platform": "win32",
+  "exit_code": 1,
+  "timedOut": false,
+  "source_set_sha256": "be3d9acae08fd9564f11bf6e752bf185bda9dc4b49907e43c8fb9266c16019da",
+  "test_files": [
+    "tests/agentnexus/control.test.ts",
+    "tests/agentnexus/diagnostics.test.ts",
+    "tests/agentnexus/gateway.test.ts",
+    "tests/agentnexus/integrity.test.ts",
+    "tests/agentnexus/m14-adapter.test.ts",
+    "tests/agentnexus/m14-native.test.ts",
+    "tests/agentnexus/m14-production.test.ts",
+    "tests/agentnexus/m15-bootstrap.test.ts",
+    "tests/agentnexus/m15-pipe.test.ts",
+    "tests/agentnexus/reconciliation.test.ts",
+    "tests/agentnexus/runtime.test.ts",
+    "tests/agentnexus/security.test.ts",
+    "tests/agentnexus/storage.test.ts",
+    "tests/agentnexus/windows-native.test.ts"
+  ],
+  "summary": {
+    "type": "test:summary",
+    "success": false,
+    "counts": {
+      "tests": 285,
+      "failed": 1,
+      "passed": 261,
+      "cancelled": 0,
+      "skipped": 23,
+      "todo": 0,
+      "topLevel": 237,
+      "suites": 0
+    },
+    "duration_ms": 142655.5245
+  },
+  "cases": [
+    {
+      "type": "test:pass",
+      "name": "FT-RESOLVE: defaults, child narrowing, ancestor veto, explicit INHERIT",
+      "nesting": 0,
+      "testNumber": 1,
+      "details": {
+        "duration_ms": 78.0627,
+        "type": "test"
+      },
+      "line": 38,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\control.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "FT: unknown IDs, illegal scopes and non-admin payloads rejected",
+      "nesting": 0,
+      "testNumber": 2,
+      "details": {
+        "duration_ms": 39.0335,
+        "type": "test"
+      },
+      "line": 50,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\control.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "FT-DEPENDENCY: rejects partial disable and does not enable a dependency implicitly",
+      "nesting": 0,
+      "testNumber": 3,
+      "details": {
+        "duration_ms": 44.7039,
+        "type": "test"
+      },
+      "line": 57,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\control.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "FT: mutual conflict, wrong preview hash and stale revision cannot commit",
+      "nesting": 0,
+      "testNumber": 4,
+      "details": {
+        "duration_ms": 53.1895,
+        "type": "test"
+      },
+      "line": 65,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\control.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "FT-OFF: live work aborts; failure remains FAILED until explicit recovery",
+      "nesting": 0,
+      "testNumber": 5,
+      "details": {
+        "duration_ms": 53.4416,
+        "type": "test"
+      },
+      "line": 74,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\control.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "FT-RETAIN: configuration survives real reopen, facts remain and old epoch is invalid",
+      "nesting": 0,
+      "testNumber": 6,
+      "details": {
+        "duration_ms": 69.1343,
+        "type": "test"
+      },
+      "line": 88,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\control.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "FT-INHERIT-OFF: ON to INHERIT must quiesce when default is OFF",
+      "nesting": 0,
+      "testNumber": 7,
+      "details": {
+        "duration_ms": 57.0417,
+        "type": "test"
+      },
+      "line": 100,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\control.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "FT-LATE-STOP: timeout cannot recover or enable until the old stop actually settles",
+      "nesting": 0,
+      "testNumber": 8,
+      "details": {
+        "duration_ms": 1058.5547,
+        "type": "test"
+      },
+      "line": 110,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\control.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "FT catalog is capacity, unimplemented module never becomes enabled from default ON",
+      "nesting": 0,
+      "testNumber": 9,
+      "details": {
+        "duration_ms": 48.9312,
+        "type": "test"
+      },
+      "line": 123,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\control.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "P.ADMIN_MODE: forged admin, L0 degradation and missing reason rejected",
+      "nesting": 0,
+      "testNumber": 10,
+      "details": {
+        "duration_ms": 36.5755,
+        "type": "test"
+      },
+      "line": 129,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\control.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "P.ADMIN_MODE: two distinct confirmations, preview binding and challenge replay",
+      "nesting": 0,
+      "testNumber": 11,
+      "details": {
+        "duration_ms": 47.1141,
+        "type": "test"
+      },
+      "line": 137,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\control.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "P.MODE: same denied request has distinct enforce/audit/disabled behavior",
+      "nesting": 0,
+      "testNumber": 12,
+      "details": {
+        "duration_ms": 59.5089,
+        "type": "test"
+      },
+      "line": 148,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\control.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "P.MODE: selected IDs and project scope; explicit ENFORCE dominates overlap",
+      "nesting": 0,
+      "testNumber": 13,
+      "details": {
+        "duration_ms": 58.5348,
+        "type": "test"
+      },
+      "line": 158,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\control.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "P.MODE: PDP fault stays closed in ENFORCE and AUDIT_ONLY; DISABLED actually skips PDP",
+      "nesting": 0,
+      "testNumber": 14,
+      "details": {
+        "duration_ms": 57.5566,
+        "type": "test"
+      },
+      "line": 166,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\control.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "P.MODE-EXPIRY: real deadline freezes until persisted-chain preflight",
+      "nesting": 0,
+      "testNumber": 15,
+      "details": {
+        "duration_ms": 1189.7033,
+        "type": "test"
+      },
+      "line": 173,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\control.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "P.MODE-RECOVERY: reboot never restores a permissive lease without preflight",
+      "nesting": 0,
+      "testNumber": 16,
+      "details": {
+        "duration_ms": 154.4432,
+        "type": "test"
+      },
+      "line": 181,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\control.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "P.APPROVAL: hash/identity/epoch/expiry bind grants and no self-reported approval",
+      "nesting": 0,
+      "testNumber": 17,
+      "details": {
+        "duration_ms": 88.3492,
+        "type": "test"
+      },
+      "line": 190,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\control.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "P.APPROVAL-EXPIRY: real expiry cannot revive under an in-process clock rollback",
+      "nesting": 0,
+      "testNumber": 18,
+      "details": {
+        "duration_ms": 124.2547,
+        "type": "test"
+      },
+      "line": 200,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\control.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "Json canonical contract rejects accessors/cycles/nonfinite numbers",
+      "nesting": 0,
+      "testNumber": 19,
+      "details": {
+        "duration_ms": 0.4884,
+        "type": "test"
+      },
+      "line": 206,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\control.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "JSON uses real JSON.parse and preserves independent safety/authorization dimensions",
+      "nesting": 0,
+      "testNumber": 20,
+      "details": {
+        "duration_ms": 6.2057,
+        "type": "test"
+      },
+      "line": 22,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\diagnostics.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "Python AST actually parses valid/invalid source, with explicitly limited coverage",
+      "nesting": 0,
+      "testNumber": 21,
+      "details": {
+        "duration_ms": 354.0272,
+        "type": "test"
+      },
+      "line": 42,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\diagnostics.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "PowerShell Parser actually returns AST diagnostics and UTF-16 positions",
+      "nesting": 0,
+      "testNumber": 22,
+      "details": {
+        "duration_ms": 780.0151,
+        "type": "test"
+      },
+      "line": 74,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\diagnostics.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "Python and PowerShell source side effects remain unexecuted",
+      "nesting": 0,
+      "testNumber": 23,
+      "details": {
+        "duration_ms": 387.9609,
+        "type": "test"
+      },
+      "line": 88,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\diagnostics.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "all relevant source Feature OFF paths bypass without a configured parser",
+      "nesting": 0,
+      "testNumber": 24,
+      "details": {
+        "duration_ms": 0.3935,
+        "type": "test"
+      },
+      "line": 110,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\diagnostics.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "optional environment/safety OFF remains BYPASSED while syntax independently runs",
+      "nesting": 0,
+      "testNumber": 25,
+      "details": {
+        "duration_ms": 0.5477,
+        "type": "test"
+      },
+      "line": 126,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\diagnostics.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "missing parsers and unsupported languages/dialects never produce PASS",
+      "nesting": 0,
+      "testNumber": 26,
+      "details": {
+        "duration_ms": 0.5164,
+        "type": "test"
+      },
+      "line": 136,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\diagnostics.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "new document version, same-version hash mismatch and close fence old results",
+      "nesting": 0,
+      "testNumber": 27,
+      "details": {
+        "duration_ms": 0.7807,
+        "type": "test"
+      },
+      "line": 151,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\diagnostics.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "real parser requests respect newer versions and Feature epoch changes",
+      "nesting": 0,
+      "testNumber": 28,
+      "details": {
+        "duration_ms": 145.1245,
+        "type": "test"
+      },
+      "line": 171,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\diagnostics.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "AbortSignal, timeout and dispose are bounded and never become PASS",
+      "nesting": 0,
+      "testNumber": 29,
+      "details": {
+        "duration_ms": 1.5728,
+        "type": "test"
+      },
+      "line": 193,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\diagnostics.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "source/Unicode/request budgets reject before parsing and constructor budgets are fixed",
+      "nesting": 0,
+      "testNumber": 30,
+      "details": {
+        "duration_ms": 0.6467,
+        "type": "test"
+      },
+      "line": 215,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\diagnostics.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "queue admission caps concurrent work and recovers after backpressure",
+      "nesting": 0,
+      "testNumber": 31,
+      "details": {
+        "duration_ms": 2.0327,
+        "type": "test"
+      },
+      "line": 226,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\diagnostics.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "PowerShell error floods remain bounded and do not turn truncation into PASS",
+      "nesting": 0,
+      "testNumber": 32,
+      "details": {
+        "duration_ms": 509.1002,
+        "type": "test"
+      },
+      "line": 236,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\diagnostics.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "registered Git/Python argv schemas are static, limited and independently typed",
+      "nesting": 0,
+      "testNumber": 33,
+      "details": {
+        "duration_ms": 1.3239,
+        "type": "test"
+      },
+      "line": 247,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\diagnostics.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "argv environment checks inspect only the Host file and preserve the actual args result",
+      "nesting": 0,
+      "testNumber": 34,
+      "details": {
+        "duration_ms": 0.8772,
+        "type": "test"
+      },
+      "line": 271,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\diagnostics.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "argv family and values are copied before asynchronous work",
+      "nesting": 0,
+      "testNumber": 35,
+      "details": {
+        "duration_ms": 0.2119,
+        "type": "test"
+      },
+      "line": 281,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\diagnostics.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "argument Feature OFF bypasses schema and dispose prevents subsequent work",
+      "nesting": 0,
+      "testNumber": 36,
+      "details": {
+        "duration_ms": 0.191,
+        "type": "test"
+      },
+      "line": 294,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\diagnostics.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "disposeAndWait confirms real interpreter child close and all queued work is drained",
+      "nesting": 0,
+      "testNumber": 37,
+      "details": {
+        "duration_ms": 42.3116,
+        "type": "test"
+      },
+      "line": 305,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\diagnostics.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "AT/Context/Artifact: real invocation produces separate hash-linked facts and byte-exact output",
+      "nesting": 0,
+      "testNumber": 38,
+      "details": {
+        "duration_ms": 157.4374,
+        "type": "test"
+      },
+      "line": 40,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\gateway.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "P.MODE+Gateway: same safe synthetic operation blocked/enforced, would-deny, and unevaluated",
+      "nesting": 0,
+      "testNumber": 39,
+      "details": {
+        "duration_ms": 201.2776,
+        "type": "test"
+      },
+      "line": 53,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\gateway.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "P.SANDBOX: DISABLED does not admit arbitrary execution or close independent protection",
+      "nesting": 0,
+      "testNumber": 40,
+      "details": {
+        "duration_ms": 71.3265,
+        "type": "test"
+      },
+      "line": 63,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\gateway.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "P.IDENTITY: facade has no administration and JSON admin/mode flags cannot elevate",
+      "nesting": 0,
+      "testNumber": 41,
+      "details": {
+        "duration_ms": 53.3659,
+        "type": "test"
+      },
+      "line": 70,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\gateway.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "P.APPROVAL_REPLAY: exact approval executes once; altered intent and replay denied",
+      "nesting": 0,
+      "testNumber": 42,
+      "details": {
+        "duration_ms": 135.1042,
+        "type": "test"
+      },
+      "line": 77,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\gateway.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "P.DB_ATOMIC: 16 concurrent duplicate requests invoke a real handler at most once",
+      "nesting": 0,
+      "testNumber": 43,
+      "details": {
+        "duration_ms": 108.5668,
+        "type": "test"
+      },
+      "line": 89,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\gateway.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "P.WORKSPACE_WRITER: concurrent distinct calls cannot overwrite active resource; modes cannot change mid-action",
+      "nesting": 0,
+      "testNumber": 44,
+      "details": {
+        "duration_ms": 130.8515,
+        "type": "test"
+      },
+      "line": 95,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\gateway.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "AT-IOFAIL-before: actual SQLite readonly persistence failure prevents handler execution",
+      "nesting": 0,
+      "testNumber": 45,
+      "details": {
+        "duration_ms": 111.5305,
+        "type": "test"
+      },
+      "line": 108,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\gateway.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "AT-IOFAIL-after: actual effect with unrecordable result keeps claim and never replays",
+      "nesting": 0,
+      "testNumber": 46,
+      "details": {
+        "duration_ms": 103.9623,
+        "type": "test"
+      },
+      "line": 114,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\gateway.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "P.TIMEOUT: timeout retains owned lease until actual handler settlement and never resets claim",
+      "nesting": 0,
+      "testNumber": 47,
+      "details": {
+        "duration_ms": 120.7093,
+        "type": "test"
+      },
+      "line": 123,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\gateway.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "AT-REPLAY: reconstruction is readonly and session scope does not grant peer context",
+      "nesting": 0,
+      "testNumber": 48,
+      "details": {
+        "duration_ms": 112.4217,
+        "type": "test"
+      },
+      "line": 133,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\gateway.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "P.IDENTITY-revocation: old facade cannot read or close a replacement session",
+      "nesting": 0,
+      "testNumber": 49,
+      "details": {
+        "duration_ms": 147.7995,
+        "type": "test"
+      },
+      "line": 142,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\gateway.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "P.IDENTITY-close-race: close revokes facade before its first asynchronous cleanup",
+      "nesting": 0,
+      "testNumber": 50,
+      "details": {
+        "duration_ms": 109.8341,
+        "type": "test"
+      },
+      "line": 148,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\gateway.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "P.TIMEOUT-clock: handler deadline uses elapsed time under a wall-clock rollback",
+      "nesting": 0,
+      "testNumber": 51,
+      "details": {
+        "duration_ms": 109.1383,
+        "type": "test"
+      },
+      "line": 156,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\gateway.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "P.MODE-START: a bypass expiring during a real delayed durability barrier cannot execute",
+      "nesting": 0,
+      "testNumber": 52,
+      "details": {
+        "duration_ms": 484.3004,
+        "type": "test"
+      },
+      "line": 165,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\gateway.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "DI integration: malformed code remains FAIL, checks OFF are BYPASSED, raw/audit continue",
+      "nesting": 0,
+      "testNumber": 53,
+      "details": {
+        "duration_ms": 173.9013,
+        "type": "test"
+      },
+      "line": 174,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\gateway.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "Tool OFF rejects invocation, diagnostics log OFF does not silence core audit, oversized request is bounded",
+      "nesting": 0,
+      "testNumber": 54,
+      "details": {
+        "duration_ms": 71.7786,
+        "type": "test"
+      },
+      "line": 185,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\gateway.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "P.ARG_BINDING: mutation by schema or caller cannot replace the authorized snapshot",
+      "nesting": 0,
+      "testNumber": 55,
+      "details": {
+        "duration_ms": 101.4879,
+        "type": "test"
+      },
+      "line": 193,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\gateway.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "DI command checking keeps argv preview as data and cannot execute Git/Python",
+      "nesting": 0,
+      "testNumber": 56,
+      "details": {
+        "duration_ms": 106.3975,
+        "type": "test"
+      },
+      "line": 199,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\gateway.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "controlled static bytes close over binary, empty and nested same-name files",
+      "nesting": 0,
+      "testNumber": 57,
+      "details": {
+        "duration_ms": 30.4259,
+        "type": "test"
+      },
+      "line": 61,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "empty package permits exactly its manifest, with zero payload budgets",
+      "nesting": 0,
+      "testNumber": 58,
+      "details": {
+        "duration_ms": 6.2103,
+        "type": "test"
+      },
+      "line": 80,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "matching mutable tree is INCONCLUSIVE, never a trusted release root",
+      "nesting": 0,
+      "testNumber": 59,
+      "details": {
+        "duration_ms": 9.0528,
+        "type": "test"
+      },
+      "line": 88,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "same-size modified content fails its SHA-256",
+      "nesting": 0,
+      "testNumber": 60,
+      "details": {
+        "duration_ms": 6.6283,
+        "type": "test"
+      },
+      "line": 97,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "appended content fails declared byte size",
+      "nesting": 0,
+      "testNumber": 61,
+      "details": {
+        "duration_ms": 7.2373,
+        "type": "test"
+      },
+      "line": 104,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "missing and unlisted files are both reported by full relative path",
+      "nesting": 0,
+      "testNumber": 62,
+      "details": {
+        "duration_ms": 7.1372,
+        "type": "test"
+      },
+      "line": 111,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "sub/manifest.json",
+      "nesting": 1,
+      "testNumber": 1,
+      "details": {
+        "duration_ms": 8.5721,
+        "type": "test"
+      },
+      "line": 123,
+      "column": 13,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "validation/SHA256SUMS.txt",
+      "nesting": 1,
+      "testNumber": 2,
+      "details": {
+        "duration_ms": 8.5057,
+        "type": "test"
+      },
+      "line": 123,
+      "column": 13,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "unexpected.cjs",
+      "nesting": 1,
+      "testNumber": 3,
+      "details": {
+        "duration_ms": 7.1646,
+        "type": "test"
+      },
+      "line": 123,
+      "column": 13,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": ".hidden",
+      "nesting": 1,
+      "testNumber": 4,
+      "details": {
+        "duration_ms": 7.0435,
+        "type": "test"
+      },
+      "line": 123,
+      "column": 13,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "unlisted nested manifest and SHA256SUMS names are never self exceptions",
+      "nesting": 0,
+      "testNumber": 63,
+      "details": {
+        "duration_ms": 32.074,
+        "type": "test"
+      },
+      "line": 121,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "root manifest is required and cannot list itself",
+      "nesting": 0,
+      "testNumber": 64,
+      "details": {
+        "duration_ms": 6.4637,
+        "type": "test"
+      },
+      "line": 135,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "root manifest directory and non-directory roots fail",
+      "nesting": 0,
+      "testNumber": 65,
+      "details": {
+        "duration_ms": 5.8873,
+        "type": "test"
+      },
+      "line": 142,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "duplicate JSON keys are rejected despite JSON.parse last-wins semantics",
+      "nesting": 0,
+      "testNumber": 66,
+      "details": {
+        "duration_ms": 7.3858,
+        "type": "test"
+      },
+      "line": 151,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "duplicate complete path and unsorted arrays fail independently",
+      "nesting": 0,
+      "testNumber": 67,
+      "details": {
+        "duration_ms": 7.9595,
+        "type": "test"
+      },
+      "line": 161,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "A vs a",
+      "nesting": 1,
+      "testNumber": 1,
+      "details": {
+        "duration_ms": 5.1343,
+        "type": "test"
+      },
+      "line": 175,
+      "column": 13,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "Dir/a vs dir/b",
+      "nesting": 1,
+      "testNumber": 2,
+      "details": {
+        "duration_ms": 5.386,
+        "type": "test"
+      },
+      "line": 175,
+      "column": 13,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "a vs a/b",
+      "nesting": 1,
+      "testNumber": 3,
+      "details": {
+        "duration_ms": 5.114,
+        "type": "test"
+      },
+      "line": 175,
+      "column": 13,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "case conflicts include ancestor directories and file-directory prefixes",
+      "nesting": 0,
+      "testNumber": 68,
+      "details": {
+        "duration_ms": 16.1507,
+        "type": "test"
+      },
+      "line": 169,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "\"../outside\"",
+      "nesting": 1,
+      "testNumber": 1,
+      "details": {
+        "duration_ms": 5.8362,
+        "type": "test"
+      },
+      "line": 190,
+      "column": 13,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "\"./a\"",
+      "nesting": 1,
+      "testNumber": 2,
+      "details": {
+        "duration_ms": 5.3444,
+        "type": "test"
+      },
+      "line": 190,
+      "column": 13,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "\"a//b\"",
+      "nesting": 1,
+      "testNumber": 3,
+      "details": {
+        "duration_ms": 8.7192,
+        "type": "test"
+      },
+      "line": 190,
+      "column": 13,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "\"/outside\"",
+      "nesting": 1,
+      "testNumber": 4,
+      "details": {
+        "duration_ms": 4.917,
+        "type": "test"
+      },
+      "line": 190,
+      "column": 13,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "\"C:/outside\"",
+      "nesting": 1,
+      "testNumber": 5,
+      "details": {
+        "duration_ms": 5.108,
+        "type": "test"
+      },
+      "line": 190,
+      "column": 13,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "\"//server/share\"",
+      "nesting": 1,
+      "testNumber": 6,
+      "details": {
+        "duration_ms": 6.0382,
+        "type": "test"
+      },
+      "line": 190,
+      "column": 13,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "\"a\\\\b\"",
+      "nesting": 1,
+      "testNumber": 7,
+      "details": {
+        "duration_ms": 5.5146,
+        "type": "test"
+      },
+      "line": 190,
+      "column": 13,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "\"a:stream\"",
+      "nesting": 1,
+      "testNumber": 8,
+      "details": {
+        "duration_ms": 6.2083,
+        "type": "test"
+      },
+      "line": 190,
+      "column": 13,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "\"NUL.txt\"",
+      "nesting": 1,
+      "testNumber": 9,
+      "details": {
+        "duration_ms": 6.6182,
+        "type": "test"
+      },
+      "line": 190,
+      "column": 13,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "\"COM1\"",
+      "nesting": 1,
+      "testNumber": 10,
+      "details": {
+        "duration_ms": 5.3795,
+        "type": "test"
+      },
+      "line": 190,
+      "column": 13,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "\"con.tar.gz\"",
+      "nesting": 1,
+      "testNumber": 11,
+      "details": {
+        "duration_ms": 6.1561,
+        "type": "test"
+      },
+      "line": 190,
+      "column": 13,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "\"a.\"",
+      "nesting": 1,
+      "testNumber": 12,
+      "details": {
+        "duration_ms": 4.8758,
+        "type": "test"
+      },
+      "line": 190,
+      "column": 13,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "\"a \"",
+      "nesting": 1,
+      "testNumber": 13,
+      "details": {
+        "duration_ms": 5.7067,
+        "type": "test"
+      },
+      "line": 190,
+      "column": 13,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "\"PROGRA~1/file\"",
+      "nesting": 1,
+      "testNumber": 14,
+      "details": {
+        "duration_ms": 6.4126,
+        "type": "test"
+      },
+      "line": 190,
+      "column": 13,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "\"\"",
+      "nesting": 1,
+      "testNumber": 15,
+      "details": {
+        "duration_ms": 6.2812,
+        "type": "test"
+      },
+      "line": 190,
+      "column": 13,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "\"a\\u0000b\"",
+      "nesting": 1,
+      "testNumber": 16,
+      "details": {
+        "duration_ms": 4.9197,
+        "type": "test"
+      },
+      "line": 190,
+      "column": 13,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "\"é\"",
+      "nesting": 1,
+      "testNumber": 17,
+      "details": {
+        "duration_ms": 6.1568,
+        "type": "test"
+      },
+      "line": 190,
+      "column": 13,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "\"é\"",
+      "nesting": 1,
+      "testNumber": 18,
+      "details": {
+        "duration_ms": 4.8478,
+        "type": "test"
+      },
+      "line": 190,
+      "column": 13,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "\"İ\"",
+      "nesting": 1,
+      "testNumber": 19,
+      "details": {
+        "duration_ms": 4.7308,
+        "type": "test"
+      },
+      "line": 190,
+      "column": 13,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "\"a/a/\"",
+      "nesting": 1,
+      "testNumber": 20,
+      "details": {
+        "duration_ms": 4.9784,
+        "type": "test"
+      },
+      "line": 190,
+      "column": 13,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "path traversal, device aliases, malformed separators and Unicode reject before payload reads",
+      "nesting": 0,
+      "testNumber": 69,
+      "details": {
+        "duration_ms": 117.1937,
+        "type": "test"
+      },
+      "line": 183,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "schema, digest and byte count reject invalid declarations",
+      "nesting": 0,
+      "testNumber": 70,
+      "details": {
+        "duration_ms": 17.4006,
+        "type": "test"
+      },
+      "line": 203,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "canonical encoding rejects whitespace, BOM, bad UTF-8 and equivalent escapes",
+      "nesting": 0,
+      "testNumber": 71,
+      "details": {
+        "duration_ms": 10.3586,
+        "type": "test"
+      },
+      "line": 220,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "extra empty directory and file-vs-directory mismatch cannot disappear",
+      "nesting": 0,
+      "testNumber": 72,
+      "details": {
+        "duration_ms": 8.4579,
+        "type": "test"
+      },
+      "line": 232,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "file count and total bytes budgets work at exact limit and limit plus one",
+      "nesting": 0,
+      "testNumber": 73,
+      "details": {
+        "duration_ms": 9.0151,
+        "type": "test"
+      },
+      "line": 242,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "actual unlisted content also consumes size and count budgets",
+      "nesting": 0,
+      "testNumber": 74,
+      "details": {
+        "duration_ms": 7.0189,
+        "type": "test"
+      },
+      "line": 252,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "manifest and single-file caps are enforced without reading an oversized payload",
+      "nesting": 0,
+      "testNumber": 75,
+      "details": {
+        "duration_ms": 6.3137,
+        "type": "test"
+      },
+      "line": 261,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "path length and depth have bounded rejection",
+      "nesting": 0,
+      "testNumber": 76,
+      "details": {
+        "duration_ms": 5.5237,
+        "type": "test"
+      },
+      "line": 273,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "actual default file and directory count limits accept the edge and reject one more",
+      "nesting": 0,
+      "testNumber": 77,
+      "details": {
+        "duration_ms": 1225.7088,
+        "type": "test"
+      },
+      "line": 281,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "actual 8 MiB files and 16 MiB total accept the edge; declared and actual overflow reject",
+      "nesting": 0,
+      "testNumber": 78,
+      "details": {
+        "duration_ms": 49.0721,
+        "type": "test"
+      },
+      "line": 303,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "maximum component and depth are accepted on an actually created portable path",
+      "nesting": 0,
+      "testNumber": 79,
+      "details": {
+        "duration_ms": 34.3261,
+        "type": "test"
+      },
+      "line": 318,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "Host cannot expand limits or choose an unknown mode; relative roots reject",
+      "nesting": 0,
+      "testNumber": 80,
+      "details": {
+        "duration_ms": 3.6604,
+        "type": "test"
+      },
+      "line": 327,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "pre-abort is NOT_RUN; in-flight abort is INCONCLUSIVE with closed file work",
+      "nesting": 0,
+      "testNumber": 81,
+      "details": {
+        "duration_ms": 7.9426,
+        "type": "test"
+      },
+      "line": 342,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "diagnostic count and encoded bytes remain bounded for many extra files",
+      "nesting": 0,
+      "testNumber": 82,
+      "details": {
+        "duration_ms": 66.8497,
+        "type": "test"
+      },
+      "line": 355,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "candidate scripts, package metadata and git-looking files are data and never executed",
+      "nesting": 0,
+      "testNumber": 83,
+      "details": {
+        "duration_ms": 16.9723,
+        "type": "test"
+      },
+      "line": 366,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "real OS file symlink is rejected without following its target",
+      "nesting": 0,
+      "testNumber": 84,
+      "details": {
+        "duration_ms": 5.2299,
+        "type": "test"
+      },
+      "line": 381,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "skip": "NOT_RUN: real OS link fixture unavailable (EPERM); no simulated OS PASS",
+      "status": "NOT_RUN"
+    },
+    {
+      "type": "test:pass",
+      "name": "real OS dir link is rejected",
+      "nesting": 0,
+      "testNumber": 85,
+      "details": {
+        "duration_ms": 5.9831,
+        "type": "test"
+      },
+      "line": 392,
+      "column": 3,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "skip": "NOT_RUN: real OS link fixture unavailable (EPERM); no simulated OS PASS",
+      "status": "NOT_RUN"
+    },
+    {
+      "type": "test:pass",
+      "name": "real OS junction link is rejected",
+      "nesting": 0,
+      "testNumber": 86,
+      "details": {
+        "duration_ms": 5.799,
+        "type": "test"
+      },
+      "line": 392,
+      "column": 3,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "skip": "NOT_RUN: real OS link fixture unavailable (EPERM); no simulated OS PASS",
+      "status": "NOT_RUN"
+    },
+    {
+      "type": "test:pass",
+      "name": "real OS hardlink to an outside object is rejected by link count",
+      "nesting": 0,
+      "testNumber": 87,
+      "details": {
+        "duration_ms": 23.2729,
+        "type": "test"
+      },
+      "line": 405,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "skip": "NOT_RUN: real OS link fixture unavailable (EPERM); no simulated OS PASS",
+      "status": "NOT_RUN"
+    },
+    {
+      "type": "test:pass",
+      "name": "M14-ADAPTER REAL_WINDOWS_LIMITED: pinned native RPC maps handle-based files and bounded identities",
+      "nesting": 0,
+      "testNumber": 88,
+      "details": {
+        "duration_ms": 1406.2538,
+        "type": "test"
+      },
+      "line": 10,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\m14-adapter.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M1.4 REAL_WINDOWS: actual process/token identity",
+      "nesting": 0,
+      "testNumber": 89,
+      "details": {
+        "duration_ms": 1367.8745,
+        "type": "test"
+      },
+      "line": 72,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\m14-native.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M1.4 REAL_WINDOWS: exact 64KiB RPC boundary accepted and larger frame rejected",
+      "nesting": 0,
+      "testNumber": 90,
+      "details": {
+        "duration_ms": 2687.3767,
+        "type": "test"
+      },
+      "line": 79,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\m14-native.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M1.4 REAL_WINDOWS: restricted-token detailed readback",
+      "nesting": 0,
+      "testNumber": 91,
+      "details": {
+        "duration_ms": 1076.9519,
+        "type": "test"
+      },
+      "line": 86,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\m14-native.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M1.4 REAL_WINDOWS: root-relative file create/read and path/link rejection",
+      "nesting": 0,
+      "testNumber": 92,
+      "details": {
+        "duration_ms": 1113.022,
+        "type": "test"
+      },
+      "line": 93,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\m14-native.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M1.4 REAL_WINDOWS: broker rejects an actual hardlink",
+      "nesting": 0,
+      "testNumber": 93,
+      "details": {
+        "duration_ms": 21.3169,
+        "type": "test"
+      },
+      "line": 101,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\m14-native.test.ts",
+      "skip": "NOT_RUN: host sandbox denied temporary hardlink creation",
+      "status": "NOT_RUN"
+    },
+    {
+      "type": "test:pass",
+      "name": "M1.4 REAL_WINDOWS: broker rejects an actual junction",
+      "nesting": 0,
+      "testNumber": 94,
+      "details": {
+        "duration_ms": 20.1043,
+        "type": "test"
+      },
+      "line": 106,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\m14-native.test.ts",
+      "skip": "NOT_RUN: host denied temporary junction creation",
+      "status": "NOT_RUN"
+    },
+    {
+      "type": "test:pass",
+      "name": "M1.4 REAL_WINDOWS: protected named pipe binds both actual peer handles",
+      "nesting": 0,
+      "testNumber": 95,
+      "details": {
+        "duration_ms": 2732.2259,
+        "type": "test"
+      },
+      "line": 112,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\m14-native.test.ts",
+      "skip": "NOT_RUN: host AppContainer denies a local pipe whose exact DACL contains only Host/Worker user SIDs; no extra capability ACE added",
+      "status": "NOT_RUN"
+    },
+    {
+      "type": "test:pass",
+      "name": "M1.4 REAL_WINDOWS: pipe refuses forged supervisor start identity and deadline is bounded",
+      "nesting": 0,
+      "testNumber": 96,
+      "details": {
+        "duration_ms": 1195.3221,
+        "type": "test"
+      },
+      "line": 122,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\m14-native.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M1.4 REAL_WINDOWS_PRIMITIVE: suspended Job normal, distinct root/tree/output observations",
+      "nesting": 0,
+      "testNumber": 97,
+      "details": {
+        "duration_ms": 1315.8935,
+        "type": "test"
+      },
+      "line": 128,
+      "column": 47,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\m14-native.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M1.4 REAL_WINDOWS_PRIMITIVE: suspended Job hold, distinct root/tree/output observations",
+      "nesting": 0,
+      "testNumber": 98,
+      "details": {
+        "duration_ms": 1963.9378,
+        "type": "test"
+      },
+      "line": 128,
+      "column": 47,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\m14-native.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M1.4 REAL_WINDOWS_PRIMITIVE: suspended Job orphan, distinct root/tree/output observations",
+      "nesting": 0,
+      "testNumber": 99,
+      "details": {
+        "duration_ms": 2013.5622,
+        "type": "test"
+      },
+      "line": 128,
+      "column": 47,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\m14-native.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M1.4 REAL_WINDOWS_PRIMITIVE: bounded streamed output events terminate a flood",
+      "nesting": 0,
+      "testNumber": 100,
+      "details": {
+        "duration_ms": 1250.4118,
+        "type": "test"
+      },
+      "line": 145,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\m14-native.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:fail",
+      "name": "M1.4 REAL_WINDOWS_PRIMITIVE: cumulative Job CPU time kills a busy fixture before wall deadline",
+      "nesting": 0,
+      "testNumber": 101,
+      "details": {
+        "duration_ms": 4177.1129,
+        "type": "test",
+        "error": {
+          "message": "CPU_TIME FAIL/BLOCKED: infinite busy fixture accumulated 29062500 ticks and required helper termination (DEADLINE); configuring JOB_TIME is not enforcement evidence\n+ actual - expected\n\n+ '2026-11-07T10:34:40.0865586Z'\n- null\n",
+          "code": "ERR_TEST_FAILURE",
+          "stack": "Error [ERR_TEST_FAILURE]: CPU_TIME FAIL/BLOCKED: infinite busy fixture accumulated 29062500 ticks and required helper termination (DEADLINE); configuring JOB_TIME is not enforcement evidence\n+ actual - expected\n\n+ '2026-11-07T10:34:40.0865586Z'\n- null\n",
+          "cause": "CPU_TIME FAIL/BLOCKED: infinite busy fixture accumulated 29062500 ticks and required helper termination (DEADLINE); configuring JOB_TIME is not enforcement evidence\n+ actual - expected\n\n+ '2026-11-07T10:34:40.0865586Z'\n- null\n"
+        }
+      },
+      "line": 150,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\m14-native.test.ts",
+      "status": "FAIL"
+    },
+    {
+      "type": "test:pass",
+      "name": "M1.4 REAL_WINDOWS_PRIMITIVE: prepare pins actual suspended identity, resume runs once",
+      "nesting": 0,
+      "testNumber": 102,
+      "details": {
+        "duration_ms": 1367.0921,
+        "type": "test"
+      },
+      "line": 156,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\m14-native.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M1.4 REAL_WINDOWS_PRIMITIVE: mismatched/terminated/expired prepares never execute",
+      "nesting": 0,
+      "testNumber": 103,
+      "details": {
+        "duration_ms": 1949.3727,
+        "type": "test"
+      },
+      "line": 167,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\m14-native.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M1.4 deployment guards: same-account launch rejected and Derive is not provisioning",
+      "nesting": 0,
+      "testNumber": 104,
+      "details": {
+        "duration_ms": 1126.8914,
+        "type": "test"
+      },
+      "line": 178,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\m14-native.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M1.4 production combination and independent pre-pinned bootstrap/Grant bridge",
+      "nesting": 0,
+      "testNumber": 105,
+      "details": {
+        "duration_ms": 0.165,
+        "type": "test"
+      },
+      "line": 183,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\m14-native.test.ts",
+      "skip": "NOT_RUN / BLOCKED: independent approved accounts/profile and deployment bootstrap wiring are unavailable",
+      "status": "NOT_RUN"
+    },
+    {
+      "type": "test:pass",
+      "name": "M14-PERMIT SIMULATED: exact approval bridges consumed original Permit and retains five resources",
+      "nesting": 0,
+      "testNumber": 106,
+      "details": {
+        "duration_ms": 269.8343,
+        "type": "test"
+      },
+      "line": 78,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\m14-production.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M14-HOST SIMULATED: Agent facade traverses Permit/IPC/Broker/streamed Artifact/ExitProof and quarantines",
+      "nesting": 0,
+      "testNumber": 107,
+      "details": {
+        "duration_ms": 233.6046,
+        "type": "test"
+      },
+      "line": 86,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\m14-production.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M14-ARTIFACT SIMULATED: cancelled remote proof import settles locally and never authorizes release",
+      "nesting": 0,
+      "testNumber": 108,
+      "details": {
+        "duration_ms": 249.8811,
+        "type": "test"
+      },
+      "line": 97,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\m14-production.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M14-HOST SIMULATED: post-consume identity failure returns original operation and unknown reservations",
+      "nesting": 0,
+      "testNumber": 109,
+      "details": {
+        "duration_ms": 162.0975,
+        "type": "test"
+      },
+      "line": 103,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\m14-production.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M14-IPC SIMULATED: service disconnect uses trusted channel ownership to terminate and quarantine",
+      "nesting": 0,
+      "testNumber": 110,
+      "details": {
+        "duration_ms": 181.201,
+        "type": "test"
+      },
+      "line": 111,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\m14-production.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M14-PERMIT SIMULATED: missing approval, other project, changed args or sandbox cannot bridge",
+      "nesting": 0,
+      "testNumber": 111,
+      "details": {
+        "duration_ms": 148.2333,
+        "type": "test"
+      },
+      "line": 117,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\m14-production.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M14-PERMIT SIMULATED: signed grant tamper, Worker swap, tool/version/resource and epoch denied",
+      "nesting": 0,
+      "testNumber": 112,
+      "details": {
+        "duration_ms": 206.4092,
+        "type": "test"
+      },
+      "line": 125,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\m14-production.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M14-PERMIT SIMULATED: concurrent Permit consumers commit once; disconnect never replays",
+      "nesting": 0,
+      "testNumber": 113,
+      "details": {
+        "duration_ms": 232.9062,
+        "type": "test"
+      },
+      "line": 134,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\m14-production.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M14-SANDBOX SIMULATED: default absent qualification rejects before Supervisor start",
+      "nesting": 0,
+      "testNumber": 114,
+      "details": {
+        "duration_ms": 177.454,
+        "type": "test"
+      },
+      "line": 141,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\m14-production.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M14-IPC SIMULATED: same SID foreign PID, reused PID/start, session and payload identity rejected",
+      "nesting": 0,
+      "testNumber": 115,
+      "details": {
+        "duration_ms": 186.2028,
+        "type": "test"
+      },
+      "line": 144,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\m14-production.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M14-IPC SIMULATED: revoke is synchronous, pending connection slots and key cleanup bounded",
+      "nesting": 0,
+      "testNumber": 116,
+      "details": {
+        "duration_ms": 171.3417,
+        "type": "test"
+      },
+      "line": 151,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\m14-production.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M14-AUDIT SIMULATED: durable authorization/start barrier failures never start execution",
+      "nesting": 0,
+      "testNumber": 117,
+      "details": {
+        "duration_ms": 177.137,
+        "type": "test"
+      },
+      "line": 156,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\m14-production.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M14-RECOVERY SIMULATED: Broker reopen preserves spent Permit, unknown Job and no automatic replay",
+      "nesting": 0,
+      "testNumber": 118,
+      "details": {
+        "duration_ms": 175.7479,
+        "type": "test"
+      },
+      "line": 162,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\m14-production.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M14-FEATURE SIMULATED: epoch change or module off at last fence rejects consumed work",
+      "nesting": 0,
+      "testNumber": 119,
+      "details": {
+        "duration_ms": 176.4705,
+        "type": "test"
+      },
+      "line": 167,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\m14-production.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M14-EXIT SIMULATED: parent exit, child alive and output unknown stay independent and retain Writer",
+      "nesting": 0,
+      "testNumber": 120,
+      "details": {
+        "duration_ms": 369.5111,
+        "type": "test"
+      },
+      "line": 172,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\m14-production.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M14-IR SIMULATED: immutable CREATE bytes survive audit wait; oversized/invalid inputs return slots",
+      "nesting": 0,
+      "testNumber": 121,
+      "details": {
+        "duration_ms": 305.1121,
+        "type": "test"
+      },
+      "line": 185,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\m14-production.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M14-IR SIMULATED: an expired signed file grant cannot revive after a sub-100ms wall rollback",
+      "nesting": 0,
+      "testNumber": 122,
+      "details": {
+        "duration_ms": 345.9328,
+        "type": "test"
+      },
+      "line": 193,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\m14-production.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M14-IR SIMULATED: uncooperative file owners time out without unbounded replacement native work",
+      "nesting": 0,
+      "testNumber": 123,
+      "details": {
+        "duration_ms": 544.0168,
+        "type": "test"
+      },
+      "line": 200,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\m14-production.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M14-IR SIMULATED: complete-looking member list with disconnected parent cycle never verifies",
+      "nesting": 0,
+      "testNumber": 124,
+      "details": {
+        "duration_ms": 363.7798,
+        "type": "test"
+      },
+      "line": 207,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\m14-production.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M14-IR SIMULATED: short Envelope deadline is fenced after asynchronous Supervisor preparation",
+      "nesting": 0,
+      "testNumber": 125,
+      "details": {
+        "duration_ms": 460.1299,
+        "type": "test"
+      },
+      "line": 212,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\m14-production.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M14-IR SIMULATED: closed registry synchronously rejects existing authorization and channel",
+      "nesting": 0,
+      "testNumber": 126,
+      "details": {
+        "duration_ms": 375.9222,
+        "type": "test"
+      },
+      "line": 216,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\m14-production.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M14-IR SIMULATED: OS identity observers retain at most 32 unresolved observations",
+      "nesting": 0,
+      "testNumber": 127,
+      "details": {
+        "duration_ms": 2315.2889,
+        "type": "test"
+      },
+      "line": 220,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\m14-production.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M14-RECOVERY SQLITE_REOPEN: remote START_INTENT absence cannot become NOT_INVOKED on Host restart",
+      "nesting": 0,
+      "testNumber": 128,
+      "details": {
+        "duration_ms": 472.8629,
+        "type": "test"
+      },
+      "line": 226,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\m14-production.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M14-OUTPUT SIMULATED: streaming output budget failure terminates Worker and keeps slot",
+      "nesting": 0,
+      "testNumber": 129,
+      "details": {
+        "duration_ms": 420.8789,
+        "type": "test"
+      },
+      "line": 235,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\m14-production.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M14-BROKER REAL_OS_PROCESS / SIMULATED_SECURITY: independent consume ledger and streamed fixed Worker",
+      "nesting": 0,
+      "testNumber": 130,
+      "details": {
+        "duration_ms": 819.5916,
+        "type": "test"
+      },
+      "line": 240,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\m14-production.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M14-EXIT SIMULATED: contradictory membership, forged signature and synthetic production proof rejected",
+      "nesting": 0,
+      "testNumber": 131,
+      "details": {
+        "duration_ms": 383.101,
+        "type": "test"
+      },
+      "line": 263,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\m14-production.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M14-EXIT SIMULATED: original M1.2 reconciliation cannot release remote Writer with manual SETTLED",
+      "nesting": 0,
+      "testNumber": 132,
+      "details": {
+        "duration_ms": 429.641,
+        "type": "test"
+      },
+      "line": 269,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\m14-production.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M14-RESOURCE SIMULATED: global concurrency quota counts unknown retained resources",
+      "nesting": 0,
+      "testNumber": 133,
+      "details": {
+        "duration_ms": 509.7722,
+        "type": "test"
+      },
+      "line": 275,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\m14-production.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M14-QUALIFICATION SIMULATED: incomplete checks and same-account real deployment cannot qualify",
+      "nesting": 0,
+      "testNumber": 134,
+      "details": {
+        "duration_ms": 321.9576,
+        "type": "test"
+      },
+      "line": 280,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\m14-production.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M14-FILE SIMULATED: path validation rejects escape, ADS, UNC, devices, overwrite spelling",
+      "nesting": 0,
+      "testNumber": 135,
+      "details": {
+        "duration_ms": 1.7691,
+        "type": "test"
+      },
+      "line": 284,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\m14-production.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M14-FILE SIMULATED: signed file scope, immutable version read, audit and Artifact submission",
+      "nesting": 0,
+      "testNumber": 136,
+      "details": {
+        "duration_ms": 353.6431,
+        "type": "test"
+      },
+      "line": 288,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\m14-production.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M15-IPC SIMULATED: OS peer check precedes private key bootstrap",
+      "nesting": 0,
+      "testNumber": 137,
+      "details": {
+        "duration_ms": 1.4706,
+        "type": "test"
+      },
+      "line": 48,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\m15-bootstrap.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M15-IPC SIMULATED: persistent two-way MAC sequence and exact RPC correlation",
+      "nesting": 0,
+      "testNumber": 138,
+      "details": {
+        "duration_ms": 3.8728,
+        "type": "test"
+      },
+      "line": 49,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\m15-bootstrap.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M15-IPC SIMULATED: replay, MAC mutation, expiry and extra fields close the connection",
+      "nesting": 0,
+      "testNumber": 139,
+      "details": {
+        "duration_ms": 25.7309,
+        "type": "test"
+      },
+      "line": 54,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\m15-bootstrap.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M15-IPC SIMULATED: wrong response correlation and disconnect never retransmit an operation",
+      "nesting": 0,
+      "testNumber": 140,
+      "details": {
+        "duration_ms": 0.9035,
+        "type": "test"
+      },
+      "line": 59,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\m15-bootstrap.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M15-IPC SIMULATED: peer monitoring and output serialize onto a single bounded native RPC owner",
+      "nesting": 0,
+      "testNumber": 141,
+      "details": {
+        "duration_ms": 52.8516,
+        "type": "test"
+      },
+      "line": 63,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\m15-bootstrap.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M15-WORKER SIMULATED: signed one-operation bootstrap validates PID/tool/args/key/expiry",
+      "nesting": 0,
+      "testNumber": 142,
+      "details": {
+        "duration_ms": 5.2685,
+        "type": "test"
+      },
+      "line": 68,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\m15-bootstrap.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M15-BOOTSTRAP SIMULATED: configuration is exact, separate identities and private directories are required",
+      "nesting": 0,
+      "testNumber": 143,
+      "details": {
+        "duration_ms": 6.1329,
+        "type": "test"
+      },
+      "line": 83,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\m15-bootstrap.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M15-BOOTSTRAP SIMULATED: Launcher enrollment signature binds actual peers, config, code and fresh challenge",
+      "nesting": 0,
+      "testNumber": 144,
+      "details": {
+        "duration_ms": 1.7245,
+        "type": "test"
+      },
+      "line": 92,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\m15-bootstrap.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M15-BOOTSTRAP REAL_LOCAL: exact source inventory rejects missing, extra and changed Worker dependencies",
+      "nesting": 0,
+      "testNumber": 145,
+      "details": {
+        "duration_ms": 11.056,
+        "type": "test"
+      },
+      "line": 96,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\m15-bootstrap.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M15-BOOTSTRAP REAL_LOCAL: changed config hash is rejected before admin/database construction",
+      "nesting": 0,
+      "testNumber": 146,
+      "details": {
+        "duration_ms": 2.5609,
+        "type": "test"
+      },
+      "line": 100,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\m15-bootstrap.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M15-CATALOG REAL_LOCAL: new protection defaults OFF and original policies/features are retained",
+      "nesting": 0,
+      "testNumber": 147,
+      "details": {
+        "duration_ms": 1.8429,
+        "type": "test"
+      },
+      "line": 103,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\m15-bootstrap.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M15-UBUNTU SIMULATED: adapter preparation requires distinct unprivileged UID/GID and pinned SO_PEERCRED/pidfd",
+      "nesting": 0,
+      "testNumber": 148,
+      "details": {
+        "duration_ms": 0.7003,
+        "type": "test"
+      },
+      "line": 108,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\m15-bootstrap.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M15-CLOSURE SIMULATED: partial/unknown IPC or owner evidence never releases five claims",
+      "nesting": 0,
+      "testNumber": 149,
+      "details": {
+        "duration_ms": 46.3639,
+        "type": "test"
+      },
+      "line": 113,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\m15-bootstrap.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M15-CPU REAL_LOCAL: historical non-DEADLINE PASS cannot satisfy the hard-budget criterion",
+      "nesting": 0,
+      "testNumber": 150,
+      "details": {
+        "duration_ms": 1.2567,
+        "type": "test"
+      },
+      "line": 123,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\m15-bootstrap.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M15-PIPE REAL_WINDOWS_PRIMITIVE: persistent bidirectional frames bind kernel peers and exclude client instance right",
+      "nesting": 0,
+      "testNumber": 151,
+      "details": {
+        "duration_ms": 6274.2486,
+        "type": "test"
+      },
+      "line": 98,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\m15-pipe.test.ts",
+      "skip": "NOT_RUN: host AppContainer denies this exact user-SID-only named pipe; no permission fallback",
+      "status": "NOT_RUN"
+    },
+    {
+      "type": "test:pass",
+      "name": "M15-PIPE REAL_WINDOWS_PRIMITIVE: first-instance ownership rejects a second native listener",
+      "nesting": 0,
+      "testNumber": 152,
+      "details": {
+        "duration_ms": 1238.1764,
+        "type": "test"
+      },
+      "line": 133,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\m15-pipe.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M15-PIPE REAL_WINDOWS_PRIMITIVE: four listener owners and exact endpoint grammar are bounded without accepting a client",
+      "nesting": 0,
+      "testNumber": 153,
+      "details": {
+        "duration_ms": 1122.1101,
+        "type": "test"
+      },
+      "line": 150,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\m15-pipe.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M15-PIPE REAL_WINDOWS_PRIMITIVE: forged sid cannot authenticate a persistent native peer",
+      "nesting": 0,
+      "testNumber": 154,
+      "details": {
+        "duration_ms": 5193.1814,
+        "type": "test"
+      },
+      "line": 163,
+      "column": 71,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\m15-pipe.test.ts",
+      "skip": "NOT_RUN: exact pipe connection denied by host sandbox",
+      "status": "NOT_RUN"
+    },
+    {
+      "type": "test:pass",
+      "name": "M15-PIPE REAL_WINDOWS_PRIMITIVE: forged image cannot authenticate a persistent native peer",
+      "nesting": 0,
+      "testNumber": 155,
+      "details": {
+        "duration_ms": 5248.8606,
+        "type": "test"
+      },
+      "line": 163,
+      "column": 71,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\m15-pipe.test.ts",
+      "skip": "NOT_RUN: exact pipe connection denied by host sandbox",
+      "status": "NOT_RUN"
+    },
+    {
+      "type": "test:pass",
+      "name": "M15-PIPE REAL_WINDOWS_PRIMITIVE: forged hash cannot authenticate a persistent native peer",
+      "nesting": 0,
+      "testNumber": 156,
+      "details": {
+        "duration_ms": 5196.5451,
+        "type": "test"
+      },
+      "line": 163,
+      "column": 71,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\m15-pipe.test.ts",
+      "skip": "NOT_RUN: exact pipe connection denied by host sandbox",
+      "status": "NOT_RUN"
+    },
+    {
+      "type": "test:pass",
+      "name": "M15-PIPE REAL_WINDOWS_PRIMITIVE: forged pid cannot authenticate a persistent native peer",
+      "nesting": 0,
+      "testNumber": 157,
+      "details": {
+        "duration_ms": 5151.2456,
+        "type": "test"
+      },
+      "line": 163,
+      "column": 71,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\m15-pipe.test.ts",
+      "skip": "NOT_RUN: exact pipe connection denied by host sandbox",
+      "status": "NOT_RUN"
+    },
+    {
+      "type": "test:pass",
+      "name": "M15-PIPE REAL_WINDOWS_PRIMITIVE: forged start cannot authenticate a persistent native peer",
+      "nesting": 0,
+      "testNumber": 158,
+      "details": {
+        "duration_ms": 5133.0031,
+        "type": "test"
+      },
+      "line": 163,
+      "column": 71,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\m15-pipe.test.ts",
+      "skip": "NOT_RUN: exact pipe connection denied by host sandbox",
+      "status": "NOT_RUN"
+    },
+    {
+      "type": "test:pass",
+      "name": "M15-PIPE REAL_WINDOWS_PRIMITIVE: oversized outbound payload revokes the channel without retry",
+      "nesting": 0,
+      "testNumber": 159,
+      "details": {
+        "duration_ms": 6130.9894,
+        "type": "test"
+      },
+      "line": 179,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\m15-pipe.test.ts",
+      "skip": "NOT_RUN: host AppContainer denies this exact user-SID-only named pipe; no permission fallback",
+      "status": "NOT_RUN"
+    },
+    {
+      "type": "test:pass",
+      "name": "M15-PIPE REAL_WINDOWS_PRIMITIVE: oversized inbound length destroys a raw same-account connection",
+      "nesting": 0,
+      "testNumber": 160,
+      "details": {
+        "duration_ms": 5157.2148,
+        "type": "test"
+      },
+      "line": 187,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\m15-pipe.test.ts",
+      "skip": "NOT_RUN: host sandbox denied the raw same-account pipe fixture; no DACL/capability change attempted",
+      "status": "NOT_RUN"
+    },
+    {
+      "type": "test:pass",
+      "name": "M15-PIPE REAL_WINDOWS_PRIMITIVE: read deadline, explicit close and endpoint revocation are terminal",
+      "nesting": 0,
+      "testNumber": 161,
+      "details": {
+        "duration_ms": 6226.3942,
+        "type": "test"
+      },
+      "line": 207,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\m15-pipe.test.ts",
+      "skip": "NOT_RUN: host AppContainer denies this exact user-SID-only named pipe; no permission fallback",
+      "status": "NOT_RUN"
+    },
+    {
+      "type": "test:pass",
+      "name": "M15-PIPE REAL_WINDOWS_PRIMITIVE: four live native channels fill owner quota and a closed slot can be reused",
+      "nesting": 0,
+      "testNumber": 162,
+      "details": {
+        "duration_ms": 6214.8246,
+        "type": "test"
+      },
+      "line": 219,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\m15-pipe.test.ts",
+      "skip": "NOT_RUN: host AppContainer denies this exact user-SID-only named pipe; no permission fallback",
+      "status": "NOT_RUN"
+    },
+    {
+      "type": "test:pass",
+      "name": "positive protected-pin attestation",
+      "nesting": 1,
+      "testNumber": 1,
+      "details": {
+        "duration_ms": 0.2476,
+        "type": "test"
+      },
+      "line": 251,
+      "column": 13,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\m15-pipe.test.ts",
+      "skip": "NOT_RUN: existing Node image has an unprotected inherited DACL; no ACL was modified. The actual unprotected DACL was rejected.",
+      "status": "NOT_RUN"
+    },
+    {
+      "type": "test:pass",
+      "name": "M15-ATTEST REAL_WINDOWS_PRIMITIVE: only the actual pinned parent and exact protected file security can attest",
+      "nesting": 0,
+      "testNumber": 163,
+      "details": {
+        "duration_ms": 1746.2206,
+        "type": "test"
+      },
+      "line": 239,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\m15-pipe.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M15-PIPE REAL_WINDOWS_PRIMITIVE: killing the actual Node owner retires its native helper",
+      "nesting": 0,
+      "testNumber": 164,
+      "details": {
+        "duration_ms": 1527.1564,
+        "type": "test"
+      },
+      "line": 263,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\m15-pipe.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M15-PIPE production cross-account protected bootstrap and effective client-instance denial",
+      "nesting": 0,
+      "testNumber": 165,
+      "details": {
+        "duration_ms": 0.1211,
+        "type": "test"
+      },
+      "line": 286,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\m15-pipe.test.ts",
+      "skip": "NOT_RUN / BLOCKED: approved distinct standard accounts, exact deployment ACL/profile and startup objects are absent; same-account primitives grant no qualification",
+      "status": "NOT_RUN"
+    },
+    {
+      "type": "test:pass",
+      "name": "M12-REC-APPLIED: exact intent, evidence, append-only audit and single-use adjudication release settled writer",
+      "nesting": 0,
+      "testNumber": 166,
+      "details": {
+        "duration_ms": 128.5426,
+        "type": "test"
+      },
+      "line": 44,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\reconciliation.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M12-REC-NOT-APPLIED: evidence-confirmed absence never automatically reexecutes the original call",
+      "nesting": 0,
+      "testNumber": 167,
+      "details": {
+        "duration_ms": 137.1286,
+        "type": "test"
+      },
+      "line": 61,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\reconciliation.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M12-REC-NEGATIVE: missing evidence, wrong intent, forged authority and invalid outcomes fail closed",
+      "nesting": 0,
+      "testNumber": 168,
+      "details": {
+        "duration_ms": 86.9367,
+        "type": "test"
+      },
+      "line": 72,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\reconciliation.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M12-REC-UNKNOWN: quarantine persists over restart and may only advance with a new exact revision/challenge",
+      "nesting": 0,
+      "testNumber": 169,
+      "details": {
+        "duration_ms": 149.5634,
+        "type": "test"
+      },
+      "line": 82,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\reconciliation.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M12-REC-CONCURRENCY: competing administrator challenges create one final adjudication",
+      "nesting": 0,
+      "testNumber": 170,
+      "details": {
+        "duration_ms": 96.909,
+        "type": "test"
+      },
+      "line": 96,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\reconciliation.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M12-REC-TIMEOUT: effect adjudication cannot release a running executor; explicit later release uses trusted settlement",
+      "nesting": 0,
+      "testNumber": 171,
+      "details": {
+        "duration_ms": 167.5481,
+        "type": "test"
+      },
+      "line": 105,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\reconciliation.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M12-REC-UNKNOWN-EXIT: administrator evidence alone cannot assert executor exit",
+      "nesting": 0,
+      "testNumber": 172,
+      "details": {
+        "duration_ms": 93.6169,
+        "type": "test"
+      },
+      "line": 122,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\reconciliation.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M12-REC-IOFAIL: failed adjudication transaction does not consume authorization or release writer",
+      "nesting": 0,
+      "testNumber": 173,
+      "details": {
+        "duration_ms": 109.673,
+        "type": "test"
+      },
+      "line": 131,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\reconciliation.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M12-REC-OUTPUT-TIMEOUT: late output never becomes PASS and UNKNOWN producer keeps its writer over restart",
+      "nesting": 0,
+      "testNumber": 174,
+      "details": {
+        "duration_ms": 197.0699,
+        "type": "test"
+      },
+      "line": 139,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\reconciliation.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M12-REC-CRASH: real process kill at before-call never replays local effect",
+      "nesting": 0,
+      "testNumber": 175,
+      "details": {
+        "duration_ms": 344.8146,
+        "type": "test"
+      },
+      "line": 156,
+      "column": 3,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\reconciliation.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M12-REC-CRASH: real process kill at after-call-before-started never replays local effect",
+      "nesting": 0,
+      "testNumber": 176,
+      "details": {
+        "duration_ms": 328.6994,
+        "type": "test"
+      },
+      "line": 156,
+      "column": 3,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\reconciliation.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M12-REC-CRASH: real process kill at handler-before-result never replays local effect",
+      "nesting": 0,
+      "testNumber": 177,
+      "details": {
+        "duration_ms": 346.1834,
+        "type": "test"
+      },
+      "line": 156,
+      "column": 3,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\reconciliation.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M12-REC-CRASH: real process kill at result-before-ack never replays local effect",
+      "nesting": 0,
+      "testNumber": 178,
+      "details": {
+        "duration_ms": 360.1112,
+        "type": "test"
+      },
+      "line": 156,
+      "column": 3,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\reconciliation.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M12-REC-CRASH: real process kill at ack-before-delivery never replays local effect",
+      "nesting": 0,
+      "testNumber": 179,
+      "details": {
+        "duration_ms": 338.8871,
+        "type": "test"
+      },
+      "line": 156,
+      "column": 3,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\reconciliation.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M13-IDENTITY: only trusted bootstrap creates bindings; malformed logical/process/profile denied",
+      "nesting": 0,
+      "testNumber": 180,
+      "details": {
+        "duration_ms": 60.0291,
+        "type": "test"
+      },
+      "line": 47,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\runtime.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M13-IDENTITY: real peer tuple required; PID reuse, SID and session mismatch rejected in contract model",
+      "nesting": 0,
+      "testNumber": 181,
+      "details": {
+        "duration_ms": 44.4412,
+        "type": "test"
+      },
+      "line": 55,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\runtime.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M13-IDENTITY: CREATED/AUTHENTICATED/ACTIVE/REVOKING/REVOKED audited; revoke is immediate",
+      "nesting": 0,
+      "testNumber": 182,
+      "details": {
+        "duration_ms": 55.8139,
+        "type": "test"
+      },
+      "line": 61,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\runtime.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M13-IPC: exact contract request consumes one capability and returns no execution authority",
+      "nesting": 0,
+      "testNumber": 183,
+      "details": {
+        "duration_ms": 54.937,
+        "type": "test"
+      },
+      "line": 69,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\runtime.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M13-IPC: authenticated Worker cannot change logical/runtime/task/instance/resource/profile/payload",
+      "nesting": 0,
+      "testNumber": 184,
+      "details": {
+        "duration_ms": 93.4533,
+        "type": "test"
+      },
+      "line": 75,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\runtime.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M13-IPC: concurrent duplicate, request/operation and nonce replay reject atomically",
+      "nesting": 0,
+      "testNumber": 185,
+      "details": {
+        "duration_ms": 79.2256,
+        "type": "test"
+      },
+      "line": 81,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\runtime.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M13-IPC: MAC tamper, invalid UTF8, unknown/duplicate keys and malformed frame fail closed",
+      "nesting": 0,
+      "testNumber": 186,
+      "details": {
+        "duration_ms": 49.5761,
+        "type": "test"
+      },
+      "line": 88,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\runtime.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M13-IPC: expiry, clock lease and epochs reject old capabilities",
+      "nesting": 0,
+      "testNumber": 187,
+      "details": {
+        "duration_ms": 97.1159,
+        "type": "test"
+      },
+      "line": 98,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\runtime.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M13-IPC: revocation while peer observation is pending fences consume",
+      "nesting": 0,
+      "testNumber": 188,
+      "details": {
+        "duration_ms": 67.3045,
+        "type": "test"
+      },
+      "line": 102,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\runtime.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M13-IPC: authorization barrier failure consumes no second request and retains original operation",
+      "nesting": 0,
+      "testNumber": 189,
+      "details": {
+        "duration_ms": 57.1596,
+        "type": "test"
+      },
+      "line": 109,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\runtime.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M13-FEATURE: OFF blocks new IPC; Broker remains blocked for every capability and mode",
+      "nesting": 0,
+      "testNumber": 190,
+      "details": {
+        "duration_ms": 50.3285,
+        "type": "test"
+      },
+      "line": 116,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\runtime.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M13-IPC: PROCESS capability cannot use protocol-only admission",
+      "nesting": 0,
+      "testNumber": 191,
+      "details": {
+        "duration_ms": 49.3921,
+        "type": "test"
+      },
+      "line": 120,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\runtime.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M13-RECOVERY: IPC loss preserves operation ID and all five resource reservations",
+      "nesting": 0,
+      "testNumber": 192,
+      "details": {
+        "duration_ms": 57.951,
+        "type": "test"
+      },
+      "line": 123,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\runtime.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M13-EXIT: incomplete evidence, parent-only exit and even complete MODEL proof cannot release",
+      "nesting": 0,
+      "testNumber": 193,
+      "details": {
+        "duration_ms": 52.9208,
+        "type": "test"
+      },
+      "line": 131,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\runtime.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M13-EXIT: termination request is separate from tree exit and abnormal exit is independent state",
+      "nesting": 0,
+      "testNumber": 194,
+      "details": {
+        "duration_ms": 55.9788,
+        "type": "test"
+      },
+      "line": 139,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\runtime.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M13-EXIT: mismatched start identity and untrusted proof source are rejected",
+      "nesting": 0,
+      "testNumber": 195,
+      "details": {
+        "duration_ms": 48.0721,
+        "type": "test"
+      },
+      "line": 144,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\runtime.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M13-RECOVERY: new Host boot quarantines old identities and resources; original M12 Writer remains",
+      "nesting": 0,
+      "testNumber": 196,
+      "details": {
+        "duration_ms": 74.9235,
+        "type": "test"
+      },
+      "line": 148,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\runtime.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M13-AUDIT: Worker producer cannot declare RESULT; correlation records append",
+      "nesting": 0,
+      "testNumber": 197,
+      "details": {
+        "duration_ms": 41.3451,
+        "type": "test"
+      },
+      "line": 156,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\runtime.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M13-FEATURE: Host Agent facade has no runtime/admin and independent owners cannot be disabled",
+      "nesting": 0,
+      "testNumber": 198,
+      "details": {
+        "duration_ms": 109.8687,
+        "type": "test"
+      },
+      "line": 162,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\runtime.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M13-IR: exit observation cannot attach to unowned operation; one-operation profile is fixed",
+      "nesting": 0,
+      "testNumber": 199,
+      "details": {
+        "duration_ms": 44.8515,
+        "type": "test"
+      },
+      "line": 169,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\runtime.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M13-IR: stalled peer observation times out; unresolved native work remains bounded",
+      "nesting": 0,
+      "testNumber": 200,
+      "details": {
+        "duration_ms": 1166.1685,
+        "type": "test"
+      },
+      "line": 174,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\runtime.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M13-IR: terminal observed exit recycles authenticated connection slots without releasing resources",
+      "nesting": 0,
+      "testNumber": 201,
+      "details": {
+        "duration_ms": 531.3975,
+        "type": "test"
+      },
+      "line": 180,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\runtime.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M13-IR: logical session close revokes its runtime binding",
+      "nesting": 0,
+      "testNumber": 202,
+      "details": {
+        "duration_ms": 172.437,
+        "type": "test"
+      },
+      "line": 191,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\runtime.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M13-IR: contradictory root or tree observations cannot create proof",
+      "nesting": 0,
+      "testNumber": 203,
+      "details": {
+        "duration_ms": 91.376,
+        "type": "test"
+      },
+      "line": 197,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\runtime.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "resources-held",
+      "nesting": 1,
+      "testNumber": 1,
+      "details": {
+        "duration_ms": 318.8205,
+        "type": "test"
+      },
+      "line": 203,
+      "column": 83,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\runtime.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "proof-recorded",
+      "nesting": 1,
+      "testNumber": 2,
+      "details": {
+        "duration_ms": 310.7514,
+        "type": "test"
+      },
+      "line": 203,
+      "column": 83,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\runtime.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "release-barrier",
+      "nesting": 1,
+      "testNumber": 3,
+      "details": {
+        "duration_ms": 316.9118,
+        "type": "test"
+      },
+      "line": 203,
+      "column": 83,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\runtime.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M13-CRASH: actual Host process kill before/after proof and at release barrier retains all reservations",
+      "nesting": 0,
+      "testNumber": 204,
+      "details": {
+        "duration_ms": 947.6944,
+        "type": "test"
+      },
+      "line": 202,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\runtime.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "unknown ID",
+      "nesting": 1,
+      "testNumber": 1,
+      "details": {
+        "duration_ms": 1.2985,
+        "type": "test"
+      },
+      "line": 52,
+      "column": 56,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\security.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "unknown level",
+      "nesting": 1,
+      "testNumber": 2,
+      "details": {
+        "duration_ms": 0.2064,
+        "type": "test"
+      },
+      "line": 52,
+      "column": 56,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\security.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "wrong known level",
+      "nesting": 1,
+      "testNumber": 3,
+      "details": {
+        "duration_ms": 0.1545,
+        "type": "test"
+      },
+      "line": 52,
+      "column": 56,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\security.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "owner",
+      "nesting": 1,
+      "testNumber": 4,
+      "details": {
+        "duration_ms": 0.1836,
+        "type": "test"
+      },
+      "line": 52,
+      "column": 56,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\security.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "degradable",
+      "nesting": 1,
+      "testNumber": 5,
+      "details": {
+        "duration_ms": 0.1779,
+        "type": "test"
+      },
+      "line": 52,
+      "column": 56,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\security.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "missing field",
+      "nesting": 1,
+      "testNumber": 6,
+      "details": {
+        "duration_ms": 0.1591,
+        "type": "test"
+      },
+      "line": 52,
+      "column": 56,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\security.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "empty modes",
+      "nesting": 1,
+      "testNumber": 7,
+      "details": {
+        "duration_ms": 0.1529,
+        "type": "test"
+      },
+      "line": 52,
+      "column": 56,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\security.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "unknown mode",
+      "nesting": 1,
+      "testNumber": 8,
+      "details": {
+        "duration_ms": 0.2016,
+        "type": "test"
+      },
+      "line": 52,
+      "column": 56,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\security.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "invalid mode value",
+      "nesting": 1,
+      "testNumber": 9,
+      "details": {
+        "duration_ms": 0.2041,
+        "type": "test"
+      },
+      "line": 52,
+      "column": 56,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\security.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "unknown authority field",
+      "nesting": 1,
+      "testNumber": 10,
+      "details": {
+        "duration_ms": 0.2219,
+        "type": "test"
+      },
+      "line": 52,
+      "column": 56,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\security.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "permissive default",
+      "nesting": 1,
+      "testNumber": 11,
+      "details": {
+        "duration_ms": 0.1616,
+        "type": "test"
+      },
+      "line": 52,
+      "column": 56,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\security.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M12-PE-CONFIG: closed policy identity and runtime contract reject malformed definitions",
+      "nesting": 0,
+      "testNumber": 205,
+      "details": {
+        "duration_ms": 56.036,
+        "type": "test"
+      },
+      "line": 38,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\security.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M12-PE-LEVELS: L0 owner, L1 exact approval, L2 implemented dimension, L3 advisory have explicit semantics",
+      "nesting": 0,
+      "testNumber": 206,
+      "details": {
+        "duration_ms": 133.3678,
+        "type": "test"
+      },
+      "line": 58,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\security.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M12-PE-INJECTION: trusted evaluator may only restrict and receives frozen policy/context",
+      "nesting": 0,
+      "testNumber": 207,
+      "details": {
+        "duration_ms": 56.1701,
+        "type": "test"
+      },
+      "line": 75,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\security.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M12-PE-REGISTER: unknown capability, missing declaration, empty effect policy and owner bypass rejected",
+      "nesting": 0,
+      "testNumber": 208,
+      "details": {
+        "duration_ms": 54.598,
+        "type": "test"
+      },
+      "line": 83,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\security.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M12-PE-MODE-OWNER: even ENFORCE changes cannot persist an independent owner in the application mode table",
+      "nesting": 0,
+      "testNumber": 209,
+      "details": {
+        "duration_ms": 58.88,
+        "type": "test"
+      },
+      "line": 94,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\security.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M12-PE-CONTEXT: tool sees no KernelStore, database, authorization or administration capability",
+      "nesting": 0,
+      "testNumber": 210,
+      "details": {
+        "duration_ms": 109.1516,
+        "type": "test"
+      },
+      "line": 100,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\security.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M12-PE-MODE: disabled application PDP and advisory policy cannot bypass mandatory side-effect approval",
+      "nesting": 0,
+      "testNumber": 211,
+      "details": {
+        "duration_ms": 146.2465,
+        "type": "test"
+      },
+      "line": 112,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\security.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M12-PE-SANDBOX: process/external capabilities stay blocked even if requires_sandbox is false and PDP disabled",
+      "nesting": 0,
+      "testNumber": 212,
+      "details": {
+        "duration_ms": 85.7214,
+        "type": "test"
+      },
+      "line": 123,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\security.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M12-PE-START: approval expiry at the durable START_INTENT barrier prevents invocation",
+      "nesting": 0,
+      "testNumber": 213,
+      "details": {
+        "duration_ms": 395.6129,
+        "type": "test"
+      },
+      "line": 132,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\security.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M12-PE-EPOCH: policy change after permit issuance fences the old exact approval",
+      "nesting": 0,
+      "testNumber": 214,
+      "details": {
+        "duration_ms": 71.4111,
+        "type": "test"
+      },
+      "line": 140,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\security.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M12-PE-RESOURCE: approval binds the exact resource; late resolver changes cannot redirect execution",
+      "nesting": 0,
+      "testNumber": 215,
+      "details": {
+        "duration_ms": 93.1371,
+        "type": "test"
+      },
+      "line": 148,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\security.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "real SQLite, three independent domain chains and global pagination",
+      "nesting": 0,
+      "testNumber": 216,
+      "details": {
+        "duration_ms": 105.7813,
+        "type": "test"
+      },
+      "line": 24,
+      "column": 3,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\storage.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "synchronous cross-table transaction, rollback, UNIQUE and business errors do not fault",
+      "nesting": 0,
+      "testNumber": 217,
+      "details": {
+        "duration_ms": 28.3076,
+        "type": "test"
+      },
+      "line": 24,
+      "column": 3,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\storage.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "agent and session SQL filters apply before LIMIT and preserve global cursor pages",
+      "nesting": 0,
+      "testNumber": 218,
+      "details": {
+        "duration_ms": 235.2832,
+        "type": "test"
+      },
+      "line": 24,
+      "column": 3,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\storage.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "flush covers its captured target after an empty or older shared flush",
+      "nesting": 0,
+      "testNumber": 219,
+      "details": {
+        "duration_ms": 32.3898,
+        "type": "test"
+      },
+      "line": 24,
+      "column": 3,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\storage.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "required fields, malformed refs, oversized envelopes and query budgets reject without fault",
+      "nesting": 0,
+      "testNumber": 220,
+      "details": {
+        "duration_ms": 25.4947,
+        "type": "test"
+      },
+      "line": 24,
+      "column": 3,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\storage.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "outbox high water rejects new records, then drains without unbounded queues",
+      "nesting": 0,
+      "testNumber": 221,
+      "details": {
+        "duration_ms": 37.1788,
+        "type": "test"
+      },
+      "line": 24,
+      "column": 3,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\storage.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "second writer and live lock recovery are blocked; real owner death is explicit",
+      "nesting": 0,
+      "testNumber": 222,
+      "details": {
+        "duration_ms": 268.923,
+        "type": "test"
+      },
+      "line": 24,
+      "column": 3,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\storage.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "process crash after file fsync and before receipt reexports no duplicate",
+      "nesting": 0,
+      "testNumber": 223,
+      "details": {
+        "duration_ms": 181.7713,
+        "type": "test"
+      },
+      "line": 24,
+      "column": 3,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\storage.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "unacknowledged crash tail is preserved then repaired from durable outbox",
+      "nesting": 0,
+      "testNumber": 224,
+      "details": {
+        "duration_ms": 400.5926,
+        "type": "test"
+      },
+      "line": 24,
+      "column": 3,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\storage.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "actual export I/O failure freezes writes and preserves outbox until explicit recovery",
+      "nesting": 0,
+      "testNumber": 225,
+      "details": {
+        "duration_ms": 35.2264,
+        "type": "test"
+      },
+      "line": 24,
+      "column": 3,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\storage.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "acknowledged truncation is never silently discarded or rebuilt as success",
+      "nesting": 0,
+      "testNumber": 226,
+      "details": {
+        "duration_ms": 27.8831,
+        "type": "test"
+      },
+      "line": 24,
+      "column": 3,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\storage.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "actual artifact publication I/O failure retains bytes and freezes both record and object admission",
+      "nesting": 0,
+      "testNumber": 227,
+      "details": {
+        "duration_ms": 29.5582,
+        "type": "test"
+      },
+      "line": 24,
+      "column": 3,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\storage.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "database hash tampering throws, freezes writes and does not fake repair",
+      "nesting": 0,
+      "testNumber": 228,
+      "details": {
+        "duration_ms": 19.985,
+        "type": "test"
+      },
+      "line": 24,
+      "column": 3,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\storage.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "32 MiB randomized artifact roundtrip streams with real backpressure and two hashes",
+      "nesting": 0,
+      "testNumber": 229,
+      "details": {
+        "duration_ms": 276.3899,
+        "type": "test"
+      },
+      "line": 24,
+      "column": 3,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\storage.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "cancelled, over-budget and invalid-chunk objects remain incomplete; secret is rejected",
+      "nesting": 0,
+      "testNumber": 230,
+      "details": {
+        "duration_ms": 31.28,
+        "type": "test"
+      },
+      "line": 24,
+      "column": 3,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\storage.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "early artifact iterator return is not verification; full corrupted stream fails closed",
+      "nesting": 0,
+      "testNumber": 231,
+      "details": {
+        "duration_ms": 40.2559,
+        "type": "test"
+      },
+      "line": 24,
+      "column": 3,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\storage.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "concurrent artifact admission is bounded and rejects a third stream without queueing",
+      "nesting": 0,
+      "testNumber": 232,
+      "details": {
+        "duration_ms": 21.6617,
+        "type": "test"
+      },
+      "line": 24,
+      "column": 3,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\storage.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "abort races a permanently pending source.next without retaining Store writers or accepting late bytes",
+      "nesting": 0,
+      "testNumber": 233,
+      "details": {
+        "duration_ms": 22.2786,
+        "type": "test"
+      },
+      "line": 24,
+      "column": 3,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\storage.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "concurrent close calls share the real drain and lock-release promise",
+      "nesting": 0,
+      "testNumber": 234,
+      "details": {
+        "duration_ms": 23.105,
+        "type": "test"
+      },
+      "line": 24,
+      "column": 3,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\storage.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "sealed segments are compressed, chained and verified; stored bit flip is detected",
+      "nesting": 0,
+      "testNumber": 235,
+      "details": {
+        "duration_ms": 106.7594,
+        "type": "test"
+      },
+      "line": 24,
+      "column": 3,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\storage.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "process-killed partial artifact remains retained without a complete object reference",
+      "nesting": 0,
+      "testNumber": 236,
+      "details": {
+        "duration_ms": 177.598,
+        "type": "test"
+      },
+      "line": 24,
+      "column": 3,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\storage.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "job-normal",
+      "nesting": 1,
+      "testNumber": 1,
+      "details": {
+        "duration_ms": 1.1658,
+        "type": "test"
+      },
+      "line": 21,
+      "column": 39,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\windows-native.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "job-hold",
+      "nesting": 1,
+      "testNumber": 2,
+      "details": {
+        "duration_ms": 0.198,
+        "type": "test"
+      },
+      "line": 21,
+      "column": 39,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\windows-native.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "job-orphan",
+      "nesting": 1,
+      "testNumber": 3,
+      "details": {
+        "duration_ms": 0.1798,
+        "type": "test"
+      },
+      "line": 21,
+      "column": 39,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\windows-native.test.ts",
+      "skip": "Parent-exited/child-alive window not observed in this managed environment",
+      "status": "NOT_RUN"
+    },
+    {
+      "type": "test:pass",
+      "name": "pipe-True",
+      "nesting": 1,
+      "testNumber": 4,
+      "details": {
+        "duration_ms": 0.1299,
+        "type": "test"
+      },
+      "line": 21,
+      "column": 39,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\windows-native.test.ts",
+      "skip": "Native observation unavailable: Pipe child exit 2: EPERM\n",
+      "status": "NOT_RUN"
+    },
+    {
+      "type": "test:pass",
+      "name": "pipe-False",
+      "nesting": 1,
+      "testNumber": 5,
+      "details": {
+        "duration_ms": 0.1309,
+        "type": "test"
+      },
+      "line": 21,
+      "column": 39,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\windows-native.test.ts",
+      "skip": "Native observation unavailable: Pipe child exit 2: EPERM\n",
+      "status": "NOT_RUN"
+    },
+    {
+      "type": "test:pass",
+      "name": "restricted-token",
+      "nesting": 1,
+      "testNumber": 6,
+      "details": {
+        "duration_ms": 0.9138,
+        "type": "test"
+      },
+      "line": 21,
+      "column": 39,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\windows-native.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M13-WINDOWS: actual native primitives; no full sandbox or release authority inferred",
+      "nesting": 0,
+      "testNumber": 237,
+      "details": {
+        "duration_ms": 19675.4922,
+        "type": "test"
+      },
+      "line": 12,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace\\tests\\agentnexus\\windows-native.test.ts",
+      "status": "PASS"
+    }
+  ],
+  "syntax_pass": true,
+  "tsc": "PASS",
+  "workspace": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\workspace",
+  "data": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\M15-v\\verification\\2026-11-07T10-33-58-198Z-41836\\data",
+  "security_assurance": "PER_CASE_EXPLICIT; SIMULATED STRINGS ARE NOT OS EVIDENCE",
+  "production_deployment": "BLOCKED",
+  "linux": "NOT_RUN",
+  "os_reboot": "NOT_RUN",
+  "cpu_qualification": "SEPARATE_RAW_REPORT"
+}

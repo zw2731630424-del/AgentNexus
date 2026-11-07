@@ -1,0 +1,11 @@
+# Resource Release
+
+保留原M1.2 Writer Claim、原operation/intent、M1.3 UNKNOWN_QUARANTINED、M1.4 WRITER/WORKSPACE_LOCK/PROCESS_SLOT/WORKER_QUOTA/SANDBOX_RESERVATION五投影和历史裁定。
+
+Host release要求固定Broker签名原件、完整REAL_WINDOWS proof、完整M1.5 closure、当前boot/操作状态、非UNKNOWN独立最终裁定、五个HELD资源精确revision、release安全Feature当前ON及可信owner授权。原prepare/commit challenge与receipt原子消费，独立L0 owner策略不随Policy DISABLED关闭。缺任何项不释放。
+
+Host完成RELEASE_WRITER后按原consumed release授权的版本快照形成签名owner receipt；Broker核自身完整proof、原operation/intent/boot和五版本后单次记RELEASED。重复已完成ACK不释放第二次。新operation只可复用RELEASED投影并递增revision，不能覆盖UNKNOWN；原授权/审计/原intent都保留。
+
+Permit前的PREPARING/PREPARED槽另有持久投影，转移与原Grant事务原子。未知准备槽及旧boot继续占位，没有自动TTL解锁或重放。未调用native这一事实必须来自当前可信调用栈，才可NOT_INVOKED；重启不能靠“没有STARTED记录”推断未调用。
+
+独立SQLite/crypto模型覆盖有效/无效receipt与幂等、未知proof拒绝、事务回滚与故障。当前无真实完整production proof，资源释放全链仍BLOCKED；不为避免阻塞提供人工勾true或无证据清理。

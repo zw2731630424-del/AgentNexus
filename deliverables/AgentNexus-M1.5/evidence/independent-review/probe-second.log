@@ -1,0 +1,34 @@
+{
+  "schema": "agentnexus/independent-probe/1",
+  "timestamp": "2026-11-07T10:08:37.610Z",
+  "assurance": "SIMULATED",
+  "node": "v24.15.0",
+  "source_sha256": {
+    "src/agentnexus/bootstrap/session.ts": "83ea6c303b8e02edb512591d7a9033e8c7276f2c7088bb1b794fd1c58194f87b",
+    "src/agentnexus/bootstrap/supervisor.ts": "9e6df9660df4abc33be396271fbf5fc602f1d9887f2a5cb1550fe4aa7a1c6587",
+    "src/agentnexus/production/native-client.ts": "f378c1bf5938ae5821fc1130d60d920874891bdf76fb1a911dc0a9310e9f05e8",
+    "src/agentnexus/production/windows-supervisor.ts": "7006732045e8e96f66dba6f68c4367ecf947a353f61a63f0b4992ad86746f724"
+  },
+  "results": [
+    {
+      "id": "RECHECK_OUTPUT_INTERLEAVE",
+      "assurance": "SIMULATED",
+      "defect_reproduced": false,
+      "failure": null,
+      "closed": false,
+      "serial_rpc_fix_observed": true
+    },
+    {
+      "id": "COMPLETED_PREPARES_NOT_RETIRED",
+      "assurance": "SIMULATED",
+      "defect_reproduced": true,
+      "completed": 4,
+      "failure": {
+        "iteration": 5,
+        "code": "M15_PREPARE_LIMIT",
+        "message": "M15_PREPARE_LIMIT"
+      },
+      "scope": "RemoteSupervisor object lifecycle only; no deployment or resource-release claim"
+    }
+  ]
+}

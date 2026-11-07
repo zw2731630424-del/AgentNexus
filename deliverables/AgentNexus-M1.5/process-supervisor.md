@@ -1,0 +1,9 @@
+# Process Supervisor
+
+RemoteSupervisor只通过已认证Launcher请求固定工具；WindowsSupervisor持native prepare handle。prepare先创建挂起进程，核token/Profile/Job/显式继承，Host才获得真实process tuple并签Permit。AUTHORIZE复测绑定、参数/文件签名、真实挂起进程；START单次消耗prepare。父Node退出watcher、IPC撤销、wall/output故障请求终止Job，未观察完整退出时保持UNKNOWN。
+
+Native原采样不再被当成完整历史：新增最终Job TotalProcesses与全部保留的固定进程身份数核对、active=0、每个kernel parent PID/创建时间核对。只有全部对应，history_complete_observed及parentage_verified_complete才可能true；短命成员漏采样或父链缺口仍false。Host buildExitProof还校验每条父链到唯一root、无环、全部句柄退出，单一Job空信号不足。
+
+root/job/producer有明确结算后可退休临时helper/内存映射，持久resource claim不随之释放。未知prepared槽即使helper/TTL结束也不自动清除；当前没有自动解除未知准备槽的接口，需另行完整退出/资源owner恢复证据。它是可用性阻断，不能以放松资源纪律规避。
+
+父先退出子残留、输出producer残留、PID复用、短命子进程及真实Host重启的完整独立身份组合测试尚需授权；旧同账户orphan窗口/当前owner-kill原语只说明其限定观察。

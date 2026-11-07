@@ -1,0 +1,636 @@
+# AgentNexus M1.5 — Production Bootstrap & Security Execution Closure
+
+**项目：** AgentNexus v0.4  
+**开发基线：** M1.4  
+**执行代理：** Codex  
+**任务性质：** 生产启动链、独立身份、Broker、可信 IPC、组合沙箱和进程退出证明。
+
+---
+
+# 一、核心目标
+
+AgentNexus 已完成 M0、M0.1、M1、M1.2、M1.3 和 M1.4。
+
+M1.4 已经实现并验证部分：
+
+- Runtime Identity。
+- Remote Permit。
+- Windows 原生 Token、Job Object、Named Pipe。
+- File Broker。
+- ExitProof 候选机制。
+- Resource Reconciliation。
+- 审计生产者接口。
+
+但完整 Windows 生产执行链仍然 BLOCKED。
+
+本轮不推倒现有成果，也不重复实现已经通过验证的原语。
+
+本轮核心目标：
+
+**让 Host 能够通过可信启动链创建独立 Worker，Worker 通过受保护 IPC 接收精确授权，在 Windows 隔离环境中执行有限任务，最终由可信 Supervisor 确认完整进程树退出，并根据 ExitProof 安全释放资源。**
+
+最终执行链：
+
+```text
+Host Bootstrap
+      |
+      v
+Host Runtime Identity
+      |
+      v
+Policy / Approval / Permit
+      |
+      v
+Production Broker
+      |
+      v
+Authenticated IPC
+      |
+      v
+Worker Bootstrap
+      |
+      v
+Restricted Token + AppContainer + Job
+      |
+      v
+File Broker
+      |
+      v
+Controlled Worker Execution
+      |
+      v
+Process Tree Observation
+      |
+      v
+ExitProof
+      |
+      v
+Resource Reconciliation
+      |
+      v
+Audit Trail
+```
+
+不能将局部原语测试通过描述为完整执行链通过。
+
+# 二、Phase 0：基线冻结与规则读取
+
+首先完整读取：
+
+1. 当前项目全部适用规则。
+2. M1.4 README。
+3. M1.4 完整验收报告。
+4. M1.4 部署审批清单。
+5. M1.4 全部源码、测试和证据。
+6. M1.3 Identity、IPC、ExitProof 协议。
+7. M1.2 Policy、Permit、Reconciliation 实现。
+8. M1.4 新增 ADR。
+9. CPU 时间限制历史 FAIL/PASS 记录。
+10. 独立安全审查报告。
+
+建立：
+
+- 当前 HEAD。
+- 工作树状态。
+- 实际运行源码清单。
+- 全部源文件 SHA256。
+- 历史测试基线。
+- M1.4 未关闭问题清单。
+
+保留 M1.2、M1.3、M1.4 原始证据。
+
+不得覆盖历史文件或原始失败记录。
+
+不要为了本轮开发修改其他科研项目。
+
+# 三、P0：Production Bootstrap
+
+这是本轮最重要的基础工作。
+
+M1.4 已经明确，生产 Host/Broker/Worker 启动入口和持久 IPC Bootstrap 尚未形成完整实现。
+
+现在需要真正建立。
+
+## 3.1 Host Bootstrap
+
+实现可信 Host 启动流程：
+
+1. 确认当前 OS 用户身份。
+2. 验证 Host SID。
+3. 验证启动目录和程序指纹。
+4. 验证配置文件版本。
+5. 验证数据库和存储目录权限。
+6. 初始化可信 Control Plane。
+7. 初始化 Policy。
+8. 初始化 Broker。
+9. 创建受保护 IPC Endpoint。
+10. 启动 Supervisor。
+11. 恢复未完成 Operation。
+12. 完成启动审计。
+
+Host 不得依靠 Agent 请求中的身份字段证明自己是 Host。
+
+Host 管理权限必须由受信任的启动链持有。
+
+## 3.2 Worker Bootstrap
+
+Worker 必须由可信 Supervisor 创建。
+
+要求：
+
+- Worker 使用独立 OS 身份。
+- Worker 具有独立 Worker Instance ID。
+- Worker 绑定 Project、Task、Session。
+- Worker 绑定 Sandbox Profile。
+- Worker 只取得完成任务所需的能力。
+- Worker 不获得管理数据库权限。
+- Worker 不获得 Admin Capability。
+- Worker 不得自行创建新的授权身份。
+- Worker 退出或撤销后身份失效。
+
+必须验证进程启动、身份绑定、IPC 连接和权限撤销的完整生命周期。
+
+## 3.3 启动方式
+
+根据实际验证结果选择合适的 Windows 用户态启动方案。
+
+可以研究 Task Scheduler 的受限启动方式，但必须先确认：
+
+- 登录权要求。
+- 密码安全处理。
+- Task 安全上下文。
+- 启动权限。
+- 重复启动控制。
+- 崩溃恢复。
+- 进程终止和退出观察。
+
+不要未经论证就安装 Windows Service 或授予管理员权限。
+
+# 四、P0：Production Broker 与 Trusted IPC
+
+建立真正长期运行的 Broker。
+
+## 4.1 Broker
+
+Broker 必须：
+
+- 验证实际 IPC Peer。
+- 验证 Runtime Identity。
+- 验证 Worker Instance。
+- 验证 Operation ID。
+- 验证精确 Permit。
+- 验证 Resource ID。
+- 验证 Policy Epoch。
+- 验证 Feature Epoch。
+- 验证 Sandbox Profile Hash。
+- 创建 Worker。
+- 监管 Worker 生命周期。
+- 收集输出。
+- 记录操作结果。
+- 生成退出证明候选。
+
+所有高风险执行只能经过 Broker。
+
+不允许出现 Agent 直接执行宿主机命令的旁路。
+
+## 4.2 Remote Permit
+
+保留 M1.4 已有精确授权设计。
+
+授权必须绑定：
+
+- Agent Identity。
+- Runtime Identity。
+- Worker Instance。
+- Operation ID。
+- Intent Hash。
+- Tool ID / Version。
+- Resource ID。
+- Sandbox Profile。
+- Policy Epoch。
+- Feature Epoch。
+- Nonce。
+- Expiration。
+- 使用次数。
+
+授权消费必须原子化。
+
+IPC 中断不允许自动重放副作用操作。
+
+## 4.3 Named Pipe
+
+完成生产 Named Pipe Endpoint。
+
+要求：
+
+- 精确 Pipe ACL。
+- Peer SID 验证。
+- Peer Process Identity 验证。
+- Worker Instance 绑定。
+- MAC 验证。
+- Nonce 防重放。
+- 请求期限。
+- 连接撤销。
+- 消息长度限制。
+- 并发连接上限。
+- 未完成请求上限。
+
+必须区分：
+
+原语测试 PASS 与生产 IPC 组合 PASS。
+
+# 五、P0：Windows 独立身份部署
+
+根据 M1.4 的部署审批清单执行。
+
+候选账户：
+
+- `AgentNexusHostM14`
+- `AgentNexusWorkerM14`
+
+候选目录和 Profile：
+
+- Host 专用目录。
+- Broker 专用目录。
+- Worker Runtime 目录。
+- Worker Workspace。
+- `AgentNexus.M14.Worker` AppContainer Profile。
+
+但必须遵守以下原则：
+
+1. 先完成 Bootstrap 代码。
+2. 先完成部署预检。
+3. 核实两个账户是否仍不存在。
+4. 核实部署目录是否仍不存在。
+5. 保存精确前置状态。
+6. 生成部署变更与回滚清单。
+7. 单独等待用户系统级授权。
+
+不得因为之前 M1.4 的授权清单存在，就认为已经获得系统变更授权。
+
+不得擅自创建账户、修改 ACL、注册 AppContainer、修改防火墙或安装系统服务。
+
+# 六、P0：Windows 组合 Sandbox
+
+将以下能力真正组合起来：
+
+- 独立 Worker 账户。
+- Restricted Token。
+- AppContainer。
+- Job Object。
+- 精确文件 ACL。
+- 受控文件访问。
+- 进程树管理。
+- 网络访问限制。
+- 资源限制。
+
+不能将各原语独立 PASS 拼接成组合 Sandbox PASS。
+
+## 6.1 文件访问
+
+Worker 只能通过 File Broker 访问授权资源。
+
+要求：
+
+- 工作区路径精确绑定。
+- 文件句柄级访问。
+- 路径规范化。
+- 符号链接拒绝。
+- Junction 拒绝。
+- Hardlink 边界检查。
+- TOCTOU 防护。
+- 文件大小限制。
+- 目录遍历限制。
+- 读取和写入审计。
+- 不允许访问 Host 管理数据库。
+- 不允许访问其他项目。
+
+尤其不能使用简单字符串前缀判断文件是否属于授权工作区。
+
+## 6.2 网络访问
+
+默认拒绝。
+
+不授予 Worker 不必要的网络能力。
+
+需要外部网络时必须另行定义明确的网络授权和执行边界。
+
+不得因为某次测试没有成功连接网络，就直接认定所有网络访问路径都已被阻断。
+
+## 6.3 CPU 限制
+
+M1.4 的 CPU 硬限制曾经出现真实 FAIL，后续出现 PASS。
+
+本轮必须单独处理。
+
+要求：
+
+- 核实限制的实际作用对象。
+- 核实 CPU 时间与墙钟时间区别。
+- 核实子进程是否计入。
+- 核实 Job 中全部进程的计量。
+- 核实终止边界。
+- 多次重复测试。
+- 保存完整原始记录。
+
+在稳定性资格测试完成前，不得宣称 CPU Hard Limit 已经具备生产保证。
+
+# 七、P0：ExitProof 完整闭环
+
+M1.4 已经具有 ExitProof 候选机制，但生产 ExitProof 仍然 BLOCKED。
+
+本轮必须实现真正的退出确认。
+
+至少验证：
+
+1. Worker 主进程退出。
+2. Job 内全部成员退出。
+3. 子进程没有残留。
+4. stdout/stderr Producer 已经停止。
+5. IPC 请求已完成或明确进入未知状态。
+6. Sandbox 状态已关闭。
+7. 资源所有者确认释放条件。
+8. ExitProof 记录持久化成功。
+
+状态至少区分：
+
+- TERMINATION_REQUESTED。
+- PROCESS_EXITED。
+- PROCESS_TREE_EXITED。
+- OUTPUT_SETTLED。
+- EXIT_VERIFIED。
+- EXIT_UNVERIFIED。
+
+任何一项不完整，都不得自动释放对应资源。
+
+不要把进程句柄失效、发送终止信号、父进程退出或 Job 查询结果中的单一信号直接等同于完整退出证明。
+
+# 八、P0：Resource Release
+
+只有完整 ExitProof 和资源所有者验证均通过，才能考虑开放对应资源释放。
+
+必须保留：
+
+- M1.2 Writer Claim。
+- M1.3 UNKNOWN_QUARANTINED。
+- M1.4 五类资源独立投影。
+- 原始 Operation。
+- 原始 Intent Hash。
+- 历史裁定记录。
+
+未知状态不能自动释放。
+
+生产 Release 必须经过独立策略和资源所有者授权。
+
+不得为了避免任务阻塞而绕过不确定状态。
+
+# 九、P1：Audit Producer 完整接入
+
+本轮接入真实生产组件：
+
+- Host Bootstrap。
+- Broker。
+- Worker。
+- IPC。
+- Sandbox。
+- File Broker。
+- Process Supervisor。
+- ExitProof。
+- Resource Release。
+
+每条记录至少绑定：
+
+Event ID、Operation ID、Agent ID、Runtime Identity、Worker Instance、Resource ID、Sandbox Profile、Policy Decision、ExitProof 和 Artifact Hash。
+
+所有读取、写入、启动、终止和释放操作均应有可追踪记录。
+
+审计存储失败时，高风险操作不能静默继续。
+
+大型输出必须流式写入，不能无限累积内存。
+
+# 十、P1：CPU Hard Limit 与类型检查
+
+独立解决 M1.4 遗留问题。
+
+### CPU Hard Limit
+
+建立稳定资格测试：
+
+- 单进程。
+- 多进程。
+- 子进程。
+- 长时间运行。
+- 超限终止。
+- 重复运行。
+- 并发 Job。
+- 系统负载变化。
+
+保留历史失败记录，不覆盖。
+
+### TypeScript
+
+执行真正的静态类型检查：
+
+- tsc。
+- 严格类型检查。
+- 必要的类型边界测试。
+- Node 运行时版本验证。
+
+Node 语法检查不能替代 TypeScript 静态类型检查。
+
+# 十一、Feature Registry / Policy
+
+新增模块纳入现有 Feature Registry。
+
+每项功能定义：
+
+- Feature ID。
+- 默认状态。
+- 作用域。
+- 依赖。
+- 冲突。
+- 风险。
+- 关闭行为。
+- 降级合同。
+- 恢复方式。
+- 验收测试。
+
+安全功能关闭不得自动开放其保护的能力。
+
+例如：
+
+- 关闭 Sandbox 不开放 PROCESS。
+- 关闭 Broker 不开放宿主机直连。
+- Policy DISABLED 不关闭 OS 身份和操作系统权限。
+- 关闭 Audit Producer 不允许高风险操作静默执行。
+
+未实现策略默认 DENY 或 BLOCKED。
+
+# 十二、Ubuntu Adapter
+
+本轮重点是 Windows 生产执行链。
+
+但必须同步完成 Ubuntu Adapter 的技术实现准备。
+
+明确：
+
+- 独立 UID/GID。
+- Unix Domain Socket。
+- SO_PEERCRED。
+- User Namespace。
+- Mount Namespace。
+- PID Namespace。
+- Network Namespace。
+- seccomp。
+- cgroup v2。
+- AppArmor。
+- 文件 Broker。
+- Process Supervisor。
+- ExitProof。
+
+不要修改实际 Ubuntu 服务器的系统配置。
+
+Ubuntu 实际部署必须另行授权并独立测试。
+
+Windows PASS 不能转移为 Ubuntu PASS。
+
+# 十三、实施阶段
+
+Phase 0：基线冻结、完整代码审查和生产 Bootstrap 设计。
+
+Phase 1：Host / Worker Bootstrap 和独立身份。
+
+Phase 2：Production Broker 和持久 IPC。
+
+Phase 3：Windows 组合 Sandbox 和 File Broker。
+
+Phase 4：Process Supervisor、ExitProof 和 Resource Release。
+
+Phase 5：Audit Producer 完整接入。
+
+Phase 6：CPU Hard Limit、静态类型检查和独立攻击测试。
+
+Phase 7：最终部署验收。
+
+互不冲突的工作可以并行开展，但同一工作区必须保持单写者纪律。
+
+# 十四、系统级授权纪律
+
+M1.4 的 deployment-approval.md 仅是待审阅的变更清单，不是执行批准。
+
+本轮严格遵守：
+
+- 不擅自创建 Windows 用户。
+- 不擅自修改 ACL。
+- 不擅自注册 AppContainer。
+- 不修改防火墙。
+- 不安装驱动。
+- 不安装系统服务。
+- 不修改 Ubuntu。
+- 不读取 API Key。
+- 不连接真实 Provider。
+- 不运行正式科研实验。
+- 不自动 Commit / Push。
+
+先完成代码、测试和只读部署预检。
+
+需要系统级操作时，生成新的精确授权清单，逐项说明变更、风险、前置状态和回滚方案，等待用户批准。
+
+# 十五、测试验收
+
+必须覆盖：
+
+- Host 身份伪造。
+- Worker 身份伪造。
+- IPC Peer 伪造。
+- Remote Permit 重放。
+- 过期授权。
+- 资源越权。
+- 跨项目访问。
+- 管理数据库访问。
+- 文件路径逃逸。
+- 符号链接。
+- Junction。
+- Hardlink。
+- TOCTOU。
+- 子进程逃逸。
+- 网络访问。
+- CPU 超限。
+- Worker 强制终止。
+- 父退出、子残留。
+- 输出生产者残留。
+- Host 重启。
+- PID 重用。
+- ExitProof 伪造。
+- 不确定状态资源释放。
+- Audit 写入失败。
+- IPC 断开。
+- 并发 Worker 竞争。
+
+真实 OS 测试必须使用真实 Windows 账户和实际操作系统权限。
+
+模拟测试标记 SIMULATED。
+
+未运行标记 NOT_RUN。
+
+证据不足标记 INCONCLUSIVE。
+
+未获得系统部署授权标记 BLOCKED。
+
+不得把局部原语 PASS 当成完整组合沙箱 PASS。
+
+# 十六、交付物
+
+建立独立 M1.5 交付目录，包含：
+
+1. M1.5 总体架构。
+2. Host Bootstrap。
+3. Worker Bootstrap。
+4. Runtime Identity 实现。
+5. Production Broker。
+6. Trusted IPC。
+7. Windows Sandbox。
+8. File Broker。
+9. Process Supervisor。
+10. ExitProof。
+11. Resource Release。
+12. Audit Producer 覆盖矩阵。
+13. CPU Hard Limit 资格报告。
+14. TypeScript 静态检查报告。
+15. 更新后的 Feature / Policy Catalog。
+16. 新增 ADR。
+17. 完整源码。
+18. 测试源码。
+19. 原始运行日志。
+20. 独立安全审查报告。
+21. 系统部署授权清单。
+22. SHA256 清单。
+23. 最终验收报告。
+24. M1.6 后续建议。
+
+# 十七、最终验收标准
+
+只有当以下条件全部得到真实证据支持，才能宣布 Windows 生产执行链完成：
+
+1. Host 和 Worker 使用真实独立身份。
+2. Worker 通过可信 Bootstrap 启动。
+3. IPC 验证真实 Peer。
+4. Broker 唯一控制高风险执行。
+5. Worker 只能访问指定项目资源。
+6. Worker 无法访问管理数据库。
+7. Sandbox 的组合隔离经过真实攻击测试。
+8. 进程树受到完整监管。
+9. ExitProof 能够证明整个执行环境退出。
+10. 不完整 ExitProof 不能释放资源。
+11. Host 重启后未知状态继续隔离。
+12. 全部关键操作有完整审计记录。
+
+如果只完成部分能力，必须分别报告限定范围 PASS 和整体 BLOCKED。
+
+现在开始执行 M1.5。
+
+先完成规则读取和 M1.4 基线冻结，再进入 Phase 0。
+
+不要只提交计划后停止，在授权范围内持续推进实际开发和验证。
+
+需要系统级授权时暂停相应操作，提交精确清单，等待用户批准。

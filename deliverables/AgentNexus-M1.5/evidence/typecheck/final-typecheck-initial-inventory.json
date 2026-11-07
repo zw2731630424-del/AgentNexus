@@ -1,0 +1,2881 @@
+{
+  "schema": "agentnexus/m15-final-strict-typecheck/1",
+  "status": "FAIL",
+  "started_at": "2026-11-07T10:59:13.586Z",
+  "finished_at": "2026-11-07T10:59:19.359Z",
+  "source_root": "I:/AI_AgentNexus/deliverables/AgentNexus-M1.5/source",
+  "source_freeze": {
+    "manifest": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/source-freeze-final.json",
+    "manifest_sha256": "93ff366ee62cf7b3883efc6dbbf5a3b1c9b2e32c4297efa66153d69660c67a59",
+    "set_sha256": "a55823fae02fd565249cf0d2af1f3257d2e107b798b05b078b74ba15eb0e109e",
+    "file_count": 91,
+    "identity_method": "Every path, byte length and SHA256 was compared against the frozen manifest before and after both compiler checks; no manifest entry was omitted.",
+    "before": {
+      "matches_frozen_manifest": true,
+      "canonical_inventory_sha256": "0cf8dab1aa79eec675fd1d44ea2ebbc645f23c5acc133ce46f2072c699e6eadd",
+      "differences": {
+        "missing": [],
+        "extra": [],
+        "changed": []
+      },
+      "files": [
+        {
+          "path": "config/agentnexus/features.json",
+          "bytes": 402532,
+          "sha256": "1e680f2cb822966123630687f8b9354746c2696164504ee51c3f6c727cd4be45"
+        },
+        {
+          "path": "config/agentnexus/policies.json",
+          "bytes": 97383,
+          "sha256": "2fac46d95ae95f2cb7b506eb6d92299d0a579f9808f05b8d9d41862d8e0c2587"
+        },
+        {
+          "path": "package-lock.json",
+          "bytes": 1492,
+          "sha256": "5387d9e1f24888d9ade2033d6e7a45ed733eed6fa4721994a7c38c872b4206e1"
+        },
+        {
+          "path": "package.json",
+          "bytes": 476,
+          "sha256": "c69583cc30592c950c29d587c426856e1d54d2da7371d17ccc7aab12c88d991d"
+        },
+        {
+          "path": "src/agentnexus/artifacts.ts",
+          "bytes": 15937,
+          "sha256": "c939b746466cf298c0aff93d537c906317b9fac50238289758d75c413b16fd19"
+        },
+        {
+          "path": "src/agentnexus/bootstrap/config.ts",
+          "bytes": 12928,
+          "sha256": "281e683c0f4fac5a0618deff0976da09ccaca860935cf1c044541f5cf7e5aea0"
+        },
+        {
+          "path": "src/agentnexus/bootstrap/entry.ts",
+          "bytes": 7082,
+          "sha256": "fda08b8be8ffe4d232f3803955e335e8e1f27fdb2eb31738e390cce380ce7fb7"
+        },
+        {
+          "path": "src/agentnexus/bootstrap/exit-closure.ts",
+          "bytes": 4432,
+          "sha256": "c2aacb31be493bd47f697f0397bfae11d37d5f79639596bd3f884f5a65d82dcf"
+        },
+        {
+          "path": "src/agentnexus/bootstrap/launcher-proof.ts",
+          "bytes": 3221,
+          "sha256": "a05e7450e54618e5cde093f283211ab1e0dfc5630e1cd5b365103b2d2a9e0ed2"
+        },
+        {
+          "path": "src/agentnexus/bootstrap/permissions.ts",
+          "bytes": 2307,
+          "sha256": "4019e1c2ee1a663eec62a9e68d4ccb5dd774e88ecb571e532c81c10e39d6b2b7"
+        },
+        {
+          "path": "src/agentnexus/bootstrap/reservations.ts",
+          "bytes": 6251,
+          "sha256": "b62f7dec432c201fd549aa276d303af756c8a8d90fe974be42603097077adc93"
+        },
+        {
+          "path": "src/agentnexus/bootstrap/runtime.ts",
+          "bytes": 19658,
+          "sha256": "28da475cbb0c0786ed4ae625888f53a66a13c9af34f6d0a8f0a4a03520608736"
+        },
+        {
+          "path": "src/agentnexus/bootstrap/session.ts",
+          "bytes": 9978,
+          "sha256": "97b0e9435f9468fd9b46f56792f0335ab1d20ec915b832f98b836334662daec5"
+        },
+        {
+          "path": "src/agentnexus/bootstrap/supervisor.ts",
+          "bytes": 12489,
+          "sha256": "58a926b240429ddc4f45595b16566069294541839a549443483ccdeecccea77e"
+        },
+        {
+          "path": "src/agentnexus/bootstrap/ubuntu.ts",
+          "bytes": 3650,
+          "sha256": "42685813efcc56eebfede5097d81d56bb0445cd8fa32a1d0c70e793a9db5a3f3"
+        },
+        {
+          "path": "src/agentnexus/bootstrap/ubuntu/peer_probe.c",
+          "bytes": 867,
+          "sha256": "db6938c1978ae79c2c371ac473fab68619077ca093e6a93b0d6dcbe79581dfba"
+        },
+        {
+          "path": "src/agentnexus/bootstrap/worker.ts",
+          "bytes": 5184,
+          "sha256": "39ee6763699b1db18466e30dab7538499d4f3315a80faaf674d853f620814158"
+        },
+        {
+          "path": "src/agentnexus/checkers/powershell_ast.ps1",
+          "bytes": 3780,
+          "sha256": "90079d41e2083df61ee87456cbe81a4d1863b2f4053df0ab9e78b668e3789ae8"
+        },
+        {
+          "path": "src/agentnexus/checkers/python_ast.py",
+          "bytes": 2998,
+          "sha256": "a9595eca900b49c4ec88e82599c28569b01e543ed8ecb52908ae0772b104fc6e"
+        },
+        {
+          "path": "src/agentnexus/cli.ts",
+          "bytes": 1927,
+          "sha256": "21b22392926ebe706f3d2a382205a7ed0afcf9477b619707df250dd2089334bb"
+        },
+        {
+          "path": "src/agentnexus/control.ts",
+          "bytes": 8234,
+          "sha256": "3a549eb7bf5548b2b0453711899c0b7bfb1ea4d346dfad0bca11d4c166bf46d4"
+        },
+        {
+          "path": "src/agentnexus/diagnostics.ts",
+          "bytes": 31299,
+          "sha256": "d869a291068564eb942b05623f2b8e3f0f8348c40647215e1b85d86eef27d86d"
+        },
+        {
+          "path": "src/agentnexus/features.ts",
+          "bytes": 12008,
+          "sha256": "d6aafeafd88f6fd5660afa6b4f29b68625d70ffc8f8138f90db657b6acacda5e"
+        },
+        {
+          "path": "src/agentnexus/gateway.ts",
+          "bytes": 23204,
+          "sha256": "5ec2cb67afca1858c168b1888fa398ef766d3e18cf9b7f4253d9db51f17d7871"
+        },
+        {
+          "path": "src/agentnexus/host.ts",
+          "bytes": 18869,
+          "sha256": "8856e1ca5fe435f0a75b051c70168295f5fad3e5c98632537af01f7dbc775cf3"
+        },
+        {
+          "path": "src/agentnexus/integrity.ts",
+          "bytes": 18691,
+          "sha256": "172a40c429c9e8a99f8cc1fcee2ef500adb4e7d378f0f6188fbbe7f792edfe66"
+        },
+        {
+          "path": "src/agentnexus/policy-contracts.ts",
+          "bytes": 4137,
+          "sha256": "6d0fdcbbe7cca5ebca6d19c27c8518e55eb33223b1c0e74a32e2e5c8adbcb9af"
+        },
+        {
+          "path": "src/agentnexus/policy.ts",
+          "bytes": 18232,
+          "sha256": "31a6f1250ab2c5e9271181b23cc347b72fd502d7b2bfa229716dd976ee040f49"
+        },
+        {
+          "path": "src/agentnexus/production/audit.ts",
+          "bytes": 1494,
+          "sha256": "51ede7c82086d72707cc965891a673e2addf4cfd6efdf836b534988823c485f8"
+        },
+        {
+          "path": "src/agentnexus/production/authority.ts",
+          "bytes": 12620,
+          "sha256": "47546dbe8f131e27a1ae2ddfafec3f1227c06deee0dc395100e9dc60ee623e05"
+        },
+        {
+          "path": "src/agentnexus/production/broker.ts",
+          "bytes": 17841,
+          "sha256": "dc7a7f7294d9035e97f41058d60b802f804fe8b18e7c232a29906f5de8ee1e3c"
+        },
+        {
+          "path": "src/agentnexus/production/contracts.ts",
+          "bytes": 7169,
+          "sha256": "368e611e224288350ca5a9eeeb883ccdc2b5d02129fbcbd5718cdf1e88f65620"
+        },
+        {
+          "path": "src/agentnexus/production/exit.ts",
+          "bytes": 11644,
+          "sha256": "fce46daa7544c1f6de2544cd4def6856e99c285717d47caed1fbe6362ec9101d"
+        },
+        {
+          "path": "src/agentnexus/production/file-broker.ts",
+          "bytes": 10339,
+          "sha256": "1fdbdf438e2ab5591b56d90a69786cbcf27bacc0290e200e09bc6c4e771f1a51"
+        },
+        {
+          "path": "src/agentnexus/production/host.ts",
+          "bytes": 5540,
+          "sha256": "c849b9d28e583937449b63f863f147dcc51e683ee378edac44fc77245ab5c3ff"
+        },
+        {
+          "path": "src/agentnexus/production/identity.ts",
+          "bytes": 6805,
+          "sha256": "157d276bd002b5b624d40675e41b67d1beab86a1db478ba50b8a64324e24bba1"
+        },
+        {
+          "path": "src/agentnexus/production/native-client.ts",
+          "bytes": 7037,
+          "sha256": "f378c1bf5938ae5821fc1130d60d920874891bdf76fb1a911dc0a9310e9f05e8"
+        },
+        {
+          "path": "src/agentnexus/production/qualification.ts",
+          "bytes": 2573,
+          "sha256": "3c241da34dce87591abfc3ef2562c6005f62319fbf8152a44305b121d89f8b8c"
+        },
+        {
+          "path": "src/agentnexus/production/service.ts",
+          "bytes": 1626,
+          "sha256": "4954b7cc8e005d961ee6408dd161046c8337c44dfe3b3439d1a2b289fdc2150d"
+        },
+        {
+          "path": "src/agentnexus/production/transport.ts",
+          "bytes": 6280,
+          "sha256": "1d4d6ca1d680be24aef8e40ee703f66d11ec25e5514cb53c74f2f470a09d120d"
+        },
+        {
+          "path": "src/agentnexus/production/windows-supervisor.ts",
+          "bytes": 9261,
+          "sha256": "7006732045e8e96f66dba6f68c4367ecf947a353f61a63f0b4992ad86746f724"
+        },
+        {
+          "path": "src/agentnexus/production/windows/BootstrapNative.cs",
+          "bytes": 55713,
+          "sha256": "f44ee579f9c3a78419acab4e2a3dc85aab9cca0acc6ceb4e44f40f1a86923e80"
+        },
+        {
+          "path": "src/agentnexus/production/windows/NativeRuntime.cs",
+          "bytes": 66088,
+          "sha256": "f21e80788372733f03a9a16eac74d3cadd91a830382992109e572409e3327b4d"
+        },
+        {
+          "path": "src/agentnexus/production/windows/runtime.ps1",
+          "bytes": 8978,
+          "sha256": "7ea9a3fc50965611e21103469c28d47bdeb4893728c193d60074faf9ff2741cd"
+        },
+        {
+          "path": "src/agentnexus/reconciliation.ts",
+          "bytes": 14568,
+          "sha256": "9f65ae9b5b0e4f049efabfadc1cb5ad263ce0b5ea7703a15bb8789f27d3f1906"
+        },
+        {
+          "path": "src/agentnexus/records.ts",
+          "bytes": 6510,
+          "sha256": "393e0a70a20a4dae21287169d1313bae949842cf0f712bacb3ebf432a5ed7800"
+        },
+        {
+          "path": "src/agentnexus/runtime/audit.ts",
+          "bytes": 2003,
+          "sha256": "14f06526c6a48473aca95e5a47077e69b63db646ca1d605af0df8272207584c4"
+        },
+        {
+          "path": "src/agentnexus/runtime/broker.ts",
+          "bytes": 884,
+          "sha256": "611056760e82606bae893c2ed78831adb0e3b8ac102a4206b8af6cafc021efc2"
+        },
+        {
+          "path": "src/agentnexus/runtime/contracts.ts",
+          "bytes": 7187,
+          "sha256": "308378e645233f6317de44399d59eb0a15bbaf4b0f506a2083917a999651b725"
+        },
+        {
+          "path": "src/agentnexus/runtime/control.ts",
+          "bytes": 27386,
+          "sha256": "4b78fdfdbab38bc1d07dafea5fa323c72e1d02eeefbc7071b13f515ef6cec502"
+        },
+        {
+          "path": "src/agentnexus/runtime/ipc.ts",
+          "bytes": 2759,
+          "sha256": "9b8d5c096ffc4b529a5919047d84cff16dfdef495b148f1af7748f49380130a5"
+        },
+        {
+          "path": "src/agentnexus/runtime/windows/NativeProbe.cs",
+          "bytes": 15171,
+          "sha256": "3a96b192e46bca3f5774c8096ca598e4ce723776993062cd363e6a8cfe7e202f"
+        },
+        {
+          "path": "src/agentnexus/storage.ts",
+          "bytes": 33038,
+          "sha256": "a693dde21a10e501c1e7172d1cf24a3dd99317b9bbfcfe2c235631926a33bff0"
+        },
+        {
+          "path": "src/agentnexus/types.ts",
+          "bytes": 6839,
+          "sha256": "7bd207b6d34d63d5d443eedae516abc292942562b6b58ecf2f3ffccd566fdb25"
+        },
+        {
+          "path": "tests/agentnexus/control.test.ts",
+          "bytes": 17191,
+          "sha256": "5434e80937f050429198eb81d73045b291aed433285dc28fdcfa7d4cdb215ef1"
+        },
+        {
+          "path": "tests/agentnexus/diagnostics.test.ts",
+          "bytes": 19171,
+          "sha256": "a3b4a33ceed558659f67af248c6a94f1a9abc6571814a5ba33e22c0c196e9b8f"
+        },
+        {
+          "path": "tests/agentnexus/gateway.test.ts",
+          "bytes": 18503,
+          "sha256": "b9bb3d122ab0e56a4b3cea17cb9a99c41bcebe7ce47b30aea600be6943a9b8ba"
+        },
+        {
+          "path": "tests/agentnexus/integrity.test.ts",
+          "bytes": 21629,
+          "sha256": "2d4f1212dc62716a8281e83eb2ef9e579213c707e6ff97fb5b13c32d39806e80"
+        },
+        {
+          "path": "tests/agentnexus/m14-adapter.test.ts",
+          "bytes": 2160,
+          "sha256": "e40821919ac3eb487768baf155284d4458834c3b95638f50f2ded8581163ee85"
+        },
+        {
+          "path": "tests/agentnexus/m14-broker-child.mjs",
+          "bytes": 4995,
+          "sha256": "bc6800f9f0219114babbe61ffb022302c9892117228947f7eecd633fa77ec58c"
+        },
+        {
+          "path": "tests/agentnexus/m14-native-worker.mjs",
+          "bytes": 1382,
+          "sha256": "501e013660d7f11119f79455cc17669aa47e0bbe7c2c4491071e058e7edd66a5"
+        },
+        {
+          "path": "tests/agentnexus/m14-native.test.ts",
+          "bytes": 20352,
+          "sha256": "4a9994d283d2e5280ab5cefbab701edfb92f12de688ae8474c7280de102681af"
+        },
+        {
+          "path": "tests/agentnexus/m14-production.test.ts",
+          "bytes": 37918,
+          "sha256": "f51c8794d705cefef7caa73b3234791b7dfffb256c92f3f227da0c7eba235d03"
+        },
+        {
+          "path": "tests/agentnexus/m15-bootstrap.test.ts",
+          "bytes": 26114,
+          "sha256": "bca5a8e6103eabe9b1768e57055f45967238ae479253b2dcd8e16733260c807f"
+        },
+        {
+          "path": "tests/agentnexus/m15-cpu-worker.mjs",
+          "bytes": 516,
+          "sha256": "f59b524a7d2e4b8bd0792be3a166f379776c0089f4ac7b44e886c678659570fa"
+        },
+        {
+          "path": "tests/agentnexus/m15-pipe-owner-child.mjs",
+          "bytes": 2689,
+          "sha256": "590f71d73e3ef6c95ebe9b796f3ccec5d01a010921850b423ea566469605e665"
+        },
+        {
+          "path": "tests/agentnexus/m15-pipe.test.ts",
+          "bytes": 23037,
+          "sha256": "ef7dc6676067679a5cacab19db06fca204653632fc3c8e30c6eb0a2a00c1c54f"
+        },
+        {
+          "path": "tests/agentnexus/owned-storage-child.mjs",
+          "bytes": 1885,
+          "sha256": "7a469bfa662d98f39f06b4483eaa1f49809e490817679cce5f7f1fa366133139"
+        },
+        {
+          "path": "tests/agentnexus/reconciliation-child.mjs",
+          "bytes": 2373,
+          "sha256": "17067655828b662d7393ea55805d5438ff8ed0110610f13fc394d82d61a4a521"
+        },
+        {
+          "path": "tests/agentnexus/reconciliation.test.ts",
+          "bytes": 19989,
+          "sha256": "3ddf54e2ec6e741fb7b4003124338bbb41f5e271bd12632e4e4152fae2f61e80"
+        },
+        {
+          "path": "tests/agentnexus/runtime-crash-child.mjs",
+          "bytes": 2474,
+          "sha256": "79cfb0f2b443604ddcffd5da414eccb01aee7b724943b52e6789930078a7f562"
+        },
+        {
+          "path": "tests/agentnexus/runtime-worker.mjs",
+          "bytes": 1097,
+          "sha256": "a77ff4f6f333967e4df0c5c60bf8aa67843263639679180f5de8b6d6e1dd6b65"
+        },
+        {
+          "path": "tests/agentnexus/runtime.test.ts",
+          "bytes": 23844,
+          "sha256": "f71d9405adca5c4490def3cf8ee847d230d82162fa57a423f37195404c787d37"
+        },
+        {
+          "path": "tests/agentnexus/security.test.ts",
+          "bytes": 15318,
+          "sha256": "224fa63e65ffc13805afeda08fe844a439503251bd2f6393695d55dd61e19f50"
+        },
+        {
+          "path": "tests/agentnexus/storage.test.ts",
+          "bytes": 28922,
+          "sha256": "7fe63fae9c892983a20cff6363daea390b95f9535d9aab8b231a79509bf722ea"
+        },
+        {
+          "path": "tests/agentnexus/windows-native.test.ts",
+          "bytes": 3164,
+          "sha256": "358299b2b7f059273a47c5d79acf97c3f71cc35d2339d090f98f5fec47bef506"
+        },
+        {
+          "path": "tools/agentnexus/cpu-qualify-m15.d.mts",
+          "bytes": 732,
+          "sha256": "0127ae8099ad691162c65a2c023eb6a9d8b813782bd04d737391ff2b9ac93265"
+        },
+        {
+          "path": "tools/agentnexus/cpu-qualify-m15.mjs",
+          "bytes": 5947,
+          "sha256": "2f1eab71b9434a838ab551b883a66bfe4937c0f9bd34652a03c6caaf70eb430e"
+        },
+        {
+          "path": "tools/agentnexus/freeze-m13.py",
+          "bytes": 2368,
+          "sha256": "d8285825d51142563da27520752caa232a1426fc5667ee35aa8bf6945a200458"
+        },
+        {
+          "path": "tools/agentnexus/json-reporter.mjs",
+          "bytes": 660,
+          "sha256": "777650bb69740cddc6124b6608d120b2450210bc169d4a0af5f00c81c588c016"
+        },
+        {
+          "path": "tools/agentnexus/package-m12.py",
+          "bytes": 9850,
+          "sha256": "61dcb1c2f319dc6d299e9a8e58f35e6d6f43a585d8b6552c1731b56e1fda7f86"
+        },
+        {
+          "path": "tools/agentnexus/preflight-m14.ps1",
+          "bytes": 2139,
+          "sha256": "19f7e4b735569a699013e7b11f3616b346ff6c3588d9983db2340d9f37353d80"
+        },
+        {
+          "path": "tools/agentnexus/preflight-m15.ps1",
+          "bytes": 3658,
+          "sha256": "40b87eec7f0d713ad9b7d8fee44573e3c7805321554ac88a9ca47ef8bd35d68a"
+        },
+        {
+          "path": "tools/agentnexus/run-tests.mjs",
+          "bytes": 667,
+          "sha256": "7b1b45b072e55e4c2e079e90aa963d94584a871496945ed88b737cb42dd4c0b7"
+        },
+        {
+          "path": "tools/agentnexus/typecheck-m15.mjs",
+          "bytes": 2297,
+          "sha256": "89d962973e40e56991d1eb50c7b964db98ff957e682dd6df896817c563e6b77a"
+        },
+        {
+          "path": "tools/agentnexus/verify-m12.mjs",
+          "bytes": 3523,
+          "sha256": "4874dd19f2ff2d9c522bf9d546aa2ef2bc5ccd3175aeffb518d8657f14450d5f"
+        },
+        {
+          "path": "tools/agentnexus/verify-m13.mjs",
+          "bytes": 3953,
+          "sha256": "e4ee594fa0d5fec08e28ee1eace3986716c1c9b9de24156e3151699e711dad2d"
+        },
+        {
+          "path": "tools/agentnexus/verify-m14.mjs",
+          "bytes": 4722,
+          "sha256": "a19fdee34e0f5b13f53d5471ff30a4d305d88e7f9ed2b36565c02ebee6d7b745"
+        },
+        {
+          "path": "tools/agentnexus/verify-m15.mjs",
+          "bytes": 5477,
+          "sha256": "a05e7a2bb0bbf16324bf5aa8a9319cfa9928cbfca3381f6e41a364960faaff2a"
+        },
+        {
+          "path": "tools/agentnexus/windows-probes.ps1",
+          "bytes": 1712,
+          "sha256": "989b5a0990a0f175340b3a25b04e1d0fa661e6263f16ef1edefccc613be0917a"
+        },
+        {
+          "path": "tsconfig.json",
+          "bytes": 410,
+          "sha256": "9720fe208fe591637285aeae1ce62f012b0b5f3fcb8152a90a8d23dc85a1d50b"
+        }
+      ]
+    },
+    "after": {
+      "matches_frozen_manifest": true,
+      "canonical_inventory_sha256": "0cf8dab1aa79eec675fd1d44ea2ebbc645f23c5acc133ce46f2072c699e6eadd",
+      "differences": {
+        "missing": [],
+        "extra": [],
+        "changed": []
+      },
+      "files": [
+        {
+          "path": "config/agentnexus/features.json",
+          "bytes": 402532,
+          "sha256": "1e680f2cb822966123630687f8b9354746c2696164504ee51c3f6c727cd4be45"
+        },
+        {
+          "path": "config/agentnexus/policies.json",
+          "bytes": 97383,
+          "sha256": "2fac46d95ae95f2cb7b506eb6d92299d0a579f9808f05b8d9d41862d8e0c2587"
+        },
+        {
+          "path": "package-lock.json",
+          "bytes": 1492,
+          "sha256": "5387d9e1f24888d9ade2033d6e7a45ed733eed6fa4721994a7c38c872b4206e1"
+        },
+        {
+          "path": "package.json",
+          "bytes": 476,
+          "sha256": "c69583cc30592c950c29d587c426856e1d54d2da7371d17ccc7aab12c88d991d"
+        },
+        {
+          "path": "src/agentnexus/artifacts.ts",
+          "bytes": 15937,
+          "sha256": "c939b746466cf298c0aff93d537c906317b9fac50238289758d75c413b16fd19"
+        },
+        {
+          "path": "src/agentnexus/bootstrap/config.ts",
+          "bytes": 12928,
+          "sha256": "281e683c0f4fac5a0618deff0976da09ccaca860935cf1c044541f5cf7e5aea0"
+        },
+        {
+          "path": "src/agentnexus/bootstrap/entry.ts",
+          "bytes": 7082,
+          "sha256": "fda08b8be8ffe4d232f3803955e335e8e1f27fdb2eb31738e390cce380ce7fb7"
+        },
+        {
+          "path": "src/agentnexus/bootstrap/exit-closure.ts",
+          "bytes": 4432,
+          "sha256": "c2aacb31be493bd47f697f0397bfae11d37d5f79639596bd3f884f5a65d82dcf"
+        },
+        {
+          "path": "src/agentnexus/bootstrap/launcher-proof.ts",
+          "bytes": 3221,
+          "sha256": "a05e7450e54618e5cde093f283211ab1e0dfc5630e1cd5b365103b2d2a9e0ed2"
+        },
+        {
+          "path": "src/agentnexus/bootstrap/permissions.ts",
+          "bytes": 2307,
+          "sha256": "4019e1c2ee1a663eec62a9e68d4ccb5dd774e88ecb571e532c81c10e39d6b2b7"
+        },
+        {
+          "path": "src/agentnexus/bootstrap/reservations.ts",
+          "bytes": 6251,
+          "sha256": "b62f7dec432c201fd549aa276d303af756c8a8d90fe974be42603097077adc93"
+        },
+        {
+          "path": "src/agentnexus/bootstrap/runtime.ts",
+          "bytes": 19658,
+          "sha256": "28da475cbb0c0786ed4ae625888f53a66a13c9af34f6d0a8f0a4a03520608736"
+        },
+        {
+          "path": "src/agentnexus/bootstrap/session.ts",
+          "bytes": 9978,
+          "sha256": "97b0e9435f9468fd9b46f56792f0335ab1d20ec915b832f98b836334662daec5"
+        },
+        {
+          "path": "src/agentnexus/bootstrap/supervisor.ts",
+          "bytes": 12489,
+          "sha256": "58a926b240429ddc4f45595b16566069294541839a549443483ccdeecccea77e"
+        },
+        {
+          "path": "src/agentnexus/bootstrap/ubuntu.ts",
+          "bytes": 3650,
+          "sha256": "42685813efcc56eebfede5097d81d56bb0445cd8fa32a1d0c70e793a9db5a3f3"
+        },
+        {
+          "path": "src/agentnexus/bootstrap/ubuntu/peer_probe.c",
+          "bytes": 867,
+          "sha256": "db6938c1978ae79c2c371ac473fab68619077ca093e6a93b0d6dcbe79581dfba"
+        },
+        {
+          "path": "src/agentnexus/bootstrap/worker.ts",
+          "bytes": 5184,
+          "sha256": "39ee6763699b1db18466e30dab7538499d4f3315a80faaf674d853f620814158"
+        },
+        {
+          "path": "src/agentnexus/checkers/powershell_ast.ps1",
+          "bytes": 3780,
+          "sha256": "90079d41e2083df61ee87456cbe81a4d1863b2f4053df0ab9e78b668e3789ae8"
+        },
+        {
+          "path": "src/agentnexus/checkers/python_ast.py",
+          "bytes": 2998,
+          "sha256": "a9595eca900b49c4ec88e82599c28569b01e543ed8ecb52908ae0772b104fc6e"
+        },
+        {
+          "path": "src/agentnexus/cli.ts",
+          "bytes": 1927,
+          "sha256": "21b22392926ebe706f3d2a382205a7ed0afcf9477b619707df250dd2089334bb"
+        },
+        {
+          "path": "src/agentnexus/control.ts",
+          "bytes": 8234,
+          "sha256": "3a549eb7bf5548b2b0453711899c0b7bfb1ea4d346dfad0bca11d4c166bf46d4"
+        },
+        {
+          "path": "src/agentnexus/diagnostics.ts",
+          "bytes": 31299,
+          "sha256": "d869a291068564eb942b05623f2b8e3f0f8348c40647215e1b85d86eef27d86d"
+        },
+        {
+          "path": "src/agentnexus/features.ts",
+          "bytes": 12008,
+          "sha256": "d6aafeafd88f6fd5660afa6b4f29b68625d70ffc8f8138f90db657b6acacda5e"
+        },
+        {
+          "path": "src/agentnexus/gateway.ts",
+          "bytes": 23204,
+          "sha256": "5ec2cb67afca1858c168b1888fa398ef766d3e18cf9b7f4253d9db51f17d7871"
+        },
+        {
+          "path": "src/agentnexus/host.ts",
+          "bytes": 18869,
+          "sha256": "8856e1ca5fe435f0a75b051c70168295f5fad3e5c98632537af01f7dbc775cf3"
+        },
+        {
+          "path": "src/agentnexus/integrity.ts",
+          "bytes": 18691,
+          "sha256": "172a40c429c9e8a99f8cc1fcee2ef500adb4e7d378f0f6188fbbe7f792edfe66"
+        },
+        {
+          "path": "src/agentnexus/policy-contracts.ts",
+          "bytes": 4137,
+          "sha256": "6d0fdcbbe7cca5ebca6d19c27c8518e55eb33223b1c0e74a32e2e5c8adbcb9af"
+        },
+        {
+          "path": "src/agentnexus/policy.ts",
+          "bytes": 18232,
+          "sha256": "31a6f1250ab2c5e9271181b23cc347b72fd502d7b2bfa229716dd976ee040f49"
+        },
+        {
+          "path": "src/agentnexus/production/audit.ts",
+          "bytes": 1494,
+          "sha256": "51ede7c82086d72707cc965891a673e2addf4cfd6efdf836b534988823c485f8"
+        },
+        {
+          "path": "src/agentnexus/production/authority.ts",
+          "bytes": 12620,
+          "sha256": "47546dbe8f131e27a1ae2ddfafec3f1227c06deee0dc395100e9dc60ee623e05"
+        },
+        {
+          "path": "src/agentnexus/production/broker.ts",
+          "bytes": 17841,
+          "sha256": "dc7a7f7294d9035e97f41058d60b802f804fe8b18e7c232a29906f5de8ee1e3c"
+        },
+        {
+          "path": "src/agentnexus/production/contracts.ts",
+          "bytes": 7169,
+          "sha256": "368e611e224288350ca5a9eeeb883ccdc2b5d02129fbcbd5718cdf1e88f65620"
+        },
+        {
+          "path": "src/agentnexus/production/exit.ts",
+          "bytes": 11644,
+          "sha256": "fce46daa7544c1f6de2544cd4def6856e99c285717d47caed1fbe6362ec9101d"
+        },
+        {
+          "path": "src/agentnexus/production/file-broker.ts",
+          "bytes": 10339,
+          "sha256": "1fdbdf438e2ab5591b56d90a69786cbcf27bacc0290e200e09bc6c4e771f1a51"
+        },
+        {
+          "path": "src/agentnexus/production/host.ts",
+          "bytes": 5540,
+          "sha256": "c849b9d28e583937449b63f863f147dcc51e683ee378edac44fc77245ab5c3ff"
+        },
+        {
+          "path": "src/agentnexus/production/identity.ts",
+          "bytes": 6805,
+          "sha256": "157d276bd002b5b624d40675e41b67d1beab86a1db478ba50b8a64324e24bba1"
+        },
+        {
+          "path": "src/agentnexus/production/native-client.ts",
+          "bytes": 7037,
+          "sha256": "f378c1bf5938ae5821fc1130d60d920874891bdf76fb1a911dc0a9310e9f05e8"
+        },
+        {
+          "path": "src/agentnexus/production/qualification.ts",
+          "bytes": 2573,
+          "sha256": "3c241da34dce87591abfc3ef2562c6005f62319fbf8152a44305b121d89f8b8c"
+        },
+        {
+          "path": "src/agentnexus/production/service.ts",
+          "bytes": 1626,
+          "sha256": "4954b7cc8e005d961ee6408dd161046c8337c44dfe3b3439d1a2b289fdc2150d"
+        },
+        {
+          "path": "src/agentnexus/production/transport.ts",
+          "bytes": 6280,
+          "sha256": "1d4d6ca1d680be24aef8e40ee703f66d11ec25e5514cb53c74f2f470a09d120d"
+        },
+        {
+          "path": "src/agentnexus/production/windows-supervisor.ts",
+          "bytes": 9261,
+          "sha256": "7006732045e8e96f66dba6f68c4367ecf947a353f61a63f0b4992ad86746f724"
+        },
+        {
+          "path": "src/agentnexus/production/windows/BootstrapNative.cs",
+          "bytes": 55713,
+          "sha256": "f44ee579f9c3a78419acab4e2a3dc85aab9cca0acc6ceb4e44f40f1a86923e80"
+        },
+        {
+          "path": "src/agentnexus/production/windows/NativeRuntime.cs",
+          "bytes": 66088,
+          "sha256": "f21e80788372733f03a9a16eac74d3cadd91a830382992109e572409e3327b4d"
+        },
+        {
+          "path": "src/agentnexus/production/windows/runtime.ps1",
+          "bytes": 8978,
+          "sha256": "7ea9a3fc50965611e21103469c28d47bdeb4893728c193d60074faf9ff2741cd"
+        },
+        {
+          "path": "src/agentnexus/reconciliation.ts",
+          "bytes": 14568,
+          "sha256": "9f65ae9b5b0e4f049efabfadc1cb5ad263ce0b5ea7703a15bb8789f27d3f1906"
+        },
+        {
+          "path": "src/agentnexus/records.ts",
+          "bytes": 6510,
+          "sha256": "393e0a70a20a4dae21287169d1313bae949842cf0f712bacb3ebf432a5ed7800"
+        },
+        {
+          "path": "src/agentnexus/runtime/audit.ts",
+          "bytes": 2003,
+          "sha256": "14f06526c6a48473aca95e5a47077e69b63db646ca1d605af0df8272207584c4"
+        },
+        {
+          "path": "src/agentnexus/runtime/broker.ts",
+          "bytes": 884,
+          "sha256": "611056760e82606bae893c2ed78831adb0e3b8ac102a4206b8af6cafc021efc2"
+        },
+        {
+          "path": "src/agentnexus/runtime/contracts.ts",
+          "bytes": 7187,
+          "sha256": "308378e645233f6317de44399d59eb0a15bbaf4b0f506a2083917a999651b725"
+        },
+        {
+          "path": "src/agentnexus/runtime/control.ts",
+          "bytes": 27386,
+          "sha256": "4b78fdfdbab38bc1d07dafea5fa323c72e1d02eeefbc7071b13f515ef6cec502"
+        },
+        {
+          "path": "src/agentnexus/runtime/ipc.ts",
+          "bytes": 2759,
+          "sha256": "9b8d5c096ffc4b529a5919047d84cff16dfdef495b148f1af7748f49380130a5"
+        },
+        {
+          "path": "src/agentnexus/runtime/windows/NativeProbe.cs",
+          "bytes": 15171,
+          "sha256": "3a96b192e46bca3f5774c8096ca598e4ce723776993062cd363e6a8cfe7e202f"
+        },
+        {
+          "path": "src/agentnexus/storage.ts",
+          "bytes": 33038,
+          "sha256": "a693dde21a10e501c1e7172d1cf24a3dd99317b9bbfcfe2c235631926a33bff0"
+        },
+        {
+          "path": "src/agentnexus/types.ts",
+          "bytes": 6839,
+          "sha256": "7bd207b6d34d63d5d443eedae516abc292942562b6b58ecf2f3ffccd566fdb25"
+        },
+        {
+          "path": "tests/agentnexus/control.test.ts",
+          "bytes": 17191,
+          "sha256": "5434e80937f050429198eb81d73045b291aed433285dc28fdcfa7d4cdb215ef1"
+        },
+        {
+          "path": "tests/agentnexus/diagnostics.test.ts",
+          "bytes": 19171,
+          "sha256": "a3b4a33ceed558659f67af248c6a94f1a9abc6571814a5ba33e22c0c196e9b8f"
+        },
+        {
+          "path": "tests/agentnexus/gateway.test.ts",
+          "bytes": 18503,
+          "sha256": "b9bb3d122ab0e56a4b3cea17cb9a99c41bcebe7ce47b30aea600be6943a9b8ba"
+        },
+        {
+          "path": "tests/agentnexus/integrity.test.ts",
+          "bytes": 21629,
+          "sha256": "2d4f1212dc62716a8281e83eb2ef9e579213c707e6ff97fb5b13c32d39806e80"
+        },
+        {
+          "path": "tests/agentnexus/m14-adapter.test.ts",
+          "bytes": 2160,
+          "sha256": "e40821919ac3eb487768baf155284d4458834c3b95638f50f2ded8581163ee85"
+        },
+        {
+          "path": "tests/agentnexus/m14-broker-child.mjs",
+          "bytes": 4995,
+          "sha256": "bc6800f9f0219114babbe61ffb022302c9892117228947f7eecd633fa77ec58c"
+        },
+        {
+          "path": "tests/agentnexus/m14-native-worker.mjs",
+          "bytes": 1382,
+          "sha256": "501e013660d7f11119f79455cc17669aa47e0bbe7c2c4491071e058e7edd66a5"
+        },
+        {
+          "path": "tests/agentnexus/m14-native.test.ts",
+          "bytes": 20352,
+          "sha256": "4a9994d283d2e5280ab5cefbab701edfb92f12de688ae8474c7280de102681af"
+        },
+        {
+          "path": "tests/agentnexus/m14-production.test.ts",
+          "bytes": 37918,
+          "sha256": "f51c8794d705cefef7caa73b3234791b7dfffb256c92f3f227da0c7eba235d03"
+        },
+        {
+          "path": "tests/agentnexus/m15-bootstrap.test.ts",
+          "bytes": 26114,
+          "sha256": "bca5a8e6103eabe9b1768e57055f45967238ae479253b2dcd8e16733260c807f"
+        },
+        {
+          "path": "tests/agentnexus/m15-cpu-worker.mjs",
+          "bytes": 516,
+          "sha256": "f59b524a7d2e4b8bd0792be3a166f379776c0089f4ac7b44e886c678659570fa"
+        },
+        {
+          "path": "tests/agentnexus/m15-pipe-owner-child.mjs",
+          "bytes": 2689,
+          "sha256": "590f71d73e3ef6c95ebe9b796f3ccec5d01a010921850b423ea566469605e665"
+        },
+        {
+          "path": "tests/agentnexus/m15-pipe.test.ts",
+          "bytes": 23037,
+          "sha256": "ef7dc6676067679a5cacab19db06fca204653632fc3c8e30c6eb0a2a00c1c54f"
+        },
+        {
+          "path": "tests/agentnexus/owned-storage-child.mjs",
+          "bytes": 1885,
+          "sha256": "7a469bfa662d98f39f06b4483eaa1f49809e490817679cce5f7f1fa366133139"
+        },
+        {
+          "path": "tests/agentnexus/reconciliation-child.mjs",
+          "bytes": 2373,
+          "sha256": "17067655828b662d7393ea55805d5438ff8ed0110610f13fc394d82d61a4a521"
+        },
+        {
+          "path": "tests/agentnexus/reconciliation.test.ts",
+          "bytes": 19989,
+          "sha256": "3ddf54e2ec6e741fb7b4003124338bbb41f5e271bd12632e4e4152fae2f61e80"
+        },
+        {
+          "path": "tests/agentnexus/runtime-crash-child.mjs",
+          "bytes": 2474,
+          "sha256": "79cfb0f2b443604ddcffd5da414eccb01aee7b724943b52e6789930078a7f562"
+        },
+        {
+          "path": "tests/agentnexus/runtime-worker.mjs",
+          "bytes": 1097,
+          "sha256": "a77ff4f6f333967e4df0c5c60bf8aa67843263639679180f5de8b6d6e1dd6b65"
+        },
+        {
+          "path": "tests/agentnexus/runtime.test.ts",
+          "bytes": 23844,
+          "sha256": "f71d9405adca5c4490def3cf8ee847d230d82162fa57a423f37195404c787d37"
+        },
+        {
+          "path": "tests/agentnexus/security.test.ts",
+          "bytes": 15318,
+          "sha256": "224fa63e65ffc13805afeda08fe844a439503251bd2f6393695d55dd61e19f50"
+        },
+        {
+          "path": "tests/agentnexus/storage.test.ts",
+          "bytes": 28922,
+          "sha256": "7fe63fae9c892983a20cff6363daea390b95f9535d9aab8b231a79509bf722ea"
+        },
+        {
+          "path": "tests/agentnexus/windows-native.test.ts",
+          "bytes": 3164,
+          "sha256": "358299b2b7f059273a47c5d79acf97c3f71cc35d2339d090f98f5fec47bef506"
+        },
+        {
+          "path": "tools/agentnexus/cpu-qualify-m15.d.mts",
+          "bytes": 732,
+          "sha256": "0127ae8099ad691162c65a2c023eb6a9d8b813782bd04d737391ff2b9ac93265"
+        },
+        {
+          "path": "tools/agentnexus/cpu-qualify-m15.mjs",
+          "bytes": 5947,
+          "sha256": "2f1eab71b9434a838ab551b883a66bfe4937c0f9bd34652a03c6caaf70eb430e"
+        },
+        {
+          "path": "tools/agentnexus/freeze-m13.py",
+          "bytes": 2368,
+          "sha256": "d8285825d51142563da27520752caa232a1426fc5667ee35aa8bf6945a200458"
+        },
+        {
+          "path": "tools/agentnexus/json-reporter.mjs",
+          "bytes": 660,
+          "sha256": "777650bb69740cddc6124b6608d120b2450210bc169d4a0af5f00c81c588c016"
+        },
+        {
+          "path": "tools/agentnexus/package-m12.py",
+          "bytes": 9850,
+          "sha256": "61dcb1c2f319dc6d299e9a8e58f35e6d6f43a585d8b6552c1731b56e1fda7f86"
+        },
+        {
+          "path": "tools/agentnexus/preflight-m14.ps1",
+          "bytes": 2139,
+          "sha256": "19f7e4b735569a699013e7b11f3616b346ff6c3588d9983db2340d9f37353d80"
+        },
+        {
+          "path": "tools/agentnexus/preflight-m15.ps1",
+          "bytes": 3658,
+          "sha256": "40b87eec7f0d713ad9b7d8fee44573e3c7805321554ac88a9ca47ef8bd35d68a"
+        },
+        {
+          "path": "tools/agentnexus/run-tests.mjs",
+          "bytes": 667,
+          "sha256": "7b1b45b072e55e4c2e079e90aa963d94584a871496945ed88b737cb42dd4c0b7"
+        },
+        {
+          "path": "tools/agentnexus/typecheck-m15.mjs",
+          "bytes": 2297,
+          "sha256": "89d962973e40e56991d1eb50c7b964db98ff957e682dd6df896817c563e6b77a"
+        },
+        {
+          "path": "tools/agentnexus/verify-m12.mjs",
+          "bytes": 3523,
+          "sha256": "4874dd19f2ff2d9c522bf9d546aa2ef2bc5ccd3175aeffb518d8657f14450d5f"
+        },
+        {
+          "path": "tools/agentnexus/verify-m13.mjs",
+          "bytes": 3953,
+          "sha256": "e4ee594fa0d5fec08e28ee1eace3986716c1c9b9de24156e3151699e711dad2d"
+        },
+        {
+          "path": "tools/agentnexus/verify-m14.mjs",
+          "bytes": 4722,
+          "sha256": "a19fdee34e0f5b13f53d5471ff30a4d305d88e7f9ed2b36565c02ebee6d7b745"
+        },
+        {
+          "path": "tools/agentnexus/verify-m15.mjs",
+          "bytes": 5477,
+          "sha256": "a05e7a2bb0bbf16324bf5aa8a9319cfa9928cbfca3381f6e41a364960faaff2a"
+        },
+        {
+          "path": "tools/agentnexus/windows-probes.ps1",
+          "bytes": 1712,
+          "sha256": "989b5a0990a0f175340b3a25b04e1d0fa661e6263f16ef1edefccc613be0917a"
+        },
+        {
+          "path": "tsconfig.json",
+          "bytes": 410,
+          "sha256": "9720fe208fe591637285aeae1ce62f012b0b5f3fcb8152a90a8d23dc85a1d50b"
+        }
+      ]
+    },
+    "before_after_identical": true,
+    "before_after_differences": {
+      "missing": [],
+      "extra": [],
+      "changed": []
+    },
+    "product_files_written_by_this_run": false
+  },
+  "tools": {
+    "node": {
+      "version": "24.15.0",
+      "path": "D:/Nodejs/node.exe",
+      "sha256": "3331e1ffe19874215472217c5e94f5a0c6d8e18c4ac7111d3937aa0ad5e9b4a5"
+    },
+    "typescript": {
+      "version": "5.9.3",
+      "cli": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/typescript/lib/tsc.js",
+      "cli_sha256": "2cffde0b8c6760dfb0b5b0382bbb7e00ba6a8b2d981b9205b256a700a481d983",
+      "implementation_sha256": "e8f349eabd48486bdb2bf9dc1a00c89d58297270c54b745838879e2859194419",
+      "api_sha256": "3ae902c92cc44dace175c0e69e13a4b0899f6983c6121d76b9ab8dd5795e7675"
+    },
+    "node_types": {
+      "version": "24.10.1",
+      "package_json_sha256": "2135b9ba75cf7d7075206d20b8a3fd7a6b05f9680b38b62a86d1882296b8297a"
+    },
+    "source_lock_sha256": "5387d9e1f24888d9ade2033d6e7a45ed733eed6fa4721994a7c38c872b4206e1",
+    "tool_lock_sha256": "5387d9e1f24888d9ade2033d6e7a45ed733eed6fa4721994a7c38c872b4206e1",
+    "source_node_modules_exists": false,
+    "provenance_path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/provenance.json",
+    "provenance_sha256": "202bd4e4801500ad021beea91d86414020eeae69e88677fa6f1afb80b5c4a60d",
+    "official_package_sources": [
+      {
+        "path": "node_modules/@types/node",
+        "version": "24.10.1",
+        "resolved": "https://registry.npmjs.org/@types/node/-/node-24.10.1.tgz",
+        "integrity": "sha512-GNWcUTRBgIRJD5zj+Tq0fKOJ5XZajIiBroOF0yvj2bSU1WvNdYS/dn9UxwsujGW4JX06dnHyjV2y9rRaybH0iQ=="
+      },
+      {
+        "path": "node_modules/typescript",
+        "version": "5.9.3",
+        "resolved": "https://registry.npmjs.org/typescript/-/typescript-5.9.3.tgz",
+        "integrity": "sha512-jl1vZzPDinLr9eUt3J/t7V6FgNEw9QjvBPdysz9KfQDD41fQrC2Y4vKQdiaUpFT4bXlb1RHhLpp8wtm6M5TgSw=="
+      },
+      {
+        "path": "node_modules/undici-types",
+        "version": "7.16.0",
+        "resolved": "https://registry.npmjs.org/undici-types/-/undici-types-7.16.0.tgz",
+        "integrity": "sha512-Zz+aZWSj8LE6zoxD+xrjh4VfkIG8Ya6LvYkZqtUQGJPZjYl53ypCaUwWqo7eI0x66KBGeRo+mlBEkMSeSZ38Nw=="
+      }
+    ],
+    "installed_with_ignore_scripts": true,
+    "system_configuration_changed": false
+  },
+  "cli": {
+    "command": [
+      "D:/Nodejs/node.exe",
+      "tools/agentnexus/typecheck-m15.mjs"
+    ],
+    "actual_compiler_arguments": [
+      "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/typescript/lib/tsc.js",
+      "--project",
+      "I:/AI_AgentNexus/deliverables/AgentNexus-M1.5/source/tsconfig.json",
+      "--typeRoots",
+      "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/@types",
+      "--pretty",
+      "false"
+    ],
+    "tool_root_environment": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools",
+    "exit_code": 0,
+    "log": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/typecheck/final-tsc.log",
+    "log_sha256": "f2f1340877f8fa76f4dc290b51caf5580548734d7f3ec659d23ab77ec9396bca"
+  },
+  "compiler_options": {
+    "effective": {
+      "target": "es2024",
+      "lib": [
+        "es2024"
+      ],
+      "module": "nodenext",
+      "moduleResolution": "nodenext",
+      "allowImportingTsExtensions": true,
+      "noEmit": true,
+      "strict": true,
+      "skipLibCheck": false,
+      "forceConsistentCasingInFileNames": true,
+      "types": [
+        "node"
+      ],
+      "typeRoots": [
+        "../../../.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/@types"
+      ],
+      "moduleDetection": "force",
+      "esModuleInterop": true,
+      "allowSyntheticDefaultImports": true,
+      "resolvePackageJsonExports": true,
+      "resolvePackageJsonImports": true,
+      "resolveJsonModule": true,
+      "useDefineForClassFields": true,
+      "noImplicitAny": true,
+      "noImplicitThis": true,
+      "strictNullChecks": true,
+      "strictFunctionTypes": true,
+      "strictBindCallApply": true,
+      "strictPropertyInitialization": true,
+      "strictBuiltinIteratorReturn": true,
+      "alwaysStrict": true,
+      "useUnknownInCatchVariables": true
+    },
+    "noCheck": false,
+    "semantic_checking_enabled": true,
+    "skipLibCheck": false,
+    "noEmit": true,
+    "strict": true,
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "allowImportingTsExtensions": true
+  },
+  "coverage": {
+    "disk_typescript_file_count": 58,
+    "root_file_count": 57,
+    "all_disk_typescript_included": false,
+    "missing_typescript": [
+      "tools/agentnexus/cpu-qualify-m15.d.mts"
+    ],
+    "unexpected_roots": [],
+    "categories": {
+      "bootstrap": 11,
+      "production": 13,
+      "inherited_runtime": 5,
+      "top_level_source": 14,
+      "tests": 14,
+      "tools": 0
+    },
+    "all_roots": [
+      {
+        "path": "src/agentnexus/artifacts.ts",
+        "sha256": "c939b746466cf298c0aff93d537c906317b9fac50238289758d75c413b16fd19",
+        "bytes": 15937
+      },
+      {
+        "path": "src/agentnexus/bootstrap/config.ts",
+        "sha256": "281e683c0f4fac5a0618deff0976da09ccaca860935cf1c044541f5cf7e5aea0",
+        "bytes": 12928
+      },
+      {
+        "path": "src/agentnexus/bootstrap/entry.ts",
+        "sha256": "fda08b8be8ffe4d232f3803955e335e8e1f27fdb2eb31738e390cce380ce7fb7",
+        "bytes": 7082
+      },
+      {
+        "path": "src/agentnexus/bootstrap/exit-closure.ts",
+        "sha256": "c2aacb31be493bd47f697f0397bfae11d37d5f79639596bd3f884f5a65d82dcf",
+        "bytes": 4432
+      },
+      {
+        "path": "src/agentnexus/bootstrap/launcher-proof.ts",
+        "sha256": "a05e7450e54618e5cde093f283211ab1e0dfc5630e1cd5b365103b2d2a9e0ed2",
+        "bytes": 3221
+      },
+      {
+        "path": "src/agentnexus/bootstrap/permissions.ts",
+        "sha256": "4019e1c2ee1a663eec62a9e68d4ccb5dd774e88ecb571e532c81c10e39d6b2b7",
+        "bytes": 2307
+      },
+      {
+        "path": "src/agentnexus/bootstrap/reservations.ts",
+        "sha256": "b62f7dec432c201fd549aa276d303af756c8a8d90fe974be42603097077adc93",
+        "bytes": 6251
+      },
+      {
+        "path": "src/agentnexus/bootstrap/runtime.ts",
+        "sha256": "28da475cbb0c0786ed4ae625888f53a66a13c9af34f6d0a8f0a4a03520608736",
+        "bytes": 19658
+      },
+      {
+        "path": "src/agentnexus/bootstrap/session.ts",
+        "sha256": "97b0e9435f9468fd9b46f56792f0335ab1d20ec915b832f98b836334662daec5",
+        "bytes": 9978
+      },
+      {
+        "path": "src/agentnexus/bootstrap/supervisor.ts",
+        "sha256": "58a926b240429ddc4f45595b16566069294541839a549443483ccdeecccea77e",
+        "bytes": 12489
+      },
+      {
+        "path": "src/agentnexus/bootstrap/ubuntu.ts",
+        "sha256": "42685813efcc56eebfede5097d81d56bb0445cd8fa32a1d0c70e793a9db5a3f3",
+        "bytes": 3650
+      },
+      {
+        "path": "src/agentnexus/bootstrap/worker.ts",
+        "sha256": "39ee6763699b1db18466e30dab7538499d4f3315a80faaf674d853f620814158",
+        "bytes": 5184
+      },
+      {
+        "path": "src/agentnexus/cli.ts",
+        "sha256": "21b22392926ebe706f3d2a382205a7ed0afcf9477b619707df250dd2089334bb",
+        "bytes": 1927
+      },
+      {
+        "path": "src/agentnexus/control.ts",
+        "sha256": "3a549eb7bf5548b2b0453711899c0b7bfb1ea4d346dfad0bca11d4c166bf46d4",
+        "bytes": 8234
+      },
+      {
+        "path": "src/agentnexus/diagnostics.ts",
+        "sha256": "d869a291068564eb942b05623f2b8e3f0f8348c40647215e1b85d86eef27d86d",
+        "bytes": 31299
+      },
+      {
+        "path": "src/agentnexus/features.ts",
+        "sha256": "d6aafeafd88f6fd5660afa6b4f29b68625d70ffc8f8138f90db657b6acacda5e",
+        "bytes": 12008
+      },
+      {
+        "path": "src/agentnexus/gateway.ts",
+        "sha256": "5ec2cb67afca1858c168b1888fa398ef766d3e18cf9b7f4253d9db51f17d7871",
+        "bytes": 23204
+      },
+      {
+        "path": "src/agentnexus/host.ts",
+        "sha256": "8856e1ca5fe435f0a75b051c70168295f5fad3e5c98632537af01f7dbc775cf3",
+        "bytes": 18869
+      },
+      {
+        "path": "src/agentnexus/integrity.ts",
+        "sha256": "172a40c429c9e8a99f8cc1fcee2ef500adb4e7d378f0f6188fbbe7f792edfe66",
+        "bytes": 18691
+      },
+      {
+        "path": "src/agentnexus/policy-contracts.ts",
+        "sha256": "6d0fdcbbe7cca5ebca6d19c27c8518e55eb33223b1c0e74a32e2e5c8adbcb9af",
+        "bytes": 4137
+      },
+      {
+        "path": "src/agentnexus/policy.ts",
+        "sha256": "31a6f1250ab2c5e9271181b23cc347b72fd502d7b2bfa229716dd976ee040f49",
+        "bytes": 18232
+      },
+      {
+        "path": "src/agentnexus/production/audit.ts",
+        "sha256": "51ede7c82086d72707cc965891a673e2addf4cfd6efdf836b534988823c485f8",
+        "bytes": 1494
+      },
+      {
+        "path": "src/agentnexus/production/authority.ts",
+        "sha256": "47546dbe8f131e27a1ae2ddfafec3f1227c06deee0dc395100e9dc60ee623e05",
+        "bytes": 12620
+      },
+      {
+        "path": "src/agentnexus/production/broker.ts",
+        "sha256": "dc7a7f7294d9035e97f41058d60b802f804fe8b18e7c232a29906f5de8ee1e3c",
+        "bytes": 17841
+      },
+      {
+        "path": "src/agentnexus/production/contracts.ts",
+        "sha256": "368e611e224288350ca5a9eeeb883ccdc2b5d02129fbcbd5718cdf1e88f65620",
+        "bytes": 7169
+      },
+      {
+        "path": "src/agentnexus/production/exit.ts",
+        "sha256": "fce46daa7544c1f6de2544cd4def6856e99c285717d47caed1fbe6362ec9101d",
+        "bytes": 11644
+      },
+      {
+        "path": "src/agentnexus/production/file-broker.ts",
+        "sha256": "1fdbdf438e2ab5591b56d90a69786cbcf27bacc0290e200e09bc6c4e771f1a51",
+        "bytes": 10339
+      },
+      {
+        "path": "src/agentnexus/production/host.ts",
+        "sha256": "c849b9d28e583937449b63f863f147dcc51e683ee378edac44fc77245ab5c3ff",
+        "bytes": 5540
+      },
+      {
+        "path": "src/agentnexus/production/identity.ts",
+        "sha256": "157d276bd002b5b624d40675e41b67d1beab86a1db478ba50b8a64324e24bba1",
+        "bytes": 6805
+      },
+      {
+        "path": "src/agentnexus/production/native-client.ts",
+        "sha256": "f378c1bf5938ae5821fc1130d60d920874891bdf76fb1a911dc0a9310e9f05e8",
+        "bytes": 7037
+      },
+      {
+        "path": "src/agentnexus/production/qualification.ts",
+        "sha256": "3c241da34dce87591abfc3ef2562c6005f62319fbf8152a44305b121d89f8b8c",
+        "bytes": 2573
+      },
+      {
+        "path": "src/agentnexus/production/service.ts",
+        "sha256": "4954b7cc8e005d961ee6408dd161046c8337c44dfe3b3439d1a2b289fdc2150d",
+        "bytes": 1626
+      },
+      {
+        "path": "src/agentnexus/production/transport.ts",
+        "sha256": "1d4d6ca1d680be24aef8e40ee703f66d11ec25e5514cb53c74f2f470a09d120d",
+        "bytes": 6280
+      },
+      {
+        "path": "src/agentnexus/production/windows-supervisor.ts",
+        "sha256": "7006732045e8e96f66dba6f68c4367ecf947a353f61a63f0b4992ad86746f724",
+        "bytes": 9261
+      },
+      {
+        "path": "src/agentnexus/reconciliation.ts",
+        "sha256": "9f65ae9b5b0e4f049efabfadc1cb5ad263ce0b5ea7703a15bb8789f27d3f1906",
+        "bytes": 14568
+      },
+      {
+        "path": "src/agentnexus/records.ts",
+        "sha256": "393e0a70a20a4dae21287169d1313bae949842cf0f712bacb3ebf432a5ed7800",
+        "bytes": 6510
+      },
+      {
+        "path": "src/agentnexus/runtime/audit.ts",
+        "sha256": "14f06526c6a48473aca95e5a47077e69b63db646ca1d605af0df8272207584c4",
+        "bytes": 2003
+      },
+      {
+        "path": "src/agentnexus/runtime/broker.ts",
+        "sha256": "611056760e82606bae893c2ed78831adb0e3b8ac102a4206b8af6cafc021efc2",
+        "bytes": 884
+      },
+      {
+        "path": "src/agentnexus/runtime/contracts.ts",
+        "sha256": "308378e645233f6317de44399d59eb0a15bbaf4b0f506a2083917a999651b725",
+        "bytes": 7187
+      },
+      {
+        "path": "src/agentnexus/runtime/control.ts",
+        "sha256": "4b78fdfdbab38bc1d07dafea5fa323c72e1d02eeefbc7071b13f515ef6cec502",
+        "bytes": 27386
+      },
+      {
+        "path": "src/agentnexus/runtime/ipc.ts",
+        "sha256": "9b8d5c096ffc4b529a5919047d84cff16dfdef495b148f1af7748f49380130a5",
+        "bytes": 2759
+      },
+      {
+        "path": "src/agentnexus/storage.ts",
+        "sha256": "a693dde21a10e501c1e7172d1cf24a3dd99317b9bbfcfe2c235631926a33bff0",
+        "bytes": 33038
+      },
+      {
+        "path": "src/agentnexus/types.ts",
+        "sha256": "7bd207b6d34d63d5d443eedae516abc292942562b6b58ecf2f3ffccd566fdb25",
+        "bytes": 6839
+      },
+      {
+        "path": "tests/agentnexus/control.test.ts",
+        "sha256": "5434e80937f050429198eb81d73045b291aed433285dc28fdcfa7d4cdb215ef1",
+        "bytes": 17191
+      },
+      {
+        "path": "tests/agentnexus/diagnostics.test.ts",
+        "sha256": "a3b4a33ceed558659f67af248c6a94f1a9abc6571814a5ba33e22c0c196e9b8f",
+        "bytes": 19171
+      },
+      {
+        "path": "tests/agentnexus/gateway.test.ts",
+        "sha256": "b9bb3d122ab0e56a4b3cea17cb9a99c41bcebe7ce47b30aea600be6943a9b8ba",
+        "bytes": 18503
+      },
+      {
+        "path": "tests/agentnexus/integrity.test.ts",
+        "sha256": "2d4f1212dc62716a8281e83eb2ef9e579213c707e6ff97fb5b13c32d39806e80",
+        "bytes": 21629
+      },
+      {
+        "path": "tests/agentnexus/m14-adapter.test.ts",
+        "sha256": "e40821919ac3eb487768baf155284d4458834c3b95638f50f2ded8581163ee85",
+        "bytes": 2160
+      },
+      {
+        "path": "tests/agentnexus/m14-native.test.ts",
+        "sha256": "4a9994d283d2e5280ab5cefbab701edfb92f12de688ae8474c7280de102681af",
+        "bytes": 20352
+      },
+      {
+        "path": "tests/agentnexus/m14-production.test.ts",
+        "sha256": "f51c8794d705cefef7caa73b3234791b7dfffb256c92f3f227da0c7eba235d03",
+        "bytes": 37918
+      },
+      {
+        "path": "tests/agentnexus/m15-bootstrap.test.ts",
+        "sha256": "bca5a8e6103eabe9b1768e57055f45967238ae479253b2dcd8e16733260c807f",
+        "bytes": 26114
+      },
+      {
+        "path": "tests/agentnexus/m15-pipe.test.ts",
+        "sha256": "ef7dc6676067679a5cacab19db06fca204653632fc3c8e30c6eb0a2a00c1c54f",
+        "bytes": 23037
+      },
+      {
+        "path": "tests/agentnexus/reconciliation.test.ts",
+        "sha256": "3ddf54e2ec6e741fb7b4003124338bbb41f5e271bd12632e4e4152fae2f61e80",
+        "bytes": 19989
+      },
+      {
+        "path": "tests/agentnexus/runtime.test.ts",
+        "sha256": "f71d9405adca5c4490def3cf8ee847d230d82162fa57a423f37195404c787d37",
+        "bytes": 23844
+      },
+      {
+        "path": "tests/agentnexus/security.test.ts",
+        "sha256": "224fa63e65ffc13805afeda08fe844a439503251bd2f6393695d55dd61e19f50",
+        "bytes": 15318
+      },
+      {
+        "path": "tests/agentnexus/storage.test.ts",
+        "sha256": "7fe63fae9c892983a20cff6363daea390b95f9535d9aab8b231a79509bf722ea",
+        "bytes": 28922
+      },
+      {
+        "path": "tests/agentnexus/windows-native.test.ts",
+        "sha256": "358299b2b7f059273a47c5d79acf97c3f71cc35d2339d090f98f5fec47bef506",
+        "bytes": 3164
+      }
+    ],
+    "program_source_file_count": 236,
+    "program_declaration_file_count": 179,
+    "source_program_files_outside_freeze": [],
+    "program_files": [
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/@types/node/assert.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "4ea15fd99b2e34cb25fe8346c955000bb70c8b423ae4377a972ef46bfb37f595"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/@types/node/assert/strict.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "7cf69dd5502c41644c9e5106210b5da7144800670cbe861f66726fa209e231c4"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/@types/node/async_hooks.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "72c1f5e0a28e473026074817561d1bc9647909cf253c8d56c41d1df8d95b85f7"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/@types/node/buffer.buffer.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "3af97acf03cc97de58a3a4bc91f8f616408099bc4233f6d0852e72a8ffb91ac9"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/@types/node/buffer.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "f9b4137a0d285bd77dba2e6e895530112264310ae47e07bf311feae428fb8b61"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/@types/node/child_process.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "8b21e13ed07d0df176ae31d6b7f01f7b17d66dbeb489c0d31d00de2ca14883da"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/@types/node/cluster.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "51aecd2df90a3cffea1eb4696b33b2d78594ea2aa2138e6b9471ec4841c6c2ee"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/@types/node/compatibility/iterators.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "d153a11543fd884b596587ccd97aebbeed950b26933ee000f94009f1ab142848"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/@types/node/console.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "9d8f9e63e29a3396285620908e7f14d874d066caea747dc4b2c378f0599166b4"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/@types/node/constants.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "5524481e56c48ff486f42926778c0a3cce1cc85dc46683b92b1271865bcf015a"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/@types/node/crypto.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "f929f0b6b3421a2d34344b0f421f45aeb2c84ad365ebf29d04312023b3accc58"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/@types/node/dgram.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "db9ada976f9e52e13f7ae8b9a320f4b67b87685938c5879187d8864b2fbe97f3"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/@types/node/diagnostics_channel.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "9f39e70a354d0fba29ac3cdf6eca00b7f9e96f64b2b2780c432e8ea27f133743"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/@types/node/dns.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "0dace96cc0f7bc6d0ee2044921bdf19fe42d16284dbcc8ae200800d1c9579335"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/@types/node/dns/promises.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "a2e2bbde231b65c53c764c12313897ffdfb6c49183dd31823ee2405f2f7b5378"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/@types/node/domain.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "ad1cc0ed328f3f708771272021be61ab146b32ecf2b78f3224959ff1e2cd2a5c"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/@types/node/events.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "c64e1888baaa3253ca4405b455e4bf44f76357868a1bd0a52998ade9a092ad78"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/@types/node/fs.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "d8cf132379078d0974a59df26069689a2d33c7dc826b5be56231841cb2f32e58"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/@types/node/fs/promises.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "fbf413fc617837453c878a9174a1f1b383616857a3f8366bc41cf30df4aea7d5"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/@types/node/globals.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "1b2dd1cbeb0cc6ae20795958ba5950395ebb2849b7c8326853dd15530c77ab0c"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/@types/node/globals.typedarray.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "378281aa35786c27d5811af7e6bcaa492eebd0c7013d48137c35bbc69a2b9751"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/@types/node/http.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "148c73ec11318850f571172ceae3e55ce479d850fe18ec8eae0abd99d9f6c319"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/@types/node/http2.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "230bdc111d7578276e4a3bb9d075d85c78c6b68f428c3a9935e2eaa10f4ae1f5"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/@types/node/https.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "e8aabbee5e7b9101b03bb4222607d57f38859b8115a8050a4eb91b4ee43a3a73"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/@types/node/index.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "d7e9ab1b0996639047c61c1e62f85c620e4382206b3abb430d9a21fb7bc23c77"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/@types/node/inspector.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "bbf42f98a5819f4f06e18c8b669a994afe9a17fe520ae3454a195e6eabf7700d"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/@types/node/inspector.generated.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "c0bb1b65757c72bbf8ddf7eaa532223bacf58041ff16c883e76f45506596e925"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/@types/node/module.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "c8b85f7aed29f8f52b813f800611406b0bfe5cf3224d20a4bdda7c7f73ce368e"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/@types/node/net.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "145dcf25fd4967c610c53d93d7bc4dce8fbb1b6dd7935362472d4ae49363c7ba"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/@types/node/os.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "ff65b8a8bd380c6d129becc35de02f7c29ad7ce03300331ca91311fb4044d1a9"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/@types/node/path.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "76957a6d92b94b9e2852cf527fea32ad2dc0ef50f67fe2b14bd027c9ceef2d86"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/@types/node/perf_hooks.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "9043daec15206650fa119bad6b8d70136021ea7d52673a71f79a87a42ee38d44"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/@types/node/process.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "4e2de7ab2f74e36d7078bccdf831585b10dc6330bab56054921531b03f9beaf3"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/@types/node/punycode.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "a58a15da4c5ba3df60c910a043281256fa52d36a0fcdef9b9100c646282e88dd"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/@types/node/querystring.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "b36beffbf8acdc3ebc58c8bb4b75574b31a2169869c70fc03f82895b93950a12"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/@types/node/readline.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "de263f0089aefbfd73c89562fb7254a7468b1f33b61839aafc3f035d60766cb4"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/@types/node/readline/promises.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "77fbe5eecb6fac4b6242bbf6eebfc43e98ce5ccba8fa44e0ef6a95c945ff4d98"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/@types/node/repl.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "8c81fd4a110490c43d7c578e8c6f69b3af01717189196899a6a44f93daa57a3a"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/@types/node/sea.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "5fb39858b2459864b139950a09adae4f38dad87c25bf572ce414f10e4bd7baab"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/@types/node/sqlite.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "65faec1b4bd63564aeec33eab9cacfaefd84ce2400f03903a71a1841fbce195f"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/@types/node/stream.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "b33b74b97952d9bf4fbd2951dcfbb5136656ddb310ce1c84518aaa77dbca9992"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/@types/node/stream/consumers.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "45650f47bfb376c8a8ed39d4bcda5902ab899a3150029684ee4c10676d9fbaee"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/@types/node/stream/promises.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "37ba7b45141a45ce6e80e66f2a96c8a5ab1bcef0fc2d0f56bb58df96ec67e972"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/@types/node/stream/web.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "6b306cd4282bbb54d4a6bb23cfb7a271160983dfc38c67b5a132504cfcc34896"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/@types/node/string_decoder.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "c119835edf36415081dfd9ed15fc0cd37aaa28d232be029ad073f15f3d88c323"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/@types/node/test.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "450172a56b944c2d83f45cc11c9a388ea967cd301a21202aa0a23c34c7506a18"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/@types/node/timers.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "9705cd157ffbb91c5cab48bdd2de5a437a372e63f870f8a8472e72ff634d47c1"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/@types/node/timers/promises.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "ae86f30d5d10e4f75ce8dcb6e1bd3a12ecec3d071a21e8f462c5c85c678efb41"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/@types/node/tls.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "72f8936aebf0c4a1adab767b97d34ba7d3a308afcf76de4417b9c16fb92ed548"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/@types/node/trace_events.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "e03460fe72b259f6d25ad029f085e4bedc3f90477da4401d8fbc1efa9793230e"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/@types/node/tty.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "4286a3a6619514fca656089aee160bb6f2e77f4dd53dc5a96b26a0b4fc778055"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/@types/node/url.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "69e0a41d620fb678a899c65e073413b452f4db321b858fe422ad93fd686cd49a"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/@types/node/util.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "3585d6891e9ea18e07d0755a6d90d71331558ba5dc5561933553209f886db106"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/@types/node/v8.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "86be71cbb0593468644932a6eb96d527cfa600cecfc0b698af5f52e51804451d"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/@types/node/vm.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "84dd6b0fd2505135692935599d6606f50a421389e8d4535194bcded307ee5cf2"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/@types/node/wasi.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "0d5b085f36e6dc55bc6332ecb9c733be3a534958c238fb8d8d18d4a2b6f2a15a"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/@types/node/web-globals/abortcontroller.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "1db0b7dca579049ca4193d034d835f6bfe73096c73663e5ef9a0b5779939f3d0"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/@types/node/web-globals/crypto.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "387a023d363f755eb63450a66c28b14cdd7bc30a104565e2dbf0a8988bb4a56c"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/@types/node/web-globals/domexception.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "9798340ffb0d067d69b1ae5b32faa17ab31b82466a3fc00d8f2f2df0c8554aaa"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/@types/node/web-globals/events.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "f26b11d8d8e4b8028f1c7d618b22274c892e4b0ef5b3678a8ccbad85419aef43"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/@types/node/web-globals/fetch.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "830171b27c5fdf9bcbe4cf7d428fcf3ae2c67780fb7fbdccdf70d1623d938bc4"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/@types/node/web-globals/navigator.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "1cf059eaf468efcc649f8cf6075d3cb98e9a35a0fe9c44419ec3d2f5428d7123"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/@types/node/web-globals/storage.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "e7721c4f69f93c91360c26a0a84ee885997d748237ef78ef665b153e622b36c1"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/@types/node/web-globals/streams.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "d97fb21da858fb18b8ae72c314e9743fd52f73ebe2764e12af1db32fc03f853f"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/@types/node/worker_threads.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "db19ea066fdc5f97df3f769e582ae3000380ab7942e266654bdb1a4650d19eaf"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/@types/node/zlib.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "2a034894bf28c220a331c7a0229d33564803abe2ac1b9a5feee91b6b9b6e88ea"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/typescript/lib/lib.decorators.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "8e7f8264d0fb4c5339605a15daadb037bf238c10b654bb3eee14208f860a32ea"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/typescript/lib/lib.decorators.legacy.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "782dec38049b92d4e85c1585fbea5474a219c6984a35b004963b00beb1aab538"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/typescript/lib/lib.es2015.collection.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "dc2df20b1bcdc8c2d34af4926e2c3ab15ffe1160a63e58b7e09833f616efff44"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/typescript/lib/lib.es2015.core.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "c57796738e7f83dbc4b8e65132f11a377649c00dd3eee333f672b8f0a6bea671"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/typescript/lib/lib.es2015.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "45b7ab580deca34ae9729e97c13cfd999df04416a79116c3bfb483804f85ded4"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/typescript/lib/lib.es2015.generator.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "515d0b7b9bea2e31ea4ec968e9edd2c39d3eebf4a2d5cbd04e88639819ae3b71"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/typescript/lib/lib.es2015.iterable.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "0559b1f683ac7505ae451f9a96ce4c3c92bdc71411651ca6ddb0e88baaaad6a3"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/typescript/lib/lib.es2015.promise.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "0dc1e7ceda9b8b9b455c3a2d67b0412feab00bd2f66656cd8850e8831b08b537"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/typescript/lib/lib.es2015.proxy.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "ce691fb9e5c64efb9547083e4a34091bcbe5bdb41027e310ebba8f7d96a98671"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/typescript/lib/lib.es2015.reflect.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "8d697a2a929a5fcb38b7a65594020fcef05ec1630804a33748829c5ff53640d0"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/typescript/lib/lib.es2015.symbol.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "4ff2a353abf8a80ee399af572debb8faab2d33ad38c4b4474cff7f26e7653b8d"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/typescript/lib/lib.es2015.symbol.wellknown.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "fb0f136d372979348d59b3f5020b4cdb81b5504192b1cacff5d1fbba29378aa1"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/typescript/lib/lib.es2016.array.include.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "d15bea3d62cbbdb9797079416b8ac375ae99162a7fba5de2c6c505446486ac0a"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/typescript/lib/lib.es2016.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "3facaf05f0c5fc569c5649dd359892c98a85557e3e0c847964caeb67076f4d75"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/typescript/lib/lib.es2016.intl.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "68d18b664c9d32a7336a70235958b8997ebc1c3b8505f4f1ae2b7e7753b87618"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/typescript/lib/lib.es2017.arraybuffer.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "eb3d66c8327153d8fa7dd03f9c58d351107fe824c79e9b56b462935176cdf12a"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/typescript/lib/lib.es2017.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "e44bb8bbac7f10ecc786703fe0a6a4b952189f908707980ba8f3c8975a760962"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/typescript/lib/lib.es2017.date.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "38f0219c9e23c915ef9790ab1d680440d95419ad264816fa15009a8851e79119"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/typescript/lib/lib.es2017.intl.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "4de680d5bb41c17f7f68e0419412ca23c98d5749dcaaea1896172f06435891fc"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/typescript/lib/lib.es2017.object.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "69ab18c3b76cd9b1be3d188eaf8bba06112ebbe2f47f6c322b5105a6fbc45a2e"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/typescript/lib/lib.es2017.sharedmemory.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "a680117f487a4d2f30ea46f1b4b7f58bef1480456e18ba53ee85c2746eeca012"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/typescript/lib/lib.es2017.string.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "2f11ff796926e0832f9ae148008138ad583bd181899ab7dd768a2666700b1893"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/typescript/lib/lib.es2017.typedarrays.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "954296b30da6d508a104a3a0b5d96b76495c709785c1d11610908e63481ee667"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/typescript/lib/lib.es2018.asyncgenerator.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "ac9538681b19688c8eae65811b329d3744af679e0bdfa5d842d0e32524c73e1c"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/typescript/lib/lib.es2018.asynciterable.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "0a969edff4bd52585473d24995c5ef223f6652d6ef46193309b3921d65dd4376"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/typescript/lib/lib.es2018.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "5e1c4c362065a6b95ff952c0eab010f04dcd2c3494e813b493ecfd4fcb9fc0d8"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/typescript/lib/lib.es2018.intl.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "9e9fbd7030c440b33d021da145d3232984c8bb7916f277e8ffd3dc2e3eae2bdb"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/typescript/lib/lib.es2018.promise.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "811ec78f7fefcabbda4bfa93b3eb67d9ae166ef95f9bff989d964061cbf81a0c"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/typescript/lib/lib.es2018.regexp.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "717937616a17072082152a2ef351cb51f98802fb4b2fdabd32399843875974ca"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/typescript/lib/lib.es2019.array.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "d7e7d9b7b50e5f22c915b525acc5a49a7a6584cf8f62d0569e557c5cfc4b2ac2"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/typescript/lib/lib.es2019.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "68d73b4a11549f9c0b7d352d10e91e5dca8faa3322bfb77b661839c42b1ddec7"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/typescript/lib/lib.es2019.intl.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "74f7fa2d027d5b33eb0471c8e82a6c87216223181ec31247c357a3e8e2fddc5b"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/typescript/lib/lib.es2019.object.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "71c37f4c9543f31dfced6c7840e068c5a5aacb7b89111a4364b1d5276b852557"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/typescript/lib/lib.es2019.string.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "576711e016cf4f1804676043e6a0a5414252560eb57de9faceee34d79798c850"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/typescript/lib/lib.es2019.symbol.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "89c1b1281ba7b8a96efc676b11b264de7a8374c5ea1e6617f11880a13fc56dc6"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/typescript/lib/lib.es2020.bigint.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "d6d7ae4d1f1f3772e2a3cde568ed08991a8ae34a080ff1151af28b7f798e22ca"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/typescript/lib/lib.es2020.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "5efce4fc3c29ea84e8928f97adec086e3dc876365e0982cc8479a07954a3efd4"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/typescript/lib/lib.es2020.date.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "063600664504610fe3e99b717a1223f8b1900087fab0b4cad1496a114744f8df"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/typescript/lib/lib.es2020.intl.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "639e512c0dfc3fad96a84caad71b8834d66329a1f28dc95e3946c9b58176c73a"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/typescript/lib/lib.es2020.number.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "368af93f74c9c932edd84c58883e736c9e3d53cec1fe24c0b0ff451f529ceab1"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/typescript/lib/lib.es2020.promise.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "934019d7e3c81950f9a8426d093458b65d5aff2c7c1511233c0fd5b941e608ab"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/typescript/lib/lib.es2020.sharedmemory.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "52ada8e0b6e0482b728070b7639ee42e83a9b1c22d205992756fe020fd9f4a47"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/typescript/lib/lib.es2020.string.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "3bdefe1bfd4d6dee0e26f928f93ccc128f1b64d5d501ff4a8cf3c6371200e5e6"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/typescript/lib/lib.es2020.symbol.wellknown.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "59fb2c069260b4ba00b5643b907ef5d5341b167e7d1dbf58dfd895658bda2867"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/typescript/lib/lib.es2021.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "feecb1be483ed332fad555aff858affd90a48ab19ba7272ee084704eb7167569"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/typescript/lib/lib.es2021.intl.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "965f36eae237dd74e6cca203a43e9ca801ce38824ead814728a2807b1910117d"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/typescript/lib/lib.es2021.promise.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "af3dd424cf267428f30ccfc376f47a2c0114546b55c44d8c0f1d57d841e28d74"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/typescript/lib/lib.es2021.string.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "995c005ab91a498455ea8dfb63aa9f83fa2ea793c3d8aa344be4a1678d06d399"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/typescript/lib/lib.es2021.weakref.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "959d36cddf5e7d572a65045b876f2956c973a586da58e5d26cde519184fd9b8a"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/typescript/lib/lib.es2022.array.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "3925a6c820dcb1a06506c90b1577db1fdbf7705d65b62b99dce4be75c637e26b"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/typescript/lib/lib.es2022.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "ee7bad0c15b58988daa84371e0b89d313b762ab83cb5b31b8a2d1162e8eb41c2"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/typescript/lib/lib.es2022.error.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "0a3d63ef2b853447ec4f749d3f368ce642264246e02911fcb1590d8c161b8005"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/typescript/lib/lib.es2022.intl.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "8cdf8847677ac7d20486e54dd3fcf09eda95812ac8ace44b4418da1bbbab6eb8"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/typescript/lib/lib.es2022.object.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "8444af78980e3b20b49324f4a16ba35024fef3ee069a0eb67616ea6ca821c47a"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/typescript/lib/lib.es2022.regexp.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "b4b67b1a91182421f5df999988c690f14d813b9850b40acd06ed44691f6727ad"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/typescript/lib/lib.es2022.string.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "3287d9d085fbd618c3971944b65b4be57859f5415f495b33a6adc994edd2f004"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/typescript/lib/lib.es2023.array.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "df83c2a6c73228b625b0beb6669c7ee2a09c914637e2d35170723ad49c0f5cd4"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/typescript/lib/lib.es2023.collection.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "436aaf437562f276ec2ddbee2f2cdedac7664c1e4c1d2c36839ddd582eeb3d0a"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/typescript/lib/lib.es2023.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "27bdc30a0e32783366a5abeda841bc22757c1797de8681bbe81fbc735eeb1c10"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/typescript/lib/lib.es2023.intl.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "8e3c06ea092138bf9fa5e874a1fdbc9d54805d074bee1de31b99a11e2fec239d"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/typescript/lib/lib.es2024.arraybuffer.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "87dc0f382502f5bbce5129bdc0aea21e19a3abbc19259e0b43ae038a9fc4e326"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/typescript/lib/lib.es2024.collection.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "b1cb28af0c891c8c96b2d6b7be76bd394fddcfdb4709a20ba05a7c1605eea0f9"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/typescript/lib/lib.es2024.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "8fd575e12870e9944c7e1d62e1f5a73fcf23dd8d3a321f2a2c74c20d022283fe"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/typescript/lib/lib.es2024.object.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "2fef54945a13095fdb9b84f705f2b5994597640c46afeb2ce78352fab4cb3279"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/typescript/lib/lib.es2024.promise.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "ac77cb3e8c6d3565793eb90a8373ee8033146315a3dbead3bde8db5eaf5e5ec6"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/typescript/lib/lib.es2024.regexp.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "56e4ed5aab5f5920980066a9409bfaf53e6d21d3f8d020c17e4de584d29600ad"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/typescript/lib/lib.es2024.sharedmemory.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "4ece9f17b3866cc077099c73f4983bddbcb1dc7ddb943227f1ec070f529dedd1"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/typescript/lib/lib.es2024.string.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "0a6282c8827e4b9a95f4bf4f5c205673ada31b982f50572d27103df8ceb8013c"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/typescript/lib/lib.es5.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "c430d44666289dae81f30fa7b2edebf186ecc91a2d4c71266ea6ae76388792e1"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/typescript/lib/lib.esnext.disposable.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "51ad4c928303041605b4d7ae32e0c1ee387d43a24cd6f1ebf4a2699e1076d4fa"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/typescript/lib/lib.esnext.float16.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "196cb558a13d4533a5163286f30b0509ce0210e4b316c56c38d4c0fd2fb38405"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/undici-types/agent.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "7fb266686238369442bd1719bc0d7edd0199da4fb8540354e1ff7f16669b4323"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/undici-types/api.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "54c3e2371e3d016469ad959697fd257e5621e16296fa67082c2575d0bf8eced0"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/undici-types/balanced-pool.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "b41767d372275c154c7ea6c9d5449d9a741b8ce080f640155cc88ba1763e35b3"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/undici-types/cache-interceptor.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "beb8233b2c220cfa0feea31fbe9218d89fa02faa81ef744be8dce5acb89bb1fd"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/undici-types/cache.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "c46e079fe54c76f95c67fb89081b3e399da2c7d109e7dca8e4b58d83e332e605"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/undici-types/client-stats.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "68834d631c8838c715f225509cfc3927913b9cc7a4870460b5b60c8dbdb99baf"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/undici-types/client.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "2931540c47ee0ff8a62860e61782eb17b155615db61e36986e54645ec67f67c2"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/undici-types/connector.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "c6fd2c5a395f2432786c9cb8deb870b9b0e8ff7e22c029954fabdd692bff6195"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/undici-types/content-type.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "2e85db9e6fd73cfa3d7f28e0ab6b55417ea18931423bd47b409a96e4a169e8e6"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/undici-types/cookies.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "59af37caec41ecf7b2e76059c9672a49e682c1a2aa6f9d7dc78878f53aa284d6"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/undici-types/diagnostics-channel.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "e1528ca65ac90f6fa0e4a247eb656b4263c470bb22d9033e466463e13395e599"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/undici-types/dispatcher.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "f6faf5f74e4c4cc309a6c6a6c4da02dbb840be5d3e92905a23dcd7b2b0bd1986"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/undici-types/env-http-proxy-agent.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "80aae6afc67faa5ac0b32b5b8bc8cc9f7fa299cff15cf09cc2e11fd28c6ae29e"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/undici-types/errors.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "ccab02f3920fc75c01174c47fcf67882a11daf16baf9e81701d0a94636e94556"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/undici-types/eventsource.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "adf27937dba6af9f08a68c5b1d3fce0ca7d4b960c57e6d6c844e7d1a8e53adae"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/undici-types/fetch.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "3a80bc85f38526ca3b08007ee80712e7bb0601df178b23fbf0bf87036fce40ce"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/undici-types/formdata.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "ccf4552357ce3c159ef75f0f0114e80401702228f1898bdc9402214c9499e8c0"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/undici-types/global-dispatcher.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "ea6bc8de8b59f90a7a3960005fd01988f98fd0784e14bc6922dde2e93305ec7d"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/undici-types/global-origin.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "36107995674b29284a115e21a0618c4c2751b32a8766dd4cb3ba740308b16d59"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/undici-types/h2c-client.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "3bacf516d686d08682751a3bd2519ea3b8041a164bfb4f1d35728993e70a2426"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/undici-types/handlers.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "7fd1b31fd35876b0aa650811c25ec2c97a3c6387e5473eb18004bed86cdd76b6"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/undici-types/header.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "23cd712e2ce083d68afe69224587438e5914b457b8acf87073c22494d706a3d0"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/undici-types/index.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "866078923a56d026e39243b4392e282c1c63159723996fa89243140e1388a98d"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/undici-types/interceptors.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "c183b931b68ad184bc8e8372bf663f3d33304772fb482f29fb91b3c391031f3e"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/undici-types/mock-agent.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "9666f2f84b985b62400d2e5ab0adae9ff44de9b2a34803c2c5bd3c8325b17dc0"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/undici-types/mock-call-history.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "0b6e25234b4eec6ed96ab138d96eb70b135690d7dd01f3dd8a8ab291c35a683a"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/undici-types/mock-client.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "40cd35c95e9cf22cfa5bd84e96408b6fcbca55295f4ff822390abb11afbc3dca"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/undici-types/mock-errors.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "40b463c6766ca1b689bfcc46d26b5e295954f32ad43e37ee6953c0a677e4ae2b"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/undici-types/mock-interceptor.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "0a60a292b89ca7218b8616f78e5bbd1c96b87e048849469cccb4355e98af959a"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/undici-types/mock-pool.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "b1616b8959bf557feb16369c6124a97a0e74ed6f49d1df73bb4b9ddf68acf3f3"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/undici-types/patch.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "addf417b9eb3f938fddf8d81e96393a165e4be0d4a8b6402292f9c634b1cb00d"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/undici-types/pool-stats.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "914a0ae30d96d71915fc519ccb4efbf2b62c0ddfb3a3fc6129151076bc01dc60"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/undici-types/pool.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "33e981bf6376e939f99bd7f89abec757c64897d33c005036b9a10d9587d80187"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/undici-types/proxy-agent.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "249b9cab7f5d628b71308c7d9bb0a808b50b091e640ba3ed6e2d0516f4a8d91d"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/undici-types/readable.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "487b694c3de27ddf4ad107d4007ad304d29effccf9800c8ae23c2093638d906a"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/undici-types/retry-agent.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "499e5b055a5aba1e1998f7311a6c441a369831c70905cc565ceac93c28083d53"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/undici-types/retry-handler.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "f473cd2288991ff3221165dcf73cd5d24da30391f87e85b3dd4d0450c787a391"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/undici-types/snapshot-agent.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "5b03a034c72146b61573aab280f295b015b9168470f2df05f6080a2122f9b4df"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/undici-types/util.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "5d0375ca7310efb77e3ef18d068d53784faf62705e0ad04569597ae0e755c401"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/undici-types/utility.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "cdcf9ea426ad970f96ac930cd176d5c69c6c24eebd9fc580e1572d6c6a88f62c"
+      },
+      {
+        "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/undici-types/websocket.d.ts",
+        "declaration": true,
+        "root": false,
+        "sha256": "48cc3ec153b50985fb95153258a710782b25975b10dd4ac8a4f3920632d10790"
+      },
+      {
+        "path": "I:/AI_AgentNexus/deliverables/AgentNexus-M1.5/source/src/agentnexus/artifacts.ts",
+        "declaration": false,
+        "root": true,
+        "sha256": "c939b746466cf298c0aff93d537c906317b9fac50238289758d75c413b16fd19"
+      },
+      {
+        "path": "I:/AI_AgentNexus/deliverables/AgentNexus-M1.5/source/src/agentnexus/bootstrap/config.ts",
+        "declaration": false,
+        "root": true,
+        "sha256": "281e683c0f4fac5a0618deff0976da09ccaca860935cf1c044541f5cf7e5aea0"
+      },
+      {
+        "path": "I:/AI_AgentNexus/deliverables/AgentNexus-M1.5/source/src/agentnexus/bootstrap/entry.ts",
+        "declaration": false,
+        "root": true,
+        "sha256": "fda08b8be8ffe4d232f3803955e335e8e1f27fdb2eb31738e390cce380ce7fb7"
+      },
+      {
+        "path": "I:/AI_AgentNexus/deliverables/AgentNexus-M1.5/source/src/agentnexus/bootstrap/exit-closure.ts",
+        "declaration": false,
+        "root": true,
+        "sha256": "c2aacb31be493bd47f697f0397bfae11d37d5f79639596bd3f884f5a65d82dcf"
+      },
+      {
+        "path": "I:/AI_AgentNexus/deliverables/AgentNexus-M1.5/source/src/agentnexus/bootstrap/launcher-proof.ts",
+        "declaration": false,
+        "root": true,
+        "sha256": "a05e7450e54618e5cde093f283211ab1e0dfc5630e1cd5b365103b2d2a9e0ed2"
+      },
+      {
+        "path": "I:/AI_AgentNexus/deliverables/AgentNexus-M1.5/source/src/agentnexus/bootstrap/permissions.ts",
+        "declaration": false,
+        "root": true,
+        "sha256": "4019e1c2ee1a663eec62a9e68d4ccb5dd774e88ecb571e532c81c10e39d6b2b7"
+      },
+      {
+        "path": "I:/AI_AgentNexus/deliverables/AgentNexus-M1.5/source/src/agentnexus/bootstrap/reservations.ts",
+        "declaration": false,
+        "root": true,
+        "sha256": "b62f7dec432c201fd549aa276d303af756c8a8d90fe974be42603097077adc93"
+      },
+      {
+        "path": "I:/AI_AgentNexus/deliverables/AgentNexus-M1.5/source/src/agentnexus/bootstrap/runtime.ts",
+        "declaration": false,
+        "root": true,
+        "sha256": "28da475cbb0c0786ed4ae625888f53a66a13c9af34f6d0a8f0a4a03520608736"
+      },
+      {
+        "path": "I:/AI_AgentNexus/deliverables/AgentNexus-M1.5/source/src/agentnexus/bootstrap/session.ts",
+        "declaration": false,
+        "root": true,
+        "sha256": "97b0e9435f9468fd9b46f56792f0335ab1d20ec915b832f98b836334662daec5"
+      },
+      {
+        "path": "I:/AI_AgentNexus/deliverables/AgentNexus-M1.5/source/src/agentnexus/bootstrap/supervisor.ts",
+        "declaration": false,
+        "root": true,
+        "sha256": "58a926b240429ddc4f45595b16566069294541839a549443483ccdeecccea77e"
+      },
+      {
+        "path": "I:/AI_AgentNexus/deliverables/AgentNexus-M1.5/source/src/agentnexus/bootstrap/ubuntu.ts",
+        "declaration": false,
+        "root": true,
+        "sha256": "42685813efcc56eebfede5097d81d56bb0445cd8fa32a1d0c70e793a9db5a3f3"
+      },
+      {
+        "path": "I:/AI_AgentNexus/deliverables/AgentNexus-M1.5/source/src/agentnexus/bootstrap/worker.ts",
+        "declaration": false,
+        "root": true,
+        "sha256": "39ee6763699b1db18466e30dab7538499d4f3315a80faaf674d853f620814158"
+      },
+      {
+        "path": "I:/AI_AgentNexus/deliverables/AgentNexus-M1.5/source/src/agentnexus/cli.ts",
+        "declaration": false,
+        "root": true,
+        "sha256": "21b22392926ebe706f3d2a382205a7ed0afcf9477b619707df250dd2089334bb"
+      },
+      {
+        "path": "I:/AI_AgentNexus/deliverables/AgentNexus-M1.5/source/src/agentnexus/control.ts",
+        "declaration": false,
+        "root": true,
+        "sha256": "3a549eb7bf5548b2b0453711899c0b7bfb1ea4d346dfad0bca11d4c166bf46d4"
+      },
+      {
+        "path": "I:/AI_AgentNexus/deliverables/AgentNexus-M1.5/source/src/agentnexus/diagnostics.ts",
+        "declaration": false,
+        "root": true,
+        "sha256": "d869a291068564eb942b05623f2b8e3f0f8348c40647215e1b85d86eef27d86d"
+      },
+      {
+        "path": "I:/AI_AgentNexus/deliverables/AgentNexus-M1.5/source/src/agentnexus/features.ts",
+        "declaration": false,
+        "root": true,
+        "sha256": "d6aafeafd88f6fd5660afa6b4f29b68625d70ffc8f8138f90db657b6acacda5e"
+      },
+      {
+        "path": "I:/AI_AgentNexus/deliverables/AgentNexus-M1.5/source/src/agentnexus/gateway.ts",
+        "declaration": false,
+        "root": true,
+        "sha256": "5ec2cb67afca1858c168b1888fa398ef766d3e18cf9b7f4253d9db51f17d7871"
+      },
+      {
+        "path": "I:/AI_AgentNexus/deliverables/AgentNexus-M1.5/source/src/agentnexus/host.ts",
+        "declaration": false,
+        "root": true,
+        "sha256": "8856e1ca5fe435f0a75b051c70168295f5fad3e5c98632537af01f7dbc775cf3"
+      },
+      {
+        "path": "I:/AI_AgentNexus/deliverables/AgentNexus-M1.5/source/src/agentnexus/integrity.ts",
+        "declaration": false,
+        "root": true,
+        "sha256": "172a40c429c9e8a99f8cc1fcee2ef500adb4e7d378f0f6188fbbe7f792edfe66"
+      },
+      {
+        "path": "I:/AI_AgentNexus/deliverables/AgentNexus-M1.5/source/src/agentnexus/policy-contracts.ts",
+        "declaration": false,
+        "root": true,
+        "sha256": "6d0fdcbbe7cca5ebca6d19c27c8518e55eb33223b1c0e74a32e2e5c8adbcb9af"
+      },
+      {
+        "path": "I:/AI_AgentNexus/deliverables/AgentNexus-M1.5/source/src/agentnexus/policy.ts",
+        "declaration": false,
+        "root": true,
+        "sha256": "31a6f1250ab2c5e9271181b23cc347b72fd502d7b2bfa229716dd976ee040f49"
+      },
+      {
+        "path": "I:/AI_AgentNexus/deliverables/AgentNexus-M1.5/source/src/agentnexus/production/audit.ts",
+        "declaration": false,
+        "root": true,
+        "sha256": "51ede7c82086d72707cc965891a673e2addf4cfd6efdf836b534988823c485f8"
+      },
+      {
+        "path": "I:/AI_AgentNexus/deliverables/AgentNexus-M1.5/source/src/agentnexus/production/authority.ts",
+        "declaration": false,
+        "root": true,
+        "sha256": "47546dbe8f131e27a1ae2ddfafec3f1227c06deee0dc395100e9dc60ee623e05"
+      },
+      {
+        "path": "I:/AI_AgentNexus/deliverables/AgentNexus-M1.5/source/src/agentnexus/production/broker.ts",
+        "declaration": false,
+        "root": true,
+        "sha256": "dc7a7f7294d9035e97f41058d60b802f804fe8b18e7c232a29906f5de8ee1e3c"
+      },
+      {
+        "path": "I:/AI_AgentNexus/deliverables/AgentNexus-M1.5/source/src/agentnexus/production/contracts.ts",
+        "declaration": false,
+        "root": true,
+        "sha256": "368e611e224288350ca5a9eeeb883ccdc2b5d02129fbcbd5718cdf1e88f65620"
+      },
+      {
+        "path": "I:/AI_AgentNexus/deliverables/AgentNexus-M1.5/source/src/agentnexus/production/exit.ts",
+        "declaration": false,
+        "root": true,
+        "sha256": "fce46daa7544c1f6de2544cd4def6856e99c285717d47caed1fbe6362ec9101d"
+      },
+      {
+        "path": "I:/AI_AgentNexus/deliverables/AgentNexus-M1.5/source/src/agentnexus/production/file-broker.ts",
+        "declaration": false,
+        "root": true,
+        "sha256": "1fdbdf438e2ab5591b56d90a69786cbcf27bacc0290e200e09bc6c4e771f1a51"
+      },
+      {
+        "path": "I:/AI_AgentNexus/deliverables/AgentNexus-M1.5/source/src/agentnexus/production/host.ts",
+        "declaration": false,
+        "root": true,
+        "sha256": "c849b9d28e583937449b63f863f147dcc51e683ee378edac44fc77245ab5c3ff"
+      },
+      {
+        "path": "I:/AI_AgentNexus/deliverables/AgentNexus-M1.5/source/src/agentnexus/production/identity.ts",
+        "declaration": false,
+        "root": true,
+        "sha256": "157d276bd002b5b624d40675e41b67d1beab86a1db478ba50b8a64324e24bba1"
+      },
+      {
+        "path": "I:/AI_AgentNexus/deliverables/AgentNexus-M1.5/source/src/agentnexus/production/native-client.ts",
+        "declaration": false,
+        "root": true,
+        "sha256": "f378c1bf5938ae5821fc1130d60d920874891bdf76fb1a911dc0a9310e9f05e8"
+      },
+      {
+        "path": "I:/AI_AgentNexus/deliverables/AgentNexus-M1.5/source/src/agentnexus/production/qualification.ts",
+        "declaration": false,
+        "root": true,
+        "sha256": "3c241da34dce87591abfc3ef2562c6005f62319fbf8152a44305b121d89f8b8c"
+      },
+      {
+        "path": "I:/AI_AgentNexus/deliverables/AgentNexus-M1.5/source/src/agentnexus/production/service.ts",
+        "declaration": false,
+        "root": true,
+        "sha256": "4954b7cc8e005d961ee6408dd161046c8337c44dfe3b3439d1a2b289fdc2150d"
+      },
+      {
+        "path": "I:/AI_AgentNexus/deliverables/AgentNexus-M1.5/source/src/agentnexus/production/transport.ts",
+        "declaration": false,
+        "root": true,
+        "sha256": "1d4d6ca1d680be24aef8e40ee703f66d11ec25e5514cb53c74f2f470a09d120d"
+      },
+      {
+        "path": "I:/AI_AgentNexus/deliverables/AgentNexus-M1.5/source/src/agentnexus/production/windows-supervisor.ts",
+        "declaration": false,
+        "root": true,
+        "sha256": "7006732045e8e96f66dba6f68c4367ecf947a353f61a63f0b4992ad86746f724"
+      },
+      {
+        "path": "I:/AI_AgentNexus/deliverables/AgentNexus-M1.5/source/src/agentnexus/reconciliation.ts",
+        "declaration": false,
+        "root": true,
+        "sha256": "9f65ae9b5b0e4f049efabfadc1cb5ad263ce0b5ea7703a15bb8789f27d3f1906"
+      },
+      {
+        "path": "I:/AI_AgentNexus/deliverables/AgentNexus-M1.5/source/src/agentnexus/records.ts",
+        "declaration": false,
+        "root": true,
+        "sha256": "393e0a70a20a4dae21287169d1313bae949842cf0f712bacb3ebf432a5ed7800"
+      },
+      {
+        "path": "I:/AI_AgentNexus/deliverables/AgentNexus-M1.5/source/src/agentnexus/runtime/audit.ts",
+        "declaration": false,
+        "root": true,
+        "sha256": "14f06526c6a48473aca95e5a47077e69b63db646ca1d605af0df8272207584c4"
+      },
+      {
+        "path": "I:/AI_AgentNexus/deliverables/AgentNexus-M1.5/source/src/agentnexus/runtime/broker.ts",
+        "declaration": false,
+        "root": true,
+        "sha256": "611056760e82606bae893c2ed78831adb0e3b8ac102a4206b8af6cafc021efc2"
+      },
+      {
+        "path": "I:/AI_AgentNexus/deliverables/AgentNexus-M1.5/source/src/agentnexus/runtime/contracts.ts",
+        "declaration": false,
+        "root": true,
+        "sha256": "308378e645233f6317de44399d59eb0a15bbaf4b0f506a2083917a999651b725"
+      },
+      {
+        "path": "I:/AI_AgentNexus/deliverables/AgentNexus-M1.5/source/src/agentnexus/runtime/control.ts",
+        "declaration": false,
+        "root": true,
+        "sha256": "4b78fdfdbab38bc1d07dafea5fa323c72e1d02eeefbc7071b13f515ef6cec502"
+      },
+      {
+        "path": "I:/AI_AgentNexus/deliverables/AgentNexus-M1.5/source/src/agentnexus/runtime/ipc.ts",
+        "declaration": false,
+        "root": true,
+        "sha256": "9b8d5c096ffc4b529a5919047d84cff16dfdef495b148f1af7748f49380130a5"
+      },
+      {
+        "path": "I:/AI_AgentNexus/deliverables/AgentNexus-M1.5/source/src/agentnexus/storage.ts",
+        "declaration": false,
+        "root": true,
+        "sha256": "a693dde21a10e501c1e7172d1cf24a3dd99317b9bbfcfe2c235631926a33bff0"
+      },
+      {
+        "path": "I:/AI_AgentNexus/deliverables/AgentNexus-M1.5/source/src/agentnexus/types.ts",
+        "declaration": false,
+        "root": true,
+        "sha256": "7bd207b6d34d63d5d443eedae516abc292942562b6b58ecf2f3ffccd566fdb25"
+      },
+      {
+        "path": "I:/AI_AgentNexus/deliverables/AgentNexus-M1.5/source/tests/agentnexus/control.test.ts",
+        "declaration": false,
+        "root": true,
+        "sha256": "5434e80937f050429198eb81d73045b291aed433285dc28fdcfa7d4cdb215ef1"
+      },
+      {
+        "path": "I:/AI_AgentNexus/deliverables/AgentNexus-M1.5/source/tests/agentnexus/diagnostics.test.ts",
+        "declaration": false,
+        "root": true,
+        "sha256": "a3b4a33ceed558659f67af248c6a94f1a9abc6571814a5ba33e22c0c196e9b8f"
+      },
+      {
+        "path": "I:/AI_AgentNexus/deliverables/AgentNexus-M1.5/source/tests/agentnexus/gateway.test.ts",
+        "declaration": false,
+        "root": true,
+        "sha256": "b9bb3d122ab0e56a4b3cea17cb9a99c41bcebe7ce47b30aea600be6943a9b8ba"
+      },
+      {
+        "path": "I:/AI_AgentNexus/deliverables/AgentNexus-M1.5/source/tests/agentnexus/integrity.test.ts",
+        "declaration": false,
+        "root": true,
+        "sha256": "2d4f1212dc62716a8281e83eb2ef9e579213c707e6ff97fb5b13c32d39806e80"
+      },
+      {
+        "path": "I:/AI_AgentNexus/deliverables/AgentNexus-M1.5/source/tests/agentnexus/m14-adapter.test.ts",
+        "declaration": false,
+        "root": true,
+        "sha256": "e40821919ac3eb487768baf155284d4458834c3b95638f50f2ded8581163ee85"
+      },
+      {
+        "path": "I:/AI_AgentNexus/deliverables/AgentNexus-M1.5/source/tests/agentnexus/m14-native.test.ts",
+        "declaration": false,
+        "root": true,
+        "sha256": "4a9994d283d2e5280ab5cefbab701edfb92f12de688ae8474c7280de102681af"
+      },
+      {
+        "path": "I:/AI_AgentNexus/deliverables/AgentNexus-M1.5/source/tests/agentnexus/m14-production.test.ts",
+        "declaration": false,
+        "root": true,
+        "sha256": "f51c8794d705cefef7caa73b3234791b7dfffb256c92f3f227da0c7eba235d03"
+      },
+      {
+        "path": "I:/AI_AgentNexus/deliverables/AgentNexus-M1.5/source/tests/agentnexus/m15-bootstrap.test.ts",
+        "declaration": false,
+        "root": true,
+        "sha256": "bca5a8e6103eabe9b1768e57055f45967238ae479253b2dcd8e16733260c807f"
+      },
+      {
+        "path": "I:/AI_AgentNexus/deliverables/AgentNexus-M1.5/source/tests/agentnexus/m15-pipe.test.ts",
+        "declaration": false,
+        "root": true,
+        "sha256": "ef7dc6676067679a5cacab19db06fca204653632fc3c8e30c6eb0a2a00c1c54f"
+      },
+      {
+        "path": "I:/AI_AgentNexus/deliverables/AgentNexus-M1.5/source/tests/agentnexus/reconciliation.test.ts",
+        "declaration": false,
+        "root": true,
+        "sha256": "3ddf54e2ec6e741fb7b4003124338bbb41f5e271bd12632e4e4152fae2f61e80"
+      },
+      {
+        "path": "I:/AI_AgentNexus/deliverables/AgentNexus-M1.5/source/tests/agentnexus/runtime.test.ts",
+        "declaration": false,
+        "root": true,
+        "sha256": "f71d9405adca5c4490def3cf8ee847d230d82162fa57a423f37195404c787d37"
+      },
+      {
+        "path": "I:/AI_AgentNexus/deliverables/AgentNexus-M1.5/source/tests/agentnexus/security.test.ts",
+        "declaration": false,
+        "root": true,
+        "sha256": "224fa63e65ffc13805afeda08fe844a439503251bd2f6393695d55dd61e19f50"
+      },
+      {
+        "path": "I:/AI_AgentNexus/deliverables/AgentNexus-M1.5/source/tests/agentnexus/storage.test.ts",
+        "declaration": false,
+        "root": true,
+        "sha256": "7fe63fae9c892983a20cff6363daea390b95f9535d9aab8b231a79509bf722ea"
+      },
+      {
+        "path": "I:/AI_AgentNexus/deliverables/AgentNexus-M1.5/source/tests/agentnexus/windows-native.test.ts",
+        "declaration": false,
+        "root": true,
+        "sha256": "358299b2b7f059273a47c5d79acf97c3f71cc35d2339d090f98f5fec47bef506"
+      },
+      {
+        "path": "I:/AI_AgentNexus/deliverables/AgentNexus-M1.5/source/tools/agentnexus/cpu-qualify-m15.d.mts",
+        "declaration": true,
+        "root": false,
+        "sha256": "0127ae8099ad691162c65a2c023eb6a9d8b813782bd04d737391ff2b9ac93265"
+      }
+    ],
+    "source_suppression_pragmas": []
+  },
+  "program_check": {
+    "method": "TypeScript createProgram plus getOptionsDiagnostics/getGlobalDiagnostics/getSyntacticDiagnostics/getSemanticDiagnostics over the full same-root program; CLI tsc also completed.",
+    "diagnostic_counts": {
+      "config": 0,
+      "options": 0,
+      "global": 0,
+      "syntactic": 0,
+      "semantic": 0
+    },
+    "diagnostics": {
+      "config": [],
+      "options": [],
+      "global": [],
+      "syntactic": [],
+      "semantic": []
+    },
+    "not_syntax_only": true,
+    "emitted_files": 0
+  },
+  "first_failure": {
+    "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/typecheck/first-tsc.log",
+    "sha256": "57a6dc5095bd1ab275a92149907f9560f51aedafbc0bead4c331d47b4f2c3d18",
+    "original_error_count": 12,
+    "original_preserved": true,
+    "fix_boundaries": [
+      {
+        "owner": "inherited TypeScript agent",
+        "paths": [
+          "src/agentnexus/artifacts.ts"
+        ],
+        "boundary": "Type Zstd/Transform option objects explicitly; preserve high-water marks and compression values."
+      },
+      {
+        "owner": "inherited TypeScript agent",
+        "paths": [
+          "src/agentnexus/host.ts"
+        ],
+        "boundary": "Widen internal disposal lifecycle shape to optional disposeAndWait; retain existing branch behavior and remove those existing any casts."
+      },
+      {
+        "owner": "inherited TypeScript agent",
+        "paths": [
+          "src/agentnexus/storage.ts"
+        ],
+        "boundary": "Annotate Buffer generic-compatible tail; no byte or recovery logic change."
+      },
+      {
+        "owner": "inherited TypeScript agent",
+        "paths": [
+          "src/agentnexus/types.ts"
+        ],
+        "boundary": "Widen spread to Partial<AuditInput> for duplicate required-field diagnostics; preserve runtime spread and final trusted identity overwrite."
+      },
+      {
+        "owner": "inherited TypeScript agent",
+        "paths": [
+          "src/agentnexus/runtime/contracts.ts"
+        ],
+        "boundary": "Annotate snapshot maximum as number rather than inferred 65536 literal; preserve value and checks."
+      },
+      {
+        "owner": "inherited TypeScript agent",
+        "paths": [
+          "tests/agentnexus/gateway.test.ts",
+          "tests/agentnexus/storage.test.ts",
+          "tests/agentnexus/m14-production.test.ts"
+        ],
+        "boundary": "Use Uint8Array chunk type, pipe-configured stderr non-null assertion, and typed ForkOptions extension while preserving windowsHide and arguments."
+      },
+      {
+        "owner": "main production owner",
+        "paths": [
+          "src/agentnexus/production/exit.ts"
+        ],
+        "boundary": "Narrow ExitProof state to its existing union; production edits remained with its designated owner."
+      }
+    ],
+    "new_any_used_for_inherited_repairs": false
+  },
+  "inherited_review": {
+    "record": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/typecheck/inherited-reading-coverage.json",
+    "sha256": "12a1ca26a9fef6d9be1b934e6b7e41f8b1b02d2ac2adc44678f6251a9b4a7b32"
+  },
+  "inherited_test_evidence": {
+    "log": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/typecheck/inherited-tests-20261107T095257026Z.log",
+    "log_sha256": "6368245956c0887d87da23ceade2ef52c0f496ce383733862efe0fe90e53e3b0",
+    "tests": 71,
+    "passed": 71,
+    "full_final_regression": "separately run and reported by main agent",
+    "relocation_record": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.5/typecheck/test-artifact-relocation.json",
+    "current_artifact_root": "I:/AI_AgentNexus/.workflow-kit/runtime/M15-type-data"
+  },
+  "scope": "Complete TypeScript source and tests with strict semantic checking; C#, Python, PowerShell and .mjs files are covered by the immutable 91-file manifest but are not claimed as TypeScript-checked."
+}

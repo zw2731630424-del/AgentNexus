@@ -1,0 +1,18 @@
+Node 24.15.0; TypeScript 5.9.3; @types/node 24.10.1; strict noEmit NodeNext; full src/tests/tools
+src/agentnexus/artifacts.ts(140,70): error TS2353: Object literal may only specify known properties, and 'readableHighWaterMark' does not exist in type 'ZstdOptions'.
+src/agentnexus/artifacts.ts(203,69): error TS2353: Object literal may only specify known properties, and 'readableHighWaterMark' does not exist in type 'ZstdOptions'.
+src/agentnexus/host.ts(66,18): error TS2339: Property 'dispose' does not exist on type 'never'.
+src/agentnexus/host.ts(210,139): error TS2339: Property 'dispose' does not exist on type 'never'.
+src/agentnexus/production/contracts.ts(53,33): error TS2345: Argument of type 'number' is not assignable to parameter of type '65536'.
+src/agentnexus/production/exit.ts(58,3): error TS2322: Type '{ evidence_hash: string; schema: "agentnexus/exit-proof/2"; proof_id: string; grant: Grant; observation: ExitEvidence; stdout_ref: ArtifactRef | null; ... 4 more ...; qualification_evidence_hash: string; }' is not assignable to type 'ExitProof'.
+  Types of property 'state' are incompatible.
+    Type 'string' is not assignable to type '"EXIT_VERIFIED" | "EXIT_UNVERIFIED"'.
+src/agentnexus/storage.ts(295,26): error TS2322: Type 'Buffer<ArrayBufferLike>' is not assignable to type 'Buffer<ArrayBuffer>'.
+  Type 'ArrayBufferLike' is not assignable to type 'ArrayBuffer'.
+    Type 'SharedArrayBuffer' is missing the following properties from type 'ArrayBuffer': resizable, resize, detached, transfer, transferToFixedLength
+src/agentnexus/types.ts(90,56): error TS2783: 'operation_type' is specified more than once, so this usage will be overwritten.
+src/agentnexus/types.ts(90,93): error TS2783: 'phase' is specified more than once, so this usage will be overwritten.
+tests/agentnexus/gateway.test.ts(49,109): error TS2345: Argument of type 'Uint8Array<ArrayBufferLike>' is not assignable to parameter of type 'Buffer<ArrayBufferLike>'.
+  Type 'Uint8Array<ArrayBufferLike>' is missing the following properties from type 'Buffer<ArrayBufferLike>': write, toJSON, equals, compare, and 66 more.
+tests/agentnexus/m14-production.test.ts(240,120): error TS2353: Object literal may only specify known properties, and 'windowsHide' does not exist in type 'ForkOptions'.
+tests/agentnexus/storage.test.ts(57,20): error TS18047: 'processChild.stderr' is possibly 'null'.

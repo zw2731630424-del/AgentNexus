@@ -1,0 +1,31 @@
+{
+  "schema": "agentnexus/independent-probe/1",
+  "timestamp": "2026-11-07T10:57:36.676Z",
+  "assurance": "SIMULATED",
+  "node": "v24.15.0",
+  "source_sha256": {
+    "src/agentnexus/bootstrap/session.ts": "97b0e9435f9468fd9b46f56792f0335ab1d20ec915b832f98b836334662daec5",
+    "src/agentnexus/bootstrap/supervisor.ts": "58a926b240429ddc4f45595b16566069294541839a549443483ccdeecccea77e",
+    "src/agentnexus/production/native-client.ts": "f378c1bf5938ae5821fc1130d60d920874891bdf76fb1a911dc0a9310e9f05e8",
+    "src/agentnexus/production/windows-supervisor.ts": "7006732045e8e96f66dba6f68c4367ecf947a353f61a63f0b4992ad86746f724"
+  },
+  "results": [
+    {
+      "id": "RECHECK_OUTPUT_INTERLEAVE",
+      "assurance": "SIMULATED",
+      "defect_reproduced": false,
+      "failure": null,
+      "closed": false,
+      "serial_rpc_fix_observed": true
+    },
+    {
+      "id": "COMPLETED_PREPARES_NOT_RETIRED",
+      "assurance": "SIMULATED",
+      "defect_reproduced": false,
+      "completed_retire_fix_observed": true,
+      "completed": 5,
+      "failure": null,
+      "scope": "RemoteSupervisor object lifecycle only; no deployment or resource-release claim"
+    }
+  ]
+}

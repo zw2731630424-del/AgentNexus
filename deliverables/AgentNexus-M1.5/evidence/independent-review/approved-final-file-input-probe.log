@@ -1,0 +1,113 @@
+{
+  "schema": "agentnexus/file-input-probe/1",
+  "timestamp": "2026-11-07T10:57:37.359Z",
+  "assurance": "SIMULATED",
+  "scope": "Ephemeral real signatures, pure worker validation and a reviewer SQLite fixture with an injected liveness failure. No real file broker OS read, SID, ACL, AppContainer or qualification is exercised.",
+  "source_sha256": {
+    "src/agentnexus/bootstrap/worker.ts": "39ee6763699b1db18466e30dab7538499d4f3315a80faaf674d853f620814158",
+    "src/agentnexus/production/file-broker.ts": "1fdbdf438e2ab5591b56d90a69786cbcf27bacc0290e200e09bc6c4e771f1a51"
+  },
+  "stable_during_probe": true,
+  "root": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.5\\independent-review\\file-input-probe-data\\model-N4HUHS",
+  "results": [
+    {
+      "attack": "valid",
+      "accepted": true,
+      "reason": null,
+      "passed": true
+    },
+    {
+      "attack": "missing-input",
+      "accepted": false,
+      "reason": {
+        "code": "M15_BROKER_INPUT_REQUIRED",
+        "message": "M15_BROKER_INPUT_REQUIRED"
+      },
+      "passed": true
+    },
+    {
+      "attack": "wrong-file-key",
+      "accepted": false,
+      "reason": {
+        "code": "M14_SIGNATURE",
+        "message": "M14_SIGNATURE"
+      },
+      "passed": true
+    },
+    {
+      "attack": "cross-operation",
+      "accepted": false,
+      "reason": {
+        "code": "M15_FILE_BOOTSTRAP_BINDING",
+        "message": "M15_FILE_BOOTSTRAP_BINDING"
+      },
+      "passed": true
+    },
+    {
+      "attack": "cross-resource",
+      "accepted": false,
+      "reason": {
+        "code": "M15_FILE_BOOTSTRAP_BINDING",
+        "message": "M15_FILE_BOOTSTRAP_BINDING"
+      },
+      "passed": true
+    },
+    {
+      "attack": "wrong-path",
+      "accepted": false,
+      "reason": {
+        "code": "M15_FILE_BOOTSTRAP_BINDING",
+        "message": "M15_FILE_BOOTSTRAP_BINDING"
+      },
+      "passed": true
+    },
+    {
+      "attack": "stale-epoch",
+      "accepted": false,
+      "reason": {
+        "code": "M15_FILE_BOOTSTRAP_BINDING",
+        "message": "M15_FILE_BOOTSTRAP_BINDING"
+      },
+      "passed": true
+    },
+    {
+      "attack": "expired-file-permit",
+      "accepted": false,
+      "reason": {
+        "code": "M14_GRANT_EXPIRED",
+        "message": "M14_GRANT_EXPIRED"
+      },
+      "passed": true
+    },
+    {
+      "attack": "changed-bytes",
+      "accepted": false,
+      "reason": {
+        "code": "M15_FILE_BOOTSTRAP_CONTENT",
+        "message": "M15_FILE_BOOTSTRAP_CONTENT"
+      },
+      "passed": true
+    },
+    {
+      "attack": "changed-unsigned-arguments",
+      "accepted": false,
+      "reason": {
+        "code": "M15_WORKER_BINDING",
+        "message": "M15_WORKER_BINDING"
+      },
+      "passed": true
+    },
+    {
+      "attack": "identity-revoked-after-audit-before-read",
+      "accepted": false,
+      "reason": {
+        "code": "SIMULATED_IDENTITY_REVOKED_AFTER_AUDIT",
+        "message": "SIMULATED_IDENTITY_REVOKED_AFTER_AUDIT"
+      },
+      "nativeReads": 0,
+      "liveChecks": 2,
+      "persisted_state": "UNKNOWN_QUARANTINED",
+      "passed": true
+    }
+  ]
+}

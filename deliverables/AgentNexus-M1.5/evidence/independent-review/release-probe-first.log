@@ -1,0 +1,66 @@
+{
+  "schema": "agentnexus/owner-release-probe/1",
+  "timestamp": "2026-11-07T10:31:01.875Z",
+  "assurance": "SIMULATED",
+  "scope": "Synthetic operation/proof/OS/qualification rows in an isolated reviewer test store. REAL_WINDOWS strings model adapter claims only and establish no production proof. Real Ed25519, SQLite and zero-byte artifact storage are exercised.",
+  "source_sha256": "dc7a7f7294d9035e97f41058d60b802f804fe8b18e7c232a29906f5de8ee1e3c",
+  "stable_during_probe": true,
+  "root": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.5\\independent-review\\release-probe-data\\model-XSPKDi",
+  "receiptRows": 1,
+  "results": [
+    {
+      "attack": "incomplete-proof",
+      "accepted": false,
+      "reason": {
+        "code": "M15_BROKER_RELEASE_PROOF",
+        "message": "M15_BROKER_RELEASE_PROOF"
+      },
+      "state": "EXIT_UNVERIFIED",
+      "passed": true
+    },
+    {
+      "attack": "wrong-key",
+      "accepted": false,
+      "reason": {
+        "code": "M14_SIGNATURE",
+        "message": "M14_SIGNATURE"
+      },
+      "state": "EXIT_VERIFIED",
+      "passed": true
+    },
+    {
+      "attack": "wrong-intent",
+      "accepted": false,
+      "reason": {
+        "code": "M15_BROKER_RELEASE_PROOF",
+        "message": "M15_BROKER_RELEASE_PROOF"
+      },
+      "state": "EXIT_VERIFIED",
+      "passed": true
+    },
+    {
+      "attack": "wrong-resource",
+      "accepted": false,
+      "reason": {
+        "code": "M15_BROKER_RELEASE_RESOURCES",
+        "message": "M15_BROKER_RELEASE_RESOURCES"
+      },
+      "state": "EXIT_VERIFIED",
+      "passed": true
+    },
+    {
+      "attack": "valid",
+      "accepted": true,
+      "reason": null,
+      "state": "RELEASED",
+      "passed": true
+    },
+    {
+      "attack": "idempotent-replay",
+      "accepted": true,
+      "reason": null,
+      "state": "RELEASED",
+      "passed": true
+    }
+  ]
+}

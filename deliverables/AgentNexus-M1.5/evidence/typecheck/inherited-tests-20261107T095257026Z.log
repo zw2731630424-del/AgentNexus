@@ -1,0 +1,436 @@
+TAP version 13
+# Subtest: AT/Context/Artifact: real invocation produces separate hash-linked facts and byte-exact output
+ok 1 - AT/Context/Artifact: real invocation produces separate hash-linked facts and byte-exact output
+  ---
+  duration_ms: 154.1215
+  type: 'test'
+  ...
+# Subtest: P.MODE+Gateway: same safe synthetic operation blocked/enforced, would-deny, and unevaluated
+ok 2 - P.MODE+Gateway: same safe synthetic operation blocked/enforced, would-deny, and unevaluated
+  ---
+  duration_ms: 191.0121
+  type: 'test'
+  ...
+# Subtest: P.SANDBOX: DISABLED does not admit arbitrary execution or close independent protection
+ok 3 - P.SANDBOX: DISABLED does not admit arbitrary execution or close independent protection
+  ---
+  duration_ms: 71.0474
+  type: 'test'
+  ...
+# Subtest: P.IDENTITY: facade has no administration and JSON admin/mode flags cannot elevate
+ok 4 - P.IDENTITY: facade has no administration and JSON admin/mode flags cannot elevate
+  ---
+  duration_ms: 52.5917
+  type: 'test'
+  ...
+# Subtest: P.APPROVAL_REPLAY: exact approval executes once; altered intent and replay denied
+ok 5 - P.APPROVAL_REPLAY: exact approval executes once; altered intent and replay denied
+  ---
+  duration_ms: 135.0183
+  type: 'test'
+  ...
+# Subtest: P.DB_ATOMIC: 16 concurrent duplicate requests invoke a real handler at most once
+ok 6 - P.DB_ATOMIC: 16 concurrent duplicate requests invoke a real handler at most once
+  ---
+  duration_ms: 109.3795
+  type: 'test'
+  ...
+# Subtest: P.WORKSPACE_WRITER: concurrent distinct calls cannot overwrite active resource; modes cannot change mid-action
+ok 7 - P.WORKSPACE_WRITER: concurrent distinct calls cannot overwrite active resource; modes cannot change mid-action
+  ---
+  duration_ms: 133.1752
+  type: 'test'
+  ...
+# Subtest: AT-IOFAIL-before: actual SQLite readonly persistence failure prevents handler execution
+ok 8 - AT-IOFAIL-before: actual SQLite readonly persistence failure prevents handler execution
+  ---
+  duration_ms: 118.5953
+  type: 'test'
+  ...
+# Subtest: AT-IOFAIL-after: actual effect with unrecordable result keeps claim and never replays
+ok 9 - AT-IOFAIL-after: actual effect with unrecordable result keeps claim and never replays
+  ---
+  duration_ms: 109.1771
+  type: 'test'
+  ...
+# Subtest: P.TIMEOUT: timeout retains owned lease until actual handler settlement and never resets claim
+ok 10 - P.TIMEOUT: timeout retains owned lease until actual handler settlement and never resets claim
+  ---
+  duration_ms: 107.6008
+  type: 'test'
+  ...
+# Subtest: AT-REPLAY: reconstruction is readonly and session scope does not grant peer context
+ok 11 - AT-REPLAY: reconstruction is readonly and session scope does not grant peer context
+  ---
+  duration_ms: 109.2039
+  type: 'test'
+  ...
+# Subtest: P.IDENTITY-revocation: old facade cannot read or close a replacement session
+ok 12 - P.IDENTITY-revocation: old facade cannot read or close a replacement session
+  ---
+  duration_ms: 153.0312
+  type: 'test'
+  ...
+# Subtest: P.IDENTITY-close-race: close revokes facade before its first asynchronous cleanup
+ok 13 - P.IDENTITY-close-race: close revokes facade before its first asynchronous cleanup
+  ---
+  duration_ms: 112.739
+  type: 'test'
+  ...
+# Subtest: P.TIMEOUT-clock: handler deadline uses elapsed time under a wall-clock rollback
+ok 14 - P.TIMEOUT-clock: handler deadline uses elapsed time under a wall-clock rollback
+  ---
+  duration_ms: 108.0149
+  type: 'test'
+  ...
+# Subtest: P.MODE-START: a bypass expiring during a real delayed durability barrier cannot execute
+ok 15 - P.MODE-START: a bypass expiring during a real delayed durability barrier cannot execute
+  ---
+  duration_ms: 497.4695
+  type: 'test'
+  ...
+# Subtest: DI integration: malformed code remains FAIL, checks OFF are BYPASSED, raw/audit continue
+ok 16 - DI integration: malformed code remains FAIL, checks OFF are BYPASSED, raw/audit continue
+  ---
+  duration_ms: 180.4327
+  type: 'test'
+  ...
+# Subtest: Tool OFF rejects invocation, diagnostics log OFF does not silence core audit, oversized request is bounded
+ok 17 - Tool OFF rejects invocation, diagnostics log OFF does not silence core audit, oversized request is bounded
+  ---
+  duration_ms: 79.4455
+  type: 'test'
+  ...
+# Subtest: P.ARG_BINDING: mutation by schema or caller cannot replace the authorized snapshot
+ok 18 - P.ARG_BINDING: mutation by schema or caller cannot replace the authorized snapshot
+  ---
+  duration_ms: 105.7921
+  type: 'test'
+  ...
+# Subtest: DI command checking keeps argv preview as data and cannot execute Git/Python
+ok 19 - DI command checking keeps argv preview as data and cannot execute Git/Python
+  ---
+  duration_ms: 106.41
+  type: 'test'
+  ...
+# Subtest: M14-PERMIT SIMULATED: exact approval bridges consumed original Permit and retains five resources
+ok 20 - M14-PERMIT SIMULATED: exact approval bridges consumed original Permit and retains five resources
+  ---
+  duration_ms: 253.4683
+  type: 'test'
+  ...
+# Subtest: M14-HOST SIMULATED: Agent facade traverses Permit/IPC/Broker/streamed Artifact/ExitProof and quarantines
+ok 21 - M14-HOST SIMULATED: Agent facade traverses Permit/IPC/Broker/streamed Artifact/ExitProof and quarantines
+  ---
+  duration_ms: 231.3739
+  type: 'test'
+  ...
+# Subtest: M14-ARTIFACT SIMULATED: cancelled remote proof import settles locally and never authorizes release
+ok 22 - M14-ARTIFACT SIMULATED: cancelled remote proof import settles locally and never authorizes release
+  ---
+  duration_ms: 222.0611
+  type: 'test'
+  ...
+# Subtest: M14-HOST SIMULATED: post-consume identity failure returns original operation and unknown reservations
+ok 23 - M14-HOST SIMULATED: post-consume identity failure returns original operation and unknown reservations
+  ---
+  duration_ms: 153.9555
+  type: 'test'
+  ...
+# Subtest: M14-IPC SIMULATED: service disconnect uses trusted channel ownership to terminate and quarantine
+ok 24 - M14-IPC SIMULATED: service disconnect uses trusted channel ownership to terminate and quarantine
+  ---
+  duration_ms: 174.406
+  type: 'test'
+  ...
+# Subtest: M14-PERMIT SIMULATED: missing approval, other project, changed args or sandbox cannot bridge
+ok 25 - M14-PERMIT SIMULATED: missing approval, other project, changed args or sandbox cannot bridge
+  ---
+  duration_ms: 141.8035
+  type: 'test'
+  ...
+# Subtest: M14-PERMIT SIMULATED: signed grant tamper, Worker swap, tool/version/resource and epoch denied
+ok 26 - M14-PERMIT SIMULATED: signed grant tamper, Worker swap, tool/version/resource and epoch denied
+  ---
+  duration_ms: 183.8784
+  type: 'test'
+  ...
+# Subtest: M14-PERMIT SIMULATED: concurrent Permit consumers commit once; disconnect never replays
+ok 27 - M14-PERMIT SIMULATED: concurrent Permit consumers commit once; disconnect never replays
+  ---
+  duration_ms: 210.161
+  type: 'test'
+  ...
+# Subtest: M14-SANDBOX SIMULATED: default absent qualification rejects before Supervisor start
+ok 28 - M14-SANDBOX SIMULATED: default absent qualification rejects before Supervisor start
+  ---
+  duration_ms: 155.4581
+  type: 'test'
+  ...
+# Subtest: M14-IPC SIMULATED: same SID foreign PID, reused PID/start, session and payload identity rejected
+ok 29 - M14-IPC SIMULATED: same SID foreign PID, reused PID/start, session and payload identity rejected
+  ---
+  duration_ms: 163.5205
+  type: 'test'
+  ...
+# Subtest: M14-IPC SIMULATED: revoke is synchronous, pending connection slots and key cleanup bounded
+ok 30 - M14-IPC SIMULATED: revoke is synchronous, pending connection slots and key cleanup bounded
+  ---
+  duration_ms: 164.784
+  type: 'test'
+  ...
+# Subtest: M14-AUDIT SIMULATED: durable authorization/start barrier failures never start execution
+ok 31 - M14-AUDIT SIMULATED: durable authorization/start barrier failures never start execution
+  ---
+  duration_ms: 159.7784
+  type: 'test'
+  ...
+# Subtest: M14-RECOVERY SIMULATED: Broker reopen preserves spent Permit, unknown Job and no automatic replay
+ok 32 - M14-RECOVERY SIMULATED: Broker reopen preserves spent Permit, unknown Job and no automatic replay
+  ---
+  duration_ms: 172.9903
+  type: 'test'
+  ...
+# Subtest: M14-FEATURE SIMULATED: epoch change or module off at last fence rejects consumed work
+ok 33 - M14-FEATURE SIMULATED: epoch change or module off at last fence rejects consumed work
+  ---
+  duration_ms: 160.6732
+  type: 'test'
+  ...
+# Subtest: M14-EXIT SIMULATED: parent exit, child alive and output unknown stay independent and retain Writer
+ok 34 - M14-EXIT SIMULATED: parent exit, child alive and output unknown stay independent and retain Writer
+  ---
+  duration_ms: 192.1214
+  type: 'test'
+  ...
+# Subtest: M14-IR SIMULATED: immutable CREATE bytes survive audit wait; oversized/invalid inputs return slots
+ok 35 - M14-IR SIMULATED: immutable CREATE bytes survive audit wait; oversized/invalid inputs return slots
+  ---
+  duration_ms: 215.1078
+  type: 'test'
+  ...
+# Subtest: M14-IR SIMULATED: an expired signed file grant cannot revive after a sub-100ms wall rollback
+ok 36 - M14-IR SIMULATED: an expired signed file grant cannot revive after a sub-100ms wall rollback
+  ---
+  duration_ms: 314.4636
+  type: 'test'
+  ...
+# Subtest: M14-IR SIMULATED: uncooperative file owners time out without unbounded replacement native work
+ok 37 - M14-IR SIMULATED: uncooperative file owners time out without unbounded replacement native work
+  ---
+  duration_ms: 530.2513
+  type: 'test'
+  ...
+# Subtest: M14-IR SIMULATED: complete-looking member list with disconnected parent cycle never verifies
+ok 38 - M14-IR SIMULATED: complete-looking member list with disconnected parent cycle never verifies
+  ---
+  duration_ms: 364.419
+  type: 'test'
+  ...
+# Subtest: M14-IR SIMULATED: short Envelope deadline is fenced after asynchronous Supervisor preparation
+ok 39 - M14-IR SIMULATED: short Envelope deadline is fenced after asynchronous Supervisor preparation
+  ---
+  duration_ms: 430.6302
+  type: 'test'
+  ...
+# Subtest: M14-IR SIMULATED: closed registry synchronously rejects existing authorization and channel
+ok 40 - M14-IR SIMULATED: closed registry synchronously rejects existing authorization and channel
+  ---
+  duration_ms: 407.0985
+  type: 'test'
+  ...
+# Subtest: M14-IR SIMULATED: OS identity observers retain at most 32 unresolved observations
+ok 41 - M14-IR SIMULATED: OS identity observers retain at most 32 unresolved observations
+  ---
+  duration_ms: 2314.1007
+  type: 'test'
+  ...
+# Subtest: M14-RECOVERY SQLITE_REOPEN: remote START_INTENT absence cannot become NOT_INVOKED on Host restart
+ok 42 - M14-RECOVERY SQLITE_REOPEN: remote START_INTENT absence cannot become NOT_INVOKED on Host restart
+  ---
+  duration_ms: 426.9066
+  type: 'test'
+  ...
+# Subtest: M14-OUTPUT SIMULATED: streaming output budget failure terminates Worker and keeps slot
+ok 43 - M14-OUTPUT SIMULATED: streaming output budget failure terminates Worker and keeps slot
+  ---
+  duration_ms: 464.3055
+  type: 'test'
+  ...
+# Subtest: M14-BROKER REAL_OS_PROCESS / SIMULATED_SECURITY: independent consume ledger and streamed fixed Worker
+ok 44 - M14-BROKER REAL_OS_PROCESS / SIMULATED_SECURITY: independent consume ledger and streamed fixed Worker
+  ---
+  duration_ms: 841.0874
+  type: 'test'
+  ...
+# Subtest: M14-EXIT SIMULATED: contradictory membership, forged signature and synthetic production proof rejected
+ok 45 - M14-EXIT SIMULATED: contradictory membership, forged signature and synthetic production proof rejected
+  ---
+  duration_ms: 343.6397
+  type: 'test'
+  ...
+# Subtest: M14-EXIT SIMULATED: original M1.2 reconciliation cannot release remote Writer with manual SETTLED
+ok 46 - M14-EXIT SIMULATED: original M1.2 reconciliation cannot release remote Writer with manual SETTLED
+  ---
+  duration_ms: 360.4663
+  type: 'test'
+  ...
+# Subtest: M14-RESOURCE SIMULATED: global concurrency quota counts unknown retained resources
+ok 47 - M14-RESOURCE SIMULATED: global concurrency quota counts unknown retained resources
+  ---
+  duration_ms: 340.9185
+  type: 'test'
+  ...
+# Subtest: M14-QUALIFICATION SIMULATED: incomplete checks and same-account real deployment cannot qualify
+ok 48 - M14-QUALIFICATION SIMULATED: incomplete checks and same-account real deployment cannot qualify
+  ---
+  duration_ms: 258.7046
+  type: 'test'
+  ...
+# Subtest: M14-FILE SIMULATED: path validation rejects escape, ADS, UNC, devices, overwrite spelling
+ok 49 - M14-FILE SIMULATED: path validation rejects escape, ADS, UNC, devices, overwrite spelling
+  ---
+  duration_ms: 0.7642
+  type: 'test'
+  ...
+# Subtest: M14-FILE SIMULATED: signed file scope, immutable version read, audit and Artifact submission
+ok 50 - M14-FILE SIMULATED: signed file scope, immutable version read, audit and Artifact submission
+  ---
+  duration_ms: 315.534
+  type: 'test'
+  ...
+# Subtest: real SQLite, three independent domain chains and global pagination
+ok 51 - real SQLite, three independent domain chains and global pagination
+  ---
+  duration_ms: 114.3056
+  type: 'test'
+  ...
+# Subtest: synchronous cross-table transaction, rollback, UNIQUE and business errors do not fault
+ok 52 - synchronous cross-table transaction, rollback, UNIQUE and business errors do not fault
+  ---
+  duration_ms: 30.9641
+  type: 'test'
+  ...
+# Subtest: agent and session SQL filters apply before LIMIT and preserve global cursor pages
+ok 53 - agent and session SQL filters apply before LIMIT and preserve global cursor pages
+  ---
+  duration_ms: 240.7312
+  type: 'test'
+  ...
+# Subtest: flush covers its captured target after an empty or older shared flush
+ok 54 - flush covers its captured target after an empty or older shared flush
+  ---
+  duration_ms: 32.4263
+  type: 'test'
+  ...
+# Subtest: required fields, malformed refs, oversized envelopes and query budgets reject without fault
+ok 55 - required fields, malformed refs, oversized envelopes and query budgets reject without fault
+  ---
+  duration_ms: 26.8043
+  type: 'test'
+  ...
+# Subtest: outbox high water rejects new records, then drains without unbounded queues
+ok 56 - outbox high water rejects new records, then drains without unbounded queues
+  ---
+  duration_ms: 38.5175
+  type: 'test'
+  ...
+# Subtest: second writer and live lock recovery are blocked; real owner death is explicit
+ok 57 - second writer and live lock recovery are blocked; real owner death is explicit
+  ---
+  duration_ms: 203.9011
+  type: 'test'
+  ...
+# Subtest: process crash after file fsync and before receipt reexports no duplicate
+ok 58 - process crash after file fsync and before receipt reexports no duplicate
+  ---
+  duration_ms: 190.5288
+  type: 'test'
+  ...
+# Subtest: unacknowledged crash tail is preserved then repaired from durable outbox
+ok 59 - unacknowledged crash tail is preserved then repaired from durable outbox
+  ---
+  duration_ms: 413.784
+  type: 'test'
+  ...
+# Subtest: actual export I/O failure freezes writes and preserves outbox until explicit recovery
+ok 60 - actual export I/O failure freezes writes and preserves outbox until explicit recovery
+  ---
+  duration_ms: 37.2751
+  type: 'test'
+  ...
+# Subtest: acknowledged truncation is never silently discarded or rebuilt as success
+ok 61 - acknowledged truncation is never silently discarded or rebuilt as success
+  ---
+  duration_ms: 25.4659
+  type: 'test'
+  ...
+# Subtest: actual artifact publication I/O failure retains bytes and freezes both record and object admission
+ok 62 - actual artifact publication I/O failure retains bytes and freezes both record and object admission
+  ---
+  duration_ms: 32.579
+  type: 'test'
+  ...
+# Subtest: database hash tampering throws, freezes writes and does not fake repair
+ok 63 - database hash tampering throws, freezes writes and does not fake repair
+  ---
+  duration_ms: 22.6246
+  type: 'test'
+  ...
+# Subtest: 32 MiB randomized artifact roundtrip streams with real backpressure and two hashes
+ok 64 - 32 MiB randomized artifact roundtrip streams with real backpressure and two hashes
+  ---
+  duration_ms: 293.5579
+  type: 'test'
+  ...
+# Subtest: cancelled, over-budget and invalid-chunk objects remain incomplete; secret is rejected
+ok 65 - cancelled, over-budget and invalid-chunk objects remain incomplete; secret is rejected
+  ---
+  duration_ms: 36.6672
+  type: 'test'
+  ...
+# Subtest: early artifact iterator return is not verification; full corrupted stream fails closed
+ok 66 - early artifact iterator return is not verification; full corrupted stream fails closed
+  ---
+  duration_ms: 43.4796
+  type: 'test'
+  ...
+# Subtest: concurrent artifact admission is bounded and rejects a third stream without queueing
+ok 67 - concurrent artifact admission is bounded and rejects a third stream without queueing
+  ---
+  duration_ms: 24.92
+  type: 'test'
+  ...
+# Subtest: abort races a permanently pending source.next without retaining Store writers or accepting late bytes
+ok 68 - abort races a permanently pending source.next without retaining Store writers or accepting late bytes
+  ---
+  duration_ms: 24.2542
+  type: 'test'
+  ...
+# Subtest: concurrent close calls share the real drain and lock-release promise
+ok 69 - concurrent close calls share the real drain and lock-release promise
+  ---
+  duration_ms: 24.0188
+  type: 'test'
+  ...
+# Subtest: sealed segments are compressed, chained and verified; stored bit flip is detected
+ok 70 - sealed segments are compressed, chained and verified; stored bit flip is detected
+  ---
+  duration_ms: 119.5449
+  type: 'test'
+  ...
+# Subtest: process-killed partial artifact remains retained without a complete object reference
+ok 71 - process-killed partial artifact remains retained without a complete object reference
+  ---
+  duration_ms: 201.4959
+  type: 'test'
+  ...
+1..71
+# tests 71
+# suites 0
+# pass 71
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 16094.0858

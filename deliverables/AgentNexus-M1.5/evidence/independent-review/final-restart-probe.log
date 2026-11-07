@@ -1,0 +1,24 @@
+{
+  "schema": "agentnexus/independent-storage-probe/1",
+  "timestamp": "2026-11-07T10:46:43.763Z",
+  "assurance": "REAL_OS_CURRENT_ACCOUNT_STORAGE_PRIMITIVE",
+  "scope": "A current-account Node child opened its own test store then exited without close; this does not run or certify production Host bootstrap.",
+  "root": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.5\\independent-review\\storage-probe-data\\crash-rcL3F0",
+  "childExit": 0,
+  "stdout": "OPENED\n",
+  "stderr": "",
+  "reopenFailure": {
+    "code": "STORE_LOCKED",
+    "message": "Existing writer lock requires explicit owner-death recovery."
+  },
+  "explicit_recovery": {
+    "recovered": true,
+    "evidence_path": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.5\\independent-review\\storage-probe-data\\crash-rcL3F0\\recovery\\abandoned-lock-b41d689f-e5b5-4635-ac44-38c654033875-42096452-3e5b-49e3-a37a-c73963d09108"
+  },
+  "reopen_after_explicit_recovery": true,
+  "source_sha256": {
+    "src/agentnexus/storage.ts": "a693dde21a10e501c1e7172d1cf24a3dd99317b9bbfcfe2c235631926a33bff0",
+    "src/agentnexus/bootstrap/runtime.ts": "362b1508ffc270d125f554967db50b428d1eebfdb6b7fc44daebf039e8f008ba",
+    "src/agentnexus/bootstrap/entry.ts": "fda08b8be8ffe4d232f3803955e335e8e1f27fdb2eb31738e390cce380ce7fb7"
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "schema": "agentnexus/launcher-proof-probe/1",
+  "timestamp": "2026-11-07T10:26:26.898Z",
+  "assurance": "SIMULATED",
+  "scope": "Real ephemeral Ed25519 and in-memory channel identities; no OS peer, ACL, account or deployment evidence.",
+  "source_sha256": "a05e7450e54618e5cde093f283211ab1e0dfc5630e1cd5b365103b2d2a9e0ed2",
+  "stable_during_probe": true,
+  "results": [
+    {
+      "attack": "valid",
+      "accepted": true,
+      "reason": null,
+      "passed": true
+    },
+    {
+      "attack": "wrong-key",
+      "accepted": false,
+      "reason": {
+        "code": "M14_SIGNATURE",
+        "message": "M14_SIGNATURE"
+      },
+      "passed": true
+    },
+    {
+      "attack": "wrong-config",
+      "accepted": false,
+      "reason": {
+        "code": "M15_LAUNCHER_INSTANCE_PROOF",
+        "message": "M15_LAUNCHER_INSTANCE_PROOF"
+      },
+      "passed": true
+    },
+    {
+      "attack": "old-proof-replay",
+      "accepted": false,
+      "reason": {
+        "code": "M15_LAUNCHER_INSTANCE_PROOF",
+        "message": "M15_LAUNCHER_INSTANCE_PROOF"
+      },
+      "passed": true
+    },
+    {
+      "attack": "wrong-owner-sid",
+      "accepted": false,
+      "reason": {
+        "code": "M15_LAUNCHER_INSTANCE_PROOF",
+        "message": "M15_LAUNCHER_INSTANCE_PROOF"
+      },
+      "passed": true
+    }
+  ]
+}
