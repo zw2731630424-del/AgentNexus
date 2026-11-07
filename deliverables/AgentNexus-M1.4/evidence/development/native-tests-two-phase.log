@@ -1,0 +1,118 @@
+TAP version 13
+# Subtest: M1.4 REAL_WINDOWS: actual process/token identity
+ok 1 - M1.4 REAL_WINDOWS: actual process/token identity
+  ---
+  duration_ms: 1324.7965
+  type: 'test'
+  ...
+# Subtest: M1.4 REAL_WINDOWS: restricted-token detailed readback
+ok 2 - M1.4 REAL_WINDOWS: restricted-token detailed readback # SKIP NOT_RUN: host sandbox denied CreateRestrictedToken/SetTokenInformation; no privilege or ACL change attempted
+  ---
+  duration_ms: 1366.7142
+  type: 'test'
+  ...
+# Subtest: M1.4 REAL_WINDOWS: root-relative file create/read and path/link rejection
+ok 3 - M1.4 REAL_WINDOWS: root-relative file create/read and path/link rejection
+  ---
+  duration_ms: 1320.066
+  type: 'test'
+  ...
+# Subtest: M1.4 REAL_WINDOWS: broker rejects an actual hardlink
+ok 4 - M1.4 REAL_WINDOWS: broker rejects an actual hardlink # SKIP NOT_RUN: host sandbox denied temporary hardlink creation
+  ---
+  duration_ms: 19.9063
+  type: 'test'
+  ...
+# Subtest: M1.4 REAL_WINDOWS: broker rejects an actual junction
+ok 5 - M1.4 REAL_WINDOWS: broker rejects an actual junction # SKIP NOT_RUN: host denied temporary junction creation
+  ---
+  duration_ms: 16.4443
+  type: 'test'
+  ...
+# Subtest: M1.4 REAL_WINDOWS: protected named pipe binds both actual peer handles
+ok 6 - M1.4 REAL_WINDOWS: protected named pipe binds both actual peer handles # SKIP NOT_RUN: host AppContainer denies a local pipe whose exact DACL contains only Host/Worker user SIDs; no extra capability ACE added
+  ---
+  duration_ms: 2890.8964
+  type: 'test'
+  ...
+# Subtest: M1.4 REAL_WINDOWS: pipe refuses forged supervisor start identity and deadline is bounded
+ok 7 - M1.4 REAL_WINDOWS: pipe refuses forged supervisor start identity and deadline is bounded
+  ---
+  duration_ms: 1470.0325
+  type: 'test'
+  ...
+# Subtest: M1.4 REAL_WINDOWS_PRIMITIVE: suspended Job normal, distinct root/tree/output observations
+ok 8 - M1.4 REAL_WINDOWS_PRIMITIVE: suspended Job normal, distinct root/tree/output observations
+  ---
+  duration_ms: 1535.8767
+  type: 'test'
+  ...
+# Subtest: M1.4 REAL_WINDOWS_PRIMITIVE: suspended Job hold, distinct root/tree/output observations
+not ok 9 - M1.4 REAL_WINDOWS_PRIMITIVE: suspended Job hold, distinct root/tree/output observations
+  ---
+  duration_ms: 2567.5096
+  type: 'test'
+  location: 'I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.4\\source\\tests\\agentnexus\\m14-native.test.ts:108:47'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    false !== true
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///I:/AI_AgentNexus/deliverables/AgentNexus-M1.4/source/tests/agentnexus/m14-native.test.ts:111:393)
+    process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    async Test.run (node:internal/test_runner/test:1208:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:831:7)
+  ...
+# Subtest: M1.4 REAL_WINDOWS_PRIMITIVE: suspended Job orphan, distinct root/tree/output observations
+ok 10 - M1.4 REAL_WINDOWS_PRIMITIVE: suspended Job orphan, distinct root/tree/output observations
+  ---
+  duration_ms: 2391.9364
+  type: 'test'
+  ...
+# Subtest: M1.4 REAL_WINDOWS_PRIMITIVE: bounded streamed output events terminate a flood
+ok 11 - M1.4 REAL_WINDOWS_PRIMITIVE: bounded streamed output events terminate a flood
+  ---
+  duration_ms: 1269.5487
+  type: 'test'
+  ...
+# Subtest: M1.4 REAL_WINDOWS_PRIMITIVE: prepare pins actual suspended identity, resume runs once
+ok 12 - M1.4 REAL_WINDOWS_PRIMITIVE: prepare pins actual suspended identity, resume runs once
+  ---
+  duration_ms: 1414.4907
+  type: 'test'
+  ...
+# Subtest: M1.4 REAL_WINDOWS_PRIMITIVE: mismatched/terminated/expired prepares never execute
+ok 13 - M1.4 REAL_WINDOWS_PRIMITIVE: mismatched/terminated/expired prepares never execute
+  ---
+  duration_ms: 1989.9761
+  type: 'test'
+  ...
+# Subtest: M1.4 deployment guards: same-account launch rejected and Derive is not provisioning
+ok 14 - M1.4 deployment guards: same-account launch rejected and Derive is not provisioning
+  ---
+  duration_ms: 1205.4299
+  type: 'test'
+  ...
+# NOT_RUN: approved distinct standard identities, existing profile and two-phase bootstrap/grant bridge are absent. Production BLOCKED. Derivation is not profile existence or combined evidence.
+# Subtest: M1.4 production combination and independent pre-pinned bootstrap/Grant bridge
+ok 15 - M1.4 production combination and independent pre-pinned bootstrap/Grant bridge # SKIP NOT_RUN / BLOCKED: independent approved accounts/profile and deployment bootstrap wiring are unavailable
+  ---
+  duration_ms: 0.1391
+  type: 'test'
+  ...
+1..15
+# tests 15
+# suites 0
+# pass 9
+# fail 1
+# cancelled 0
+# skipped 5
+# todo 0
+# duration_ms 20942.85

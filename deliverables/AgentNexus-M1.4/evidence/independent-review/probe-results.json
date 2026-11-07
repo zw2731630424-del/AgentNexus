@@ -1,0 +1,48 @@
+{
+  "scope": "SIMULATED ownership/clock/OS evidence; REAL local SQLite/artifact/filesystem only",
+  "directory": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.4\\independent-review\\node-review-6hxiXS",
+  "source_sha256": {
+    "contracts.ts": "ab8e5f6544adf325e32ad2df3c4579bb973220b667c7a8c10a6d4c679f1c5d8d",
+    "authority.ts": "493bf8e8453fac564df7b53671396086fb1450f6612af1a7f8be47ba7a2bf5f8",
+    "transport.ts": "66fbeeb9888eb804eb5ec91cc57e83235386bfcd0a71ed0122e3ea2a5016ddef",
+    "qualification.ts": "3421995ee8b0f30956bac1faf1bca1f0d6209253dce7e8500e45b437f9dc7067",
+    "exit.ts": "080468e5c9b05ecb45f3b1822bf87ee0ac0c9186781ce42e00eb58efcb1be30e",
+    "broker.ts": "97f36e118192438ea30c1b36c1e70ebfcdb82f4bf0aca064d2e2d2b38f935de8",
+    "file-broker.ts": "f907e39f3feefdc15da92fd2313b4161e0e7bf8c4d8793ed7ea7f98b3baa85c6",
+    "identity.ts": "1ed8525e332a58977726e2b1aa7bb713c78f6d19269b7eeb2e750d7f3cdf3c8a",
+    "audit.ts": "51ede7c82086d72707cc965891a673e2addf4cfd6efdf836b534988823c485f8"
+  },
+  "findings": [
+    {
+      "id": "audit-logical-role",
+      "valid_logical_identity_audited": true
+    },
+    {
+      "id": "content-mutation",
+      "authorized_hash": "278f14e96cc67489e5c0d6cebec8a2718fb158ec656fd41fed7ecd031cd472b2",
+      "actual_hash": "278f14e96cc67489e5c0d6cebec8a2718fb158ec656fd41fed7ecd031cd472b2",
+      "actual_bytes": "GOOD",
+      "signature_content_bypassed": false
+    },
+    {
+      "id": "wall-clock-rollback",
+      "initial_rejection": "M14_FILE_EXPIRY",
+      "revived_result": "SIMULATED",
+      "revived_expired_grant": true
+    },
+    {
+      "id": "unbounded-native-file",
+      "observed_native_pending": 8,
+      "after_grant_expiry": true,
+      "ninth_rejection": "M14_FILE_BACKPRESSURE"
+    },
+    {
+      "id": "cyclic-parent-graph",
+      "state": "EXIT_VERIFIED",
+      "production_release_authority": true,
+      "graph": "root; A parent B; B parent A",
+      "os_observation": "SIMULATED injection, no actual process evidence"
+    }
+  ],
+  "source_unchanged": true
+}

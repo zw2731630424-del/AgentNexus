@@ -1,0 +1,108 @@
+{
+  "schema": "agentnexus/m1.4/acceptance/1",
+  "status": "BLOCKED",
+  "source_set_sha256": "e2f95cb5c7557660dfbbf3cfcbb2a03a78460f9b408e66bd2fbb3f6ea96e3a88",
+  "test_run": "2026-11-07T08-30-22-409Z-37176",
+  "test_counts": {
+    "tests": 255,
+    "failed": 0,
+    "passed": 251,
+    "cancelled": 0,
+    "skipped": 4,
+    "todo": 0,
+    "topLevel": 208,
+    "suites": 0
+  },
+  "scope_status": "PASS",
+  "scope": "LIMITED_PROTOCOL_AND_SEPARATE_WINDOWS_PRIMITIVES_NOT_PRODUCTION_COMPOSITION",
+  "capabilities": [
+    {
+      "id": "phase0",
+      "status": "PASS",
+      "scope": "Rules, full baseline read/freeze and hash verification"
+    },
+    {
+      "id": "host_runtime_identity",
+      "status": "BLOCKED",
+      "scope": "SIMULATED contracts pass; distinct Windows accounts absent"
+    },
+    {
+      "id": "remote_permit",
+      "status": "PASS",
+      "scope": "Limited protocol/SQLite/crypto evidence including independent OS Broker fixture; security observation SIMULATED"
+    },
+    {
+      "id": "production_broker_deployment",
+      "status": "BLOCKED",
+      "scope": "Production startup/long-lived protected IPC bootstrap not fully deployed"
+    },
+    {
+      "id": "windows_native_token_job_file_pipe",
+      "status": "PASS",
+      "scope": "Limited identity, restricted clone, pipe, handle-file and suspended Job tests; CPU qualification is separate"
+    },
+    {
+      "id": "cpu_time_hard_limit",
+      "status": "INCONCLUSIVE",
+      "scope": "Historical real FAIL and later PASS; not a stable qualified production guarantee"
+    },
+    {
+      "id": "windows_combined_sandbox",
+      "status": "BLOCKED",
+      "scope": "Approved distinct identities/profile and composition evidence absent"
+    },
+    {
+      "id": "process_tree_exit",
+      "status": "INCONCLUSIVE",
+      "scope": "Real root/Job/output observations; native historical membership incomplete"
+    },
+    {
+      "id": "file_broker",
+      "status": "PASS",
+      "scope": "Limited signed model + real root-relative file owner/adapter; 24KiB native RPC"
+    },
+    {
+      "id": "cross_project_host_db_network",
+      "status": "NOT_RUN",
+      "scope": "Actual cross-account composed adversarial tests require deployment"
+    },
+    {
+      "id": "production_exit_proof",
+      "status": "BLOCKED",
+      "scope": "Native membership_complete=false and missing isolation facts"
+    },
+    {
+      "id": "production_resource_release",
+      "status": "BLOCKED",
+      "scope": "No complete trusted production proof; five claims remain held when uncertain"
+    },
+    {
+      "id": "sqlite_reopen_recovery",
+      "status": "PASS",
+      "scope": "Model/real local persistence reopen; no automatic replay or unknown release"
+    },
+    {
+      "id": "os_reboot_recovery",
+      "status": "NOT_RUN",
+      "scope": "No machine reboot/hard power-loss test"
+    },
+    {
+      "id": "audit_producers",
+      "status": "INCONCLUSIVE",
+      "scope": "Model services integrated; raw native events retained; sustained cross-account production wiring incomplete"
+    },
+    {
+      "id": "ubuntu",
+      "status": "NOT_RUN",
+      "scope": "Specification only; no server modifications"
+    }
+  ],
+  "not_run_cases": [
+    "real OS file symlink is rejected without following its target",
+    "real OS dir link is rejected",
+    "M1.4 production combination and independent pre-pinned bootstrap/Grant bridge",
+    "job-orphan"
+  ],
+  "historical_failures_preserved": true,
+  "system_changes": false
+}

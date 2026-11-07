@@ -1,0 +1,1388 @@
+{
+  "schema": "agentnexus/m1.4/independent-review/2",
+  "reviewer": "/root/baseline_reader",
+  "created_at": "2026-11-07T08:33:53.905596+00:00",
+  "status": "PASS_REVIEWED_SOURCE_SCOPE",
+  "deployment": "BLOCKED",
+  "open_findings": [],
+  "scope_statement": "Read-only source/interface/failure-path review of frozen M1.4 production directory, reconciliation, five new tests/fixtures, two new tools; baseline non-runtime source/tests/tools, ADRs and M1.3 evidence reviewed earlier. Source review is not OS deployment acceptance.",
+  "reviewer_modified_product_files": false,
+  "recursive_delegation": false,
+  "reviewer_executed_early_simulated_probes": true,
+  "reviewer_executed_final_product_tests": false,
+  "reviewer_executed_windows_native_tests": false,
+  "reviewer_executed_system_configuration_changes": false,
+  "source_root": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.4\\source",
+  "set_hash_algorithm": "SHA256(sorted(path + NUL + lowercase SHA256 + LF)); paths relative to source root, slash-separated UTF-8",
+  "source_binding": {
+    "all_source_count": 67,
+    "all_source_set_sha256": "e2f95cb5c7557660dfbbf3cfcbb2a03a78460f9b408e66bd2fbb3f6ea96e3a88",
+    "production_count": 15,
+    "production_set_sha256": "bcc6455f1d7efed4a1a1ab75a57def04d97b42bcfc5e9818249b338f58378e66",
+    "production_and_reconciliation_set_sha256": "3e62e326b60648dc07a21135c2bc631852870c7057d1ef737dd222c8d1c813b5",
+    "focused_read_count": 23,
+    "focused_read_set_sha256": "e4d18a4760449147725b0e7ca84894348fbac3b8c8867de29c2442d030be0d4b",
+    "changed_or_new_count": 28,
+    "changed_or_new_set_sha256": "4daa64c03a5a8b51e3b5c095dfb77351c67a7c494ab9f8e6e97e6ca1e53dc075",
+    "product_files": [
+      {
+        "path": "src/agentnexus/production/audit.ts",
+        "bytes": 1494,
+        "sha256": "51ede7c82086d72707cc965891a673e2addf4cfd6efdf836b534988823c485f8"
+      },
+      {
+        "path": "src/agentnexus/production/authority.ts",
+        "bytes": 12255,
+        "sha256": "077375d153e6ebf9bf7770ceb8a10bd08771d890eab1acbbb82042227f68403b"
+      },
+      {
+        "path": "src/agentnexus/production/broker.ts",
+        "bytes": 14633,
+        "sha256": "5417e6aaac86a4761fb1fe04560efe738377d5f25ac6add6e427687cccb50265"
+      },
+      {
+        "path": "src/agentnexus/production/contracts.ts",
+        "bytes": 7066,
+        "sha256": "5449450e3356bcab0b94892e70909aa6e4d62f8b6554b5d83a9edfb761d070e7"
+      },
+      {
+        "path": "src/agentnexus/production/exit.ts",
+        "bytes": 11265,
+        "sha256": "5d0dec6661cd9a44aa602542c223d45a7ee13f5df149188255f6dcb61f23b512"
+      },
+      {
+        "path": "src/agentnexus/production/file-broker.ts",
+        "bytes": 10109,
+        "sha256": "9cea18dcb22023fa440e5901ada7df85c96c5b01f9e7e53e5e5e13c99bd52c72"
+      },
+      {
+        "path": "src/agentnexus/production/host.ts",
+        "bytes": 5540,
+        "sha256": "c849b9d28e583937449b63f863f147dcc51e683ee378edac44fc77245ab5c3ff"
+      },
+      {
+        "path": "src/agentnexus/production/identity.ts",
+        "bytes": 6805,
+        "sha256": "157d276bd002b5b624d40675e41b67d1beab86a1db478ba50b8a64324e24bba1"
+      },
+      {
+        "path": "src/agentnexus/production/native-client.ts",
+        "bytes": 6524,
+        "sha256": "997c8e4a523ad1aa67bbc7886d133ada88bfea7f3c9cdb26fe30705d606b036d"
+      },
+      {
+        "path": "src/agentnexus/production/qualification.ts",
+        "bytes": 2573,
+        "sha256": "3c241da34dce87591abfc3ef2562c6005f62319fbf8152a44305b121d89f8b8c"
+      },
+      {
+        "path": "src/agentnexus/production/service.ts",
+        "bytes": 1626,
+        "sha256": "4954b7cc8e005d961ee6408dd161046c8337c44dfe3b3439d1a2b289fdc2150d"
+      },
+      {
+        "path": "src/agentnexus/production/transport.ts",
+        "bytes": 5979,
+        "sha256": "1f7fe06f7407a474411a16b762aee406df457f7a8895efdb366d35971bc777f6"
+      },
+      {
+        "path": "src/agentnexus/production/windows/NativeRuntime.cs",
+        "bytes": 63896,
+        "sha256": "d21ead08ccffeb54d9dc05988608960e6ab842f4518bc80ecc8d9aa6e1328482"
+      },
+      {
+        "path": "src/agentnexus/production/windows/runtime.ps1",
+        "bytes": 6439,
+        "sha256": "c4033d404518dc24711af102f3ac87ddef70b2276bc2326c253af525f8cb2dbc"
+      },
+      {
+        "path": "src/agentnexus/production/windows-supervisor.ts",
+        "bytes": 8603,
+        "sha256": "918f053e11f6f26e502bcc186515473c3ba704367ea4d27640bb3406618bb4d4"
+      }
+    ],
+    "focused_read_files": [
+      {
+        "path": "src/agentnexus/production/audit.ts",
+        "bytes": 1494,
+        "sha256": "51ede7c82086d72707cc965891a673e2addf4cfd6efdf836b534988823c485f8"
+      },
+      {
+        "path": "src/agentnexus/production/authority.ts",
+        "bytes": 12255,
+        "sha256": "077375d153e6ebf9bf7770ceb8a10bd08771d890eab1acbbb82042227f68403b"
+      },
+      {
+        "path": "src/agentnexus/production/broker.ts",
+        "bytes": 14633,
+        "sha256": "5417e6aaac86a4761fb1fe04560efe738377d5f25ac6add6e427687cccb50265"
+      },
+      {
+        "path": "src/agentnexus/production/contracts.ts",
+        "bytes": 7066,
+        "sha256": "5449450e3356bcab0b94892e70909aa6e4d62f8b6554b5d83a9edfb761d070e7"
+      },
+      {
+        "path": "src/agentnexus/production/exit.ts",
+        "bytes": 11265,
+        "sha256": "5d0dec6661cd9a44aa602542c223d45a7ee13f5df149188255f6dcb61f23b512"
+      },
+      {
+        "path": "src/agentnexus/production/file-broker.ts",
+        "bytes": 10109,
+        "sha256": "9cea18dcb22023fa440e5901ada7df85c96c5b01f9e7e53e5e5e13c99bd52c72"
+      },
+      {
+        "path": "src/agentnexus/production/host.ts",
+        "bytes": 5540,
+        "sha256": "c849b9d28e583937449b63f863f147dcc51e683ee378edac44fc77245ab5c3ff"
+      },
+      {
+        "path": "src/agentnexus/production/identity.ts",
+        "bytes": 6805,
+        "sha256": "157d276bd002b5b624d40675e41b67d1beab86a1db478ba50b8a64324e24bba1"
+      },
+      {
+        "path": "src/agentnexus/production/native-client.ts",
+        "bytes": 6524,
+        "sha256": "997c8e4a523ad1aa67bbc7886d133ada88bfea7f3c9cdb26fe30705d606b036d"
+      },
+      {
+        "path": "src/agentnexus/production/qualification.ts",
+        "bytes": 2573,
+        "sha256": "3c241da34dce87591abfc3ef2562c6005f62319fbf8152a44305b121d89f8b8c"
+      },
+      {
+        "path": "src/agentnexus/production/service.ts",
+        "bytes": 1626,
+        "sha256": "4954b7cc8e005d961ee6408dd161046c8337c44dfe3b3439d1a2b289fdc2150d"
+      },
+      {
+        "path": "src/agentnexus/production/transport.ts",
+        "bytes": 5979,
+        "sha256": "1f7fe06f7407a474411a16b762aee406df457f7a8895efdb366d35971bc777f6"
+      },
+      {
+        "path": "src/agentnexus/production/windows/NativeRuntime.cs",
+        "bytes": 63896,
+        "sha256": "d21ead08ccffeb54d9dc05988608960e6ab842f4518bc80ecc8d9aa6e1328482"
+      },
+      {
+        "path": "src/agentnexus/production/windows/runtime.ps1",
+        "bytes": 6439,
+        "sha256": "c4033d404518dc24711af102f3ac87ddef70b2276bc2326c253af525f8cb2dbc"
+      },
+      {
+        "path": "src/agentnexus/production/windows-supervisor.ts",
+        "bytes": 8603,
+        "sha256": "918f053e11f6f26e502bcc186515473c3ba704367ea4d27640bb3406618bb4d4"
+      },
+      {
+        "path": "src/agentnexus/reconciliation.ts",
+        "bytes": 14568,
+        "sha256": "9f65ae9b5b0e4f049efabfadc1cb5ad263ce0b5ea7703a15bb8789f27d3f1906"
+      },
+      {
+        "path": "tests/agentnexus/m14-adapter.test.ts",
+        "bytes": 2160,
+        "sha256": "e40821919ac3eb487768baf155284d4458834c3b95638f50f2ded8581163ee85"
+      },
+      {
+        "path": "tests/agentnexus/m14-broker-child.mjs",
+        "bytes": 4995,
+        "sha256": "bc6800f9f0219114babbe61ffb022302c9892117228947f7eecd633fa77ec58c"
+      },
+      {
+        "path": "tests/agentnexus/m14-native-worker.mjs",
+        "bytes": 1382,
+        "sha256": "501e013660d7f11119f79455cc17669aa47e0bbe7c2c4491071e058e7edd66a5"
+      },
+      {
+        "path": "tests/agentnexus/m14-native.test.ts",
+        "bytes": 20352,
+        "sha256": "4a9994d283d2e5280ab5cefbab701edfb92f12de688ae8474c7280de102681af"
+      },
+      {
+        "path": "tests/agentnexus/m14-production.test.ts",
+        "bytes": 37811,
+        "sha256": "c199b61c265f43642d58fd7bf657385029d3a69eee0e9d1375c50850b9643b52"
+      },
+      {
+        "path": "tools/agentnexus/preflight-m14.ps1",
+        "bytes": 2139,
+        "sha256": "19f7e4b735569a699013e7b11f3616b346ff6c3588d9983db2340d9f37353d80"
+      },
+      {
+        "path": "tools/agentnexus/verify-m14.mjs",
+        "bytes": 4722,
+        "sha256": "a19fdee34e0f5b13f53d5471ff30a4d305d88e7f9ed2b36565c02ebee6d7b745"
+      }
+    ],
+    "changed_or_new_files": [
+      {
+        "path": "config/agentnexus/features.json",
+        "bytes": 397954,
+        "sha256": "9f5e88ef177f21a90e9d601e0788b179a40a9a26b66047c5357fd1c2210358aa"
+      },
+      {
+        "path": "config/agentnexus/policies.json",
+        "bytes": 97383,
+        "sha256": "2fac46d95ae95f2cb7b506eb6d92299d0a579f9808f05b8d9d41862d8e0c2587"
+      },
+      {
+        "path": "package.json",
+        "bytes": 357,
+        "sha256": "932b587ade801eb64b996250119972078f600a818bb38af974289f087161a7d5"
+      },
+      {
+        "path": "src/agentnexus/policy-contracts.ts",
+        "bytes": 4137,
+        "sha256": "6d0fdcbbe7cca5ebca6d19c27c8518e55eb33223b1c0e74a32e2e5c8adbcb9af"
+      },
+      {
+        "path": "src/agentnexus/production/audit.ts",
+        "bytes": 1494,
+        "sha256": "51ede7c82086d72707cc965891a673e2addf4cfd6efdf836b534988823c485f8"
+      },
+      {
+        "path": "src/agentnexus/production/authority.ts",
+        "bytes": 12255,
+        "sha256": "077375d153e6ebf9bf7770ceb8a10bd08771d890eab1acbbb82042227f68403b"
+      },
+      {
+        "path": "src/agentnexus/production/broker.ts",
+        "bytes": 14633,
+        "sha256": "5417e6aaac86a4761fb1fe04560efe738377d5f25ac6add6e427687cccb50265"
+      },
+      {
+        "path": "src/agentnexus/production/contracts.ts",
+        "bytes": 7066,
+        "sha256": "5449450e3356bcab0b94892e70909aa6e4d62f8b6554b5d83a9edfb761d070e7"
+      },
+      {
+        "path": "src/agentnexus/production/exit.ts",
+        "bytes": 11265,
+        "sha256": "5d0dec6661cd9a44aa602542c223d45a7ee13f5df149188255f6dcb61f23b512"
+      },
+      {
+        "path": "src/agentnexus/production/file-broker.ts",
+        "bytes": 10109,
+        "sha256": "9cea18dcb22023fa440e5901ada7df85c96c5b01f9e7e53e5e5e13c99bd52c72"
+      },
+      {
+        "path": "src/agentnexus/production/host.ts",
+        "bytes": 5540,
+        "sha256": "c849b9d28e583937449b63f863f147dcc51e683ee378edac44fc77245ab5c3ff"
+      },
+      {
+        "path": "src/agentnexus/production/identity.ts",
+        "bytes": 6805,
+        "sha256": "157d276bd002b5b624d40675e41b67d1beab86a1db478ba50b8a64324e24bba1"
+      },
+      {
+        "path": "src/agentnexus/production/native-client.ts",
+        "bytes": 6524,
+        "sha256": "997c8e4a523ad1aa67bbc7886d133ada88bfea7f3c9cdb26fe30705d606b036d"
+      },
+      {
+        "path": "src/agentnexus/production/qualification.ts",
+        "bytes": 2573,
+        "sha256": "3c241da34dce87591abfc3ef2562c6005f62319fbf8152a44305b121d89f8b8c"
+      },
+      {
+        "path": "src/agentnexus/production/service.ts",
+        "bytes": 1626,
+        "sha256": "4954b7cc8e005d961ee6408dd161046c8337c44dfe3b3439d1a2b289fdc2150d"
+      },
+      {
+        "path": "src/agentnexus/production/transport.ts",
+        "bytes": 5979,
+        "sha256": "1f7fe06f7407a474411a16b762aee406df457f7a8895efdb366d35971bc777f6"
+      },
+      {
+        "path": "src/agentnexus/production/windows/NativeRuntime.cs",
+        "bytes": 63896,
+        "sha256": "d21ead08ccffeb54d9dc05988608960e6ab842f4518bc80ecc8d9aa6e1328482"
+      },
+      {
+        "path": "src/agentnexus/production/windows/runtime.ps1",
+        "bytes": 6439,
+        "sha256": "c4033d404518dc24711af102f3ac87ddef70b2276bc2326c253af525f8cb2dbc"
+      },
+      {
+        "path": "src/agentnexus/production/windows-supervisor.ts",
+        "bytes": 8603,
+        "sha256": "918f053e11f6f26e502bcc186515473c3ba704367ea4d27640bb3406618bb4d4"
+      },
+      {
+        "path": "src/agentnexus/reconciliation.ts",
+        "bytes": 14568,
+        "sha256": "9f65ae9b5b0e4f049efabfadc1cb5ad263ce0b5ea7703a15bb8789f27d3f1906"
+      },
+      {
+        "path": "tests/agentnexus/m14-adapter.test.ts",
+        "bytes": 2160,
+        "sha256": "e40821919ac3eb487768baf155284d4458834c3b95638f50f2ded8581163ee85"
+      },
+      {
+        "path": "tests/agentnexus/m14-broker-child.mjs",
+        "bytes": 4995,
+        "sha256": "bc6800f9f0219114babbe61ffb022302c9892117228947f7eecd633fa77ec58c"
+      },
+      {
+        "path": "tests/agentnexus/m14-native-worker.mjs",
+        "bytes": 1382,
+        "sha256": "501e013660d7f11119f79455cc17669aa47e0bbe7c2c4491071e058e7edd66a5"
+      },
+      {
+        "path": "tests/agentnexus/m14-native.test.ts",
+        "bytes": 20352,
+        "sha256": "4a9994d283d2e5280ab5cefbab701edfb92f12de688ae8474c7280de102681af"
+      },
+      {
+        "path": "tests/agentnexus/m14-production.test.ts",
+        "bytes": 37811,
+        "sha256": "c199b61c265f43642d58fd7bf657385029d3a69eee0e9d1375c50850b9643b52"
+      },
+      {
+        "path": "tests/agentnexus/security.test.ts",
+        "bytes": 15318,
+        "sha256": "224fa63e65ffc13805afeda08fe844a439503251bd2f6393695d55dd61e19f50"
+      },
+      {
+        "path": "tools/agentnexus/preflight-m14.ps1",
+        "bytes": 2139,
+        "sha256": "19f7e4b735569a699013e7b11f3616b346ff6c3588d9983db2340d9f37353d80"
+      },
+      {
+        "path": "tools/agentnexus/verify-m14.mjs",
+        "bytes": 4722,
+        "sha256": "a19fdee34e0f5b13f53d5471ff30a4d305d88e7f9ed2b36565c02ebee6d7b745"
+      }
+    ],
+    "all_source_files": [
+      {
+        "path": "config/agentnexus/features.json",
+        "bytes": 397954,
+        "sha256": "9f5e88ef177f21a90e9d601e0788b179a40a9a26b66047c5357fd1c2210358aa"
+      },
+      {
+        "path": "config/agentnexus/policies.json",
+        "bytes": 97383,
+        "sha256": "2fac46d95ae95f2cb7b506eb6d92299d0a579f9808f05b8d9d41862d8e0c2587"
+      },
+      {
+        "path": "package.json",
+        "bytes": 357,
+        "sha256": "932b587ade801eb64b996250119972078f600a818bb38af974289f087161a7d5"
+      },
+      {
+        "path": "src/agentnexus/artifacts.ts",
+        "bytes": 15666,
+        "sha256": "f89cd95c7c373e1551d509f82596e54e203f0bb02b2934e1c2108040ef48bc49"
+      },
+      {
+        "path": "src/agentnexus/checkers/powershell_ast.ps1",
+        "bytes": 3780,
+        "sha256": "90079d41e2083df61ee87456cbe81a4d1863b2f4053df0ab9e78b668e3789ae8"
+      },
+      {
+        "path": "src/agentnexus/checkers/python_ast.py",
+        "bytes": 2998,
+        "sha256": "a9595eca900b49c4ec88e82599c28569b01e543ed8ecb52908ae0772b104fc6e"
+      },
+      {
+        "path": "src/agentnexus/cli.ts",
+        "bytes": 1927,
+        "sha256": "21b22392926ebe706f3d2a382205a7ed0afcf9477b619707df250dd2089334bb"
+      },
+      {
+        "path": "src/agentnexus/control.ts",
+        "bytes": 8234,
+        "sha256": "3a549eb7bf5548b2b0453711899c0b7bfb1ea4d346dfad0bca11d4c166bf46d4"
+      },
+      {
+        "path": "src/agentnexus/diagnostics.ts",
+        "bytes": 31299,
+        "sha256": "d869a291068564eb942b05623f2b8e3f0f8348c40647215e1b85d86eef27d86d"
+      },
+      {
+        "path": "src/agentnexus/features.ts",
+        "bytes": 12008,
+        "sha256": "d6aafeafd88f6fd5660afa6b4f29b68625d70ffc8f8138f90db657b6acacda5e"
+      },
+      {
+        "path": "src/agentnexus/gateway.ts",
+        "bytes": 23204,
+        "sha256": "5ec2cb67afca1858c168b1888fa398ef766d3e18cf9b7f4253d9db51f17d7871"
+      },
+      {
+        "path": "src/agentnexus/host.ts",
+        "bytes": 18724,
+        "sha256": "5cfdb8cd25e9726ef6c1c28238bbd89566d8434beb873eeb5875aae981ba7372"
+      },
+      {
+        "path": "src/agentnexus/integrity.ts",
+        "bytes": 18691,
+        "sha256": "172a40c429c9e8a99f8cc1fcee2ef500adb4e7d378f0f6188fbbe7f792edfe66"
+      },
+      {
+        "path": "src/agentnexus/policy-contracts.ts",
+        "bytes": 4137,
+        "sha256": "6d0fdcbbe7cca5ebca6d19c27c8518e55eb33223b1c0e74a32e2e5c8adbcb9af"
+      },
+      {
+        "path": "src/agentnexus/policy.ts",
+        "bytes": 18232,
+        "sha256": "31a6f1250ab2c5e9271181b23cc347b72fd502d7b2bfa229716dd976ee040f49"
+      },
+      {
+        "path": "src/agentnexus/production/audit.ts",
+        "bytes": 1494,
+        "sha256": "51ede7c82086d72707cc965891a673e2addf4cfd6efdf836b534988823c485f8"
+      },
+      {
+        "path": "src/agentnexus/production/authority.ts",
+        "bytes": 12255,
+        "sha256": "077375d153e6ebf9bf7770ceb8a10bd08771d890eab1acbbb82042227f68403b"
+      },
+      {
+        "path": "src/agentnexus/production/broker.ts",
+        "bytes": 14633,
+        "sha256": "5417e6aaac86a4761fb1fe04560efe738377d5f25ac6add6e427687cccb50265"
+      },
+      {
+        "path": "src/agentnexus/production/contracts.ts",
+        "bytes": 7066,
+        "sha256": "5449450e3356bcab0b94892e70909aa6e4d62f8b6554b5d83a9edfb761d070e7"
+      },
+      {
+        "path": "src/agentnexus/production/exit.ts",
+        "bytes": 11265,
+        "sha256": "5d0dec6661cd9a44aa602542c223d45a7ee13f5df149188255f6dcb61f23b512"
+      },
+      {
+        "path": "src/agentnexus/production/file-broker.ts",
+        "bytes": 10109,
+        "sha256": "9cea18dcb22023fa440e5901ada7df85c96c5b01f9e7e53e5e5e13c99bd52c72"
+      },
+      {
+        "path": "src/agentnexus/production/host.ts",
+        "bytes": 5540,
+        "sha256": "c849b9d28e583937449b63f863f147dcc51e683ee378edac44fc77245ab5c3ff"
+      },
+      {
+        "path": "src/agentnexus/production/identity.ts",
+        "bytes": 6805,
+        "sha256": "157d276bd002b5b624d40675e41b67d1beab86a1db478ba50b8a64324e24bba1"
+      },
+      {
+        "path": "src/agentnexus/production/native-client.ts",
+        "bytes": 6524,
+        "sha256": "997c8e4a523ad1aa67bbc7886d133ada88bfea7f3c9cdb26fe30705d606b036d"
+      },
+      {
+        "path": "src/agentnexus/production/qualification.ts",
+        "bytes": 2573,
+        "sha256": "3c241da34dce87591abfc3ef2562c6005f62319fbf8152a44305b121d89f8b8c"
+      },
+      {
+        "path": "src/agentnexus/production/service.ts",
+        "bytes": 1626,
+        "sha256": "4954b7cc8e005d961ee6408dd161046c8337c44dfe3b3439d1a2b289fdc2150d"
+      },
+      {
+        "path": "src/agentnexus/production/transport.ts",
+        "bytes": 5979,
+        "sha256": "1f7fe06f7407a474411a16b762aee406df457f7a8895efdb366d35971bc777f6"
+      },
+      {
+        "path": "src/agentnexus/production/windows/NativeRuntime.cs",
+        "bytes": 63896,
+        "sha256": "d21ead08ccffeb54d9dc05988608960e6ab842f4518bc80ecc8d9aa6e1328482"
+      },
+      {
+        "path": "src/agentnexus/production/windows/runtime.ps1",
+        "bytes": 6439,
+        "sha256": "c4033d404518dc24711af102f3ac87ddef70b2276bc2326c253af525f8cb2dbc"
+      },
+      {
+        "path": "src/agentnexus/production/windows-supervisor.ts",
+        "bytes": 8603,
+        "sha256": "918f053e11f6f26e502bcc186515473c3ba704367ea4d27640bb3406618bb4d4"
+      },
+      {
+        "path": "src/agentnexus/reconciliation.ts",
+        "bytes": 14568,
+        "sha256": "9f65ae9b5b0e4f049efabfadc1cb5ad263ce0b5ea7703a15bb8789f27d3f1906"
+      },
+      {
+        "path": "src/agentnexus/records.ts",
+        "bytes": 6510,
+        "sha256": "393e0a70a20a4dae21287169d1313bae949842cf0f712bacb3ebf432a5ed7800"
+      },
+      {
+        "path": "src/agentnexus/runtime/audit.ts",
+        "bytes": 2003,
+        "sha256": "14f06526c6a48473aca95e5a47077e69b63db646ca1d605af0df8272207584c4"
+      },
+      {
+        "path": "src/agentnexus/runtime/broker.ts",
+        "bytes": 884,
+        "sha256": "611056760e82606bae893c2ed78831adb0e3b8ac102a4206b8af6cafc021efc2"
+      },
+      {
+        "path": "src/agentnexus/runtime/contracts.ts",
+        "bytes": 7179,
+        "sha256": "e85ff09cefb43e60b1a0b34ddc48ca22fa74bac24f9e7828cad4c28981cf8ca9"
+      },
+      {
+        "path": "src/agentnexus/runtime/control.ts",
+        "bytes": 27386,
+        "sha256": "4b78fdfdbab38bc1d07dafea5fa323c72e1d02eeefbc7071b13f515ef6cec502"
+      },
+      {
+        "path": "src/agentnexus/runtime/ipc.ts",
+        "bytes": 2759,
+        "sha256": "9b8d5c096ffc4b529a5919047d84cff16dfdef495b148f1af7748f49380130a5"
+      },
+      {
+        "path": "src/agentnexus/runtime/windows/NativeProbe.cs",
+        "bytes": 15171,
+        "sha256": "3a96b192e46bca3f5774c8096ca598e4ce723776993062cd363e6a8cfe7e202f"
+      },
+      {
+        "path": "src/agentnexus/storage.ts",
+        "bytes": 33030,
+        "sha256": "172d0af0556640f6048b74543715841700aaab9938656d7c48298e6f6472ec7d"
+      },
+      {
+        "path": "src/agentnexus/types.ts",
+        "bytes": 6814,
+        "sha256": "101cc13ca1bbb9ec34e7bb8dfdc8360da913829b99458cf3374cc6604fa15d75"
+      },
+      {
+        "path": "tests/agentnexus/control.test.ts",
+        "bytes": 17191,
+        "sha256": "5434e80937f050429198eb81d73045b291aed433285dc28fdcfa7d4cdb215ef1"
+      },
+      {
+        "path": "tests/agentnexus/diagnostics.test.ts",
+        "bytes": 19171,
+        "sha256": "a3b4a33ceed558659f67af248c6a94f1a9abc6571814a5ba33e22c0c196e9b8f"
+      },
+      {
+        "path": "tests/agentnexus/gateway.test.ts",
+        "bytes": 18499,
+        "sha256": "498c801ed599acaf3754db91030660203a32b36a12a35f3898b741b39c323106"
+      },
+      {
+        "path": "tests/agentnexus/integrity.test.ts",
+        "bytes": 21629,
+        "sha256": "2d4f1212dc62716a8281e83eb2ef9e579213c707e6ff97fb5b13c32d39806e80"
+      },
+      {
+        "path": "tests/agentnexus/m14-adapter.test.ts",
+        "bytes": 2160,
+        "sha256": "e40821919ac3eb487768baf155284d4458834c3b95638f50f2ded8581163ee85"
+      },
+      {
+        "path": "tests/agentnexus/m14-broker-child.mjs",
+        "bytes": 4995,
+        "sha256": "bc6800f9f0219114babbe61ffb022302c9892117228947f7eecd633fa77ec58c"
+      },
+      {
+        "path": "tests/agentnexus/m14-native-worker.mjs",
+        "bytes": 1382,
+        "sha256": "501e013660d7f11119f79455cc17669aa47e0bbe7c2c4491071e058e7edd66a5"
+      },
+      {
+        "path": "tests/agentnexus/m14-native.test.ts",
+        "bytes": 20352,
+        "sha256": "4a9994d283d2e5280ab5cefbab701edfb92f12de688ae8474c7280de102681af"
+      },
+      {
+        "path": "tests/agentnexus/m14-production.test.ts",
+        "bytes": 37811,
+        "sha256": "c199b61c265f43642d58fd7bf657385029d3a69eee0e9d1375c50850b9643b52"
+      },
+      {
+        "path": "tests/agentnexus/owned-storage-child.mjs",
+        "bytes": 1885,
+        "sha256": "7a469bfa662d98f39f06b4483eaa1f49809e490817679cce5f7f1fa366133139"
+      },
+      {
+        "path": "tests/agentnexus/reconciliation-child.mjs",
+        "bytes": 2373,
+        "sha256": "17067655828b662d7393ea55805d5438ff8ed0110610f13fc394d82d61a4a521"
+      },
+      {
+        "path": "tests/agentnexus/reconciliation.test.ts",
+        "bytes": 19989,
+        "sha256": "3ddf54e2ec6e741fb7b4003124338bbb41f5e271bd12632e4e4152fae2f61e80"
+      },
+      {
+        "path": "tests/agentnexus/runtime-crash-child.mjs",
+        "bytes": 2474,
+        "sha256": "79cfb0f2b443604ddcffd5da414eccb01aee7b724943b52e6789930078a7f562"
+      },
+      {
+        "path": "tests/agentnexus/runtime-worker.mjs",
+        "bytes": 1097,
+        "sha256": "a77ff4f6f333967e4df0c5c60bf8aa67843263639679180f5de8b6d6e1dd6b65"
+      },
+      {
+        "path": "tests/agentnexus/runtime.test.ts",
+        "bytes": 23844,
+        "sha256": "f71d9405adca5c4490def3cf8ee847d230d82162fa57a423f37195404c787d37"
+      },
+      {
+        "path": "tests/agentnexus/security.test.ts",
+        "bytes": 15318,
+        "sha256": "224fa63e65ffc13805afeda08fe844a439503251bd2f6393695d55dd61e19f50"
+      },
+      {
+        "path": "tests/agentnexus/storage.test.ts",
+        "bytes": 28921,
+        "sha256": "437a41021e62dbf40bf9edeb7029f1da0944444b2f50b1f8bc6b1a7e9af13204"
+      },
+      {
+        "path": "tests/agentnexus/windows-native.test.ts",
+        "bytes": 3164,
+        "sha256": "358299b2b7f059273a47c5d79acf97c3f71cc35d2339d090f98f5fec47bef506"
+      },
+      {
+        "path": "tools/agentnexus/freeze-m13.py",
+        "bytes": 2368,
+        "sha256": "d8285825d51142563da27520752caa232a1426fc5667ee35aa8bf6945a200458"
+      },
+      {
+        "path": "tools/agentnexus/json-reporter.mjs",
+        "bytes": 660,
+        "sha256": "777650bb69740cddc6124b6608d120b2450210bc169d4a0af5f00c81c588c016"
+      },
+      {
+        "path": "tools/agentnexus/package-m12.py",
+        "bytes": 9850,
+        "sha256": "61dcb1c2f319dc6d299e9a8e58f35e6d6f43a585d8b6552c1731b56e1fda7f86"
+      },
+      {
+        "path": "tools/agentnexus/preflight-m14.ps1",
+        "bytes": 2139,
+        "sha256": "19f7e4b735569a699013e7b11f3616b346ff6c3588d9983db2340d9f37353d80"
+      },
+      {
+        "path": "tools/agentnexus/run-tests.mjs",
+        "bytes": 667,
+        "sha256": "7b1b45b072e55e4c2e079e90aa963d94584a871496945ed88b737cb42dd4c0b7"
+      },
+      {
+        "path": "tools/agentnexus/verify-m12.mjs",
+        "bytes": 3523,
+        "sha256": "4874dd19f2ff2d9c522bf9d546aa2ef2bc5ccd3175aeffb518d8657f14450d5f"
+      },
+      {
+        "path": "tools/agentnexus/verify-m13.mjs",
+        "bytes": 3953,
+        "sha256": "e4ee594fa0d5fec08e28ee1eace3986716c1c9b9de24156e3151699e711dad2d"
+      },
+      {
+        "path": "tools/agentnexus/verify-m14.mjs",
+        "bytes": 4722,
+        "sha256": "a19fdee34e0f5b13f53d5471ff30a4d305d88e7f9ed2b36565c02ebee6d7b745"
+      },
+      {
+        "path": "tools/agentnexus/windows-probes.ps1",
+        "bytes": 1712,
+        "sha256": "989b5a0990a0f175340b3a25b04e1d0fa661e6263f16ef1edefccc613be0917a"
+      }
+    ]
+  },
+  "baseline": {
+    "m13_source_files_checked": 45,
+    "m13_set_sha256": "6a2f9f9f60c86ec7d72c4f64357172d604786ad0defe03c220b67156fb410005",
+    "root_files_still_frozen": true,
+    "non_runtime_source_full_read": [
+      "src/agentnexus/artifacts.ts",
+      "src/agentnexus/cli.ts",
+      "src/agentnexus/control.ts",
+      "src/agentnexus/diagnostics.ts",
+      "src/agentnexus/features.ts",
+      "src/agentnexus/gateway.ts",
+      "src/agentnexus/host.ts",
+      "src/agentnexus/integrity.ts",
+      "src/agentnexus/policy-contracts.ts",
+      "src/agentnexus/policy.ts",
+      "src/agentnexus/reconciliation.ts",
+      "src/agentnexus/records.ts",
+      "src/agentnexus/storage.ts",
+      "src/agentnexus/types.ts",
+      "src/agentnexus/checkers/powershell_ast.ps1",
+      "src/agentnexus/checkers/python_ast.py"
+    ],
+    "test_full_read": [
+      "tests/agentnexus/control.test.ts",
+      "tests/agentnexus/diagnostics.test.ts",
+      "tests/agentnexus/gateway.test.ts",
+      "tests/agentnexus/integrity.test.ts",
+      "tests/agentnexus/owned-storage-child.mjs",
+      "tests/agentnexus/reconciliation-child.mjs",
+      "tests/agentnexus/reconciliation.test.ts",
+      "tests/agentnexus/runtime-crash-child.mjs",
+      "tests/agentnexus/runtime-worker.mjs",
+      "tests/agentnexus/runtime.test.ts",
+      "tests/agentnexus/security.test.ts",
+      "tests/agentnexus/storage.test.ts",
+      "tests/agentnexus/windows-native.test.ts"
+    ],
+    "tool_full_read": [
+      "tools/agentnexus/freeze-m13.py",
+      "tools/agentnexus/json-reporter.mjs",
+      "tools/agentnexus/package-m12.py",
+      "tools/agentnexus/run-tests.mjs",
+      "tools/agentnexus/verify-m12.mjs",
+      "tools/agentnexus/verify-m13.mjs",
+      "tools/agentnexus/windows-probes.ps1"
+    ],
+    "adr_full_read": [
+      "M0 ADR001-005",
+      "M0.1 ADR006-009",
+      "M1.3 ADR010-013"
+    ],
+    "other_documents_full_read": [
+      "AGENTS.md",
+      "project-workflows/README.md",
+      "M1.2 operation-reconciliation-design.md",
+      "M1.3 acceptance-report.md",
+      "M1.3 acceptance.json",
+      "M1.3 independent-security-review.md",
+      "M1.3 independent-security-review.json",
+      "M1.3 deployment-approval.md",
+      "M1.3 design/protocols/broker-reconciliation/audit-producer-matrix/m14-recommendations",
+      "M1.4 design.md"
+    ],
+    "runtime_scope_limit": "M1.3 runtime implementations were not assigned for this reviewer full reread; hashes were independently checked and contracts were consulted. M1.4 production Windows implementations were fully read."
+  },
+  "catalog_verification": [
+    {
+      "path": "config/agentnexus/features.json",
+      "baseline_count": 154,
+      "current_count": 165,
+      "old_entries_unchanged": true,
+      "new_ids": [
+        "runtime.host.production",
+        "runtime.worker.production",
+        "runtime.ipc.windows.production",
+        "runtime.sandbox.windows.production",
+        "runtime.file_broker",
+        "runtime.process_supervisor",
+        "runtime.exit_proof.production",
+        "runtime.resource_release.production",
+        "audit.producer.broker",
+        "audit.producer.file",
+        "runtime.broker.production"
+      ],
+      "all_new_features_default_off": true
+    },
+    {
+      "path": "config/agentnexus/policies.json",
+      "baseline_count": 41,
+      "current_count": 44,
+      "old_entries_unchanged": true,
+      "new_ids": [
+        "P.REMOTE_PERMIT",
+        "P.FILE_BROKER",
+        "P.PRODUCTION_QUALIFICATION"
+      ],
+      "all_new_features_default_off": null
+    }
+  ],
+  "findings": [
+    {
+      "id": "M14-IR-01",
+      "priority": "P2",
+      "title": "Audit logical role polluted exact AuditInput fields",
+      "status": "RESOLVED_SOURCE_RECHECKED",
+      "discovery_method": "SOURCE_AND_EARLY_FAILURE_TRACE",
+      "final_verification_method": "READ_ONLY_SOURCE_RECHECK_NOT_INDEPENDENT_TEST_RERUN",
+      "final_locations": [
+        {
+          "path": "src/agentnexus/production/audit.ts",
+          "line": 10
+        }
+      ],
+      "resolution": "Explicit four-field identity projection."
+    },
+    {
+      "id": "M14-IR-02",
+      "priority": "P2",
+      "title": "Mutable CREATE content and invalid-input slot accounting",
+      "status": "RESOLVED_SOURCE_RECHECKED",
+      "discovery_method": "SOURCE; EARLY_POST_FIX_PROBE_CONFIRMED_GOOD_BYTES",
+      "final_verification_method": "READ_ONLY_SOURCE_RECHECK_NOT_INDEPENDENT_TEST_RERUN",
+      "final_locations": [
+        {
+          "path": "src/agentnexus/production/file-broker.ts",
+          "line": 59
+        },
+        {
+          "path": "src/agentnexus/production/file-broker.ts",
+          "line": 79
+        }
+      ],
+      "resolution": "Validate bounded Uint8Array inside try, copy before awaiting, and compare actual result hash to signed content hash."
+    },
+    {
+      "id": "M14-IR-03",
+      "priority": "P2",
+      "title": "File grant wall rollback and original Permit monotonic expiry",
+      "status": "RESOLVED_SOURCE_RECHECKED",
+      "discovery_method": "EARLY_SIMULATED_CLOCK_PROBE_AND_SOURCE",
+      "final_verification_method": "READ_ONLY_SOURCE_RECHECK_NOT_INDEPENDENT_TEST_RERUN",
+      "final_locations": [
+        {
+          "path": "src/agentnexus/production/contracts.ts",
+          "line": 12
+        },
+        {
+          "path": "src/agentnexus/production/authority.ts",
+          "line": 104
+        },
+        {
+          "path": "src/agentnexus/production/file-broker.ts",
+          "line": 42
+        }
+      ],
+      "resolution": "Latched rollback rejection, wall/monotonic fence, and original consumed Permit lease check."
+    },
+    {
+      "id": "M14-IR-04",
+      "priority": "P2",
+      "title": "Unsettled file/identity observations and pending admission limits",
+      "status": "RESOLVED_SOURCE_RECHECKED",
+      "discovery_method": "EARLY_SIMULATED_FILE_OWNER_PROBE_AND_SOURCE",
+      "final_verification_method": "READ_ONLY_SOURCE_RECHECK_NOT_INDEPENDENT_TEST_RERUN",
+      "final_locations": [
+        {
+          "path": "src/agentnexus/production/file-broker.ts",
+          "line": 90
+        },
+        {
+          "path": "src/agentnexus/production/identity.ts",
+          "line": 78
+        },
+        {
+          "path": "src/agentnexus/production/authority.ts",
+          "line": 48
+        }
+      ],
+      "resolution": "Bounded deadlines/abort, retained unsettled quotas and admission limits."
+    },
+    {
+      "id": "M14-IR-05",
+      "priority": "P2",
+      "title": "Disconnected cyclic exit parent graph accepted as complete",
+      "status": "RESOLVED_SOURCE_RECHECKED",
+      "discovery_method": "EARLY_SIMULATED_EVIDENCE_PROBE_AND_SOURCE",
+      "final_verification_method": "READ_ONLY_SOURCE_RECHECK_NOT_INDEPENDENT_TEST_RERUN",
+      "final_locations": [
+        {
+          "path": "src/agentnexus/production/exit.ts",
+          "line": 39
+        }
+      ],
+      "resolution": "Each member parent chain must reach the unique pinned root and reject cycles."
+    },
+    {
+      "id": "M14-IR-06",
+      "priority": "P2",
+      "title": "Asynchronous file commit and expired Envelope start fences",
+      "status": "RESOLVED_SOURCE_RECHECKED",
+      "discovery_method": "SOURCE_ONLY",
+      "final_verification_method": "READ_ONLY_SOURCE_RECHECK_NOT_INDEPENDENT_TEST_RERUN",
+      "final_locations": [
+        {
+          "path": "src/agentnexus/production/file-broker.ts",
+          "line": 76
+        },
+        {
+          "path": "src/agentnexus/production/transport.ts",
+          "line": 18
+        },
+        {
+          "path": "src/agentnexus/production/broker.ts",
+          "line": 95
+        }
+      ],
+      "resolution": "Recheck within the native work microtask; validate deadline before/after observations and synchronously before start."
+    },
+    {
+      "id": "M14-IR-07",
+      "priority": "P2",
+      "title": "Unverified exit retired supervision and returned production PASS",
+      "status": "RESOLVED_SOURCE_RECHECKED",
+      "discovery_method": "SOURCE_ONLY",
+      "final_verification_method": "READ_ONLY_SOURCE_RECHECK_NOT_INDEPENDENT_TEST_RERUN",
+      "final_locations": [
+        {
+          "path": "src/agentnexus/production/broker.ts",
+          "line": 124
+        },
+        {
+          "path": "src/agentnexus/production/broker.ts",
+          "line": 126
+        }
+      ],
+      "resolution": "Incomplete evidence terminates/quarantines and retains active work; REAL returns INCONCLUSIVE, nonzero exit FAIL."
+    },
+    {
+      "id": "M14-IR-08",
+      "priority": "P2",
+      "title": "Stale boot/resource-version release authorization",
+      "status": "RESOLVED_SOURCE_RECHECKED",
+      "discovery_method": "SOURCE_ONLY",
+      "final_verification_method": "READ_ONLY_SOURCE_RECHECK_NOT_INDEPENDENT_TEST_RERUN",
+      "final_locations": [
+        {
+          "path": "src/agentnexus/production/exit.ts",
+          "line": 92
+        },
+        {
+          "path": "src/agentnexus/reconciliation.ts",
+          "line": 99
+        }
+      ],
+      "resolution": "Current boot, allowed Host state, five HELD resource versions and single consumption rechecked inside reconciliation transaction."
+    },
+    {
+      "id": "M14-IR-09",
+      "priority": "P2",
+      "title": "Registry close left existing authorizations readable as ACTIVE",
+      "status": "RESOLVED_SOURCE_RECHECKED",
+      "discovery_method": "SOURCE_ONLY",
+      "final_verification_method": "READ_ONLY_SOURCE_RECHECK_NOT_INDEPENDENT_TEST_RERUN",
+      "final_locations": [
+        {
+          "path": "src/agentnexus/production/identity.ts",
+          "line": 47
+        }
+      ],
+      "resolution": "Closed inspect refuses immediately, fencing Gateway and endpoint callers."
+    },
+    {
+      "id": "M14-IR-10",
+      "priority": "P2",
+      "title": "Remote recovery inferred local NOT_INVOKED and missed inflight operations",
+      "status": "RESOLVED_SOURCE_RECHECKED",
+      "discovery_method": "SOURCE_ONLY",
+      "final_verification_method": "READ_ONLY_SOURCE_RECHECK_NOT_INDEPENDENT_TEST_RERUN",
+      "final_locations": [
+        {
+          "path": "src/agentnexus/reconciliation.ts",
+          "line": 38
+        },
+        {
+          "path": "src/agentnexus/reconciliation.ts",
+          "line": 75
+        }
+      ],
+      "resolution": "Remote recovery retains UNKNOWN; persistent inflight flag blocks adjudication until retired/recovered."
+    },
+    {
+      "id": "M14-IR-11",
+      "priority": "P2",
+      "title": "Remote Artifact import was outside the Host deadline",
+      "status": "RESOLVED_SOURCE_RECHECKED",
+      "discovery_method": "SOURCE_ONLY",
+      "final_verification_method": "READ_ONLY_SOURCE_RECHECK_NOT_INDEPENDENT_TEST_RERUN",
+      "final_locations": [
+        {
+          "path": "src/agentnexus/production/host.ts",
+          "line": 40
+        },
+        {
+          "path": "src/agentnexus/production/exit.ts",
+          "line": 78
+        }
+      ],
+      "resolution": "Send and accept share timeout/cancellation; Artifact puts receive AbortSignal, raw hash/bytes verified before proof insertion."
+    },
+    {
+      "id": "M14-IR-12",
+      "priority": "P2",
+      "title": "Service disconnect lacked operation ownership",
+      "status": "RESOLVED_SOURCE_RECHECKED",
+      "discovery_method": "SOURCE_ONLY",
+      "final_verification_method": "READ_ONLY_SOURCE_RECHECK_NOT_INDEPENDENT_TEST_RERUN",
+      "final_locations": [
+        {
+          "path": "src/agentnexus/production/broker.ts",
+          "line": 83
+        },
+        {
+          "path": "src/agentnexus/production/broker.ts",
+          "line": 146
+        }
+      ],
+      "resolution": "Broker owns channel-to-operation mapping and terminates/quarantines without accepting caller-supplied operation ownership."
+    },
+    {
+      "id": "M14-IR-13",
+      "priority": "P2",
+      "title": "Consumed failures lost operation ID and claimed NOT_RESERVED",
+      "status": "RESOLVED_SOURCE_RECHECKED",
+      "discovery_method": "SOURCE_ONLY",
+      "final_verification_method": "READ_ONLY_SOURCE_RECHECK_NOT_INDEPENDENT_TEST_RERUN",
+      "final_locations": [
+        {
+          "path": "src/agentnexus/production/authority.ts",
+          "line": 83
+        },
+        {
+          "path": "src/agentnexus/production/authority.ts",
+          "line": 94
+        },
+        {
+          "path": "src/agentnexus/production/host.ts",
+          "line": 54
+        }
+      ],
+      "resolution": "Committed flag survives cleanup failures; Host preserves association and returns INCONCLUSIVE/UNKNOWN for consumed or storage-uncertain paths."
+    },
+    {
+      "id": "M14-IR-14",
+      "priority": "P2",
+      "title": "Signed Broker proof envelope was not retained for offline verification",
+      "status": "RESOLVED_SOURCE_RECHECKED",
+      "discovery_method": "SOURCE_ONLY",
+      "final_verification_method": "READ_ONLY_SOURCE_RECHECK_NOT_INDEPENDENT_TEST_RERUN",
+      "final_locations": [
+        {
+          "path": "src/agentnexus/production/exit.ts",
+          "line": 65
+        },
+        {
+          "path": "src/agentnexus/production/exit.ts",
+          "line": 84
+        },
+        {
+          "path": "src/agentnexus/production/exit.ts",
+          "line": 89
+        }
+      ],
+      "resolution": "Immutable signed_packet remains separate from original proof body and Host imports; audit binds packet hash and owner release re-verifies with pinned Broker public key."
+    }
+  ],
+  "evidence_scope": {
+    "early_probe_result": {
+      "path": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.4\\independent-review\\node-review-6hxiXS\\probe-results.json",
+      "sha256": "1d1d10ae0a3da76115c4d5159d695f1c83146587df580cd88e05f243189daf4c",
+      "assurance": "SIMULATED ownership/clock/OS evidence; REAL local SQLite/artifact/filesystem only",
+      "source_set_sha256": "472f020c9525d909a9113d9e99d5eb2a60280f234dd888cc907e44887e0d80da",
+      "source_files": [
+        {
+          "path": "src/agentnexus/production/contracts.ts",
+          "sha256": "ab8e5f6544adf325e32ad2df3c4579bb973220b667c7a8c10a6d4c679f1c5d8d"
+        },
+        {
+          "path": "src/agentnexus/production/authority.ts",
+          "sha256": "493bf8e8453fac564df7b53671396086fb1450f6612af1a7f8be47ba7a2bf5f8"
+        },
+        {
+          "path": "src/agentnexus/production/transport.ts",
+          "sha256": "66fbeeb9888eb804eb5ec91cc57e83235386bfcd0a71ed0122e3ea2a5016ddef"
+        },
+        {
+          "path": "src/agentnexus/production/qualification.ts",
+          "sha256": "3421995ee8b0f30956bac1faf1bca1f0d6209253dce7e8500e45b437f9dc7067"
+        },
+        {
+          "path": "src/agentnexus/production/exit.ts",
+          "sha256": "080468e5c9b05ecb45f3b1822bf87ee0ac0c9186781ce42e00eb58efcb1be30e"
+        },
+        {
+          "path": "src/agentnexus/production/broker.ts",
+          "sha256": "97f36e118192438ea30c1b36c1e70ebfcdb82f4bf0aca064d2e2d2b38f935de8"
+        },
+        {
+          "path": "src/agentnexus/production/file-broker.ts",
+          "sha256": "f907e39f3feefdc15da92fd2313b4161e0e7bf8c4d8793ed7ea7f98b3baa85c6"
+        },
+        {
+          "path": "src/agentnexus/production/identity.ts",
+          "sha256": "1ed8525e332a58977726e2b1aa7bb713c78f6d19269b7eeb2e750d7f3cdf3c8a"
+        },
+        {
+          "path": "src/agentnexus/production/audit.ts",
+          "sha256": "51ede7c82086d72707cc965891a673e2addf4cfd6efdf836b534988823c485f8"
+        }
+      ],
+      "observations": [
+        {
+          "id": "audit-logical-role",
+          "valid_logical_identity_audited": true
+        },
+        {
+          "id": "content-mutation",
+          "authorized_hash": "278f14e96cc67489e5c0d6cebec8a2718fb158ec656fd41fed7ecd031cd472b2",
+          "actual_hash": "278f14e96cc67489e5c0d6cebec8a2718fb158ec656fd41fed7ecd031cd472b2",
+          "actual_bytes": "GOOD",
+          "signature_content_bypassed": false
+        },
+        {
+          "id": "wall-clock-rollback",
+          "initial_rejection": "M14_FILE_EXPIRY",
+          "revived_result": "SIMULATED",
+          "revived_expired_grant": true
+        },
+        {
+          "id": "unbounded-native-file",
+          "observed_native_pending": 8,
+          "after_grant_expiry": true,
+          "ninth_rejection": "M14_FILE_BACKPRESSURE"
+        },
+        {
+          "id": "cyclic-parent-graph",
+          "state": "EXIT_VERIFIED",
+          "production_release_authority": true,
+          "graph": "root; A parent B; B parent A",
+          "os_observation": "SIMULATED injection, no actual process evidence"
+        }
+      ],
+      "current_source_claim": false
+    },
+    "early_probe_script": {
+      "path": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.4\\independent-review\\targeted-probe.mjs",
+      "sha256": "8e26531c8f78f3d765ee81ed71ed7e6f6c6720481e7a2fa0b6263b2ae6ccf05b"
+    },
+    "early_failed_probe": "First inline model attempt stopped on INVALID_RECORD_FIELDS; failure stack preserved in tool transcript. No Windows boundary was exercised.",
+    "post_fix_method": "Source recheck only after instruction to stop probes; regression assertions read but not executed by reviewer.",
+    "author_run_jsons_parsed": [
+      {
+        "path": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.4\\verification\\2026-11-07T08-18-19-092Z-37232\\results.json",
+        "sha256": "55674203170723d7bf0253280bb5dd40b27653bda34f146ea1adb6ebe8748cd5",
+        "source_set_sha256": "00c0400476a4520017a77810b00cdd5f62e4ac362706f6e5ff86a3278e35ce20",
+        "matches_final_reviewed_source": false,
+        "exit_code": 1,
+        "timed_out": false,
+        "summary": {
+          "type": "test:summary",
+          "success": false,
+          "counts": {
+            "tests": 252,
+            "failed": 1,
+            "passed": 247,
+            "cancelled": 0,
+            "skipped": 4,
+            "todo": 0,
+            "topLevel": 205,
+            "suites": 0
+          },
+          "duration_ms": 71561.4259
+        },
+        "independently_rerun": false,
+        "reading_method": "COMPLETE_JSON_PARSE_AND_SUMMARY_SOURCE_BINDING_CHECK; RAW_TAP_NOT_LINE_BY_LINE_REVIEWED"
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.4\\verification\\2026-11-07T08-24-21-740Z-3348\\results.json",
+        "sha256": "79ac50a6763578808a98957058d49a75c0c0d5b5e29d49ec2938f66fab4e21a7",
+        "source_set_sha256": "d2fb39ea08708360937d0d203f1fe4dffa2e627728d7ccc5e9bacfcee9def165",
+        "matches_final_reviewed_source": false,
+        "exit_code": 0,
+        "timed_out": false,
+        "summary": {
+          "type": "test:summary",
+          "success": true,
+          "counts": {
+            "tests": 254,
+            "failed": 0,
+            "passed": 250,
+            "cancelled": 0,
+            "skipped": 4,
+            "todo": 0,
+            "topLevel": 207,
+            "suites": 0
+          },
+          "duration_ms": 59476.3737
+        },
+        "independently_rerun": false,
+        "reading_method": "COMPLETE_JSON_PARSE_AND_SUMMARY_SOURCE_BINDING_CHECK; RAW_TAP_NOT_LINE_BY_LINE_REVIEWED"
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.4\\verification\\2026-11-07T08-30-22-409Z-37176\\results.json",
+        "sha256": "25b77f224f7fd2d588593c4f01c798f0d09cd81ceed2379ffc2be9240010c6df",
+        "source_set_sha256": "e2f95cb5c7557660dfbbf3cfcbb2a03a78460f9b408e66bd2fbb3f6ea96e3a88",
+        "matches_final_reviewed_source": true,
+        "exit_code": 0,
+        "timed_out": false,
+        "summary": {
+          "type": "test:summary",
+          "success": true,
+          "counts": {
+            "tests": 255,
+            "failed": 0,
+            "passed": 251,
+            "cancelled": 0,
+            "skipped": 4,
+            "todo": 0,
+            "topLevel": 208,
+            "suites": 0
+          },
+          "duration_ms": 62037.6211
+        },
+        "independently_rerun": false,
+        "reading_method": "COMPLETE_JSON_PARSE_AND_SUMMARY_SOURCE_BINDING_CHECK; RAW_TAP_NOT_LINE_BY_LINE_REVIEWED"
+      }
+    ],
+    "author_raw_tap_line_by_line_reviewed": false,
+    "author_native_jsonl_claim": "Final run native JSONL completely parsed; preserved raw_jsonl checked against frame and frame bound. Primitive orphan window and conservative membership/release fields rechecked. No tests independently executed.",
+    "final_raw_logs_structurally_rechecked": true
+  },
+  "limitations": [
+    "Default qualification certificates are empty. No production dispatch is admitted by default.",
+    "WindowsSupervisor uses fixed trusted tool mapping and pinned suspended prepare/bind/grant/resume interface. Native observations retain membership_complete=false and unknown_members=true; network/filesystem/limits are not certified by the adapter, so no production release proof is emitted.",
+    "Restricted-token source access masks are 0x8A for token.restrict and 0x8B for launch; only the restricted clone is adjusted. Their source was rechecked, not independently run.",
+    "Real OS subprocess fixture has SIMULATED peer, identity, Job, qualification and release security. A real subprocess does not prove real OS security.",
+    "Separate approved accounts, profiles, ACLs, protected IPC, complete process membership, hard file/disk limits, final platform qualification, OS reboot/hard-power-loss and Ubuntu remain separate blocked/not-run acceptance work.",
+    "Native helper termination or Promise completion is not proof of full OS tree exit; unknown claims/outputs remain retained.",
+    "Node syntax checks and this source review do not establish static tsc correctness.",
+    "The exact final run is bound below by source/path/bytes/hash and raw log structure. This is independent evidence recheck, not independently rerunning the suite; earlier mismatched runs retain historical status only."
+  ],
+  "write_scope": "Only final-review.md and final-review.json written in this final phase. Earlier targeted probe script/results and synthetic SQLite/artifact data were created solely in independent-review runtime. No product source, test, configuration, system account, ACL, firewall, profile or server changed by reviewer.",
+  "final_test_binding": {
+    "run_id": "2026-11-07T08-30-22-409Z-37176",
+    "manifest": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.4\\verification\\2026-11-07T08-30-22-409Z-37176\\source-manifest.json",
+    "manifest_sha256": "62ea6cdeb67572336bc4e1cc47f0c62d2a99f9cc37205e0017a704f3b3db93a1",
+    "source_count": 67,
+    "source_set_sha256": "e2f95cb5c7557660dfbbf3cfcbb2a03a78460f9b408e66bd2fbb3f6ea96e3a88",
+    "all_paths_bytes_hashes_match_final_source": true,
+    "all_paths_bytes_hashes_match_run_workspace": true,
+    "result_counts": {
+      "tests": 255,
+      "failed": 0,
+      "passed": 251,
+      "cancelled": 0,
+      "skipped": 4,
+      "todo": 0,
+      "topLevel": 208,
+      "suites": 0
+    },
+    "exit_code": 0,
+    "timed_out": false,
+    "raw_logs": [
+      {
+        "path": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.4\\verification\\2026-11-07T08-30-22-409Z-37176\\results.json",
+        "sha256": "25b77f224f7fd2d588593c4f01c798f0d09cd81ceed2379ffc2be9240010c6df"
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.4\\verification\\2026-11-07T08-30-22-409Z-37176\\events.jsonl",
+        "sha256": "d74e8c1338d0b2fb2e417a621b11402354172105838a998c2ae50353731646a8"
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.4\\verification\\2026-11-07T08-30-22-409Z-37176\\all-tests.tap",
+        "sha256": "7a46006a6e1ee1dd2e295e425d57e5fdf760a9d21a664b612f5f2fa861e53eba"
+      }
+    ],
+    "events_and_tap_case_status_counters_match_results": true,
+    "m13_case_names_retained": 206,
+    "missing_m13_case_names": {},
+    "native_jsonl_files": [
+      {
+        "path": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.4\\verification\\2026-11-07T08-30-22-409Z-37176\\data\\m14-native\\native-helper-1794040239859-dd14b95a-f651-48c7-af9d-2c8d7fb5d335.jsonl",
+        "sha256": "ee634349a77298dfb82b2e4b609f04b45daf56e565beaac28f0eb4160dbca3dc",
+        "frames": 1
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.4\\verification\\2026-11-07T08-30-22-409Z-37176\\data\\m14-native\\native-helper-1794040243373-51bb07d1-75c9-49a8-abf4-619c4b588518.jsonl",
+        "sha256": "82177871963612cfddbb14da45828b4bbe6e148a7294fdaa82939d22acf91573",
+        "frames": 1
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.4\\verification\\2026-11-07T08-30-22-409Z-37176\\data\\m14-native\\native-helper-1794040244282-aeb8d879-0669-42d7-aaa8-587596afa5bd.jsonl",
+        "sha256": "ef3cd22c58ea1f3559c728558f2b0bceef9b9cf0bfa6105b6a92b7c585d20a74",
+        "frames": 9
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.4\\verification\\2026-11-07T08-30-22-409Z-37176\\data\\m14-native\\native-helper-1794040245215-9e06920b-4e9f-4deb-86de-3686de459a4d.jsonl",
+        "sha256": "bd6c6f209f320818ba40253b8a81be0c8f75a184b739f1fda51e546f14cbe90a",
+        "frames": 1
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.4\\verification\\2026-11-07T08-30-22-409Z-37176\\data\\m14-native\\native-helper-1794040246122-e348f100-54a2-4f21-b12b-40d8b4f615e7.jsonl",
+        "sha256": "3c863b9942d8306d2ead727b4a1e6b99c3290b611501aeb41bbacab74e8dae81",
+        "frames": 1
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.4\\verification\\2026-11-07T08-30-22-409Z-37176\\data\\m14-native\\native-helper-1794040247025-1393cc44-3b1b-47db-9b44-c6210e90c4c0.jsonl",
+        "sha256": "684b10b44eba6820e61667a8d1682455525627159d1ac15d338448c95ce72175",
+        "frames": 2
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.4\\verification\\2026-11-07T08-30-22-409Z-37176\\data\\m14-native\\native-helper-1794040247040-37c774a4-7cd2-4f29-868c-e598a4cd773b.jsonl",
+        "sha256": "cdf88c78107ddbe2ddc3a639f503cd7699371c9ba8f206be680c972adfbc384b",
+        "frames": 2
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.4\\verification\\2026-11-07T08-30-22-409Z-37176\\data\\m14-native\\native-helper-1794040247979-001f71a4-0d17-4250-b840-f46f231a2ab1.jsonl",
+        "sha256": "e3b49379b93097711804d714c350e864d9671911839b48018fd62d612bdbed3b",
+        "frames": 3
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.4\\verification\\2026-11-07T08-30-22-409Z-37176\\data\\m14-native\\native-helper-1794040249010-03bc4fce-a034-4fbd-b190-cfdb1025aba5.jsonl",
+        "sha256": "36aaad958ff075f653821c1f0d157f3e1e96b0dffdc29e325892e11d3ea06f0a",
+        "frames": 1
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.4\\verification\\2026-11-07T08-30-22-409Z-37176\\data\\m14-native\\native-helper-1794040250172-2d255fa6-2531-4153-b224-836d37b228b5.jsonl",
+        "sha256": "c900df7891d92658df5308f3f5adf5b8497046b842fe8d90e3674a1ee1243b88",
+        "frames": 1
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.4\\verification\\2026-11-07T08-30-22-409Z-37176\\data\\m14-native\\native-helper-1794040251991-70ba1f27-700d-4eac-9016-f7092106d21d.jsonl",
+        "sha256": "39ad82a510179ebf2a790dda1c748f21063e18f451814f9640678348927ceb5c",
+        "frames": 1
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.4\\verification\\2026-11-07T08-30-22-409Z-37176\\data\\m14-native\\native-helper-1794040253794-1cece53b-7184-485b-a744-253b5e9243af.jsonl",
+        "sha256": "ce19963d652b3982939c89d5a5530cc4e79fe704cbe648891f875661865002e8",
+        "frames": 17
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.4\\verification\\2026-11-07T08-30-22-409Z-37176\\data\\m14-native\\native-helper-1794040255075-29f2e3cc-a5b5-4749-a242-5b0e1b6d5e5e.jsonl",
+        "sha256": "c67182fb53c474803cec059501e9c009c294d946113a48c485a624dde18767ba",
+        "frames": 1
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.4\\verification\\2026-11-07T08-30-22-409Z-37176\\data\\m14-native\\native-helper-1794040259203-6fe5716b-6131-498f-a8fa-7c3698b77685.jsonl",
+        "sha256": "5379ac3742f59c50ab287b704d5ac168e13259ff8c7d88c044c09fbbd63659e4",
+        "frames": 6
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.4\\verification\\2026-11-07T08-30-22-409Z-37176\\data\\m14-native\\native-helper-1794040260414-174e273b-ae16-4485-b680-bb2173939046.jsonl",
+        "sha256": "41e6c044f71a2b30a88ff1d6f2e99584dbf4e06dbd6142c594e773600b82d06d",
+        "frames": 6
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.4\\verification\\2026-11-07T08-30-22-409Z-37176\\data\\m14-native\\native-helper-1794040262075-70a9b001-8413-4d3e-90d5-7f7bb2d6c0f2.jsonl",
+        "sha256": "b97d3a73161a562e03d2f47c20b2ffdcf7394e4518c47062f874f975e5d979c9",
+        "frames": 3
+      }
+    ],
+    "native_jsonl_frames_verified": 56,
+    "orphan_window_primitive_observations": [
+      {
+        "path": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.4\\verification\\2026-11-07T08-30-22-409Z-37176\\data\\m14-native\\native-helper-1794040251991-70ba1f27-700d-4eac-9016-f7092106d21d.jsonl",
+        "line": 1,
+        "source": "REAL_WINDOWS_PRIMITIVE",
+        "root_exit_observed_at": "2026-11-07T08:30:53.2386860Z",
+        "termination_requested_at": "2026-11-07T08:30:53.7565804Z",
+        "observed_children": 2,
+        "membership_complete": false,
+        "parentage_complete": false,
+        "release_authority": false
+      }
+    ],
+    "reviewer_reran_tests": false,
+    "method": "READ_ONLY_COMPLETE_STRUCTURAL_PARSE_AND_HASH_BINDING; NOT INDEPENDENT_EXECUTION"
+  }
+}

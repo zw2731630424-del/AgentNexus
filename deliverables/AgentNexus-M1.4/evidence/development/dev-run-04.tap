@@ -1,0 +1,180 @@
+TAP version 13
+# Subtest: M14-PERMIT SIMULATED: exact approval bridges consumed original Permit and retains five resources
+ok 1 - M14-PERMIT SIMULATED: exact approval bridges consumed original Permit and retains five resources
+  ---
+  duration_ms: 253.1264
+  type: 'test'
+  ...
+# Subtest: M14-PERMIT SIMULATED: missing approval, other project, changed args or sandbox cannot bridge
+ok 2 - M14-PERMIT SIMULATED: missing approval, other project, changed args or sandbox cannot bridge
+  ---
+  duration_ms: 145.1758
+  type: 'test'
+  ...
+# Subtest: M14-PERMIT SIMULATED: signed grant tamper, Worker swap, tool/version/resource and epoch denied
+ok 3 - M14-PERMIT SIMULATED: signed grant tamper, Worker swap, tool/version/resource and epoch denied
+  ---
+  duration_ms: 190.1025
+  type: 'test'
+  ...
+# Subtest: M14-PERMIT SIMULATED: concurrent Permit consumers commit once; disconnect never replays
+ok 4 - M14-PERMIT SIMULATED: concurrent Permit consumers commit once; disconnect never replays
+  ---
+  duration_ms: 223.4658
+  type: 'test'
+  ...
+# Subtest: M14-SANDBOX SIMULATED: default absent qualification rejects before Supervisor start
+ok 5 - M14-SANDBOX SIMULATED: default absent qualification rejects before Supervisor start
+  ---
+  duration_ms: 153.3293
+  type: 'test'
+  ...
+# Subtest: M14-IPC SIMULATED: same SID foreign PID, reused PID/start, session and payload identity rejected
+ok 6 - M14-IPC SIMULATED: same SID foreign PID, reused PID/start, session and payload identity rejected
+  ---
+  duration_ms: 170.3388
+  type: 'test'
+  ...
+# Subtest: M14-IPC SIMULATED: revoke is synchronous, pending connection slots and key cleanup bounded
+ok 7 - M14-IPC SIMULATED: revoke is synchronous, pending connection slots and key cleanup bounded
+  ---
+  duration_ms: 165.6435
+  type: 'test'
+  ...
+# Subtest: M14-AUDIT SIMULATED: durable authorization/start barrier failures never start execution
+ok 8 - M14-AUDIT SIMULATED: durable authorization/start barrier failures never start execution
+  ---
+  duration_ms: 166.1995
+  type: 'test'
+  ...
+# Subtest: M14-RECOVERY SIMULATED: Broker reopen preserves spent Permit, unknown Job and no automatic replay
+ok 9 - M14-RECOVERY SIMULATED: Broker reopen preserves spent Permit, unknown Job and no automatic replay
+  ---
+  duration_ms: 178.6067
+  type: 'test'
+  ...
+# Subtest: M14-FEATURE SIMULATED: epoch change or module off at last fence rejects consumed work
+ok 10 - M14-FEATURE SIMULATED: epoch change or module off at last fence rejects consumed work
+  ---
+  duration_ms: 171.4283
+  type: 'test'
+  ...
+# Subtest: M14-EXIT SIMULATED: parent exit, child alive and output unknown stay independent and retain Writer
+ok 11 - M14-EXIT SIMULATED: parent exit, child alive and output unknown stay independent and retain Writer
+  ---
+  duration_ms: 199.0407
+  type: 'test'
+  ...
+# Subtest: M14-IR SIMULATED: immutable CREATE bytes survive audit wait; oversized/invalid inputs return slots
+ok 12 - M14-IR SIMULATED: immutable CREATE bytes survive audit wait; oversized/invalid inputs return slots
+  ---
+  duration_ms: 134.7627
+  type: 'test'
+  ...
+# Subtest: M14-IR SIMULATED: an expired signed file grant cannot revive after a sub-100ms wall rollback
+ok 13 - M14-IR SIMULATED: an expired signed file grant cannot revive after a sub-100ms wall rollback
+  ---
+  duration_ms: 182.4297
+  type: 'test'
+  ...
+# Subtest: M14-IR SIMULATED: uncooperative file owners time out without unbounded replacement native work
+ok 14 - M14-IR SIMULATED: uncooperative file owners time out without unbounded replacement native work
+  ---
+  duration_ms: 372.497
+  type: 'test'
+  ...
+# Subtest: M14-IR SIMULATED: complete-looking member list with disconnected parent cycle never verifies
+ok 15 - M14-IR SIMULATED: complete-looking member list with disconnected parent cycle never verifies
+  ---
+  duration_ms: 153.361
+  type: 'test'
+  ...
+# Subtest: M14-IR SIMULATED: short Envelope deadline is fenced after asynchronous Supervisor preparation
+ok 16 - M14-IR SIMULATED: short Envelope deadline is fenced after asynchronous Supervisor preparation
+  ---
+  duration_ms: 367.1958
+  type: 'test'
+  ...
+# Subtest: M14-IR SIMULATED: closed registry synchronously rejects existing authorization and channel
+ok 17 - M14-IR SIMULATED: closed registry synchronously rejects existing authorization and channel
+  ---
+  duration_ms: 310.6553
+  type: 'test'
+  ...
+# Subtest: M14-IR SIMULATED: OS identity observers retain at most 32 unresolved observations
+ok 18 - M14-IR SIMULATED: OS identity observers retain at most 32 unresolved observations
+  ---
+  duration_ms: 2219.3524
+  type: 'test'
+  ...
+# Subtest: M14-RECOVERY SQLITE_REOPEN: remote START_INTENT absence cannot become NOT_INVOKED on Host restart
+not ok 19 - M14-RECOVERY SQLITE_REOPEN: remote START_INTENT absence cannot become NOT_INVOKED on Host restart
+  ---
+  duration_ms: 334.7817
+  type: 'test'
+  location: 'I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.4\\source\\tests\\agentnexus\\m14-production.test.ts:189:1'
+  failureType: 'hookFailed'
+  error: 'database is not open'
+  code: 'ERR_INVALID_STATE'
+  stack: |-
+    TestContext.<anonymous> (file:///I:/AI_AgentNexus/deliverables/AgentNexus-M1.4/source/tests/agentnexus/m14-production.test.ts:68:67)
+    TestHook.runInAsyncScope (node:async_hooks:227:14)
+    TestHook.run (node:internal/test_runner/test:1201:25)
+    TestHook.run (node:internal/test_runner/test:1528:18)
+    TestHook.run (node:internal/util:602:20)
+    Test.runHook (node:internal/test_runner/test:1117:20)
+    after (node:internal/test_runner/test:1159:20)
+    Test.run (node:internal/test_runner/test:1227:13)
+    async Test.processPendingSubtests (node:internal/test_runner/test:831:7)
+  ...
+# Subtest: M14-OUTPUT SIMULATED: streaming output budget failure terminates Worker and keeps slot
+ok 20 - M14-OUTPUT SIMULATED: streaming output budget failure terminates Worker and keeps slot
+  ---
+  duration_ms: 336.6116
+  type: 'test'
+  ...
+# Subtest: M14-EXIT SIMULATED: contradictory membership, forged signature and synthetic production proof rejected
+ok 21 - M14-EXIT SIMULATED: contradictory membership, forged signature and synthetic production proof rejected
+  ---
+  duration_ms: 286.0495
+  type: 'test'
+  ...
+# Subtest: M14-EXIT SIMULATED: original M1.2 reconciliation cannot release remote Writer with manual SETTLED
+ok 22 - M14-EXIT SIMULATED: original M1.2 reconciliation cannot release remote Writer with manual SETTLED
+  ---
+  duration_ms: 303.7951
+  type: 'test'
+  ...
+# Subtest: M14-RESOURCE SIMULATED: global concurrency quota counts unknown retained resources
+ok 23 - M14-RESOURCE SIMULATED: global concurrency quota counts unknown retained resources
+  ---
+  duration_ms: 277.4517
+  type: 'test'
+  ...
+# Subtest: M14-QUALIFICATION SIMULATED: incomplete checks and same-account real deployment cannot qualify
+ok 24 - M14-QUALIFICATION SIMULATED: incomplete checks and same-account real deployment cannot qualify
+  ---
+  duration_ms: 249.2876
+  type: 'test'
+  ...
+# Subtest: M14-FILE SIMULATED: path validation rejects escape, ADS, UNC, devices, overwrite spelling
+ok 25 - M14-FILE SIMULATED: path validation rejects escape, ADS, UNC, devices, overwrite spelling
+  ---
+  duration_ms: 0.6406
+  type: 'test'
+  ...
+# Subtest: M14-FILE SIMULATED: signed file scope, immutable version read, audit and Artifact submission
+ok 26 - M14-FILE SIMULATED: signed file scope, immutable version read, audit and Artifact submission
+  ---
+  duration_ms: 269.6658
+  type: 'test'
+  ...
+1..26
+# tests 26
+# suites 0
+# pass 25
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 8044.6361

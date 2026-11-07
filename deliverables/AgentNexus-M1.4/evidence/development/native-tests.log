@@ -1,0 +1,112 @@
+TAP version 13
+# Subtest: M1.4 REAL_WINDOWS: actual process/token identity and restricted-token readback
+ok 1 - M1.4 REAL_WINDOWS: actual process/token identity and restricted-token readback
+  ---
+  duration_ms: 1326.504
+  type: 'test'
+  ...
+# NOT_RUN: host sandbox denied CreateRestrictedToken/SetTokenInformation; no privilege or ACL change attempted
+# Subtest: M1.4 REAL_WINDOWS: root-relative file create/read and path/link rejection
+not ok 2 - M1.4 REAL_WINDOWS: root-relative file create/read and path/link rejection
+  ---
+  duration_ms: 1328.9259
+  type: 'test'
+  location: 'I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.4\\source\\tests\\agentnexus\\m14-native.test.ts:70:1'
+  failureType: 'testCodeFailure'
+  error: "EPERM: operation not permitted, link 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.4\\native-files-uy8mTT\\safe\\output.txt' -> 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.4\\native-files-uy8mTT\\hard.txt'"
+  code: 'EPERM'
+  stack: |-
+    linkSync (node:fs:1907:11)
+    TestContext.<anonymous> (file:///I:/AI_AgentNexus/deliverables/AgentNexus-M1.4/source/tests/agentnexus/m14-native.test.ts:77:3)
+    process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    async Test.run (node:internal/test_runner/test:1208:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:831:7)
+  ...
+# Subtest: M1.4 REAL_WINDOWS: protected named pipe binds both actual peer handles
+not ok 3 - M1.4 REAL_WINDOWS: protected named pipe binds both actual peer handles
+  ---
+  duration_ms: 1362.0539
+  type: 'test'
+  location: 'I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.4\\source\\tests\\agentnexus\\m14-native.test.ts:84:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    {"message":"Access to the path is denied.","code":"INVALID_REQUEST"}
+    
+    false !== true
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: 'strictEqual'
+  stack: |-
+    verified (file:///I:/AI_AgentNexus/deliverables/AgentNexus-M1.4/source/tests/agentnexus/m14-native.test.ts:54:44)
+    TestContext.<anonymous> (file:///I:/AI_AgentNexus/deliverables/AgentNexus-M1.4/source/tests/agentnexus/m14-native.test.ts:88:14)
+    process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    async Test.run (node:internal/test_runner/test:1208:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:831:7)
+  ...
+# Subtest: M1.4 REAL_WINDOWS: pipe refuses forged supervisor start identity and deadline is bounded
+ok 4 - M1.4 REAL_WINDOWS: pipe refuses forged supervisor start identity and deadline is bounded
+  ---
+  duration_ms: 1538.4848
+  type: 'test'
+  ...
+# Subtest: M1.4 REAL_WINDOWS_PRIMITIVE: suspended Job normal, distinct root/tree/output observations
+ok 5 - M1.4 REAL_WINDOWS_PRIMITIVE: suspended Job normal, distinct root/tree/output observations
+  ---
+  duration_ms: 1507.6658
+  type: 'test'
+  ...
+# Subtest: M1.4 REAL_WINDOWS_PRIMITIVE: suspended Job hold, distinct root/tree/output observations
+ok 6 - M1.4 REAL_WINDOWS_PRIMITIVE: suspended Job hold, distinct root/tree/output observations
+  ---
+  duration_ms: 2573.379
+  type: 'test'
+  ...
+# Subtest: M1.4 REAL_WINDOWS_PRIMITIVE: suspended Job orphan, distinct root/tree/output observations
+not ok 7 - M1.4 REAL_WINDOWS_PRIMITIVE: suspended Job orphan, distinct root/tree/output observations
+  ---
+  duration_ms: 1667.7388
+  type: 'test'
+  location: 'I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.4\\source\\tests\\agentnexus\\m14-native.test.ts:98:47'
+  failureType: 'testCodeFailure'
+  error: |-
+    The expression evaluated to a falsy value:
+    
+      assert.ok(proof.termination_requested_at)
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: ~
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (file:///I:/AI_AgentNexus/deliverables/AgentNexus-M1.4/source/tests/agentnexus/m14-native.test.ts:102:29)
+    process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    async Test.run (node:internal/test_runner/test:1208:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:831:7)
+  ...
+# Subtest: M1.4 REAL_WINDOWS_PRIMITIVE: bounded streamed output events terminate a flood
+ok 8 - M1.4 REAL_WINDOWS_PRIMITIVE: bounded streamed output events terminate a flood
+  ---
+  duration_ms: 1413.5084
+  type: 'test'
+  ...
+# Subtest: M1.4 deployment: independent-account/profile combination is NOT_RUN / BLOCKED without approval
+ok 9 - M1.4 deployment: independent-account/profile combination is NOT_RUN / BLOCKED without approval
+  ---
+  duration_ms: 1192.9876
+  type: 'test'
+  ...
+# NOT_RUN: approved distinct standard identities, existing profile and two-phase bootstrap/grant bridge are absent. Production BLOCKED. Derivation is not profile existence or combined evidence.
+# Error: Test "M1.4 REAL_WINDOWS: protected named pipe binds both actual peer handles" at deliverables\\AgentNexus-M1.4\\source\\tests\\agentnexus\\m14-native.test.ts:84:1 generated asynchronous activity after the test ended. This activity created the error "Error: native helper exit null/SIGTERM: " and would have caused the test to fail, but instead triggered an unhandledRejection event.
+1..9
+# tests 9
+# suites 0
+# pass 6
+# fail 3
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 14081.6898
