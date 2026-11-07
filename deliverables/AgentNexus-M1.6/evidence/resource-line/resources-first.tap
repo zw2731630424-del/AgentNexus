@@ -1,0 +1,22 @@
+✔ M16 RESOURCES SIMULATED: strict CPU remains BLOCKED independent of a registry description (1.0343ms)
+✔ M16 RESOURCES SQLITE: competing reservations atomically obey all three budgets (75.502ms)
+✔ M16 RESOURCES SIMULATED: admin and exact subject/project/worker scope cannot be forged (77.8469ms)
+✔ M16 RESOURCES SQLITE: cumulative consumption settles once while capacity stays held until owner closure (67.7418ms)
+✔ M16 RESOURCES SIMULATED: fabricated, serialized, wrong-reservation and stale closure objects fail (49.9159ms)
+✔ M16 RESOURCES SIMULATED: UNKNOWN, expiration and production-looking JSON never free capacity (56.4882ms)
+✔ M16 RESOURCES SQLITE: bounded persistent wait resumes only after a verified unused reservation closes (58.3647ms)
+✔ M16 RESOURCES SIMULATED: waiting state has a hard count bound; no unbounded in-memory queue (228.8535ms)
+✔ M16 RESOURCES SQLITE: old boot recovery preserves holds and consumed counters, rejects old wait and closure (56.404ms)
+✔ M16 RESOURCES FEATURE: OFF blocks reserve/start and permits evidence-based cleanup without reopening execution (55.3717ms)
+✔ M16 RESOURCES AUDIT: failed durable reservation barrier produces zero starts and retains the committed hold (46.591ms)
+✔ M16 RESOURCES ACCOUNTING: observed overspend is recorded in all scopes and quarantines further admission (81.9534ms)
+✔ M16 RESOURCES VALIDATION: invalid amounts, expired requests and strict mode cannot mutate holds (42.438ms)
+✔ M16 RESOURCES SIMULATED: application bookkeeping never accepts a simulated completion as real OS proof (45.8289ms)
+ℹ tests 14
+ℹ suites 0
+ℹ pass 14
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1094.55

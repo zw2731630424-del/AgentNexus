@@ -1,0 +1,53 @@
+{
+  "node": "v24.15.0",
+  "observed_at": "2026-11-07T21:57:46.363Z",
+  "results": [
+    {
+      "name": "role-off-existing-agent",
+      "feature_effective": false,
+      "state": "FAILED",
+      "error": null,
+      "model_requests": 0
+    },
+    {
+      "name": "mock-provider-off",
+      "feature_effective": false,
+      "state": "FAILED",
+      "error": null,
+      "model_requests": 0
+    },
+    {
+      "name": "cancel-before-approved-pending-tool",
+      "cancel_ack_state": "STOPPING",
+      "final_state": "CANCELLED",
+      "write_calls": 0,
+      "file_text": null,
+      "output": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6\\evidence\\independent-review\\runtime\\cancel-write-8jikjL\\review-side-effect.txt"
+    },
+    {
+      "name": "project-pause-concurrent-admission",
+      "entered_b_while_pausing": false,
+      "pause_ack": {
+        "project_state": "PAUSED",
+        "task_b_state": "QUEUED",
+        "model_requests": 0
+      },
+      "task_b_final": "QUEUED",
+      "model_requests_after_pause": 0
+    },
+    {
+      "name": "restart-approved-pending-tool",
+      "old_approval": "6705368f-54ea-4543-bcce-1ecbea3cd647",
+      "after_reopen": {
+        "task_state": "WAITING",
+        "pending_approval": null,
+        "write_calls": 0
+      },
+      "new_approval": "cae2a1af-4965-4ece-8c47-9d5d98d244c8",
+      "reapprove_error": null,
+      "final_state": "UNKNOWN_QUARANTINED",
+      "reason": "PERSISTENT_DISK_OWNER_UNVERIFIED",
+      "write_calls": 1
+    }
+  ]
+}

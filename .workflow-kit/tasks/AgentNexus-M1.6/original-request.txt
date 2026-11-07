@@ -1,0 +1,1186 @@
+# AgentNexus M1.6 — Resource Governance & Native Harness Core
+
+**项目：** AgentNexus v0.4  
+**开发基线：** M1.5.1  
+**执行代理：** Codex  
+**任务性质：** 资源治理架构、原生 Harness 核心设计与实现、安全执行体系持续整改。
+
+---
+
+# 一、本轮战略目标
+
+AgentNexus 已经完成：
+
+- M0：主流开源 Harness 源码研究和总体架构设计。
+- M0.1：Feature Registry、Policy、Context Archive、Audit Trail、Tool Gateway 等基础设计与实现。
+- M1：受限本地内核。
+- M1.2：强制策略校验、精确资源授权、Operation Reconciliation。
+- M1.3：Runtime Identity、Trusted IPC、ExitProof 协议和 Windows 原生原语。
+- M1.4：Windows 执行链候选实现、File Broker、Process Supervisor。
+- M1.5：Production Bootstrap、Broker、IPC、Sandbox 候选实现。
+- M1.5.1：CPU 根因调查、失败关闭机制和资源治理设计。
+
+M1.5.1 最终状态：
+
+- 完整回归：305 项，296 PASS、8 NOT_RUN、1 FAIL。
+- CPU 资格测试：58 项，56 FAIL、2 PASS。
+- 严格 TypeScript 检查：PASS。
+- 完整 Windows 生产执行链：BLOCKED。
+
+CPU 调查已经明确：当前 Windows JOB_TIME 实现不满足既定累计 CPU 预算与超支容差合同。
+
+不能继续把当前实现视为合格的 CPU 硬限制。
+
+## 本轮最重要的战略调整
+
+M1.6 采用两条并行研发线：
+
+### A 线：Resource Governance & Security Execution
+
+负责：
+
+- CPU 资源控制重新设计。
+- RAM / Disk / Process / I/O / Network 管理。
+- Worker、Project、Platform 三级资源预算。
+- Windows 执行资格。
+- Ubuntu 资源治理准备。
+- Host / Worker / Broker / Sandbox / ExitProof 的安全闭环。
+
+### B 线：Native Harness Core
+
+负责：
+
+- Agent Runtime。
+- Agent Loop。
+- Context Assembly。
+- Tool Runtime。
+- Agent Lifecycle。
+- Agent Message Bus。
+- Task Scheduler。
+- Multi-Agent Coordination。
+- Workflow Runtime 原生整合准备。
+- Model Gateway 接口设计。
+
+两条线可以并行，但必须共用统一的身份、任务、权限、审计、上下文和资源合同。
+
+本轮不要求完整 AgentNexus 产品一次性完成。
+
+重点是建立真正可运行、可扩展的原生 Harness 核心。
+
+---
+
+# 二、Phase 0：完整读取 M1.5.1 基线
+
+开始前必须读取：
+
+1. 当前仓库全部适用规则。
+2. M1.5.1 README。
+3. M1.5.1 完整验收报告。
+4. CPU 根因报告。
+5. CPU 资格测试报告。
+6. M1.5.1 独立代码审查。
+7. M1.5.1 deployment-approval.md。
+8. M1.5.1 全部源码和测试。
+9. M1.2 至 M1.5.1 历史架构和 ADR。
+10. Feature Catalog。
+11. Policy Catalog。
+12. Context Archive、Audit Trail、Tool Gateway 和 Reconciliation 合同。
+13. M0 主流 Harness 源码研究矩阵。
+14. Workflow Kit 完整功能映射。
+
+必须核实：
+
+- 当前分支和 HEAD。
+- 工作树状态。
+- 实际运行源码清单。
+- 全部源码 SHA256。
+- 历史测试基线。
+- 未关闭问题。
+- 已有 Feature / Policy ID。
+- 当前依赖关系。
+
+保留所有历史失败和原始证据。
+
+不得覆盖 M0 至 M1.5.1 的任何历史交付。
+
+不要重复执行已经完成的全部开源 Harness 研究。只有遇到实际技术选型缺口时才补充研究。
+
+建立独立 M1.6 工作记录。
+
+---
+
+# 三、A 线：Resource Governance Engine
+
+## A1：CPU 资源合同重新设计
+
+这是 A 线最高优先级。
+
+不要预设继续使用 Windows JOB_TIME。
+
+也不要预设 CPU_RATE 就能替代累计 CPU 时间预算。
+
+必须重新定义四种独立能力：
+
+### 1. CPU Bandwidth
+
+限制 Worker 能够占用的 CPU 调度带宽。
+
+例如：
+
+- 单 Worker 最大 CPU 带宽。
+- Project 总 CPU 带宽。
+- Platform 总 CPU 带宽。
+
+### 2. CPU Consumption Budget
+
+限制累计 CPU 消耗。
+
+例如：
+
+- 单 Worker 累计 CPU 时间。
+- 一个 Task 的 CPU 总消耗。
+- 一个 Project 的 CPU 总消耗。
+- 整个平台的累计 CPU 预算。
+
+### 3. Execution Wall Deadline
+
+限制任务实际持续时间。
+
+必须区分：
+
+- 任务启动时间。
+- 执行时间。
+- 等待时间。
+- 暂停时间。
+- 结束时间。
+
+### 4. CPU Accounting
+
+准确记录：
+
+- User Mode CPU。
+- Kernel Mode CPU。
+- 主进程 CPU。
+- 子进程 CPU。
+- Job 累计 CPU。
+- Project 累计 CPU。
+
+明确统计来源、精度、误差和未知情况。
+
+## A2：研究不同实现方案
+
+对以下方案开展有针对性的技术研究：
+
+- Windows Job Object CPU_RATE。
+- Windows JOB_TIME。
+- 外部可信 Supervisor。
+- CPU 使用量采样。
+- 进程分片执行。
+- Worker 阶段性预算。
+- Linux cgroup v2。
+- 其他能够提供明确资源合同的执行后端。
+
+每种方案必须回答：
+
+1. 实际限制什么？
+2. 是否为 OS 强制执行？
+3. 是否覆盖子进程？
+4. 是否存在检查周期？
+5. 超限后多久能够停止？
+6. 是否能够给出可验证的上界？
+7. 是否支持多 Worker 并发？
+8. 是否能够恢复？
+9. 是否适合长期运行？
+10. 是否符合 AgentNexus 的预算合同？
+
+不能将监控终止冒充严格硬限制。
+
+不能将 CPU_RATE 冒充累计 CPU 时间预算。
+
+不能根据有限测试推导不存在的上界。
+
+## A3：CPU 资格与失败关闭
+
+当前 CPU 资格 FAIL 必须永久保留。
+
+重新设计后：
+
+- 原预算保持不变，除非单独提出新的产品合同并获得批准。
+- 原始失败记录不能覆盖。
+- 不得通过调整测试阈值制造 PASS。
+- 不得把外部 Helper Deadline 当成 OS CPU 硬限制通过。
+- 不得排除实际运行的子进程。
+
+如果某个执行后端不能满足严格 CPU 合同：
+
+- 该能力标记 BLOCKED。
+- 不能开放对应的严格 CPU Profile。
+- 可以在明确的不同产品合同下研究较弱的资源管理模式。
+- 两种模式必须使用不同能力名称和资格状态。
+
+不能让较弱模式冒充原有严格保证。
+
+---
+
+# 四、A 线：统一 Resource Governance Engine
+
+不要把 CPU 当作孤立功能。
+
+建立统一的资源治理系统。
+
+## A4：资源类型
+
+至少覆盖：
+
+| 资源 | 管理对象 |
+|---|---|
+| CPU | CPU 带宽、累计消耗、执行时间 |
+| RAM | Worker 内存、Project 内存、Platform 内存 |
+| Disk | 工作区、临时文件、Artifact |
+| Process | 最大进程数、子进程数、并发 Worker |
+| I/O | 磁盘读写量、日志速率 |
+| Network | 连接数量、目标范围、带宽 |
+| Model | Token、请求频率、费用 |
+| Time | Task 时间、Agent 生命周期 |
+
+## A5：三级资源预算
+
+必须明确分离：
+
+### Worker Budget
+
+限制单个 Agent 或 Worker 的资源使用。
+
+### Project Budget
+
+限制同一项目下所有 Agent 的资源总和。
+
+### Platform Budget
+
+限制整个 AgentNexus 平台的总资源使用。
+
+例如：
+
+一个 Worker 单独符合 CPU 预算，不代表多个 Worker 合起来不会耗尽服务器资源。
+
+必须设计：
+
+- 资源预留。
+- 资源分配。
+- 资源占用。
+- 资源释放。
+- 超额拒绝。
+- 资源等待队列。
+- 资源回收。
+- UNKNOWN 资源隔离。
+
+资源释放必须继续遵守 M1.2/M1.3/M1.4/M1.5 的 ExitProof 和 Reconciliation 合同。
+
+不能仅因为 Agent 报告任务结束，就释放资源。
+
+## A6：资源治理与 Feature Registry
+
+Resource Governance 必须成为原生模块。
+
+每种资源控制能力有独立 Feature ID。
+
+例如：
+
+- `resource.cpu.bandwidth`
+- `resource.cpu.consumption`
+- `resource.cpu.accounting`
+- `resource.memory.limit`
+- `resource.disk.quota`
+- `resource.process.limit`
+- `resource.io.limit`
+- `resource.network.limit`
+- `resource.project.budget`
+- `resource.platform.budget`
+
+实际 ID 遵守项目已有命名规则。
+
+每个 Feature 必须定义：
+
+- 默认状态。
+- 依赖。
+- 冲突。
+- 关闭行为。
+- 降级合同。
+- 资格状态。
+- 恢复方式。
+- 测试映射。
+
+关闭某项资源控制功能，不得自动放开高风险执行。
+
+如果严格 CPU 硬限制关闭或不合格，相关严格执行 Profile 必须保持 BLOCKED。
+
+---
+
+# 五、B 线：Native Harness Core
+
+这是本轮另一条核心研发线。
+
+目标是从受限内核开始，建立真正的原生 Agent 运行环境。
+
+不要只设计 Agent 的提示词和角色配置。
+
+必须形成可执行的软件架构。
+
+## B1：Native Agent Runtime
+
+建立统一 Agent Runtime。
+
+每个 Agent 必须拥有独立的：
+
+- Agent ID。
+- Agent Type。
+- Runtime Instance ID。
+- Project ID。
+- Task ID。
+- Session ID。
+- Model Binding。
+- Context Reference。
+- Tool Capability。
+- Resource Budget。
+- Policy Scope。
+- Lifecycle State。
+
+逻辑身份与真实 Runtime Identity 必须分离。
+
+Agent 不允许自行修改自己的身份、权限和资源预算。
+
+所有状态变更通过可信 Runtime 管理。
+
+## B2：Agent Lifecycle
+
+建立明确生命周期：
+
+```text
+CREATED
+   |
+   v
+INITIALIZING
+   |
+   v
+READY
+   |
+   v
+RUNNING
+   |
+   +----> WAITING
+   |         |
+   |         v
+   +------ RESUMING
+             |
+             v
+          RUNNING
+             |
+       +-----+------+
+       |            |
+       v            v
+    STOPPING     FAILED
+       |
+       v
+    STOPPED
+```
+
+具体状态可以根据现有 M1.5.1 合同调整。
+
+必须覆盖：
+
+- 创建。
+- 启动。
+- 唤醒。
+- 暂停。
+- 等待消息。
+- 恢复。
+- 取消。
+- 终止。
+- 崩溃。
+- 重启恢复。
+
+不能让 Agent 自己通过修改数据库记录改变生命周期。
+
+必须保留审计记录。
+
+## B3：Agent Loop
+
+建立原生 Agent Loop。
+
+至少包含：
+
+1. 接收任务。
+2. 读取项目规则。
+3. 组装当前上下文。
+4. 选择模型。
+5. 发起模型请求。
+6. 解析模型响应。
+7. 识别工具调用。
+8. 进行参数验证。
+9. 进行 Feature 检查。
+10. 进行 Policy 检查。
+11. 申请授权。
+12. 调用 Tool Gateway。
+13. 收集执行结果。
+14. 更新 Context Archive。
+15. 更新 Task 状态。
+16. 决定继续、等待、交接或结束。
+
+所有有副作用的操作仍必须经过现有可信执行入口。
+
+本轮不能为了让 Agent Loop 更容易实现而绕过 Policy 或 Tool Gateway。
+
+## B4：Context Assembly
+
+建立独立 Context Assembly 模块。
+
+它负责根据当前 Task 组装模型请求上下文。
+
+输入至少包括：
+
+- 项目规则。
+- Agent 角色合同。
+- Task 合同。
+- 最近交互。
+- 当前工作状态。
+- 相关历史上下文。
+- 必要文件内容。
+- 相关 Decision Ledger。
+- 工具执行结果。
+- 其他 Agent 的消息。
+
+必须区分：
+
+- 原始历史。
+- 当前任务上下文。
+- 摘要。
+- 检索结果。
+- 派生索引。
+
+特别遵守：
+
+**原始 Context Archive 必须完整保留，不能使用语义摘要覆盖原始记录。**
+
+当上下文不足时，可以创建独立 Retrieval Agent 读取原始档案，提取相关信息。
+
+摘要和索引必须能够重建。
+
+上下文装配需要记录来源引用，能够追溯模型当时看到的内容。
+
+不允许仅依靠模型自行决定哪些历史内容应该永久丢弃。
+
+## B5：Agent Message Bus
+
+建立原生消息总线。
+
+支持：
+
+- Agent → Agent。
+- Parent Agent → Subagent。
+- Subagent → Parent Agent。
+- Agent → Coordinator。
+- Reviewer → Development Agent。
+- Resident Agent → Development Agent。
+- Coordinator → 多个 Agent。
+
+消息至少包含：
+
+- Message ID。
+- Sender Agent ID。
+- Receiver Agent ID。
+- Project ID。
+- Task ID。
+- Session ID。
+- Message Type。
+- Payload Reference。
+- Priority。
+- Created Time。
+- Expiration。
+- Correlation ID。
+- Delivery State。
+
+必须支持：
+
+- 消息持久化。
+- 去重。
+- 重试规则。
+- 消息确认。
+- 过期消息。
+- 消息撤销。
+- 权限检查。
+- 消息审计。
+
+不确定的外部副作用消息不能自动重复执行。
+
+## B6：Task Scheduler
+
+建立统一任务调度器。
+
+负责：
+
+- 创建任务。
+- 派发任务。
+- 选择 Agent。
+- 分配资源。
+- 控制并发。
+- 暂停任务。
+- 恢复任务。
+- 取消任务。
+- 任务超时。
+- 任务依赖。
+- 任务交接。
+- 失败处理。
+- Checkpoint。
+
+任务调度必须与 Resource Governance 联动。
+
+当资源不足时：
+
+- 不得无限创建 Worker。
+- 不得无限排队占用内存。
+- 不得重复创建相同任务。
+- 不得绕过资源预算。
+- 必须保留可恢复状态。
+
+---
+
+# 六、B 线：五类核心 Agent 的原生架构
+
+本项目最初规划了五类核心 Agent。
+
+本轮必须将它们正式纳入 Native Harness 的 Agent Type Registry。
+
+## 1. Resident Agent（常驻 Agent）
+
+职责：
+
+- 在项目开发期间保持运行。
+- 接收其他 Agent 的消息。
+- 监控任务状态。
+- 管理消息分发。
+- 唤醒等待中的 Agent。
+- 检查项目是否存在未处理任务。
+- 推动项目持续开发。
+
+常驻 Agent 不应该通过无限循环消耗大量 Token。
+
+建议采用：
+
+- 常驻 Runtime。
+- 事件驱动。
+- 持久消息队列。
+- 低成本等待机制。
+- 按需模型调用。
+
+必须支持：
+
+- 项目启动时激活。
+- 项目暂停时休眠。
+- 项目关闭时终止。
+- Host 重启后恢复。
+
+常驻不等于永远占用 CPU。
+
+## 2. Development Agent（开发主 Agent）
+
+职责：
+
+- 规划项目。
+- 分析需求。
+- 制定设计。
+- 拆分任务。
+- 分派子 Agent。
+- 整合代码。
+- 处理冲突。
+- 管理项目进度。
+- 验收子 Agent 交付。
+
+主 Agent 可以使用高能力、高成本模型。
+
+但必须通过统一 Model Gateway 路由。
+
+主 Agent 不应该把全部项目文件和所有历史塞进自己的上下文。
+
+它负责决策和整合，具体研究工作交给子 Agent。
+
+## 3. Development Subagent（开发子 Agent）
+
+这是可扩展的 Agent 类型集合。
+
+可以包含：
+
+- Coding Agent。
+- Code Review Agent。
+- Research Agent。
+- File Reading Agent。
+- Test Agent。
+- Debug Agent。
+- Documentation Agent。
+- Security Review Agent。
+- Mathematical Review Agent。
+- Scientific Review Agent。
+
+要求：
+
+- 由主 Agent 创建和派发。
+- 拥有独立 Context。
+- 拥有独立 Task。
+- 使用独立资源预算。
+- 使用明确文件访问范围。
+- 可以与主 Agent 双向发送消息。
+- 可以向其他获得授权的子 Agent 发送消息。
+- 完成后提交结构化交付。
+
+默认采用较便宜的模型。
+
+需要更强推理能力时，可以分配更贵的模型。
+
+模型选择不能改变权限范围。
+
+## 4. Background Review Agent（后台审查 Agent）
+
+职责：
+
+- 监控提交后的代码变更。
+- 监控 Push 后的代码变更。
+- 自动触发独立审查。
+- 查找 Bug。
+- 检查数学公式和数值运算。
+- 检查索引、边界、并发和状态机。
+- 检查安全问题。
+- 输出可复现的问题证据。
+
+特别注意：
+
+后台 Reviewer 主要审查代码正确性和实现问题。
+
+不应该擅自评价项目研究方向是否有价值，也不应该随意改变项目科学目标。
+
+Reviewer 默认只读。
+
+Reviewer 不得自行修改开发者代码。
+
+发现问题后通知开发主 Agent，由其决定修复任务。
+
+审查结果必须与具体 Commit、Diff 和源码版本绑定。
+
+## 5. Coordinator Agent（协调 Agent）
+
+职责：
+
+- 协调多个项目和研发任务。
+- 协调多个主 Agent。
+- 管理共享资源。
+- 处理任务优先级。
+- 处理跨项目依赖。
+- 解决资源冲突。
+- 提供全局进度信息。
+
+Coordinator 不直接参与项目本体的设计和编码。
+
+它不应擅自改变项目目标、实验合同或科学决策。
+
+项目级决策仍由对应项目的 Development Agent 和可信管理员负责。
+
+---
+
+# 七、B 线：模型供应商与 API Key 池
+
+本轮完成 Model Gateway 架构和必要的本地模拟实现。
+
+不要绑定单一模型供应商。
+
+支持未来建立独立 Provider Pool：
+
+- OpenAI / GPT Pool。
+- DeepSeek Pool。
+- GLM Pool。
+- 其他兼容 Provider Pool。
+
+每个供应商拥有独立 Key Pool。
+
+要求：
+
+1. Key 与模型供应商绑定。
+2. Key 具备独立状态。
+3. 支持多个 Key。
+4. 支持轮换和失效标记。
+5. 支持并发额度。
+6. 支持费用统计。
+7. 支持请求路由。
+8. 支持模型能力注册。
+9. 支持供应商故障切换。
+10. 支持按 Agent 类型选择模型。
+
+API Key 必须通过 Credential Vault 管理。
+
+不得把 Key 放进 Agent Prompt、Context Archive、普通 Audit 内容或子 Agent 消息。
+
+本轮不读取真实 API Key，不连接真实 Provider，不产生费用。
+
+只实现接口、模拟 Provider 和合同测试。
+
+## 模型路由原则
+
+例如：
+
+| Agent | 默认模型策略 |
+|---|---|
+| Resident Agent | 低成本模型或事件驱动无模型等待 |
+| Development Agent | 高能力模型 |
+| 普通 Subagent | 低成本模型 |
+| Security Reviewer | 高推理能力模型 |
+| Mathematical Reviewer | 高推理能力模型 |
+| Coordinator | 低成本模型，必要时升级 |
+
+实际模型必须可配置。
+
+模型成本不能影响 Agent 的权限和授权等级。
+
+---
+
+# 八、Workflow Kit 原生整合
+
+之前已经完成 AI Workflow Kit v4.0 的研究和105文件功能映射。
+
+本轮开始准备将工作流功能融入 Native Harness。
+
+不能将它作为一个外置提示词包。
+
+需要形成原生 Workflow Runtime 的接口和实现基础。
+
+重点包括：
+
+- Project Rules。
+- Task Contracts。
+- G0-G6 Gates。
+- Worker Roles。
+- Reviewer Roles。
+- Checklists。
+- Evidence。
+- Decisions。
+- Checkpoints。
+- Handoffs。
+- Workflow State。
+
+所有功能必须纳入 Feature Registry。
+
+每项功能可独立开启和关闭。
+
+没有明确许可证的原始代码和表达不得直接复制。
+
+优先依据已经批准的独立功能规格实现。
+
+Workflow Runtime 必须与 Task Scheduler、Agent Lifecycle、Audit Trail 联动。
+
+---
+
+# 九、两条研发线共享的基础设施
+
+A 线和 B 线不能分别建立一套身份、权限和数据系统。
+
+必须共用：
+
+1. Feature Registry。
+2. Policy Enforcement。
+3. Runtime Identity。
+4. Tool Gateway。
+5. Context Archive。
+6. Audit Trail。
+7. Artifact Store。
+8. Decision Ledger。
+9. Operation Reconciliation。
+10. Resource Governance。
+
+所有 Agent 的操作必须能够关联：
+
+- Agent ID。
+- Runtime Identity。
+- Project ID。
+- Task ID。
+- Session ID。
+- Operation ID。
+- Model Binding。
+- Resource Budget。
+- Policy Decision。
+- Artifact Reference。
+
+任何新模块都必须考虑：
+
+- 功能开关。
+- 降级合同。
+- 故障恢复。
+- 审计记录。
+- 权限边界。
+- 资源限制。
+
+---
+
+# 十、Development Intelligence
+
+保留 M1 已有的命令和代码检查基础。
+
+继续发展：
+
+- Bash / Zsh 检查。
+- PowerShell AST。
+- Python AST / Ruff。
+- C# Roslyn。
+- TypeScript Compiler。
+- JSON / YAML。
+- SQL。
+- Dockerfile。
+- CLI 参数 Schema。
+- LSP。
+- 实时诊断。
+- 命令执行预览。
+- 环境预检。
+- 风险预检。
+
+优先集成成熟工具，不重复造轮子。
+
+语法正确不等于操作安全。
+
+所有命令执行仍然经过 Tool Gateway、Policy 和执行资格检查。
+
+没有经过安全验证的任意 Shell 保持 BLOCKED。
+
+---
+
+# 十一、Feature Registry 与 Policy 扩展
+
+本轮新增所有 Feature 和 Policy 必须遵守现有 Catalog 结构。
+
+每项 Feature 具有：
+
+- Feature ID。
+- 默认状态。
+- 作用域。
+- 依赖。
+- 冲突。
+- 实现状态。
+- 资格状态。
+- 关闭行为。
+- 降级方案。
+- 恢复流程。
+- 测试 ID。
+
+每条 Policy 具有：
+
+- Policy ID。
+- Owner。
+- Enforcement Level。
+- ENFORCE 行为。
+- AUDIT_ONLY 行为。
+- DISABLED 行为。
+- 正向测试。
+- 负向测试。
+- 绕过测试。
+
+特别注意：
+
+Policy DISABLED 不会自动关闭操作系统权限。
+
+Feature ON 不会自动赋予未通过资格的能力。
+
+模型不能自行修改策略。
+
+---
+
+# 十二、M1.6 实施阶段
+
+允许两条研发线并行，但需要统一接口和验收。
+
+## Phase 0：基线冻结与总体架构
+
+- 读取全部规则。
+- 冻结 M1.5.1。
+- 更新总体架构。
+- 确定两条研发线。
+- 确定共享协议。
+- 更新 ADR。
+
+## Phase 1A：CPU 与资源治理设计
+
+- CPU 四种合同。
+- 不同执行后端比较。
+- RAM / Disk / Process 资源合同。
+- Worker / Project / Platform 三级预算。
+- 资格状态和降级设计。
+
+## Phase 1B：Native Harness 核心设计
+
+- Agent Runtime。
+- Agent Loop。
+- Context Assembly。
+- Message Bus。
+- Task Scheduler。
+- Agent Type Registry。
+- Model Gateway。
+- Workflow Runtime。
+
+## Phase 2A：资源治理基础实现
+
+优先完成：
+
+- Resource Registry。
+- Budget Manager。
+- Resource Reservation。
+- Resource Accounting。
+- Worker Resource Limits。
+- Project Budget。
+- Platform Budget。
+
+没有真实 OS 硬限制证据的能力不能标记 PASS。
+
+## Phase 2B：Native Harness 核心实现
+
+优先完成：
+
+- Agent Lifecycle。
+- Agent Loop。
+- Context Assembly。
+- Message Bus。
+- Task Scheduler。
+- 模拟 Provider。
+- 受限原生工具调用。
+
+先实现低风险、可验证的运行闭环。
+
+## Phase 3：五类 Agent 原型
+
+依次建立：
+
+- Resident Agent。
+- Development Agent。
+- Development Subagent。
+- Background Review Agent。
+- Coordinator Agent。
+
+使用模拟模型或本地测试 Provider。
+
+不得连接真实 Provider。
+
+## Phase 4：Workflow Runtime 整合
+
+完成工作流原生接口、任务合同、Gate、角色、证据和检查点的整合。
+
+## Phase 5：集成测试与独立审查
+
+验证：
+
+- 多 Agent 消息。
+- Agent 唤醒。
+- 任务调度。
+- Context 恢复。
+- 资源预算。
+- Feature 开关。
+- Policy。
+- Audit。
+- 故障恢复。
+- 并发。
+- 模拟模型调用。
+
+---
+
+# 十三、测试和验收
+
+所有测试必须区分：
+
+- PASS。
+- FAIL。
+- NOT_RUN。
+- BLOCKED。
+- INCONCLUSIVE。
+- SIMULATED。
+
+CPU 资格：
+
+- 原始 M1.5 / M1.5.1 失败永久保留。
+- 新方案单独建立资格矩阵。
+- 不允许通过修改旧合同制造 PASS。
+- 新的较弱资源合同必须单独命名和验收。
+
+Native Harness：
+
+- Agent 身份伪造。
+- 跨项目访问。
+- 消息重放。
+- 任务重复派发。
+- Agent 崩溃。
+- Agent 恢复。
+- 消息丢失。
+- 消息重复。
+- Context 丢失。
+- 历史上下文检索错误。
+- 子 Agent 越权。
+- Reviewer 修改代码。
+- Coordinator 修改项目决策。
+- 资源超额。
+- 任务取消。
+- Worker 未退出。
+- Audit 写入失败。
+
+上下文系统：
+
+- 原始数据完整性。
+- 压缩无损。
+- 分段恢复。
+- 哈希验证。
+- 检索引用准确性。
+- 摘要不能覆盖原始历史。
+- 大型上下文流式读取。
+
+资源系统：
+
+- 单 Worker 超额。
+- Project 超额。
+- Platform 超额。
+- 并发预算竞争。
+- 资源预留失败。
+- 资源释放失败。
+- UNKNOWN 资源隔离。
+
+模拟 Provider 必须明确标记 SIMULATED，不得冒充真实模型联调。
+
+---
+
+# 十四、系统级部署与科研授权纪律
+
+本轮不要求部署生产 Windows 账户。
+
+不得未经单独授权：
+
+- 创建 Windows 用户。
+- 修改 ACL。
+- 注册 AppContainer。
+- 创建 Task Scheduler。
+- 修改防火墙。
+- 安装驱动或服务。
+- 修改 Ubuntu。
+- 读取 API Key。
+- 连接真实 Provider。
+- 产生真实模型费用。
+- 修改其他科研项目。
+- 运行正式科研实验。
+- 自动 Commit / Push。
+
+M1.5.1 的 CPU FAIL 不能通过系统部署审批消除。
+
+真实 OS 能力仍然按各自资格状态管理。
+
+---
+
+# 十五、交付物
+
+建立独立 M1.6 交付目录。
+
+至少包含：
+
+### 总体架构
+
+1. M1.6 总体架构。
+2. A/B 两条研发线接口合同。
+3. ADR。
+4. Feature Catalog。
+5. Policy Catalog。
+6. 内部协议。
+
+### Resource Governance
+
+7. CPU 资源合同。
+8. CPU 技术方案比较。
+9. Resource Governance Engine。
+10. Worker / Project / Platform 预算。
+11. 资源资格报告。
+
+### Native Harness
+
+12. Agent Runtime。
+13. Agent Loop。
+14. Context Assembly。
+15. Agent Lifecycle。
+16. Message Bus。
+17. Task Scheduler。
+18. Agent Type Registry。
+19. Model Gateway。
+20. Workflow Runtime 接口与实现。
+
+### 验证与审计
+
+21. 完整源码。
+22. 测试源码。
+23. 原始测试日志。
+24. CPU 资格记录。
+25. Agent 协作测试。
+26. 上下文完整性测试。
+27. 资源治理测试。
+28. 独立代码审查。
+29. SHA256 清单。
+30. 最终验收报告。
+31. M1.7 后续建议。
+
+---
+
+# 十六、工程纪律
+
+- 不无限累积内存。
+- 大型输出必须流式写盘。
+- 分块处理。
+- 背压。
+- 资源上限。
+- 定期检查点。
+- 原始上下文不可被摘要覆盖。
+- 不确定副作用禁止自动重试。
+- 未验证能力保持 BLOCKED。
+- 不得把模拟测试冒充真实测试。
+- 不得把功能设计冒充实现。
+- 不得将局部原语 PASS 拼接成完整生产 PASS。
+- 保留全部历史失败。
+- 不为了增加测试数量制造无意义测试。
+- 不进行无关生产级过度工程化。
+
+同一工作区必须遵守单写者纪律。
+
+两条研发线可以并行，但共享接口、数据库 Schema、Feature / Policy Catalog 必须由主执行者统一管理。
+
+---
+
+# 十七、最终验收原则
+
+M1.6 不要求完整产品一次性完成。
+
+但必须证明两个方向都取得实际进展。
+
+A 线：
+
+- CPU 资源合同得到重新定义。
+- 不再把不合格 JOB_TIME 当成可用能力。
+- 建立真实的资源预算和核算基础。
+- Worker / Project / Platform 资源管理能够运行。
+- 未通过 OS 资格的硬限制仍然 BLOCKED。
+
+B 线：
+
+- 原生 Agent Runtime 能够创建和管理 Agent。
+- Agent Loop 能够完成受限任务。
+- Context Assembly 能够引用完整历史。
+- Agent 之间能够双向通信。
+- Task Scheduler 能够派发和恢复任务。
+- 五类 Agent 有明确的运行合同。
+- Model Gateway 能够通过模拟 Provider 工作。
+- 所有工具调用经过统一权限和审计入口。
+
+两条线必须共用同一套身份、权限、审计、上下文和资源体系。
+
+**本轮最重要的结果不是让五个 Agent 同时运行，而是让 AgentNexus 真正拥有一套原生 Agent Runtime，并且具备安全、可恢复、可追踪的运行基础。**
+
+现在开始执行 M1.6。
+
+先完成规则读取、M1.5.1 基线冻结和总体架构设计。
+
+随后并行推进 A 线和 B 线。
+
+不要只提交设计计划就停止，在授权范围内持续完成实际代码、测试和交付。
+
+遇到系统级授权需求时暂停相应操作，等待用户批准。

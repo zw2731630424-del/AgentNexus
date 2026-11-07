@@ -1,0 +1,67 @@
+{
+  "schema": "agentnexus/m16-model-cancellation/1",
+  "observed_at": "2026-11-07T21:25:36.5783517Z",
+  "assurance": "SIMULATED_MODEL_CONTRACT_WITH_REAL_LOCAL_ACK_BARRIERS",
+  "model_tests": {
+    "fail": 0,
+    "top_level": 14,
+    "tests": 18,
+    "raw_log": "model-cancellation-run-01.tap",
+    "status": "PASS",
+    "pass": 18
+  },
+  "focused_strict_typecheck": {
+    "status": "PASS",
+    "raw_log": "model-cancellation-focused-typecheck.txt"
+  },
+  "full_source_typecheck": {
+    "raw_log": "model-cancellation-typecheck-01.txt",
+    "reason": "harness/index.ts ProjectRecord initializer missing global_rules; reported to main owner, outside assigned files",
+    "status": "FAIL_AT_SHARED_INFLIGHT_REVISION"
+  },
+  "components_at_shared_inflight_revision": {
+    "tests": 33,
+    "fail": 1,
+    "raw_log": "components-cancellation-final.tap",
+    "failure": "M16-MESSAGE-ACK-FAILURE: shared NativeState now freezes failed ACK; fixture did not perform native recovery; reported to main owner",
+    "pass": 32
+  },
+  "cancel_barriers": [
+    "MODEL_REQUEST_PREPARED",
+    "MODEL_BUDGET_RESERVED",
+    "CONTEXT_CAPTURED",
+    "MODEL_DISPATCH_INTENT",
+    "MODEL_SENT",
+    "MODEL_NOT_SENT",
+    "budget.settle"
+  ],
+  "invariants": [
+    "Trusted AbortSignal is a separate parameter and never serialized",
+    "Pre-dispatch cancellation preserves zero fixture sequence and zero shared model_requests/tokens/cost",
+    "Durable intent is acknowledged before final fence; MODEL_SENT consumes fixture sequence without an intervening await",
+    "Sent unknown cancellation retains key and budget and never fails over",
+    "Known settled usage is never rewritten to zero"
+  ],
+  "candidate": [
+    {
+      "path": "source/src/agentnexus/harness/models.ts",
+      "sha256": "e73453360e82503f9bdbb2d924c6c7e32f7887ecca26445ef4542f7e70c225ac",
+      "bytes": 25341
+    },
+    {
+      "path": "source/tests/agentnexus/m16-models.test.ts",
+      "sha256": "20c6f6cc380b407b325a92ff249dbc65cc1fe87fd87b24ceba037dc24d81994b",
+      "bytes": 21333
+    }
+  ],
+  "unchanged_modules": [
+    "context.ts",
+    "messages.ts",
+    "shared schema/catalog"
+  ],
+  "not_run": [
+    "native/CPU qualification",
+    "real provider/credentials",
+    "full regression"
+  ]
+}

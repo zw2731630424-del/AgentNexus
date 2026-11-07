@@ -1,0 +1,111 @@
+{
+  "observed_at": "2026-11-07T22:03:44.894770+00:00",
+  "features": 190,
+  "policies": 52,
+  "m16_registered": 43,
+  "blocked_registration_intersection": [],
+  "wf.context": {
+    "implementation_status": "INTERFACE_ONLY",
+    "qualification_status": "NOT_RUN",
+    "runtime_admission": "NO_MODULE_REGISTERED"
+  },
+  "new_policy_test_mapping": [
+    {
+      "id": "P.NATIVE_IDENTITY",
+      "level": "L0",
+      "degradable": false,
+      "tests": [
+        "M16-HARNESS-TYPES",
+        "M16-HARNESS-SCOPE",
+        "M16-HARNESS-POLICY-OWNER"
+      ],
+      "all_ids_found_in_test_source": true,
+      "all_ids_observed_in_passing_tap": true
+    },
+    {
+      "id": "P.AGENT_SCOPE",
+      "level": "L0",
+      "degradable": false,
+      "tests": [
+        "M16-HARNESS-LOOP",
+        "M16-HARNESS-SCOPE",
+        "M16-HARNESS-POLICY-OWNER"
+      ],
+      "all_ids_found_in_test_source": true,
+      "all_ids_observed_in_passing_tap": true
+    },
+    {
+      "id": "P.MESSAGE_DELIVERY",
+      "level": "L0",
+      "degradable": false,
+      "tests": [
+        "M16-MESSAGE-DURABLE",
+        "M16-MESSAGE-AUTH",
+        "M16-HARNESS-POLICY-OWNER"
+      ],
+      "all_ids_found_in_test_source": true,
+      "all_ids_observed_in_passing_tap": true
+    },
+    {
+      "id": "P.RESOURCE_ADMISSION",
+      "level": "L0",
+      "degradable": false,
+      "tests": [
+        "M16-HARNESS-BUDGET",
+        "M16-HARNESS-REQUEST-ACCOUNTING",
+        "M16-HARNESS-POLICY-OWNER"
+      ],
+      "all_ids_found_in_test_source": true,
+      "all_ids_observed_in_passing_tap": true
+    },
+    {
+      "id": "P.MODEL_CREDENTIAL",
+      "level": "L0",
+      "degradable": false,
+      "tests": [
+        "M16-MODEL-POOL",
+        "M16-MODEL-REAL-BLOCKED",
+        "M16-HARNESS-POLICY-OWNER"
+      ],
+      "all_ids_found_in_test_source": true,
+      "all_ids_observed_in_passing_tap": true
+    },
+    {
+      "id": "P.CONTEXT_PROVENANCE",
+      "level": "L0",
+      "degradable": false,
+      "tests": [
+        "M16-CONTEXT-RAW",
+        "M16-CONTEXT-SCOPE",
+        "M16-HARNESS-POLICY-OWNER"
+      ],
+      "all_ids_found_in_test_source": true,
+      "all_ids_observed_in_passing_tap": true
+    },
+    {
+      "id": "P.NATIVE_LIFECYCLE",
+      "level": "L0",
+      "degradable": false,
+      "tests": [
+        "M16-HARNESS-RECOVERY",
+        "M16-HARNESS-CANCEL-FENCE",
+        "M16-HARNESS-POLICY-OWNER"
+      ],
+      "all_ids_found_in_test_source": true,
+      "all_ids_observed_in_passing_tap": true
+    },
+    {
+      "id": "P.WORKFLOW_BINDING",
+      "level": "L0",
+      "degradable": false,
+      "tests": [
+        "M16-HARNESS-WORKFLOW-CONTRACT",
+        "M16-HARNESS-WORKFLOW",
+        "M16-HARNESS-POLICY-OWNER"
+      ],
+      "all_ids_found_in_test_source": true,
+      "all_ids_observed_in_passing_tap": true
+    }
+  ],
+  "os_qualification_granted": false
+}

@@ -1,0 +1,45 @@
+{
+  "node": "v24.15.0",
+  "observed_at": "2026-11-07T21:16:32.558Z",
+  "results": [
+    {
+      "name": "role-off-existing-agent",
+      "feature_effective": false,
+      "state": "FAILED",
+      "model_requests": 0
+    },
+    {
+      "name": "mock-provider-off",
+      "feature_effective": false,
+      "state": "FAILED",
+      "model_requests": 0
+    },
+    {
+      "name": "cancel-before-approved-pending-tool",
+      "cancel_ack_state": "STOPPING",
+      "final_state": "CANCELLED",
+      "write_calls": 0,
+      "file_text": null,
+      "output": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6\\evidence\\independent-review\\runtime\\cancel-write-CN4mSD\\review-side-effect.txt"
+    },
+    {
+      "name": "project-pause-concurrent-admission",
+      "entered_b_while_pausing": true,
+      "pause_ack": {
+        "project_state": "PAUSED",
+        "task_b_state": "RUNNING",
+        "model_requests": 0
+      },
+      "task_b_final": "FAILED",
+      "model_requests_after_pause": 1
+    },
+    {
+      "name": "restart-approved-pending-tool",
+      "old_approval": "704d4088-8be5-4bee-811b-0950738a4446",
+      "reapprove_error": "TASK_NO_PENDING_APPROVAL",
+      "final_state": "FAILED",
+      "reason": "POLICY_DENIED",
+      "write_calls": 0
+    }
+  ]
+}

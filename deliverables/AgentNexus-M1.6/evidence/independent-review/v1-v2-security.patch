@@ -1,0 +1,15 @@
+--- v1/tests/agentnexus/security.test.ts
++++ v2/tests/agentnexus/security.test.ts
+@@ -51,7 +51,11 @@
+   ];
+   for (const [name, change, code] of variants) await t.test(name, () => assert.throws(() => validatePolicyDefinitions([change(policy())]), { code }));
+   assert.throws(() => validatePolicyDefinitions([policy(), policy()]), { code: 'DUPLICATE_POLICY' });
+-  assert.equal(validatePolicyDefinitions(catalog).length, 44); // Original 41 plus three M1.4 independent owners.
++  assert.equal(validatePolicyDefinitions(catalog).length, 52); // Frozen 44 plus the eight M1.6 independent owners.
++  for (const id of ['P.NATIVE_IDENTITY','P.AGENT_SCOPE','P.MESSAGE_DELIVERY','P.RESOURCE_ADMISSION','P.MODEL_CREDENTIAL','P.CONTEXT_PROVENANCE','P.NATIVE_LIFECYCLE','P.WORKFLOW_BINDING']) {
++    const definition = catalog.find(d => d.id === id);
++    assert.ok(definition); assert.equal(definition.level, 'L0'); assert.equal(definition.degradable, false);
++  }
+   const base = resolve(process.env.AGENTNEXUS_TEST_DATA_ROOT ?? '.workflow-kit/runtime/AgentNexus-M1.2/test-data', 'security'); await mkdir(base, { recursive: true });
+   await assert.rejects(openHost(await mkdtemp(join(base, 'bad-startup-')), { policies: [{ ...policy(), level: 'L9' } as any] }), { code: 'INVALID_POLICY_CONTRACT' });
+ });

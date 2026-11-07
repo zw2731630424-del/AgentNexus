@@ -1,0 +1,2661 @@
+{
+  "schema_version": "0.2-design",
+  "status": "M0.1 design; all test results separately evidenced",
+  "policies": [
+    {
+      "id": "P.IDENTITY",
+      "level": "L0",
+      "enforcement_owner": "可信IPC身份与能力Broker",
+      "scope": "project/task/resource",
+      "default_mode": "ENFORCE",
+      "degradable": false,
+      "risk": "HIGH",
+      "modes": {
+        "ENFORCE": "校验peer身份，禁止payload自报管理员",
+        "AUDIT_ONLY": "校验peer身份，禁止payload自报管理员；独立不变量不随应用审计模式关闭",
+        "DISABLED": "校验peer身份，禁止payload自报管理员；属于独立底层/结构保护，未隐式关闭"
+      },
+      "test_ids": [
+        "P.IDENTITY-BYPASS",
+        "P.IDENTITY-MODE",
+        "P.IDENTITY-NEG",
+        "P.IDENTITY-POS",
+        "P.IDENTITY-RACE",
+        "P.IDENTITY-RECOVERY",
+        "P.IDENTITY-UPGRADE"
+      ],
+      "implementation_status": "NOT_RUN",
+      "source": "Architecture 15.1-15.9 and v0.4 C; M0 security_review",
+      "failure": "owner不可用时暂停依赖副作用；不自动改模式",
+      "version": "0.2-design",
+      "test_cases": {
+        "positive": "已认证合法请求满足 校验peer身份，禁止payload自报管理员，写关联证据",
+        "negative": "伪造payload actor/admin不能改变认证subject",
+        "bypass": "伪造payload actor/admin不能改变认证subject；直接通道/关闭可选模块/三模式逐一验证",
+        "concurrency": "同一scope/资源两请求竞争；伪造payload actor/admin不能改变认证subject，事务/fence不得被覆盖",
+        "recovery": "在判断、claim、执行前后注入故障/重启；伪造payload actor/admin不能改变认证subject，未知结果不重跑",
+        "upgrade": "更换配置/规则版本使旧许可或诊断失效，历史原文不改"
+      },
+      "test_status": {
+        "positive": "NOT_RUN",
+        "negative": "NOT_RUN",
+        "bypass": "NOT_RUN",
+        "concurrency": "NOT_RUN",
+        "recovery": "NOT_RUN",
+        "upgrade": "NOT_RUN"
+      },
+      "audit_requirements": [
+        "operation_id",
+        "event_id",
+        "trusted_actor",
+        "scope",
+        "policy_id/revision",
+        "effective_mode",
+        "original_verdict",
+        "enforced_or_bypassed",
+        "authorization_ref",
+        "epoch",
+        "evidence_refs"
+      ]
+    },
+    {
+      "id": "P.FS_SCOPE",
+      "level": "L0",
+      "enforcement_owner": "OS执行器/句柄授权",
+      "scope": "project/task/resource",
+      "default_mode": "ENFORCE",
+      "degradable": false,
+      "risk": "HIGH",
+      "modes": {
+        "ENFORCE": "路径/重解析点/硬链接/UNC/ADS边界，操作绑定句柄",
+        "AUDIT_ONLY": "路径/重解析点/硬链接/UNC/ADS边界，操作绑定句柄；独立不变量不随应用审计模式关闭",
+        "DISABLED": "路径/重解析点/硬链接/UNC/ADS边界，操作绑定句柄；属于独立底层/结构保护，未隐式关闭"
+      },
+      "test_ids": [
+        "P.FS_SCOPE-BYPASS",
+        "P.FS_SCOPE-MODE",
+        "P.FS_SCOPE-NEG",
+        "P.FS_SCOPE-POS",
+        "P.FS_SCOPE-RACE",
+        "P.FS_SCOPE-RECOVERY",
+        "P.FS_SCOPE-UPGRADE"
+      ],
+      "implementation_status": "NOT_RUN",
+      "source": "Architecture 15.1-15.9 and v0.4 C; M0 security_review",
+      "failure": "owner不可用时暂停依赖副作用；不自动改模式",
+      "version": "0.2-design",
+      "test_cases": {
+        "positive": "已认证合法请求满足 路径/重解析点/硬链接/UNC/ADS边界，操作绑定句柄，写关联证据",
+        "negative": "../、ADS、UNC、链接置换不能取得工作区外句柄",
+        "bypass": "../、ADS、UNC、链接置换不能取得工作区外句柄；直接通道/关闭可选模块/三模式逐一验证",
+        "concurrency": "同一scope/资源两请求竞争；../、ADS、UNC、链接置换不能取得工作区外句柄，事务/fence不得被覆盖",
+        "recovery": "在判断、claim、执行前后注入故障/重启；../、ADS、UNC、链接置换不能取得工作区外句柄，未知结果不重跑",
+        "upgrade": "更换配置/规则版本使旧许可或诊断失效，历史原文不改"
+      },
+      "test_status": {
+        "positive": "NOT_RUN",
+        "negative": "NOT_RUN",
+        "bypass": "NOT_RUN",
+        "concurrency": "NOT_RUN",
+        "recovery": "NOT_RUN",
+        "upgrade": "NOT_RUN"
+      },
+      "audit_requirements": [
+        "operation_id",
+        "event_id",
+        "trusted_actor",
+        "scope",
+        "policy_id/revision",
+        "effective_mode",
+        "original_verdict",
+        "enforced_or_bypassed",
+        "authorization_ref",
+        "epoch",
+        "evidence_refs"
+      ]
+    },
+    {
+      "id": "P.REVIEW_RO",
+      "level": "L0",
+      "enforcement_owner": "OS只读身份/挂载",
+      "scope": "project/task/resource",
+      "default_mode": "ENFORCE",
+      "degradable": false,
+      "risk": "HIGH",
+      "modes": {
+        "ENFORCE": "Reviewer对候选树不可写",
+        "AUDIT_ONLY": "Reviewer对候选树不可写；独立不变量不随应用审计模式关闭",
+        "DISABLED": "Reviewer对候选树不可写；属于独立底层/结构保护，未隐式关闭"
+      },
+      "test_ids": [
+        "P.REVIEW_RO-BYPASS",
+        "P.REVIEW_RO-MODE",
+        "P.REVIEW_RO-NEG",
+        "P.REVIEW_RO-POS",
+        "P.REVIEW_RO-RACE",
+        "P.REVIEW_RO-RECOVERY",
+        "P.REVIEW_RO-UPGRADE"
+      ],
+      "implementation_status": "NOT_RUN",
+      "source": "Architecture 15.1-15.9 and v0.4 C; M0 security_review",
+      "failure": "owner不可用时暂停依赖副作用；不自动改模式",
+      "version": "0.2-design",
+      "test_cases": {
+        "positive": "已认证合法请求满足 Reviewer对候选树不可写，写关联证据",
+        "negative": "Reviewer写候选树应被OS拒绝",
+        "bypass": "Reviewer写候选树应被OS拒绝；直接通道/关闭可选模块/三模式逐一验证",
+        "concurrency": "同一scope/资源两请求竞争；Reviewer写候选树应被OS拒绝，事务/fence不得被覆盖",
+        "recovery": "在判断、claim、执行前后注入故障/重启；Reviewer写候选树应被OS拒绝，未知结果不重跑",
+        "upgrade": "更换配置/规则版本使旧许可或诊断失效，历史原文不改"
+      },
+      "test_status": {
+        "positive": "NOT_RUN",
+        "negative": "NOT_RUN",
+        "bypass": "NOT_RUN",
+        "concurrency": "NOT_RUN",
+        "recovery": "NOT_RUN",
+        "upgrade": "NOT_RUN"
+      },
+      "audit_requirements": [
+        "operation_id",
+        "event_id",
+        "trusted_actor",
+        "scope",
+        "policy_id/revision",
+        "effective_mode",
+        "original_verdict",
+        "enforced_or_bypassed",
+        "authorization_ref",
+        "epoch",
+        "evidence_refs"
+      ]
+    },
+    {
+      "id": "P.ARCHIVE_APPEND",
+      "level": "L0",
+      "enforcement_owner": "Archive Writer/文件ACL",
+      "scope": "project/task/resource",
+      "default_mode": "ENFORCE",
+      "degradable": false,
+      "risk": "HIGH",
+      "modes": {
+        "ENFORCE": "原档案只追加；摘要不能覆盖；读取内容哈希校验",
+        "AUDIT_ONLY": "原档案只追加；摘要不能覆盖；读取内容哈希校验；独立不变量不随应用审计模式关闭",
+        "DISABLED": "原档案只追加；摘要不能覆盖；读取内容哈希校验；属于独立底层/结构保护，未隐式关闭"
+      },
+      "test_ids": [
+        "P.ARCHIVE_APPEND-BYPASS",
+        "P.ARCHIVE_APPEND-MODE",
+        "P.ARCHIVE_APPEND-NEG",
+        "P.ARCHIVE_APPEND-POS",
+        "P.ARCHIVE_APPEND-RACE",
+        "P.ARCHIVE_APPEND-RECOVERY",
+        "P.ARCHIVE_APPEND-UPGRADE"
+      ],
+      "implementation_status": "NOT_RUN",
+      "source": "Architecture 15.1-15.9 and v0.4 C; M0 security_review",
+      "failure": "owner不可用时暂停依赖副作用；不自动改模式",
+      "version": "0.2-design",
+      "test_cases": {
+        "positive": "已认证合法请求满足 原档案只追加；摘要不能覆盖；读取内容哈希校验，写关联证据",
+        "negative": "旧raw UPDATE/DELETE与摘要覆盖被拒绝",
+        "bypass": "旧raw UPDATE/DELETE与摘要覆盖被拒绝；直接通道/关闭可选模块/三模式逐一验证",
+        "concurrency": "同一scope/资源两请求竞争；旧raw UPDATE/DELETE与摘要覆盖被拒绝，事务/fence不得被覆盖",
+        "recovery": "在判断、claim、执行前后注入故障/重启；旧raw UPDATE/DELETE与摘要覆盖被拒绝，未知结果不重跑",
+        "upgrade": "更换配置/规则版本使旧许可或诊断失效，历史原文不改"
+      },
+      "test_status": {
+        "positive": "NOT_RUN",
+        "negative": "NOT_RUN",
+        "bypass": "NOT_RUN",
+        "concurrency": "NOT_RUN",
+        "recovery": "NOT_RUN",
+        "upgrade": "NOT_RUN"
+      },
+      "audit_requirements": [
+        "operation_id",
+        "event_id",
+        "trusted_actor",
+        "scope",
+        "policy_id/revision",
+        "effective_mode",
+        "original_verdict",
+        "enforced_or_bypassed",
+        "authorization_ref",
+        "epoch",
+        "evidence_refs"
+      ]
+    },
+    {
+      "id": "P.SECRET_BOUNDARY",
+      "level": "L0",
+      "enforcement_owner": "Credential Broker/模型出口",
+      "scope": "project/task/resource",
+      "default_mode": "ENFORCE",
+      "degradable": false,
+      "risk": "HIGH",
+      "modes": {
+        "ENFORCE": "Key不进worker/renderer/模型；意外敏感原文加密隔离存储",
+        "AUDIT_ONLY": "Key不进worker/renderer/模型；意外敏感原文加密隔离存储；独立不变量不随应用审计模式关闭",
+        "DISABLED": "Key不进worker/renderer/模型；意外敏感原文加密隔离存储；属于独立底层/结构保护，未隐式关闭"
+      },
+      "test_ids": [
+        "P.SECRET_BOUNDARY-BYPASS",
+        "P.SECRET_BOUNDARY-MODE",
+        "P.SECRET_BOUNDARY-NEG",
+        "P.SECRET_BOUNDARY-POS",
+        "P.SECRET_BOUNDARY-RACE",
+        "P.SECRET_BOUNDARY-RECOVERY",
+        "P.SECRET_BOUNDARY-UPGRADE"
+      ],
+      "implementation_status": "NOT_RUN",
+      "source": "Architecture 15.1-15.9 and v0.4 C; M0 security_review",
+      "failure": "owner不可用时暂停依赖副作用；不自动改模式",
+      "version": "0.2-design",
+      "test_cases": {
+        "positive": "已认证合法请求满足 Key不进worker/renderer/模型；意外敏感原文加密隔离存储，写关联证据",
+        "negative": "worker环境/模型/普通log无真实Key，未授权读取拒绝",
+        "bypass": "worker环境/模型/普通log无真实Key，未授权读取拒绝；直接通道/关闭可选模块/三模式逐一验证",
+        "concurrency": "同一scope/资源两请求竞争；worker环境/模型/普通log无真实Key，未授权读取拒绝，事务/fence不得被覆盖",
+        "recovery": "在判断、claim、执行前后注入故障/重启；worker环境/模型/普通log无真实Key，未授权读取拒绝，未知结果不重跑",
+        "upgrade": "更换配置/规则版本使旧许可或诊断失效，历史原文不改"
+      },
+      "test_status": {
+        "positive": "NOT_RUN",
+        "negative": "NOT_RUN",
+        "bypass": "NOT_RUN",
+        "concurrency": "NOT_RUN",
+        "recovery": "NOT_RUN",
+        "upgrade": "NOT_RUN"
+      },
+      "audit_requirements": [
+        "operation_id",
+        "event_id",
+        "trusted_actor",
+        "scope",
+        "policy_id/revision",
+        "effective_mode",
+        "original_verdict",
+        "enforced_or_bypassed",
+        "authorization_ref",
+        "epoch",
+        "evidence_refs"
+      ]
+    },
+    {
+      "id": "P.DB_ATOMIC",
+      "level": "L0",
+      "enforcement_owner": "唯一约束/条件事务",
+      "scope": "project/task/resource",
+      "default_mode": "ENFORCE",
+      "degradable": false,
+      "risk": "HIGH",
+      "modes": {
+        "ENFORCE": "消息去重、原子claim、事务与检查约束",
+        "AUDIT_ONLY": "消息去重、原子claim、事务与检查约束；独立不变量不随应用审计模式关闭",
+        "DISABLED": "消息去重、原子claim、事务与检查约束；属于独立底层/结构保护，未隐式关闭"
+      },
+      "test_ids": [
+        "P.DB_ATOMIC-BYPASS",
+        "P.DB_ATOMIC-MODE",
+        "P.DB_ATOMIC-NEG",
+        "P.DB_ATOMIC-POS",
+        "P.DB_ATOMIC-RACE",
+        "P.DB_ATOMIC-RECOVERY",
+        "P.DB_ATOMIC-UPGRADE"
+      ],
+      "implementation_status": "NOT_RUN",
+      "source": "Architecture 15.1-15.9 and v0.4 C; M0 security_review",
+      "failure": "owner不可用时暂停依赖副作用；不自动改模式",
+      "version": "0.2-design",
+      "test_cases": {
+        "positive": "已认证合法请求满足 消息去重、原子claim、事务与检查约束，写关联证据",
+        "negative": "16并发claim一个胜者；rollback不留半个状态/outbox",
+        "bypass": "16并发claim一个胜者；rollback不留半个状态/outbox；直接通道/关闭可选模块/三模式逐一验证",
+        "concurrency": "同一scope/资源两请求竞争；16并发claim一个胜者；rollback不留半个状态/outbox，事务/fence不得被覆盖",
+        "recovery": "在判断、claim、执行前后注入故障/重启；16并发claim一个胜者；rollback不留半个状态/outbox，未知结果不重跑",
+        "upgrade": "更换配置/规则版本使旧许可或诊断失效，历史原文不改"
+      },
+      "test_status": {
+        "positive": "NOT_RUN",
+        "negative": "NOT_RUN",
+        "bypass": "NOT_RUN",
+        "concurrency": "NOT_RUN",
+        "recovery": "NOT_RUN",
+        "upgrade": "NOT_RUN"
+      },
+      "audit_requirements": [
+        "operation_id",
+        "event_id",
+        "trusted_actor",
+        "scope",
+        "policy_id/revision",
+        "effective_mode",
+        "original_verdict",
+        "enforced_or_bypassed",
+        "authorization_ref",
+        "epoch",
+        "evidence_refs"
+      ]
+    },
+    {
+      "id": "P.EXPERIMENT_ONCE",
+      "level": "L0",
+      "enforcement_owner": "独立实验Capability/数据库",
+      "scope": "project/task/resource",
+      "default_mode": "ENFORCE",
+      "degradable": false,
+      "risk": "HIGH",
+      "modes": {
+        "ENFORCE": "精确实验+协议+seed单次claim；不确定结果不得重置或重跑",
+        "AUDIT_ONLY": "精确实验+协议+seed单次claim；不确定结果不得重置或重跑；独立不变量不随应用审计模式关闭",
+        "DISABLED": "精确实验+协议+seed单次claim；不确定结果不得重置或重跑；属于独立底层/结构保护，未隐式关闭"
+      },
+      "test_ids": [
+        "P.EXPERIMENT_ONCE-BYPASS",
+        "P.EXPERIMENT_ONCE-MODE",
+        "P.EXPERIMENT_ONCE-NEG",
+        "P.EXPERIMENT_ONCE-POS",
+        "P.EXPERIMENT_ONCE-RACE",
+        "P.EXPERIMENT_ONCE-RECOVERY",
+        "P.EXPERIMENT_ONCE-UPGRADE"
+      ],
+      "implementation_status": "NOT_RUN",
+      "source": "Architecture 15.1-15.9 and v0.4 C; M0 security_review",
+      "failure": "owner不可用时暂停依赖副作用；不自动改模式",
+      "version": "0.2-design",
+      "test_cases": {
+        "positive": "已认证合法请求满足 精确实验+协议+seed单次claim；不确定结果不得重置或重跑，写关联证据",
+        "negative": "相同协议seed再次claim拒绝，UNKNOWN不可重置",
+        "bypass": "相同协议seed再次claim拒绝，UNKNOWN不可重置；直接通道/关闭可选模块/三模式逐一验证",
+        "concurrency": "同一scope/资源两请求竞争；相同协议seed再次claim拒绝，UNKNOWN不可重置，事务/fence不得被覆盖",
+        "recovery": "在判断、claim、执行前后注入故障/重启；相同协议seed再次claim拒绝，UNKNOWN不可重置，未知结果不重跑",
+        "upgrade": "更换配置/规则版本使旧许可或诊断失效，历史原文不改"
+      },
+      "test_status": {
+        "positive": "NOT_RUN",
+        "negative": "NOT_RUN",
+        "bypass": "NOT_RUN",
+        "concurrency": "NOT_RUN",
+        "recovery": "NOT_RUN",
+        "upgrade": "NOT_RUN"
+      },
+      "audit_requirements": [
+        "operation_id",
+        "event_id",
+        "trusted_actor",
+        "scope",
+        "policy_id/revision",
+        "effective_mode",
+        "original_verdict",
+        "enforced_or_bypassed",
+        "authorization_ref",
+        "epoch",
+        "evidence_refs"
+      ]
+    },
+    {
+      "id": "P.WORKSPACE_WRITER",
+      "level": "L0",
+      "enforcement_owner": "Broker租约/OS进程树",
+      "scope": "project/task/resource",
+      "default_mode": "ENFORCE",
+      "degradable": false,
+      "risk": "HIGH",
+      "modes": {
+        "ENFORCE": "同工作区单写者，fencing token与真实进程退出核验",
+        "AUDIT_ONLY": "同工作区单写者，fencing token与真实进程退出核验；独立不变量不随应用审计模式关闭",
+        "DISABLED": "同工作区单写者，fencing token与真实进程退出核验；属于独立底层/结构保护，未隐式关闭"
+      },
+      "test_ids": [
+        "P.WORKSPACE_WRITER-BYPASS",
+        "P.WORKSPACE_WRITER-MODE",
+        "P.WORKSPACE_WRITER-NEG",
+        "P.WORKSPACE_WRITER-POS",
+        "P.WORKSPACE_WRITER-RACE",
+        "P.WORKSPACE_WRITER-RECOVERY",
+        "P.WORKSPACE_WRITER-UPGRADE"
+      ],
+      "implementation_status": "NOT_RUN",
+      "source": "Architecture 15.1-15.9 and v0.4 C; M0 security_review",
+      "failure": "owner不可用时暂停依赖副作用；不自动改模式",
+      "version": "0.2-design",
+      "test_cases": {
+        "positive": "已认证合法请求满足 同工作区单写者，fencing token与真实进程退出核验，写关联证据",
+        "negative": "旧writer仍活不得发新fence；expected hash失配拒绝",
+        "bypass": "旧writer仍活不得发新fence；expected hash失配拒绝；直接通道/关闭可选模块/三模式逐一验证",
+        "concurrency": "同一scope/资源两请求竞争；旧writer仍活不得发新fence；expected hash失配拒绝，事务/fence不得被覆盖",
+        "recovery": "在判断、claim、执行前后注入故障/重启；旧writer仍活不得发新fence；expected hash失配拒绝，未知结果不重跑",
+        "upgrade": "更换配置/规则版本使旧许可或诊断失效，历史原文不改"
+      },
+      "test_status": {
+        "positive": "NOT_RUN",
+        "negative": "NOT_RUN",
+        "bypass": "NOT_RUN",
+        "concurrency": "NOT_RUN",
+        "recovery": "NOT_RUN",
+        "upgrade": "NOT_RUN"
+      },
+      "audit_requirements": [
+        "operation_id",
+        "event_id",
+        "trusted_actor",
+        "scope",
+        "policy_id/revision",
+        "effective_mode",
+        "original_verdict",
+        "enforced_or_bypassed",
+        "authorization_ref",
+        "epoch",
+        "evidence_refs"
+      ]
+    },
+    {
+      "id": "P.BUDGET_HARD",
+      "level": "L0",
+      "enforcement_owner": "Model Gateway原子额度",
+      "scope": "project/task/resource",
+      "default_mode": "ENFORCE",
+      "degradable": false,
+      "risk": "HIGH",
+      "modes": {
+        "ENFORCE": "调用前预留全层级硬预算；换Key不绕过账户限额",
+        "AUDIT_ONLY": "调用前预留全层级硬预算；换Key不绕过账户限额；独立不变量不随应用审计模式关闭",
+        "DISABLED": "调用前预留全层级硬预算；换Key不绕过账户限额；属于独立底层/结构保护，未隐式关闭"
+      },
+      "test_ids": [
+        "P.BUDGET_HARD-BYPASS",
+        "P.BUDGET_HARD-MODE",
+        "P.BUDGET_HARD-NEG",
+        "P.BUDGET_HARD-POS",
+        "P.BUDGET_HARD-RACE",
+        "P.BUDGET_HARD-RECOVERY",
+        "P.BUDGET_HARD-UPGRADE"
+      ],
+      "implementation_status": "NOT_RUN",
+      "source": "Architecture 15.1-15.9 and v0.4 C; M0 security_review",
+      "failure": "owner不可用时暂停依赖副作用；不自动改模式",
+      "version": "0.2-design",
+      "test_cases": {
+        "positive": "已认证合法请求满足 调用前预留全层级硬预算；换Key不绕过账户限额，写关联证据",
+        "negative": "共享Account换Key不能多领取预算，未知账单保留预留",
+        "bypass": "共享Account换Key不能多领取预算，未知账单保留预留；直接通道/关闭可选模块/三模式逐一验证",
+        "concurrency": "同一scope/资源两请求竞争；共享Account换Key不能多领取预算，未知账单保留预留，事务/fence不得被覆盖",
+        "recovery": "在判断、claim、执行前后注入故障/重启；共享Account换Key不能多领取预算，未知账单保留预留，未知结果不重跑",
+        "upgrade": "更换配置/规则版本使旧许可或诊断失效，历史原文不改"
+      },
+      "test_status": {
+        "positive": "NOT_RUN",
+        "negative": "NOT_RUN",
+        "bypass": "NOT_RUN",
+        "concurrency": "NOT_RUN",
+        "recovery": "NOT_RUN",
+        "upgrade": "NOT_RUN"
+      },
+      "audit_requirements": [
+        "operation_id",
+        "event_id",
+        "trusted_actor",
+        "scope",
+        "policy_id/revision",
+        "effective_mode",
+        "original_verdict",
+        "enforced_or_bypassed",
+        "authorization_ref",
+        "epoch",
+        "evidence_refs"
+      ]
+    },
+    {
+      "id": "P.ADMIN_MODE",
+      "level": "L0",
+      "enforcement_owner": "独立管理Broker/审计库",
+      "scope": "project/task/resource",
+      "default_mode": "ENFORCE",
+      "degradable": false,
+      "risk": "HIGH",
+      "modes": {
+        "ENFORCE": "仅可信管理员切模式；双确认、范围、原因、期限与审计；Agent不得改",
+        "AUDIT_ONLY": "仅可信管理员切模式；双确认、范围、原因、期限与审计；Agent不得改；独立不变量不随应用审计模式关闭",
+        "DISABLED": "仅可信管理员切模式；双确认、范围、原因、期限与审计；Agent不得改；属于独立底层/结构保护，未隐式关闭"
+      },
+      "test_ids": [
+        "P.ADMIN_MODE-BYPASS",
+        "P.ADMIN_MODE-MODE",
+        "P.ADMIN_MODE-NEG",
+        "P.ADMIN_MODE-POS",
+        "P.ADMIN_MODE-RACE",
+        "P.ADMIN_MODE-RECOVERY",
+        "P.ADMIN_MODE-UPGRADE"
+      ],
+      "implementation_status": "NOT_RUN",
+      "source": "Architecture 15.1-15.9 and v0.4 C; M0 security_review",
+      "failure": "owner不可用时暂停依赖副作用；不自动改模式",
+      "version": "0.2-design",
+      "test_cases": {
+        "positive": "已认证合法请求满足 仅可信管理员切模式；双确认、范围、原因、期限与审计；Agent不得改，写关联证据",
+        "negative": "Agent无控制句柄；错peer/重复challenge/过期冻结拒绝",
+        "bypass": "Agent无控制句柄；错peer/重复challenge/过期冻结拒绝；直接通道/关闭可选模块/三模式逐一验证",
+        "concurrency": "同一scope/资源两请求竞争；Agent无控制句柄；错peer/重复challenge/过期冻结拒绝，事务/fence不得被覆盖",
+        "recovery": "在判断、claim、执行前后注入故障/重启；Agent无控制句柄；错peer/重复challenge/过期冻结拒绝，未知结果不重跑",
+        "upgrade": "更换配置/规则版本使旧许可或诊断失效，历史原文不改"
+      },
+      "test_status": {
+        "positive": "NOT_RUN",
+        "negative": "NOT_RUN",
+        "bypass": "NOT_RUN",
+        "concurrency": "NOT_RUN",
+        "recovery": "NOT_RUN",
+        "upgrade": "NOT_RUN"
+      },
+      "audit_requirements": [
+        "operation_id",
+        "event_id",
+        "trusted_actor",
+        "scope",
+        "policy_id/revision",
+        "effective_mode",
+        "original_verdict",
+        "enforced_or_bypassed",
+        "authorization_ref",
+        "epoch",
+        "evidence_refs"
+      ]
+    },
+    {
+      "id": "P.APPROVAL_REPLAY",
+      "level": "L0",
+      "enforcement_owner": "执行许可存储/原子consume",
+      "scope": "project/task/resource",
+      "default_mode": "ENFORCE",
+      "degradable": false,
+      "risk": "HIGH",
+      "modes": {
+        "ENFORCE": "凭证绑定参数/版本/nonce/次数，原子消费不重放",
+        "AUDIT_ONLY": "凭证绑定参数/版本/nonce/次数，原子消费不重放；独立不变量不随应用审计模式关闭",
+        "DISABLED": "凭证绑定参数/版本/nonce/次数，原子消费不重放；属于独立底层/结构保护，未隐式关闭"
+      },
+      "test_ids": [
+        "P.APPROVAL_REPLAY-BYPASS",
+        "P.APPROVAL_REPLAY-MODE",
+        "P.APPROVAL_REPLAY-NEG",
+        "P.APPROVAL_REPLAY-POS",
+        "P.APPROVAL_REPLAY-RACE",
+        "P.APPROVAL_REPLAY-RECOVERY",
+        "P.APPROVAL_REPLAY-UPGRADE"
+      ],
+      "implementation_status": "NOT_RUN",
+      "source": "Architecture 15.1-15.9 and v0.4 C; M0 security_review",
+      "failure": "owner不可用时暂停依赖副作用；不自动改模式",
+      "version": "0.2-design",
+      "test_cases": {
+        "positive": "已认证合法请求满足 凭证绑定参数/版本/nonce/次数，原子消费不重放，写关联证据",
+        "negative": "不同参数/主体/期限/epoch与已消费permit拒绝",
+        "bypass": "不同参数/主体/期限/epoch与已消费permit拒绝；直接通道/关闭可选模块/三模式逐一验证",
+        "concurrency": "同一scope/资源两请求竞争；不同参数/主体/期限/epoch与已消费permit拒绝，事务/fence不得被覆盖",
+        "recovery": "在判断、claim、执行前后注入故障/重启；不同参数/主体/期限/epoch与已消费permit拒绝，未知结果不重跑",
+        "upgrade": "更换配置/规则版本使旧许可或诊断失效，历史原文不改"
+      },
+      "test_status": {
+        "positive": "NOT_RUN",
+        "negative": "NOT_RUN",
+        "bypass": "NOT_RUN",
+        "concurrency": "NOT_RUN",
+        "recovery": "NOT_RUN",
+        "upgrade": "NOT_RUN"
+      },
+      "audit_requirements": [
+        "operation_id",
+        "event_id",
+        "trusted_actor",
+        "scope",
+        "policy_id/revision",
+        "effective_mode",
+        "original_verdict",
+        "enforced_or_bypassed",
+        "authorization_ref",
+        "epoch",
+        "evidence_refs"
+      ]
+    },
+    {
+      "id": "P.TOOL_CONTRACT",
+      "level": "L0",
+      "enforcement_owner": "Tool Gateway/执行器",
+      "scope": "project/task/resource",
+      "default_mode": "ENFORCE",
+      "degradable": false,
+      "risk": "HIGH",
+      "modes": {
+        "ENFORCE": "工具Schema、注册身份、执行许可与epoch必须有效",
+        "AUDIT_ONLY": "工具Schema、注册身份、执行许可与epoch必须有效；独立不变量不随应用审计模式关闭",
+        "DISABLED": "工具Schema、注册身份、执行许可与epoch必须有效；属于独立底层/结构保护，未隐式关闭"
+      },
+      "test_ids": [
+        "P.TOOL_CONTRACT-BYPASS",
+        "P.TOOL_CONTRACT-MODE",
+        "P.TOOL_CONTRACT-NEG",
+        "P.TOOL_CONTRACT-POS",
+        "P.TOOL_CONTRACT-RACE",
+        "P.TOOL_CONTRACT-RECOVERY",
+        "P.TOOL_CONTRACT-UPGRADE"
+      ],
+      "implementation_status": "NOT_RUN",
+      "source": "Architecture 15.1-15.9 and v0.4 C; M0 security_review",
+      "failure": "owner不可用时暂停依赖副作用；不自动改模式",
+      "version": "0.2-design",
+      "test_cases": {
+        "positive": "已认证合法请求满足 工具Schema、注册身份、执行许可与epoch必须有效，写关联证据",
+        "negative": "未知tool/version/schema无执行；注册只读声明不能提升能力",
+        "bypass": "未知tool/version/schema无执行；注册只读声明不能提升能力；直接通道/关闭可选模块/三模式逐一验证",
+        "concurrency": "同一scope/资源两请求竞争；未知tool/version/schema无执行；注册只读声明不能提升能力，事务/fence不得被覆盖",
+        "recovery": "在判断、claim、执行前后注入故障/重启；未知tool/version/schema无执行；注册只读声明不能提升能力，未知结果不重跑",
+        "upgrade": "更换配置/规则版本使旧许可或诊断失效，历史原文不改"
+      },
+      "test_status": {
+        "positive": "NOT_RUN",
+        "negative": "NOT_RUN",
+        "bypass": "NOT_RUN",
+        "concurrency": "NOT_RUN",
+        "recovery": "NOT_RUN",
+        "upgrade": "NOT_RUN"
+      },
+      "audit_requirements": [
+        "operation_id",
+        "event_id",
+        "trusted_actor",
+        "scope",
+        "policy_id/revision",
+        "effective_mode",
+        "original_verdict",
+        "enforced_or_bypassed",
+        "authorization_ref",
+        "epoch",
+        "evidence_refs"
+      ]
+    },
+    {
+      "id": "P.GIT_PUBLISH",
+      "level": "L1",
+      "enforcement_owner": "PDP/PEP/Approval Service",
+      "scope": "project/task/resource",
+      "default_mode": "ENFORCE",
+      "degradable": true,
+      "risk": "HIGH",
+      "modes": {
+        "ENFORCE": "指定仓库/远程/分支/候选SHA的Git commit/merge/push应用审批，无有效人工批准则REQUIRE_APPROVAL",
+        "AUDIT_ONLY": "默认仍执行ENFORCE；仅管理员选定的可降级policy_id记录would-deny并允许符合独立底层能力的请求",
+        "DISABLED": "此作用域内应用策略不评估，记录BYPASSED而非ALLOW；工具开关、独立OS/能力仍可能拒绝"
+      },
+      "test_ids": [
+        "P.GIT_PUBLISH-BYPASS",
+        "P.GIT_PUBLISH-MODE",
+        "P.GIT_PUBLISH-NEG",
+        "P.GIT_PUBLISH-POS",
+        "P.GIT_PUBLISH-RACE",
+        "P.GIT_PUBLISH-RECOVERY",
+        "P.GIT_PUBLISH-TOKEN",
+        "P.GIT_PUBLISH-UPGRADE"
+      ],
+      "implementation_status": "NOT_RUN",
+      "source": "Architecture 15.1-15.9 and v0.4 C; M0 security_review",
+      "failure": "owner不可用时暂停依赖副作用；不自动改模式",
+      "version": "0.2-design",
+      "test_cases": {
+        "positive": "已认证合法请求满足 指定仓库/远程/分支/候选SHA的Git commit/merge/push应用审批，无有效人工批准则REQUIRE_APPROVAL，写关联证据",
+        "negative": "无明确repo/remote/ref/candidate人工授权不得publish",
+        "bypass": "无明确repo/remote/ref/candidate人工授权不得publish；直接通道/关闭可选模块/三模式逐一验证",
+        "concurrency": "同一scope/资源两请求竞争；无明确repo/remote/ref/candidate人工授权不得publish，事务/fence不得被覆盖",
+        "recovery": "在判断、claim、执行前后注入故障/重启；无明确repo/remote/ref/candidate人工授权不得publish，未知结果不重跑",
+        "upgrade": "更换配置/规则版本使旧许可或诊断失效，历史原文不改"
+      },
+      "test_status": {
+        "positive": "NOT_RUN",
+        "negative": "NOT_RUN",
+        "bypass": "NOT_RUN",
+        "concurrency": "NOT_RUN",
+        "recovery": "NOT_RUN",
+        "upgrade": "NOT_RUN"
+      },
+      "audit_requirements": [
+        "operation_id",
+        "event_id",
+        "trusted_actor",
+        "scope",
+        "policy_id/revision",
+        "effective_mode",
+        "original_verdict",
+        "enforced_or_bypassed",
+        "authorization_ref",
+        "epoch",
+        "evidence_refs"
+      ]
+    },
+    {
+      "id": "P.DATA_DELETE",
+      "level": "L1",
+      "enforcement_owner": "PDP/PEP/Approval Service",
+      "scope": "project/task/resource",
+      "default_mode": "ENFORCE",
+      "degradable": true,
+      "risk": "HIGH",
+      "modes": {
+        "ENFORCE": "精确数据集合与操作参数的删除应用审批，无有效人工批准则REQUIRE_APPROVAL",
+        "AUDIT_ONLY": "默认仍执行ENFORCE；仅管理员选定的可降级policy_id记录would-deny并允许符合独立底层能力的请求",
+        "DISABLED": "此作用域内应用策略不评估，记录BYPASSED而非ALLOW；工具开关、独立OS/能力仍可能拒绝"
+      },
+      "test_ids": [
+        "P.DATA_DELETE-BYPASS",
+        "P.DATA_DELETE-MODE",
+        "P.DATA_DELETE-NEG",
+        "P.DATA_DELETE-POS",
+        "P.DATA_DELETE-RACE",
+        "P.DATA_DELETE-RECOVERY",
+        "P.DATA_DELETE-TOKEN",
+        "P.DATA_DELETE-UPGRADE"
+      ],
+      "implementation_status": "NOT_RUN",
+      "source": "Architecture 15.1-15.9 and v0.4 C; M0 security_review",
+      "failure": "owner不可用时暂停依赖副作用；不自动改模式",
+      "version": "0.2-design",
+      "test_cases": {
+        "positive": "已认证合法请求满足 精确数据集合与操作参数的删除应用审批，无有效人工批准则REQUIRE_APPROVAL，写关联证据",
+        "negative": "精确资源/参数变动后旧批准拒绝",
+        "bypass": "精确资源/参数变动后旧批准拒绝；直接通道/关闭可选模块/三模式逐一验证",
+        "concurrency": "同一scope/资源两请求竞争；精确资源/参数变动后旧批准拒绝，事务/fence不得被覆盖",
+        "recovery": "在判断、claim、执行前后注入故障/重启；精确资源/参数变动后旧批准拒绝，未知结果不重跑",
+        "upgrade": "更换配置/规则版本使旧许可或诊断失效，历史原文不改"
+      },
+      "test_status": {
+        "positive": "NOT_RUN",
+        "negative": "NOT_RUN",
+        "bypass": "NOT_RUN",
+        "concurrency": "NOT_RUN",
+        "recovery": "NOT_RUN",
+        "upgrade": "NOT_RUN"
+      },
+      "audit_requirements": [
+        "operation_id",
+        "event_id",
+        "trusted_actor",
+        "scope",
+        "policy_id/revision",
+        "effective_mode",
+        "original_verdict",
+        "enforced_or_bypassed",
+        "authorization_ref",
+        "epoch",
+        "evidence_refs"
+      ]
+    },
+    {
+      "id": "P.INSTALL",
+      "level": "L1",
+      "enforcement_owner": "PDP/PEP/Approval Service",
+      "scope": "project/task/resource",
+      "default_mode": "ENFORCE",
+      "degradable": true,
+      "risk": "HIGH",
+      "modes": {
+        "ENFORCE": "软件安装与依赖生命周期脚本的应用审批，无有效人工批准则REQUIRE_APPROVAL",
+        "AUDIT_ONLY": "默认仍执行ENFORCE；仅管理员选定的可降级policy_id记录would-deny并允许符合独立底层能力的请求",
+        "DISABLED": "此作用域内应用策略不评估，记录BYPASSED而非ALLOW；工具开关、独立OS/能力仍可能拒绝"
+      },
+      "test_ids": [
+        "P.INSTALL-BYPASS",
+        "P.INSTALL-MODE",
+        "P.INSTALL-NEG",
+        "P.INSTALL-POS",
+        "P.INSTALL-RACE",
+        "P.INSTALL-RECOVERY",
+        "P.INSTALL-TOKEN",
+        "P.INSTALL-UPGRADE"
+      ],
+      "implementation_status": "NOT_RUN",
+      "source": "Architecture 15.1-15.9 and v0.4 C; M0 security_review",
+      "failure": "owner不可用时暂停依赖副作用；不自动改模式",
+      "version": "0.2-design",
+      "test_cases": {
+        "positive": "已认证合法请求满足 软件安装与依赖生命周期脚本的应用审批，无有效人工批准则REQUIRE_APPROVAL，写关联证据",
+        "negative": "依赖lifecycle脚本无独立批准不得执行",
+        "bypass": "依赖lifecycle脚本无独立批准不得执行；直接通道/关闭可选模块/三模式逐一验证",
+        "concurrency": "同一scope/资源两请求竞争；依赖lifecycle脚本无独立批准不得执行，事务/fence不得被覆盖",
+        "recovery": "在判断、claim、执行前后注入故障/重启；依赖lifecycle脚本无独立批准不得执行，未知结果不重跑",
+        "upgrade": "更换配置/规则版本使旧许可或诊断失效，历史原文不改"
+      },
+      "test_status": {
+        "positive": "NOT_RUN",
+        "negative": "NOT_RUN",
+        "bypass": "NOT_RUN",
+        "concurrency": "NOT_RUN",
+        "recovery": "NOT_RUN",
+        "upgrade": "NOT_RUN"
+      },
+      "audit_requirements": [
+        "operation_id",
+        "event_id",
+        "trusted_actor",
+        "scope",
+        "policy_id/revision",
+        "effective_mode",
+        "original_verdict",
+        "enforced_or_bypassed",
+        "authorization_ref",
+        "epoch",
+        "evidence_refs"
+      ]
+    },
+    {
+      "id": "P.PROJECT_RULE_CHANGE",
+      "level": "L1",
+      "enforcement_owner": "PDP/PEP/Approval Service",
+      "scope": "project/task/resource",
+      "default_mode": "ENFORCE",
+      "degradable": true,
+      "risk": "HIGH",
+      "modes": {
+        "ENFORCE": "项目工作规则变更应用审批，无有效人工批准则REQUIRE_APPROVAL",
+        "AUDIT_ONLY": "默认仍执行ENFORCE；仅管理员选定的可降级policy_id记录would-deny并允许符合独立底层能力的请求",
+        "DISABLED": "此作用域内应用策略不评估，记录BYPASSED而非ALLOW；工具开关、独立OS/能力仍可能拒绝"
+      },
+      "test_ids": [
+        "P.PROJECT_RULE_CHANGE-BYPASS",
+        "P.PROJECT_RULE_CHANGE-MODE",
+        "P.PROJECT_RULE_CHANGE-NEG",
+        "P.PROJECT_RULE_CHANGE-POS",
+        "P.PROJECT_RULE_CHANGE-RACE",
+        "P.PROJECT_RULE_CHANGE-RECOVERY",
+        "P.PROJECT_RULE_CHANGE-TOKEN",
+        "P.PROJECT_RULE_CHANGE-UPGRADE"
+      ],
+      "implementation_status": "NOT_RUN",
+      "source": "Architecture 15.1-15.9 and v0.4 C; M0 security_review",
+      "failure": "owner不可用时暂停依赖副作用；不自动改模式",
+      "version": "0.2-design",
+      "test_cases": {
+        "positive": "已认证合法请求满足 项目工作规则变更应用审批，无有效人工批准则REQUIRE_APPROVAL，写关联证据",
+        "negative": "工作区文本不能自授规则变更",
+        "bypass": "工作区文本不能自授规则变更；直接通道/关闭可选模块/三模式逐一验证",
+        "concurrency": "同一scope/资源两请求竞争；工作区文本不能自授规则变更，事务/fence不得被覆盖",
+        "recovery": "在判断、claim、执行前后注入故障/重启；工作区文本不能自授规则变更，未知结果不重跑",
+        "upgrade": "更换配置/规则版本使旧许可或诊断失效，历史原文不改"
+      },
+      "test_status": {
+        "positive": "NOT_RUN",
+        "negative": "NOT_RUN",
+        "bypass": "NOT_RUN",
+        "concurrency": "NOT_RUN",
+        "recovery": "NOT_RUN",
+        "upgrade": "NOT_RUN"
+      },
+      "audit_requirements": [
+        "operation_id",
+        "event_id",
+        "trusted_actor",
+        "scope",
+        "policy_id/revision",
+        "effective_mode",
+        "original_verdict",
+        "enforced_or_bypassed",
+        "authorization_ref",
+        "epoch",
+        "evidence_refs"
+      ]
+    },
+    {
+      "id": "P.EXPERIMENT_APPROVAL",
+      "level": "L1",
+      "enforcement_owner": "独立科研执行授权服务",
+      "scope": "project/task/resource",
+      "default_mode": "ENFORCE",
+      "degradable": false,
+      "risk": "HIGH",
+      "modes": {
+        "ENFORCE": "需要专属协议的人工授权",
+        "AUDIT_ONLY": "仍需专属授权；不是通用PDP可降级条款",
+        "DISABLED": "仍需专属授权；关闭通用策略不创建科研权限"
+      },
+      "test_ids": [
+        "P.EXPERIMENT_APPROVAL-BYPASS",
+        "P.EXPERIMENT_APPROVAL-MODE",
+        "P.EXPERIMENT_APPROVAL-NEG",
+        "P.EXPERIMENT_APPROVAL-POS",
+        "P.EXPERIMENT_APPROVAL-RACE",
+        "P.EXPERIMENT_APPROVAL-RECOVERY",
+        "P.EXPERIMENT_APPROVAL-UPGRADE"
+      ],
+      "implementation_status": "NOT_RUN",
+      "source": "Architecture 15.1-15.9 and v0.4 C; M0 security_review",
+      "failure": "owner不可用时暂停依赖副作用；不自动改模式",
+      "version": "0.2-design",
+      "test_cases": {
+        "positive": "已认证合法请求满足 需要专属协议的人工授权，写关联证据",
+        "negative": "通用Policy DISABLED不创建专属科研授权",
+        "bypass": "通用Policy DISABLED不创建专属科研授权；直接通道/关闭可选模块/三模式逐一验证",
+        "concurrency": "同一scope/资源两请求竞争；通用Policy DISABLED不创建专属科研授权，事务/fence不得被覆盖",
+        "recovery": "在判断、claim、执行前后注入故障/重启；通用Policy DISABLED不创建专属科研授权，未知结果不重跑",
+        "upgrade": "更换配置/规则版本使旧许可或诊断失效，历史原文不改"
+      },
+      "test_status": {
+        "positive": "NOT_RUN",
+        "negative": "NOT_RUN",
+        "bypass": "NOT_RUN",
+        "concurrency": "NOT_RUN",
+        "recovery": "NOT_RUN",
+        "upgrade": "NOT_RUN"
+      },
+      "audit_requirements": [
+        "operation_id",
+        "event_id",
+        "trusted_actor",
+        "scope",
+        "policy_id/revision",
+        "effective_mode",
+        "original_verdict",
+        "enforced_or_bypassed",
+        "authorization_ref",
+        "epoch",
+        "evidence_refs"
+      ]
+    },
+    {
+      "id": "P.BUDGET_INCREASE",
+      "level": "L1",
+      "enforcement_owner": "Model Gateway管理员配置",
+      "scope": "project/task/resource",
+      "default_mode": "ENFORCE",
+      "degradable": false,
+      "risk": "HIGH",
+      "modes": {
+        "ENFORCE": "预算提高需可信管理员确认",
+        "AUDIT_ONLY": "仍需管理员；余额硬限制独立",
+        "DISABLED": "仍需管理员；旁路不凭空增加余额"
+      },
+      "test_ids": [
+        "P.BUDGET_INCREASE-BYPASS",
+        "P.BUDGET_INCREASE-MODE",
+        "P.BUDGET_INCREASE-NEG",
+        "P.BUDGET_INCREASE-POS",
+        "P.BUDGET_INCREASE-RACE",
+        "P.BUDGET_INCREASE-RECOVERY",
+        "P.BUDGET_INCREASE-UPGRADE"
+      ],
+      "implementation_status": "NOT_RUN",
+      "source": "Architecture 15.1-15.9 and v0.4 C; M0 security_review",
+      "failure": "owner不可用时暂停依赖副作用；不自动改模式",
+      "version": "0.2-design",
+      "test_cases": {
+        "positive": "已认证合法请求满足 预算提高需可信管理员确认，写关联证据",
+        "negative": "payload预算加大不改可信账户额度",
+        "bypass": "payload预算加大不改可信账户额度；直接通道/关闭可选模块/三模式逐一验证",
+        "concurrency": "同一scope/资源两请求竞争；payload预算加大不改可信账户额度，事务/fence不得被覆盖",
+        "recovery": "在判断、claim、执行前后注入故障/重启；payload预算加大不改可信账户额度，未知结果不重跑",
+        "upgrade": "更换配置/规则版本使旧许可或诊断失效，历史原文不改"
+      },
+      "test_status": {
+        "positive": "NOT_RUN",
+        "negative": "NOT_RUN",
+        "bypass": "NOT_RUN",
+        "concurrency": "NOT_RUN",
+        "recovery": "NOT_RUN",
+        "upgrade": "NOT_RUN"
+      },
+      "audit_requirements": [
+        "operation_id",
+        "event_id",
+        "trusted_actor",
+        "scope",
+        "policy_id/revision",
+        "effective_mode",
+        "original_verdict",
+        "enforced_or_bypassed",
+        "authorization_ref",
+        "epoch",
+        "evidence_refs"
+      ]
+    },
+    {
+      "id": "P.REVIEW_BINDING",
+      "level": "L2",
+      "enforcement_owner": "ReviewResult schema/集成服务",
+      "scope": "project/task/resource",
+      "default_mode": "ENFORCE",
+      "degradable": true,
+      "risk": "HIGH",
+      "modes": {
+        "ENFORCE": "只有候选/基线/规则/测试配置哈希完全匹配的PASS可用于批准",
+        "AUDIT_ONLY": "评估失败可由选定质量策略旁路，但旧审查不能被改写成新候选PASS",
+        "DISABLED": "可不把审查作为集成前提；历史PASS仍只能对应原候选"
+      },
+      "test_ids": [
+        "P.REVIEW_BINDING-BYPASS",
+        "P.REVIEW_BINDING-MODE",
+        "P.REVIEW_BINDING-MUTATE",
+        "P.REVIEW_BINDING-NEG",
+        "P.REVIEW_BINDING-POS",
+        "P.REVIEW_BINDING-RACE",
+        "P.REVIEW_BINDING-RECOVERY",
+        "P.REVIEW_BINDING-STALE",
+        "P.REVIEW_BINDING-UPGRADE"
+      ],
+      "implementation_status": "NOT_RUN",
+      "source": "Architecture 15.1-15.9 and v0.4 C; M0 security_review",
+      "failure": "owner不可用时暂停依赖副作用；不自动改模式",
+      "version": "0.2-design",
+      "test_cases": {
+        "positive": "已认证合法请求满足 只有候选/基线/规则/测试配置哈希完全匹配的PASS可用于批准，写关联证据",
+        "negative": "新candidate/rules/profile使旧PASS失效",
+        "bypass": "新candidate/rules/profile使旧PASS失效；直接通道/关闭可选模块/三模式逐一验证",
+        "concurrency": "同一scope/资源两请求竞争；新candidate/rules/profile使旧PASS失效，事务/fence不得被覆盖",
+        "recovery": "在判断、claim、执行前后注入故障/重启；新candidate/rules/profile使旧PASS失效，未知结果不重跑",
+        "upgrade": "更换配置/规则版本使旧许可或诊断失效，历史原文不改"
+      },
+      "test_status": {
+        "positive": "NOT_RUN",
+        "negative": "NOT_RUN",
+        "bypass": "NOT_RUN",
+        "concurrency": "NOT_RUN",
+        "recovery": "NOT_RUN",
+        "upgrade": "NOT_RUN"
+      },
+      "audit_requirements": [
+        "operation_id",
+        "event_id",
+        "trusted_actor",
+        "scope",
+        "policy_id/revision",
+        "effective_mode",
+        "original_verdict",
+        "enforced_or_bypassed",
+        "authorization_ref",
+        "epoch",
+        "evidence_refs"
+      ]
+    },
+    {
+      "id": "P.WORKFLOW_GATES",
+      "level": "L2",
+      "enforcement_owner": "Workflow Runtime",
+      "scope": "project/task/resource",
+      "default_mode": "ENFORCE",
+      "degradable": true,
+      "risk": "MEDIUM",
+      "modes": {
+        "ENFORCE": "已启用Gate验证证据，关闭的Gate为BYPASSED",
+        "AUDIT_ONLY": "选定质量Gate仅记录；跳过不变成PASS",
+        "DISABLED": "应用质量阻断关闭；Gate关闭仍为BYPASSED，NOT_RUN保持原值"
+      },
+      "test_ids": [
+        "P.WORKFLOW_GATES-BYPASS",
+        "P.WORKFLOW_GATES-BYPASSED",
+        "P.WORKFLOW_GATES-MODE",
+        "P.WORKFLOW_GATES-NEG",
+        "P.WORKFLOW_GATES-NOTRUN",
+        "P.WORKFLOW_GATES-OFF",
+        "P.WORKFLOW_GATES-POS",
+        "P.WORKFLOW_GATES-RACE",
+        "P.WORKFLOW_GATES-RECOVERY",
+        "P.WORKFLOW_GATES-UPGRADE"
+      ],
+      "implementation_status": "NOT_RUN",
+      "source": "Architecture 15.1-15.9 and v0.4 C; M0 security_review",
+      "failure": "owner不可用时暂停依赖副作用；不自动改模式",
+      "version": "0.2-design",
+      "test_cases": {
+        "positive": "已认证合法请求满足 已启用Gate验证证据，关闭的Gate为BYPASSED，写关联证据",
+        "negative": "Gate OFF为BYPASSED，未运行仍NOT_RUN",
+        "bypass": "Gate OFF为BYPASSED，未运行仍NOT_RUN；直接通道/关闭可选模块/三模式逐一验证",
+        "concurrency": "同一scope/资源两请求竞争；Gate OFF为BYPASSED，未运行仍NOT_RUN，事务/fence不得被覆盖",
+        "recovery": "在判断、claim、执行前后注入故障/重启；Gate OFF为BYPASSED，未运行仍NOT_RUN，未知结果不重跑",
+        "upgrade": "更换配置/规则版本使旧许可或诊断失效，历史原文不改"
+      },
+      "test_status": {
+        "positive": "NOT_RUN",
+        "negative": "NOT_RUN",
+        "bypass": "NOT_RUN",
+        "concurrency": "NOT_RUN",
+        "recovery": "NOT_RUN",
+        "upgrade": "NOT_RUN"
+      },
+      "audit_requirements": [
+        "operation_id",
+        "event_id",
+        "trusted_actor",
+        "scope",
+        "policy_id/revision",
+        "effective_mode",
+        "original_verdict",
+        "enforced_or_bypassed",
+        "authorization_ref",
+        "epoch",
+        "evidence_refs"
+      ]
+    },
+    {
+      "id": "P.SCIENTIFIC_CLAIM",
+      "level": "L2",
+      "enforcement_owner": "证据/独立审查",
+      "scope": "project/task/resource",
+      "default_mode": "ENFORCE",
+      "degradable": true,
+      "risk": "MEDIUM",
+      "modes": {
+        "ENFORCE": "缺证据为INCONCLUSIVE；程序不能保证科学真值",
+        "AUDIT_ONLY": "可绕过工作推进阻断，不能伪造已运行或已证实",
+        "DISABLED": "不评估质量要求；Result schema仍保留真实测试状态"
+      },
+      "test_ids": [
+        "P.SCIENTIFIC_CLAIM-BYPASS",
+        "P.SCIENTIFIC_CLAIM-FAKE",
+        "P.SCIENTIFIC_CLAIM-MISSING",
+        "P.SCIENTIFIC_CLAIM-MODE",
+        "P.SCIENTIFIC_CLAIM-NEG",
+        "P.SCIENTIFIC_CLAIM-POS",
+        "P.SCIENTIFIC_CLAIM-RACE",
+        "P.SCIENTIFIC_CLAIM-RECOVERY",
+        "P.SCIENTIFIC_CLAIM-UPGRADE"
+      ],
+      "implementation_status": "NOT_RUN",
+      "source": "Architecture 15.1-15.9 and v0.4 C; M0 security_review",
+      "failure": "owner不可用时暂停依赖副作用；不自动改模式",
+      "version": "0.2-design",
+      "test_cases": {
+        "positive": "已认证合法请求满足 缺证据为INCONCLUSIVE；程序不能保证科学真值，写关联证据",
+        "negative": "模拟/空证据不能转换真实验证PASS",
+        "bypass": "模拟/空证据不能转换真实验证PASS；直接通道/关闭可选模块/三模式逐一验证",
+        "concurrency": "同一scope/资源两请求竞争；模拟/空证据不能转换真实验证PASS，事务/fence不得被覆盖",
+        "recovery": "在判断、claim、执行前后注入故障/重启；模拟/空证据不能转换真实验证PASS，未知结果不重跑",
+        "upgrade": "更换配置/规则版本使旧许可或诊断失效，历史原文不改"
+      },
+      "test_status": {
+        "positive": "NOT_RUN",
+        "negative": "NOT_RUN",
+        "bypass": "NOT_RUN",
+        "concurrency": "NOT_RUN",
+        "recovery": "NOT_RUN",
+        "upgrade": "NOT_RUN"
+      },
+      "audit_requirements": [
+        "operation_id",
+        "event_id",
+        "trusted_actor",
+        "scope",
+        "policy_id/revision",
+        "effective_mode",
+        "original_verdict",
+        "enforced_or_bypassed",
+        "authorization_ref",
+        "epoch",
+        "evidence_refs"
+      ]
+    },
+    {
+      "id": "P.STYLE",
+      "level": "L3",
+      "enforcement_owner": "规则提示/可选linter",
+      "scope": "project/task/resource",
+      "default_mode": "ENFORCE",
+      "degradable": true,
+      "risk": "LOW",
+      "modes": {
+        "ENFORCE": "建议并显示差异",
+        "AUDIT_ONLY": "仅记录建议",
+        "DISABLED": "不注入/不检查该应用指导"
+      },
+      "test_ids": [
+        "P.STYLE-BYPASS",
+        "P.STYLE-MODE",
+        "P.STYLE-NEG",
+        "P.STYLE-OFF",
+        "P.STYLE-POS",
+        "P.STYLE-RACE",
+        "P.STYLE-RECOVERY",
+        "P.STYLE-UPGRADE"
+      ],
+      "implementation_status": "NOT_RUN",
+      "source": "Architecture 15.1-15.9 and v0.4 C; M0 security_review",
+      "failure": "owner不可用时暂停依赖副作用；不自动改模式",
+      "version": "0.2-design",
+      "test_cases": {
+        "positive": "已认证合法请求满足 建议并显示差异，写关联证据",
+        "negative": "OFF不调用linter，提示不可充当安全约束",
+        "bypass": "OFF不调用linter，提示不可充当安全约束；直接通道/关闭可选模块/三模式逐一验证",
+        "concurrency": "同一scope/资源两请求竞争；OFF不调用linter，提示不可充当安全约束，事务/fence不得被覆盖",
+        "recovery": "在判断、claim、执行前后注入故障/重启；OFF不调用linter，提示不可充当安全约束，未知结果不重跑",
+        "upgrade": "更换配置/规则版本使旧许可或诊断失效，历史原文不改"
+      },
+      "test_status": {
+        "positive": "NOT_RUN",
+        "negative": "NOT_RUN",
+        "bypass": "NOT_RUN",
+        "concurrency": "NOT_RUN",
+        "recovery": "NOT_RUN",
+        "upgrade": "NOT_RUN"
+      },
+      "audit_requirements": [
+        "operation_id",
+        "event_id",
+        "trusted_actor",
+        "scope",
+        "policy_id/revision",
+        "effective_mode",
+        "original_verdict",
+        "enforced_or_bypassed",
+        "authorization_ref",
+        "epoch",
+        "evidence_refs"
+      ]
+    },
+    {
+      "id": "P.AUDIT_REQUIRED",
+      "level": "L0",
+      "enforcement_owner": "Audit Writer / Tool Gateway",
+      "scope": "project/task/resource",
+      "default_mode": "ENFORCE",
+      "degradable": false,
+      "risk": "HIGH",
+      "modes": {
+        "ENFORCE": "实际动作前持久化意图、动作后记录结果；核心审计关闭请求拒绝",
+        "AUDIT_ONLY": "实际动作前持久化意图、动作后记录结果；核心审计关闭请求拒绝；独立owner持续执行",
+        "DISABLED": "实际动作前持久化意图、动作后记录结果；核心审计关闭请求拒绝；独立owner持续执行"
+      },
+      "test_ids": [
+        "P.AUDIT_REQUIRED-BYPASS",
+        "P.AUDIT_REQUIRED-MODE",
+        "P.AUDIT_REQUIRED-NEG",
+        "P.AUDIT_REQUIRED-POS",
+        "P.AUDIT_REQUIRED-RACE",
+        "P.AUDIT_REQUIRED-RECOVERY",
+        "P.AUDIT_REQUIRED-UPGRADE"
+      ],
+      "implementation_status": "NOT_RUN",
+      "source": "M0.1 user requirements / native independent design",
+      "failure": "owner unavailable freezes dependent execution; no automatic bypass",
+      "specific_test": "审计写失败时执行计数必须为0；已执行结果失败保留claim",
+      "version": "0.2-design",
+      "test_cases": {
+        "positive": "已认证合法请求满足 实际动作前持久化意图、动作后记录结果；核心审计关闭请求拒绝，写关联证据",
+        "negative": "审计写失败时执行计数必须为0；已执行结果失败保留claim",
+        "bypass": "审计写失败时执行计数必须为0；已执行结果失败保留claim；直接通道/关闭可选模块/三模式逐一验证",
+        "concurrency": "同一scope/资源两请求竞争；审计写失败时执行计数必须为0；已执行结果失败保留claim，事务/fence不得被覆盖",
+        "recovery": "在判断、claim、执行前后注入故障/重启；审计写失败时执行计数必须为0；已执行结果失败保留claim，未知结果不重跑",
+        "upgrade": "更换配置/规则版本使旧许可或诊断失效，历史原文不改"
+      },
+      "test_status": {
+        "positive": "NOT_RUN",
+        "negative": "NOT_RUN",
+        "bypass": "NOT_RUN",
+        "concurrency": "NOT_RUN",
+        "recovery": "NOT_RUN",
+        "upgrade": "NOT_RUN"
+      },
+      "audit_requirements": [
+        "operation_id",
+        "event_id",
+        "trusted_actor",
+        "scope",
+        "policy_id/revision",
+        "effective_mode",
+        "original_verdict",
+        "enforced_or_bypassed",
+        "authorization_ref",
+        "epoch",
+        "evidence_refs"
+      ]
+    },
+    {
+      "id": "P.ARTIFACT_INTEGRITY",
+      "level": "L0",
+      "enforcement_owner": "Artifact Store",
+      "scope": "project/task/resource",
+      "default_mode": "ENFORCE",
+      "degradable": false,
+      "risk": "HIGH",
+      "modes": {
+        "ENFORCE": "流式对象hash/长度/访问域核验；不把不完整对象当完整结果",
+        "AUDIT_ONLY": "流式对象hash/长度/访问域核验；不把不完整对象当完整结果；独立owner持续执行",
+        "DISABLED": "流式对象hash/长度/访问域核验；不把不完整对象当完整结果；独立owner持续执行"
+      },
+      "test_ids": [
+        "P.ARTIFACT_INTEGRITY-BYPASS",
+        "P.ARTIFACT_INTEGRITY-MODE",
+        "P.ARTIFACT_INTEGRITY-NEG",
+        "P.ARTIFACT_INTEGRITY-POS",
+        "P.ARTIFACT_INTEGRITY-RACE",
+        "P.ARTIFACT_INTEGRITY-RECOVERY",
+        "P.ARTIFACT_INTEGRITY-UPGRADE"
+      ],
+      "implementation_status": "NOT_RUN",
+      "source": "M0.1 user requirements / native independent design",
+      "failure": "owner unavailable freezes dependent execution; no automatic bypass",
+      "specific_test": "篡改/截断/错误hash读取拒绝；并发相同hash发布不覆盖",
+      "version": "0.2-design",
+      "test_cases": {
+        "positive": "已认证合法请求满足 流式对象hash/长度/访问域核验；不把不完整对象当完整结果，写关联证据",
+        "negative": "篡改/截断/错误hash读取拒绝；并发相同hash发布不覆盖",
+        "bypass": "篡改/截断/错误hash读取拒绝；并发相同hash发布不覆盖；直接通道/关闭可选模块/三模式逐一验证",
+        "concurrency": "同一scope/资源两请求竞争；篡改/截断/错误hash读取拒绝；并发相同hash发布不覆盖，事务/fence不得被覆盖",
+        "recovery": "在判断、claim、执行前后注入故障/重启；篡改/截断/错误hash读取拒绝；并发相同hash发布不覆盖，未知结果不重跑",
+        "upgrade": "更换配置/规则版本使旧许可或诊断失效，历史原文不改"
+      },
+      "test_status": {
+        "positive": "NOT_RUN",
+        "negative": "NOT_RUN",
+        "bypass": "NOT_RUN",
+        "concurrency": "NOT_RUN",
+        "recovery": "NOT_RUN",
+        "upgrade": "NOT_RUN"
+      },
+      "audit_requirements": [
+        "operation_id",
+        "event_id",
+        "trusted_actor",
+        "scope",
+        "policy_id/revision",
+        "effective_mode",
+        "original_verdict",
+        "enforced_or_bypassed",
+        "authorization_ref",
+        "epoch",
+        "evidence_refs"
+      ]
+    },
+    {
+      "id": "P.EVIDENCE_DOMAINS",
+      "level": "L0",
+      "enforcement_owner": "Archive / Audit / Decision owners",
+      "scope": "project/task/resource",
+      "default_mode": "ENFORCE",
+      "degradable": false,
+      "risk": "HIGH",
+      "modes": {
+        "ENFORCE": "交互、操作、产物、决定分域；更正追加，声明不伪装实际执行",
+        "AUDIT_ONLY": "交互、操作、产物、决定分域；更正追加，声明不伪装实际执行；独立owner持续执行",
+        "DISABLED": "交互、操作、产物、决定分域；更正追加，声明不伪装实际执行；独立owner持续执行"
+      },
+      "test_ids": [
+        "P.EVIDENCE_DOMAINS-BYPASS",
+        "P.EVIDENCE_DOMAINS-MODE",
+        "P.EVIDENCE_DOMAINS-NEG",
+        "P.EVIDENCE_DOMAINS-POS",
+        "P.EVIDENCE_DOMAINS-RACE",
+        "P.EVIDENCE_DOMAINS-RECOVERY",
+        "P.EVIDENCE_DOMAINS-UPGRADE"
+      ],
+      "implementation_status": "NOT_RUN",
+      "source": "M0.1 user requirements / native independent design",
+      "failure": "owner unavailable freezes dependent execution; no automatic bypass",
+      "specific_test": "把模型说已执行注入audit实际成功状态必须拒绝",
+      "version": "0.2-design",
+      "test_cases": {
+        "positive": "已认证合法请求满足 交互、操作、产物、决定分域；更正追加，声明不伪装实际执行，写关联证据",
+        "negative": "把模型说已执行注入audit实际成功状态必须拒绝",
+        "bypass": "把模型说已执行注入audit实际成功状态必须拒绝；直接通道/关闭可选模块/三模式逐一验证",
+        "concurrency": "同一scope/资源两请求竞争；把模型说已执行注入audit实际成功状态必须拒绝，事务/fence不得被覆盖",
+        "recovery": "在判断、claim、执行前后注入故障/重启；把模型说已执行注入audit实际成功状态必须拒绝，未知结果不重跑",
+        "upgrade": "更换配置/规则版本使旧许可或诊断失效，历史原文不改"
+      },
+      "test_status": {
+        "positive": "NOT_RUN",
+        "negative": "NOT_RUN",
+        "bypass": "NOT_RUN",
+        "concurrency": "NOT_RUN",
+        "recovery": "NOT_RUN",
+        "upgrade": "NOT_RUN"
+      },
+      "audit_requirements": [
+        "operation_id",
+        "event_id",
+        "trusted_actor",
+        "scope",
+        "policy_id/revision",
+        "effective_mode",
+        "original_verdict",
+        "enforced_or_bypassed",
+        "authorization_ref",
+        "epoch",
+        "evidence_refs"
+      ]
+    },
+    {
+      "id": "P.REPLAY_READONLY",
+      "level": "L0",
+      "enforcement_owner": "Task Reconstruction API",
+      "scope": "project/task/resource",
+      "default_mode": "ENFORCE",
+      "degradable": false,
+      "risk": "HIGH",
+      "modes": {
+        "ENFORCE": "Replay只读重建，不持有executor或签发permit能力",
+        "AUDIT_ONLY": "Replay只读重建，不持有executor或签发permit能力；独立owner持续执行",
+        "DISABLED": "Replay只读重建，不持有executor或签发permit能力；独立owner持续执行"
+      },
+      "test_ids": [
+        "P.REPLAY_READONLY-BYPASS",
+        "P.REPLAY_READONLY-MODE",
+        "P.REPLAY_READONLY-NEG",
+        "P.REPLAY_READONLY-POS",
+        "P.REPLAY_READONLY-RACE",
+        "P.REPLAY_READONLY-RECOVERY",
+        "P.REPLAY_READONLY-UPGRADE"
+      ],
+      "implementation_status": "NOT_RUN",
+      "source": "M0.1 user requirements / native independent design",
+      "failure": "owner unavailable freezes dependent execution; no automatic bypass",
+      "specific_test": "历史shell文本被导入重建时外部执行计数为0",
+      "version": "0.2-design",
+      "test_cases": {
+        "positive": "已认证合法请求满足 Replay只读重建，不持有executor或签发permit能力，写关联证据",
+        "negative": "历史shell文本被导入重建时外部执行计数为0",
+        "bypass": "历史shell文本被导入重建时外部执行计数为0；直接通道/关闭可选模块/三模式逐一验证",
+        "concurrency": "同一scope/资源两请求竞争；历史shell文本被导入重建时外部执行计数为0，事务/fence不得被覆盖",
+        "recovery": "在判断、claim、执行前后注入故障/重启；历史shell文本被导入重建时外部执行计数为0，未知结果不重跑",
+        "upgrade": "更换配置/规则版本使旧许可或诊断失效，历史原文不改"
+      },
+      "test_status": {
+        "positive": "NOT_RUN",
+        "negative": "NOT_RUN",
+        "bypass": "NOT_RUN",
+        "concurrency": "NOT_RUN",
+        "recovery": "NOT_RUN",
+        "upgrade": "NOT_RUN"
+      },
+      "audit_requirements": [
+        "operation_id",
+        "event_id",
+        "trusted_actor",
+        "scope",
+        "policy_id/revision",
+        "effective_mode",
+        "original_verdict",
+        "enforced_or_bypassed",
+        "authorization_ref",
+        "epoch",
+        "evidence_refs"
+      ]
+    },
+    {
+      "id": "P.DI_NOEXEC",
+      "level": "L0",
+      "enforcement_owner": "Diagnostic Process Adapter",
+      "scope": "project/task/resource",
+      "default_mode": "ENFORCE",
+      "degradable": false,
+      "risk": "HIGH",
+      "modes": {
+        "ENFORCE": "解析器只解析，固定可信argv，stdin源文本不eval，不加载项目插件",
+        "AUDIT_ONLY": "解析器只解析，固定可信argv，stdin源文本不eval，不加载项目插件；独立owner持续执行",
+        "DISABLED": "解析器只解析，固定可信argv，stdin源文本不eval，不加载项目插件；独立owner持续执行"
+      },
+      "test_ids": [
+        "P.DI_NOEXEC-BYPASS",
+        "P.DI_NOEXEC-MODE",
+        "P.DI_NOEXEC-NEG",
+        "P.DI_NOEXEC-POS",
+        "P.DI_NOEXEC-RACE",
+        "P.DI_NOEXEC-RECOVERY",
+        "P.DI_NOEXEC-UPGRADE"
+      ],
+      "implementation_status": "NOT_RUN",
+      "source": "M0.1 user requirements / native independent design",
+      "failure": "owner unavailable freezes dependent execution; no automatic bypass",
+      "specific_test": "含命令替换/写文件/导入副作用的源码检查不得产生目标副作用",
+      "version": "0.2-design",
+      "test_cases": {
+        "positive": "已认证合法请求满足 解析器只解析，固定可信argv，stdin源文本不eval，不加载项目插件，写关联证据",
+        "negative": "含命令替换/写文件/导入副作用的源码检查不得产生目标副作用",
+        "bypass": "含命令替换/写文件/导入副作用的源码检查不得产生目标副作用；直接通道/关闭可选模块/三模式逐一验证",
+        "concurrency": "同一scope/资源两请求竞争；含命令替换/写文件/导入副作用的源码检查不得产生目标副作用，事务/fence不得被覆盖",
+        "recovery": "在判断、claim、执行前后注入故障/重启；含命令替换/写文件/导入副作用的源码检查不得产生目标副作用，未知结果不重跑",
+        "upgrade": "更换配置/规则版本使旧许可或诊断失效，历史原文不改"
+      },
+      "test_status": {
+        "positive": "NOT_RUN",
+        "negative": "NOT_RUN",
+        "bypass": "NOT_RUN",
+        "concurrency": "NOT_RUN",
+        "recovery": "NOT_RUN",
+        "upgrade": "NOT_RUN"
+      },
+      "audit_requirements": [
+        "operation_id",
+        "event_id",
+        "trusted_actor",
+        "scope",
+        "policy_id/revision",
+        "effective_mode",
+        "original_verdict",
+        "enforced_or_bypassed",
+        "authorization_ref",
+        "epoch",
+        "evidence_refs"
+      ]
+    },
+    {
+      "id": "P.DI_SYNTAX",
+      "level": "L2",
+      "enforcement_owner": "Development Intelligence / PDP",
+      "scope": "project/task/resource",
+      "default_mode": "ENFORCE",
+      "degradable": true,
+      "risk": "HIGH",
+      "modes": {
+        "ENFORCE": "启用语法检查时FAIL阻断对应已接入命令；缺检查器明确NOT_RUN",
+        "AUDIT_ONLY": "仅管理员精确选定此可降级条款才记录would-deny并继续；未选仍ENFORCE",
+        "DISABLED": "选定范围不调用此应用PDP，记BYPASSED；独立owner仍有效"
+      },
+      "test_ids": [
+        "P.DI_SYNTAX-BYPASS",
+        "P.DI_SYNTAX-MODE",
+        "P.DI_SYNTAX-NEG",
+        "P.DI_SYNTAX-POS",
+        "P.DI_SYNTAX-RACE",
+        "P.DI_SYNTAX-RECOVERY",
+        "P.DI_SYNTAX-UPGRADE"
+      ],
+      "implementation_status": "NOT_RUN",
+      "source": "M0.1 user requirements / native independent design",
+      "failure": "owner unavailable freezes dependent execution; no automatic bypass",
+      "specific_test": "故意缺右括号不能标PASS；OFF为VALIDATION_BYPASSED",
+      "version": "0.2-design",
+      "test_cases": {
+        "positive": "已认证合法请求满足 启用语法检查时FAIL阻断对应已接入命令；缺检查器明确NOT_RUN，写关联证据",
+        "negative": "故意缺右括号不能标PASS；OFF为VALIDATION_BYPASSED",
+        "bypass": "故意缺右括号不能标PASS；OFF为VALIDATION_BYPASSED；直接通道/关闭可选模块/三模式逐一验证",
+        "concurrency": "同一scope/资源两请求竞争；故意缺右括号不能标PASS；OFF为VALIDATION_BYPASSED，事务/fence不得被覆盖",
+        "recovery": "在判断、claim、执行前后注入故障/重启；故意缺右括号不能标PASS；OFF为VALIDATION_BYPASSED，未知结果不重跑",
+        "upgrade": "更换配置/规则版本使旧许可或诊断失效，历史原文不改"
+      },
+      "test_status": {
+        "positive": "NOT_RUN",
+        "negative": "NOT_RUN",
+        "bypass": "NOT_RUN",
+        "concurrency": "NOT_RUN",
+        "recovery": "NOT_RUN",
+        "upgrade": "NOT_RUN"
+      },
+      "audit_requirements": [
+        "operation_id",
+        "event_id",
+        "trusted_actor",
+        "scope",
+        "policy_id/revision",
+        "effective_mode",
+        "original_verdict",
+        "enforced_or_bypassed",
+        "authorization_ref",
+        "epoch",
+        "evidence_refs"
+      ]
+    },
+    {
+      "id": "P.DI_ARGUMENTS",
+      "level": "L2",
+      "enforcement_owner": "Versioned CLI Schema / PDP",
+      "scope": "project/task/resource",
+      "default_mode": "ENFORCE",
+      "degradable": true,
+      "risk": "HIGH",
+      "modes": {
+        "ENFORCE": "参数按明确版本schema验证；未知CLI或动态解析INCONCLUSIVE",
+        "AUDIT_ONLY": "仅管理员精确选定此可降级条款才记录would-deny并继续；未选仍ENFORCE",
+        "DISABLED": "选定范围不调用此应用PDP，记BYPASSED；独立owner仍有效"
+      },
+      "test_ids": [
+        "P.DI_ARGUMENTS-BYPASS",
+        "P.DI_ARGUMENTS-MODE",
+        "P.DI_ARGUMENTS-NEG",
+        "P.DI_ARGUMENTS-POS",
+        "P.DI_ARGUMENTS-RACE",
+        "P.DI_ARGUMENTS-RECOVERY",
+        "P.DI_ARGUMENTS-UPGRADE"
+      ],
+      "implementation_status": "NOT_RUN",
+      "source": "M0.1 user requirements / native independent design",
+      "failure": "owner unavailable freezes dependent execution; no automatic bypass",
+      "specific_test": "未知参数/缺值/--边界分开，不能仅语法PASS批准",
+      "version": "0.2-design",
+      "test_cases": {
+        "positive": "已认证合法请求满足 参数按明确版本schema验证；未知CLI或动态解析INCONCLUSIVE，写关联证据",
+        "negative": "未知参数/缺值/--边界分开，不能仅语法PASS批准",
+        "bypass": "未知参数/缺值/--边界分开，不能仅语法PASS批准；直接通道/关闭可选模块/三模式逐一验证",
+        "concurrency": "同一scope/资源两请求竞争；未知参数/缺值/--边界分开，不能仅语法PASS批准，事务/fence不得被覆盖",
+        "recovery": "在判断、claim、执行前后注入故障/重启；未知参数/缺值/--边界分开，不能仅语法PASS批准，未知结果不重跑",
+        "upgrade": "更换配置/规则版本使旧许可或诊断失效，历史原文不改"
+      },
+      "test_status": {
+        "positive": "NOT_RUN",
+        "negative": "NOT_RUN",
+        "bypass": "NOT_RUN",
+        "concurrency": "NOT_RUN",
+        "recovery": "NOT_RUN",
+        "upgrade": "NOT_RUN"
+      },
+      "audit_requirements": [
+        "operation_id",
+        "event_id",
+        "trusted_actor",
+        "scope",
+        "policy_id/revision",
+        "effective_mode",
+        "original_verdict",
+        "enforced_or_bypassed",
+        "authorization_ref",
+        "epoch",
+        "evidence_refs"
+      ]
+    },
+    {
+      "id": "P.DI_ENVIRONMENT",
+      "level": "L2",
+      "enforcement_owner": "Environment Checker / PDP",
+      "scope": "project/task/resource",
+      "default_mode": "ENFORCE",
+      "degradable": true,
+      "risk": "HIGH",
+      "modes": {
+        "ENFORCE": "核实执行文件版本与所需能力；不自动安装或执行用户help",
+        "AUDIT_ONLY": "仅管理员精确选定此可降级条款才记录would-deny并继续；未选仍ENFORCE",
+        "DISABLED": "选定范围不调用此应用PDP，记BYPASSED；独立owner仍有效"
+      },
+      "test_ids": [
+        "P.DI_ENVIRONMENT-BYPASS",
+        "P.DI_ENVIRONMENT-MODE",
+        "P.DI_ENVIRONMENT-NEG",
+        "P.DI_ENVIRONMENT-POS",
+        "P.DI_ENVIRONMENT-RACE",
+        "P.DI_ENVIRONMENT-RECOVERY",
+        "P.DI_ENVIRONMENT-UPGRADE"
+      ],
+      "implementation_status": "NOT_RUN",
+      "source": "M0.1 user requirements / native independent design",
+      "failure": "owner unavailable freezes dependent execution; no automatic bypass",
+      "specific_test": "缺二进制/版本不匹配不能PASS；检查OFF不免除executor能力",
+      "version": "0.2-design",
+      "test_cases": {
+        "positive": "已认证合法请求满足 核实执行文件版本与所需能力；不自动安装或执行用户help，写关联证据",
+        "negative": "缺二进制/版本不匹配不能PASS；检查OFF不免除executor能力",
+        "bypass": "缺二进制/版本不匹配不能PASS；检查OFF不免除executor能力；直接通道/关闭可选模块/三模式逐一验证",
+        "concurrency": "同一scope/资源两请求竞争；缺二进制/版本不匹配不能PASS；检查OFF不免除executor能力，事务/fence不得被覆盖",
+        "recovery": "在判断、claim、执行前后注入故障/重启；缺二进制/版本不匹配不能PASS；检查OFF不免除executor能力，未知结果不重跑",
+        "upgrade": "更换配置/规则版本使旧许可或诊断失效，历史原文不改"
+      },
+      "test_status": {
+        "positive": "NOT_RUN",
+        "negative": "NOT_RUN",
+        "bypass": "NOT_RUN",
+        "concurrency": "NOT_RUN",
+        "recovery": "NOT_RUN",
+        "upgrade": "NOT_RUN"
+      },
+      "audit_requirements": [
+        "operation_id",
+        "event_id",
+        "trusted_actor",
+        "scope",
+        "policy_id/revision",
+        "effective_mode",
+        "original_verdict",
+        "enforced_or_bypassed",
+        "authorization_ref",
+        "epoch",
+        "evidence_refs"
+      ]
+    },
+    {
+      "id": "P.COMMAND_RISK",
+      "level": "L1",
+      "enforcement_owner": "PDP / Approval Service",
+      "scope": "project/task/resource",
+      "default_mode": "ENFORCE",
+      "degradable": true,
+      "risk": "HIGH",
+      "modes": {
+        "ENFORCE": "已接入的静态高风险操作需人工审批；底层scope/科研能力独立",
+        "AUDIT_ONLY": "仅管理员精确选定此可降级条款才记录would-deny并继续；未选仍ENFORCE",
+        "DISABLED": "选定范围不调用此应用PDP，记BYPASSED；独立owner仍有效"
+      },
+      "test_ids": [
+        "P.COMMAND_RISK-BYPASS",
+        "P.COMMAND_RISK-MODE",
+        "P.COMMAND_RISK-NEG",
+        "P.COMMAND_RISK-POS",
+        "P.COMMAND_RISK-RACE",
+        "P.COMMAND_RISK-RECOVERY",
+        "P.COMMAND_RISK-UPGRADE"
+      ],
+      "implementation_status": "NOT_RUN",
+      "source": "M0.1 user requirements / native independent design",
+      "failure": "owner unavailable freezes dependent execution; no automatic bypass",
+      "specific_test": "安全提示关闭或AUDIT_ONLY不能授予沙箱/文件/科研能力",
+      "version": "0.2-design",
+      "test_cases": {
+        "positive": "已认证合法请求满足 已接入的静态高风险操作需人工审批；底层scope/科研能力独立，写关联证据",
+        "negative": "安全提示关闭或AUDIT_ONLY不能授予沙箱/文件/科研能力",
+        "bypass": "安全提示关闭或AUDIT_ONLY不能授予沙箱/文件/科研能力；直接通道/关闭可选模块/三模式逐一验证",
+        "concurrency": "同一scope/资源两请求竞争；安全提示关闭或AUDIT_ONLY不能授予沙箱/文件/科研能力，事务/fence不得被覆盖",
+        "recovery": "在判断、claim、执行前后注入故障/重启；安全提示关闭或AUDIT_ONLY不能授予沙箱/文件/科研能力，未知结果不重跑",
+        "upgrade": "更换配置/规则版本使旧许可或诊断失效，历史原文不改"
+      },
+      "test_status": {
+        "positive": "NOT_RUN",
+        "negative": "NOT_RUN",
+        "bypass": "NOT_RUN",
+        "concurrency": "NOT_RUN",
+        "recovery": "NOT_RUN",
+        "upgrade": "NOT_RUN"
+      },
+      "audit_requirements": [
+        "operation_id",
+        "event_id",
+        "trusted_actor",
+        "scope",
+        "policy_id/revision",
+        "effective_mode",
+        "original_verdict",
+        "enforced_or_bypassed",
+        "authorization_ref",
+        "epoch",
+        "evidence_refs"
+      ]
+    },
+    {
+      "id": "P.SANDBOX_CAPABILITY",
+      "level": "L0",
+      "enforcement_owner": "Capability Broker / Sandbox",
+      "scope": "project/task/resource",
+      "default_mode": "ENFORCE",
+      "degradable": false,
+      "risk": "HIGH",
+      "modes": {
+        "ENFORCE": "逐平台逐能力实测profile；未验证任意shell和外部Harness拒绝",
+        "AUDIT_ONLY": "逐平台逐能力实测profile；未验证任意shell和外部Harness拒绝；独立owner持续执行",
+        "DISABLED": "逐平台逐能力实测profile；未验证任意shell和外部Harness拒绝；独立owner持续执行"
+      },
+      "test_ids": [
+        "P.SANDBOX_CAPABILITY-BYPASS",
+        "P.SANDBOX_CAPABILITY-MODE",
+        "P.SANDBOX_CAPABILITY-NEG",
+        "P.SANDBOX_CAPABILITY-POS",
+        "P.SANDBOX_CAPABILITY-RACE",
+        "P.SANDBOX_CAPABILITY-RECOVERY",
+        "P.SANDBOX_CAPABILITY-UPGRADE"
+      ],
+      "implementation_status": "NOT_RUN",
+      "source": "M0.1 user requirements / native independent design",
+      "failure": "owner unavailable freezes dependent execution; no automatic bypass",
+      "specific_test": "伪造sandbox=true、只给token/Job回执均不能获得完整执行",
+      "version": "0.2-design",
+      "test_cases": {
+        "positive": "已认证合法请求满足 逐平台逐能力实测profile；未验证任意shell和外部Harness拒绝，写关联证据",
+        "negative": "伪造sandbox=true、只给token/Job回执均不能获得完整执行",
+        "bypass": "伪造sandbox=true、只给token/Job回执均不能获得完整执行；直接通道/关闭可选模块/三模式逐一验证",
+        "concurrency": "同一scope/资源两请求竞争；伪造sandbox=true、只给token/Job回执均不能获得完整执行，事务/fence不得被覆盖",
+        "recovery": "在判断、claim、执行前后注入故障/重启；伪造sandbox=true、只给token/Job回执均不能获得完整执行，未知结果不重跑",
+        "upgrade": "更换配置/规则版本使旧许可或诊断失效，历史原文不改"
+      },
+      "test_status": {
+        "positive": "NOT_RUN",
+        "negative": "NOT_RUN",
+        "bypass": "NOT_RUN",
+        "concurrency": "NOT_RUN",
+        "recovery": "NOT_RUN",
+        "upgrade": "NOT_RUN"
+      },
+      "audit_requirements": [
+        "operation_id",
+        "event_id",
+        "trusted_actor",
+        "scope",
+        "policy_id/revision",
+        "effective_mode",
+        "original_verdict",
+        "enforced_or_bypassed",
+        "authorization_ref",
+        "epoch",
+        "evidence_refs"
+      ]
+    },
+    {
+      "id": "P.PACKAGE_INTEGRITY",
+      "level": "L0",
+      "enforcement_owner": "Native Package Verifier",
+      "scope": "project/task/resource",
+      "default_mode": "ENFORCE",
+      "degradable": false,
+      "risk": "HIGH",
+      "modes": {
+        "ENFORCE": "完整相对路径双向集合/hash验证；拒绝重复/冲突/链接/逃逸",
+        "AUDIT_ONLY": "完整相对路径双向集合/hash验证；拒绝重复/冲突/链接/逃逸；独立owner持续执行",
+        "DISABLED": "完整相对路径双向集合/hash验证；拒绝重复/冲突/链接/逃逸；独立owner持续执行"
+      },
+      "test_ids": [
+        "P.PACKAGE_INTEGRITY-BYPASS",
+        "P.PACKAGE_INTEGRITY-MODE",
+        "P.PACKAGE_INTEGRITY-NEG",
+        "P.PACKAGE_INTEGRITY-POS",
+        "P.PACKAGE_INTEGRITY-RACE",
+        "P.PACKAGE_INTEGRITY-RECOVERY",
+        "P.PACKAGE_INTEGRITY-UPGRADE"
+      ],
+      "implementation_status": "NOT_RUN",
+      "source": "M0.1 user requirements / native independent design",
+      "failure": "owner unavailable freezes dependent execution; no automatic bypass",
+      "specific_test": "新增嵌套SHA256SUMS、遗漏/恶意文件必须FAIL；TOCTOU不闭合不发行",
+      "version": "0.2-design",
+      "test_cases": {
+        "positive": "已认证合法请求满足 完整相对路径双向集合/hash验证；拒绝重复/冲突/链接/逃逸，写关联证据",
+        "negative": "新增嵌套SHA256SUMS、遗漏/恶意文件必须FAIL；TOCTOU不闭合不发行",
+        "bypass": "新增嵌套SHA256SUMS、遗漏/恶意文件必须FAIL；TOCTOU不闭合不发行；直接通道/关闭可选模块/三模式逐一验证",
+        "concurrency": "同一scope/资源两请求竞争；新增嵌套SHA256SUMS、遗漏/恶意文件必须FAIL；TOCTOU不闭合不发行，事务/fence不得被覆盖",
+        "recovery": "在判断、claim、执行前后注入故障/重启；新增嵌套SHA256SUMS、遗漏/恶意文件必须FAIL；TOCTOU不闭合不发行，未知结果不重跑",
+        "upgrade": "更换配置/规则版本使旧许可或诊断失效，历史原文不改"
+      },
+      "test_status": {
+        "positive": "NOT_RUN",
+        "negative": "NOT_RUN",
+        "bypass": "NOT_RUN",
+        "concurrency": "NOT_RUN",
+        "recovery": "NOT_RUN",
+        "upgrade": "NOT_RUN"
+      },
+      "audit_requirements": [
+        "operation_id",
+        "event_id",
+        "trusted_actor",
+        "scope",
+        "policy_id/revision",
+        "effective_mode",
+        "original_verdict",
+        "enforced_or_bypassed",
+        "authorization_ref",
+        "epoch",
+        "evidence_refs"
+      ]
+    },
+    {
+      "id": "P.RESOURCE_BOUNDS",
+      "level": "L0",
+      "enforcement_owner": "Stream / Queue / Process owners",
+      "scope": "project/task/resource",
+      "default_mode": "ENFORCE",
+      "degradable": false,
+      "risk": "HIGH",
+      "modes": {
+        "ENFORCE": "按字节背压、分段与并发上限；触顶拒绝/暂停，不删原文",
+        "AUDIT_ONLY": "按字节背压、分段与并发上限；触顶拒绝/暂停，不删原文；独立owner持续执行",
+        "DISABLED": "按字节背压、分段与并发上限；触顶拒绝/暂停，不删原文；独立owner持续执行"
+      },
+      "test_ids": [
+        "P.RESOURCE_BOUNDS-BYPASS",
+        "P.RESOURCE_BOUNDS-MODE",
+        "P.RESOURCE_BOUNDS-NEG",
+        "P.RESOURCE_BOUNDS-POS",
+        "P.RESOURCE_BOUNDS-RACE",
+        "P.RESOURCE_BOUNDS-RECOVERY",
+        "P.RESOURCE_BOUNDS-UPGRADE"
+      ],
+      "implementation_status": "NOT_RUN",
+      "source": "M0.1 user requirements / native independent design",
+      "failure": "owner unavailable freezes dependent execution; no automatic bypass",
+      "specific_test": "超大单chunk/并发队列满/输出限额必须有明确终态并保留durable prefix",
+      "version": "0.2-design",
+      "test_cases": {
+        "positive": "已认证合法请求满足 按字节背压、分段与并发上限；触顶拒绝/暂停，不删原文，写关联证据",
+        "negative": "超大单chunk/并发队列满/输出限额必须有明确终态并保留durable prefix",
+        "bypass": "超大单chunk/并发队列满/输出限额必须有明确终态并保留durable prefix；直接通道/关闭可选模块/三模式逐一验证",
+        "concurrency": "同一scope/资源两请求竞争；超大单chunk/并发队列满/输出限额必须有明确终态并保留durable prefix，事务/fence不得被覆盖",
+        "recovery": "在判断、claim、执行前后注入故障/重启；超大单chunk/并发队列满/输出限额必须有明确终态并保留durable prefix，未知结果不重跑",
+        "upgrade": "更换配置/规则版本使旧许可或诊断失效，历史原文不改"
+      },
+      "test_status": {
+        "positive": "NOT_RUN",
+        "negative": "NOT_RUN",
+        "bypass": "NOT_RUN",
+        "concurrency": "NOT_RUN",
+        "recovery": "NOT_RUN",
+        "upgrade": "NOT_RUN"
+      },
+      "audit_requirements": [
+        "operation_id",
+        "event_id",
+        "trusted_actor",
+        "scope",
+        "policy_id/revision",
+        "effective_mode",
+        "original_verdict",
+        "enforced_or_bypassed",
+        "authorization_ref",
+        "epoch",
+        "evidence_refs"
+      ]
+    },
+    {
+      "id": "P.RUNTIME_IDENTITY",
+      "level": "L0",
+      "degradable": false,
+      "enforcement_owner": "Runtime Identity Registry",
+      "default_mode": "ENFORCE",
+      "version": "0.4.0-m1.3",
+      "scope": "runtime/operation/resource",
+      "modes": {
+        "ENFORCE": "Independent owner always enforces; unavailable implementation DENY/BLOCKED",
+        "AUDIT_ONLY": "Independent owner always enforces; unavailable implementation DENY/BLOCKED",
+        "DISABLED": "Independent owner always enforces; unavailable implementation DENY/BLOCKED"
+      },
+      "failure": "DENY/BLOCKED; retain UNKNOWN resources",
+      "implementation_status": "CONTRACT_ONLY_OS_DEPLOYMENT_BLOCKED",
+      "test_ids": [
+        "M13-IDENTITY",
+        "M13-IPC",
+        "M13-EXIT",
+        "M13-FEATURE"
+      ]
+    },
+    {
+      "id": "P.IPC_PEER",
+      "level": "L0",
+      "degradable": false,
+      "enforcement_owner": "Trusted IPC Adapter",
+      "default_mode": "ENFORCE",
+      "version": "0.4.0-m1.3",
+      "scope": "runtime/operation/resource",
+      "modes": {
+        "ENFORCE": "Independent owner always enforces; unavailable implementation DENY/BLOCKED",
+        "AUDIT_ONLY": "Independent owner always enforces; unavailable implementation DENY/BLOCKED",
+        "DISABLED": "Independent owner always enforces; unavailable implementation DENY/BLOCKED"
+      },
+      "failure": "DENY/BLOCKED; retain UNKNOWN resources",
+      "implementation_status": "CONTRACT_ONLY_OS_DEPLOYMENT_BLOCKED",
+      "test_ids": [
+        "M13-IDENTITY",
+        "M13-IPC",
+        "M13-EXIT",
+        "M13-FEATURE"
+      ]
+    },
+    {
+      "id": "P.WORKER_SCOPE",
+      "level": "L0",
+      "degradable": false,
+      "enforcement_owner": "Execution Broker",
+      "default_mode": "ENFORCE",
+      "version": "0.4.0-m1.3",
+      "scope": "runtime/operation/resource",
+      "modes": {
+        "ENFORCE": "Independent owner always enforces; unavailable implementation DENY/BLOCKED",
+        "AUDIT_ONLY": "Independent owner always enforces; unavailable implementation DENY/BLOCKED",
+        "DISABLED": "Independent owner always enforces; unavailable implementation DENY/BLOCKED"
+      },
+      "failure": "DENY/BLOCKED; retain UNKNOWN resources",
+      "implementation_status": "CONTRACT_ONLY_OS_DEPLOYMENT_BLOCKED",
+      "test_ids": [
+        "M13-IDENTITY",
+        "M13-IPC",
+        "M13-EXIT",
+        "M13-FEATURE"
+      ]
+    },
+    {
+      "id": "P.SANDBOX_PROFILE",
+      "level": "L0",
+      "degradable": false,
+      "enforcement_owner": "Sandbox Controller",
+      "default_mode": "ENFORCE",
+      "version": "0.4.0-m1.3",
+      "scope": "runtime/operation/resource",
+      "modes": {
+        "ENFORCE": "Independent owner always enforces; unavailable implementation DENY/BLOCKED",
+        "AUDIT_ONLY": "Independent owner always enforces; unavailable implementation DENY/BLOCKED",
+        "DISABLED": "Independent owner always enforces; unavailable implementation DENY/BLOCKED"
+      },
+      "failure": "DENY/BLOCKED; retain UNKNOWN resources",
+      "implementation_status": "CONTRACT_ONLY_OS_DEPLOYMENT_BLOCKED",
+      "test_ids": [
+        "M13-IDENTITY",
+        "M13-IPC",
+        "M13-EXIT",
+        "M13-FEATURE"
+      ]
+    },
+    {
+      "id": "P.PROCESS_OWNER",
+      "level": "L0",
+      "degradable": false,
+      "enforcement_owner": "Worker Supervisor",
+      "default_mode": "ENFORCE",
+      "version": "0.4.0-m1.3",
+      "scope": "runtime/operation/resource",
+      "modes": {
+        "ENFORCE": "Independent owner always enforces; unavailable implementation DENY/BLOCKED",
+        "AUDIT_ONLY": "Independent owner always enforces; unavailable implementation DENY/BLOCKED",
+        "DISABLED": "Independent owner always enforces; unavailable implementation DENY/BLOCKED"
+      },
+      "failure": "DENY/BLOCKED; retain UNKNOWN resources",
+      "implementation_status": "CONTRACT_ONLY_OS_DEPLOYMENT_BLOCKED",
+      "test_ids": [
+        "M13-IDENTITY",
+        "M13-IPC",
+        "M13-EXIT",
+        "M13-FEATURE"
+      ]
+    },
+    {
+      "id": "P.EXIT_PROOF",
+      "level": "L0",
+      "degradable": false,
+      "enforcement_owner": "ExitProof Verifier",
+      "default_mode": "ENFORCE",
+      "version": "0.4.0-m1.3",
+      "scope": "runtime/operation/resource",
+      "modes": {
+        "ENFORCE": "Independent owner always enforces; unavailable implementation DENY/BLOCKED",
+        "AUDIT_ONLY": "Independent owner always enforces; unavailable implementation DENY/BLOCKED",
+        "DISABLED": "Independent owner always enforces; unavailable implementation DENY/BLOCKED"
+      },
+      "failure": "DENY/BLOCKED; retain UNKNOWN resources",
+      "implementation_status": "CONTRACT_ONLY_OS_DEPLOYMENT_BLOCKED",
+      "test_ids": [
+        "M13-IDENTITY",
+        "M13-IPC",
+        "M13-EXIT",
+        "M13-FEATURE"
+      ]
+    },
+    {
+      "id": "P.RESOURCE_RELEASE",
+      "level": "L0",
+      "degradable": false,
+      "enforcement_owner": "Resource Reconciliation",
+      "default_mode": "ENFORCE",
+      "version": "0.4.0-m1.3",
+      "scope": "runtime/operation/resource",
+      "modes": {
+        "ENFORCE": "Independent owner always enforces; unavailable implementation DENY/BLOCKED",
+        "AUDIT_ONLY": "Independent owner always enforces; unavailable implementation DENY/BLOCKED",
+        "DISABLED": "Independent owner always enforces; unavailable implementation DENY/BLOCKED"
+      },
+      "failure": "DENY/BLOCKED; retain UNKNOWN resources",
+      "implementation_status": "CONTRACT_ONLY_OS_DEPLOYMENT_BLOCKED",
+      "test_ids": [
+        "M13-IDENTITY",
+        "M13-IPC",
+        "M13-EXIT",
+        "M13-FEATURE"
+      ]
+    },
+    {
+      "id": "P.REMOTE_PERMIT",
+      "level": "L0",
+      "degradable": false,
+      "enforcement_owner": "Production Execution Broker",
+      "default_mode": "ENFORCE",
+      "version": "0.4.0-m1.4",
+      "scope": "runtime/operation/resource/profile",
+      "modes": {
+        "ENFORCE": "Independent owner always enforces. Missing verified implementation or exact evidence DENY/BLOCKED.",
+        "AUDIT_ONLY": "Independent owner always enforces. Missing verified implementation or exact evidence DENY/BLOCKED.",
+        "DISABLED": "Independent owner always enforces. Missing verified implementation or exact evidence DENY/BLOCKED."
+      },
+      "failure": "DENY/BLOCKED; retain consumed authorization and UNKNOWN resources",
+      "implementation_status": "CANDIDATE_DEPLOYMENT_BLOCKED",
+      "test_ids": [
+        "M14-PERMIT",
+        "M14-FILE",
+        "M14-EXIT",
+        "M14-FEATURE"
+      ]
+    },
+    {
+      "id": "P.FILE_BROKER",
+      "level": "L0",
+      "degradable": false,
+      "enforcement_owner": "File Broker",
+      "default_mode": "ENFORCE",
+      "version": "0.4.0-m1.4",
+      "scope": "runtime/operation/resource/profile",
+      "modes": {
+        "ENFORCE": "Independent owner always enforces. Missing verified implementation or exact evidence DENY/BLOCKED.",
+        "AUDIT_ONLY": "Independent owner always enforces. Missing verified implementation or exact evidence DENY/BLOCKED.",
+        "DISABLED": "Independent owner always enforces. Missing verified implementation or exact evidence DENY/BLOCKED."
+      },
+      "failure": "DENY/BLOCKED; retain consumed authorization and UNKNOWN resources",
+      "implementation_status": "CANDIDATE_DEPLOYMENT_BLOCKED",
+      "test_ids": [
+        "M14-PERMIT",
+        "M14-FILE",
+        "M14-EXIT",
+        "M14-FEATURE"
+      ]
+    },
+    {
+      "id": "P.PRODUCTION_QUALIFICATION",
+      "level": "L0",
+      "degradable": false,
+      "enforcement_owner": "Deployment Qualification Owner",
+      "default_mode": "ENFORCE",
+      "version": "0.4.0-m1.4",
+      "scope": "runtime/operation/resource/profile",
+      "modes": {
+        "ENFORCE": "Independent owner always enforces. Missing verified implementation or exact evidence DENY/BLOCKED.",
+        "AUDIT_ONLY": "Independent owner always enforces. Missing verified implementation or exact evidence DENY/BLOCKED.",
+        "DISABLED": "Independent owner always enforces. Missing verified implementation or exact evidence DENY/BLOCKED."
+      },
+      "failure": "DENY/BLOCKED; retain consumed authorization and UNKNOWN resources",
+      "implementation_status": "CANDIDATE_DEPLOYMENT_BLOCKED",
+      "test_ids": [
+        "M14-PERMIT",
+        "M14-FILE",
+        "M14-EXIT",
+        "M14-FEATURE"
+      ]
+    },
+    {
+      "id": "P.NATIVE_IDENTITY",
+      "level": "L0",
+      "degradable": false,
+      "enforcement_owner": "Native Agent Runtime",
+      "version": "0.4.0-m1.6",
+      "default_mode": "ENFORCE",
+      "modes": {
+        "ENFORCE": "Independent trusted owner enforces identity, scope and durable audit; no mode bypass",
+        "AUDIT_ONLY": "Independent trusted owner enforces identity, scope and durable audit; no mode bypass",
+        "DISABLED": "Independent trusted owner enforces identity, scope and durable audit; no mode bypass"
+      },
+      "implementation_status": "IMPLEMENTED_LOCAL",
+      "test_ids": [
+        "M16-POS",
+        "M16-NEG",
+        "M16-BYPASS"
+      ],
+      "test_cases": {
+        "positive": "Authorized bound local mock execution",
+        "negative": "Identity/scope/overspend rejected",
+        "bypass": "Feature ON/policy mode never grants OS or admin rights"
+      },
+      "test_status": {
+        "positive": "NOT_RUN",
+        "negative": "NOT_RUN",
+        "bypass": "NOT_RUN"
+      }
+    },
+    {
+      "id": "P.AGENT_SCOPE",
+      "level": "L0",
+      "degradable": false,
+      "enforcement_owner": "Native Tool Runtime",
+      "version": "0.4.0-m1.6",
+      "default_mode": "ENFORCE",
+      "modes": {
+        "ENFORCE": "Independent trusted owner enforces identity, scope and durable audit; no mode bypass",
+        "AUDIT_ONLY": "Independent trusted owner enforces identity, scope and durable audit; no mode bypass",
+        "DISABLED": "Independent trusted owner enforces identity, scope and durable audit; no mode bypass"
+      },
+      "implementation_status": "IMPLEMENTED_LOCAL",
+      "test_ids": [
+        "M16-POS",
+        "M16-NEG",
+        "M16-BYPASS"
+      ],
+      "test_cases": {
+        "positive": "Authorized bound local mock execution",
+        "negative": "Identity/scope/overspend rejected",
+        "bypass": "Feature ON/policy mode never grants OS or admin rights"
+      },
+      "test_status": {
+        "positive": "NOT_RUN",
+        "negative": "NOT_RUN",
+        "bypass": "NOT_RUN"
+      }
+    },
+    {
+      "id": "P.MESSAGE_DELIVERY",
+      "level": "L0",
+      "degradable": false,
+      "enforcement_owner": "Native Message Bus",
+      "version": "0.4.0-m1.6",
+      "default_mode": "ENFORCE",
+      "modes": {
+        "ENFORCE": "Independent trusted owner enforces identity, scope and durable audit; no mode bypass",
+        "AUDIT_ONLY": "Independent trusted owner enforces identity, scope and durable audit; no mode bypass",
+        "DISABLED": "Independent trusted owner enforces identity, scope and durable audit; no mode bypass"
+      },
+      "implementation_status": "IMPLEMENTED_LOCAL",
+      "test_ids": [
+        "M16-POS",
+        "M16-NEG",
+        "M16-BYPASS"
+      ],
+      "test_cases": {
+        "positive": "Authorized bound local mock execution",
+        "negative": "Identity/scope/overspend rejected",
+        "bypass": "Feature ON/policy mode never grants OS or admin rights"
+      },
+      "test_status": {
+        "positive": "NOT_RUN",
+        "negative": "NOT_RUN",
+        "bypass": "NOT_RUN"
+      }
+    },
+    {
+      "id": "P.RESOURCE_ADMISSION",
+      "level": "L0",
+      "degradable": false,
+      "enforcement_owner": "Resource Governance Engine",
+      "version": "0.4.0-m1.6",
+      "default_mode": "ENFORCE",
+      "modes": {
+        "ENFORCE": "Independent trusted owner enforces identity, scope and durable audit; no mode bypass",
+        "AUDIT_ONLY": "Independent trusted owner enforces identity, scope and durable audit; no mode bypass",
+        "DISABLED": "Independent trusted owner enforces identity, scope and durable audit; no mode bypass"
+      },
+      "implementation_status": "IMPLEMENTED_LOCAL",
+      "test_ids": [
+        "M16-POS",
+        "M16-NEG",
+        "M16-BYPASS"
+      ],
+      "test_cases": {
+        "positive": "Authorized bound local mock execution",
+        "negative": "Identity/scope/overspend rejected",
+        "bypass": "Feature ON/policy mode never grants OS or admin rights"
+      },
+      "test_status": {
+        "positive": "NOT_RUN",
+        "negative": "NOT_RUN",
+        "bypass": "NOT_RUN"
+      }
+    },
+    {
+      "id": "P.MODEL_CREDENTIAL",
+      "level": "L0",
+      "degradable": false,
+      "enforcement_owner": "Model Gateway",
+      "version": "0.4.0-m1.6",
+      "default_mode": "ENFORCE",
+      "modes": {
+        "ENFORCE": "Independent trusted owner enforces identity, scope and durable audit; no mode bypass",
+        "AUDIT_ONLY": "Independent trusted owner enforces identity, scope and durable audit; no mode bypass",
+        "DISABLED": "Independent trusted owner enforces identity, scope and durable audit; no mode bypass"
+      },
+      "implementation_status": "IMPLEMENTED_LOCAL",
+      "test_ids": [
+        "M16-POS",
+        "M16-NEG",
+        "M16-BYPASS"
+      ],
+      "test_cases": {
+        "positive": "Authorized bound local mock execution",
+        "negative": "Identity/scope/overspend rejected",
+        "bypass": "Feature ON/policy mode never grants OS or admin rights"
+      },
+      "test_status": {
+        "positive": "NOT_RUN",
+        "negative": "NOT_RUN",
+        "bypass": "NOT_RUN"
+      }
+    },
+    {
+      "id": "P.CONTEXT_PROVENANCE",
+      "level": "L0",
+      "degradable": false,
+      "enforcement_owner": "Context Assembly",
+      "version": "0.4.0-m1.6",
+      "default_mode": "ENFORCE",
+      "modes": {
+        "ENFORCE": "Independent trusted owner enforces identity, scope and durable audit; no mode bypass",
+        "AUDIT_ONLY": "Independent trusted owner enforces identity, scope and durable audit; no mode bypass",
+        "DISABLED": "Independent trusted owner enforces identity, scope and durable audit; no mode bypass"
+      },
+      "implementation_status": "IMPLEMENTED_LOCAL",
+      "test_ids": [
+        "M16-POS",
+        "M16-NEG",
+        "M16-BYPASS"
+      ],
+      "test_cases": {
+        "positive": "Authorized bound local mock execution",
+        "negative": "Identity/scope/overspend rejected",
+        "bypass": "Feature ON/policy mode never grants OS or admin rights"
+      },
+      "test_status": {
+        "positive": "NOT_RUN",
+        "negative": "NOT_RUN",
+        "bypass": "NOT_RUN"
+      }
+    },
+    {
+      "id": "P.NATIVE_LIFECYCLE",
+      "level": "L0",
+      "degradable": false,
+      "enforcement_owner": "Native Agent Runtime",
+      "version": "0.4.0-m1.6",
+      "default_mode": "ENFORCE",
+      "modes": {
+        "ENFORCE": "Independent trusted owner enforces identity, scope and durable audit; no mode bypass",
+        "AUDIT_ONLY": "Independent trusted owner enforces identity, scope and durable audit; no mode bypass",
+        "DISABLED": "Independent trusted owner enforces identity, scope and durable audit; no mode bypass"
+      },
+      "implementation_status": "IMPLEMENTED_LOCAL",
+      "test_ids": [
+        "M16-POS",
+        "M16-NEG",
+        "M16-BYPASS"
+      ],
+      "test_cases": {
+        "positive": "Authorized bound local mock execution",
+        "negative": "Identity/scope/overspend rejected",
+        "bypass": "Feature ON/policy mode never grants OS or admin rights"
+      },
+      "test_status": {
+        "positive": "NOT_RUN",
+        "negative": "NOT_RUN",
+        "bypass": "NOT_RUN"
+      }
+    },
+    {
+      "id": "P.WORKFLOW_BINDING",
+      "level": "L0",
+      "degradable": false,
+      "enforcement_owner": "Workflow Runtime",
+      "version": "0.4.0-m1.6",
+      "default_mode": "ENFORCE",
+      "modes": {
+        "ENFORCE": "Independent trusted owner enforces identity, scope and durable audit; no mode bypass",
+        "AUDIT_ONLY": "Independent trusted owner enforces identity, scope and durable audit; no mode bypass",
+        "DISABLED": "Independent trusted owner enforces identity, scope and durable audit; no mode bypass"
+      },
+      "implementation_status": "IMPLEMENTED_LOCAL",
+      "test_ids": [
+        "M16-POS",
+        "M16-NEG",
+        "M16-BYPASS"
+      ],
+      "test_cases": {
+        "positive": "Authorized bound local mock execution",
+        "negative": "Identity/scope/overspend rejected",
+        "bypass": "Feature ON/policy mode never grants OS or admin rights"
+      },
+      "test_status": {
+        "positive": "NOT_RUN",
+        "negative": "NOT_RUN",
+        "bypass": "NOT_RUN"
+      }
+    }
+  ],
+  "baseline": {
+    "path": "../../AgentNexus-v0.4-M0/architecture/policy_catalog.json",
+    "sha256": "6d7d050d1d4e58fc27cd31f6fe844c4748910c3392270353e7a501ce38367f90",
+    "count": 22
+  },
+  "change_log": [
+    {
+      "kind": "SUPPLEMENT",
+      "id": "P.IDENTITY",
+      "fields": [
+        "version",
+        "test_cases",
+        "test_status",
+        "audit_requirements"
+      ]
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "P.FS_SCOPE",
+      "fields": [
+        "version",
+        "test_cases",
+        "test_status",
+        "audit_requirements"
+      ]
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "P.REVIEW_RO",
+      "fields": [
+        "version",
+        "test_cases",
+        "test_status",
+        "audit_requirements"
+      ]
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "P.ARCHIVE_APPEND",
+      "fields": [
+        "version",
+        "test_cases",
+        "test_status",
+        "audit_requirements"
+      ]
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "P.SECRET_BOUNDARY",
+      "fields": [
+        "version",
+        "test_cases",
+        "test_status",
+        "audit_requirements"
+      ]
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "P.DB_ATOMIC",
+      "fields": [
+        "version",
+        "test_cases",
+        "test_status",
+        "audit_requirements"
+      ]
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "P.EXPERIMENT_ONCE",
+      "fields": [
+        "version",
+        "test_cases",
+        "test_status",
+        "audit_requirements"
+      ]
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "P.WORKSPACE_WRITER",
+      "fields": [
+        "version",
+        "test_cases",
+        "test_status",
+        "audit_requirements"
+      ]
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "P.BUDGET_HARD",
+      "fields": [
+        "version",
+        "test_cases",
+        "test_status",
+        "audit_requirements"
+      ]
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "P.ADMIN_MODE",
+      "fields": [
+        "version",
+        "test_cases",
+        "test_status",
+        "audit_requirements"
+      ]
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "P.APPROVAL_REPLAY",
+      "fields": [
+        "version",
+        "test_cases",
+        "test_status",
+        "audit_requirements"
+      ]
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "P.TOOL_CONTRACT",
+      "fields": [
+        "version",
+        "test_cases",
+        "test_status",
+        "audit_requirements"
+      ]
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "P.GIT_PUBLISH",
+      "fields": [
+        "version",
+        "test_cases",
+        "test_status",
+        "audit_requirements"
+      ]
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "P.DATA_DELETE",
+      "fields": [
+        "version",
+        "test_cases",
+        "test_status",
+        "audit_requirements"
+      ]
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "P.INSTALL",
+      "fields": [
+        "version",
+        "test_cases",
+        "test_status",
+        "audit_requirements"
+      ]
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "P.PROJECT_RULE_CHANGE",
+      "fields": [
+        "version",
+        "test_cases",
+        "test_status",
+        "audit_requirements"
+      ]
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "P.EXPERIMENT_APPROVAL",
+      "fields": [
+        "version",
+        "test_cases",
+        "test_status",
+        "audit_requirements"
+      ]
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "P.BUDGET_INCREASE",
+      "fields": [
+        "version",
+        "test_cases",
+        "test_status",
+        "audit_requirements"
+      ]
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "P.REVIEW_BINDING",
+      "fields": [
+        "version",
+        "test_cases",
+        "test_status",
+        "audit_requirements"
+      ]
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "P.WORKFLOW_GATES",
+      "fields": [
+        "version",
+        "test_cases",
+        "test_status",
+        "audit_requirements"
+      ]
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "P.SCIENTIFIC_CLAIM",
+      "fields": [
+        "version",
+        "test_cases",
+        "test_status",
+        "audit_requirements"
+      ]
+    },
+    {
+      "kind": "SUPPLEMENT",
+      "id": "P.STYLE",
+      "fields": [
+        "version",
+        "test_cases",
+        "test_status",
+        "audit_requirements"
+      ]
+    },
+    {
+      "kind": "ADD",
+      "id": "P.AUDIT_REQUIRED"
+    },
+    {
+      "kind": "ADD",
+      "id": "P.ARTIFACT_INTEGRITY"
+    },
+    {
+      "kind": "ADD",
+      "id": "P.EVIDENCE_DOMAINS"
+    },
+    {
+      "kind": "ADD",
+      "id": "P.REPLAY_READONLY"
+    },
+    {
+      "kind": "ADD",
+      "id": "P.DI_NOEXEC"
+    },
+    {
+      "kind": "ADD",
+      "id": "P.DI_SYNTAX"
+    },
+    {
+      "kind": "ADD",
+      "id": "P.DI_ARGUMENTS"
+    },
+    {
+      "kind": "ADD",
+      "id": "P.DI_ENVIRONMENT"
+    },
+    {
+      "kind": "ADD",
+      "id": "P.COMMAND_RISK"
+    },
+    {
+      "kind": "ADD",
+      "id": "P.SANDBOX_CAPABILITY"
+    },
+    {
+      "kind": "ADD",
+      "id": "P.PACKAGE_INTEGRITY"
+    },
+    {
+      "kind": "ADD",
+      "id": "P.RESOURCE_BOUNDS"
+    }
+  ]
+}

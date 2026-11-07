@@ -1,0 +1,119 @@
+TAP version 13
+# Subtest: M16-MODEL-TRACE: simulated results preserve original context provenance, integer usage and durable dedup
+ok 1 - M16-MODEL-TRACE: simulated results preserve original context provenance, integer usage and durable dedup
+  ---
+  duration_ms: 145.0174
+  type: 'test'
+  ...
+# Subtest: M16-MODEL-REAL-BLOCKED: no real adapter/provider or plaintext credential entry exists
+ok 2 - M16-MODEL-REAL-BLOCKED: no real adapter/provider or plaintext credential entry exists
+  ---
+  duration_ms: 67.8472
+  type: 'test'
+  ...
+# Subtest: M16-MODEL-FAILOVER: only proven not-sent failures may advance to an independent provider pool
+ok 3 - M16-MODEL-FAILOVER: only proven not-sent failures may advance to an independent provider pool
+  ---
+  duration_ms: 105.1482
+  type: 'test'
+  ...
+# Subtest: M16-MODEL-UNKNOWN: sent unknown results retain budget/key quota, persist and never fail over or replay
+ok 4 - M16-MODEL-UNKNOWN: sent unknown results retain budget/key quota, persist and never fail over or replay
+  ---
+  duration_ms: 116.4826
+  type: 'test'
+  ...
+# Subtest: M16-MODEL-POOL: independent key state, rotation and round robin keep provider/account limits
+ok 5 - M16-MODEL-POOL: independent key state, rotation and round robin keep provider/account limits
+  ---
+  duration_ms: 146.3138
+  type: 'test'
+  ...
+# Subtest: M16-MODEL-CONCURRENCY: active key limit rejects a concurrent request and releases known unused reservation
+ok 6 - M16-MODEL-CONCURRENCY: active key limit rejects a concurrent request and releases known unused reservation
+  ---
+  duration_ms: 119.5666
+  type: 'test'
+  ...
+# Subtest: M16-MODEL-BUDGET: reservation failure and unknown settlement fail closed without unmetered dispatch
+ok 7 - M16-MODEL-BUDGET: reservation failure and unknown settlement fail closed without unmetered dispatch
+  ---
+  duration_ms: 165.5846
+  type: 'test'
+  ...
+# Subtest: M16-MODEL-FEATURE: disabled failover, authentication failure and usage excess have separate outcomes
+ok 8 - M16-MODEL-FEATURE: disabled failover, authentication failure and usage excess have separate outcomes
+  ---
+  duration_ms: 231.2174
+  type: 'test'
+  ...
+# Subtest: M16-MODEL-TOOL: full JSON arguments/resource remain data and model cannot supply approval authority
+ok 9 - M16-MODEL-TOOL: full JSON arguments/resource remain data and model cannot supply approval authority
+  ---
+  duration_ms: 97.6416
+  type: 'test'
+  ...
+# Subtest: M16-MODEL-RECOVERY: persisted reserve/send crash windows become unknown without dispatch or quota release
+ok 10 - M16-MODEL-RECOVERY: persisted reserve/send crash windows become unknown without dispatch or quota release
+  ---
+  duration_ms: 95.0286
+  type: 'test'
+  ...
+# Subtest: M16-MODEL-CANCEL-NOT-SENT: real durable barriers fence cancellation before fixture sequence or token consumption
+    # Subtest: MODEL_REQUEST_PREPARED
+    ok 1 - MODEL_REQUEST_PREPARED
+      ---
+      duration_ms: 67.2751
+      type: 'test'
+      ...
+    # Subtest: MODEL_BUDGET_RESERVED
+    ok 2 - MODEL_BUDGET_RESERVED
+      ---
+      duration_ms: 69.1038
+      type: 'test'
+      ...
+    # Subtest: CONTEXT_CAPTURED
+    ok 3 - CONTEXT_CAPTURED
+      ---
+      duration_ms: 75.7723
+      type: 'test'
+      ...
+    # Subtest: MODEL_DISPATCH_INTENT
+    ok 4 - MODEL_DISPATCH_INTENT
+      ---
+      duration_ms: 79.5439
+      type: 'test'
+      ...
+    1..4
+ok 11 - M16-MODEL-CANCEL-NOT-SENT: real durable barriers fence cancellation before fixture sequence or token consumption
+  ---
+  duration_ms: 292.4977
+  type: 'test'
+  ...
+# Subtest: M16-MODEL-CANCEL-SENT: cancellation after actual fixture dispatch retains unknown quota and never fails over
+ok 12 - M16-MODEL-CANCEL-SENT: cancellation after actual fixture dispatch retains unknown quota and never fails over
+  ---
+  duration_ms: 83.1914
+  type: 'test'
+  ...
+# Subtest: M16-MODEL-CANCEL-FAILOVER: cancellation at known-not-sent ACK cannot advance to another provider
+ok 13 - M16-MODEL-CANCEL-FAILOVER: cancellation at known-not-sent ACK cannot advance to another provider
+  ---
+  duration_ms: 87.9605
+  type: 'test'
+  ...
+# Subtest: M16-MODEL-CANCEL-SETTLED: cancellation after a known usage settlement preserves actual metering
+ok 14 - M16-MODEL-CANCEL-SETTLED: cancellation after a known usage settlement preserves actual metering
+  ---
+  duration_ms: 96.0836
+  type: 'test'
+  ...
+1..14
+# tests 18
+# suites 0
+# pass 18
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2024.1274

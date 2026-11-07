@@ -1,0 +1,100 @@
+TAP version 13
+# Subtest: M16 RESOURCES SIMULATED: strict CPU remains BLOCKED independent of a registry description
+ok 1 - M16 RESOURCES SIMULATED: strict CPU remains BLOCKED independent of a registry description
+  ---
+  duration_ms: 1.0761
+  type: 'test'
+  ...
+# Subtest: M16 RESOURCES SQLITE: competing reservations atomically obey all three budgets
+ok 2 - M16 RESOURCES SQLITE: competing reservations atomically obey all three budgets
+  ---
+  duration_ms: 73.5418
+  type: 'test'
+  ...
+# Subtest: M16 RESOURCES SIMULATED: admin and exact subject/project/worker scope cannot be forged
+ok 3 - M16 RESOURCES SIMULATED: admin and exact subject/project/worker scope cannot be forged
+  ---
+  duration_ms: 49.0474
+  type: 'test'
+  ...
+# Subtest: M16 RESOURCES SQLITE: cumulative consumption settles once while capacity stays held until owner closure
+ok 4 - M16 RESOURCES SQLITE: cumulative consumption settles once while capacity stays held until owner closure
+  ---
+  duration_ms: 63.4353
+  type: 'test'
+  ...
+# Subtest: M16 RESOURCES SIMULATED: fabricated, serialized, wrong-reservation and stale closure objects fail
+ok 5 - M16 RESOURCES SIMULATED: fabricated, serialized, wrong-reservation and stale closure objects fail
+  ---
+  duration_ms: 51.7026
+  type: 'test'
+  ...
+# Subtest: M16 RESOURCES SIMULATED: UNKNOWN, expiration and production-looking JSON never free capacity
+ok 6 - M16 RESOURCES SIMULATED: UNKNOWN, expiration and production-looking JSON never free capacity
+  ---
+  duration_ms: 56.6337
+  type: 'test'
+  ...
+# Subtest: M16 RESOURCES SQLITE: bounded persistent wait resumes only after a verified unused reservation closes
+ok 7 - M16 RESOURCES SQLITE: bounded persistent wait resumes only after a verified unused reservation closes
+  ---
+  duration_ms: 55.9473
+  type: 'test'
+  ...
+# Subtest: M16 RESOURCES SIMULATED: waiting state has a hard count bound; no unbounded in-memory queue
+ok 8 - M16 RESOURCES SIMULATED: waiting state has a hard count bound; no unbounded in-memory queue
+  ---
+  duration_ms: 223.7754
+  type: 'test'
+  ...
+# Subtest: M16 RESOURCES SQLITE: cancelled waiting requests cannot later acquire capacity or cancel active claims
+ok 9 - M16 RESOURCES SQLITE: cancelled waiting requests cannot later acquire capacity or cancel active claims
+  ---
+  duration_ms: 54.6053
+  type: 'test'
+  ...
+# Subtest: M16 RESOURCES SQLITE: old boot recovery preserves holds and consumed counters, rejects old wait and closure
+ok 10 - M16 RESOURCES SQLITE: old boot recovery preserves holds and consumed counters, rejects old wait and closure
+  ---
+  duration_ms: 89.5319
+  type: 'test'
+  ...
+# Subtest: M16 RESOURCES FEATURE: OFF blocks reserve/start and permits evidence-based cleanup without reopening execution
+ok 11 - M16 RESOURCES FEATURE: OFF blocks reserve/start and permits evidence-based cleanup without reopening execution
+  ---
+  duration_ms: 68.2997
+  type: 'test'
+  ...
+# Subtest: M16 RESOURCES AUDIT: failed durable reservation barrier produces zero starts and retains the committed hold
+ok 12 - M16 RESOURCES AUDIT: failed durable reservation barrier produces zero starts and retains the committed hold
+  ---
+  duration_ms: 45.0049
+  type: 'test'
+  ...
+# Subtest: M16 RESOURCES ACCOUNTING: observed overspend is recorded in all scopes and quarantines further admission
+ok 13 - M16 RESOURCES ACCOUNTING: observed overspend is recorded in all scopes and quarantines further admission
+  ---
+  duration_ms: 51.282
+  type: 'test'
+  ...
+# Subtest: M16 RESOURCES VALIDATION: invalid amounts, expired requests and strict mode cannot mutate holds
+ok 14 - M16 RESOURCES VALIDATION: invalid amounts, expired requests and strict mode cannot mutate holds
+  ---
+  duration_ms: 41.6243
+  type: 'test'
+  ...
+# Subtest: M16 RESOURCES SIMULATED: application bookkeeping never accepts a simulated completion as real OS proof
+ok 15 - M16 RESOURCES SIMULATED: application bookkeeping never accepts a simulated completion as real OS proof
+  ---
+  duration_ms: 47.453
+  type: 'test'
+  ...
+1..15
+# tests 15
+# suites 0
+# pass 15
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1121.9637

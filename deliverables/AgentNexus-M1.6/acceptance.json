@@ -1,0 +1,109 @@
+{
+  "schema": "agentnexus/m16/acceptance/1",
+  "scope": "LOCAL_TRUSTED_LIBRARY_AND_MOCK_NATIVE_CORE",
+  "local_core": "PASS",
+  "regression": "FAIL",
+  "production": "BLOCKED",
+  "source_set_sha256": "242bf84892d7db9539baa5fca36119af97aa658cf0757ba97c58a17190542f80",
+  "source_files": 123,
+  "git_head": "112d915c97ee6e6214f7ce05eab8bd492bbb9bc6",
+  "commit_push_performed": false,
+  "all_tests": {
+    "total": 380,
+    "PASS": 351,
+    "FAIL": 2,
+    "NOT_RUN": 27,
+    "exit_code": 1
+  },
+  "new_native_tests": {
+    "total": 75,
+    "PASS": 75,
+    "FAIL": 0,
+    "NOT_RUN": 0
+  },
+  "static": {
+    "strict_typescript": "PASS",
+    "node_syntax": "PASS"
+  },
+  "independent_review": {
+    "status": "LOCAL_SCOPE_PASS_WITH_LIMITATIONS",
+    "closed_findings": 13,
+    "actual_probes": 15,
+    "new_open_findings": [],
+    "reuse": "Independent 75 tests/15 probes from v1; all product+M16 tests byte-identical in v2; v2 security22/strict rerun; main all380 actually ran on v2"
+  },
+  "cpu": {
+    "strict": "BLOCKED",
+    "historical_M151": "FAIL:56/58",
+    "current_legacy_case": "FAIL",
+    "new_58_matrix": "NOT_RUN",
+    "budget_tolerance_unchanged": true
+  },
+  "toctou": {
+    "current_test": "FAIL",
+    "attack_swaps": 0,
+    "dynamic_attack_coverage": "INCONCLUSIVE",
+    "threshold_unchanged": true
+  },
+  "demo": {
+    "types": 5,
+    "model_requests": 7,
+    "messages": 2,
+    "provider": "SIMULATED",
+    "task": "SUCCEEDED",
+    "review_task": "SUCCEEDED",
+    "active_reservations": 0,
+    "unknown_reservations": 0
+  },
+  "historical_preservation": {
+    "files": 3341,
+    "status": "PASS",
+    "baseline_source_files": 100,
+    "baseline_source": "PASS"
+  },
+  "governance": "PASS",
+  "remaining_limits": [
+    {
+      "id": "L-CPU",
+      "status": "BLOCKED",
+      "detail": "严格Windows累计CPU合同未修复；M1.5.1最终58项56 FAIL/2 PASS永久保留。主线v2继承CPU用例同样FAIL：Job累计29062500 ticks，需Helper DEADLINE。未重跑58矩阵，CPU_RATE/采样/模拟账本不升级为严格硬限制。"
+    },
+    {
+      "id": "L-TOCTOU",
+      "status": "FAIL",
+      "detail": "主线v2继承TOCTOU fixture在swaps>0断言失败，替换计数为0；此轮动态替换攻击覆盖INCONCLUSIVE，不能据此宣称逃逸已发生或资格通过。原断言与历史成功/失败均保留，不降低阈值。"
+    },
+    {
+      "id": "L-OS",
+      "status": "BLOCKED",
+      "detail": "LOCAL_TRUSTED_LIBRARY不是恶意同进程代码或真实Worker的OS安全边界。Windows生产账户、ACL/AppContainer、完整生产退出证明未独立验收；Ubuntu NOT_RUN。"
+    },
+    {
+      "id": "L-DISK",
+      "status": "BLOCKED",
+      "detail": "实际LOCAL_WRITE可在精确审批后执行，但无持久存储所有权转移/销毁适配器，Task与全部相关claims保持UNKNOWN，不支持自动成功结算或自动回收。"
+    },
+    {
+      "id": "L-MODEL",
+      "status": "SIMULATED",
+      "detail": "仅静态Mock Provider、模拟token/费用及mock Vault handle；未读取真实Key、连接真实Provider或产生费用。"
+    },
+    {
+      "id": "L-WORKFLOW",
+      "status": "PARTIAL",
+      "detail": "G0-G6为版本/证据/状态ledger，PASS是可信owner声明，不能视为自动质量认证；规则捕获/必需上下文已实现，wf.context仍INTERFACE_ONLY/NOT_RUN。"
+    },
+    {
+      "id": "L-AUTOMATION",
+      "status": "NOT_RUN",
+      "detail": "未独立验证自动Git commit/push watcher、长期Resident/Coordinator服务、真实Host/OS重启或硬断电；安全SQLite reopen不是生产重启。"
+    },
+    {
+      "id": "L-RECOVERY",
+      "status": "BLOCKED",
+      "detail": "在途模型/工具/资源不确定时仍需owner reconciliation；不提供未知副作用自动重试或UNKNOWN自动释放。"
+    }
+  ],
+  "raw_run": "evidence/runs/final-v2-2026-11-07T21-59-25-551Z-34640",
+  "governance_evidence": "evidence/governance-final.txt"
+}

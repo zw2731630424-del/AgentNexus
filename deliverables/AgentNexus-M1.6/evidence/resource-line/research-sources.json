@@ -1,0 +1,25 @@
+{
+  "schema": "agentnexus/resource-research/1.6",
+  "checked_on": "2026-11-08",
+  "method": "Official primary documentation opened and relevant sections read using web tool; no OS qualification experiment",
+  "sources": [
+    {"url":"https://learn.microsoft.com/en-us/windows/win32/api/winnt/ns-winnt-jobobject_cpu_rate_control_information","authority":"Microsoft","supports":"Scheduling interval bandwidth; nested CPU rates relative to parent; no cumulative lifetime termination contract"},
+    {"url":"https://learn.microsoft.com/en-us/windows/win32/api/winnt/ns-winnt-jobobject_basic_limit_information","authority":"Microsoft","supports":"Periodic user-mode job/process limits; 100ns representation; cumulative job end limit based on existing consumption"},
+    {"url":"https://learn.microsoft.com/en-us/windows/win32/api/winnt/ns-winnt-jobobject_basic_accounting_information","authority":"Microsoft","supports":"Total user/kernel time includes active and terminated members; period counters have independent reset semantics"},
+    {"url":"https://learn.microsoft.com/en-us/windows/win32/api/processthreadsapi/nf-processthreadsapi-getprocesstimes","authority":"Microsoft","supports":"Retained process-handle user/kernel accounting summed across threads; represented by 100ns FILETIME values"},
+    {"url":"https://learn.microsoft.com/en-us/windows/win32/procthread/nested-jobs","authority":"Microsoft","supports":"Subtree resource aggregation and nested termination; limit semantics are resource-specific"},
+    {"url":"https://learn.microsoft.com/en-us/windows/win32/api/jobapi2/nf-jobapi2-terminatejobobject","authority":"Microsoft","supports":"Termination of associated processes and child jobs; not itself a complete AgentNexus ExitProof"},
+    {"url":"https://learn.microsoft.com/en-us/windows/win32/api/processthreadsapi/nf-processthreadsapi-terminateprocess","authority":"Microsoft","supports":"External termination is asynchronous; pending I/O must complete/cancel; wait on retained process handle for exit"},
+    {"url":"https://learn.microsoft.com/en-us/windows/win32/procthread/terminating-a-process","authority":"Microsoft","supports":"Process object signaling and retained-handle lifetime; process exit is not whole-tree evidence"},
+    {"url":"https://www.kernel.org/doc/html/latest/admin-guide/cgroup-v2.html","authority":"Linux kernel documentation","supports":"Hierarchical controllers; cpu.max period bandwidth; cpu.stat user/system/usage accounting; cgroup.kill subtree; scheduler restrictions"},
+    {"url":"https://docs.kernel.org/scheduler/sched-bwc.html","authority":"Linux kernel documentation","supports":"Normal-scheduler quota replenishes each period; per-CPU slices and bandwidth throttling"},
+    {"url":"https://docs.wasmtime.dev/api/wasmtime/struct.Config.html","authority":"Wasmtime official API","supports":"Fuel/epoch instrumentation bounds guest execution units with stated trap accounting limits; not OS CPU milliseconds"}
+  ],
+  "inferences": [
+    "No numeric worst-case supervisor or sampling stop latency is asserted without a documented and qualified bound for every stage.",
+    "Dividing an unbounded stage into admission steps does not prove the CPU bound of the currently running step.",
+    "cpu.max and cpu.stat followed by cgroup.kill do not establish the unchanged AgentNexus cumulative CPU overshoot contract.",
+    "Guest fuel is a distinct potential contract; no validated conversion to native user/kernel CPU milliseconds is available in this release."
+  ],
+  "production_qualification_granted": false
+}

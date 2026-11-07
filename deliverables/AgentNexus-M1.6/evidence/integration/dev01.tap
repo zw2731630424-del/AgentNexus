@@ -1,0 +1,97 @@
+TAP version 13
+# Subtest: M16-HARNESS: executable loop routes a mock tool call through original Policy/Permit/Archive/Audit
+ok 1 - M16-HARNESS: executable loop routes a mock tool call through original Policy/Permit/Archive/Audit
+  ---
+  duration_ms: 527.427
+  type: 'test'
+  ...
+# Subtest: M16-HARNESS: five type contracts, independent subagent context and read-only boundaries
+ok 2 - M16-HARNESS: five type contracts, independent subagent context and read-only boundaries
+  ---
+  duration_ms: 238.6425
+  type: 'test'
+  ...
+# Subtest: M16-HARNESS: durable bidirectional messages, dedupe, wake and source-bound model context
+ok 3 - M16-HARNESS: durable bidirectional messages, dedupe, wake and source-bound model context
+  ---
+  duration_ms: 460.8565
+  type: 'test'
+  ...
+# Subtest: M16-HARNESS: exact LOCAL_WRITE approval waits, resumes and executes once
+ok 4 - M16-HARNESS: exact LOCAL_WRITE approval waits, resumes and executes once
+  ---
+  duration_ms: 466.5266
+  type: 'test'
+  ...
+# Subtest: M16-HARNESS: cancellation while handler runs retains worker/project/platform claims until actual settlement
+ok 5 - M16-HARNESS: cancellation while handler runs retains worker/project/platform claims until actual settlement
+  ---
+  duration_ms: 327.0323
+  type: 'test'
+  ...
+# Subtest: M16-HARNESS: concurrent budget shortage creates one persisted waiter and resumes after release
+ok 6 - M16-HARNESS: concurrent budget shortage creates one persisted waiter and resumes after release
+  ---
+  duration_ms: 636.3749
+  type: 'test'
+  ...
+# Subtest: M16-HARNESS: model unknown outcome retains all reservations and cannot resume or retry
+ok 7 - M16-HARNESS: model unknown outcome retains all reservations and cannot resume or retry
+  ---
+  duration_ms: 242.6648
+  type: 'test'
+  ...
+# Subtest: M16-HARNESS: safe WAITING checkpoint survives reopen, old facade fails and no automatic model call occurs
+ok 8 - M16-HARNESS: safe WAITING checkpoint survives reopen, old facade fails and no automatic model call occurs
+  ---
+  duration_ms: 541.131
+  type: 'test'
+  ...
+# Subtest: M16-HARNESS: cross-project context/messages, capability escalation and malformed parameters fail before effect
+not ok 9 - M16-HARNESS: cross-project context/messages, capability escalation and malformed parameters fail before effect
+  ---
+  duration_ms: 190.2669
+  type: 'test'
+  location: 'I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6\\source\\tests\\agentnexus\\m16-harness.test.ts:126:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    The input did not match the regular expression /CONTEXT_SCOPE/. Input:
+    
+    'NexusError: CONTEXT_PROJECT_DENIED'
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  actual:
+  error: 'CONTEXT_PROJECT_DENIED'
+  stack: |-
+    invariant (file:///I:/AI_AgentNexus/deliverables/AgentNexus-M1.6/source/src/agentnexus/types.ts:44:18)
+    #record (file:///I:/AI_AgentNexus/deliverables/AgentNexus-M1.6/source/src/agentnexus/harness/context.ts:63:5)
+    ContextAssembly.source (file:///I:/AI_AgentNexus/deliverables/AgentNexus-M1.6/source/src/agentnexus/harness/context.ts:70:32)
+    ContextAssembly.validate (file:///I:/AI_AgentNexus/deliverables/AgentNexus-M1.6/source/src/agentnexus/harness/context.ts:80:54)
+    ContextAssembly.readRange (file:///I:/AI_AgentNexus/deliverables/AgentNexus-M1.6/source/src/agentnexus/harness/context.ts:106:22)
+    Object.readContext (file:///I:/AI_AgentNexus/deliverables/AgentNexus-M1.6/source/src/agentnexus/harness/index.ts:154:172)
+    TestContext.<anonymous> (file:///I:/AI_AgentNexus/deliverables/AgentNexus-M1.6/source/tests/agentnexus/m16-harness.test.ts:129:99)
+    async Test.run (node:internal/test_runner/test:1208:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:831:7)
+  operator: 'rejects'
+  stack: |-
+    async TestContext.<anonymous> (file:///I:/AI_AgentNexus/deliverables/AgentNexus-M1.6/source/tests/agentnexus/m16-harness.test.ts:129:58)
+    async Test.run (node:internal/test_runner/test:1208:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:831:7)
+  ...
+# Subtest: M16-HARNESS: disabled gate is BYPASSED, self review is rejected, versions/evidence bind review
+ok 10 - M16-HARNESS: disabled gate is BYPASSED, self review is rejected, versions/evidence bind review
+  ---
+  duration_ms: 133.9014
+  type: 'test'
+  ...
+1..10
+# tests 10
+# suites 0
+# pass 9
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 3983.6408

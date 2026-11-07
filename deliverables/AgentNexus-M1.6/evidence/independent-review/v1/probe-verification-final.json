@@ -1,0 +1,292 @@
+{
+  "schema": "agentnexus/independent-review/probe-verification/1.6",
+  "observed_at": "2026-11-07T21:57:58.753119+00:00",
+  "assurance": "ACTUAL_PRODUCT_MODULES_AND_SQLITE; SIMULATED_MODEL_AND_AUDIT_FAILURE; NO_OS_QUALIFICATION",
+  "inputs": [
+    {
+      "path": "probe-results-final.json",
+      "sha256": "4fbeec4f00101014a4fc68fdce4aef105f34951529f353d60d2f1e639e89ff1a"
+    },
+    {
+      "path": "admission-results-final.json",
+      "sha256": "580f72a71f9f6a7170229cf5b2cfe799e7a54da577dadd81f7488a714d963780"
+    },
+    {
+      "path": "workflow-results-final.json",
+      "sha256": "b002f00794a8b5121ffa600c7a2744ab672208f750969a68f5be11f3a94d3279"
+    },
+    {
+      "path": "disk-capture-results-final.json",
+      "sha256": "5f025362596b4665b0b286cda8c0b71b954d619239aeac5e94d68cf8f3ac93d6"
+    }
+  ],
+  "total": 15,
+  "pass": 15,
+  "fail": 0,
+  "checks": [
+    {
+      "name": "role-off-existing-agent",
+      "status": "PASS",
+      "observation": {
+        "name": "role-off-existing-agent",
+        "feature_effective": false,
+        "state": "FAILED",
+        "error": null,
+        "model_requests": 0
+      },
+      "verification_error": null
+    },
+    {
+      "name": "mock-provider-off",
+      "status": "PASS",
+      "observation": {
+        "name": "mock-provider-off",
+        "feature_effective": false,
+        "state": "FAILED",
+        "error": null,
+        "model_requests": 0
+      },
+      "verification_error": null
+    },
+    {
+      "name": "cancel-before-approved-pending-tool",
+      "status": "PASS",
+      "observation": {
+        "name": "cancel-before-approved-pending-tool",
+        "cancel_ack_state": "STOPPING",
+        "final_state": "CANCELLED",
+        "write_calls": 0,
+        "file_text": null,
+        "output": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6\\evidence\\independent-review\\runtime\\cancel-write-8jikjL\\review-side-effect.txt"
+      },
+      "verification_error": null
+    },
+    {
+      "name": "project-pause-concurrent-admission",
+      "status": "PASS",
+      "observation": {
+        "name": "project-pause-concurrent-admission",
+        "entered_b_while_pausing": false,
+        "pause_ack": {
+          "project_state": "PAUSED",
+          "task_b_state": "QUEUED",
+          "model_requests": 0
+        },
+        "task_b_final": "QUEUED",
+        "model_requests_after_pause": 0
+      },
+      "verification_error": null
+    },
+    {
+      "name": "restart-approved-pending-tool",
+      "status": "PASS",
+      "observation": {
+        "name": "restart-approved-pending-tool",
+        "old_approval": "6705368f-54ea-4543-bcce-1ecbea3cd647",
+        "after_reopen": {
+          "task_state": "WAITING",
+          "pending_approval": null,
+          "write_calls": 0
+        },
+        "new_approval": "cae2a1af-4965-4ece-8c47-9d5d98d244c8",
+        "reapprove_error": null,
+        "final_state": "UNKNOWN_QUARANTINED",
+        "reason": "PERSISTENT_DISK_OWNER_UNVERIFIED",
+        "write_calls": 1
+      },
+      "verification_error": null
+    },
+    {
+      "name": "cancel-resource-wait-actual",
+      "status": "PASS",
+      "observation": {
+        "name": "cancel-resource-wait-actual",
+        "cancel_ack": "STOPPING",
+        "waiter_state": "CANCELLED",
+        "stop_reason": "CANCELLED",
+        "pending_waiters": 0,
+        "models_for_waiter": 0
+      },
+      "verification_error": null
+    },
+    {
+      "name": "agent-type-registry-off",
+      "status": "PASS",
+      "observation": {
+        "name": "agent-type-registry-off",
+        "feature_enabled": false,
+        "creation_error": "NATIVE_FEATURE_BLOCKED:native.agent-type-registry",
+        "state": "BLOCKED",
+        "models": 0
+      },
+      "verification_error": null
+    },
+    {
+      "name": "cancel-model-before-fixture-dispatch",
+      "status": "PASS",
+      "observation": {
+        "name": "cancel-model-before-fixture-dispatch",
+        "sequence_at_cancel": 0,
+        "cancel_ack": "STOPPING",
+        "sequence_after_cancel": 0,
+        "task_state": "CANCELLED",
+        "model_tokens_spent": 0,
+        "request_states": [
+          "FAILED"
+        ]
+      },
+      "verification_error": null
+    },
+    {
+      "name": "subagent-shares-parent-task",
+      "status": "PASS",
+      "observation": {
+        "name": "subagent-shares-parent-task",
+        "child_created": false,
+        "creation_error": "AGENT_TASK_MUST_BE_INDEPENDENT"
+      },
+      "verification_error": null
+    },
+    {
+      "name": "sendText-logical-dedupe-after-reopen",
+      "status": "PASS",
+      "observation": {
+        "name": "sendText-logical-dedupe-after-reopen",
+        "first_message_id": "c49500c92ba81593a11b4d495d8b928c617e92bfda5ebf3fecffb57665905f28",
+        "duplicate_message_id": "c49500c92ba81593a11b4d495d8b928c617e92bfda5ebf3fecffb57665905f28",
+        "error": null,
+        "message_records": 1,
+        "text_drafts": 1
+      },
+      "verification_error": null
+    },
+    {
+      "name": "budget-feature-off-host-reopen",
+      "status": "PASS",
+      "observation": {
+        "name": "budget-feature-off-host-reopen",
+        "harness_reopened": true,
+        "reopen_error": null,
+        "disabled_features": [
+          "resource.worker.budget",
+          "native.task-scheduler"
+        ]
+      },
+      "verification_error": null
+    },
+    {
+      "name": "audit-claimed-flush-failure-zero-write",
+      "status": "PASS",
+      "observation": {
+        "name": "audit-claimed-flush-failure-zero-write",
+        "injected": true,
+        "task_state": "FAILED",
+        "write_calls": 0,
+        "file_exists": false,
+        "gateway_operations": [
+          {
+            "state": "BLOCKED",
+            "executor_state": "NOT_INVOKED"
+          }
+        ]
+      },
+      "verification_error": null
+    },
+    {
+      "name": "persistent-disk-after-task-release",
+      "status": "PASS",
+      "observation": {
+        "name": "persistent-disk-after-task-release",
+        "state": "UNKNOWN_QUARANTINED",
+        "write_calls": 1,
+        "persistent_bytes": 100,
+        "platform_disk_held": 100,
+        "platform_disk_spent": 0,
+        "reservations": [
+          {
+            "state": "RELEASED",
+            "mode": "SIMULATED",
+            "disk": 0
+          },
+          {
+            "state": "UNKNOWN_QUARANTINED",
+            "mode": "SIMULATED",
+            "disk": 100
+          },
+          {
+            "state": "RELEASED",
+            "mode": "SIMULATED",
+            "disk": 100
+          }
+        ]
+      },
+      "verification_error": null
+    },
+    {
+      "name": "gate-off-during-evidence-verification",
+      "status": "PASS",
+      "observation": {
+        "node": "v24.15.0",
+        "observed_at": "2026-11-07T21:57:44.613Z",
+        "name": "gate-off-during-evidence-verification",
+        "feature_effective": false,
+        "record_status": "BYPASSED",
+        "record_feature_enabled": false
+      },
+      "verification_error": null
+    },
+    {
+      "name": "persistent-write-capture-limit-retains-claims",
+      "status": "PASS",
+      "observation": {
+        "name": "persistent-write-capture-limit-retains-claims",
+        "node": "v24.15.0",
+        "product_url": "file:///I:/AI_AgentNexus/deliverables/AgentNexus-M1.6/source/src/agentnexus/harness/index.ts",
+        "observed_at": "2026-11-07T21:57:45.688Z",
+        "calibration": {
+          "data_length": 0,
+          "task_state": "UNKNOWN_QUARANTINED",
+          "reason": "PERSISTENT_DISK_OWNER_UNVERIFIED",
+          "persistent_write": true,
+          "store_faulted": false,
+          "native_state_faulted": false,
+          "write_calls": 1,
+          "persistent_file_bytes": 100,
+          "platform_disk_held": 100,
+          "platform_workers_held": 1,
+          "gateway_operations": [
+            {
+              "state": "SUCCEEDED",
+              "executor_state": "SETTLED"
+            }
+          ],
+          "tool_result_bytes": 713,
+          "native_capture_bytes": null,
+          "root": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6\\evidence\\independent-review\\runtime\\disk-capture-4TNC63"
+        },
+        "result": {
+          "data_length": 64791,
+          "task_state": "UNKNOWN_QUARANTINED",
+          "reason": "PERSISTENT_DISK_OWNER_UNVERIFIED",
+          "persistent_write": true,
+          "store_faulted": false,
+          "native_state_faulted": false,
+          "write_calls": 1,
+          "persistent_file_bytes": 100,
+          "platform_disk_held": 100,
+          "platform_workers_held": 1,
+          "gateway_operations": [
+            {
+              "state": "SUCCEEDED",
+              "executor_state": "SETTLED"
+            }
+          ],
+          "tool_result_bytes": 65508,
+          "native_capture_bytes": null,
+          "root": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6\\evidence\\independent-review\\runtime\\disk-capture-dUyhXo"
+        }
+      },
+      "verification_error": null
+    }
+  ]
+}

@@ -1,0 +1,250 @@
+TAP version 13
+# Subtest: M16-CONTEXT-RAW: separate summary/index views preserve original bytes and source hashes
+ok 1 - M16-CONTEXT-RAW: separate summary/index views preserve original bytes and source hashes
+  ---
+  duration_ms: 165.2892
+  type: 'test'
+  ...
+# Subtest: M16-CONTEXT-STREAM: bounded range scans a multi-chunk lossless object and restores after reopen
+ok 2 - M16-CONTEXT-STREAM: bounded range scans a multi-chunk lossless object and restores after reopen
+  ---
+  duration_ms: 112.4081
+  type: 'test'
+  ...
+# Subtest: M16-CONTEXT-BOUNDS: required rules never truncate and optional omissions are explicit
+ok 3 - M16-CONTEXT-BOUNDS: required rules never truncate and optional omissions are explicit
+  ---
+  duration_ms: 170.5522
+  type: 'test'
+  ...
+# Subtest: M16-CONTEXT-SCOPE: project/task authority and exact immutable reference are checked independently
+ok 4 - M16-CONTEXT-SCOPE: project/task authority and exact immutable reference are checked independently
+  ---
+  duration_ms: 62.6505
+  type: 'test'
+  ...
+# Subtest: M16-CONTEXT-HASH: corruption outside the selected range fails the complete verification barrier
+ok 5 - M16-CONTEXT-HASH: corruption outside the selected range fails the complete verification barrier
+  ---
+  duration_ms: 45.1109
+  type: 'test'
+  ...
+# Subtest: M16-CONTEXT-ACK: failed archive ACK cannot become an acknowledged model context
+ok 6 - M16-CONTEXT-ACK: failed archive ACK cannot become an acknowledged model context
+  ---
+  duration_ms: 60.2959
+  type: 'test'
+  ...
+# Subtest: M16-CONTEXT-EGRESS: asynchronous scans recheck task authorization and support the exact model byte ceiling
+ok 7 - M16-CONTEXT-EGRESS: asynchronous scans recheck task authorization and support the exact model byte ceiling
+  ---
+  duration_ms: 82.1863
+  type: 'test'
+  ...
+# Subtest: M16-MESSAGE-DURABLE: host-bound sender, exactly matching dedup and bidirectional ACK survive durable storage
+ok 8 - M16-MESSAGE-DURABLE: host-bound sender, exactly matching dedup and bidirectional ACK survive durable storage
+  ---
+  duration_ms: 126.1915
+  type: 'test'
+  ...
+# Subtest: M16-MESSAGE-AUTH: spoofed fields, foreign project, stale runtime and changed permissions fail closed
+ok 9 - M16-MESSAGE-AUTH: spoofed fields, foreign project, stale runtime and changed permissions fail closed
+  ---
+  duration_ms: 62.185
+  type: 'test'
+  ...
+# Subtest: M16-MESSAGE-RETRY: bounded retries, expired leases, expiry/revocation and unknown effects never auto-replay
+ok 10 - M16-MESSAGE-RETRY: bounded retries, expired leases, expiry/revocation and unknown effects never auto-replay
+  ---
+  duration_ms: 233.352
+  type: 'test'
+  ...
+# Subtest: M16-MESSAGE-CAPACITY: byte/record backpressure remains bounded and priority does not discard low priority
+ok 11 - M16-MESSAGE-CAPACITY: byte/record backpressure remains bounded and priority does not discard low priority
+  ---
+  duration_ms: 63.1383
+  type: 'test'
+  ...
+# Subtest: M16-MESSAGE-ACK-FAILURE: audit failure suppresses wake; callback failure retains acknowledged queue
+ok 12 - M16-MESSAGE-ACK-FAILURE: audit failure suppresses wake; callback failure retains acknowledged queue
+  ---
+  duration_ms: 55.7182
+  type: 'test'
+  ...
+# Subtest: M16-MESSAGE-RECOVERY: real close/reopen fences old leases and quarantines external uncertainty
+ok 13 - M16-MESSAGE-RECOVERY: real close/reopen fences old leases and quarantines external uncertainty
+  ---
+  duration_ms: 135.3703
+  type: 'test'
+  ...
+# Subtest: M16-MESSAGE-CLOCK: rollback cannot revive expired or leased deliveries
+ok 14 - M16-MESSAGE-CLOCK: rollback cannot revive expired or leased deliveries
+  ---
+  duration_ms: 47.8437
+  type: 'test'
+  ...
+# Subtest: M16-MESSAGE-LOGICAL-DEDUPE: sender runtime replacement does not reset a task business dedup key
+ok 15 - M16-MESSAGE-LOGICAL-DEDUPE: sender runtime replacement does not reset a task business dedup key
+  ---
+  duration_ms: 52.8549
+  type: 'test'
+  ...
+# Subtest: M16-MODEL-TRACE: simulated results preserve original context provenance, integer usage and durable dedup
+ok 16 - M16-MODEL-TRACE: simulated results preserve original context provenance, integer usage and durable dedup
+  ---
+  duration_ms: 134.2034
+  type: 'test'
+  ...
+# Subtest: M16-MODEL-REAL-BLOCKED: no real adapter/provider or plaintext credential entry exists
+ok 17 - M16-MODEL-REAL-BLOCKED: no real adapter/provider or plaintext credential entry exists
+  ---
+  duration_ms: 66.9259
+  type: 'test'
+  ...
+# Subtest: M16-MODEL-FAILOVER: only proven not-sent failures may advance to an independent provider pool
+ok 18 - M16-MODEL-FAILOVER: only proven not-sent failures may advance to an independent provider pool
+  ---
+  duration_ms: 104.9811
+  type: 'test'
+  ...
+# Subtest: M16-MODEL-UNKNOWN: sent unknown results retain budget/key quota, persist and never fail over or replay
+ok 19 - M16-MODEL-UNKNOWN: sent unknown results retain budget/key quota, persist and never fail over or replay
+  ---
+  duration_ms: 113.0071
+  type: 'test'
+  ...
+# Subtest: M16-MODEL-POOL: independent key state, rotation and round robin keep provider/account limits
+ok 20 - M16-MODEL-POOL: independent key state, rotation and round robin keep provider/account limits
+  ---
+  duration_ms: 144.8981
+  type: 'test'
+  ...
+# Subtest: M16-MODEL-CONCURRENCY: active key limit rejects a concurrent request and releases known unused reservation
+ok 21 - M16-MODEL-CONCURRENCY: active key limit rejects a concurrent request and releases known unused reservation
+  ---
+  duration_ms: 120.0089
+  type: 'test'
+  ...
+# Subtest: M16-MODEL-BUDGET: reservation failure and unknown settlement fail closed without unmetered dispatch
+ok 22 - M16-MODEL-BUDGET: reservation failure and unknown settlement fail closed without unmetered dispatch
+  ---
+  duration_ms: 172.0707
+  type: 'test'
+  ...
+# Subtest: M16-MODEL-FEATURE: disabled failover, authentication failure and usage excess have separate outcomes
+ok 23 - M16-MODEL-FEATURE: disabled failover, authentication failure and usage excess have separate outcomes
+  ---
+  duration_ms: 235.0053
+  type: 'test'
+  ...
+# Subtest: M16-MODEL-TOOL: full JSON arguments/resource remain data and model cannot supply approval authority
+ok 24 - M16-MODEL-TOOL: full JSON arguments/resource remain data and model cannot supply approval authority
+  ---
+  duration_ms: 94.0311
+  type: 'test'
+  ...
+# Subtest: M16-MODEL-RECOVERY: persisted reserve/send crash windows become unknown without dispatch or quota release
+ok 25 - M16-MODEL-RECOVERY: persisted reserve/send crash windows become unknown without dispatch or quota release
+  ---
+  duration_ms: 99.9946
+  type: 'test'
+  ...
+# Subtest: M16 RESOURCES SIMULATED: strict CPU remains BLOCKED independent of a registry description
+ok 26 - M16 RESOURCES SIMULATED: strict CPU remains BLOCKED independent of a registry description
+  ---
+  duration_ms: 1.1444
+  type: 'test'
+  ...
+# Subtest: M16 RESOURCES SQLITE: competing reservations atomically obey all three budgets
+ok 27 - M16 RESOURCES SQLITE: competing reservations atomically obey all three budgets
+  ---
+  duration_ms: 77.1657
+  type: 'test'
+  ...
+# Subtest: M16 RESOURCES SIMULATED: admin and exact subject/project/worker scope cannot be forged
+ok 28 - M16 RESOURCES SIMULATED: admin and exact subject/project/worker scope cannot be forged
+  ---
+  duration_ms: 51.0657
+  type: 'test'
+  ...
+# Subtest: M16 RESOURCES SQLITE: cumulative consumption settles once while capacity stays held until owner closure
+ok 29 - M16 RESOURCES SQLITE: cumulative consumption settles once while capacity stays held until owner closure
+  ---
+  duration_ms: 64.5701
+  type: 'test'
+  ...
+# Subtest: M16 RESOURCES SIMULATED: fabricated, serialized, wrong-reservation and stale closure objects fail
+ok 30 - M16 RESOURCES SIMULATED: fabricated, serialized, wrong-reservation and stale closure objects fail
+  ---
+  duration_ms: 52.0207
+  type: 'test'
+  ...
+# Subtest: M16 RESOURCES SIMULATED: UNKNOWN, expiration and production-looking JSON never free capacity
+ok 31 - M16 RESOURCES SIMULATED: UNKNOWN, expiration and production-looking JSON never free capacity
+  ---
+  duration_ms: 59.0884
+  type: 'test'
+  ...
+# Subtest: M16 RESOURCES SQLITE: bounded persistent wait resumes only after a verified unused reservation closes
+ok 32 - M16 RESOURCES SQLITE: bounded persistent wait resumes only after a verified unused reservation closes
+  ---
+  duration_ms: 68.2861
+  type: 'test'
+  ...
+# Subtest: M16 RESOURCES SIMULATED: waiting state has a hard count bound; no unbounded in-memory queue
+ok 33 - M16 RESOURCES SIMULATED: waiting state has a hard count bound; no unbounded in-memory queue
+  ---
+  duration_ms: 241.2365
+  type: 'test'
+  ...
+# Subtest: M16 RESOURCES SQLITE: cancelled waiting requests cannot later acquire capacity or cancel active claims
+ok 34 - M16 RESOURCES SQLITE: cancelled waiting requests cannot later acquire capacity or cancel active claims
+  ---
+  duration_ms: 56.0062
+  type: 'test'
+  ...
+# Subtest: M16 RESOURCES SQLITE: old boot recovery preserves holds and consumed counters, rejects old wait and closure
+ok 35 - M16 RESOURCES SQLITE: old boot recovery preserves holds and consumed counters, rejects old wait and closure
+  ---
+  duration_ms: 87.6303
+  type: 'test'
+  ...
+# Subtest: M16 RESOURCES FEATURE: OFF blocks reserve/start and permits evidence-based cleanup without reopening execution
+ok 36 - M16 RESOURCES FEATURE: OFF blocks reserve/start and permits evidence-based cleanup without reopening execution
+  ---
+  duration_ms: 60.4554
+  type: 'test'
+  ...
+# Subtest: M16 RESOURCES AUDIT: failed durable reservation barrier produces zero starts and retains the committed hold
+ok 37 - M16 RESOURCES AUDIT: failed durable reservation barrier produces zero starts and retains the committed hold
+  ---
+  duration_ms: 53.0749
+  type: 'test'
+  ...
+# Subtest: M16 RESOURCES ACCOUNTING: observed overspend is recorded in all scopes and quarantines further admission
+ok 38 - M16 RESOURCES ACCOUNTING: observed overspend is recorded in all scopes and quarantines further admission
+  ---
+  duration_ms: 56.3901
+  type: 'test'
+  ...
+# Subtest: M16 RESOURCES VALIDATION: invalid amounts, expired requests and strict mode cannot mutate holds
+ok 39 - M16 RESOURCES VALIDATION: invalid amounts, expired requests and strict mode cannot mutate holds
+  ---
+  duration_ms: 51.3843
+  type: 'test'
+  ...
+# Subtest: M16 RESOURCES SIMULATED: application bookkeeping never accepts a simulated completion as real OS proof
+ok 40 - M16 RESOURCES SIMULATED: application bookkeeping never accepts a simulated completion as real OS proof
+  ---
+  duration_ms: 59.6737
+  type: 'test'
+  ...
+1..40
+# tests 40
+# suites 0
+# pass 40
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 4492.0338

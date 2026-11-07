@@ -1,0 +1,58 @@
+{
+  "schema": "agentnexus/resource-qualification/1.6",
+  "scope": "Trusted local resource governance ledger; no OS execution or production release authority",
+  "application_ledger": {
+    "status": "PASS",
+    "assurance": "REAL_SQLITE_FEATURE_AUDIT_WITH_SIMULATED_RUNTIME_OBSERVATIONS",
+    "tests": 15,
+    "pass": 15,
+    "fail": 0,
+    "not_run": 0,
+    "raw_log": "evidence/resource-line/resources-final-owner-bind.tap",
+    "source_binding": "evidence/resource-line/source-manifest-final.json",
+    "coverage": ["atomic Worker/Project/Platform competition","scope and admin rejection","cumulative accounting and retention","opaque one-use closure and stale revision","UNKNOWN retention","persistent bounded waiting and cancellation","actual synthetic SQLite close/reopen with new boot","Feature OFF","audit flush failure prevents effects","observed overdraw quarantines","strict CPU fixed rejection"]
+  },
+  "strict_windows_cpu": {
+    "status": "BLOCKED",
+    "current_backend_qualified": false,
+    "historical_qualification_status": "FAIL",
+    "unchanged_budgets_ms": [{"budget":80,"tolerance":50},{"budget":300,"tolerance":50},{"budget":3000,"tolerance":150}],
+    "user_mode_only_original_contract": true,
+    "kernel_cpu_hard_upper_bound": false,
+    "historical_m151_counts": {"total":58,"PASS":2,"FAIL":56},
+    "historical_m15_counts": {"total":10,"PASS":0,"FAIL":10},
+    "historical_report": "../AgentNexus-M1.5.1/cpu-qualification-report.md",
+    "historical_raw_report": "../AgentNexus-M1.5.1/evidence/cpu-qualification/2026-11-07T19-49-58-861Z-25456/report.json",
+    "m16_matrix_rerun": "NOT_RUN",
+    "gate": "Inherited M151_CPU_HARD_LIMIT_NOT_QUALIFIED plus M16_STRICT_CPU_BLOCKED; no config/Feature/Policy/certificate override"
+  },
+  "new_backend_matrix": [
+    {"backend":"Windows CPU_RATE bandwidth","status":"NOT_RUN","hard_cumulative_qualification":false},
+    {"backend":"Windows JOB_TIME strict cumulative","status":"BLOCKED","hard_cumulative_qualification":false},
+    {"backend":"External trusted Supervisor","status":"NOT_RUN","hard_cumulative_qualification":false},
+    {"backend":"CPU sampling","status":"NOT_RUN","hard_cumulative_qualification":false},
+    {"backend":"Process slicing","status":"NOT_RUN","hard_cumulative_qualification":false},
+    {"backend":"Stage budgets","status":"SIMULATED","hard_cumulative_qualification":false,"scope":"admission/accounting only, no stage OS bound"},
+    {"backend":"Linux cgroup v2","status":"NOT_RUN","hard_cumulative_qualification":false},
+    {"backend":"Wasmtime guest fuel/epoch","status":"NOT_RUN","hard_cumulative_qualification":false}
+  ],
+  "production_resource_release": "BLOCKED",
+  "ubuntu_os_validation": "NOT_RUN",
+  "real_provider_validation": "NOT_RUN",
+  "strict_typecheck": {"status":"PASS","log":"evidence/resource-line/typecheck-final-owner-bind.txt","prior_failure_preserved":"evidence/resource-line/typecheck-final.txt","correction":"drainWaiters default parameter explicitly typed number; no policy/schema relaxation"},
+  "capability_details": "cpu-backends.md",
+  "governance_details": "resource-governance.md",
+  "reading_manifest": "evidence/resource-line/phase0-reading-manifest.json",
+  "primary_research": "evidence/resource-line/research-sources.json",
+  "limitations": [
+    "Local library admin capability is not an OS security boundary; no untrusted code runs in this process.",
+    "APPLICATION_BOUND admission/accounting does not permit OS execution and cannot release ACTIVE real resources.",
+    "UNKNOWN and OVERDRAWN have no automatic clearing/retry/TTL-release path.",
+    "Real persistent disk/artifact capacity requires an ownership-transfer adapter that is not implemented.",
+    "Model costs are fixed simulated micro-units; no real Key/Provider/fee or currency conversion.",
+    "Historical Job/process accounting discrepancy remains INCONCLUSIVE and is not silently replaced with zero."
+  ],
+  "system_configuration_changed": false,
+  "historical_artifacts_modified": false,
+  "production_qualified": false
+}

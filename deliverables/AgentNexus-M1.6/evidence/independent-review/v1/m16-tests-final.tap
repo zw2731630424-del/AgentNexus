@@ -1,0 +1,461 @@
+TAP version 13
+# Subtest: M16-CONTEXT-RAW: separate summary/index views preserve original bytes and source hashes
+ok 1 - M16-CONTEXT-RAW: separate summary/index views preserve original bytes and source hashes
+  ---
+  duration_ms: 189.3676
+  type: 'test'
+  ...
+# Subtest: M16-CONTEXT-STREAM: bounded range scans a multi-chunk lossless object and restores after reopen
+ok 2 - M16-CONTEXT-STREAM: bounded range scans a multi-chunk lossless object and restores after reopen
+  ---
+  duration_ms: 137.9563
+  type: 'test'
+  ...
+# Subtest: M16-CONTEXT-BOUNDS: required rules never truncate and optional omissions are explicit
+ok 3 - M16-CONTEXT-BOUNDS: required rules never truncate and optional omissions are explicit
+  ---
+  duration_ms: 216.685
+  type: 'test'
+  ...
+# Subtest: M16-CONTEXT-SCOPE: project/task authority and exact immutable reference are checked independently
+ok 4 - M16-CONTEXT-SCOPE: project/task authority and exact immutable reference are checked independently
+  ---
+  duration_ms: 76.5911
+  type: 'test'
+  ...
+# Subtest: M16-CONTEXT-HASH: corruption outside the selected range fails the complete verification barrier
+ok 5 - M16-CONTEXT-HASH: corruption outside the selected range fails the complete verification barrier
+  ---
+  duration_ms: 59.2893
+  type: 'test'
+  ...
+# Subtest: M16-CONTEXT-ACK: failed archive ACK cannot become an acknowledged model context
+ok 6 - M16-CONTEXT-ACK: failed archive ACK cannot become an acknowledged model context
+  ---
+  duration_ms: 81.8776
+  type: 'test'
+  ...
+# Subtest: M16-CONTEXT-EGRESS: asynchronous scans recheck task authorization and support the exact model byte ceiling
+ok 7 - M16-CONTEXT-EGRESS: asynchronous scans recheck task authorization and support the exact model byte ceiling
+  ---
+  duration_ms: 105.0289
+  type: 'test'
+  ...
+# Subtest: M16-HARNESS-LOOP: executable loop routes a mock tool call through original Policy/Permit/Archive/Audit
+ok 8 - M16-HARNESS-LOOP: executable loop routes a mock tool call through original Policy/Permit/Archive/Audit
+  ---
+  duration_ms: 600.2022
+  type: 'test'
+  ...
+# Subtest: M16-HARNESS-TYPES: five type contracts, independent subagent context and read-only boundaries
+ok 9 - M16-HARNESS-TYPES: five type contracts, independent subagent context and read-only boundaries
+  ---
+  duration_ms: 336.8093
+  type: 'test'
+  ...
+# Subtest: M16-HARNESS-MESSAGES: durable bidirectional messages, dedupe, wake and source-bound model context
+ok 10 - M16-HARNESS-MESSAGES: durable bidirectional messages, dedupe, wake and source-bound model context
+  ---
+  duration_ms: 669.9899
+  type: 'test'
+  ...
+# Subtest: M16-HARNESS-WRITE: exact LOCAL_WRITE approval executes once and retains unverified persistent storage ownership
+ok 11 - M16-HARNESS-WRITE: exact LOCAL_WRITE approval executes once and retains unverified persistent storage ownership
+  ---
+  duration_ms: 409.9159
+  type: 'test'
+  ...
+# Subtest: M16-HARNESS-CANCEL-ACTIVE: cancellation while handler runs retains claims until outcome/outputs are reconciled
+ok 12 - M16-HARNESS-CANCEL-ACTIVE: cancellation while handler runs retains claims until outcome/outputs are reconciled
+  ---
+  duration_ms: 338.6739
+  type: 'test'
+  ...
+# Subtest: M16-HARNESS-BUDGET: concurrent budget shortage creates one persisted waiter and resumes after release
+ok 13 - M16-HARNESS-BUDGET: concurrent budget shortage creates one persisted waiter and resumes after release
+  ---
+  duration_ms: 825.9592
+  type: 'test'
+  ...
+# Subtest: M16-HARNESS-UNKNOWN: model unknown outcome retains all reservations and cannot resume or retry
+ok 14 - M16-HARNESS-UNKNOWN: model unknown outcome retains all reservations and cannot resume or retry
+  ---
+  duration_ms: 331.0238
+  type: 'test'
+  ...
+# Subtest: M16-HARNESS-RECOVERY: safe WAITING checkpoint survives reopen, old facade fails and no automatic model call occurs
+ok 15 - M16-HARNESS-RECOVERY: safe WAITING checkpoint survives reopen, old facade fails and no automatic model call occurs
+  ---
+  duration_ms: 654.4611
+  type: 'test'
+  ...
+# Subtest: M16-HARNESS-SCOPE: cross-project context/messages, capability escalation and malformed parameters fail before effect
+ok 16 - M16-HARNESS-SCOPE: cross-project context/messages, capability escalation and malformed parameters fail before effect
+  ---
+  duration_ms: 307.8733
+  type: 'test'
+  ...
+# Subtest: M16-HARNESS-WORKFLOW: disabled gate is BYPASSED, self review is rejected, versions/evidence bind review
+ok 17 - M16-HARNESS-WORKFLOW: disabled gate is BYPASSED, self review is rejected, versions/evidence bind review
+  ---
+  duration_ms: 153.0303
+  type: 'test'
+  ...
+# Subtest: M16-HARNESS-CANCEL-FENCE: acknowledged cancellation prevents an approved pending write from starting
+ok 18 - M16-HARNESS-CANCEL-FENCE: acknowledged cancellation prevents an approved pending write from starting
+  ---
+  duration_ms: 401.7537
+  type: 'test'
+  ...
+# Subtest: M16-HARNESS-MODEL-CANCEL: cancellation at a model reservation ACK consumes zero sequence/tokens
+ok 19 - M16-HARNESS-MODEL-CANCEL: cancellation at a model reservation ACK consumes zero sequence/tokens
+  ---
+  duration_ms: 281.3002
+  type: 'test'
+  ...
+# Subtest: M16-HARNESS-PROJECT-FENCE: project pause closes admission before draining an existing turn
+ok 20 - M16-HARNESS-PROJECT-FENCE: project pause closes admission before draining an existing turn
+  ---
+  duration_ms: 214.6675
+  type: 'test'
+  ...
+# Subtest: M16-HARNESS-FEATURE: role/type-registry OFF blocks existing dispatch and new registration at project scope
+ok 21 - M16-HARNESS-FEATURE: role/type-registry OFF blocks existing dispatch and new registration at project scope
+  ---
+  duration_ms: 206.1427
+  type: 'test'
+  ...
+# Subtest: M16-HARNESS-HANDOFF: explicit handoff preserves independent task/context and delivers a structured completion
+ok 22 - M16-HARNESS-HANDOFF: explicit handoff preserves independent task/context and delivers a structured completion
+  ---
+  duration_ms: 501.1384
+  type: 'test'
+  ...
+# Subtest: M16-HARNESS-DEADLINE: queued deadlines and dependencies do not create workers or model requests
+ok 23 - M16-HARNESS-DEADLINE: queued deadlines and dependencies do not create workers or model requests
+  ---
+  duration_ms: 229.0047
+  type: 'test'
+  ...
+# Subtest: M16-HARNESS-WORKFLOW-FENCE: a gate disabled during evidence verification commits BYPASSED
+ok 24 - M16-HARNESS-WORKFLOW-FENCE: a gate disabled during evidence verification commits BYPASSED
+  ---
+  duration_ms: 124.5944
+  type: 'test'
+  ...
+# Subtest: M16-HARNESS-DIAGNOSTICS: read-only tool uses the original bound Host session and native parser
+ok 25 - M16-HARNESS-DIAGNOSTICS: read-only tool uses the original bound Host session and native parser
+  ---
+  duration_ms: 538.9382
+  type: 'test'
+  ...
+# Subtest: M16-HARNESS-RECOVER-OFF: disabled resource module permits control-plane recovery and later explicit preflight
+ok 26 - M16-HARNESS-RECOVER-OFF: disabled resource module permits control-plane recovery and later explicit preflight
+  ---
+  duration_ms: 414.8668
+  type: 'test'
+  ...
+# Subtest: M16-HARNESS-APPROVAL-RECOVER: old approval is revoked, reapproval is possible and real disk claim stays held
+ok 27 - M16-HARNESS-APPROVAL-RECOVER: old approval is revoked, reapproval is possible and real disk claim stays held
+  ---
+  duration_ms: 577.1588
+  type: 'test'
+  ...
+# Subtest: M16-HARNESS-MESSAGE-RECOVER: logical text dedup survives replacement sender and receiver runtimes
+ok 28 - M16-HARNESS-MESSAGE-RECOVER: logical text dedup survives replacement sender and receiver runtimes
+  ---
+  duration_ms: 269.9071
+  type: 'test'
+  ...
+# Subtest: M16-HARNESS-AUDIT: a failed native intent barrier freezes admission and causes zero model/tool effects
+ok 29 - M16-HARNESS-AUDIT: a failed native intent barrier freezes admission and causes zero model/tool effects
+  ---
+  duration_ms: 227.1667
+  type: 'test'
+  ...
+# Subtest: M16-HARNESS-POLICY-OWNER: every new L0 owner rejects application DISABLED mode
+ok 30 - M16-HARNESS-POLICY-OWNER: every new L0 owner rejects application DISABLED mode
+  ---
+  duration_ms: 102.5898
+  type: 'test'
+  ...
+# Subtest: M16-HARNESS-DISK-RESULT: a large successful gateway result cannot free a real persistent disk claim
+ok 31 - M16-HARNESS-DISK-RESULT: a large successful gateway result cannot free a real persistent disk claim
+  ---
+  duration_ms: 436.4103
+  type: 'test'
+  ...
+# Subtest: M16-HARNESS-WORKFLOW-CONTRACT: typed task inputs, role restrictions and evidence checklists use native state
+ok 32 - M16-HARNESS-WORKFLOW-CONTRACT: typed task inputs, role restrictions and evidence checklists use native state
+  ---
+  duration_ms: 293.1437
+  type: 'test'
+  ...
+# Subtest: M16-HARNESS-OUTPUT-ROOT: existing Windows case aliases cannot write verification/demo output inside source
+ok 33 - M16-HARNESS-OUTPUT-ROOT: existing Windows case aliases cannot write verification/demo output inside source
+  ---
+  duration_ms: 2.6265
+  type: 'test'
+  ...
+# Subtest: M16-HARNESS-REQUEST-ACCOUNTING: actual zero-token fixture dispatch still consumes a request and cannot request zero workers
+ok 34 - M16-HARNESS-REQUEST-ACCOUNTING: actual zero-token fixture dispatch still consumes a request and cannot request zero workers
+  ---
+  duration_ms: 315.8646
+  type: 'test'
+  ...
+# Subtest: M16-MESSAGE-DURABLE: host-bound sender, exactly matching dedup and bidirectional ACK survive durable storage
+ok 35 - M16-MESSAGE-DURABLE: host-bound sender, exactly matching dedup and bidirectional ACK survive durable storage
+  ---
+  duration_ms: 125.9138
+  type: 'test'
+  ...
+# Subtest: M16-MESSAGE-AUTH: spoofed fields, foreign project, stale runtime and changed permissions fail closed
+ok 36 - M16-MESSAGE-AUTH: spoofed fields, foreign project, stale runtime and changed permissions fail closed
+  ---
+  duration_ms: 66.053
+  type: 'test'
+  ...
+# Subtest: M16-MESSAGE-RETRY: bounded retries, expired leases, expiry/revocation and unknown effects never auto-replay
+ok 37 - M16-MESSAGE-RETRY: bounded retries, expired leases, expiry/revocation and unknown effects never auto-replay
+  ---
+  duration_ms: 227.5697
+  type: 'test'
+  ...
+# Subtest: M16-MESSAGE-CAPACITY: byte/record backpressure remains bounded and priority does not discard low priority
+ok 38 - M16-MESSAGE-CAPACITY: byte/record backpressure remains bounded and priority does not discard low priority
+  ---
+  duration_ms: 66.7706
+  type: 'test'
+  ...
+# Subtest: M16-MESSAGE-ACK-FAILURE: audit failure suppresses wake; callback failure retains acknowledged queue
+ok 39 - M16-MESSAGE-ACK-FAILURE: audit failure suppresses wake; callback failure retains acknowledged queue
+  ---
+  duration_ms: 86.2799
+  type: 'test'
+  ...
+# Subtest: M16-MESSAGE-RECOVERY: real close/reopen fences old leases and quarantines external uncertainty
+ok 40 - M16-MESSAGE-RECOVERY: real close/reopen fences old leases and quarantines external uncertainty
+  ---
+  duration_ms: 130.2474
+  type: 'test'
+  ...
+# Subtest: M16-MESSAGE-CLOCK: rollback cannot revive expired or leased deliveries
+ok 41 - M16-MESSAGE-CLOCK: rollback cannot revive expired or leased deliveries
+  ---
+  duration_ms: 51.6335
+  type: 'test'
+  ...
+# Subtest: M16-MESSAGE-LOGICAL-DEDUPE: sender runtime replacement does not reset a task business dedup key
+ok 42 - M16-MESSAGE-LOGICAL-DEDUPE: sender runtime replacement does not reset a task business dedup key
+  ---
+  duration_ms: 56.8182
+  type: 'test'
+  ...
+# Subtest: M16-MODEL-TRACE: simulated results preserve original context provenance, integer usage and durable dedup
+ok 43 - M16-MODEL-TRACE: simulated results preserve original context provenance, integer usage and durable dedup
+  ---
+  duration_ms: 151.9398
+  type: 'test'
+  ...
+# Subtest: M16-MODEL-REAL-BLOCKED: no real adapter/provider or plaintext credential entry exists
+ok 44 - M16-MODEL-REAL-BLOCKED: no real adapter/provider or plaintext credential entry exists
+  ---
+  duration_ms: 70.6355
+  type: 'test'
+  ...
+# Subtest: M16-MODEL-FAILOVER: only proven not-sent failures may advance to an independent provider pool
+ok 45 - M16-MODEL-FAILOVER: only proven not-sent failures may advance to an independent provider pool
+  ---
+  duration_ms: 113.2849
+  type: 'test'
+  ...
+# Subtest: M16-MODEL-UNKNOWN: sent unknown results retain budget/key quota, persist and never fail over or replay
+ok 46 - M16-MODEL-UNKNOWN: sent unknown results retain budget/key quota, persist and never fail over or replay
+  ---
+  duration_ms: 123.6284
+  type: 'test'
+  ...
+# Subtest: M16-MODEL-POOL: independent key state, rotation and round robin keep provider/account limits
+ok 47 - M16-MODEL-POOL: independent key state, rotation and round robin keep provider/account limits
+  ---
+  duration_ms: 157.1391
+  type: 'test'
+  ...
+# Subtest: M16-MODEL-CONCURRENCY: active key limit rejects a concurrent request and releases known unused reservation
+ok 48 - M16-MODEL-CONCURRENCY: active key limit rejects a concurrent request and releases known unused reservation
+  ---
+  duration_ms: 124.5512
+  type: 'test'
+  ...
+# Subtest: M16-MODEL-BUDGET: reservation failure and unknown settlement fail closed without unmetered dispatch
+ok 49 - M16-MODEL-BUDGET: reservation failure and unknown settlement fail closed without unmetered dispatch
+  ---
+  duration_ms: 178.012
+  type: 'test'
+  ...
+# Subtest: M16-MODEL-FEATURE: disabled failover, authentication failure and usage excess have separate outcomes
+ok 50 - M16-MODEL-FEATURE: disabled failover, authentication failure and usage excess have separate outcomes
+  ---
+  duration_ms: 263.0575
+  type: 'test'
+  ...
+# Subtest: M16-MODEL-TOOL: full JSON arguments/resource remain data and model cannot supply approval authority
+ok 51 - M16-MODEL-TOOL: full JSON arguments/resource remain data and model cannot supply approval authority
+  ---
+  duration_ms: 99.8947
+  type: 'test'
+  ...
+# Subtest: M16-MODEL-RECOVERY: persisted reserve/send crash windows become unknown without dispatch or quota release
+ok 52 - M16-MODEL-RECOVERY: persisted reserve/send crash windows become unknown without dispatch or quota release
+  ---
+  duration_ms: 102.8438
+  type: 'test'
+  ...
+# Subtest: M16-MODEL-CANCEL-NOT-SENT: real durable barriers fence cancellation before fixture sequence or token consumption
+    # Subtest: MODEL_REQUEST_PREPARED
+    ok 1 - MODEL_REQUEST_PREPARED
+      ---
+      duration_ms: 71.1873
+      type: 'test'
+      ...
+    # Subtest: MODEL_BUDGET_RESERVED
+    ok 2 - MODEL_BUDGET_RESERVED
+      ---
+      duration_ms: 70.8644
+      type: 'test'
+      ...
+    # Subtest: CONTEXT_CAPTURED
+    ok 3 - CONTEXT_CAPTURED
+      ---
+      duration_ms: 85.0659
+      type: 'test'
+      ...
+    # Subtest: MODEL_DISPATCH_INTENT
+    ok 4 - MODEL_DISPATCH_INTENT
+      ---
+      duration_ms: 89.0859
+      type: 'test'
+      ...
+    1..4
+ok 53 - M16-MODEL-CANCEL-NOT-SENT: real durable barriers fence cancellation before fixture sequence or token consumption
+  ---
+  duration_ms: 316.9139
+  type: 'test'
+  ...
+# Subtest: M16-MODEL-CANCEL-SENT: cancellation after actual fixture dispatch retains unknown quota and never fails over
+ok 54 - M16-MODEL-CANCEL-SENT: cancellation after actual fixture dispatch retains unknown quota and never fails over
+  ---
+  duration_ms: 89.9885
+  type: 'test'
+  ...
+# Subtest: M16-MODEL-CANCEL-FAILOVER: cancellation at known-not-sent ACK cannot advance to another provider
+ok 55 - M16-MODEL-CANCEL-FAILOVER: cancellation at known-not-sent ACK cannot advance to another provider
+  ---
+  duration_ms: 95.0845
+  type: 'test'
+  ...
+# Subtest: M16-MODEL-CANCEL-SETTLED: cancellation after a known usage settlement preserves actual metering
+ok 56 - M16-MODEL-CANCEL-SETTLED: cancellation after a known usage settlement preserves actual metering
+  ---
+  duration_ms: 100.2822
+  type: 'test'
+  ...
+# Subtest: M16 RESOURCES SIMULATED: strict CPU remains BLOCKED independent of a registry description
+ok 57 - M16 RESOURCES SIMULATED: strict CPU remains BLOCKED independent of a registry description
+  ---
+  duration_ms: 1.2091
+  type: 'test'
+  ...
+# Subtest: M16 RESOURCES SQLITE: competing reservations atomically obey all three budgets
+ok 58 - M16 RESOURCES SQLITE: competing reservations atomically obey all three budgets
+  ---
+  duration_ms: 82.7639
+  type: 'test'
+  ...
+# Subtest: M16 RESOURCES SIMULATED: admin and exact subject/project/worker scope cannot be forged
+ok 59 - M16 RESOURCES SIMULATED: admin and exact subject/project/worker scope cannot be forged
+  ---
+  duration_ms: 54.5364
+  type: 'test'
+  ...
+# Subtest: M16 RESOURCES SQLITE: cumulative consumption settles once while capacity stays held until owner closure
+ok 60 - M16 RESOURCES SQLITE: cumulative consumption settles once while capacity stays held until owner closure
+  ---
+  duration_ms: 73.4215
+  type: 'test'
+  ...
+# Subtest: M16 RESOURCES SIMULATED: fabricated, serialized, wrong-reservation and stale closure objects fail
+ok 61 - M16 RESOURCES SIMULATED: fabricated, serialized, wrong-reservation and stale closure objects fail
+  ---
+  duration_ms: 57.3153
+  type: 'test'
+  ...
+# Subtest: M16 RESOURCES SIMULATED: UNKNOWN, expiration and production-looking JSON never free capacity
+ok 62 - M16 RESOURCES SIMULATED: UNKNOWN, expiration and production-looking JSON never free capacity
+  ---
+  duration_ms: 65.6333
+  type: 'test'
+  ...
+# Subtest: M16 RESOURCES SQLITE: bounded persistent wait resumes only after a verified unused reservation closes
+ok 63 - M16 RESOURCES SQLITE: bounded persistent wait resumes only after a verified unused reservation closes
+  ---
+  duration_ms: 63.5016
+  type: 'test'
+  ...
+# Subtest: M16 RESOURCES SIMULATED: waiting state has a hard count bound; no unbounded in-memory queue
+ok 64 - M16 RESOURCES SIMULATED: waiting state has a hard count bound; no unbounded in-memory queue
+  ---
+  duration_ms: 242.6285
+  type: 'test'
+  ...
+# Subtest: M16 RESOURCES SQLITE: cancelled waiting requests cannot later acquire capacity or cancel active claims
+ok 65 - M16 RESOURCES SQLITE: cancelled waiting requests cannot later acquire capacity or cancel active claims
+  ---
+  duration_ms: 61.1175
+  type: 'test'
+  ...
+# Subtest: M16 RESOURCES SQLITE: old boot recovery preserves holds and consumed counters, rejects old wait and closure
+ok 66 - M16 RESOURCES SQLITE: old boot recovery preserves holds and consumed counters, rejects old wait and closure
+  ---
+  duration_ms: 88.4745
+  type: 'test'
+  ...
+# Subtest: M16 RESOURCES FEATURE: OFF blocks reserve/start and permits evidence-based cleanup without reopening execution
+ok 67 - M16 RESOURCES FEATURE: OFF blocks reserve/start and permits evidence-based cleanup without reopening execution
+  ---
+  duration_ms: 61.151
+  type: 'test'
+  ...
+# Subtest: M16 RESOURCES AUDIT: failed durable reservation barrier produces zero starts and retains the committed hold
+ok 68 - M16 RESOURCES AUDIT: failed durable reservation barrier produces zero starts and retains the committed hold
+  ---
+  duration_ms: 47.4995
+  type: 'test'
+  ...
+# Subtest: M16 RESOURCES ACCOUNTING: observed overspend is recorded in all scopes and quarantines further admission
+ok 69 - M16 RESOURCES ACCOUNTING: observed overspend is recorded in all scopes and quarantines further admission
+  ---
+  duration_ms: 64.4647
+  type: 'test'
+  ...
+# Subtest: M16 RESOURCES VALIDATION: invalid amounts, expired requests and strict mode cannot mutate holds
+ok 70 - M16 RESOURCES VALIDATION: invalid amounts, expired requests and strict mode cannot mutate holds
+  ---
+  duration_ms: 53.5998
+  type: 'test'
+  ...
+# Subtest: M16 RESOURCES SIMULATED: application bookkeeping never accepts a simulated completion as real OS proof
+ok 71 - M16 RESOURCES SIMULATED: application bookkeeping never accepts a simulated completion as real OS proof
+  ---
+  duration_ms: 52.8387
+  type: 'test'
+  ...
+1..71
+# tests 75
+# suites 0
+# pass 75
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 15386.9816

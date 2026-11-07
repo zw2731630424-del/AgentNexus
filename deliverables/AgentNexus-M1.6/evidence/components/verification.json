@@ -1,0 +1,248 @@
+{
+  "schema": "agentnexus/m16-components-verification/1",
+  "observed_at": "2026-11-07T21:16:59.5338505Z",
+  "node": "24.15.0",
+  "typescript": "5.9.3",
+  "node_types": "24.10.1",
+  "assertions_status": "PASS",
+  "counts": {
+    "not_run": 0,
+    "pass": 25,
+    "fail": 0,
+    "tests": 25
+  },
+  "command": "node --test --test-concurrency=1 --test-reporter=tap tests/agentnexus/m16-context.test.ts tests/agentnexus/m16-messages.test.ts tests/agentnexus/m16-models.test.ts",
+  "cwd": "source",
+  "raw_log": "components-final.tap",
+  "typecheck": {
+    "intermediate_failure_log": "typecheck-full-source-run-01.txt",
+    "status": "PASS",
+    "intermediate_failure": "Test type narrowing/helper name error, corrected without changing compiler strictness",
+    "raw_log": "typecheck-full-source-final.txt",
+    "scope": "full source/tests/tools strict noEmit"
+  },
+  "results": [
+    {
+      "number": 1,
+      "id": "M16-CONTEXT-RAW",
+      "description": "separate summary/index views preserve original bytes and source hashes",
+      "assertions_status": "PASS",
+      "assurance": "REAL_LOCAL_SQLITE_ZSTD_FILESYSTEM"
+    },
+    {
+      "number": 2,
+      "id": "M16-CONTEXT-STREAM",
+      "description": "bounded range scans a multi-chunk lossless object and restores after reopen",
+      "assertions_status": "PASS",
+      "assurance": "REAL_LOCAL_SQLITE_ZSTD_FILESYSTEM"
+    },
+    {
+      "number": 3,
+      "id": "M16-CONTEXT-BOUNDS",
+      "description": "required rules never truncate and optional omissions are explicit",
+      "assertions_status": "PASS",
+      "assurance": "REAL_LOCAL_SQLITE_ZSTD_FILESYSTEM"
+    },
+    {
+      "number": 4,
+      "id": "M16-CONTEXT-SCOPE",
+      "description": "project/task authority and exact immutable reference are checked independently",
+      "assertions_status": "PASS",
+      "assurance": "REAL_LOCAL_SQLITE_ZSTD_FILESYSTEM"
+    },
+    {
+      "number": 5,
+      "id": "M16-CONTEXT-HASH",
+      "description": "corruption outside the selected range fails the complete verification barrier",
+      "assertions_status": "PASS",
+      "assurance": "REAL_LOCAL_SQLITE_ZSTD_FILESYSTEM"
+    },
+    {
+      "number": 6,
+      "id": "M16-CONTEXT-ACK",
+      "description": "failed archive ACK cannot become an acknowledged model context",
+      "assertions_status": "PASS",
+      "assurance": "REAL_LOCAL_SQLITE_ZSTD_FILESYSTEM"
+    },
+    {
+      "number": 7,
+      "id": "M16-CONTEXT-EGRESS",
+      "description": "asynchronous scans recheck task authorization and support the exact model byte ceiling",
+      "assertions_status": "PASS",
+      "assurance": "REAL_LOCAL_SQLITE_ZSTD_FILESYSTEM"
+    },
+    {
+      "number": 8,
+      "id": "M16-MESSAGE-DURABLE",
+      "description": "host-bound sender, exactly matching dedup and bidirectional ACK survive durable storage",
+      "assertions_status": "PASS",
+      "assurance": "REAL_LOCAL_SQLITE_ZSTD_FILESYSTEM"
+    },
+    {
+      "number": 9,
+      "id": "M16-MESSAGE-AUTH",
+      "description": "spoofed fields, foreign project, stale runtime and changed permissions fail closed",
+      "assertions_status": "PASS",
+      "assurance": "REAL_LOCAL_SQLITE_ZSTD_FILESYSTEM"
+    },
+    {
+      "number": 10,
+      "id": "M16-MESSAGE-RETRY",
+      "description": "bounded retries, expired leases, expiry/revocation and unknown effects never auto-replay",
+      "assertions_status": "PASS",
+      "assurance": "REAL_LOCAL_SQLITE_ZSTD_FILESYSTEM"
+    },
+    {
+      "number": 11,
+      "id": "M16-MESSAGE-CAPACITY",
+      "description": "byte/record backpressure remains bounded and priority does not discard low priority",
+      "assertions_status": "PASS",
+      "assurance": "REAL_LOCAL_SQLITE_ZSTD_FILESYSTEM"
+    },
+    {
+      "number": 12,
+      "id": "M16-MESSAGE-ACK-FAILURE",
+      "description": "audit failure suppresses wake; callback failure retains acknowledged queue",
+      "assertions_status": "PASS",
+      "assurance": "REAL_LOCAL_SQLITE_ZSTD_FILESYSTEM"
+    },
+    {
+      "number": 13,
+      "id": "M16-MESSAGE-RECOVERY",
+      "description": "real close/reopen fences old leases and quarantines external uncertainty",
+      "assertions_status": "PASS",
+      "assurance": "REAL_LOCAL_SQLITE_ZSTD_FILESYSTEM"
+    },
+    {
+      "number": 14,
+      "id": "M16-MESSAGE-CLOCK",
+      "description": "rollback cannot revive expired or leased deliveries",
+      "assertions_status": "PASS",
+      "assurance": "REAL_LOCAL_SQLITE_ZSTD_FILESYSTEM"
+    },
+    {
+      "number": 15,
+      "id": "M16-MESSAGE-LOGICAL-DEDUPE",
+      "description": "sender runtime replacement does not reset a task business dedup key",
+      "assertions_status": "PASS",
+      "assurance": "REAL_LOCAL_SQLITE_ZSTD_FILESYSTEM"
+    },
+    {
+      "number": 16,
+      "id": "M16-MODEL-TRACE",
+      "description": "simulated results preserve original context provenance, integer usage and durable dedup",
+      "assertions_status": "PASS",
+      "assurance": "SIMULATED_MODEL_CONTRACT"
+    },
+    {
+      "number": 17,
+      "id": "M16-MODEL-REAL-BLOCKED",
+      "description": "no real adapter/provider or plaintext credential entry exists",
+      "assertions_status": "PASS",
+      "assurance": "SIMULATED_MODEL_CONTRACT"
+    },
+    {
+      "number": 18,
+      "id": "M16-MODEL-FAILOVER",
+      "description": "only proven not-sent failures may advance to an independent provider pool",
+      "assertions_status": "PASS",
+      "assurance": "SIMULATED_MODEL_CONTRACT"
+    },
+    {
+      "number": 19,
+      "id": "M16-MODEL-UNKNOWN",
+      "description": "sent unknown results retain budget/key quota, persist and never fail over or replay",
+      "assertions_status": "PASS",
+      "assurance": "SIMULATED_MODEL_CONTRACT"
+    },
+    {
+      "number": 20,
+      "id": "M16-MODEL-POOL",
+      "description": "independent key state, rotation and round robin keep provider/account limits",
+      "assertions_status": "PASS",
+      "assurance": "SIMULATED_MODEL_CONTRACT"
+    },
+    {
+      "number": 21,
+      "id": "M16-MODEL-CONCURRENCY",
+      "description": "active key limit rejects a concurrent request and releases known unused reservation",
+      "assertions_status": "PASS",
+      "assurance": "SIMULATED_MODEL_CONTRACT"
+    },
+    {
+      "number": 22,
+      "id": "M16-MODEL-BUDGET",
+      "description": "reservation failure and unknown settlement fail closed without unmetered dispatch",
+      "assertions_status": "PASS",
+      "assurance": "SIMULATED_MODEL_CONTRACT"
+    },
+    {
+      "number": 23,
+      "id": "M16-MODEL-FEATURE",
+      "description": "disabled failover, authentication failure and usage excess have separate outcomes",
+      "assertions_status": "PASS",
+      "assurance": "SIMULATED_MODEL_CONTRACT"
+    },
+    {
+      "number": 24,
+      "id": "M16-MODEL-TOOL",
+      "description": "full JSON arguments/resource remain data and model cannot supply approval authority",
+      "assertions_status": "PASS",
+      "assurance": "SIMULATED_MODEL_CONTRACT"
+    },
+    {
+      "number": 25,
+      "id": "M16-MODEL-RECOVERY",
+      "description": "persisted reserve/send crash windows become unknown without dispatch or quota release",
+      "assertions_status": "PASS",
+      "assurance": "SIMULATED_MODEL_CONTRACT"
+    }
+  ],
+  "candidate": [
+    {
+      "path": "source/src/agentnexus/harness/context.ts",
+      "bytes": 12612,
+      "sha256": "bc97036a0b61dad3dd3beb47044012af844bb2f3cb4af814d5e4b5c22974c61b"
+    },
+    {
+      "path": "source/src/agentnexus/harness/messages.ts",
+      "bytes": 13957,
+      "sha256": "c6d02c0be485ef46edb7e4543e22e0c463eea9d07069e5e8d3e74958316f9085"
+    },
+    {
+      "path": "source/src/agentnexus/harness/models.ts",
+      "bytes": 24147,
+      "sha256": "6740ff7350b19bec91455d18e0ae9ba619b45e8773fa5a05f9178ad957834960"
+    },
+    {
+      "path": "source/tests/agentnexus/m16-context.test.ts",
+      "bytes": 10268,
+      "sha256": "0eec6b930114a1152e087c6f4c096a7e88980d94f66f9d0f9605ec357dfea2ee"
+    },
+    {
+      "path": "source/tests/agentnexus/m16-messages.test.ts",
+      "bytes": 12474,
+      "sha256": "b7c46f2e138362b409242e7f35740aefb3d7e2cfe975bb702a28225569e2bf27"
+    },
+    {
+      "path": "source/tests/agentnexus/m16-models.test.ts",
+      "bytes": 16246,
+      "sha256": "e5df7726c018b7d980eb3e32a06baa44ec6f0c2b08f9c4c603ee316d4ba39456"
+    }
+  ],
+  "not_run": [
+    "real Provider/API Key/network model call",
+    "native or CPU qualification",
+    "full regression run by this component executor",
+    "production deployment/OS identity isolation",
+    "hardware power loss",
+    "long-duration soak"
+  ],
+  "limitations": [
+    "Model usage/pricing and provider responses are SIMULATED; local token estimate is ceil(UTF8 bytes / 4)",
+    "Model crash-window recovery uses persisted contract fixtures plus actual close/reopen, not a real Provider crash",
+    "MessageBus carries data only; Host owns external effect classification and ToolGateway owns actual execution",
+    "Unknown model/key reservations and external delivery are deliberately quarantined; no automatic administrative adjudication implemented",
+    "Windows directory fsync limitations are inherited from KernelStore; no new power-failure guarantee"
+  ]
+}
