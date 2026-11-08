@@ -1,0 +1,12 @@
+test('M161 STORAGE real atomic CREATE binds exact approval, content, Artifact/Audit and persistent budget ownership',async()=>{
+  const root=await fixture(),h=await storageFixture(root);
+  try{const content=Buffer.from('owned publication');await prepare(h,content,content.length);const result=await execute(h);assert.equal(result.state,'SUCCEEDED',result.reason??'');
+    const writes=h.state.list<StorageWrite>('STORAGE_WRITE',{limit:32});assert.equal(writes.length,1);const w=writes[0];assert.equal(w.state,'AUDIT_ACKNOWLEDGED');assert.equal(w.published!.sha256,sha256(content));assert.equal(w.published!.bytes,content.length);
+    assert.equal((await readFile(join(root,'files/result.txt'))).toString(),content.toString());assert.equal((await stat(join(root,'files/result.txt'))).nlink,1);
+    assert.equal(h.state.get<Budget>('resource_budget','platform')!.held.disk_bytes,content.length);assert.equal(h.state.get<Budget>('resource_budget','platform')!.held.workers,0);
+    assert.equal(h.state.get<Budget>('resource_budget',h.inspectAgent('writer').subject.resource_budget_id)!.held.disk_bytes,0);assert.equal(h.state.count('resource_storage_claim'),1);
+    assert.equal((await h.administration.reconcileStorage(w.id)).id,w.id);assert.equal(h.state.count('STORAGE_WRITE'),1);
+    await assert.rejects(h.administration.dispatch('task'),/TASK_DISPATCH_STATE/);assert.equal(h.state.count('STORAGE_WRITE'),1);await h.store.verify();
+  }finally{await h.close();}
+});
+

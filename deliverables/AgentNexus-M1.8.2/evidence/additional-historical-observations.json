@@ -1,0 +1,58 @@
+{
+  "rows": [
+    {
+      "test": "M1.4 REAL_WINDOWS_PRIMITIVE: cumulative Job CPU time kills a busy fixture before wall deadline",
+      "classification": "OS_BEHAVIOR_LIMITATION",
+      "original_error": {
+        "message": "CPU_TIME FAIL/BLOCKED: infinite busy fixture accumulated 28281250 ticks and required helper termination (DEADLINE); configuring JOB_TIME is not enforcement evidence\n+ actual - expected\n\n+ '2026-11-08T11:03:59.7217729Z'\n- null\n",
+        "code": "ERR_TEST_FAILURE",
+        "stack": "Error [ERR_TEST_FAILURE]: CPU_TIME FAIL/BLOCKED: infinite busy fixture accumulated 28281250 ticks and required helper termination (DEADLINE); configuring JOB_TIME is not enforcement evidence\n+ actual - expected\n\n+ '2026-11-08T11:03:59.7217729Z'\n- null\n",
+        "cause": "CPU_TIME FAIL/BLOCKED: infinite busy fixture accumulated 28281250 ticks and required helper termination (DEADLINE); configuring JOB_TIME is not enforcement evidence\n+ actual - expected\n\n+ '2026-11-08T11:03:59.7217729Z'\n- null\n"
+      },
+      "results": {
+        "m18_published": {
+          "status": "PASS",
+          "error": null,
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8\\w\\r-fe266e156726\\workspace\\tests\\agentnexus\\m14-native.test.ts",
+          "line": 150
+        },
+        "m181_original": {
+          "status": "PASS",
+          "error": null,
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\final-verification\\r-47aaf595f735\\workspace\\tests\\agentnexus\\m14-native.test.ts",
+          "line": 150
+        },
+        "m181_rerun": {
+          "status": "FAIL",
+          "error": {
+            "message": "CPU_TIME FAIL/BLOCKED: infinite busy fixture accumulated 28281250 ticks and required helper termination (DEADLINE); configuring JOB_TIME is not enforcement evidence\n+ actual - expected\n\n+ '2026-11-08T11:03:59.7217729Z'\n- null\n",
+            "code": "ERR_TEST_FAILURE",
+            "stack": "Error [ERR_TEST_FAILURE]: CPU_TIME FAIL/BLOCKED: infinite busy fixture accumulated 28281250 ticks and required helper termination (DEADLINE); configuring JOB_TIME is not enforcement evidence\n+ actual - expected\n\n+ '2026-11-08T11:03:59.7217729Z'\n- null\n",
+            "cause": "CPU_TIME FAIL/BLOCKED: infinite busy fixture accumulated 28281250 ticks and required helper termination (DEADLINE); configuring JOB_TIME is not enforcement evidence\n+ actual - expected\n\n+ '2026-11-08T11:03:59.7217729Z'\n- null\n"
+          },
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.2\\baseline-verification\\r-e928e511fc4e\\workspace\\tests\\agentnexus\\m14-native.test.ts",
+          "line": 150
+        },
+        "m18_same_environment": {
+          "status": "PASS",
+          "error": null,
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.2\\m18-control\\r-e035cab50f5b\\workspace\\tests\\agentnexus\\m14-native.test.ts",
+          "line": 150
+        },
+        "m182_final": {
+          "status": "FAIL",
+          "error": {
+            "message": "CPU_TIME FAIL/BLOCKED: infinite busy fixture accumulated 30000000 ticks and required helper termination (DEADLINE); configuring JOB_TIME is not enforcement evidence\n+ actual - expected\n\n+ '2026-11-08T11:28:17.3893420Z'\n- null\n",
+            "code": "ERR_TEST_FAILURE",
+            "stack": "Error [ERR_TEST_FAILURE]: CPU_TIME FAIL/BLOCKED: infinite busy fixture accumulated 30000000 ticks and required helper termination (DEADLINE); configuring JOB_TIME is not enforcement evidence\n+ actual - expected\n\n+ '2026-11-08T11:28:17.3893420Z'\n- null\n",
+            "cause": "CPU_TIME FAIL/BLOCKED: infinite busy fixture accumulated 30000000 ticks and required helper termination (DEADLINE); configuring JOB_TIME is not enforcement evidence\n+ actual - expected\n\n+ '2026-11-08T11:28:17.3893420Z'\n- null\n"
+          },
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.2\\final-verification\\r-51aac3fe4c16\\workspace\\tests\\agentnexus\\m14-native.test.ts",
+          "line": 150
+        }
+      },
+      "qualification": "BLOCKED",
+      "reason": "已知Job累计用户态CPU限制未构成严格累计CPU保证；本次忙循环到deadline仍由helper终止，观察28281250 ticks；分次PASS不关闭该资格。"
+    }
+  ]
+}

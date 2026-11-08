@@ -1,0 +1,10 @@
+test('M161 STORAGE REPLACE requires the exact owned version; original Artifact remains reconstructible',async()=>{
+  const root=await fixture(),h=await storageFixture(root);try{
+    await prepare(h,Buffer.from('old'),3);assert.equal((await execute(h)).state,'SUCCEEDED');const old=h.administration.storageVersion('project:files','result.txt')!;
+    await h.administration.createAgent({id:'next',project_id:'project',task_id:'next-task',type:'DEVELOPMENT',budget:{...limits,workers:1},file_scope:['project:files'],tools:[{tool_id:'native.storage.write',version:'1',capability:'LOCAL_WRITE',resources:['project:files']}]});
+    await prepare(h,Buffer.from('replacement'),11,{mode:'REPLACE',expected_version:old.version,expected_sha256:old.file.sha256},'next','next-task');assert.equal((await execute(h,'next-task')).state,'SUCCEEDED');
+    assert.equal((await readFile(join(root,'files/result.txt'))).toString(),'replacement');const current=h.administration.storageVersion('project:files','result.txt')!;assert.equal(current.version,2);assert.notDeepEqual(current.file.identity,old.file.identity);
+    const chunks:Buffer[]=[];for await(const c of h.store.artifacts.read(old.artifact_ref))chunks.push(Buffer.from(c));assert.equal(Buffer.concat(chunks).toString(),'old');assert.equal(h.state.get<Budget>('resource_budget','platform')!.held.disk_bytes,14);
+  }finally{await h.close();}
+});
+

@@ -1,0 +1,35 @@
+{
+  "schema": "agentnexus/m1.8.2/publication/1",
+  "authorization": "用户明确要求：全部保存提交推送",
+  "authorized_at_utc": "2026-11-08T12:05:39.244721+00:00",
+  "target": "https://github.com/zw2731630424-del/AgentNexus.git",
+  "branch": "main",
+  "base_head": "0bec61babb0e0b06c0cdf6c653e0bdb0b9094e7c",
+  "source_set_sha256": "95cd2da54b0e854a469eb5e0df8f4b52ce89fe67e452ab57b758aeb8e8335b50",
+  "scope": "全部M1.8.2交付、189文件完整源码、测试、报告、合成请求草案、原始失败文本证据、独立安全审查、任务记录与构建工具",
+  "publication_boundary": "沿用既有.gitignore与公开发布基线；原始运行数据库、压缩对象和未获分发许可的第三方材料保留本地",
+  "local_only": [
+    ".workflow-kit/runtime/AgentNexus-M1.8.2/"
+  ],
+  "history": "M0至M1.8.1交付不变；本轮未Commit/Push描述保留为实施阶段事实，当前发布由后续指令明确授权",
+  "preserved_original_delivery": {
+    "manifest": "evidence/SHA256SUMS.before-publication.txt",
+    "manifest_sha256": "12ea1f5014617470db6e0df97d89ffd75e5182f8e76656d76fa6afaa5db908a8",
+    "readme": "evidence/README.before-publication.txt",
+    "readme_sha256": "7acef49b5b5efa2e9b86dbca8b38a5116d2c535e2b0359e61ab0b2731950c31e"
+  },
+  "validation": {
+    "new_tests": "14 PASS / 0 FAIL / 0 SKIP",
+    "independent_tests": "21 PASS",
+    "full_regression": "648 PASS / 32 SKIP / 15 FAIL; unchanged failure names against same-environment M1.8.1 rerun",
+    "syntax": "PASS",
+    "strict_typescript": "PASS",
+    "full_root_governance": "PASS; retained evidence",
+    "publication_validation": "delivery SHA256 recheck, original governance path/classification functions and exact staged blob bytes"
+  },
+  "live_provider_status": "BLOCKED",
+  "real_provider_requests": 0,
+  "actual_model_tokens": 0,
+  "actual_model_cost_micros": 0,
+  "commit_binding": "由Git内容地址和实际推送回执绑定，避免提交号自引用"
+}

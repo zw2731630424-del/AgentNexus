@@ -1,0 +1,11 @@
+test('M151 REAL_WINDOWS_PRIMITIVE: concurrent directory replacement never returns junction target bytes',{skip:!windows},async t=>{
+  const {base,rpc}=fixture(t),root=join(base,'root'),slot=join(root,'slot'),saved=join(root,'saved'),outside=join(base,'outside');mkdirSync(root);mkdirSync(slot);mkdirSync(outside);writeFileSync(join(slot,'value'),'safe');writeFileSync(join(outside,'value'),'outside-secret');
+  const before=await rpc.good<FileResult>('file.read',{root,relative_path:'slot\\value',max_bytes:128});assert.equal(Buffer.from(before.content_base64,'base64').toString(),'safe');assert.equal(before.ancestor_handles_pinned,true);assert.equal(before.ancestor_share_delete,false);assert.equal(before.ancestor_share_write,false);
+  let attempts=0,swaps=0,active=false;
+  function swap(){attempts++;try{if(active){unlinkSync(slot);renameSync(saved,slot);active=false;}else{renameSync(slot,saved);try{symlinkSync(outside,slot,'junction');active=true;swaps++;}catch(e){renameSync(saved,slot);throw e;}}}catch{/* An OS sharing denial is expected while directory handles are retained. */}}
+  const timer=setInterval(swap,2);let successes=0,rejections=0;
+  try{for(let i=0;i<40;i++){const p=await rpc.call('file.read',{root,relative_path:'slot\\value',max_bytes:128},1000);if(p.ok){const r=p.result as FileResult;assert.equal(Buffer.from(r.content_base64,'base64').toString(),'safe');assert.equal(r.file_id,before.file_id);successes++;}else{assert.ok(['REPARSE_REJECTED','WIN32_1920','WIN32_4390','WIN32_2','WIN32_3','WIN32_5','WIN32_32'].includes(p.error?.code??''),JSON.stringify(p));rejections++;}}}
+  finally{clearInterval(timer);if(active){unlinkSync(slot);renameSync(saved,slot);}}
+  assert.ok(attempts>0);assert.ok(swaps>0,'fixture must actually install junction replacements');assert.equal(successes+rejections,40);rpc.record({test:'TOCTOU',attempts,swaps,successes,rejections,outside_bytes_returned:false});
+});
+

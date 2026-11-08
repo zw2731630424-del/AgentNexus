@@ -1,0 +1,1391 @@
+{
+  "original_14": [
+    {
+      "test_id": "M182-HIST-01",
+      "test_name": "M151 REAL_WINDOWS_PRIMITIVE: concurrent directory replacement never returns junction target bytes",
+      "test_file": "tests/agentnexus/m151-boundaries.test.ts",
+      "line": 34,
+      "original_assertion": "  const before=await rpc.good<FileResult>('file.read',{root,relative_path:'slot\\\\value',max_bytes:128});assert.equal(Buffer.from(before.content_base64,'base64').toString(),'safe');assert.equal(before.ancestor_handles_pinned,true);assert.equal(before.ancestor_share_delete,false);assert.equal(before.ancestor_share_write,false);\n  try{for(let i=0;i<40;i++){const p=await rpc.call('file.read',{root,relative_path:'slot\\\\value',max_bytes:128},1000);if(p.ok){const r=p.result as FileResult;assert.equal(Buffer.from(r.content_base64,'base64').toString(),'safe');assert.equal(r.file_id,before.file_id);successes++;}else{assert.ok(['REPARSE_REJECTED','WIN32_1920','WIN32_4390','WIN32_2','WIN32_3','WIN32_5','WIN32_32'].includes(p.error?.code??''),JSON.stringify(p));rejections++;}}}\n  assert.ok(attempts>0);assert.ok(swaps>0,'fixture must actually install junction replacements');assert.equal(successes+rejections,40);rpc.record({test:'TOCTOU',attempts,swaps,successes,rejections,outside_bytes_returned:false});\n",
+      "original_error": {
+        "message": "fixture must actually install junction replacements",
+        "code": "ERR_TEST_FAILURE",
+        "stack": "Error [ERR_TEST_FAILURE]: fixture must actually install junction replacements",
+        "cause": "fixture must actually install junction replacements"
+      },
+      "classification": "ENVIRONMENT_LIMITATION",
+      "historical_relation": "HISTORICAL_FAILURE_IN_SAME_ENVIRONMENT",
+      "results": {
+        "m18_published": {
+          "status": "PASS",
+          "error": null,
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8\\w\\r-fe266e156726\\workspace\\tests\\agentnexus\\m151-boundaries.test.ts",
+          "line": 34
+        },
+        "m181_original": {
+          "status": "FAIL",
+          "error": {
+            "message": "fixture must actually install junction replacements",
+            "code": "ERR_TEST_FAILURE",
+            "stack": "Error [ERR_TEST_FAILURE]: fixture must actually install junction replacements",
+            "cause": "fixture must actually install junction replacements"
+          },
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\final-verification\\r-47aaf595f735\\workspace\\tests\\agentnexus\\m151-boundaries.test.ts",
+          "line": 34
+        },
+        "m181_rerun": {
+          "status": "FAIL",
+          "error": {
+            "message": "fixture must actually install junction replacements",
+            "code": "ERR_TEST_FAILURE",
+            "stack": "Error [ERR_TEST_FAILURE]: fixture must actually install junction replacements",
+            "cause": "fixture must actually install junction replacements"
+          },
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.2\\baseline-verification\\r-e928e511fc4e\\workspace\\tests\\agentnexus\\m151-boundaries.test.ts",
+          "line": 34
+        },
+        "m18_same_environment": {
+          "status": "FAIL",
+          "error": {
+            "message": "fixture must actually install junction replacements",
+            "code": "ERR_TEST_FAILURE",
+            "stack": "Error [ERR_TEST_FAILURE]: fixture must actually install junction replacements",
+            "cause": "fixture must actually install junction replacements"
+          },
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.2\\m18-control\\r-e035cab50f5b\\workspace\\tests\\agentnexus\\m151-boundaries.test.ts",
+          "line": 34
+        },
+        "m182_final": {
+          "status": "FAIL",
+          "error": {
+            "message": "fixture must actually install junction replacements",
+            "code": "ERR_TEST_FAILURE",
+            "stack": "Error [ERR_TEST_FAILURE]: fixture must actually install junction replacements",
+            "cause": "fixture must actually install junction replacements"
+          },
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.2\\final-verification\\r-51aac3fe4c16\\workspace\\tests\\agentnexus\\m151-boundaries.test.ts",
+          "line": 34
+        }
+      },
+      "test_source_identical_m18_m181": true,
+      "test_source_sha256": "c9f6878769708d0d58f1f71e1edc3ca2d7d0b51444de3765870c7495149a09d6",
+      "root_cause": "原fixture swaps=0；当前真实junction创建EPERM，rename对照成功。缺少攻击切换前提，未执行有效junction竞争，不能推出TOCTOU资格。",
+      "is_new_m181_regression": false,
+      "product_fix_required": false,
+      "deployment_or_fixture_remediation_required": true,
+      "security_impact": "安全正向/竞争/恢复证据缺失；失败保持拒绝/隔离，不能标安全资格PASS。",
+      "real_provider_impact": "不直接改变Host HTTP协议；PROCESS组合资格保持BLOCKED。",
+      "disposition": "KEEP_ORIGINAL_FAIL",
+      "fix_plan": "在经批准且允许junction夹具的隔离部署复跑原合同；不更改swaps>0断言。",
+      "acceptance_criteria": "在真实获准部署满足原夹具前提后，原断言全部PASS并保留原始日志；不得将缺前提的跳过当PASS。",
+      "evidence": [
+        "evidence/probes/filesystem.json",
+        "evidence/verification/m18-control/all-tests.tap"
+      ],
+      "original_assertion_summary": "assert.ok(swaps>0,'fixture must actually install junction replacements')",
+      "original_test_contract": {
+        "artifact": "evidence/test-contracts/M182-HIST-01.txt",
+        "sha256": "6a2de2f4739bfb98abe9af794c7c25265773fa21dda16a90d81ab3d55b3503fd",
+        "source": "tests/agentnexus/m151-boundaries.test.ts",
+        "start_line": 34,
+        "end_line": 44,
+        "bytes": 1923,
+        "unchanged_bytes": true
+      }
+    },
+    {
+      "test_id": "M182-HIST-02",
+      "test_name": "M151 REAL_WINDOWS_PRIMITIVE: CREATE_BREAKAWAY_FROM_JOB is denied by the private Job",
+      "test_file": "tests/agentnexus/m151-lifecycle.test.ts",
+      "line": 42,
+      "original_assertion": "  assert.equal(result.release_authority,false);\n  assert.equal(packet.ok,true,data);assert.equal(packet.result.created,false);assert.equal(packet.result.win32_error,5);assert.equal(packet.result.unexpected_child_cleanup_observed,true);\n",
+      "original_error": {
+        "message": "{\"code\":\"WIN32_5\",\"message\":\"NtCreateFile component\"}\n\nfalse !== true\n",
+        "code": "ERR_TEST_FAILURE",
+        "stack": "Error [ERR_TEST_FAILURE]: {\"code\":\"WIN32_5\",\"message\":\"NtCreateFile component\"}\n\nfalse !== true\n",
+        "cause": "{\"code\":\"WIN32_5\",\"message\":\"NtCreateFile component\"}\n\nfalse !== true\n"
+      },
+      "classification": "TEST_FIXTURE_ERROR",
+      "historical_relation": "HISTORICAL_FAILURE_IN_SAME_ENVIRONMENT",
+      "results": {
+        "m18_published": {
+          "status": "FAIL",
+          "error": {
+            "message": "{\"code\":\"WIN32_5\",\"message\":\"NtCreateFile component\"}\n\nfalse !== true\n",
+            "code": "ERR_TEST_FAILURE",
+            "stack": "Error [ERR_TEST_FAILURE]: {\"code\":\"WIN32_5\",\"message\":\"NtCreateFile component\"}\n\nfalse !== true\n",
+            "cause": "{\"code\":\"WIN32_5\",\"message\":\"NtCreateFile component\"}\n\nfalse !== true\n"
+          },
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8\\w\\r-fe266e156726\\workspace\\tests\\agentnexus\\m151-lifecycle.test.ts",
+          "line": 42
+        },
+        "m181_original": {
+          "status": "FAIL",
+          "error": {
+            "message": "{\"code\":\"WIN32_5\",\"message\":\"NtCreateFile component\"}\n\nfalse !== true\n",
+            "code": "ERR_TEST_FAILURE",
+            "stack": "Error [ERR_TEST_FAILURE]: {\"code\":\"WIN32_5\",\"message\":\"NtCreateFile component\"}\n\nfalse !== true\n",
+            "cause": "{\"code\":\"WIN32_5\",\"message\":\"NtCreateFile component\"}\n\nfalse !== true\n"
+          },
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\final-verification\\r-47aaf595f735\\workspace\\tests\\agentnexus\\m151-lifecycle.test.ts",
+          "line": 42
+        },
+        "m181_rerun": {
+          "status": "FAIL",
+          "error": {
+            "message": "{\"code\":\"WIN32_5\",\"message\":\"NtCreateFile component\"}\n\nfalse !== true\n",
+            "code": "ERR_TEST_FAILURE",
+            "stack": "Error [ERR_TEST_FAILURE]: {\"code\":\"WIN32_5\",\"message\":\"NtCreateFile component\"}\n\nfalse !== true\n",
+            "cause": "{\"code\":\"WIN32_5\",\"message\":\"NtCreateFile component\"}\n\nfalse !== true\n"
+          },
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.2\\baseline-verification\\r-e928e511fc4e\\workspace\\tests\\agentnexus\\m151-lifecycle.test.ts",
+          "line": 42
+        },
+        "m18_same_environment": {
+          "status": "FAIL",
+          "error": {
+            "message": "{\"message\":\"NtCreateFile component\",\"code\":\"WIN32_5\"}\n\nfalse !== true\n",
+            "code": "ERR_TEST_FAILURE",
+            "stack": "Error [ERR_TEST_FAILURE]: {\"message\":\"NtCreateFile component\",\"code\":\"WIN32_5\"}\n\nfalse !== true\n",
+            "cause": "{\"message\":\"NtCreateFile component\",\"code\":\"WIN32_5\"}\n\nfalse !== true\n"
+          },
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.2\\m18-control\\r-e035cab50f5b\\workspace\\tests\\agentnexus\\m151-lifecycle.test.ts",
+          "line": 42
+        },
+        "m182_final": {
+          "status": "FAIL",
+          "error": {
+            "message": "{\"code\":\"WIN32_5\",\"message\":\"NtCreateFile component\"}\n\nfalse !== true\n",
+            "code": "ERR_TEST_FAILURE",
+            "stack": "Error [ERR_TEST_FAILURE]: {\"code\":\"WIN32_5\",\"message\":\"NtCreateFile component\"}\n\nfalse !== true\n",
+            "cause": "{\"code\":\"WIN32_5\",\"message\":\"NtCreateFile component\"}\n\nfalse !== true\n"
+          },
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.2\\final-verification\\r-51aac3fe4c16\\workspace\\tests\\agentnexus\\m151-lifecycle.test.ts",
+          "line": 42
+        }
+      },
+      "test_source_identical_m18_m181": true,
+      "test_source_sha256": "2da7c48040cf0419d872bcfbca5b9dc9e9d9c18407e03ad73ae9a8bb5b324abd",
+      "root_cause": "选入WindowsApps的pwsh.exe无法通过native目录句柄锚定，primitive.prepare先报NtCreateFile WIN32_5，尚未运行breakaway断言。相同broker读Node路径到达FILE_LIMIT，读该pwsh路径复现WIN32_5。历史M1.8交付也失败。",
+      "is_new_m181_regression": false,
+      "product_fix_required": false,
+      "deployment_or_fixture_remediation_required": true,
+      "security_impact": "安全正向/竞争/恢复证据缺失；失败保持拒绝/隔离，不能标安全资格PASS。",
+      "real_provider_impact": "不直接改变Host HTTP协议；PROCESS组合资格保持BLOCKED。",
+      "disposition": "KEEP_ORIGINAL_FAIL",
+      "fix_plan": "选择已授权、可由固定broker锚定的PowerShell部署，核对可执行文件/依赖哈希与权限，再原样验证breakaway。当前不安装或改系统。",
+      "acceptance_criteria": "在真实获准部署满足原夹具前提后，原断言全部PASS并保留原始日志；不得将缺前提的跳过当PASS。",
+      "evidence": [
+        "evidence/probes/native-paths.json",
+        "evidence/verification/m18-published/all-tests.tap"
+      ],
+      "original_assertion_summary": "rpc.good primitive.prepare / primitive.resume requires ok=true; packet.created=false and win32_error=5",
+      "original_test_contract": {
+        "artifact": "evidence/test-contracts/M182-HIST-02.txt",
+        "sha256": "c8888aee2844a6410d0e26c07f8886d9120f4429442fbeb239def0d4b33391ed",
+        "source": "tests/agentnexus/m151-lifecycle.test.ts",
+        "start_line": 42,
+        "end_line": 51,
+        "bytes": 1552,
+        "unchanged_bytes": true
+      }
+    },
+    {
+      "test_id": "M182-HIST-03",
+      "test_name": "M161 GATE actual file candidate is bound from trusted PASS to the approved Storage input",
+      "test_file": "tests/agentnexus/m161-harness.test.ts",
+      "line": 47,
+      "original_assertion": "    const gate=await h.administration.nativeGate('writer',{gate_id:'g1',binding:task.rules_binding,candidate_ref:a.payload_ref,baseline_ref:baseline,test_profile_ref:profile,evidence:[],author_id:'writer'});assert.equal(gate.status,'PASS');await h.administration.bindTaskGate('task','g1',gate.id);\n    const request={resource_id:'project:files',path:'result.txt',mode:'CREATE' as const,expected_version:null,expected_sha256:null,source:b};await assert.rejects(h.administration.requestStorageWrite('task',request),/TASK_GATE_CANDIDATE_MISMATCH/);assert.equal(h.state.count('STORAGE_WRITE'),0);assert.deepEqual(await readdir(join(root,'files')),[]);\n    await h.administration.requestStorageWrite('task',{...request,source:a});assert.equal((await execute(h)).state,'SUCCEEDED');assert.equal((await readFile(join(root,'files/result.txt'))).toString(),'approved A');\n",
+      "original_error": {
+        "message": "Expected values to be strictly equal:\n+ actual - expected\n\n+ 'UNKNOWN_QUARANTINED'\n- 'SUCCEEDED'\n",
+        "code": "ERR_TEST_FAILURE",
+        "stack": "Error [ERR_TEST_FAILURE]: Expected values to be strictly equal:\n+ actual - expected\n\n+ 'UNKNOWN_QUARANTINED'\n- 'SUCCEEDED'\n",
+        "cause": "Expected values to be strictly equal:\n+ actual - expected\n\n+ 'UNKNOWN_QUARANTINED'\n- 'SUCCEEDED'\n"
+      },
+      "classification": "ENVIRONMENT_LIMITATION",
+      "historical_relation": "HISTORICAL_FAILURE_IN_SAME_ENVIRONMENT",
+      "results": {
+        "m18_published": {
+          "status": "PASS",
+          "error": null,
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8\\w\\r-fe266e156726\\workspace\\tests\\agentnexus\\m161-harness.test.ts",
+          "line": 47
+        },
+        "m181_original": {
+          "status": "FAIL",
+          "error": {
+            "message": "Expected values to be strictly equal:\n+ actual - expected\n\n+ 'UNKNOWN_QUARANTINED'\n- 'SUCCEEDED'\n",
+            "code": "ERR_TEST_FAILURE",
+            "stack": "Error [ERR_TEST_FAILURE]: Expected values to be strictly equal:\n+ actual - expected\n\n+ 'UNKNOWN_QUARANTINED'\n- 'SUCCEEDED'\n",
+            "cause": "Expected values to be strictly equal:\n+ actual - expected\n\n+ 'UNKNOWN_QUARANTINED'\n- 'SUCCEEDED'\n"
+          },
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\final-verification\\r-47aaf595f735\\workspace\\tests\\agentnexus\\m161-harness.test.ts",
+          "line": 47
+        },
+        "m181_rerun": {
+          "status": "FAIL",
+          "error": {
+            "message": "Expected values to be strictly equal:\n+ actual - expected\n\n+ 'UNKNOWN_QUARANTINED'\n- 'SUCCEEDED'\n",
+            "code": "ERR_TEST_FAILURE",
+            "stack": "Error [ERR_TEST_FAILURE]: Expected values to be strictly equal:\n+ actual - expected\n\n+ 'UNKNOWN_QUARANTINED'\n- 'SUCCEEDED'\n",
+            "cause": "Expected values to be strictly equal:\n+ actual - expected\n\n+ 'UNKNOWN_QUARANTINED'\n- 'SUCCEEDED'\n"
+          },
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.2\\baseline-verification\\r-e928e511fc4e\\workspace\\tests\\agentnexus\\m161-harness.test.ts",
+          "line": 47
+        },
+        "m18_same_environment": {
+          "status": "FAIL",
+          "error": {
+            "message": "Expected values to be strictly equal:\n+ actual - expected\n\n+ 'UNKNOWN_QUARANTINED'\n- 'SUCCEEDED'\n",
+            "code": "ERR_TEST_FAILURE",
+            "stack": "Error [ERR_TEST_FAILURE]: Expected values to be strictly equal:\n+ actual - expected\n\n+ 'UNKNOWN_QUARANTINED'\n- 'SUCCEEDED'\n",
+            "cause": "Expected values to be strictly equal:\n+ actual - expected\n\n+ 'UNKNOWN_QUARANTINED'\n- 'SUCCEEDED'\n"
+          },
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.2\\m18-control\\r-e035cab50f5b\\workspace\\tests\\agentnexus\\m161-harness.test.ts",
+          "line": 47
+        },
+        "m182_final": {
+          "status": "FAIL",
+          "error": {
+            "message": "Expected values to be strictly equal:\n+ actual - expected\n\n+ 'UNKNOWN_QUARANTINED'\n- 'SUCCEEDED'\n",
+            "code": "ERR_TEST_FAILURE",
+            "stack": "Error [ERR_TEST_FAILURE]: Expected values to be strictly equal:\n+ actual - expected\n\n+ 'UNKNOWN_QUARANTINED'\n- 'SUCCEEDED'\n",
+            "cause": "Expected values to be strictly equal:\n+ actual - expected\n\n+ 'UNKNOWN_QUARANTINED'\n- 'SUCCEEDED'\n"
+          },
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.2\\final-verification\\r-51aac3fe4c16\\workspace\\tests\\agentnexus\\m161-harness.test.ts",
+          "line": 47
+        }
+      },
+      "test_source_identical_m18_m181": true,
+      "test_source_sha256": "dd9f883123e8e3109f0eec86f11b4f3567ef2056fb57e9bb28da5a7f0054fd28",
+      "root_cause": "StorageOwner CREATE在PUBLISH调用fs.link时EPERM；任务保持UNKNOWN_QUARANTINED，未形成persistent owner。该用例要求的发布/替换/恢复/配额/Gate/Pilot后续步骤因此不可达。实际独立managed-write探针到达CREATE_TEMP/WRITE_CHUNK/PUBLISH并记录EPERM，目标未发布，预算保留。",
+      "is_new_m181_regression": false,
+      "product_fix_required": false,
+      "deployment_or_fixture_remediation_required": true,
+      "security_impact": "安全正向/竞争/恢复证据缺失；失败保持拒绝/隔离，不能标安全资格PASS。",
+      "real_provider_impact": "不直接改变Host HTTP协议；直接阻断Native Pilot受管源码发布与恢复。",
+      "disposition": "KEEP_ORIGINAL_FAIL",
+      "fix_plan": "在具备no-clobber硬链接语义的获准Host环境复跑原合同及相关恢复链；保留UNKNOWN和占用，不以rename/覆盖回退制造通过。",
+      "acceptance_criteria": "在真实获准部署满足原夹具前提后，原断言全部PASS并保留原始日志；不得将缺前提的跳过当PASS。",
+      "evidence": [
+        "evidence/probes/storage.json",
+        "evidence/probes/filesystem.json",
+        "evidence/verification/m18-control/all-tests.tap"
+      ],
+      "original_assertion_summary": "execute(h).state === 'SUCCEEDED'; published bytes === approved A",
+      "original_test_contract": {
+        "artifact": "evidence/test-contracts/M182-HIST-03.txt",
+        "sha256": "6d8ca0d35d38d5daf399373ebd27d2a3ca97587076de16b83d404c28cf1b516f",
+        "source": "tests/agentnexus/m161-harness.test.ts",
+        "start_line": 47,
+        "end_line": 57,
+        "bytes": 1822,
+        "unchanged_bytes": true
+      }
+    },
+    {
+      "test_id": "M182-HIST-04",
+      "test_name": "M161 STORAGE real atomic CREATE binds exact approval, content, Artifact/Audit and persistent budget ownership",
+      "test_file": "tests/agentnexus/m161-storage.test.ts",
+      "line": 18,
+      "original_assertion": "  try{const content=Buffer.from('owned publication');await prepare(h,content,content.length);const result=await execute(h);assert.equal(result.state,'SUCCEEDED',result.reason??'');\r\n    const writes=h.state.list<StorageWrite>('STORAGE_WRITE',{limit:32});assert.equal(writes.length,1);const w=writes[0];assert.equal(w.state,'AUDIT_ACKNOWLEDGED');assert.equal(w.published!.sha256,sha256(content));assert.equal(w.published!.bytes,content.length);\r\n    assert.equal((await readFile(join(root,'files/result.txt'))).toString(),content.toString());assert.equal((await stat(join(root,'files/result.txt'))).nlink,1);\r\n    assert.equal(h.state.get<Budget>('resource_budget','platform')!.held.disk_bytes,content.length);assert.equal(h.state.get<Budget>('resource_budget','platform')!.held.workers,0);\r\n    assert.equal(h.state.get<Budget>('resource_budget',h.inspectAgent('writer').subject.resource_budget_id)!.held.disk_bytes,0);assert.equal(h.state.count('resource_storage_claim'),1);\r\n    assert.equal((await h.administration.reconcileStorage(w.id)).id,w.id);assert.equal(h.state.count('STORAGE_WRITE'),1);\r\n    await assert.rejects(h.administration.dispatch('task'),/TASK_DISPATCH_STATE/);assert.equal(h.state.count('STORAGE_WRITE'),1);await h.store.verify();\r\n",
+      "original_error": {
+        "message": "PERSISTENT_DISK_OWNER_UNVERIFIED\n+ actual - expected\n\n+ 'UNKNOWN_QUARANTINED'\n- 'SUCCEEDED'\n",
+        "code": "ERR_TEST_FAILURE",
+        "stack": "Error [ERR_TEST_FAILURE]: PERSISTENT_DISK_OWNER_UNVERIFIED\n+ actual - expected\n\n+ 'UNKNOWN_QUARANTINED'\n- 'SUCCEEDED'\n",
+        "cause": "PERSISTENT_DISK_OWNER_UNVERIFIED\n+ actual - expected\n\n+ 'UNKNOWN_QUARANTINED'\n- 'SUCCEEDED'\n"
+      },
+      "classification": "ENVIRONMENT_LIMITATION",
+      "historical_relation": "HISTORICAL_FAILURE_IN_SAME_ENVIRONMENT",
+      "results": {
+        "m18_published": {
+          "status": "PASS",
+          "error": null,
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8\\w\\r-fe266e156726\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+          "line": 18
+        },
+        "m181_original": {
+          "status": "FAIL",
+          "error": {
+            "message": "PERSISTENT_DISK_OWNER_UNVERIFIED\n+ actual - expected\n\n+ 'UNKNOWN_QUARANTINED'\n- 'SUCCEEDED'\n",
+            "code": "ERR_TEST_FAILURE",
+            "stack": "Error [ERR_TEST_FAILURE]: PERSISTENT_DISK_OWNER_UNVERIFIED\n+ actual - expected\n\n+ 'UNKNOWN_QUARANTINED'\n- 'SUCCEEDED'\n",
+            "cause": "PERSISTENT_DISK_OWNER_UNVERIFIED\n+ actual - expected\n\n+ 'UNKNOWN_QUARANTINED'\n- 'SUCCEEDED'\n"
+          },
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\final-verification\\r-47aaf595f735\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+          "line": 18
+        },
+        "m181_rerun": {
+          "status": "FAIL",
+          "error": {
+            "message": "PERSISTENT_DISK_OWNER_UNVERIFIED\n+ actual - expected\n\n+ 'UNKNOWN_QUARANTINED'\n- 'SUCCEEDED'\n",
+            "code": "ERR_TEST_FAILURE",
+            "stack": "Error [ERR_TEST_FAILURE]: PERSISTENT_DISK_OWNER_UNVERIFIED\n+ actual - expected\n\n+ 'UNKNOWN_QUARANTINED'\n- 'SUCCEEDED'\n",
+            "cause": "PERSISTENT_DISK_OWNER_UNVERIFIED\n+ actual - expected\n\n+ 'UNKNOWN_QUARANTINED'\n- 'SUCCEEDED'\n"
+          },
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.2\\baseline-verification\\r-e928e511fc4e\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+          "line": 18
+        },
+        "m18_same_environment": {
+          "status": "FAIL",
+          "error": {
+            "message": "PERSISTENT_DISK_OWNER_UNVERIFIED\n+ actual - expected\n\n+ 'UNKNOWN_QUARANTINED'\n- 'SUCCEEDED'\n",
+            "code": "ERR_TEST_FAILURE",
+            "stack": "Error [ERR_TEST_FAILURE]: PERSISTENT_DISK_OWNER_UNVERIFIED\n+ actual - expected\n\n+ 'UNKNOWN_QUARANTINED'\n- 'SUCCEEDED'\n",
+            "cause": "PERSISTENT_DISK_OWNER_UNVERIFIED\n+ actual - expected\n\n+ 'UNKNOWN_QUARANTINED'\n- 'SUCCEEDED'\n"
+          },
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.2\\m18-control\\r-e035cab50f5b\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+          "line": 18
+        },
+        "m182_final": {
+          "status": "FAIL",
+          "error": {
+            "message": "PERSISTENT_DISK_OWNER_UNVERIFIED\n+ actual - expected\n\n+ 'UNKNOWN_QUARANTINED'\n- 'SUCCEEDED'\n",
+            "code": "ERR_TEST_FAILURE",
+            "stack": "Error [ERR_TEST_FAILURE]: PERSISTENT_DISK_OWNER_UNVERIFIED\n+ actual - expected\n\n+ 'UNKNOWN_QUARANTINED'\n- 'SUCCEEDED'\n",
+            "cause": "PERSISTENT_DISK_OWNER_UNVERIFIED\n+ actual - expected\n\n+ 'UNKNOWN_QUARANTINED'\n- 'SUCCEEDED'\n"
+          },
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.2\\final-verification\\r-51aac3fe4c16\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+          "line": 18
+        }
+      },
+      "test_source_identical_m18_m181": true,
+      "test_source_sha256": "30456915c8e93a77a21b21352b2dfec4edcff21656324814c96bc37ddcfbe645",
+      "root_cause": "StorageOwner CREATE在PUBLISH调用fs.link时EPERM；任务保持UNKNOWN_QUARANTINED，未形成persistent owner。该用例要求的发布/替换/恢复/配额/Gate/Pilot后续步骤因此不可达。实际独立managed-write探针到达CREATE_TEMP/WRITE_CHUNK/PUBLISH并记录EPERM，目标未发布，预算保留。",
+      "is_new_m181_regression": false,
+      "product_fix_required": false,
+      "deployment_or_fixture_remediation_required": true,
+      "security_impact": "安全正向/竞争/恢复证据缺失；失败保持拒绝/隔离，不能标安全资格PASS。",
+      "real_provider_impact": "不直接改变Host HTTP协议；直接阻断Native Pilot受管源码发布与恢复。",
+      "disposition": "KEEP_ORIGINAL_FAIL",
+      "fix_plan": "在具备no-clobber硬链接语义的获准Host环境复跑原合同及相关恢复链；保留UNKNOWN和占用，不以rename/覆盖回退制造通过。",
+      "acceptance_criteria": "在真实获准部署满足原夹具前提后，原断言全部PASS并保留原始日志；不得将缺前提的跳过当PASS。",
+      "evidence": [
+        "evidence/probes/storage.json",
+        "evidence/probes/filesystem.json",
+        "evidence/verification/m18-control/all-tests.tap"
+      ],
+      "original_assertion_summary": "result.state === 'SUCCEEDED'; exact hash / Audit ACK / persistent budget ownership",
+      "original_test_contract": {
+        "artifact": "evidence/test-contracts/M182-HIST-04.txt",
+        "sha256": "4c85a05c9084028c1f65a990c5309a976c99751206e331524e61fea02320f08f",
+        "source": "tests/agentnexus/m161-storage.test.ts",
+        "start_line": 18,
+        "end_line": 29,
+        "bytes": 1480,
+        "unchanged_bytes": true
+      }
+    },
+    {
+      "test_id": "M182-HIST-05",
+      "test_name": "M161 STORAGE REPLACE requires the exact owned version; original Artifact remains reconstructible",
+      "test_file": "tests/agentnexus/m161-storage.test.ts",
+      "line": 45,
+      "original_assertion": "    await prepare(h,Buffer.from('old'),3);assert.equal((await execute(h)).state,'SUCCEEDED');const old=h.administration.storageVersion('project:files','result.txt')!;\r\n    await prepare(h,Buffer.from('replacement'),11,{mode:'REPLACE',expected_version:old.version,expected_sha256:old.file.sha256},'next','next-task');assert.equal((await execute(h,'next-task')).state,'SUCCEEDED');\r\n    assert.equal((await readFile(join(root,'files/result.txt'))).toString(),'replacement');const current=h.administration.storageVersion('project:files','result.txt')!;assert.equal(current.version,2);assert.notDeepEqual(current.file.identity,old.file.identity);\r\n    const chunks:Buffer[]=[];for await(const c of h.store.artifacts.read(old.artifact_ref))chunks.push(Buffer.from(c));assert.equal(Buffer.concat(chunks).toString(),'old');assert.equal(h.state.get<Budget>('resource_budget','platform')!.held.disk_bytes,14);\r\n",
+      "original_error": {
+        "message": "Expected values to be strictly equal:\n+ actual - expected\n\n+ 'UNKNOWN_QUARANTINED'\n- 'SUCCEEDED'\n",
+        "code": "ERR_TEST_FAILURE",
+        "stack": "Error [ERR_TEST_FAILURE]: Expected values to be strictly equal:\n+ actual - expected\n\n+ 'UNKNOWN_QUARANTINED'\n- 'SUCCEEDED'\n",
+        "cause": "Expected values to be strictly equal:\n+ actual - expected\n\n+ 'UNKNOWN_QUARANTINED'\n- 'SUCCEEDED'\n"
+      },
+      "classification": "ENVIRONMENT_LIMITATION",
+      "historical_relation": "HISTORICAL_FAILURE_IN_SAME_ENVIRONMENT",
+      "results": {
+        "m18_published": {
+          "status": "PASS",
+          "error": null,
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8\\w\\r-fe266e156726\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+          "line": 45
+        },
+        "m181_original": {
+          "status": "FAIL",
+          "error": {
+            "message": "Expected values to be strictly equal:\n+ actual - expected\n\n+ 'UNKNOWN_QUARANTINED'\n- 'SUCCEEDED'\n",
+            "code": "ERR_TEST_FAILURE",
+            "stack": "Error [ERR_TEST_FAILURE]: Expected values to be strictly equal:\n+ actual - expected\n\n+ 'UNKNOWN_QUARANTINED'\n- 'SUCCEEDED'\n",
+            "cause": "Expected values to be strictly equal:\n+ actual - expected\n\n+ 'UNKNOWN_QUARANTINED'\n- 'SUCCEEDED'\n"
+          },
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\final-verification\\r-47aaf595f735\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+          "line": 45
+        },
+        "m181_rerun": {
+          "status": "FAIL",
+          "error": {
+            "message": "Expected values to be strictly equal:\n+ actual - expected\n\n+ 'UNKNOWN_QUARANTINED'\n- 'SUCCEEDED'\n",
+            "code": "ERR_TEST_FAILURE",
+            "stack": "Error [ERR_TEST_FAILURE]: Expected values to be strictly equal:\n+ actual - expected\n\n+ 'UNKNOWN_QUARANTINED'\n- 'SUCCEEDED'\n",
+            "cause": "Expected values to be strictly equal:\n+ actual - expected\n\n+ 'UNKNOWN_QUARANTINED'\n- 'SUCCEEDED'\n"
+          },
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.2\\baseline-verification\\r-e928e511fc4e\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+          "line": 45
+        },
+        "m18_same_environment": {
+          "status": "FAIL",
+          "error": {
+            "message": "Expected values to be strictly equal:\n+ actual - expected\n\n+ 'UNKNOWN_QUARANTINED'\n- 'SUCCEEDED'\n",
+            "code": "ERR_TEST_FAILURE",
+            "stack": "Error [ERR_TEST_FAILURE]: Expected values to be strictly equal:\n+ actual - expected\n\n+ 'UNKNOWN_QUARANTINED'\n- 'SUCCEEDED'\n",
+            "cause": "Expected values to be strictly equal:\n+ actual - expected\n\n+ 'UNKNOWN_QUARANTINED'\n- 'SUCCEEDED'\n"
+          },
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.2\\m18-control\\r-e035cab50f5b\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+          "line": 45
+        },
+        "m182_final": {
+          "status": "FAIL",
+          "error": {
+            "message": "Expected values to be strictly equal:\n+ actual - expected\n\n+ 'UNKNOWN_QUARANTINED'\n- 'SUCCEEDED'\n",
+            "code": "ERR_TEST_FAILURE",
+            "stack": "Error [ERR_TEST_FAILURE]: Expected values to be strictly equal:\n+ actual - expected\n\n+ 'UNKNOWN_QUARANTINED'\n- 'SUCCEEDED'\n",
+            "cause": "Expected values to be strictly equal:\n+ actual - expected\n\n+ 'UNKNOWN_QUARANTINED'\n- 'SUCCEEDED'\n"
+          },
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.2\\final-verification\\r-51aac3fe4c16\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+          "line": 45
+        }
+      },
+      "test_source_identical_m18_m181": true,
+      "test_source_sha256": "30456915c8e93a77a21b21352b2dfec4edcff21656324814c96bc37ddcfbe645",
+      "root_cause": "StorageOwner CREATE在PUBLISH调用fs.link时EPERM；任务保持UNKNOWN_QUARANTINED，未形成persistent owner。该用例要求的发布/替换/恢复/配额/Gate/Pilot后续步骤因此不可达。实际独立managed-write探针到达CREATE_TEMP/WRITE_CHUNK/PUBLISH并记录EPERM，目标未发布，预算保留。",
+      "is_new_m181_regression": false,
+      "product_fix_required": false,
+      "deployment_or_fixture_remediation_required": true,
+      "security_impact": "安全正向/竞争/恢复证据缺失；失败保持拒绝/隔离，不能标安全资格PASS。",
+      "real_provider_impact": "不直接改变Host HTTP协议；直接阻断Native Pilot受管源码发布与恢复。",
+      "disposition": "KEEP_ORIGINAL_FAIL",
+      "fix_plan": "在具备no-clobber硬链接语义的获准Host环境复跑原合同及相关恢复链；保留UNKNOWN和占用，不以rename/覆盖回退制造通过。",
+      "acceptance_criteria": "在真实获准部署满足原夹具前提后，原断言全部PASS并保留原始日志；不得将缺前提的跳过当PASS。",
+      "evidence": [
+        "evidence/probes/storage.json",
+        "evidence/probes/filesystem.json",
+        "evidence/verification/m18-control/all-tests.tap"
+      ],
+      "original_assertion_summary": "first and replacement execute(h).state === 'SUCCEEDED'; retained original artifact / exact version",
+      "original_test_contract": {
+        "artifact": "evidence/test-contracts/M182-HIST-05.txt",
+        "sha256": "a8210c6d653de1ae0a37b4b805952d80b2f012f5e8126186202cee15cf0794db",
+        "source": "tests/agentnexus/m161-storage.test.ts",
+        "start_line": 45,
+        "end_line": 54,
+        "bytes": 1397,
+        "unchanged_bytes": true
+      }
+    },
+    {
+      "test_id": "M182-HIST-06",
+      "test_name": "M161 STORAGE bounded streaming verifies 3 MiB without materializing the input in the request",
+      "test_file": "tests/agentnexus/m161-storage.test.ts",
+      "line": 55,
+      "original_assertion": "    await prepare(h,chunks(),bytes);assert.equal((await execute(h)).state,'SUCCEEDED');const v=h.administration.storageVersion('project:files','result.txt')!;assert.equal(v.file.bytes,bytes);assert.equal((await stat(join(root,'files/result.txt'))).size,bytes);\r\n",
+      "original_error": {
+        "message": "Expected values to be strictly equal:\n+ actual - expected\n\n+ 'UNKNOWN_QUARANTINED'\n- 'SUCCEEDED'\n",
+        "code": "ERR_TEST_FAILURE",
+        "stack": "Error [ERR_TEST_FAILURE]: Expected values to be strictly equal:\n+ actual - expected\n\n+ 'UNKNOWN_QUARANTINED'\n- 'SUCCEEDED'\n",
+        "cause": "Expected values to be strictly equal:\n+ actual - expected\n\n+ 'UNKNOWN_QUARANTINED'\n- 'SUCCEEDED'\n"
+      },
+      "classification": "ENVIRONMENT_LIMITATION",
+      "historical_relation": "HISTORICAL_FAILURE_IN_SAME_ENVIRONMENT",
+      "results": {
+        "m18_published": {
+          "status": "PASS",
+          "error": null,
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8\\w\\r-fe266e156726\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+          "line": 55
+        },
+        "m181_original": {
+          "status": "FAIL",
+          "error": {
+            "message": "Expected values to be strictly equal:\n+ actual - expected\n\n+ 'UNKNOWN_QUARANTINED'\n- 'SUCCEEDED'\n",
+            "code": "ERR_TEST_FAILURE",
+            "stack": "Error [ERR_TEST_FAILURE]: Expected values to be strictly equal:\n+ actual - expected\n\n+ 'UNKNOWN_QUARANTINED'\n- 'SUCCEEDED'\n",
+            "cause": "Expected values to be strictly equal:\n+ actual - expected\n\n+ 'UNKNOWN_QUARANTINED'\n- 'SUCCEEDED'\n"
+          },
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\final-verification\\r-47aaf595f735\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+          "line": 55
+        },
+        "m181_rerun": {
+          "status": "FAIL",
+          "error": {
+            "message": "Expected values to be strictly equal:\n+ actual - expected\n\n+ 'UNKNOWN_QUARANTINED'\n- 'SUCCEEDED'\n",
+            "code": "ERR_TEST_FAILURE",
+            "stack": "Error [ERR_TEST_FAILURE]: Expected values to be strictly equal:\n+ actual - expected\n\n+ 'UNKNOWN_QUARANTINED'\n- 'SUCCEEDED'\n",
+            "cause": "Expected values to be strictly equal:\n+ actual - expected\n\n+ 'UNKNOWN_QUARANTINED'\n- 'SUCCEEDED'\n"
+          },
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.2\\baseline-verification\\r-e928e511fc4e\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+          "line": 55
+        },
+        "m18_same_environment": {
+          "status": "FAIL",
+          "error": {
+            "message": "Expected values to be strictly equal:\n+ actual - expected\n\n+ 'UNKNOWN_QUARANTINED'\n- 'SUCCEEDED'\n",
+            "code": "ERR_TEST_FAILURE",
+            "stack": "Error [ERR_TEST_FAILURE]: Expected values to be strictly equal:\n+ actual - expected\n\n+ 'UNKNOWN_QUARANTINED'\n- 'SUCCEEDED'\n",
+            "cause": "Expected values to be strictly equal:\n+ actual - expected\n\n+ 'UNKNOWN_QUARANTINED'\n- 'SUCCEEDED'\n"
+          },
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.2\\m18-control\\r-e035cab50f5b\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+          "line": 55
+        },
+        "m182_final": {
+          "status": "FAIL",
+          "error": {
+            "message": "Expected values to be strictly equal:\n+ actual - expected\n\n+ 'UNKNOWN_QUARANTINED'\n- 'SUCCEEDED'\n",
+            "code": "ERR_TEST_FAILURE",
+            "stack": "Error [ERR_TEST_FAILURE]: Expected values to be strictly equal:\n+ actual - expected\n\n+ 'UNKNOWN_QUARANTINED'\n- 'SUCCEEDED'\n",
+            "cause": "Expected values to be strictly equal:\n+ actual - expected\n\n+ 'UNKNOWN_QUARANTINED'\n- 'SUCCEEDED'\n"
+          },
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.2\\final-verification\\r-51aac3fe4c16\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+          "line": 55
+        }
+      },
+      "test_source_identical_m18_m181": true,
+      "test_source_sha256": "30456915c8e93a77a21b21352b2dfec4edcff21656324814c96bc37ddcfbe645",
+      "root_cause": "StorageOwner CREATE在PUBLISH调用fs.link时EPERM；任务保持UNKNOWN_QUARANTINED，未形成persistent owner。该用例要求的发布/替换/恢复/配额/Gate/Pilot后续步骤因此不可达。实际独立managed-write探针到达CREATE_TEMP/WRITE_CHUNK/PUBLISH并记录EPERM，目标未发布，预算保留。",
+      "is_new_m181_regression": false,
+      "product_fix_required": false,
+      "deployment_or_fixture_remediation_required": true,
+      "security_impact": "安全正向/竞争/恢复证据缺失；失败保持拒绝/隔离，不能标安全资格PASS。",
+      "real_provider_impact": "不直接改变Host HTTP协议；直接阻断Native Pilot受管源码发布与恢复。",
+      "disposition": "KEEP_ORIGINAL_FAIL",
+      "fix_plan": "在具备no-clobber硬链接语义的获准Host环境复跑原合同及相关恢复链；保留UNKNOWN和占用，不以rename/覆盖回退制造通过。",
+      "acceptance_criteria": "在真实获准部署满足原夹具前提后，原断言全部PASS并保留原始日志；不得将缺前提的跳过当PASS。",
+      "evidence": [
+        "evidence/probes/storage.json",
+        "evidence/probes/filesystem.json",
+        "evidence/verification/m18-control/all-tests.tap"
+      ],
+      "original_assertion_summary": "execute(h).state === 'SUCCEEDED'; streamed 3MiB file size/hash",
+      "original_test_contract": {
+        "artifact": "evidence/test-contracts/M182-HIST-06.txt",
+        "sha256": "64b579cc2cdb0e706a935ced5d8c7deb03bda8e8d60f5c0847eaafc63002a542",
+        "source": "tests/agentnexus/m161-storage.test.ts",
+        "start_line": 55,
+        "end_line": 61,
+        "bytes": 643,
+        "unchanged_bytes": true
+      }
+    },
+    {
+      "test_id": "M182-HIST-07",
+      "test_name": "M161 STORAGE publish-link gap is reconciled by identity/hash without republishing",
+      "test_file": "tests/agentnexus/m161-storage.test.ts",
+      "line": 68,
+      "original_assertion": "  try{await prepare(h,Buffer.from('data'),4);assert.equal((await execute(h)).state,'UNKNOWN_QUARANTINED');const w=h.state.list<StorageWrite>('STORAGE_WRITE',{limit:1})[0];assert.equal(w.state,'INDETERMINATE');assert.equal((await stat(join(root,'files/result.txt'))).nlink,2);\r\n    const r=await h.administration.reconcileStorage(w.id);assert.equal(r.state,'RECONCILED');assert.equal((await stat(join(root,'files/result.txt'))).nlink,1);assert.equal(h.state.get<Budget>('resource_budget','platform')!.held.workers,1);\r\n    assert.equal((await h.administration.reconcileStorage(w.id)).id,w.id);\r\n",
+      "original_error": {
+        "message": "ENOENT: no such file or directory, stat 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\final-verification\\r-47aaf595f735\\data\\storage-BwUnHT\\files\\result.txt'",
+        "code": "ERR_TEST_FAILURE",
+        "stack": "Error [ERR_TEST_FAILURE]: ENOENT: no such file or directory, stat 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\final-verification\\r-47aaf595f735\\data\\storage-BwUnHT\\files\\result.txt'",
+        "cause": "ENOENT: no such file or directory, stat 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\final-verification\\r-47aaf595f735\\data\\storage-BwUnHT\\files\\result.txt'"
+      },
+      "classification": "ENVIRONMENT_LIMITATION",
+      "historical_relation": "HISTORICAL_FAILURE_IN_SAME_ENVIRONMENT",
+      "results": {
+        "m18_published": {
+          "status": "PASS",
+          "error": null,
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8\\w\\r-fe266e156726\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+          "line": 68
+        },
+        "m181_original": {
+          "status": "FAIL",
+          "error": {
+            "message": "ENOENT: no such file or directory, stat 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\final-verification\\r-47aaf595f735\\data\\storage-BwUnHT\\files\\result.txt'",
+            "code": "ERR_TEST_FAILURE",
+            "stack": "Error [ERR_TEST_FAILURE]: ENOENT: no such file or directory, stat 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\final-verification\\r-47aaf595f735\\data\\storage-BwUnHT\\files\\result.txt'",
+            "cause": "ENOENT: no such file or directory, stat 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\final-verification\\r-47aaf595f735\\data\\storage-BwUnHT\\files\\result.txt'"
+          },
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\final-verification\\r-47aaf595f735\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+          "line": 68
+        },
+        "m181_rerun": {
+          "status": "FAIL",
+          "error": {
+            "message": "ENOENT: no such file or directory, stat 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.2\\baseline-verification\\r-e928e511fc4e\\data\\storage-5KajYD\\files\\result.txt'",
+            "code": "ERR_TEST_FAILURE",
+            "stack": "Error [ERR_TEST_FAILURE]: ENOENT: no such file or directory, stat 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.2\\baseline-verification\\r-e928e511fc4e\\data\\storage-5KajYD\\files\\result.txt'",
+            "cause": "ENOENT: no such file or directory, stat 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.2\\baseline-verification\\r-e928e511fc4e\\data\\storage-5KajYD\\files\\result.txt'"
+          },
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.2\\baseline-verification\\r-e928e511fc4e\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+          "line": 68
+        },
+        "m18_same_environment": {
+          "status": "FAIL",
+          "error": {
+            "message": "ENOENT: no such file or directory, stat 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.2\\m18-control\\r-e035cab50f5b\\data\\storage-LCPu5z\\files\\result.txt'",
+            "code": "ERR_TEST_FAILURE",
+            "stack": "Error [ERR_TEST_FAILURE]: ENOENT: no such file or directory, stat 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.2\\m18-control\\r-e035cab50f5b\\data\\storage-LCPu5z\\files\\result.txt'",
+            "cause": "ENOENT: no such file or directory, stat 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.2\\m18-control\\r-e035cab50f5b\\data\\storage-LCPu5z\\files\\result.txt'"
+          },
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.2\\m18-control\\r-e035cab50f5b\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+          "line": 68
+        },
+        "m182_final": {
+          "status": "FAIL",
+          "error": {
+            "message": "ENOENT: no such file or directory, stat 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.2\\final-verification\\r-51aac3fe4c16\\data\\storage-JH4ygz\\files\\result.txt'",
+            "code": "ERR_TEST_FAILURE",
+            "stack": "Error [ERR_TEST_FAILURE]: ENOENT: no such file or directory, stat 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.2\\final-verification\\r-51aac3fe4c16\\data\\storage-JH4ygz\\files\\result.txt'",
+            "cause": "ENOENT: no such file or directory, stat 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.2\\final-verification\\r-51aac3fe4c16\\data\\storage-JH4ygz\\files\\result.txt'"
+          },
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.2\\final-verification\\r-51aac3fe4c16\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+          "line": 68
+        }
+      },
+      "test_source_identical_m18_m181": true,
+      "test_source_sha256": "30456915c8e93a77a21b21352b2dfec4edcff21656324814c96bc37ddcfbe645",
+      "root_cause": "StorageOwner CREATE在PUBLISH调用fs.link时EPERM；任务保持UNKNOWN_QUARANTINED，未形成persistent owner。该用例要求的发布/替换/恢复/配额/Gate/Pilot后续步骤因此不可达。实际独立managed-write探针到达CREATE_TEMP/WRITE_CHUNK/PUBLISH并记录EPERM，目标未发布，预算保留。",
+      "is_new_m181_regression": false,
+      "product_fix_required": false,
+      "deployment_or_fixture_remediation_required": true,
+      "security_impact": "安全正向/竞争/恢复证据缺失；失败保持拒绝/隔离，不能标安全资格PASS。",
+      "real_provider_impact": "不直接改变Host HTTP协议；直接阻断Native Pilot受管源码发布与恢复。",
+      "disposition": "KEEP_ORIGINAL_FAIL",
+      "fix_plan": "在具备no-clobber硬链接语义的获准Host环境复跑原合同及相关恢复链；保留UNKNOWN和占用，不以rename/覆盖回退制造通过。",
+      "acceptance_criteria": "在真实获准部署满足原夹具前提后，原断言全部PASS并保留原始日志；不得将缺前提的跳过当PASS。",
+      "evidence": [
+        "evidence/probes/storage.json",
+        "evidence/probes/filesystem.json",
+        "evidence/verification/m18-control/all-tests.tap"
+      ],
+      "original_assertion_summary": "after injected UNLINK_TEMP interruption: target nlink=2; explicit reconciliation nlink=1",
+      "original_test_contract": {
+        "artifact": "evidence/test-contracts/M182-HIST-07.txt",
+        "sha256": "fe05866f1fec8a742fe88907c14454a41f8277578c83ce134893d3a6870d022a",
+        "source": "tests/agentnexus/m161-storage.test.ts",
+        "start_line": 68,
+        "end_line": 75,
+        "bytes": 971,
+        "unchanged_bytes": true
+      }
+    },
+    {
+      "test_id": "M182-HIST-08",
+      "test_name": "M161 STORAGE concurrent same-resource writers conflict before the second file effect",
+      "test_file": "tests/agentnexus/m161-storage.test.ts",
+      "line": 76,
+      "original_assertion": "    const second=await execute(h,'second-task');assert.equal(second.state,'FAILED');assert.equal(second.reason,'WORKSPACE_BUSY');release();assert.equal((await first).state,'SUCCEEDED');assert.equal(h.state.count('STORAGE_WRITE'),1);assert.equal((await readFile(join(root,'files/result.txt'))).toString(),'first');\r\n",
+      "original_error": {
+        "message": "Expected values to be strictly equal:\n+ actual - expected\n\n+ 'UNKNOWN_QUARANTINED'\n- 'SUCCEEDED'\n",
+        "code": "ERR_TEST_FAILURE",
+        "stack": "Error [ERR_TEST_FAILURE]: Expected values to be strictly equal:\n+ actual - expected\n\n+ 'UNKNOWN_QUARANTINED'\n- 'SUCCEEDED'\n",
+        "cause": "Expected values to be strictly equal:\n+ actual - expected\n\n+ 'UNKNOWN_QUARANTINED'\n- 'SUCCEEDED'\n"
+      },
+      "classification": "ENVIRONMENT_LIMITATION",
+      "historical_relation": "HISTORICAL_FAILURE_IN_SAME_ENVIRONMENT",
+      "results": {
+        "m18_published": {
+          "status": "PASS",
+          "error": null,
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8\\w\\r-fe266e156726\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+          "line": 76
+        },
+        "m181_original": {
+          "status": "FAIL",
+          "error": {
+            "message": "Expected values to be strictly equal:\n+ actual - expected\n\n+ 'UNKNOWN_QUARANTINED'\n- 'SUCCEEDED'\n",
+            "code": "ERR_TEST_FAILURE",
+            "stack": "Error [ERR_TEST_FAILURE]: Expected values to be strictly equal:\n+ actual - expected\n\n+ 'UNKNOWN_QUARANTINED'\n- 'SUCCEEDED'\n",
+            "cause": "Expected values to be strictly equal:\n+ actual - expected\n\n+ 'UNKNOWN_QUARANTINED'\n- 'SUCCEEDED'\n"
+          },
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\final-verification\\r-47aaf595f735\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+          "line": 76
+        },
+        "m181_rerun": {
+          "status": "FAIL",
+          "error": {
+            "message": "Expected values to be strictly equal:\n+ actual - expected\n\n+ 'UNKNOWN_QUARANTINED'\n- 'SUCCEEDED'\n",
+            "code": "ERR_TEST_FAILURE",
+            "stack": "Error [ERR_TEST_FAILURE]: Expected values to be strictly equal:\n+ actual - expected\n\n+ 'UNKNOWN_QUARANTINED'\n- 'SUCCEEDED'\n",
+            "cause": "Expected values to be strictly equal:\n+ actual - expected\n\n+ 'UNKNOWN_QUARANTINED'\n- 'SUCCEEDED'\n"
+          },
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.2\\baseline-verification\\r-e928e511fc4e\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+          "line": 76
+        },
+        "m18_same_environment": {
+          "status": "FAIL",
+          "error": {
+            "message": "Expected values to be strictly equal:\n+ actual - expected\n\n+ 'UNKNOWN_QUARANTINED'\n- 'SUCCEEDED'\n",
+            "code": "ERR_TEST_FAILURE",
+            "stack": "Error [ERR_TEST_FAILURE]: Expected values to be strictly equal:\n+ actual - expected\n\n+ 'UNKNOWN_QUARANTINED'\n- 'SUCCEEDED'\n",
+            "cause": "Expected values to be strictly equal:\n+ actual - expected\n\n+ 'UNKNOWN_QUARANTINED'\n- 'SUCCEEDED'\n"
+          },
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.2\\m18-control\\r-e035cab50f5b\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+          "line": 76
+        },
+        "m182_final": {
+          "status": "FAIL",
+          "error": {
+            "message": "Expected values to be strictly equal:\n+ actual - expected\n\n+ 'UNKNOWN_QUARANTINED'\n- 'SUCCEEDED'\n",
+            "code": "ERR_TEST_FAILURE",
+            "stack": "Error [ERR_TEST_FAILURE]: Expected values to be strictly equal:\n+ actual - expected\n\n+ 'UNKNOWN_QUARANTINED'\n- 'SUCCEEDED'\n",
+            "cause": "Expected values to be strictly equal:\n+ actual - expected\n\n+ 'UNKNOWN_QUARANTINED'\n- 'SUCCEEDED'\n"
+          },
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.2\\final-verification\\r-51aac3fe4c16\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+          "line": 76
+        }
+      },
+      "test_source_identical_m18_m181": true,
+      "test_source_sha256": "30456915c8e93a77a21b21352b2dfec4edcff21656324814c96bc37ddcfbe645",
+      "root_cause": "StorageOwner CREATE在PUBLISH调用fs.link时EPERM；任务保持UNKNOWN_QUARANTINED，未形成persistent owner。该用例要求的发布/替换/恢复/配额/Gate/Pilot后续步骤因此不可达。实际独立managed-write探针到达CREATE_TEMP/WRITE_CHUNK/PUBLISH并记录EPERM，目标未发布，预算保留。",
+      "is_new_m181_regression": false,
+      "product_fix_required": false,
+      "deployment_or_fixture_remediation_required": true,
+      "security_impact": "安全正向/竞争/恢复证据缺失；失败保持拒绝/隔离，不能标安全资格PASS。",
+      "real_provider_impact": "不直接改变Host HTTP协议；直接阻断Native Pilot受管源码发布与恢复。",
+      "disposition": "KEEP_ORIGINAL_FAIL",
+      "fix_plan": "在具备no-clobber硬链接语义的获准Host环境复跑原合同及相关恢复链；保留UNKNOWN和占用，不以rename/覆盖回退制造通过。",
+      "acceptance_criteria": "在真实获准部署满足原夹具前提后，原断言全部PASS并保留原始日志；不得将缺前提的跳过当PASS。",
+      "evidence": [
+        "evidence/probes/storage.json",
+        "evidence/probes/filesystem.json",
+        "evidence/verification/m18-control/all-tests.tap"
+      ],
+      "original_assertion_summary": "first writer state === 'SUCCEEDED'; second state FAILED / WORKSPACE_BUSY",
+      "original_test_contract": {
+        "artifact": "evidence/test-contracts/M182-HIST-08.txt",
+        "sha256": "642f5191fc1383d2f55a3b77fe1c6b24029711d34c9dd70d62d0f418c90bda50",
+        "source": "tests/agentnexus/m161-storage.test.ts",
+        "start_line": 76,
+        "end_line": 84,
+        "bytes": 1213,
+        "unchanged_bytes": true
+      }
+    },
+    {
+      "test_id": "M182-HIST-09",
+      "test_name": "M161 STORAGE changed bytes between publication and ACK stay UNKNOWN and cannot be reconciled by pathname",
+      "test_file": "tests/agentnexus/m161-storage.test.ts",
+      "line": 85,
+      "original_assertion": "  try{await prepare(h,Buffer.from('data'),4);assert.equal((await execute(h)).state,'UNKNOWN_QUARANTINED');const w=h.state.list<StorageWrite>('STORAGE_WRITE',{limit:1})[0];assert.equal(w.state,'INDETERMINATE');assert.equal(w.reason,'STORAGE_PUBLICATION_CHANGED_BEFORE_ACK');\r\n    await assert.rejects(h.administration.reconcileStorage(w.id),/STORAGE_RECONCILIATION_UNVERIFIED/);assert.equal(h.administration.inspectStorage(w.id).state,'INDETERMINATE');assert.equal(h.state.count('resource_storage_claim'),0);assert.equal(h.state.get<Budget>('resource_budget','platform')!.held.disk_bytes,4);\r\n",
+      "original_error": {
+        "message": "Expected values to be strictly equal:\n+ actual - expected\n\n+ 'EPERM'\n- 'STORAGE_PUBLICATION_CHANGED_BEFORE_ACK'\n",
+        "code": "ERR_TEST_FAILURE",
+        "stack": "Error [ERR_TEST_FAILURE]: Expected values to be strictly equal:\n+ actual - expected\n\n+ 'EPERM'\n- 'STORAGE_PUBLICATION_CHANGED_BEFORE_ACK'\n",
+        "cause": "Expected values to be strictly equal:\n+ actual - expected\n\n+ 'EPERM'\n- 'STORAGE_PUBLICATION_CHANGED_BEFORE_ACK'\n"
+      },
+      "classification": "ENVIRONMENT_LIMITATION",
+      "historical_relation": "HISTORICAL_FAILURE_IN_SAME_ENVIRONMENT",
+      "results": {
+        "m18_published": {
+          "status": "PASS",
+          "error": null,
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8\\w\\r-fe266e156726\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+          "line": 85
+        },
+        "m181_original": {
+          "status": "FAIL",
+          "error": {
+            "message": "Expected values to be strictly equal:\n+ actual - expected\n\n+ 'EPERM'\n- 'STORAGE_PUBLICATION_CHANGED_BEFORE_ACK'\n",
+            "code": "ERR_TEST_FAILURE",
+            "stack": "Error [ERR_TEST_FAILURE]: Expected values to be strictly equal:\n+ actual - expected\n\n+ 'EPERM'\n- 'STORAGE_PUBLICATION_CHANGED_BEFORE_ACK'\n",
+            "cause": "Expected values to be strictly equal:\n+ actual - expected\n\n+ 'EPERM'\n- 'STORAGE_PUBLICATION_CHANGED_BEFORE_ACK'\n"
+          },
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\final-verification\\r-47aaf595f735\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+          "line": 85
+        },
+        "m181_rerun": {
+          "status": "FAIL",
+          "error": {
+            "message": "Expected values to be strictly equal:\n+ actual - expected\n\n+ 'EPERM'\n- 'STORAGE_PUBLICATION_CHANGED_BEFORE_ACK'\n",
+            "code": "ERR_TEST_FAILURE",
+            "stack": "Error [ERR_TEST_FAILURE]: Expected values to be strictly equal:\n+ actual - expected\n\n+ 'EPERM'\n- 'STORAGE_PUBLICATION_CHANGED_BEFORE_ACK'\n",
+            "cause": "Expected values to be strictly equal:\n+ actual - expected\n\n+ 'EPERM'\n- 'STORAGE_PUBLICATION_CHANGED_BEFORE_ACK'\n"
+          },
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.2\\baseline-verification\\r-e928e511fc4e\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+          "line": 85
+        },
+        "m18_same_environment": {
+          "status": "FAIL",
+          "error": {
+            "message": "Expected values to be strictly equal:\n+ actual - expected\n\n+ 'EPERM'\n- 'STORAGE_PUBLICATION_CHANGED_BEFORE_ACK'\n",
+            "code": "ERR_TEST_FAILURE",
+            "stack": "Error [ERR_TEST_FAILURE]: Expected values to be strictly equal:\n+ actual - expected\n\n+ 'EPERM'\n- 'STORAGE_PUBLICATION_CHANGED_BEFORE_ACK'\n",
+            "cause": "Expected values to be strictly equal:\n+ actual - expected\n\n+ 'EPERM'\n- 'STORAGE_PUBLICATION_CHANGED_BEFORE_ACK'\n"
+          },
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.2\\m18-control\\r-e035cab50f5b\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+          "line": 85
+        },
+        "m182_final": {
+          "status": "FAIL",
+          "error": {
+            "message": "Expected values to be strictly equal:\n+ actual - expected\n\n+ 'EPERM'\n- 'STORAGE_PUBLICATION_CHANGED_BEFORE_ACK'\n",
+            "code": "ERR_TEST_FAILURE",
+            "stack": "Error [ERR_TEST_FAILURE]: Expected values to be strictly equal:\n+ actual - expected\n\n+ 'EPERM'\n- 'STORAGE_PUBLICATION_CHANGED_BEFORE_ACK'\n",
+            "cause": "Expected values to be strictly equal:\n+ actual - expected\n\n+ 'EPERM'\n- 'STORAGE_PUBLICATION_CHANGED_BEFORE_ACK'\n"
+          },
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.2\\final-verification\\r-51aac3fe4c16\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+          "line": 85
+        }
+      },
+      "test_source_identical_m18_m181": true,
+      "test_source_sha256": "30456915c8e93a77a21b21352b2dfec4edcff21656324814c96bc37ddcfbe645",
+      "root_cause": "StorageOwner CREATE在PUBLISH调用fs.link时EPERM；任务保持UNKNOWN_QUARANTINED，未形成persistent owner。该用例要求的发布/替换/恢复/配额/Gate/Pilot后续步骤因此不可达。实际独立managed-write探针到达CREATE_TEMP/WRITE_CHUNK/PUBLISH并记录EPERM，目标未发布，预算保留。",
+      "is_new_m181_regression": false,
+      "product_fix_required": false,
+      "deployment_or_fixture_remediation_required": true,
+      "security_impact": "安全正向/竞争/恢复证据缺失；失败保持拒绝/隔离，不能标安全资格PASS。",
+      "real_provider_impact": "不直接改变Host HTTP协议；直接阻断Native Pilot受管源码发布与恢复。",
+      "disposition": "KEEP_ORIGINAL_FAIL",
+      "fix_plan": "在具备no-clobber硬链接语义的获准Host环境复跑原合同及相关恢复链；保留UNKNOWN和占用，不以rename/覆盖回退制造通过。",
+      "acceptance_criteria": "在真实获准部署满足原夹具前提后，原断言全部PASS并保留原始日志；不得将缺前提的跳过当PASS。",
+      "evidence": [
+        "evidence/probes/storage.json",
+        "evidence/probes/filesystem.json",
+        "evidence/verification/m18-control/all-tests.tap"
+      ],
+      "original_assertion_summary": "w.reason === 'STORAGE_PUBLICATION_CHANGED_BEFORE_ACK'",
+      "original_test_contract": {
+        "artifact": "evidence/test-contracts/M182-HIST-09.txt",
+        "sha256": "06c611004266bb70812ca9de2c8dc910df8e0c6ee9228db43e38abfbfb2d76b0",
+        "source": "tests/agentnexus/m161-storage.test.ts",
+        "start_line": 85,
+        "end_line": 91,
+        "bytes": 932,
+        "unchanged_bytes": true
+      }
+    },
+    {
+      "test_id": "M182-HIST-10",
+      "test_name": "M161 STORAGE persistent resource quota rejects a second allocation before a temporary object",
+      "test_file": "tests/agentnexus/m161-storage.test.ts",
+      "line": 92,
+      "original_assertion": "    await prepare(h,Buffer.from('first'),5);assert.equal((await execute(h)).state,'SUCCEEDED');\r\n    await prepare(h,Buffer.from('second'),6,{path:'other.txt'},'next','next-task');assert.equal((await execute(h,'next-task')).state,'UNKNOWN_QUARANTINED');\r\n    assert.deepEqual(await readdir(join(root,'files')),['result.txt']);assert.equal(h.state.count('STORAGE_WRITE'),1);assert.equal((await readFile(join(root,'files/result.txt'))).toString(),'first');\r\n",
+      "original_error": {
+        "message": "Expected values to be strictly equal:\n+ actual - expected\n\n+ 'UNKNOWN_QUARANTINED'\n- 'SUCCEEDED'\n",
+        "code": "ERR_TEST_FAILURE",
+        "stack": "Error [ERR_TEST_FAILURE]: Expected values to be strictly equal:\n+ actual - expected\n\n+ 'UNKNOWN_QUARANTINED'\n- 'SUCCEEDED'\n",
+        "cause": "Expected values to be strictly equal:\n+ actual - expected\n\n+ 'UNKNOWN_QUARANTINED'\n- 'SUCCEEDED'\n"
+      },
+      "classification": "ENVIRONMENT_LIMITATION",
+      "historical_relation": "HISTORICAL_FAILURE_IN_SAME_ENVIRONMENT",
+      "results": {
+        "m18_published": {
+          "status": "PASS",
+          "error": null,
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8\\w\\r-fe266e156726\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+          "line": 92
+        },
+        "m181_original": {
+          "status": "FAIL",
+          "error": {
+            "message": "Expected values to be strictly equal:\n+ actual - expected\n\n+ 'UNKNOWN_QUARANTINED'\n- 'SUCCEEDED'\n",
+            "code": "ERR_TEST_FAILURE",
+            "stack": "Error [ERR_TEST_FAILURE]: Expected values to be strictly equal:\n+ actual - expected\n\n+ 'UNKNOWN_QUARANTINED'\n- 'SUCCEEDED'\n",
+            "cause": "Expected values to be strictly equal:\n+ actual - expected\n\n+ 'UNKNOWN_QUARANTINED'\n- 'SUCCEEDED'\n"
+          },
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\final-verification\\r-47aaf595f735\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+          "line": 92
+        },
+        "m181_rerun": {
+          "status": "FAIL",
+          "error": {
+            "message": "Expected values to be strictly equal:\n+ actual - expected\n\n+ 'UNKNOWN_QUARANTINED'\n- 'SUCCEEDED'\n",
+            "code": "ERR_TEST_FAILURE",
+            "stack": "Error [ERR_TEST_FAILURE]: Expected values to be strictly equal:\n+ actual - expected\n\n+ 'UNKNOWN_QUARANTINED'\n- 'SUCCEEDED'\n",
+            "cause": "Expected values to be strictly equal:\n+ actual - expected\n\n+ 'UNKNOWN_QUARANTINED'\n- 'SUCCEEDED'\n"
+          },
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.2\\baseline-verification\\r-e928e511fc4e\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+          "line": 92
+        },
+        "m18_same_environment": {
+          "status": "FAIL",
+          "error": {
+            "message": "Expected values to be strictly equal:\n+ actual - expected\n\n+ 'UNKNOWN_QUARANTINED'\n- 'SUCCEEDED'\n",
+            "code": "ERR_TEST_FAILURE",
+            "stack": "Error [ERR_TEST_FAILURE]: Expected values to be strictly equal:\n+ actual - expected\n\n+ 'UNKNOWN_QUARANTINED'\n- 'SUCCEEDED'\n",
+            "cause": "Expected values to be strictly equal:\n+ actual - expected\n\n+ 'UNKNOWN_QUARANTINED'\n- 'SUCCEEDED'\n"
+          },
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.2\\m18-control\\r-e035cab50f5b\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+          "line": 92
+        },
+        "m182_final": {
+          "status": "FAIL",
+          "error": {
+            "message": "Expected values to be strictly equal:\n+ actual - expected\n\n+ 'UNKNOWN_QUARANTINED'\n- 'SUCCEEDED'\n",
+            "code": "ERR_TEST_FAILURE",
+            "stack": "Error [ERR_TEST_FAILURE]: Expected values to be strictly equal:\n+ actual - expected\n\n+ 'UNKNOWN_QUARANTINED'\n- 'SUCCEEDED'\n",
+            "cause": "Expected values to be strictly equal:\n+ actual - expected\n\n+ 'UNKNOWN_QUARANTINED'\n- 'SUCCEEDED'\n"
+          },
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.2\\final-verification\\r-51aac3fe4c16\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+          "line": 92
+        }
+      },
+      "test_source_identical_m18_m181": true,
+      "test_source_sha256": "30456915c8e93a77a21b21352b2dfec4edcff21656324814c96bc37ddcfbe645",
+      "root_cause": "StorageOwner CREATE在PUBLISH调用fs.link时EPERM；任务保持UNKNOWN_QUARANTINED，未形成persistent owner。该用例要求的发布/替换/恢复/配额/Gate/Pilot后续步骤因此不可达。实际独立managed-write探针到达CREATE_TEMP/WRITE_CHUNK/PUBLISH并记录EPERM，目标未发布，预算保留。",
+      "is_new_m181_regression": false,
+      "product_fix_required": false,
+      "deployment_or_fixture_remediation_required": true,
+      "security_impact": "安全正向/竞争/恢复证据缺失；失败保持拒绝/隔离，不能标安全资格PASS。",
+      "real_provider_impact": "不直接改变Host HTTP协议；直接阻断Native Pilot受管源码发布与恢复。",
+      "disposition": "KEEP_ORIGINAL_FAIL",
+      "fix_plan": "在具备no-clobber硬链接语义的获准Host环境复跑原合同及相关恢复链；保留UNKNOWN和占用，不以rename/覆盖回退制造通过。",
+      "acceptance_criteria": "在真实获准部署满足原夹具前提后，原断言全部PASS并保留原始日志；不得将缺前提的跳过当PASS。",
+      "evidence": [
+        "evidence/probes/storage.json",
+        "evidence/probes/filesystem.json",
+        "evidence/verification/m18-control/all-tests.tap"
+      ],
+      "original_assertion_summary": "first write SUCCEEDED; second exceeds persistent quota before temporary object",
+      "original_test_contract": {
+        "artifact": "evidence/test-contracts/M182-HIST-10.txt",
+        "sha256": "afd5493db9bdece47233d6d16af7496c506e8721dfadb3cc52f2754ce2164a69",
+        "source": "tests/agentnexus/m161-storage.test.ts",
+        "start_line": 92,
+        "end_line": 100,
+        "bytes": 953,
+        "unchanged_bytes": true
+      }
+    },
+    {
+      "test_id": "M182-HIST-11",
+      "test_name": "M161 STORAGE REAL_PROCESS_CRASH at UNLINK_TEMP preserves evidence and never automatically retries",
+      "test_file": "tests/agentnexus/m161-storage.test.ts",
+      "line": 101,
+      "original_assertion": "  const lock=await KernelStore.recoverAbandonedLock(join(root,'host'));assert.equal(lock.recovered,true);const h=await openHarness(join(root,'host'));\r\n  try{assert.equal(h.state.count('STORAGE_WRITE'),1);const before=h.administration.inspectStorage(id!);\r\n    if(['UNLINK_TEMP','PUBLISHED'].includes(stage)){const recovered=await h.administration.reconcileStorage(id!);assert.equal(recovered.state,'RECONCILED');assert.equal((await readFile(join(root,'files/result.txt'))).toString(),'durable child content');}\r\n    else if(stage==='AUDIT_ACKNOWLEDGED'){assert.equal(before.state,'AUDIT_ACKNOWLEDGED');assert.equal((await h.administration.reconcileStorage(id!)).id,id!);}\r\n    else if(stage==='PUBLISH_READY'){assert.equal(before.state,'INDETERMINATE');await assert.rejects(h.administration.reconcileStorage(id!));assert.equal(h.administration.inspectStorage(id!).state,'INDETERMINATE');}\r\n    else{assert.equal(before.state,'INDETERMINATE');assert.equal((await h.administration.reconcileStorage(id!)).state,'FAILED_BEFORE_PUBLISH');assert.deepEqual(await readdir(join(root,'files')),[]);}\r\n    assert.equal(h.inspectTask('task').state,'UNKNOWN_QUARANTINED');assert.equal(h.state.get<Budget>('resource_budget','platform')!.held.workers,1);assert.equal(h.state.count('STORAGE_WRITE'),1);await assert.rejects(h.administration.resumeTask('task'),/TASK_RESUME_STATE/);await h.store.verify();\r\n",
+      "original_error": {
+        "message": "child exited before crash point: ",
+        "code": "ERR_TEST_FAILURE",
+        "stack": "Error [ERR_TEST_FAILURE]: child exited before crash point: ",
+        "cause": "child exited before crash point: "
+      },
+      "classification": "ENVIRONMENT_LIMITATION",
+      "historical_relation": "HISTORICAL_FAILURE_IN_SAME_ENVIRONMENT",
+      "results": {
+        "m18_published": {
+          "status": "PASS",
+          "error": null,
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8\\w\\r-fe266e156726\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+          "line": 101
+        },
+        "m181_original": {
+          "status": "FAIL",
+          "error": {
+            "message": "child exited before crash point: ",
+            "code": "ERR_TEST_FAILURE",
+            "stack": "Error [ERR_TEST_FAILURE]: child exited before crash point: ",
+            "cause": "child exited before crash point: "
+          },
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\final-verification\\r-47aaf595f735\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+          "line": 101
+        },
+        "m181_rerun": {
+          "status": "FAIL",
+          "error": {
+            "message": "child exited before crash point: ",
+            "code": "ERR_TEST_FAILURE",
+            "stack": "Error [ERR_TEST_FAILURE]: child exited before crash point: ",
+            "cause": "child exited before crash point: "
+          },
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.2\\baseline-verification\\r-e928e511fc4e\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+          "line": 101
+        },
+        "m18_same_environment": {
+          "status": "FAIL",
+          "error": {
+            "message": "child exited before crash point: ",
+            "code": "ERR_TEST_FAILURE",
+            "stack": "Error [ERR_TEST_FAILURE]: child exited before crash point: ",
+            "cause": "child exited before crash point: "
+          },
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.2\\m18-control\\r-e035cab50f5b\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+          "line": 101
+        },
+        "m182_final": {
+          "status": "FAIL",
+          "error": {
+            "message": "child exited before crash point: ",
+            "code": "ERR_TEST_FAILURE",
+            "stack": "Error [ERR_TEST_FAILURE]: child exited before crash point: ",
+            "cause": "child exited before crash point: "
+          },
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.2\\final-verification\\r-51aac3fe4c16\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+          "line": 101
+        }
+      },
+      "test_source_identical_m18_m181": true,
+      "test_source_sha256": "30456915c8e93a77a21b21352b2dfec4edcff21656324814c96bc37ddcfbe645",
+      "root_cause": "StorageOwner CREATE在PUBLISH调用fs.link时EPERM；任务保持UNKNOWN_QUARANTINED，未形成persistent owner。该用例要求的发布/替换/恢复/配额/Gate/Pilot后续步骤因此不可达。实际独立managed-write探针到达CREATE_TEMP/WRITE_CHUNK/PUBLISH并记录EPERM，目标未发布，预算保留。",
+      "is_new_m181_regression": false,
+      "product_fix_required": false,
+      "deployment_or_fixture_remediation_required": true,
+      "security_impact": "安全正向/竞争/恢复证据缺失；失败保持拒绝/隔离，不能标安全资格PASS。",
+      "real_provider_impact": "不直接改变Host HTTP协议；直接阻断Native Pilot受管源码发布与恢复。",
+      "disposition": "KEEP_ORIGINAL_FAIL",
+      "fix_plan": "在具备no-clobber硬链接语义的获准Host环境复跑原合同及相关恢复链；保留UNKNOWN和占用，不以rename/覆盖回退制造通过。",
+      "acceptance_criteria": "在真实获准部署满足原夹具前提后，原断言全部PASS并保留原始日志；不得将缺前提的跳过当PASS。",
+      "evidence": [
+        "evidence/probes/storage.json",
+        "evidence/probes/filesystem.json",
+        "evidence/verification/m18-control/all-tests.tap"
+      ],
+      "original_assertion_summary": "child must reach and send operation_id at UNLINK_TEMP; recovery RECONCILED without republishing",
+      "original_test_contract": {
+        "artifact": "evidence/test-contracts/M182-HIST-11.txt",
+        "sha256": "2536e6eacc27b01531854eadeea323659d95a27bfff1ea92d4bdf6eeddb49c7b",
+        "source": "tests/agentnexus/m161-storage.test.ts",
+        "start_line": 101,
+        "end_line": 114,
+        "bytes": 2472,
+        "unchanged_bytes": true
+      }
+    },
+    {
+      "test_id": "M182-HIST-12",
+      "test_name": "M161 STORAGE REAL_PROCESS_CRASH at PUBLISHED preserves evidence and never automatically retries",
+      "test_file": "tests/agentnexus/m161-storage.test.ts",
+      "line": 101,
+      "original_assertion": "  const lock=await KernelStore.recoverAbandonedLock(join(root,'host'));assert.equal(lock.recovered,true);const h=await openHarness(join(root,'host'));\r\n  try{assert.equal(h.state.count('STORAGE_WRITE'),1);const before=h.administration.inspectStorage(id!);\r\n    if(['UNLINK_TEMP','PUBLISHED'].includes(stage)){const recovered=await h.administration.reconcileStorage(id!);assert.equal(recovered.state,'RECONCILED');assert.equal((await readFile(join(root,'files/result.txt'))).toString(),'durable child content');}\r\n    else if(stage==='AUDIT_ACKNOWLEDGED'){assert.equal(before.state,'AUDIT_ACKNOWLEDGED');assert.equal((await h.administration.reconcileStorage(id!)).id,id!);}\r\n    else if(stage==='PUBLISH_READY'){assert.equal(before.state,'INDETERMINATE');await assert.rejects(h.administration.reconcileStorage(id!));assert.equal(h.administration.inspectStorage(id!).state,'INDETERMINATE');}\r\n    else{assert.equal(before.state,'INDETERMINATE');assert.equal((await h.administration.reconcileStorage(id!)).state,'FAILED_BEFORE_PUBLISH');assert.deepEqual(await readdir(join(root,'files')),[]);}\r\n    assert.equal(h.inspectTask('task').state,'UNKNOWN_QUARANTINED');assert.equal(h.state.get<Budget>('resource_budget','platform')!.held.workers,1);assert.equal(h.state.count('STORAGE_WRITE'),1);await assert.rejects(h.administration.resumeTask('task'),/TASK_RESUME_STATE/);await h.store.verify();\r\n",
+      "original_error": {
+        "message": "child exited before crash point: ",
+        "code": "ERR_TEST_FAILURE",
+        "stack": "Error [ERR_TEST_FAILURE]: child exited before crash point: ",
+        "cause": "child exited before crash point: "
+      },
+      "classification": "ENVIRONMENT_LIMITATION",
+      "historical_relation": "HISTORICAL_FAILURE_IN_SAME_ENVIRONMENT",
+      "results": {
+        "m18_published": {
+          "status": "PASS",
+          "error": null,
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8\\w\\r-fe266e156726\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+          "line": 101
+        },
+        "m181_original": {
+          "status": "FAIL",
+          "error": {
+            "message": "child exited before crash point: ",
+            "code": "ERR_TEST_FAILURE",
+            "stack": "Error [ERR_TEST_FAILURE]: child exited before crash point: ",
+            "cause": "child exited before crash point: "
+          },
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\final-verification\\r-47aaf595f735\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+          "line": 101
+        },
+        "m181_rerun": {
+          "status": "FAIL",
+          "error": {
+            "message": "child exited before crash point: ",
+            "code": "ERR_TEST_FAILURE",
+            "stack": "Error [ERR_TEST_FAILURE]: child exited before crash point: ",
+            "cause": "child exited before crash point: "
+          },
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.2\\baseline-verification\\r-e928e511fc4e\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+          "line": 101
+        },
+        "m18_same_environment": {
+          "status": "FAIL",
+          "error": {
+            "message": "child exited before crash point: ",
+            "code": "ERR_TEST_FAILURE",
+            "stack": "Error [ERR_TEST_FAILURE]: child exited before crash point: ",
+            "cause": "child exited before crash point: "
+          },
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.2\\m18-control\\r-e035cab50f5b\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+          "line": 101
+        },
+        "m182_final": {
+          "status": "FAIL",
+          "error": {
+            "message": "child exited before crash point: ",
+            "code": "ERR_TEST_FAILURE",
+            "stack": "Error [ERR_TEST_FAILURE]: child exited before crash point: ",
+            "cause": "child exited before crash point: "
+          },
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.2\\final-verification\\r-51aac3fe4c16\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+          "line": 101
+        }
+      },
+      "test_source_identical_m18_m181": true,
+      "test_source_sha256": "30456915c8e93a77a21b21352b2dfec4edcff21656324814c96bc37ddcfbe645",
+      "root_cause": "StorageOwner CREATE在PUBLISH调用fs.link时EPERM；任务保持UNKNOWN_QUARANTINED，未形成persistent owner。该用例要求的发布/替换/恢复/配额/Gate/Pilot后续步骤因此不可达。实际独立managed-write探针到达CREATE_TEMP/WRITE_CHUNK/PUBLISH并记录EPERM，目标未发布，预算保留。",
+      "is_new_m181_regression": false,
+      "product_fix_required": false,
+      "deployment_or_fixture_remediation_required": true,
+      "security_impact": "安全正向/竞争/恢复证据缺失；失败保持拒绝/隔离，不能标安全资格PASS。",
+      "real_provider_impact": "不直接改变Host HTTP协议；直接阻断Native Pilot受管源码发布与恢复。",
+      "disposition": "KEEP_ORIGINAL_FAIL",
+      "fix_plan": "在具备no-clobber硬链接语义的获准Host环境复跑原合同及相关恢复链；保留UNKNOWN和占用，不以rename/覆盖回退制造通过。",
+      "acceptance_criteria": "在真实获准部署满足原夹具前提后，原断言全部PASS并保留原始日志；不得将缺前提的跳过当PASS。",
+      "evidence": [
+        "evidence/probes/storage.json",
+        "evidence/probes/filesystem.json",
+        "evidence/verification/m18-control/all-tests.tap"
+      ],
+      "original_assertion_summary": "child must reach and send operation_id at PUBLISHED; recovery RECONCILED without republishing",
+      "original_test_contract": {
+        "artifact": "evidence/test-contracts/M182-HIST-12.txt",
+        "sha256": "2536e6eacc27b01531854eadeea323659d95a27bfff1ea92d4bdf6eeddb49c7b",
+        "source": "tests/agentnexus/m161-storage.test.ts",
+        "start_line": 101,
+        "end_line": 114,
+        "bytes": 2472,
+        "unchanged_bytes": true
+      }
+    },
+    {
+      "test_id": "M182-HIST-13",
+      "test_name": "M161 STORAGE REAL_PROCESS_CRASH at AUDIT_ACKNOWLEDGED preserves evidence and never automatically retries",
+      "test_file": "tests/agentnexus/m161-storage.test.ts",
+      "line": 101,
+      "original_assertion": "  const lock=await KernelStore.recoverAbandonedLock(join(root,'host'));assert.equal(lock.recovered,true);const h=await openHarness(join(root,'host'));\r\n  try{assert.equal(h.state.count('STORAGE_WRITE'),1);const before=h.administration.inspectStorage(id!);\r\n    if(['UNLINK_TEMP','PUBLISHED'].includes(stage)){const recovered=await h.administration.reconcileStorage(id!);assert.equal(recovered.state,'RECONCILED');assert.equal((await readFile(join(root,'files/result.txt'))).toString(),'durable child content');}\r\n    else if(stage==='AUDIT_ACKNOWLEDGED'){assert.equal(before.state,'AUDIT_ACKNOWLEDGED');assert.equal((await h.administration.reconcileStorage(id!)).id,id!);}\r\n    else if(stage==='PUBLISH_READY'){assert.equal(before.state,'INDETERMINATE');await assert.rejects(h.administration.reconcileStorage(id!));assert.equal(h.administration.inspectStorage(id!).state,'INDETERMINATE');}\r\n    else{assert.equal(before.state,'INDETERMINATE');assert.equal((await h.administration.reconcileStorage(id!)).state,'FAILED_BEFORE_PUBLISH');assert.deepEqual(await readdir(join(root,'files')),[]);}\r\n    assert.equal(h.inspectTask('task').state,'UNKNOWN_QUARANTINED');assert.equal(h.state.get<Budget>('resource_budget','platform')!.held.workers,1);assert.equal(h.state.count('STORAGE_WRITE'),1);await assert.rejects(h.administration.resumeTask('task'),/TASK_RESUME_STATE/);await h.store.verify();\r\n",
+      "original_error": {
+        "message": "child exited before crash point: ",
+        "code": "ERR_TEST_FAILURE",
+        "stack": "Error [ERR_TEST_FAILURE]: child exited before crash point: ",
+        "cause": "child exited before crash point: "
+      },
+      "classification": "ENVIRONMENT_LIMITATION",
+      "historical_relation": "HISTORICAL_FAILURE_IN_SAME_ENVIRONMENT",
+      "results": {
+        "m18_published": {
+          "status": "PASS",
+          "error": null,
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8\\w\\r-fe266e156726\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+          "line": 101
+        },
+        "m181_original": {
+          "status": "FAIL",
+          "error": {
+            "message": "child exited before crash point: ",
+            "code": "ERR_TEST_FAILURE",
+            "stack": "Error [ERR_TEST_FAILURE]: child exited before crash point: ",
+            "cause": "child exited before crash point: "
+          },
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\final-verification\\r-47aaf595f735\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+          "line": 101
+        },
+        "m181_rerun": {
+          "status": "FAIL",
+          "error": {
+            "message": "child exited before crash point: ",
+            "code": "ERR_TEST_FAILURE",
+            "stack": "Error [ERR_TEST_FAILURE]: child exited before crash point: ",
+            "cause": "child exited before crash point: "
+          },
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.2\\baseline-verification\\r-e928e511fc4e\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+          "line": 101
+        },
+        "m18_same_environment": {
+          "status": "FAIL",
+          "error": {
+            "message": "child exited before crash point: ",
+            "code": "ERR_TEST_FAILURE",
+            "stack": "Error [ERR_TEST_FAILURE]: child exited before crash point: ",
+            "cause": "child exited before crash point: "
+          },
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.2\\m18-control\\r-e035cab50f5b\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+          "line": 101
+        },
+        "m182_final": {
+          "status": "FAIL",
+          "error": {
+            "message": "child exited before crash point: ",
+            "code": "ERR_TEST_FAILURE",
+            "stack": "Error [ERR_TEST_FAILURE]: child exited before crash point: ",
+            "cause": "child exited before crash point: "
+          },
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.2\\final-verification\\r-51aac3fe4c16\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+          "line": 101
+        }
+      },
+      "test_source_identical_m18_m181": true,
+      "test_source_sha256": "30456915c8e93a77a21b21352b2dfec4edcff21656324814c96bc37ddcfbe645",
+      "root_cause": "StorageOwner CREATE在PUBLISH调用fs.link时EPERM；任务保持UNKNOWN_QUARANTINED，未形成persistent owner。该用例要求的发布/替换/恢复/配额/Gate/Pilot后续步骤因此不可达。实际独立managed-write探针到达CREATE_TEMP/WRITE_CHUNK/PUBLISH并记录EPERM，目标未发布，预算保留。",
+      "is_new_m181_regression": false,
+      "product_fix_required": false,
+      "deployment_or_fixture_remediation_required": true,
+      "security_impact": "安全正向/竞争/恢复证据缺失；失败保持拒绝/隔离，不能标安全资格PASS。",
+      "real_provider_impact": "不直接改变Host HTTP协议；直接阻断Native Pilot受管源码发布与恢复。",
+      "disposition": "KEEP_ORIGINAL_FAIL",
+      "fix_plan": "在具备no-clobber硬链接语义的获准Host环境复跑原合同及相关恢复链；保留UNKNOWN和占用，不以rename/覆盖回退制造通过。",
+      "acceptance_criteria": "在真实获准部署满足原夹具前提后，原断言全部PASS并保留原始日志；不得将缺前提的跳过当PASS。",
+      "evidence": [
+        "evidence/probes/storage.json",
+        "evidence/probes/filesystem.json",
+        "evidence/verification/m18-control/all-tests.tap"
+      ],
+      "original_assertion_summary": "child must reach and send operation_id at AUDIT_ACKNOWLEDGED; original ACK remains",
+      "original_test_contract": {
+        "artifact": "evidence/test-contracts/M182-HIST-13.txt",
+        "sha256": "2536e6eacc27b01531854eadeea323659d95a27bfff1ea92d4bdf6eeddb49c7b",
+        "source": "tests/agentnexus/m161-storage.test.ts",
+        "start_line": 101,
+        "end_line": 114,
+        "bytes": 2472,
+        "unchanged_bytes": true
+      }
+    },
+    {
+      "test_id": "M182-HIST-14",
+      "test_name": "M17 Native Pilot actually publishes, reviews, repairs, restores and gates a complete CLI through a SIMULATED provider",
+      "test_file": "tests/agentnexus/m17-pilot.test.ts",
+      "line": 10,
+      "original_assertion": "    assert.equal(report.status,'PASS',report.error??'Actual Pilot did not finish');assert.equal(report.model_autonomy,'SIMULATED');assert.equal(report.production_os,'BLOCKED');assert.equal(report.strict_cpu,'BLOCKED');\n    assert.equal(report.concurrency.coding_peak,3);assert.equal(report.pre_repair_gates.length,2);assert(report.pre_repair_gates.every(gate=>gate.status==='FAIL'));\n    assert.deepEqual(report.gate_records.map(gate=>gate.gate_id),['g0','g1','g2','g3','g4','g5','g6']);assert(report.gate_records.every(gate=>gate.status==='PASS'&&gate.allows_protected));\n    const recovery=report.recovery as {status:string;old_runtime_instance_id:string;new_runtime_instance_id:string;automatic_model_calls_on_reopen:number};assert.equal(recovery.status,'PASS');assert.notEqual(recovery.old_runtime_instance_id,recovery.new_runtime_instance_id);assert.equal(recovery.automatic_model_calls_on_reopen,0);\n    for(const id of ['research','architecture','code-model','code-analytics','code-cli','test','debug','docs','integration','lead','delivery','test-runner'])assert.equal(report.role_tasks.find(task=>task.id===id)?.state,'SUCCEEDED',id);\n    assert.equal(new Set(report.role_tasks.map(task=>task.runtime_instance_id)).size,report.role_tasks.length);\n    try{const writes=db.prepare(\"SELECT o.operation_id,o.state,o.executor_state,p.consumed AS permit_consumed,EXISTS(SELECT 1 FROM control_approvals a WHERE a.intent_hash=o.intent_hash AND a.subject=o.subject AND a.consumed=1) AS approval_consumed FROM control_operations o JOIN control_permits p ON p.operation_id=o.operation_id WHERE o.workspace IS NOT NULL\").all();assert.equal(writes.length,21);\n      for(const write of writes){assert.equal(write.state,'SUCCEEDED');assert.equal(write.executor_state,'SETTLED');assert.equal(write.permit_consumed,1);assert.equal(write.approval_consumed,1);}\n      const versions=db.prepare(\"SELECT body FROM m16_entities WHERE kind='STORAGE_VERSION' AND json_extract(body,'$.resource_id')='pilot:delivery'\").all();assert.equal(versions.length,10);\n      for(const row of versions){const version=JSON.parse(String(row.body)),bytes=await readFile(join(report.project_root,version.path));assert.equal(createHash('sha256').update(bytes).digest('hex'),version.file.sha256);assert.equal(version.version,version.path==='src/analytics.ts'?2:1);}\n      const unknown=db.prepare(\"SELECT COUNT(*) AS n FROM m16_entities WHERE kind='resource_reservation' AND state='UNKNOWN_QUARANTINED'\").get();assert.equal(unknown?.n,0);\n",
+      "original_error": {
+        "message": "Error: code-model:UNKNOWN_QUARANTINED:PERSISTENT_DISK_OWNER_UNVERIFIED\n    at drive (file:///I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.8.1/final-verification/r-47aaf595f735/workspace/src/agentnexus/harness/pilot-run.ts:136:146)\n    at async runPilot (file:///I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.8.1/final-verification/r-47aaf595f735/workspace/src/agentnexus/harness/pilot-run.ts:176:190)\n    at async TestContext.<anonymous> (file:///I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.8.1/final-verification/r-47aaf595f735/workspace/tests/agentnexus/m17-pilot.test.ts:13:18)\n    at async Test.run (node:internal/test_runner/test:1208:7)\n    at async startSubtestAfterBootstrap (node:internal/test_runner/harness:385:3)\n\n'FAIL' !== 'PASS'\n",
+        "code": "ERR_TEST_FAILURE",
+        "stack": "Error [ERR_TEST_FAILURE]: Error: code-model:UNKNOWN_QUARANTINED:PERSISTENT_DISK_OWNER_UNVERIFIED\n    at drive (file:///I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.8.1/final-verification/r-47aaf595f735/workspace/src/agentnexus/harness/pilot-run.ts:136:146)\n    at async runPilot (file:///I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.8.1/final-verification/r-47aaf595f735/workspace/src/agentnexus/harness/pilot-run.ts:176:190)\n    at async TestContext.<anonymous> (file:///I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.8.1/final-verification/r-47aaf595f735/workspace/tests/agentnexus/m17-pilot.test.ts:13:18)\n    at async Test.run (node:internal/test_runner/test:1208:7)\n    at async startSubtestAfterBootstrap (node:internal/test_runner/harness:385:3)\n\n'FAIL' !== 'PASS'\n",
+        "cause": "Error: code-model:UNKNOWN_QUARANTINED:PERSISTENT_DISK_OWNER_UNVERIFIED\n    at drive (file:///I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.8.1/final-verification/r-47aaf595f735/workspace/src/agentnexus/harness/pilot-run.ts:136:146)\n    at async runPilot (file:///I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.8.1/final-verification/r-47aaf595f735/workspace/src/agentnexus/harness/pilot-run.ts:176:190)\n    at async TestContext.<anonymous> (file:///I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.8.1/final-verification/r-47aaf595f735/workspace/tests/agentnexus/m17-pilot.test.ts:13:18)\n    at async Test.run (node:internal/test_runner/test:1208:7)\n    at async startSubtestAfterBootstrap (node:internal/test_runner/harness:385:3)\n\n'FAIL' !== 'PASS'\n"
+      },
+      "classification": "ENVIRONMENT_LIMITATION",
+      "historical_relation": "HISTORICAL_FAILURE_IN_SAME_ENVIRONMENT",
+      "results": {
+        "m18_published": {
+          "status": "PASS",
+          "error": null,
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8\\w\\r-fe266e156726\\workspace\\tests\\agentnexus\\m17-pilot.test.ts",
+          "line": 10
+        },
+        "m181_original": {
+          "status": "FAIL",
+          "error": {
+            "message": "Error: code-model:UNKNOWN_QUARANTINED:PERSISTENT_DISK_OWNER_UNVERIFIED\n    at drive (file:///I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.8.1/final-verification/r-47aaf595f735/workspace/src/agentnexus/harness/pilot-run.ts:136:146)\n    at async runPilot (file:///I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.8.1/final-verification/r-47aaf595f735/workspace/src/agentnexus/harness/pilot-run.ts:176:190)\n    at async TestContext.<anonymous> (file:///I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.8.1/final-verification/r-47aaf595f735/workspace/tests/agentnexus/m17-pilot.test.ts:13:18)\n    at async Test.run (node:internal/test_runner/test:1208:7)\n    at async startSubtestAfterBootstrap (node:internal/test_runner/harness:385:3)\n\n'FAIL' !== 'PASS'\n",
+            "code": "ERR_TEST_FAILURE",
+            "stack": "Error [ERR_TEST_FAILURE]: Error: code-model:UNKNOWN_QUARANTINED:PERSISTENT_DISK_OWNER_UNVERIFIED\n    at drive (file:///I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.8.1/final-verification/r-47aaf595f735/workspace/src/agentnexus/harness/pilot-run.ts:136:146)\n    at async runPilot (file:///I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.8.1/final-verification/r-47aaf595f735/workspace/src/agentnexus/harness/pilot-run.ts:176:190)\n    at async TestContext.<anonymous> (file:///I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.8.1/final-verification/r-47aaf595f735/workspace/tests/agentnexus/m17-pilot.test.ts:13:18)\n    at async Test.run (node:internal/test_runner/test:1208:7)\n    at async startSubtestAfterBootstrap (node:internal/test_runner/harness:385:3)\n\n'FAIL' !== 'PASS'\n",
+            "cause": "Error: code-model:UNKNOWN_QUARANTINED:PERSISTENT_DISK_OWNER_UNVERIFIED\n    at drive (file:///I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.8.1/final-verification/r-47aaf595f735/workspace/src/agentnexus/harness/pilot-run.ts:136:146)\n    at async runPilot (file:///I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.8.1/final-verification/r-47aaf595f735/workspace/src/agentnexus/harness/pilot-run.ts:176:190)\n    at async TestContext.<anonymous> (file:///I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.8.1/final-verification/r-47aaf595f735/workspace/tests/agentnexus/m17-pilot.test.ts:13:18)\n    at async Test.run (node:internal/test_runner/test:1208:7)\n    at async startSubtestAfterBootstrap (node:internal/test_runner/harness:385:3)\n\n'FAIL' !== 'PASS'\n"
+          },
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\final-verification\\r-47aaf595f735\\workspace\\tests\\agentnexus\\m17-pilot.test.ts",
+          "line": 10
+        },
+        "m181_rerun": {
+          "status": "FAIL",
+          "error": {
+            "message": "Error: code-model:UNKNOWN_QUARANTINED:PERSISTENT_DISK_OWNER_UNVERIFIED\n    at drive (file:///I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.8.2/baseline-verification/r-e928e511fc4e/workspace/src/agentnexus/harness/pilot-run.ts:136:146)\n    at async runPilot (file:///I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.8.2/baseline-verification/r-e928e511fc4e/workspace/src/agentnexus/harness/pilot-run.ts:176:190)\n    at async TestContext.<anonymous> (file:///I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.8.2/baseline-verification/r-e928e511fc4e/workspace/tests/agentnexus/m17-pilot.test.ts:13:18)\n    at async Test.run (node:internal/test_runner/test:1208:7)\n    at async startSubtestAfterBootstrap (node:internal/test_runner/harness:385:3)\n\n'FAIL' !== 'PASS'\n",
+            "code": "ERR_TEST_FAILURE",
+            "stack": "Error [ERR_TEST_FAILURE]: Error: code-model:UNKNOWN_QUARANTINED:PERSISTENT_DISK_OWNER_UNVERIFIED\n    at drive (file:///I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.8.2/baseline-verification/r-e928e511fc4e/workspace/src/agentnexus/harness/pilot-run.ts:136:146)\n    at async runPilot (file:///I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.8.2/baseline-verification/r-e928e511fc4e/workspace/src/agentnexus/harness/pilot-run.ts:176:190)\n    at async TestContext.<anonymous> (file:///I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.8.2/baseline-verification/r-e928e511fc4e/workspace/tests/agentnexus/m17-pilot.test.ts:13:18)\n    at async Test.run (node:internal/test_runner/test:1208:7)\n    at async startSubtestAfterBootstrap (node:internal/test_runner/harness:385:3)\n\n'FAIL' !== 'PASS'\n",
+            "cause": "Error: code-model:UNKNOWN_QUARANTINED:PERSISTENT_DISK_OWNER_UNVERIFIED\n    at drive (file:///I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.8.2/baseline-verification/r-e928e511fc4e/workspace/src/agentnexus/harness/pilot-run.ts:136:146)\n    at async runPilot (file:///I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.8.2/baseline-verification/r-e928e511fc4e/workspace/src/agentnexus/harness/pilot-run.ts:176:190)\n    at async TestContext.<anonymous> (file:///I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.8.2/baseline-verification/r-e928e511fc4e/workspace/tests/agentnexus/m17-pilot.test.ts:13:18)\n    at async Test.run (node:internal/test_runner/test:1208:7)\n    at async startSubtestAfterBootstrap (node:internal/test_runner/harness:385:3)\n\n'FAIL' !== 'PASS'\n"
+          },
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.2\\baseline-verification\\r-e928e511fc4e\\workspace\\tests\\agentnexus\\m17-pilot.test.ts",
+          "line": 10
+        },
+        "m18_same_environment": {
+          "status": "FAIL",
+          "error": {
+            "message": "Error: code-model:UNKNOWN_QUARANTINED:PERSISTENT_DISK_OWNER_UNVERIFIED\n    at drive (file:///I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.8.2/m18-control/r-e035cab50f5b/workspace/src/agentnexus/harness/pilot-run.ts:136:146)\n    at async runPilot (file:///I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.8.2/m18-control/r-e035cab50f5b/workspace/src/agentnexus/harness/pilot-run.ts:176:190)\n    at async TestContext.<anonymous> (file:///I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.8.2/m18-control/r-e035cab50f5b/workspace/tests/agentnexus/m17-pilot.test.ts:13:18)\n    at async Test.run (node:internal/test_runner/test:1208:7)\n    at async startSubtestAfterBootstrap (node:internal/test_runner/harness:385:3)\n\n'FAIL' !== 'PASS'\n",
+            "code": "ERR_TEST_FAILURE",
+            "stack": "Error [ERR_TEST_FAILURE]: Error: code-model:UNKNOWN_QUARANTINED:PERSISTENT_DISK_OWNER_UNVERIFIED\n    at drive (file:///I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.8.2/m18-control/r-e035cab50f5b/workspace/src/agentnexus/harness/pilot-run.ts:136:146)\n    at async runPilot (file:///I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.8.2/m18-control/r-e035cab50f5b/workspace/src/agentnexus/harness/pilot-run.ts:176:190)\n    at async TestContext.<anonymous> (file:///I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.8.2/m18-control/r-e035cab50f5b/workspace/tests/agentnexus/m17-pilot.test.ts:13:18)\n    at async Test.run (node:internal/test_runner/test:1208:7)\n    at async startSubtestAfterBootstrap (node:internal/test_runner/harness:385:3)\n\n'FAIL' !== 'PASS'\n",
+            "cause": "Error: code-model:UNKNOWN_QUARANTINED:PERSISTENT_DISK_OWNER_UNVERIFIED\n    at drive (file:///I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.8.2/m18-control/r-e035cab50f5b/workspace/src/agentnexus/harness/pilot-run.ts:136:146)\n    at async runPilot (file:///I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.8.2/m18-control/r-e035cab50f5b/workspace/src/agentnexus/harness/pilot-run.ts:176:190)\n    at async TestContext.<anonymous> (file:///I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.8.2/m18-control/r-e035cab50f5b/workspace/tests/agentnexus/m17-pilot.test.ts:13:18)\n    at async Test.run (node:internal/test_runner/test:1208:7)\n    at async startSubtestAfterBootstrap (node:internal/test_runner/harness:385:3)\n\n'FAIL' !== 'PASS'\n"
+          },
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.2\\m18-control\\r-e035cab50f5b\\workspace\\tests\\agentnexus\\m17-pilot.test.ts",
+          "line": 10
+        },
+        "m182_final": {
+          "status": "FAIL",
+          "error": {
+            "message": "Error: code-model:UNKNOWN_QUARANTINED:PERSISTENT_DISK_OWNER_UNVERIFIED\n    at drive (file:///I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.8.2/final-verification/r-51aac3fe4c16/workspace/src/agentnexus/harness/pilot-run.ts:136:146)\n    at async runPilot (file:///I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.8.2/final-verification/r-51aac3fe4c16/workspace/src/agentnexus/harness/pilot-run.ts:176:190)\n    at async TestContext.<anonymous> (file:///I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.8.2/final-verification/r-51aac3fe4c16/workspace/tests/agentnexus/m17-pilot.test.ts:13:18)\n    at async Test.run (node:internal/test_runner/test:1208:7)\n    at async startSubtestAfterBootstrap (node:internal/test_runner/harness:385:3)\n\n'FAIL' !== 'PASS'\n",
+            "code": "ERR_TEST_FAILURE",
+            "stack": "Error [ERR_TEST_FAILURE]: Error: code-model:UNKNOWN_QUARANTINED:PERSISTENT_DISK_OWNER_UNVERIFIED\n    at drive (file:///I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.8.2/final-verification/r-51aac3fe4c16/workspace/src/agentnexus/harness/pilot-run.ts:136:146)\n    at async runPilot (file:///I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.8.2/final-verification/r-51aac3fe4c16/workspace/src/agentnexus/harness/pilot-run.ts:176:190)\n    at async TestContext.<anonymous> (file:///I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.8.2/final-verification/r-51aac3fe4c16/workspace/tests/agentnexus/m17-pilot.test.ts:13:18)\n    at async Test.run (node:internal/test_runner/test:1208:7)\n    at async startSubtestAfterBootstrap (node:internal/test_runner/harness:385:3)\n\n'FAIL' !== 'PASS'\n",
+            "cause": "Error: code-model:UNKNOWN_QUARANTINED:PERSISTENT_DISK_OWNER_UNVERIFIED\n    at drive (file:///I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.8.2/final-verification/r-51aac3fe4c16/workspace/src/agentnexus/harness/pilot-run.ts:136:146)\n    at async runPilot (file:///I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.8.2/final-verification/r-51aac3fe4c16/workspace/src/agentnexus/harness/pilot-run.ts:176:190)\n    at async TestContext.<anonymous> (file:///I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.8.2/final-verification/r-51aac3fe4c16/workspace/tests/agentnexus/m17-pilot.test.ts:13:18)\n    at async Test.run (node:internal/test_runner/test:1208:7)\n    at async startSubtestAfterBootstrap (node:internal/test_runner/harness:385:3)\n\n'FAIL' !== 'PASS'\n"
+          },
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.2\\final-verification\\r-51aac3fe4c16\\workspace\\tests\\agentnexus\\m17-pilot.test.ts",
+          "line": 10
+        }
+      },
+      "test_source_identical_m18_m181": true,
+      "test_source_sha256": "2eda5d4da5c454d01831fd59ba3626f56c49779655d80565b8526d6f52f89644",
+      "root_cause": "StorageOwner CREATE在PUBLISH调用fs.link时EPERM；任务保持UNKNOWN_QUARANTINED，未形成persistent owner。该用例要求的发布/替换/恢复/配额/Gate/Pilot后续步骤因此不可达。实际独立managed-write探针到达CREATE_TEMP/WRITE_CHUNK/PUBLISH并记录EPERM，目标未发布，预算保留。",
+      "is_new_m181_regression": false,
+      "product_fix_required": false,
+      "deployment_or_fixture_remediation_required": true,
+      "security_impact": "安全正向/竞争/恢复证据缺失；失败保持拒绝/隔离，不能标安全资格PASS。",
+      "real_provider_impact": "不直接改变Host HTTP协议；直接阻断Native Pilot受管源码发布与恢复。",
+      "disposition": "KEEP_ORIGINAL_FAIL",
+      "fix_plan": "在具备no-clobber硬链接语义的获准Host环境复跑原合同及相关恢复链；保留UNKNOWN和占用，不以rename/覆盖回退制造通过。",
+      "acceptance_criteria": "在真实获准部署满足原夹具前提后，原断言全部PASS并保留原始日志；不得将缺前提的跳过当PASS。",
+      "evidence": [
+        "evidence/probes/storage.json",
+        "evidence/probes/filesystem.json",
+        "evidence/verification/m18-control/all-tests.tap"
+      ],
+      "original_assertion_summary": "runPilot report.status === 'PASS'; managed publication/review/repair/restore/gates",
+      "original_test_contract": {
+        "artifact": "evidence/test-contracts/M182-HIST-14.txt",
+        "sha256": "ec9a497f6c15011a467143b6b872683b3fd5e0cab387ae6cab5bb36432f28c24",
+        "source": "tests/agentnexus/m17-pilot.test.ts",
+        "start_line": 10,
+        "end_line": 29,
+        "bytes": 3582,
+        "unchanged_bytes": true
+      }
+    }
+  ],
+  "additional": {
+    "rows": [
+      {
+        "test": "M1.4 REAL_WINDOWS_PRIMITIVE: cumulative Job CPU time kills a busy fixture before wall deadline",
+        "classification": "OS_BEHAVIOR_LIMITATION",
+        "original_error": {
+          "message": "CPU_TIME FAIL/BLOCKED: infinite busy fixture accumulated 28281250 ticks and required helper termination (DEADLINE); configuring JOB_TIME is not enforcement evidence\n+ actual - expected\n\n+ '2026-11-08T11:03:59.7217729Z'\n- null\n",
+          "code": "ERR_TEST_FAILURE",
+          "stack": "Error [ERR_TEST_FAILURE]: CPU_TIME FAIL/BLOCKED: infinite busy fixture accumulated 28281250 ticks and required helper termination (DEADLINE); configuring JOB_TIME is not enforcement evidence\n+ actual - expected\n\n+ '2026-11-08T11:03:59.7217729Z'\n- null\n",
+          "cause": "CPU_TIME FAIL/BLOCKED: infinite busy fixture accumulated 28281250 ticks and required helper termination (DEADLINE); configuring JOB_TIME is not enforcement evidence\n+ actual - expected\n\n+ '2026-11-08T11:03:59.7217729Z'\n- null\n"
+        },
+        "results": {
+          "m18_published": {
+            "status": "PASS",
+            "error": null,
+            "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8\\w\\r-fe266e156726\\workspace\\tests\\agentnexus\\m14-native.test.ts",
+            "line": 150
+          },
+          "m181_original": {
+            "status": "PASS",
+            "error": null,
+            "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\final-verification\\r-47aaf595f735\\workspace\\tests\\agentnexus\\m14-native.test.ts",
+            "line": 150
+          },
+          "m181_rerun": {
+            "status": "FAIL",
+            "error": {
+              "message": "CPU_TIME FAIL/BLOCKED: infinite busy fixture accumulated 28281250 ticks and required helper termination (DEADLINE); configuring JOB_TIME is not enforcement evidence\n+ actual - expected\n\n+ '2026-11-08T11:03:59.7217729Z'\n- null\n",
+              "code": "ERR_TEST_FAILURE",
+              "stack": "Error [ERR_TEST_FAILURE]: CPU_TIME FAIL/BLOCKED: infinite busy fixture accumulated 28281250 ticks and required helper termination (DEADLINE); configuring JOB_TIME is not enforcement evidence\n+ actual - expected\n\n+ '2026-11-08T11:03:59.7217729Z'\n- null\n",
+              "cause": "CPU_TIME FAIL/BLOCKED: infinite busy fixture accumulated 28281250 ticks and required helper termination (DEADLINE); configuring JOB_TIME is not enforcement evidence\n+ actual - expected\n\n+ '2026-11-08T11:03:59.7217729Z'\n- null\n"
+            },
+            "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.2\\baseline-verification\\r-e928e511fc4e\\workspace\\tests\\agentnexus\\m14-native.test.ts",
+            "line": 150
+          },
+          "m18_same_environment": {
+            "status": "PASS",
+            "error": null,
+            "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.2\\m18-control\\r-e035cab50f5b\\workspace\\tests\\agentnexus\\m14-native.test.ts",
+            "line": 150
+          },
+          "m182_final": {
+            "status": "FAIL",
+            "error": {
+              "message": "CPU_TIME FAIL/BLOCKED: infinite busy fixture accumulated 30000000 ticks and required helper termination (DEADLINE); configuring JOB_TIME is not enforcement evidence\n+ actual - expected\n\n+ '2026-11-08T11:28:17.3893420Z'\n- null\n",
+              "code": "ERR_TEST_FAILURE",
+              "stack": "Error [ERR_TEST_FAILURE]: CPU_TIME FAIL/BLOCKED: infinite busy fixture accumulated 30000000 ticks and required helper termination (DEADLINE); configuring JOB_TIME is not enforcement evidence\n+ actual - expected\n\n+ '2026-11-08T11:28:17.3893420Z'\n- null\n",
+              "cause": "CPU_TIME FAIL/BLOCKED: infinite busy fixture accumulated 30000000 ticks and required helper termination (DEADLINE); configuring JOB_TIME is not enforcement evidence\n+ actual - expected\n\n+ '2026-11-08T11:28:17.3893420Z'\n- null\n"
+            },
+            "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.2\\final-verification\\r-51aac3fe4c16\\workspace\\tests\\agentnexus\\m14-native.test.ts",
+            "line": 150
+          }
+        },
+        "qualification": "BLOCKED",
+        "reason": "已知Job累计用户态CPU限制未构成严格累计CPU保证；本次忙循环到deadline仍由helper终止，观察28281250 ticks；分次PASS不关闭该资格。"
+      }
+    ]
+  },
+  "new_work": [
+    {
+      "id": "SEC-M182-001",
+      "status": "FIXED_VERIFIED",
+      "issue": "重复JSON键在审阅解析中丢失前值",
+      "evidence": "evidence/reviews/"
+    },
+    {
+      "id": "M182-REVIEW-KEY",
+      "status": "FIXED_VERIFIED",
+      "issue": "同正文不同request hash独立review原先冲突；改复合键"
+    },
+    {
+      "id": "M182-EGRESS-HARDENING",
+      "status": "FIXED_VERIFIED",
+      "issue": "REAL不能用upload flag/旧hash-only grant绕过final review；verifier只接受true"
+    },
+    {
+      "id": "M182-FIXTURE-01",
+      "status": "FIXED_VERIFIED",
+      "issue": "旧16-slot夹具升级；原断言不变",
+      "evidence": "evidence/test-fixture-repair/repair.json"
+    }
+  ]
+}

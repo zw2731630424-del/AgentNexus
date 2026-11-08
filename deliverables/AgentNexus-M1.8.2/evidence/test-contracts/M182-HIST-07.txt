@@ -1,0 +1,8 @@
+test('M161 STORAGE publish-link gap is reconciled by identity/hash without republishing',async()=>{
+  const root=await fixture();let failed=false;const h=await storageFixture(root,{storage:{beforeIO:phase=>{if(phase==='UNLINK_TEMP'&&!failed){failed=true;throw Object.assign(new Error('synthetic unlink interruption'),{code:'EIO'});}}}});
+  try{await prepare(h,Buffer.from('data'),4);assert.equal((await execute(h)).state,'UNKNOWN_QUARANTINED');const w=h.state.list<StorageWrite>('STORAGE_WRITE',{limit:1})[0];assert.equal(w.state,'INDETERMINATE');assert.equal((await stat(join(root,'files/result.txt'))).nlink,2);
+    const r=await h.administration.reconcileStorage(w.id);assert.equal(r.state,'RECONCILED');assert.equal((await stat(join(root,'files/result.txt'))).nlink,1);assert.equal(h.state.get<Budget>('resource_budget','platform')!.held.workers,1);
+    assert.equal((await h.administration.reconcileStorage(w.id)).id,w.id);
+  }finally{await h.close();}
+});
+

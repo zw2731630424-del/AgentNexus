@@ -1,0 +1,45 @@
+--- original
++++ candidate
+@@ -1,12 +1,15 @@
+ import test from 'node:test';
+ import assert from 'node:assert/strict';
+-import { fixture,model,root } from './m18-fixture.ts';
+-import { OpenAIAdapter } from '../../src/agentnexus/model-runtime/adapters.ts';
++import { fixture,root } from './m18-fixture.ts';
++import { OpenAIAdapter,DeepSeekAdapter } from '../../src/agentnexus/model-runtime/adapters.ts';
+ import { AuthorizedHttpsTransport,ProviderAuthorizationBook,FixtureTransport,wireFixture } from '../../src/agentnexus/model-runtime/transport.ts';
+ import { CredentialVault,SyntheticMemoryProtector,createVaultAdminCapability } from '../../src/agentnexus/model-runtime/vault.ts';
+ import { join } from 'node:path';
+ import { sha256 } from '../../src/agentnexus/types.ts';
+ import { DataEgressPolicy } from '../../src/agentnexus/model-runtime/egress.ts';
++import { createDeepSeekFlashSpec } from '../../src/agentnexus/model-runtime/deepseek.ts';
++import type { TransportAdmission } from '../../src/agentnexus/model-runtime/protocol.ts';
++import type { RequestReviewInput } from '../../src/agentnexus/model-runtime/request-review.ts';
+ 
+ test('M18 REVIEW sent UNKNOWN transport closure keeps the global slot after cancellation',async t=>{
+   const f=await fixture(t,{gatewayConcurrency:1,adapters:[new OpenAIAdapter({timeout_ms:20})],respond:()=>new Promise(()=>{})}),a=await f.agent(),context=await f.view(a.subject);
+@@ -29,12 +32,20 @@
+   assert.equal((await f.unified.bind(a.subject).complete({request_id:'model-mismatch',context:await f.view(a.subject),max_output_tokens:256})).outcome,'INDETERMINATE');assert.equal(f.ledger.inspect(f.admin,'model-mismatch').state,'UNKNOWN');
+ });
+ test('M18 REVIEW grant preflight atomically reserves its sixteen pending slots before await',async t=>{
+-  const f=await fixture(t),a=await f.agent();const book=new ProviderAuthorizationBook(f.h.state,f.admin,async()=>true),m=model('deepseek-flash','deepseek');m.price={...m.price,assurance:'REAL',source:'https://official.invalid/synthetic-test-price'};
++  // M1.8.2 fixture repair only: preserve the original sixteen-slot contract,
++  // but obtain complete reviewed synthetic requests for the stricter REAL gate.
++  const f=await fixture(t),a=await f.agent();const book=new ProviderAuthorizationBook(f.h.state,f.admin,async()=>true),m=createDeepSeekFlashSpec('2026-11-08T00:00:00Z','2027-01-01T00:00:00Z');
+   const endpoint='https://api.deepseek.com/chat/completions',policy=new DataEgressPolicy(f.h.state,f.admin,f.vault.guard,async()=>true);
+-  const grant_id=await policy.approve(f.admin,{project_id:'project',provider_id:'deepseek',model_id:m.model_id,endpoint,classification:'SYNTHETIC',context_hash:sha256('input'),body_hash:sha256('{}'),sources_hash:sha256('synthetic sources'),authorization_ref:'synthetic-verifier-fixture',expires_at:'2027-01-01T00:00:00Z'});
+-  const id=await book.approve(f.admin,{provider_id:'deepseek',model_id:m.model_id,endpoint,max_requests:20,max_input_tokens:2000,max_output_tokens:2000,max_cost_micros:2000,key_use:'HOST_VAULT_ONLY',data_scope:['SYNTHETIC TEST NO NETWORK'],uploads_project_source:false,stop_method:'ABORT_AND_REVOKE',project_id:'project',context_hashes:[sha256('input')],expires_at:'2027-01-01T00:00:00Z'},'synthetic-verifier-fixture');
++  const context=await f.view(a.subject,'Synthetic slot admission fixture. Return a FINAL JSON object.'),admissions:TransportAdmission[]=[];
++  const decisions:RequestReviewInput={sources:context.entries.map(entry=>({source:entry.source,range_sha256:entry.range_sha256,classification:'SYNTHETIC',origin:'SYNTHETIC_QUALIFICATION',review_ref:'synthetic-fixture-review'}))};
++  for(let n=0;n<19;n++){
++    const adapter=new DeepSeekAdapter(),request=adapter.build({request_id:'slot-'+n,model:m,prompt:context.text,max_output_tokens:1,stream:true,json:true,reasoning:'disabled',tools:[]});adapter.abandon('slot-'+n);
++    const input={subject:a.subject,context,request,model:m};await policy.approveReviewed(f.admin,input,decisions,'synthetic-verifier-fixture','2027-01-01T00:00:00Z');
++    admissions.push({subject:a.subject,request,input_tokens:1,output_tokens:1,estimated_cost_micros:1,context_hash:context.sha256,model:m,egress:await policy.admit(f.admin,input)});
++  }
++  const id=await book.approve(f.admin,{provider_id:'deepseek',model_id:m.model_id,endpoint,max_requests:20,max_input_tokens:2000,max_output_tokens:2000,max_cost_micros:2000,key_use:'HOST_VAULT_ONLY',data_scope:['SYNTHETIC TEST NO NETWORK'],uploads_project_source:false,stop_method:'ABORT_AND_REVOKE',project_id:'project',context_hashes:[context.sha256],expires_at:'2027-01-01T00:00:00Z'},'synthetic-verifier-fixture');
+   const transport=new AuthorizedHttpsTransport(book,f.admin,id,()=>({worker_isolation:'QUALIFIED',credential_service:'QUALIFIED',evidence_sha256:sha256('SYNTHETIC qualification fixture; no send performed')}));
+-  const make=(n:number)=>({subject:a.subject,request:{method:'POST' as const,url:endpoint,body:'{}',headers:{'x-agentnexus-request-id':'slot-'+n}},input_tokens:1,output_tokens:1,estimated_cost_micros:1,context_hash:sha256('input'),model:m,egress:{grant_id,classification:'SYNTHETIC',body_hash:sha256('{}'),context_hash:sha256('input'),sources_hash:sha256('synthetic sources'),authorization_ref:'synthetic-verifier-fixture'}});
++  const make=(n:number)=>admissions[n];
+   const requests=Array.from({length:17},(_,n)=>transport.preflight(make(n))),result=await Promise.allSettled(requests);assert.equal(result.filter(r=>r.status==='fulfilled').length,16);assert.equal(result.filter(r=>r.status==='rejected').length,1);
+   transport.abandon('slot-0');await transport.preflight(make(18)); // no HTTPS send is invoked anywhere in this test
+ });

@@ -1,0 +1,9 @@
+test('M161 STORAGE persistent resource quota rejects a second allocation before a temporary object',async()=>{
+  const root=await fixture(),h=await storageFixture(root,{},10);try{
+    await prepare(h,Buffer.from('first'),5);assert.equal((await execute(h)).state,'SUCCEEDED');
+    await h.administration.createAgent({id:'next',project_id:'project',task_id:'next-task',type:'DEVELOPMENT',budget:{...limits,workers:1},file_scope:['project:files'],tools:[{tool_id:'native.storage.write',version:'1',capability:'LOCAL_WRITE',resources:['project:files']}]});
+    await prepare(h,Buffer.from('second'),6,{path:'other.txt'},'next','next-task');assert.equal((await execute(h,'next-task')).state,'UNKNOWN_QUARANTINED');
+    assert.deepEqual(await readdir(join(root,'files')),['result.txt']);assert.equal(h.state.count('STORAGE_WRITE'),1);assert.equal((await readFile(join(root,'files/result.txt'))).toString(),'first');
+  }finally{await h.close();}
+});
+

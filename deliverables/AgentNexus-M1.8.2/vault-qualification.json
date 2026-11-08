@@ -1,0 +1,120 @@
+{
+  "status": "BLOCKED",
+  "current_os_counterexample": "FAIL",
+  "cross_account_denial_tests": "NOT_RUN",
+  "real_credentials_read": 0,
+  "criteria": [
+    {
+      "id": "VQ01",
+      "requirement": "Host通过可信入口取得授权凭证",
+      "production_status": "BLOCKED",
+      "evidence_scope": "未部署可信交互/身份/启动链；LIVE入口拒绝",
+      "logical_test_evidence": "evidence/verification/m182-final/results.json",
+      "os_evidence": "evidence/probes/vault-final.json"
+    },
+    {
+      "id": "VQ02",
+      "requirement": "普通Agent不能读取完整Key",
+      "production_status": "BLOCKED",
+      "evidence_scope": "facade合成测试PASS；同SID真实进程解密合成Vault反例FAIL",
+      "logical_test_evidence": "evidence/verification/m182-final/results.json",
+      "os_evidence": "evidence/probes/vault-final.json"
+    },
+    {
+      "id": "VQ03",
+      "requirement": "Subagent不能读取父凭证",
+      "production_status": "BLOCKED",
+      "evidence_scope": "scoped facade合成测试PASS；生产跨身份拒绝NOT_RUN",
+      "logical_test_evidence": "evidence/verification/m182-final/results.json",
+      "os_evidence": "evidence/probes/vault-final.json"
+    },
+    {
+      "id": "VQ04",
+      "requirement": "Reviewer不能访问Vault",
+      "production_status": "BLOCKED",
+      "evidence_scope": "合同只读；独立Reviewer OS访问拒绝NOT_RUN",
+      "logical_test_evidence": "evidence/verification/m182-final/results.json",
+      "os_evidence": "evidence/probes/vault-final.json"
+    },
+    {
+      "id": "VQ05",
+      "requirement": "Worker不能直接读Vault文件",
+      "production_status": "BLOCKED",
+      "evidence_scope": "当前同SID进程可读合成库；部署受限Worker拒绝NOT_RUN",
+      "logical_test_evidence": "evidence/verification/m182-final/results.json",
+      "os_evidence": "evidence/probes/vault-final.json"
+    },
+    {
+      "id": "VQ06",
+      "requirement": "Key不进Prompt",
+      "production_status": "BLOCKED",
+      "evidence_scope": "已知合成secret扫描PASS；真实Key未录入",
+      "logical_test_evidence": "evidence/verification/m182-final/results.json",
+      "os_evidence": "evidence/probes/vault-final.json"
+    },
+    {
+      "id": "VQ07",
+      "requirement": "Key不进Context Archive",
+      "production_status": "BLOCKED",
+      "evidence_scope": "合成原文/跨块/编码发布前拒绝PASS；生产未获证",
+      "logical_test_evidence": "evidence/verification/m182-final/results.json",
+      "os_evidence": "evidence/probes/vault-final.json"
+    },
+    {
+      "id": "VQ08",
+      "requirement": "Key不进普通Audit正文",
+      "production_status": "BLOCKED",
+      "evidence_scope": "合成Audit发布前拒绝PASS；生产未获证",
+      "logical_test_evidence": "evidence/verification/m182-final/results.json",
+      "os_evidence": "evidence/probes/vault-final.json"
+    },
+    {
+      "id": "VQ09",
+      "requirement": "Key不进错误日志",
+      "production_status": "BLOCKED",
+      "evidence_scope": "合成固定错误/泄漏隔离测试PASS；生产未获证",
+      "logical_test_evidence": "evidence/verification/m182-final/results.json",
+      "os_evidence": "evidence/probes/vault-final.json"
+    },
+    {
+      "id": "VQ10",
+      "requirement": "Key不经命令行参数",
+      "production_status": "BLOCKED",
+      "evidence_scope": "固定helper仅参数化Operation；合成值走pipe；真实入口NOT_RUN",
+      "logical_test_evidence": "evidence/verification/m182-final/results.json",
+      "os_evidence": "evidence/probes/vault-final.json"
+    },
+    {
+      "id": "VQ11",
+      "requirement": "Key不经不受控环境变量",
+      "production_status": "BLOCKED",
+      "evidence_scope": "helper最小环境未含凭证；真实入口NOT_RUN",
+      "logical_test_evidence": "evidence/verification/m182-final/results.json",
+      "os_evidence": "evidence/probes/vault-final.json"
+    },
+    {
+      "id": "VQ12",
+      "requirement": "撤销后旧Handle失效",
+      "production_status": "BLOCKED",
+      "evidence_scope": "synthetic租约/状态/主体/一次性send测试PASS；生产NOT_RUN",
+      "logical_test_evidence": "evidence/verification/m182-final/results.json",
+      "os_evidence": "evidence/probes/vault-final.json"
+    },
+    {
+      "id": "VQ13",
+      "requirement": "轮换无未授权访问",
+      "production_status": "BLOCKED",
+      "evidence_scope": "synthetic异步轮换/expiry/撤销竞争测试PASS；生产NOT_RUN",
+      "logical_test_evidence": "evidence/verification/m182-final/results.json",
+      "os_evidence": "evidence/probes/vault-final.json"
+    },
+    {
+      "id": "VQ14",
+      "requirement": "Host重启安全恢复",
+      "production_status": "BLOCKED",
+      "evidence_scope": "synthetic reopen/UNKNOWN/guard恢复PASS；生产Host重启NOT_RUN",
+      "logical_test_evidence": "evidence/verification/m182-final/results.json",
+      "os_evidence": "evidence/probes/vault-final.json"
+    }
+  ]
+}

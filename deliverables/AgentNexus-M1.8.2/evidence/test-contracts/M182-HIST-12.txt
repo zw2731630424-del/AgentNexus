@@ -1,0 +1,14 @@
+for(const stage of ['REQUESTED','AUTHORIZED','WRITE_INTENT','TEMP_OBJECT_CREATED','WRITE_CHUNK','CONTENT_WRITTEN','CONTENT_VERIFIED','PUBLISH_READY','UNLINK_TEMP','PUBLISHED','AUDIT_ACKNOWLEDGED'])test(`M161 STORAGE REAL_PROCESS_CRASH at ${stage} preserves evidence and never automatically retries`,async()=>{
+  const root=await fixture(),child=spawn(process.execPath,[fileURLToPath(new URL('./m161-storage-child.mjs',import.meta.url)),root,stage],{windowsHide:true,stdio:['ignore','pipe','pipe','ipc']});
+  let stderr='';child.stderr!.on('data',c=>{if(stderr.length<65536)stderr+=c;});const exited=once(child,'exit');let timer:ReturnType<typeof setTimeout>|undefined;let id:string;
+  try{const event=await Promise.race([once(child,'message'),exited.then(()=>{throw Error('child exited before crash point: '+stderr);}),new Promise<never>((_,reject)=>{timer=setTimeout(()=>reject(Error('child stage timeout: '+stderr)),15000);})]);id=(event[0] as {operation_id:string}).operation_id;}
+  finally{clearTimeout(timer);child.kill();await exited;}
+  const lock=await KernelStore.recoverAbandonedLock(join(root,'host'));assert.equal(lock.recovered,true);const h=await openHarness(join(root,'host'));
+  try{assert.equal(h.state.count('STORAGE_WRITE'),1);const before=h.administration.inspectStorage(id!);
+    if(['UNLINK_TEMP','PUBLISHED'].includes(stage)){const recovered=await h.administration.reconcileStorage(id!);assert.equal(recovered.state,'RECONCILED');assert.equal((await readFile(join(root,'files/result.txt'))).toString(),'durable child content');}
+    else if(stage==='AUDIT_ACKNOWLEDGED'){assert.equal(before.state,'AUDIT_ACKNOWLEDGED');assert.equal((await h.administration.reconcileStorage(id!)).id,id!);}
+    else if(stage==='PUBLISH_READY'){assert.equal(before.state,'INDETERMINATE');await assert.rejects(h.administration.reconcileStorage(id!));assert.equal(h.administration.inspectStorage(id!).state,'INDETERMINATE');}
+    else{assert.equal(before.state,'INDETERMINATE');assert.equal((await h.administration.reconcileStorage(id!)).state,'FAILED_BEFORE_PUBLISH');assert.deepEqual(await readdir(join(root,'files')),[]);}
+    assert.equal(h.inspectTask('task').state,'UNKNOWN_QUARANTINED');assert.equal(h.state.get<Budget>('resource_budget','platform')!.held.workers,1);assert.equal(h.state.count('STORAGE_WRITE'),1);await assert.rejects(h.administration.resumeTask('task'),/TASK_RESUME_STATE/);await h.store.verify();
+  }finally{await h.close();}
+});

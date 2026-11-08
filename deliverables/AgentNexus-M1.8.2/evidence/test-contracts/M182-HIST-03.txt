@@ -1,0 +1,11 @@
+test('M161 GATE actual file candidate is bound from trusted PASS to the approved Storage input',async()=>{
+  const root=await mkdtemp(join(base,'gate-write-')),h=await storageFixture(root);try{
+    const a=await h.administration.captureStorageSource('writer',Buffer.from('approved A')),b=await h.administration.captureStorageSource('writer',Buffer.from('different B'));
+    const baseline=await h.store.artifacts.putBytes(Buffer.from('baseline')),profile=await h.store.artifacts.putBytes(Buffer.from(canonical({schema:'agentnexus/gate-profile/1',required_checkers:{},manual_gates:[],qualification:'LOCAL_TRUSTED_LIBRARY'})));
+    const task=await h.administration.createTask({id:'task',agent_id:'writer',goal:'Publish the Gate-bound candidate',requirements:{disk_bytes:32},gate_requirements:[{gate_id:'g1',record_id:null,candidate_hash:a.payload_ref.sha256,baseline_hash:baseline.sha256,test_profile_hash:profile.sha256}]});
+    const gate=await h.administration.nativeGate('writer',{gate_id:'g1',binding:task.rules_binding,candidate_ref:a.payload_ref,baseline_ref:baseline,test_profile_ref:profile,evidence:[],author_id:'writer'});assert.equal(gate.status,'PASS');await h.administration.bindTaskGate('task','g1',gate.id);
+    const request={resource_id:'project:files',path:'result.txt',mode:'CREATE' as const,expected_version:null,expected_sha256:null,source:b};await assert.rejects(h.administration.requestStorageWrite('task',request),/TASK_GATE_CANDIDATE_MISMATCH/);assert.equal(h.state.count('STORAGE_WRITE'),0);assert.deepEqual(await readdir(join(root,'files')),[]);
+    await h.administration.requestStorageWrite('task',{...request,source:a});assert.equal((await execute(h)).state,'SUCCEEDED');assert.equal((await readFile(join(root,'files/result.txt'))).toString(),'approved A');
+  }finally{await h.close();}
+});
+

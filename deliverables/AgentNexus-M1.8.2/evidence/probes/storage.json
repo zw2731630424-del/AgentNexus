@@ -1,0 +1,244 @@
+{
+  "task": {
+    "attempts": 1,
+    "contract_ref": {
+      "event_id": "97bd25b5-6c31-4c07-839f-5e5470f297dc",
+      "kind": "RAW",
+      "length": 566,
+      "offset": 0,
+      "payload_ref": {
+        "artifact_id": "85018c49-6b4a-4b9a-8a85-0c9b9017f7a5",
+        "bytes": 566,
+        "codec": "zstd",
+        "media_type": "text/plain; charset=utf-8",
+        "sensitivity": "NORMAL",
+        "sha256": "4ba652a542527e5bc37f192a9c263e23e618650b3c53df668b2765e3443478b8",
+        "stored_bytes": 382,
+        "stored_sha256": "baee26d3bb558af7456d0165767a2c3c352f01c573e52e44af6521b42d994fb6"
+      },
+      "project_id": "project",
+      "record_hash": "ca4617d8cb375de77923df41a652500ba0ab1b63957f0ca11b66d3de1f257b15",
+      "task_id": "task"
+    },
+    "created_at": "2026-11-08T11:04:42.760Z",
+    "creation_hash": "85728a920fe06fc1a07aac670e53a3d97b9ff63daa20c06cc566befd8130d55d",
+    "deadline_at": 1794136002760,
+    "dependencies": [],
+    "execution_ms": 0,
+    "finished_at": null,
+    "gate_requirements": [],
+    "goal": "Publish exact authorized content and retain persistent disk ownership.",
+    "history": [
+      {
+        "event_id": "a1a3f526-e96b-4e43-807a-25bee7c5013c",
+        "kind": "RAW",
+        "length": 338,
+        "offset": 0,
+        "payload_ref": {
+          "artifact_id": "7d98d329-0b93-4571-b411-aad726357946",
+          "bytes": 338,
+          "codec": "zstd",
+          "media_type": "text/plain; charset=utf-8",
+          "sensitivity": "NORMAL",
+          "sha256": "398d82f2d09ea73fd9c7ad8ec196e4ccb17826c1d1d9702df5c391db60be6e4c",
+          "stored_bytes": 267,
+          "stored_sha256": "820b652b10438aaf68397cb0e540ad3a593bccbb4724e935e59ab5cbd6d3d345"
+        },
+        "project_id": "project",
+        "record_hash": "0b5c114ec9bfcd0a92f633fc7e8da900a835e73cd3850637889d3ad6c832decf",
+        "task_id": "task"
+      }
+    ],
+    "id": "task",
+    "inputs": [],
+    "max_turns": 8,
+    "paused_ms": 0,
+    "pending_tool": null,
+    "persistent_write": true,
+    "reason": "PERSISTENT_DISK_OWNER_UNVERIFIED",
+    "received_message_ids": [],
+    "requirements": {
+      "disk_bytes": 29,
+      "memory_bytes": 16777216,
+      "wall_ms": 120000,
+      "workers": 1
+    },
+    "reservation_id": "9df076df-0c41-4890-bbad-72b946e90e41",
+    "result_ref": null,
+    "review_binding": null,
+    "revision": 10,
+    "rules_binding": {
+      "feature_epoch": 0,
+      "policy_epoch": 0,
+      "project_rules_version": "1",
+      "registry_id": "7b42fb5f21da6234bd3d504e69f663daff88dc5930fa2c5519e3b9a6f1f89d6d",
+      "rule_hash": "646ca21a2a87348a5d22ace60a94956b26bfd9c6b100566ca40382bd4c2a18e2",
+      "workflow_version": "1.6.1"
+    },
+    "started_at": "2026-11-08T11:04:42.816Z",
+    "startup_ms": 25,
+    "state": "UNKNOWN_QUARANTINED",
+    "state_since": 1794135882909,
+    "stop_reason": null,
+    "subject": {
+      "agent_id": "writer",
+      "agent_type": "DEVELOPMENT",
+      "model_binding": "mock",
+      "policy_scope": "project",
+      "project_id": "project",
+      "resource_budget_id": "worker.67184c78-89dd-495b-a509-7888aaf30370",
+      "runtime_instance_id": "67184c78-89dd-495b-a509-7888aaf30370",
+      "session_id": "2f4439e8-2314-4ece-a838-c9360df3b34b",
+      "task_id": "task"
+    },
+    "turns": 0,
+    "waiting_ms": 44
+  },
+  "phases": [
+    "CREATE_TEMP",
+    "WRITE_CHUNK",
+    "PUBLISH"
+  ],
+  "writes": [
+    {
+      "artifact_ref": {
+        "artifact_id": "83e5d4df-66a8-4e53-ab3f-d97e6ae56c3d",
+        "bytes": 29,
+        "codec": "zstd",
+        "media_type": "text/plain; charset=utf-8",
+        "sensitivity": "NORMAL",
+        "sha256": "1223cf3b2fba97ad6531213d91e46fee470698dc936f10d975dd2fe655b9f97e",
+        "stored_bytes": 42,
+        "stored_sha256": "a01665b244a62b2cbd501ab0400eb71d1bf65e9f5657b2be907179cee01fe7cb"
+      },
+      "boot_id": "867f868b-5f8c-4e74-90ff-95ef89a0d37c",
+      "feature_epoch": 0,
+      "id": "65161c03-7b58-473a-af73-6d2e7738f200",
+      "intent_hash": "7944a6d8637de28c0643ba1e8f3eeba23347d6e0ab5b6741d8aeadf87caee2e7",
+      "policy_epoch": 0,
+      "previous": null,
+      "published": null,
+      "reason": "EPERM",
+      "request": {
+        "expected_sha256": null,
+        "expected_version": null,
+        "mode": "CREATE",
+        "path": "result.txt",
+        "resource_id": "project:files",
+        "source": {
+          "event_id": "1e0d4d1b-a515-45d1-9aaa-6201030334aa",
+          "kind": "RAW",
+          "length": 29,
+          "offset": 0,
+          "payload_ref": {
+            "artifact_id": "83e5d4df-66a8-4e53-ab3f-d97e6ae56c3d",
+            "bytes": 29,
+            "codec": "zstd",
+            "media_type": "text/plain; charset=utf-8",
+            "sensitivity": "NORMAL",
+            "sha256": "1223cf3b2fba97ad6531213d91e46fee470698dc936f10d975dd2fe655b9f97e",
+            "stored_bytes": 42,
+            "stored_sha256": "a01665b244a62b2cbd501ab0400eb71d1bf65e9f5657b2be907179cee01fe7cb"
+          },
+          "project_id": "project",
+          "record_hash": "c34c22282f515e5dd2e65ccc9ba41ab483e067e56fc0337b97bebceca4934e57",
+          "task_id": "task"
+        }
+      },
+      "request_hash": "8c2ac1e274e4b94dabc679e6d70e0753390df29527a0d86ddaf4644398c9b415",
+      "reservation_id": "9df076df-0c41-4890-bbad-72b946e90e41",
+      "revision": 7,
+      "state": "INDETERMINATE",
+      "subject": {
+        "agent_id": "writer",
+        "agent_type": "DEVELOPMENT",
+        "model_binding": "mock",
+        "policy_scope": "project",
+        "project_id": "project",
+        "resource_budget_id": "worker.67184c78-89dd-495b-a509-7888aaf30370",
+        "runtime_instance_id": "67184c78-89dd-495b-a509-7888aaf30370",
+        "session_id": "2f4439e8-2314-4ece-a838-c9360df3b34b",
+        "task_id": "task"
+      },
+      "temp_identity": {
+        "birth_ns": "1794135882868947200",
+        "device": "2854786294",
+        "inode": "281474978227766"
+      },
+      "temp_path": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.2\\probes-rUf9hH\\storage\\files\\.anx-7513c8ee5547088b0945a193ab228800a5160f5e11c90dad6c72dcf6e4d21810.tmp",
+      "updated_at": "2026-11-08T11:04:42.884Z",
+      "version": 1
+    }
+  ],
+  "reservations": [
+    {
+      "accounted": {
+        "cpu_kernel_us": 0,
+        "cpu_user_us": 0,
+        "disk_bytes": 0,
+        "io_read_bytes": 0,
+        "io_write_bytes": 0,
+        "log_bytes": 0,
+        "memory_bytes": 0,
+        "model_cost_micros": 0,
+        "model_requests": 0,
+        "model_tokens": 0,
+        "network_bytes": 0,
+        "network_connections": 0,
+        "processes": 0,
+        "wall_ms": 0,
+        "workers": 0
+      },
+      "accounting_complete": false,
+      "accounting_source": null,
+      "amounts": {
+        "cpu_kernel_us": 0,
+        "cpu_user_us": 0,
+        "disk_bytes": 29,
+        "io_read_bytes": 0,
+        "io_write_bytes": 0,
+        "log_bytes": 0,
+        "memory_bytes": 16777216,
+        "model_cost_micros": 0,
+        "model_requests": 0,
+        "model_tokens": 0,
+        "network_bytes": 0,
+        "network_connections": 0,
+        "processes": 0,
+        "wall_ms": 120000,
+        "workers": 1
+      },
+      "boot_id": "867f868b-5f8c-4e74-90ff-95ef89a0d37c",
+      "budget_ids": {
+        "platform": "platform",
+        "project": "project.project",
+        "worker": "worker.67184c78-89dd-495b-a509-7888aaf30370"
+      },
+      "expires_at": 1794136002760,
+      "id": "9df076df-0c41-4890-bbad-72b946e90e41",
+      "last_evidence_hash": null,
+      "mode": "SIMULATED",
+      "operation_id": "9df076df-0c41-4890-bbad-72b946e90e41",
+      "reason": "TASK_EFFECT_OR_EXIT_UNKNOWN",
+      "revision": 2,
+      "sequence": 0,
+      "state": "UNKNOWN_QUARANTINED",
+      "subject": {
+        "agent_id": "writer",
+        "agent_type": "DEVELOPMENT",
+        "model_binding": "mock",
+        "policy_scope": "project",
+        "project_id": "project",
+        "resource_budget_id": "worker.67184c78-89dd-495b-a509-7888aaf30370",
+        "runtime_instance_id": "67184c78-89dd-495b-a509-7888aaf30370",
+        "session_id": "2f4439e8-2314-4ece-a838-c9360df3b34b",
+        "task_id": "task"
+      }
+    }
+  ],
+  "claims": 0,
+  "namespace": [
+    ".anx-7513c8ee5547088b0945a193ab228800a5160f5e11c90dad6c72dcf6e4d21810.tmp"
+  ],
+  "scope": "Synthetic fixture; no product assertions changed; failure retains capacity"
+}

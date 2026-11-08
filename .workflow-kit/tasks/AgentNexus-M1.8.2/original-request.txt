@@ -1,0 +1,722 @@
+# AgentNexus M1.8.2 — DeepSeek Live Qualification & First Real Model Integration
+
+**项目：** AgentNexus v0.4  
+**开发基线：** M1.8.1  
+**执行代理：** Codex  
+**首个真实 Provider：** DeepSeek  
+**任务性质：** 历史问题核查、生产 Credential Vault 资格闭合、Data Egress 安全验证、真实模型首次联调。
+
+---
+
+# 一、本轮核心目标
+
+AgentNexus 已完成 M1.8 和 M1.8.1。
+
+M1.8.1 当前交付：
+
+- 新增测试：41/41 PASS。
+- 完整回归：635 PASS、32 SKIP、14 FAIL。
+- 严格 TypeScript：PASS。
+- DeepSeek 官方接口核验：完成。
+- 统一 Token 预算：1亿 Token。
+- Data Egress：离线实现。
+- Credential Vault：生产资格 BLOCKED。
+- 真实 API 请求：0。
+- 真实 Token：0。
+- 真实费用：$0。
+
+本轮不推倒 M1.8.1，也不重复开发已经完成的 Provider Adapter、Model Gateway、Model Router 和 Key Pool。
+
+本轮目标：
+
+**关闭真实模型接入所需的关键资格问题，让 AgentNexus 通过统一 Model Gateway 安全地完成第一次真实 DeepSeek 请求，并为真实多 Agent 研发验证建立可用基础。**
+
+重点分为四项：
+
+1. 分类和处理 M1.8.1 的14项完整回归 FAIL。
+2. 完成生产 Credential Vault 资格。
+3. 完成 Data Egress 和真实请求预检。
+4. 在满足全部安全条件后，执行 DeepSeek 首轮真实联调。
+
+不要把本轮变成新的大规模架构重写。
+
+# 二、Phase 0：完整读取与基线冻结
+
+开始之前必须读取：
+
+1. 项目全部适用规则。
+2. M1.8 README。
+3. M1.8 完整验收报告。
+4. M1.8.1 README。
+5. M1.8.1 完整验收报告。
+6. M1.8.1 独立安全审查报告。
+7. M1.8.1 Credential Vault Qualification。
+8. M1.8.1 DeepSeek Official Check。
+9. M1.8.1 Data Egress 相关实现。
+10. M1.8.1 Token / Cost 账本。
+11. M1.8.1 全部源码和测试。
+12. M1.8 Provider Adapter、Model Gateway、Model Router。
+13. M1.8 Key Pool。
+14. M1.8 Resource Governance。
+15. M1.7 Native Harness 和五类 Agent 合同。
+16. M0 至 M1.8.1 的相关 ADR、Feature Catalog 和 Policy Catalog。
+
+核实：
+
+- 当前分支和 HEAD。
+- 工作树状态。
+- 实际源码清单。
+- SHA256。
+- 完整回归基线。
+- 14项 FAIL 的原始证据。
+- Vault 当前资格。
+- Data Egress 当前资格。
+- DeepSeek 模型名称及 Endpoint。
+- 全局 Token 预算账本。
+
+冻结 M1.8.1 原始基线。
+
+不得覆盖历史测试结果、失败记录和原始证据。
+
+不得修改其他科研项目。
+
+# 三、P0-A：M1.8.1 的14项 FAIL 分类与处理
+
+这是本轮第一项工作。
+
+目前完整回归：
+
+635 PASS、32 SKIP、14 FAIL。
+
+不能直接认定14项都是 M1.8.1 新引入的问题，也不能直接认定它们全部是环境问题。
+
+必须逐项调查。
+
+## 3.1 建立完整问题矩阵
+
+每项 FAIL 必须记录：
+
+- Test ID。
+- 测试文件。
+- 原始断言。
+- 原始错误。
+- M1.8 结果。
+- M1.8.1 结果。
+- 同环境对照结果。
+- 失败根因。
+- 是否为新增回归。
+- 是否影响安全资格。
+- 是否影响真实 Provider。
+- 是否需要修复。
+- 修复方案。
+- 验收标准。
+
+## 3.2 分类标准
+
+至少区分：
+
+- REGRESSION_BUG。
+- HISTORICAL_FAILURE。
+- ENVIRONMENT_LIMITATION。
+- TEST_FIXTURE_ERROR。
+- TEST_CONTRACT_ERROR。
+- OS_BEHAVIOR_LIMITATION。
+- INCONCLUSIVE。
+
+不能没有证据就把 FAIL 改成环境问题。
+
+## 3.3 修复原则
+
+1. 保留原始测试。
+2. 保留原始 FAIL。
+3. 不修改原始验收合同来制造 PASS。
+4. 修复真正的产品缺陷。
+5. 测试 Fixture 有问题时，建立明确的修复记录。
+6. 历史测试与新测试分开报告。
+7. 安全相关 FAIL 必须单独评估。
+8. 不影响真实 Provider 的历史问题可以独立保留，但必须说明理由。
+
+最终必须提供14项逐项裁定。
+
+不要因为新增41项测试全部通过，就忽略完整回归中的14项失败。
+
+# 四、P0-B：Credential Vault 生产资格闭合
+
+这是本轮最重要的安全工作。
+
+M1.8.1 的生产 Vault 仍然 BLOCKED。
+
+在真实 API Key 使用之前，必须证明：
+
+1. Host 能够通过可信入口取得授权凭证。
+2. 普通 Agent 无法读取完整 API Key。
+3. Subagent 无法读取父 Agent 的凭证。
+4. Reviewer 无法访问 Vault。
+5. Worker 无法直接读取 Vault 文件。
+6. API Key 不进入 Prompt。
+7. API Key 不进入 Context Archive。
+8. API Key 不进入普通 Audit 正文。
+9. API Key 不进入错误日志。
+10. API Key 不通过命令行参数传递。
+11. API Key 不通过不受控环境变量传递。
+12. Key 撤销后旧 Handle 失效。
+13. Key 轮换期间不会发生未授权访问。
+14. Host 重启后凭证状态能够安全恢复。
+
+## 4.1 凭证存储方案
+
+结合当前真实运行环境研究：
+
+- Windows DPAPI。
+- Windows Credential Manager。
+- OS 身份绑定。
+- Host-only Credential Service。
+- 独立凭证文件及 ACL。
+- Ubuntu 后续 Secret Service / 系统密钥环适配。
+
+不必为了本轮同时完成 Windows 和 Ubuntu 两套生产部署。
+
+但接口必须保持跨平台。
+
+## 4.2 安全凭证入口
+
+必须提供真正安全的凭证录入方式。
+
+要求：
+
+- 用户能够直接向可信 Vault 输入 Key。
+- 不通过聊天发送 Key。
+- 不通过普通终端参数传递 Key。
+- 不将 Key 写入临时文件。
+- 不将 Key 放入普通环境变量。
+- 输入完成后立即交由可信凭证服务处理。
+- 日志和审计只记录 Credential Handle ID。
+- 普通 Agent 只能发起授权请求，不能读取凭证。
+
+不要为了尽快接入 DeepSeek 而绕过 Vault。
+
+如果当前生产 OS 身份、ACL 或启动链仍然无法保证凭证隔离，继续 BLOCKED。
+
+## 4.3 资格测试
+
+至少测试：
+
+- 非授权进程访问。
+- 普通 Agent 访问。
+- Subagent 访问。
+- Reviewer 访问。
+- Worker 访问。
+- 错误 Handle。
+- 过期 Handle。
+- 已撤销 Handle。
+- 并发请求。
+- Host 重启。
+- 异常退出。
+- 日志泄漏。
+- Prompt 泄漏。
+- 文件读取泄漏。
+
+只有真实生产隔离证据通过，才能标记 LIVE_VAULT_QUALIFIED。
+
+模拟测试不能替代真实 OS 权限验证。
+
+# 五、P0-C：Data Egress 最终资格
+
+这是另一个必须完成的门禁。
+
+所有真实 Provider 请求必须经过 Data Egress 检查。
+
+分类：
+
+- PUBLIC。
+- SYNTHETIC。
+- INTERNAL。
+- CONFIDENTIAL。
+- SECRET。
+
+默认规则：
+
+| 分类 | 默认处理 |
+|---|---|
+| PUBLIC | 满足准入条件后允许 |
+| SYNTHETIC | 检查后允许 |
+| INTERNAL | 默认拒绝外发 |
+| CONFIDENTIAL | 默认拒绝，需独立审批 |
+| SECRET | 禁止外发 |
+
+## 5.1 必须检查实际请求
+
+不能只检查 Agent 最初提交的 Task。
+
+必须检查最终真正发送给 Provider 的完整请求：
+
+- System 指令。
+- Developer 指令。
+- Agent Role。
+- Task Contract。
+- 用户消息。
+- 历史上下文。
+- 文件内容。
+- Tool Schema。
+- 其他附加内容。
+
+所有内容完成 Context Assembly 后，必须重新经过 Data Egress。
+
+不能因为某个来源之前已经通过检查，就认为最终组合请求自动安全。
+
+## 5.2 真实请求审阅
+
+为 DeepSeek 首轮三个请求生成：
+
+- 实际请求正文。
+- Context Hash。
+- Request Hash。
+- 数据来源清单。
+- 数据分类。
+- 数据准入结果。
+- 目标 Provider。
+- Model ID。
+- Endpoint。
+
+特别检查：
+
+- 是否包含项目内部规则。
+- 是否包含历史对话。
+- 是否包含科研材料。
+- 是否包含本地文件路径。
+- 是否包含服务器信息。
+- 是否包含 API Key。
+- 是否包含其他敏感内容。
+
+首轮只使用公开固定协议指令和合成任务。
+
+不发送 AgentNexus 实际源代码。
+
+不发送 AI_Consciousness、AI_NeuroWeave、AI_Highlycomplex 的任何资料。
+
+不发送真实历史 Context Archive。
+
+## 5.3 Data Egress 失败行为
+
+任何分类不明确、来源不明确或无法检查的内容，默认拒绝外发。
+
+不能让 Agent 自己声明 PUBLIC 后直接放行。
+
+不能通过关闭普通 Feature 开关绕过数据外发安全门禁。
+
+# 六、P0-D：DeepSeek 官方接口和模型核验
+
+M1.8.1 已经完成官方接口核验，本轮只需要在真实执行前进行必要的增量复核。
+
+重点核对：
+
+- 官方 Endpoint。
+- 当前实际模型名称。
+- Model Alias。
+- Response Model。
+- JSON Output。
+- Tool Calling。
+- Streaming。
+- Usage。
+- 缓存 Token。
+- 失败请求计费。
+- Rate Limit。
+- Timeout。
+
+特别核实此前的：
+
+`deepseek-flash`
+
+以及官方具体模型版本。
+
+如果模型别名发生变化，必须重新确认实际调用目标。
+
+不允许根据旧文档猜测。
+
+# 七、P0-E：全局1亿 Token 预算
+
+用户已经明确授权：
+
+**本轮最多使用100,000,000 Token，输入与输出合计。**
+
+不再沿用原先 $0.01 的小额预算。
+
+这是本轮所有真实模型请求共用的总额度。
+
+## 7.1 预算范围
+
+所有真实请求共享：
+
+- DeepSeek。
+- 后续经单独授权的其他 Provider。
+- 所有 Agent。
+- 所有 Task。
+- 所有 Session。
+- 所有 Key Pool。
+
+不能因为切换 API Key、Provider、Agent 或重启 Harness 而获得新的1亿额度。
+
+## 7.2 预算管理
+
+必须实现：
+
+- 全局原子预留。
+- 请求级预算。
+- Agent 预算。
+- Task 预算。
+- Project 预算。
+- 真实 Usage 核销。
+- UNKNOWN Usage 保留。
+- 预算不足拒绝。
+- 并发消费保护。
+
+优先使用 Provider 返回的真实 Usage。
+
+无法取得时使用保守估算，并明确标记 ESTIMATED。
+
+缓存输入、缓存未命中输入、输出和 Reasoning Token 应分别记录；总额度按照本轮授权约定统一核算，不得重复计算同一 Token。
+
+失败请求已经产生的 Token 也必须计入。
+
+## 7.3 预算使用纪律
+
+1亿 Token 是最高授权，不是消费目标。
+
+不为了消耗额度制造无意义请求。
+
+不需要在本轮预先限制每个请求的费用为 $0.01。
+
+实际费用按照官方实时价格核算并记录。
+
+达到100,000,000 Token 时，必须停止新请求。
+
+预算核算不明确时暂停请求，不得自行重置账本。
+
+# 八、P1：DeepSeek 首轮真实联调
+
+只有 Vault 和 Data Egress 两项生产资格通过后，才可以开始真实 API 调用。
+
+Provider 范围仅限 DeepSeek。
+
+本轮不自动接入 GPT、GLM 或其他供应商。
+
+## 8.1 第一阶段：基础通信
+
+验证：
+
+1. 普通文本请求。
+2. 多轮消息。
+3. JSON 输出。
+4. 中文输入输出。
+5. 长输入。
+6. Streaming。
+7. 请求取消。
+8. 超时。
+9. 错误响应。
+10. Usage 解析。
+
+## 8.2 第二阶段：Tool Calling
+
+验证模型能否：
+
+- 识别工具。
+- 生成工具名称。
+- 生成参数。
+- 处理结构化返回。
+- 根据工具结果继续推理。
+- 处理工具失败。
+- 在权限不足时停止。
+
+初期只允许生成和解析工具调用意图。
+
+不执行未经资格验证的 PROCESS 或 EXTERNAL_EFFECT。
+
+## 8.3 第三阶段：Context
+
+验证：
+
+- 多轮上下文。
+- 长上下文。
+- Context Assembly。
+- 历史引用。
+- 文件引用。
+- 任务恢复。
+- 上下文版本绑定。
+- 长文本分段。
+
+模型声称记住了历史，不代表上下文机制通过。
+
+必须核验真实请求正文和 Context Provenance。
+
+# 九、P1：真实模型 Agent Pilot
+
+DeepSeek 基础联调成功后，开展真实模型驱动的独立 Pilot。
+
+不修改正式科研项目。
+
+优先沿用 M1.7 的独立 Pilot，避免重新开发测试项目。
+
+至少运行：
+
+- 一个真实 Development Agent。
+- 两个真实 Subagent。
+- 一个真实 Reviewer。
+- 一个真实 Debug Agent。
+
+完整验证：
+
+1. 主 Agent 阅读需求。
+2. 主 Agent 自主规划。
+3. 主 Agent 自主拆分任务。
+4. 子 Agent 独立阅读文件。
+5. 子 Agent 独立生成代码。
+6. 子 Agent 通过 Message Bus 汇报。
+7. Storage Owner 管理真实写入。
+8. Reviewer 独立审查。
+9. 主 Agent 决定修复。
+10. Debug Agent 修复。
+11. Test Agent 验证。
+12. Gate Engine 根据证据验收。
+
+任务分解不能全部预先写死。
+
+必须让真实模型面对实际需求作出规划。
+
+所有实际文件修改都必须由 AgentNexus Native Harness 管理。
+
+不能由 Codex 在 Harness 外部人工完成开发，再将其描述为真实 Agent 产物。
+
+# 十、P1：Single Agent 与 Multi-Agent 对照
+
+在相同 Pilot 项目中比较：
+
+A 组：Single Agent。
+
+B 组：Multi-Agent。
+
+尽可能保持：
+
+- 相同任务。
+- 相同初始代码。
+- 相同测试。
+- 相同模型能力。
+- 相同 Token 总预算。
+- 相同截止时间。
+
+评估：
+
+- 完成率。
+- 测试通过率。
+- Bug 数量。
+- Reviewer 发现率。
+- 修复成功率。
+- 返工次数。
+- 墙钟时间。
+- Token 消耗。
+- 实际费用。
+- 人工介入次数。
+- 目标偏离。
+
+如果样本不足，明确标记 INCONCLUSIVE。
+
+不能因为 Multi-Agent 使用更多模型，就默认它优于 Single Agent。
+
+# 十一、P1：Resident 和 Reviewer 长期验证
+
+Resident：
+
+- 事件驱动。
+- 消息接收。
+- Agent 唤醒。
+- 任务恢复。
+- 资源监控。
+- 持久化。
+- Host 重启恢复。
+
+建议至少进行24小时真实运行。
+
+没有实际完成24小时，不得标记 PASS。
+
+Reviewer：
+
+- Git Diff 触发。
+- Commit Hash 绑定。
+- 只读审查。
+- Bug 检查。
+- 数学和数值检查。
+- 独立证据。
+- 通知主 Agent。
+
+自动 Commit 和 Push 仍然需要独立授权。
+
+# 十二、严格保留现有安全边界
+
+本轮真实模型接入不能成为绕过安全机制的理由。
+
+必须继续：
+
+- 所有模型请求经过 Model Gateway。
+- 所有凭证经过 Credential Vault。
+- 所有数据外发经过 Data Egress。
+- 所有模型请求经过全局 Token 预算。
+- 所有工具调用经过 Tool Gateway。
+- 所有高风险操作经过 Policy。
+- 未资格 PROCESS 保持 BLOCKED。
+- 未资格 EXTERNAL_EFFECT 保持 BLOCKED。
+- 严格 CPU 累计预算保持 BLOCKED。
+- 普通 Agent 无法读取 API Key。
+- Reviewer 默认只读。
+- 未知副作用禁止自动重试。
+- 未确认资源禁止自动释放。
+
+不要为了完成真实 Pilot 而绕过任何一项门禁。
+
+# 十三、执行阶段
+
+Phase 0：读取规则、冻结 M1.8.1、14项 FAIL 分类。
+
+Phase 1：Credential Vault 生产资格。
+
+Phase 2：Data Egress 最终资格。
+
+Phase 3：DeepSeek 官方接口增量核验。
+
+Phase 4：真实 API 首轮基础联调。
+
+Phase 5：Tool Calling、Streaming、Context 测试。
+
+Phase 6：真实 Development Agent 和 Subagent。
+
+Phase 7：Reviewer 与 Debug 协作。
+
+Phase 8：真实 Pilot 研发。
+
+Phase 9：Single / Multi-Agent 对照。
+
+Phase 10：Resident 24小时运行。
+
+Phase 11：独立审查和最终验收。
+
+不必机械串行化互不冲突的离线工作。
+
+但真实 API 请求必须等待 Vault、Data Egress 和请求正文审阅全部通过。
+
+# 十四、用户授权边界
+
+用户已经明确授权本轮最多使用1亿输入与输出 Token。
+
+该额度授权不自动意味着所有数据都可以外发。
+
+真实 Provider 范围仅限 DeepSeek。
+
+真实请求数据仅限经审阅的公开指令和合成 Pilot 数据。
+
+在第一次真实 API 请求之前：
+
+1. 完成 Vault 资格。
+2. 完成 Data Egress 资格。
+3. 生成最终请求正文。
+4. 展示请求 Hash。
+5. 展示实际 Model ID。
+6. 展示数据来源。
+7. 展示 Token 预算。
+8. 展示预计费用。
+9. 形成最终执行申请。
+
+不得在资格未通过时索取或读取 API Key。
+
+如果全部资格通过，将最终执行申请提交给用户确认；不得把之前的 Token 额度授权解释为对尚未展示的实际请求正文的无限数据外发授权。
+
+用户确认后再使用安全凭证入口完成真实调用。
+
+# 十五、工程纪律
+
+- 保留 M0 至 M1.8.1 全部历史交付。
+- 不覆盖历史 FAIL。
+- 不自动 Commit / Push。
+- 不安装 Git Hooks。
+- 不修改正式科研项目。
+- 不运行正式科研实验。
+- 不读取聊天中提供的 API Key。
+- 不将 Key 写入代码、日志、Prompt 或普通配置。
+- 不擅自修改 Windows 账户、ACL、AppContainer。
+- 不擅自修改 Ubuntu。
+- 不开放未经资格验证的任意 Shell。
+- 不绕过 Model Gateway。
+- 不绕过 Credential Vault。
+- 不绕过 Data Egress。
+- 不绕过 Resource Governance。
+- 不无限累积内存。
+- 大型输入输出流式处理。
+- 保留完整审计证据。
+- 不确定副作用禁止自动重试。
+
+不进行无关生产级过度工程化。
+
+# 十六、交付物
+
+建立独立：
+
+`AgentNexus-M1.8.2`
+
+至少包括：
+
+1. M1.8.2 总体报告。
+2. M1.8.1 14项 FAIL 逐项裁定。
+3. 历史问题处理账本。
+4. Credential Vault 生产资格报告。
+5. Data Egress 资格报告。
+6. DeepSeek Provider 真实联调报告。
+7. 实际请求正文与 Hash。
+8. Model ID 核验。
+9. Streaming 报告。
+10. Tool Calling 报告。
+11. Usage / Token / Cost 账本。
+12. 真实 Agent Pilot 报告。
+13. Single / Multi-Agent 对照报告。
+14. Resident 24小时报告。
+15. Reviewer 报告。
+16. 原始脱敏请求与响应证据。
+17. Audit 记录。
+18. 独立安全审查。
+19. SHA256 清单。
+20. 最终验收报告。
+21. M1.9 后续建议。
+
+# 十七、最终验收原则
+
+本轮必须能够回答：
+
+1. M1.8.1 的14项 FAIL 分别是什么原因？
+2. 哪些属于真实回归？
+3. 哪些已经修复？
+4. Credential Vault 是否真正具备生产凭证隔离能力？
+5. Data Egress 是否能够阻止未授权数据外发？
+6. DeepSeek 是否完成真实 API 请求？
+7. Streaming 是否真实通过？
+8. Usage 和费用是否准确？
+9. 真实模型能否完成代码研发？
+10. 多 Agent 是否真正产生协作收益？
+11. Reviewer 是否能够发现未知 Bug？
+12. Resident 是否能够长期运行？
+13. 所有请求是否能够追溯？
+
+严格区分：
+
+PASS / FAIL / NOT_RUN / BLOCKED / INCONCLUSIVE / SIMULATED / BYPASSED。
+
+如果 Vault 或 Data Egress 资格没有通过，真实 API 请求继续 BLOCKED。
+
+如果只完成 API Smoke Test，不能宣称真实自主研发通过。
+
+如果真实模型 Pilot 没有完成，不能宣称多 Agent 自主研发已经实现。
+
+**现在开始执行 M1.8.2。**
+
+先读取规则、冻结 M1.8.1、处理14项 FAIL，然后完成 Vault 和 Data Egress 资格。
+
+不要只提交计划就停止。
+
+在当前授权范围内持续完成离线整改和资格验证。
+
+达到真实联调条件后，提交最终请求审阅和执行申请。

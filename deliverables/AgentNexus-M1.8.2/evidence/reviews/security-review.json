@@ -1,0 +1,708 @@
+{
+  "schema": "agentnexus/m1.8.2/independent-security-review/1",
+  "review_date": "2026-11-08",
+  "reviewer": {
+    "role": "Independent Codex engineering security reviewer",
+    "independent_context": true,
+    "implementation_author": false,
+    "deepseek_native_harness_reviewer": false,
+    "recursive_delegation": false
+  },
+  "conclusion": {
+    "offline_trusted_host_review": "COMPLETE_FIXES_VERIFIED",
+    "unresolved_blocking_findings_within_reviewed_library_scope": 0,
+    "full_regression": "FAIL",
+    "production_vault": "BLOCKED",
+    "production_data_egress": "BLOCKED",
+    "real_api": "NOT_RUN",
+    "real_native_agent_pilot": "NOT_RUN",
+    "resident_24_hours": "NOT_RUN",
+    "overall": "BLOCKED"
+  },
+  "frozen_source": {
+    "files": 189,
+    "set_sha256": "95cd2da54b0e854a469eb5e0df8f4b52ce89fe67e452ab57b758aeb8e8335b50",
+    "encoding": "UTF8(path + NUL + lowercase_sha256 + LF); UNICODE_CODEPOINT_PATH order",
+    "independent_pre_and_post_execution_match": true,
+    "parent_final_snapshot_match": true,
+    "per_file_bytes_and_sha_match": true,
+    "manifest_current_mismatch": [],
+    "delta_from_m181": {
+      "changed": [
+        "package-lock.json",
+        "package.json",
+        "src/agentnexus/model-runtime/egress.ts",
+        "src/agentnexus/model-runtime/transport.ts",
+        "tests/agentnexus/m18-review-fixes.test.ts"
+      ],
+      "added": [
+        "src/agentnexus/model-runtime/request-binding.ts",
+        "src/agentnexus/model-runtime/request-review.ts",
+        "tests/agentnexus/m182-egress.test.ts",
+        "tools/agentnexus/verify-m182.mjs"
+      ],
+      "unchanged": 180
+    }
+  },
+  "historical_source": {
+    "files": 185,
+    "set_sha256": "d2091ef71fbd7a62f17ff8a42a922357759817073d97f1343d27b6ff7c9c3bb1",
+    "matches_frozen_baseline": true,
+    "manifest_mismatch": [],
+    "scope": "Complete machine byte/hash read; not a claim of full semantic review of all historical modules/tests"
+  },
+  "reading_coverage": {
+    "definitions": {
+      "machine_entire_file_read": "All file bytes consumed for SHA256 or structured validation. This is distinct from semantic code review.",
+      "FULL": "Focused file semantically reviewed in full, including final relevant revisions.",
+      "PARTIAL": "Only stated mechanisms/sections or structured checks reviewed.",
+      "SEARCH_ONLY": "Focused searches only; no full implementation audit.",
+      "HASH_ONLY": "Machine inventory only; no semantic review claim."
+    },
+    "candidate_source_total": 189,
+    "candidate_source_semantic_full": 19,
+    "candidate_source_partial_or_search": 4,
+    "candidate_source_hash_only": 166,
+    "source_files": [
+      {
+        "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/model-runtime/request-review.ts",
+        "semantic_coverage": "FULL",
+        "machine_entire_file_read": true,
+        "bytes": 7673,
+        "sha256": "8434ada9bac7aca49856bde1ae0c65a2bb23526f5d27441b114a0aa19ba44bbf"
+      },
+      {
+        "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/model-runtime/request-binding.ts",
+        "semantic_coverage": "FULL",
+        "machine_entire_file_read": true,
+        "bytes": 733,
+        "sha256": "d144174234da00b68d9b1991aa3e5926169cca2c6145c8b574420d691fd2bf2d"
+      },
+      {
+        "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/model-runtime/egress.ts",
+        "semantic_coverage": "FULL",
+        "machine_entire_file_read": true,
+        "bytes": 10319,
+        "sha256": "a8ace22fb0978dd16f0c5e75d860606e449f115d8d05fc4803078d5825403f40"
+      },
+      {
+        "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/model-runtime/transport.ts",
+        "semantic_coverage": "FULL",
+        "machine_entire_file_read": true,
+        "bytes": 12903,
+        "sha256": "0bf624ca603644592a8c6160cca8b9dfa718e9c940720dcb6717ddbaa9aff128"
+      },
+      {
+        "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/model-runtime/gateway.ts",
+        "semantic_coverage": "FULL",
+        "machine_entire_file_read": true,
+        "bytes": 21987,
+        "sha256": "fbe2728d9bfe1095231f1984b48c3f54f55dd0549c7226eb599a2b45a783be10"
+      },
+      {
+        "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/model-runtime/protocol.ts",
+        "semantic_coverage": "FULL",
+        "machine_entire_file_read": true,
+        "bytes": 9399,
+        "sha256": "ffc652e21ef967684ca179729e1d20b9eb8f077e418949dcb0d32d1178d9b6e9"
+      },
+      {
+        "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/model-runtime/campaign.ts",
+        "semantic_coverage": "FULL",
+        "machine_entire_file_read": true,
+        "bytes": 9440,
+        "sha256": "c0a530c7b00f12e7a765b2774491813d48ceee123048987ca46df6b3e5e764cc"
+      },
+      {
+        "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/model-runtime/vault.ts",
+        "semantic_coverage": "FULL",
+        "machine_entire_file_read": true,
+        "bytes": 39974,
+        "sha256": "399b05b1147c9c8ac7f62b5852834d86058de92192e846142fbccaa27c50dedd"
+      },
+      {
+        "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/model-runtime/adapters.ts",
+        "semantic_coverage": "FULL",
+        "machine_entire_file_read": true,
+        "bytes": 14831,
+        "sha256": "df5bbdcf546e1099a3ddcd493d6292b5f8804df972edfacb7340e62462235e86"
+      },
+      {
+        "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/model-runtime/deepseek.ts",
+        "semantic_coverage": "FULL",
+        "machine_entire_file_read": true,
+        "bytes": 3844,
+        "sha256": "7d6627468918c457ff0b6e130eb19cb45d7b105d975c7ad6714a50b92ff42d32"
+      },
+      {
+        "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/model-runtime/dpapi.ps1",
+        "semantic_coverage": "FULL",
+        "machine_entire_file_read": true,
+        "bytes": 1737,
+        "sha256": "a5284e726a8b888c143f4b4992e0280c389d623bc5cf5f8568a6199db7af1ded"
+      },
+      {
+        "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/harness/context.ts",
+        "semantic_coverage": "FULL",
+        "machine_entire_file_read": true,
+        "bytes": 25433,
+        "sha256": "322c8f68c7d19181a973a9f9cbd7a7d39cbd348a8b8442904b32924b9c209f97"
+      },
+      {
+        "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/harness/state.ts",
+        "semantic_coverage": "FULL",
+        "machine_entire_file_read": true,
+        "bytes": 7890,
+        "sha256": "b290d9d03427e11b3bf42e5c7ee3eb3ad0b916060ceb2a336e50169b52b54ddf"
+      },
+      {
+        "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/harness/contracts.ts",
+        "semantic_coverage": "FULL",
+        "machine_entire_file_read": true,
+        "bytes": 2537,
+        "sha256": "fae11a6e1a11ea1cd1e737ce1320b344a17c974baba4f7d33402fff84c8dfc39"
+      },
+      {
+        "path": "deliverables/AgentNexus-M1.8.2/source/tests/agentnexus/m182-egress.test.ts",
+        "semantic_coverage": "FULL",
+        "machine_entire_file_read": true,
+        "bytes": 15432,
+        "sha256": "d68b99c8a3c3741517d2335c8ef803da26d513956fa109ab92ab01913d25503f"
+      },
+      {
+        "path": "deliverables/AgentNexus-M1.8.2/source/tests/agentnexus/m18-review-fixes.test.ts",
+        "semantic_coverage": "FULL",
+        "machine_entire_file_read": true,
+        "bytes": 9214,
+        "sha256": "adec153783811aece744c3ebd6ad5aba14b3975e22d2c25d78ffad4d5410e270"
+      },
+      {
+        "path": "deliverables/AgentNexus-M1.8.2/source/tests/agentnexus/m18-fixture.ts",
+        "semantic_coverage": "FULL",
+        "machine_entire_file_read": true,
+        "bytes": 5385,
+        "sha256": "ca8f34780314c938a5c62a7c9157e86a97c66865e1766bac7188da76d1f298b5"
+      },
+      {
+        "path": "deliverables/AgentNexus-M1.8.2/source/tools/agentnexus/verify-m182.mjs",
+        "semantic_coverage": "FULL",
+        "machine_entire_file_read": true,
+        "bytes": 18172,
+        "sha256": "0046a6530caede4bb8376dabc5682fbb1c2a0d8f06467093ea4f7990b64cbfc3"
+      },
+      {
+        "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/production/qualification.ts",
+        "semantic_coverage": "FULL",
+        "machine_entire_file_read": true,
+        "bytes": 2691,
+        "sha256": "151529013bfab546831927c4f7f42d3961e268577ab27b5bd7c6de065e187e7f"
+      },
+      {
+        "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/harness/index.ts",
+        "semantic_coverage": "PARTIAL",
+        "machine_entire_file_read": true,
+        "focus": "Host bootstrap/admin capability and bound Agent facade; modelRuntimeFactory; qualification fields",
+        "bytes": 33531,
+        "sha256": "bbf5aeb5343f562bbc84475f98ef9348a5cec895d2d38d8e05c7cc983387d550"
+      },
+      {
+        "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/production/resources.ts",
+        "semantic_coverage": "PARTIAL",
+        "machine_entire_file_read": true,
+        "focus": "Mechanism declarations and hard REAL_WINDOWS block, lines 15-35",
+        "bytes": 2621,
+        "sha256": "949e0713c1ebeca78a1b8c9598aef8414a5166f6371cb4d1f106f311e6a67b2c"
+      },
+      {
+        "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/bootstrap/config.ts",
+        "semantic_coverage": "PARTIAL",
+        "machine_entire_file_read": true,
+        "focus": "SID separation, code pins and native attestation checks via focused searches",
+        "bytes": 12928,
+        "sha256": "281e683c0f4fac5a0618deff0976da09ccaca860935cf1c044541f5cf7e5aea0"
+      },
+      {
+        "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/production/windows/NativeRuntime.cs",
+        "semantic_coverage": "SEARCH_ONLY",
+        "machine_entire_file_read": true,
+        "focus": "Actual process token, restricted/AppContainer and launch/readback entry points; not full native implementation audit",
+        "bytes": 67315,
+        "sha256": "2c5cf6a60c33b91604763a12d7d5ac970c68a0b87a41510f5d09c5fa540398ca"
+      }
+    ],
+    "other_inputs": [
+      {
+        "path": "AGENTS.md",
+        "bytes": 2587,
+        "sha256": "a868b01052ea5613300e6973fd1c65917ba2f10b01eea025214b513432cd4694",
+        "machine_entire_file_read": true,
+        "semantic_coverage": "FULL"
+      },
+      {
+        "path": ".workflow-kit/governance/policy.json",
+        "bytes": 7919,
+        "sha256": "ea91359de90e74cbb554f93ac2dae82509f93f5bcc05c65bf22384aba4dd4d83",
+        "machine_entire_file_read": true,
+        "semantic_coverage": "FULL"
+      },
+      {
+        "path": "ai-workflow-kit-v4/project-workflows/README.md",
+        "bytes": 1027,
+        "sha256": "1f12071a31eca68714381c3f543ff46ba81b20acd5c951e2eb68aee0f6bc9b21",
+        "machine_entire_file_read": true,
+        "semantic_coverage": "FULL"
+      },
+      {
+        "path": "tools/agentnexus/m182-probes.mjs",
+        "bytes": 10166,
+        "sha256": "4699deba9efce5a1135aaabb96455c86def1625ddf26544d8119f21bc40121d1",
+        "machine_entire_file_read": true,
+        "semantic_coverage": "FULL"
+      },
+      {
+        "path": "tools/agentnexus/m182-vault-reader.mjs",
+        "bytes": 2511,
+        "sha256": "1f992402ffca0073c78545077da729068aeac8b6eb18ce292f5dbb06ac0d9655",
+        "machine_entire_file_read": true,
+        "semantic_coverage": "FULL"
+      },
+      {
+        "path": "tools/agentnexus/m182-evidence.mjs",
+        "bytes": 8556,
+        "sha256": "78fc33c28ee344ad4a92f2d3894ab92de28bddc0a21a6b0f17182c70cc84a58f",
+        "machine_entire_file_read": true,
+        "semantic_coverage": "FULL"
+      },
+      {
+        "path": "deliverables/AgentNexus-M1.8.1/reports/independent-security-review.md",
+        "bytes": 9003,
+        "sha256": "c25879c39b58ea624523795d3e413a122505202fad34c0319207883c8ac1fbfc",
+        "machine_entire_file_read": true,
+        "semantic_coverage": "FULL"
+      },
+      {
+        "path": "deliverables/AgentNexus-M1.8.1/reports/credential-vault-qualification.md",
+        "bytes": 1031,
+        "sha256": "19e9a7e39d15bf67a6b9e9517cb98845b4d3db057ab85c93f1885f19ef9046f1",
+        "machine_entire_file_read": true,
+        "semantic_coverage": "FULL"
+      },
+      {
+        "path": "deliverables/AgentNexus-M1.8.1/reports/data-egress-policy.md",
+        "bytes": 887,
+        "sha256": "a37705bf7c8b8f90cbb339b68a191c85f7618eaf01a72d968a75ff7fe48a0195",
+        "machine_entire_file_read": true,
+        "semantic_coverage": "FULL"
+      },
+      {
+        "path": "deliverables/AgentNexus-M1.8.1/acceptance-report.md",
+        "bytes": 1939,
+        "sha256": "0f80ade91c9a79aead0eab902704a8c4fd948da58147ce7edf417e38c988b8a0",
+        "machine_entire_file_read": true,
+        "semantic_coverage": "FULL"
+      },
+      {
+        "path": ".workflow-kit/runtime/AgentNexus-M1.8.2/probes-rUf9hH/filesystem.json",
+        "bytes": 268,
+        "sha256": "f36c1457a184fa235744ac06709ec27e94501f03c7d823ab52ee6a5ff19a1c89",
+        "machine_entire_file_read": true,
+        "semantic_coverage": "FULL"
+      },
+      {
+        "path": ".workflow-kit/runtime/AgentNexus-M1.8.2/probes-rUf9hH/storage.json",
+        "bytes": 8363,
+        "sha256": "35e20b38a91072bcc7fab01def7f52490b29f95f1a8dfa4180eb55e399e77b42",
+        "machine_entire_file_read": true,
+        "semantic_coverage": "FULL"
+      },
+      {
+        "path": ".workflow-kit/runtime/AgentNexus-M1.8.2/probes-RYg2rE/native-paths.json",
+        "bytes": 876,
+        "sha256": "809e6f6828df3d414c62dbf9344e7225909bc84ef924d94e0e549daf9947d10e",
+        "machine_entire_file_read": true,
+        "semantic_coverage": "FULL"
+      },
+      {
+        "path": ".workflow-kit/runtime/AgentNexus-M1.8.2/probes-VXz7mJ/vault-isolation.json",
+        "bytes": 6437,
+        "sha256": "86873cd46ff1f8cc0bf6aafaec836c8c7c49368f664c493de314184fc6a49c21",
+        "machine_entire_file_read": true,
+        "semantic_coverage": "FULL"
+      },
+      {
+        "path": ".workflow-kit/runtime/AgentNexus-M1.8.2/probes-sm8PXV/vault-isolation.json",
+        "bytes": 6438,
+        "sha256": "130239315c6c96463585b096d72928fa42fb3399b170dc78fc3dded7a90fb9a7",
+        "machine_entire_file_read": true,
+        "semantic_coverage": "PARTIAL",
+        "focus": "Same-SID parent/child identities, digests, file/decrypt booleans and exit; not every token group row"
+      },
+      {
+        "path": ".workflow-kit/runtime/AgentNexus-M1.8.2/probes-hnGhOi/reader-denial.json",
+        "bytes": 870,
+        "sha256": "2c8428de7d8cf0a2cab487d1a5f5f3e203180cf9fb7a2a1824440fcd047970b7",
+        "machine_entire_file_read": true,
+        "semantic_coverage": "FULL"
+      },
+      {
+        "path": ".workflow-kit/runtime/AgentNexus-M1.8.2/probes-KJ0yLg/reader-denial.json",
+        "bytes": 870,
+        "sha256": "2c8428de7d8cf0a2cab487d1a5f5f3e203180cf9fb7a2a1824440fcd047970b7",
+        "machine_entire_file_read": true,
+        "semantic_coverage": "FULL"
+      },
+      {
+        "path": ".workflow-kit/runtime/AgentNexus-M1.8.2/host-acl.json",
+        "bytes": 1252,
+        "sha256": "1e8c5c4360dc239968157babfe697ce2070551e669f961ac982ef45546e1b646",
+        "machine_entire_file_read": true,
+        "semantic_coverage": "FULL"
+      },
+      {
+        "path": ".workflow-kit/runtime/AgentNexus-M1.8.2/request-drafts-6uuNUy/request-index.json",
+        "bytes": 5328,
+        "sha256": "fd40f2ab129f81ec65609973cadef127e00143e778bb1ef3dd24c5cf31d1fdea",
+        "machine_entire_file_read": true,
+        "semantic_coverage": "FULL"
+      },
+      {
+        "path": ".workflow-kit/runtime/AgentNexus-M1.8.2/request-drafts-6uuNUy/m182-smoke-01/body.json",
+        "bytes": 693,
+        "sha256": "80659f2de6d3a506a25e10a18da6e594ba509f11a6877d3a37498ef36695bd28",
+        "machine_entire_file_read": true,
+        "semantic_coverage": "FULL"
+      },
+      {
+        "path": ".workflow-kit/runtime/AgentNexus-M1.8.2/request-drafts-6uuNUy/m182-smoke-01/context.txt",
+        "bytes": 106,
+        "sha256": "f9f6119c4e50c78f1ad9e7c5e82e25ae29bad494e77806df2ee12ffa80b26da5",
+        "machine_entire_file_read": true,
+        "semantic_coverage": "FULL"
+      },
+      {
+        "path": ".workflow-kit/runtime/AgentNexus-M1.8.2/request-drafts-6uuNUy/m182-smoke-01/review.json",
+        "bytes": 3741,
+        "sha256": "d38c2e2c4f46c5c50e9ecf541fbbc257d3273d39a3bd134ce1d2a6b7ef1a9937",
+        "machine_entire_file_read": true,
+        "semantic_coverage": "PARTIAL",
+        "focus": "Programmatic hash/source/classification checks; full actual body/context read"
+      },
+      {
+        "path": ".workflow-kit/runtime/AgentNexus-M1.8.2/request-drafts-6uuNUy/m182-smoke-01/decisions.json",
+        "bytes": 1043,
+        "sha256": "4c5ae2f76403523a77d7a2ad166420d99d38701bb30d0641015ccec90ae919d1",
+        "machine_entire_file_read": true,
+        "semantic_coverage": "PARTIAL",
+        "focus": "Programmatic hash/source/classification checks; full actual body/context read"
+      },
+      {
+        "path": ".workflow-kit/runtime/AgentNexus-M1.8.2/request-drafts-6uuNUy/m182-smoke-02/body.json",
+        "bytes": 722,
+        "sha256": "872eaf59d3819f408907e0d5eefd68d79a607c84034a3183411a69a28b7800cd",
+        "machine_entire_file_read": true,
+        "semantic_coverage": "FULL"
+      },
+      {
+        "path": ".workflow-kit/runtime/AgentNexus-M1.8.2/request-drafts-6uuNUy/m182-smoke-02/context.txt",
+        "bytes": 143,
+        "sha256": "319f9dc2ac57a4a9096696b5b840044e92425f15a99c7465afc72a2686a25740",
+        "machine_entire_file_read": true,
+        "semantic_coverage": "FULL"
+      },
+      {
+        "path": ".workflow-kit/runtime/AgentNexus-M1.8.2/request-drafts-6uuNUy/m182-smoke-02/review.json",
+        "bytes": 3783,
+        "sha256": "2a166558331adfd666e0cb8afacf691b76f8af316ea57b44be953396b4449039",
+        "machine_entire_file_read": true,
+        "semantic_coverage": "PARTIAL",
+        "focus": "Programmatic hash/source/classification checks; full actual body/context read"
+      },
+      {
+        "path": ".workflow-kit/runtime/AgentNexus-M1.8.2/request-drafts-6uuNUy/m182-smoke-02/decisions.json",
+        "bytes": 1043,
+        "sha256": "85876f96795469c26b36fe8b44b5603e18865be8230b880c1044414bd41b7845",
+        "machine_entire_file_read": true,
+        "semantic_coverage": "PARTIAL",
+        "focus": "Programmatic hash/source/classification checks; full actual body/context read"
+      },
+      {
+        "path": ".workflow-kit/runtime/AgentNexus-M1.8.2/request-drafts-6uuNUy/m182-smoke-03/body.json",
+        "bytes": 1045,
+        "sha256": "cda8ed49dc95e604961734083ad96179de0e9952e7c600dfde53af5f8f72ec08",
+        "machine_entire_file_read": true,
+        "semantic_coverage": "FULL"
+      },
+      {
+        "path": ".workflow-kit/runtime/AgentNexus-M1.8.2/request-drafts-6uuNUy/m182-smoke-03/context.txt",
+        "bytes": 173,
+        "sha256": "166b0b8a51310e7c76eb837bcef1bdd5947d27e9d87e337db810de93b018945b",
+        "machine_entire_file_read": true,
+        "semantic_coverage": "FULL"
+      },
+      {
+        "path": ".workflow-kit/runtime/AgentNexus-M1.8.2/request-drafts-6uuNUy/m182-smoke-03/review.json",
+        "bytes": 4402,
+        "sha256": "4264fb505fb483f56c7644a3dcbc5fcf6cdb9ef79cee89b91d3c51b841371512",
+        "machine_entire_file_read": true,
+        "semantic_coverage": "FULL"
+      },
+      {
+        "path": ".workflow-kit/runtime/AgentNexus-M1.8.2/request-drafts-6uuNUy/m182-smoke-03/decisions.json",
+        "bytes": 1227,
+        "sha256": "c17798307d4f9bf0c27317316cc50c32b5ecab5851679ee561522affcce69c5e",
+        "machine_entire_file_read": true,
+        "semantic_coverage": "PARTIAL",
+        "focus": "Programmatic hash/source/classification checks; full actual body/context read"
+      },
+      {
+        "path": ".workflow-kit/runtime/AgentNexus-M1.8.2/baseline.json",
+        "bytes": 4131123,
+        "sha256": "a36ba699b8b488538a1a7b0deb095e8540c68e6dd391601fb4f65841584dbbac",
+        "machine_entire_file_read": true,
+        "semantic_coverage": "PARTIAL",
+        "focus": "Frozen source inventory/hash, authorization fields and branch/HEAD; not a semantic review of every historical artifact row"
+      },
+      {
+        "path": ".workflow-kit/runtime/AgentNexus-M1.8.2/candidate-freeze.json",
+        "bytes": 32385,
+        "sha256": "b2e33be32a25156328bf9c3a3ef095daae1e7460b82a1d4528f4616f97ec9b1c",
+        "machine_entire_file_read": true,
+        "semantic_coverage": "FULL",
+        "focus": "All 189 file rows and set hash independently compared"
+      },
+      {
+        "path": ".workflow-kit/runtime/AgentNexus-M1.8.2/baseline-verification/r-e928e511fc4e/results.json",
+        "bytes": 360246,
+        "sha256": "405b443232f0d179d59947d6402f074530a662b5013fab30c93a1767e738c2f6",
+        "machine_entire_file_read": true,
+        "semantic_coverage": "PARTIAL",
+        "focus": "Summary/status/failure names/source hashes; no claim each old test was independently executed"
+      },
+      {
+        "path": "deliverables/AgentNexus-M1.8.2/evidence/test-fixture-repair/m18-review-fixes.before.test.ts",
+        "bytes": 8576,
+        "sha256": "04611df2b1aa0c2b51573331ab34c27aa5a14e807984589cb546c65d36caa59c",
+        "machine_entire_file_read": true,
+        "semantic_coverage": "PARTIAL",
+        "focus": "Original slot fixture lines 28-40 plus full-byte identity to historical M181 test"
+      }
+    ],
+    "user_task": "C:/Users/28642/.codex/attachments/c65558a3-fe83-4876-819a-fe528f2a5ee4/已粘贴的文本.txt; full text read",
+    "project_rules_index_exists": false
+  },
+  "findings": [
+    {
+      "id": "SEC-M182-001",
+      "priority": "P2",
+      "title": "Duplicate JSON keys allowed unclassified raw wire bytes outside parsed component coverage",
+      "status": "FIXED_VERIFIED",
+      "affected_file": "source/src/agentnexus/model-runtime/request-review.ts",
+      "initial_reproduction": {
+        "module_sha256": "3efa3080e962a66faeda9df05c25272d38c994a2a52e3a933686d42b103ae839",
+        "accepted_variants": [
+          "duplicate messages key",
+          "escaped duplicate mess\\u0061ges key"
+        ],
+        "effect": "Raw request contained an additional synthetic developer note while source_count remained 1 and only the two legitimate message components were reported.",
+        "body_hashes": [
+          "8cd872d1d9cf7e80e2cd3c1f69bda6979240e780049dfda8e7ded0370413acef",
+          "64de1cbdba1c5ab5515d8e1b21e62c570dd6add492ac9be8efa92a2b6fe93a88"
+        ]
+      },
+      "reachability": "Exported trusted-Host review API. Current normal Agent path uses DeepSeekAdapter JSON.stringify, so no ordinary Agent raw-wire injection was demonstrated. No live request was made.",
+      "fix": "Require exact request.body === JSON.stringify(JSON.parse(request.body)) and reject lossy serialization without modifying outgoing bytes.",
+      "verification": "Original accepted variants now reject MODEL182_REVIEW_WIRE_SERIALIZATION; final 14-case suite covers duplicate model/messages/tools/nested properties and escaped duplicate keys."
+    }
+  ],
+  "additional_verified_changes": [
+    {
+      "id": "COMPAT-M182-001",
+      "kind": "INHERITED_TEST_FIXTURE_REPAIR",
+      "status": "VERIFIED",
+      "original_failure": "Preserved pre-fix model run r-c6353e51f2a2: 162 tests, 159 PASS/2 SKIP/1 FAIL; slot test assertion 0 !== 16.",
+      "reason": "Old REAL preflight fixture used {} body and a hash-only grant, which the new final-review requirement correctly rejects.",
+      "change": "Candidate fixture now uses real Context Assembly, adapter JSON bytes and approved synthetic source review. The 16 accepted/1 rejected pending-slot assertions remain.",
+      "historical_fixture_sha256": "04611df2b1aa0c2b51573331ab34c27aa5a14e807984589cb546c65d36caa59c",
+      "historical_original_byte_identical": true
+    },
+    {
+      "kind": "FAIL_CLOSED_CORRELATION_REVIEW_CONFLICT",
+      "status": "FIXED_VERIFIED",
+      "change": "Durable review id derives from grant_id + request_hash. A changed correlation id is denied until separately reviewed, after which both reviewed requests work under the same body grant.",
+      "scope": "Availability/representation correction; not an observed unauthorized egress."
+    },
+    {
+      "kind": "SYNTHETIC_PROBE_HELPER_INPUT_HARDENING",
+      "status": "FIXED_VERIFIED",
+      "change": "Ancestor realpath/nonlink/file nlink checks and application_id/user_version/SYNTHETIC/backend metadata checks precede ciphertext SELECT/decrypt.",
+      "independent_denial_probes": 3,
+      "independent_denial_passes": 3,
+      "scope": "Trusted local engineering helper. No claim that these path checks establish a hostile OS process isolation boundary."
+    }
+  ],
+  "independently_executed": {
+    "node": {
+      "node": "v24.15.0",
+      "execPath": "D:\\Nodejs\\node.exe"
+    },
+    "final_tests": {
+      "files": [
+        "tests/agentnexus/m182-egress.test.ts",
+        "tests/agentnexus/m18-review-fixes.test.ts"
+      ],
+      "tests": 21,
+      "passed": 21,
+      "failed": 0,
+      "skipped": 0,
+      "source_set_sha256": "95cd2da54b0e854a469eb5e0df8f4b52ce89fe67e452ab57b758aeb8e8335b50",
+      "actual_http_send": false
+    },
+    "initial_tests_retained": {
+      "tests": 11,
+      "passed": 11,
+      "intermediate_tests": 14,
+      "final_acceptance_basis": false
+    },
+    "original_reproduction_and_fix_checks": true,
+    "expiry_checks": {
+      "policy_fence": "DENY",
+      "transport_fence": "DENY",
+      "method": "Date.now replaced only for synchronous synthetic checks; not an OS clock or production time test"
+    },
+    "truthy_verifier_object": "DENIED",
+    "synthetic_reader_denial": {
+      "cases": 3,
+      "passed": 3,
+      "dpapi_executed": false,
+      "credentials_table_present": false,
+      "run": ".workflow-kit/runtime/AgentNexus-M1.8.2/probes-KJ0yLg"
+    }
+  },
+  "parent_executed_independently_verified": {
+    "full_regression": {
+      "final_run": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.2\\final-verification\\r-51aac3fe4c16",
+      "status": "FAIL",
+      "counts": {
+        "tests": 695,
+        "failed": 15,
+        "passed": 648,
+        "cancelled": 0,
+        "skipped": 32,
+        "todo": 0,
+        "topLevel": 628,
+        "suites": 0
+      },
+      "syntax_pass": true,
+      "tsc": "PASS",
+      "tests": "FAIL",
+      "source_set_sha256": "95cd2da54b0e854a469eb5e0df8f4b52ce89fe67e452ab57b758aeb8e8335b50",
+      "source_snapshot_after_sha256": "95cd2da54b0e854a469eb5e0df8f4b52ce89fe67e452ab57b758aeb8e8335b50",
+      "source_snapshot_stable": true,
+      "manifest_set_sha256": "95cd2da54b0e854a469eb5e0df8f4b52ce89fe67e452ab57b758aeb8e8335b50",
+      "independently_recomputed_manifest_sha256": "95cd2da54b0e854a469eb5e0df8f4b52ce89fe67e452ab57b758aeb8e8335b50",
+      "manifest_file_count": 189,
+      "manifest_current_mismatch": [],
+      "m182_cases": {
+        "total": 14,
+        "passed": 14,
+        "failed": 0
+      },
+      "baseline_counts": {
+        "tests": 681,
+        "failed": 15,
+        "passed": 634,
+        "cancelled": 0,
+        "skipped": 32,
+        "todo": 0,
+        "topLevel": 614,
+        "suites": 0
+      },
+      "failed_names": [
+        "M1.4 REAL_WINDOWS_PRIMITIVE: cumulative Job CPU time kills a busy fixture before wall deadline",
+        "M151 REAL_WINDOWS_PRIMITIVE: CREATE_BREAKAWAY_FROM_JOB is denied by the private Job",
+        "M151 REAL_WINDOWS_PRIMITIVE: concurrent directory replacement never returns junction target bytes",
+        "M161 GATE actual file candidate is bound from trusted PASS to the approved Storage input",
+        "M161 STORAGE REAL_PROCESS_CRASH at AUDIT_ACKNOWLEDGED preserves evidence and never automatically retries",
+        "M161 STORAGE REAL_PROCESS_CRASH at PUBLISHED preserves evidence and never automatically retries",
+        "M161 STORAGE REAL_PROCESS_CRASH at UNLINK_TEMP preserves evidence and never automatically retries",
+        "M161 STORAGE REPLACE requires the exact owned version; original Artifact remains reconstructible",
+        "M161 STORAGE bounded streaming verifies 3 MiB without materializing the input in the request",
+        "M161 STORAGE changed bytes between publication and ACK stay UNKNOWN and cannot be reconciled by pathname",
+        "M161 STORAGE concurrent same-resource writers conflict before the second file effect",
+        "M161 STORAGE persistent resource quota rejects a second allocation before a temporary object",
+        "M161 STORAGE publish-link gap is reconciled by identity/hash without republishing",
+        "M161 STORAGE real atomic CREATE binds exact approval, content, Artifact/Audit and persistent budget ownership",
+        "M17 Native Pilot actually publishes, reviews, repairs, restores and gates a complete CLI through a SIMULATED provider"
+      ],
+      "new_failed_names": [],
+      "resolved_failed_names": [],
+      "test_command_status": "FAIL",
+      "exit_observed": true,
+      "close_observed": true,
+      "execution_started": true,
+      "errors": []
+    },
+    "same_sid_synthetic_vault_negative": {
+      "original_run": "probes-VXz7mJ",
+      "hardened_helper_fresh_run": "probes-sm8PXV",
+      "status": "ISOLATION_FAIL",
+      "ordinary_process_file_read": true,
+      "ordinary_process_current_user_dpapi_decrypt": true,
+      "same_sid": true,
+      "digests_equal": true,
+      "child_exit_code": 0,
+      "real_credential": false,
+      "deployed_restricted_worker": false,
+      "cross_account": "NOT_RUN"
+    },
+    "filesystem_probe": {
+      "hardlink": "EPERM",
+      "junction": "EPERM",
+      "rename": "PASS",
+      "qualification_effect": "Does not qualify hostile boundary or atomic managed publication."
+    }
+  },
+  "draft_requests": {
+    "run": ".workflow-kit/runtime/AgentNexus-M1.8.2/request-drafts-6uuNUy",
+    "requests": 3,
+    "all_body_context_request_review_sources_hashes_match": true,
+    "actual_bodies_semantically_read": true,
+    "content": "Fixed system protocol + one fabricated task per request; request 03 adds exact reviewed synthetic add-tool schema.",
+    "total_token_reservation_upper_bound_if_later_approved": 14554,
+    "index_estimated_cost_micros_usd": 4885,
+    "actual_provider_requests": 0,
+    "active_grants": 0,
+    "active_reviews": 0,
+    "user_consent": false,
+    "state": "DRAFT_BLOCKED_NOT_SENT",
+    "reuse_rule": "Regenerate and re-review on qualified deployment; these drafts do not authorize later live sending."
+  },
+  "security_boundaries": [
+    "approveReviewed and grant/network owners require trusted Host admin; external verifier must return boolean true and actually bind reviewed sources/bytes and user consent. Fixture verifiers do not constitute production user confirmation.",
+    "Gateway verifies/reconstructs the acknowledged context. First profile accepts only fixed system + exact assembled user message and optional exact reviewed synthetic tools; additional developer/history/file fields and lossy JSON fail closed.",
+    "REAL egress requires durable final review in policy and transport fences. Grant and receipt fields, provider/model/project/endpoint/hashes, expiry and revocation are rechecked. Ordinary Feature switches cannot remove this unconditional REAL gate.",
+    "Header/provenance/decoded-body known-secret scans run before review output/persistence. Common-pattern checks are supplemental and do not identify every unknown secret, hostname, relative path or encoding.",
+    "Application request hash covers canonical credential-free HttpEnvelope; body hash covers original request.body bytes. Authorization is added only inside trusted transport use, not included in review previews.",
+    "Vault is still SIMULATED and rejects LIVE before access; REAL Gateway requires matching Vault/transport assurance. A trusted Host can author malicious callbacks, which is outside the ordinary Agent facade threat claim.",
+    "Campaign remains fixed to the durable Host store and 100,000,000 input+output ceiling; UNKNOWN holds remain conservative. No live use or invoice was established."
+  ],
+  "limitations": [
+    "No real credential lookup/import or network invocation by reviewer.",
+    "No account/ACL/AppContainer/profile/system changes.",
+    "No production distinct-account Worker/Subagent/Reviewer deny proof; same-SID synthetic negative supports BLOCKED.",
+    "PROCESS/EXTERNAL_EFFECT and strict cumulative CPU production qualification remain BLOCKED.",
+    "Actual DeepSeek response/usage/invoice, autonomous Native Harness Reviewer/Pilot and 24-hour Resident are NOT_RUN.",
+    "Full regression remains FAIL with 15 failures and 32 skips; no new failure names compared with unchanged M181 rerun.",
+    "Only the listed 19 source files received FULL semantic coverage; machine reads of 189 files do not imply full semantic source/test audit."
+  ],
+  "governance": {
+    "owner": "Parent agent",
+    "scope": "Final repository governance check is recorded separately by parent; this review does not claim its pending result."
+  },
+  "evidence": {
+    "raw": "independent-raw-20261108-duplicate-json.json",
+    "raw_sha256": "df5961f8a5badfa868fefc44792ff5abd79f0fff769e685c55aa5cc23d442391",
+    "raw_preserves_initial_failures_and_outputs": true,
+    "final_parent_run": ".workflow-kit/runtime/AgentNexus-M1.8.2/final-verification/r-51aac3fe4c16"
+  }
+}

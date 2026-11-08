@@ -1,0 +1,7 @@
+test('M161 STORAGE changed bytes between publication and ACK stay UNKNOWN and cannot be reconciled by pathname',async()=>{
+  const root=await fixture();const h=await storageFixture(root,{storage:{onStage:async stage=>{if(stage==='PUBLISHED')await writeFile(join(root,'files/result.txt'),'xxxx');}}});
+  try{await prepare(h,Buffer.from('data'),4);assert.equal((await execute(h)).state,'UNKNOWN_QUARANTINED');const w=h.state.list<StorageWrite>('STORAGE_WRITE',{limit:1})[0];assert.equal(w.state,'INDETERMINATE');assert.equal(w.reason,'STORAGE_PUBLICATION_CHANGED_BEFORE_ACK');
+    await assert.rejects(h.administration.reconcileStorage(w.id),/STORAGE_RECONCILIATION_UNVERIFIED/);assert.equal(h.administration.inspectStorage(w.id).state,'INDETERMINATE');assert.equal(h.state.count('resource_storage_claim'),0);assert.equal(h.state.get<Budget>('resource_budget','platform')!.held.disk_bytes,4);
+  }finally{await h.close();}
+});
+

@@ -1,0 +1,1413 @@
+{
+  "status": "PASS",
+  "checker_sha256": "ef1d398ba503333bf04e269ba97788252d95c84f667acab460d5e90dc64edfc1",
+  "full_root_log": "root-extended-check.txt",
+  "checks_disabled": false,
+  "rules_changed": false,
+  "checked": [
+    {
+      "path": ".workflow-kit/tasks/AgentNexus-M1.8.2/original-request.txt",
+      "category": "task"
+    },
+    {
+      "path": ".workflow-kit/tasks/AgentNexus-M1.8.2/status.json",
+      "category": "task"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/README.md",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/SHA256SUMS.txt",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/acceptance-report.md",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/acceptance.json",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/authorization.json",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/build-tools/m182-delivery.py",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/build-tools/m182-evidence.mjs",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/build-tools/m182-probes.mjs",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/build-tools/m182-report.py",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/build-tools/m182-vault-reader.mjs",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/data-egress-qualification.json",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/delivery-index.json",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/additional-historical-observations.json",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/baseline.json",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/candidate-freeze.json",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/catalog-reconciliation.json",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/failure-chain-source-equality.json",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/failure-matrix.json",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/governance/final-delta.json",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/governance/path-length-probe.json",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/governance/root-extended-check.txt",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/governance/root-normal-path-check.txt",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/governance/summary.json",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/history-preservation.json",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/live-requests.json",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/probes/filesystem.json",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/probes/host-acl.json",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/probes/native-paths.json",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/probes/raw-index.json",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/probes/reader-denial.json",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/probes/storage.json",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/probes/vault-final.json",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/probes/vault-initial.json",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/read-coverage.json",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/requests/audit.jsonl",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/requests/m182-smoke-01/body.json",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/requests/m182-smoke-01/context.txt",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/requests/m182-smoke-01/decisions.json",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/requests/m182-smoke-01/review.json",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/requests/m182-smoke-02/body.json",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/requests/m182-smoke-02/context.txt",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/requests/m182-smoke-02/decisions.json",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/requests/m182-smoke-02/review.json",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/requests/m182-smoke-03/body.json",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/requests/m182-smoke-03/context.txt",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/requests/m182-smoke-03/decisions.json",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/requests/m182-smoke-03/review.json",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/requests/request-index.json",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/reviews/independent-raw-20261108-duplicate-json.json",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/reviews/security-review.json",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/source-changes.json",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/test-contracts/M182-HIST-01.txt",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/test-contracts/M182-HIST-02.txt",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/test-contracts/M182-HIST-03.txt",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/test-contracts/M182-HIST-04.txt",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/test-contracts/M182-HIST-05.txt",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/test-contracts/M182-HIST-06.txt",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/test-contracts/M182-HIST-07.txt",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/test-contracts/M182-HIST-08.txt",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/test-contracts/M182-HIST-09.txt",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/test-contracts/M182-HIST-10.txt",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/test-contracts/M182-HIST-11.txt",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/test-contracts/M182-HIST-12.txt",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/test-contracts/M182-HIST-13.txt",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/test-contracts/M182-HIST-14.txt",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/test-fixture-repair/fixture.diff",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/test-fixture-repair/m18-review-fixes.before.test.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/test-fixture-repair/repair.json",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/verification-attempts.json",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/verification/m18-control/all-tests.tap",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/verification/m18-control/events.jsonl",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/verification/m18-control/results.json",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/verification/m18-control/run.json",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/verification/m18-control/runner.stderr.txt",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/verification/m18-control/source-manifest.json",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/verification/m18-control/syntax.json",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/verification/m18-control/tsc.stderr.txt",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/verification/m18-control/tsc.stdout.txt",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/verification/m18-control/typecheck.json",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/verification/m18-published/all-tests.tap",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/verification/m18-published/events.jsonl",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/verification/m18-published/results.json",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/verification/m18-published/run.json",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/verification/m18-published/runner.stderr.txt",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/verification/m18-published/source-manifest.json",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/verification/m18-published/syntax.json",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/verification/m18-published/tsc.stderr.txt",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/verification/m18-published/tsc.stdout.txt",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/verification/m18-published/typecheck.json",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/verification/m181-original/all-tests.tap",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/verification/m181-original/events.jsonl",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/verification/m181-original/results.json",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/verification/m181-original/run.json",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/verification/m181-original/runner.stderr.txt",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/verification/m181-original/source-manifest.json",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/verification/m181-original/syntax.json",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/verification/m181-original/tsc.stderr.txt",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/verification/m181-original/tsc.stdout.txt",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/verification/m181-original/typecheck.json",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/verification/m181-rerun/all-tests.tap",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/verification/m181-rerun/events.jsonl",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/verification/m181-rerun/results.json",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/verification/m181-rerun/run.json",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/verification/m181-rerun/runner.stderr.txt",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/verification/m181-rerun/source-manifest.json",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/verification/m181-rerun/syntax.json",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/verification/m181-rerun/tsc.stderr.txt",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/verification/m181-rerun/tsc.stdout.txt",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/verification/m181-rerun/typecheck.json",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/verification/m182-before-fixture-repair/all-tests.tap",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/verification/m182-before-fixture-repair/events.jsonl",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/verification/m182-before-fixture-repair/results.json",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/verification/m182-before-fixture-repair/run.json",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/verification/m182-before-fixture-repair/runner.stderr.txt",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/verification/m182-before-fixture-repair/source-manifest.json",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/verification/m182-before-fixture-repair/syntax.json",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/verification/m182-before-fixture-repair/tsc.stderr.txt",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/verification/m182-before-fixture-repair/tsc.stdout.txt",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/verification/m182-before-fixture-repair/typecheck.json",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/verification/m182-final/all-tests.tap",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/verification/m182-final/events.jsonl",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/verification/m182-final/results.json",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/verification/m182-final/run.json",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/verification/m182-final/runner.stderr.txt",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/verification/m182-final/source-manifest.json",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/verification/m182-final/syntax.json",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/verification/m182-final/tsc.stderr.txt",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/verification/m182-final/tsc.stdout.txt",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/evidence/verification/m182-final/typecheck.json",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/historical-issue-ledger.json",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/pilot-comparison.json",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/reports/context.md",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/reports/credential-vault-qualification.md",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/reports/data-egress-qualification.md",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/reports/deepseek-official-check.md",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/reports/failure-adjudication.md",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/reports/governance.md",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/reports/independent-security-review.md",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/reports/m19-recommendations.md",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/reports/phase0.md",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/reports/provider-live-integration.md",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/reports/raw-evidence.md",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/reports/real-agent-pilot.md",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/reports/request-review.md",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/reports/resident-24h.md",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/reports/reviewer.md",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/reports/single-multi-comparison.md",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/reports/streaming.md",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/reports/tool-calling.md",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/reports/usage-token-cost.md",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/reproduce.md",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/resident-24h.json",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source.manifest.json",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/config/agentnexus/features.json",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/config/agentnexus/policies.json",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/package-lock.json",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/package.json",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/artifacts.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/bootstrap/config.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/bootstrap/entry.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/bootstrap/exit-closure.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/bootstrap/launcher-proof.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/bootstrap/permissions.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/bootstrap/reservations.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/bootstrap/runtime.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/bootstrap/session.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/bootstrap/supervisor.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/bootstrap/ubuntu.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/bootstrap/ubuntu/peer_probe.c",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/bootstrap/worker.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/checkers/powershell_ast.ps1",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/checkers/python_ast.py",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/cli.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/control.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/diagnostics.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/features.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/gateway.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/harness/agents.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/harness/context.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/harness/contracts.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/harness/development.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/harness/event-loop.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/harness/gates.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/harness/index.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/harness/messages.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/harness/models.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/harness/pilot-checker.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/harness/pilot-fixtures.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/harness/pilot-run.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/harness/rules.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/harness/scheduler.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/harness/state.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/harness/storage-owner.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/harness/tools.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/harness/workflow.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/host.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/integrity.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/model-runtime/adapters.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/model-runtime/campaign.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/model-runtime/deepseek.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/model-runtime/dpapi.ps1",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/model-runtime/egress.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/model-runtime/gateway.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/model-runtime/git-reviewer.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/model-runtime/ledger.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/model-runtime/protocol.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/model-runtime/request-binding.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/model-runtime/request-review.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/model-runtime/response-evidence.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/model-runtime/review-bridge.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/model-runtime/streaming.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/model-runtime/transport.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/model-runtime/vault.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/policy-contracts.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/policy.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/production/audit.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/production/authority.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/production/broker.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/production/contracts.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/production/exit.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/production/file-broker.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/production/host.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/production/identity.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/production/native-client.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/production/qualification.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/production/resources.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/production/service.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/production/transport.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/production/windows-supervisor.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/production/windows/BootstrapNative.cs",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/production/windows/NativeRuntime.cs",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/production/windows/runtime.ps1",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/reconciliation.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/records.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/resources/budget-manager.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/resources/contracts.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/resources/index.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/resources/registry.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/runtime/audit.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/runtime/broker.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/runtime/contracts.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/runtime/control.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/runtime/ipc.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/runtime/windows/NativeProbe.cs",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/storage.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/src/agentnexus/types.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/tests/agentnexus/M151LifecycleProbe.cs",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/tests/agentnexus/control.test.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/tests/agentnexus/diagnostics.test.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/tests/agentnexus/gateway.test.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/tests/agentnexus/integrity.test.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/tests/agentnexus/m14-adapter.test.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/tests/agentnexus/m14-broker-child.mjs",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/tests/agentnexus/m14-native-worker.mjs",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/tests/agentnexus/m14-native.test.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/tests/agentnexus/m14-production.test.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/tests/agentnexus/m15-bootstrap.test.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/tests/agentnexus/m15-cpu-worker.mjs",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/tests/agentnexus/m15-pipe-owner-child.mjs",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/tests/agentnexus/m15-pipe.test.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/tests/agentnexus/m151-boundaries.test.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/tests/agentnexus/m151-lifecycle-probe.ps1",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/tests/agentnexus/m151-lifecycle.test.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/tests/agentnexus/m151-resources.test.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/tests/agentnexus/m151-rpc.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/tests/agentnexus/m151-tree-worker.mjs",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/tests/agentnexus/m16-context.test.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/tests/agentnexus/m16-harness.test.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/tests/agentnexus/m16-messages.test.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/tests/agentnexus/m16-models.test.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/tests/agentnexus/m16-resources.test.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/tests/agentnexus/m161-artifacts.test.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/tests/agentnexus/m161-boundaries.test.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/tests/agentnexus/m161-context.test.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/tests/agentnexus/m161-draft-child.mjs",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/tests/agentnexus/m161-gates.test.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/tests/agentnexus/m161-harness.test.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/tests/agentnexus/m161-message-drafts.test.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/tests/agentnexus/m161-messages.test.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/tests/agentnexus/m161-rules.test.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/tests/agentnexus/m161-storage-child.mjs",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/tests/agentnexus/m161-storage-fixture.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/tests/agentnexus/m161-storage.test.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/tests/agentnexus/m161-toctou-worker.mjs",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/tests/agentnexus/m17-checker.test.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/tests/agentnexus/m17-development.test.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/tests/agentnexus/m17-events.test.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/tests/agentnexus/m17-history.test.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/tests/agentnexus/m17-models.test.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/tests/agentnexus/m17-pilot.test.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/tests/agentnexus/m17-quality-budget.test.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/tests/agentnexus/m18-authorization.test.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/tests/agentnexus/m18-fixture.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/tests/agentnexus/m18-gateway.test.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/tests/agentnexus/m18-git-reviewer.test.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/tests/agentnexus/m18-ledger.test.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/tests/agentnexus/m18-multi-agent.test.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/tests/agentnexus/m18-protocol.test.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/tests/agentnexus/m18-review-bridge.test.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/tests/agentnexus/m18-review-fixes.test.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/tests/agentnexus/m18-secret-boundary.test.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/tests/agentnexus/m18-vault.test.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/tests/agentnexus/m181-adapter.test.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/tests/agentnexus/m181-control.test.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/tests/agentnexus/m182-egress.test.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/tests/agentnexus/owned-storage-child.mjs",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/tests/agentnexus/reconciliation-child.mjs",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/tests/agentnexus/reconciliation.test.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/tests/agentnexus/runtime-crash-child.mjs",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/tests/agentnexus/runtime-worker.mjs",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/tests/agentnexus/runtime.test.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/tests/agentnexus/security.test.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/tests/agentnexus/storage.test.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/tests/agentnexus/windows-native.test.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/tools/agentnexus/catalog-m16.py",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/tools/agentnexus/cpu-qualify-m15.d.mts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/tools/agentnexus/cpu-qualify-m15.mjs",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/tools/agentnexus/cpu-qualify-m151.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/tools/agentnexus/demo-m16.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/tools/agentnexus/freeze-m13.py",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/tools/agentnexus/json-reporter.mjs",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/tools/agentnexus/output-root.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/tools/agentnexus/package-m12.py",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/tools/agentnexus/pilot-m17.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/tools/agentnexus/preflight-m14.ps1",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/tools/agentnexus/preflight-m15.ps1",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/tools/agentnexus/run-tests.mjs",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/tools/agentnexus/soak-m17.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/tools/agentnexus/soak-m18.ts",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/tools/agentnexus/typecheck-m15.mjs",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/tools/agentnexus/verify-m12.mjs",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/tools/agentnexus/verify-m13.mjs",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/tools/agentnexus/verify-m14.mjs",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/tools/agentnexus/verify-m15.mjs",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/tools/agentnexus/verify-m16.mjs",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/tools/agentnexus/verify-m161.mjs",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/tools/agentnexus/verify-m17.mjs",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/tools/agentnexus/verify-m18.mjs",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/tools/agentnexus/verify-m181.mjs",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/tools/agentnexus/verify-m182.mjs",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/tools/agentnexus/windows-probes.ps1",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/source/tsconfig.json",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/usage-token-cost.json",
+      "category": "deliverable"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.2/vault-qualification.json",
+      "category": "deliverable"
+    },
+    {
+      "path": "tools/agentnexus/m182-delivery.py",
+      "category": "implementation"
+    },
+    {
+      "path": "tools/agentnexus/m182-evidence.mjs",
+      "category": "implementation"
+    },
+    {
+      "path": "tools/agentnexus/m182-probes.mjs",
+      "category": "implementation"
+    },
+    {
+      "path": "tools/agentnexus/m182-report.py",
+      "category": "implementation"
+    },
+    {
+      "path": "tools/agentnexus/m182-vault-reader.mjs",
+      "category": "implementation"
+    }
+  ]
+}

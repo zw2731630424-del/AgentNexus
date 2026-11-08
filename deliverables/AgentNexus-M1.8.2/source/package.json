@@ -1,0 +1,29 @@
+{
+  "name": "agentnexus",
+  "version": "0.4.0-m1.8.2",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": "24.15.0"
+  },
+  "scripts": {
+    "test": "node tools/agentnexus/run-tests.mjs",
+    "demo": "node src/agentnexus/cli.ts demo",
+    "verify:m14": "node tools/agentnexus/verify-m14.mjs",
+    "typecheck": "node tools/agentnexus/typecheck-m15.mjs",
+    "demo:m16": "node tools/agentnexus/demo-m16.ts",
+    "verify:m16": "node tools/agentnexus/verify-m16.mjs",
+    "verify:m161": "node tools/agentnexus/verify-m161.mjs",
+    "verify:m17": "node tools/agentnexus/verify-m17.mjs",
+    "pilot:m17": "node tools/agentnexus/pilot-m17.ts",
+    "soak:m17": "node tools/agentnexus/soak-m17.ts",
+    "verify:m18": "node tools/agentnexus/verify-m18.mjs",
+    "verify:m181": "node tools/agentnexus/verify-m181.mjs",
+    "verify:m182": "node tools/agentnexus/verify-m182.mjs"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "24.10.1",
+    "typescript": "5.9.3"
+  }
+}

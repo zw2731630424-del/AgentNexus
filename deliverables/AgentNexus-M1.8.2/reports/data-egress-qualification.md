@@ -1,0 +1,9 @@
+# Data Egress 最终资格
+
+**离线程序语义PASS；生产组合资格BLOCKED。** 所有REAL准入现在必须有完整正文审阅记录：旧的仅Context/body/source哈希grant不足放行，uploads_project_source=true也不能跳过独立owner检查。Gateway仍在Assembly/重建与adapter构造后调用egress，Vault/网络前拒绝；HTTPS最终同步fence重新核对持久grant、expiry/revoke和完整request hash。
+
+新approveReviewed仅Host admin可调用，还必须得到外部可信用户确认verifier的布尔true。完整review检查实际system/user消息、全部ContextEntry来源/范围/分类、完整tool schema、wire设置和headers；每个request hash单独登记。PUBLIC/SYNTHETIC才接受，INTERNAL/CONFIDENTIAL/SECRET及未明来源拒绝。当前首轮受限profile拒绝额外developer/history/file等未覆盖字段；这些能力未完成独立review合同前保持拒绝，没有把上下文拼接冒充原生多轮协议。
+
+独立审查复现重复JSON keys可使JSON.parse遗漏实际外发前值，现要求body与adapter的JSON.stringify序列化逐字一致。重复/转义重复messages/model/tools、nested重复content/schema字段均拒绝。已知secret扫描涵盖body、headers、provenance及解码后的JSON；路径/地址/项目名正则仅为启发式，不能识别任意未知secret/hostname/编码；安全分类仍需可信Host逐字来源审查与用户exact-byte consent。普通Agent的PUBLIC标签不签发权限。
+
+14项新增用例全部PASS，独立21项相关复验PASS；原16-slot测试仅修复前提夹具，原并发/abandon断言不变。默认Feature/Policy开关不参与这项独立owner门禁。生产Host verifier、唯一受保护store/账本和OS凭证隔离未部署，不能标LIVE资格。三个草案的active grants/reviews=0，没有预批发送。

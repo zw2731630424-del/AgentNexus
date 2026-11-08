@@ -1,0 +1,7 @@
+test('M161 STORAGE bounded streaming verifies 3 MiB without materializing the input in the request',async()=>{
+  const root=await fixture(),h=await storageFixture(root);try{const bytes=3*1024*1024;async function* chunks(){for(let i=0;i<bytes/65536;i++)yield Buffer.alloc(65536,65);}
+    await prepare(h,chunks(),bytes);assert.equal((await execute(h)).state,'SUCCEEDED');const v=h.administration.storageVersion('project:files','result.txt')!;assert.equal(v.file.bytes,bytes);assert.equal((await stat(join(root,'files/result.txt'))).size,bytes);
+    assert(h.store.artifacts.stats.maxInputChunk<=65536);
+  }finally{await h.close();}
+});
+
