@@ -1,0 +1,3 @@
+# Multi-Agent 协作
+
+真实DeepSeek多Agent闭环NOT_RUN。需要LIVE资格后由模型自主拆分任务，给Research/Coding/Test/Debug独立Task/Context，经Message Bus通信；模型代码只能进入Tool Gateway/Storage Owner并由已资格执行器测试。目前普通Worker PROCESS/EXTERNAL_EFFECT与严格CPU资格继续BLOCKED，不能通过直接Shell执行生成代码绕过。Codex工程子代理只用于本版适配器实现和独立安全复核，不纳入真实Agent评估样本。

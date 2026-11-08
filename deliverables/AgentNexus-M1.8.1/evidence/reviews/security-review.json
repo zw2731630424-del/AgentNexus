@@ -1,0 +1,746 @@
+{
+  "schema": "agentnexus/security-review/1",
+  "date": "2026-11-08",
+  "reviewer": {
+    "identity": "Codex independent engineering security review agent",
+    "task": "/root/vault_qualification",
+    "source_author": false,
+    "real_deepseek_reviewer": false,
+    "recursive_delegation": false
+  },
+  "conclusion": {
+    "offline_trusted_library": "REVIEW_COMPLETE_NO_UNRESOLVED_BLOCKING_FINDINGS_IN_REVIEWED_SCOPE",
+    "production_live_credentials": "BLOCKED",
+    "os_worker_isolation": "BLOCKED",
+    "real_model_capability": "NOT_TESTED",
+    "final_full_regression": "VERIFIED_FAIL_635_PASS_32_SKIP_14_FAIL"
+  },
+  "scope": {
+    "assurance": "OFFLINE_TRUSTED_LOCAL_LIBRARY",
+    "candidate_frozen_by_parent": true,
+    "reviewed_runtime_module_set_sha256": "8286082cf1fd98130bfc0eea60184025da7baf46358df821766a8ca17326c7a2",
+    "module_set_algorithm": "sha256(UTF-8(concat(sorted(relative_path + ' ' + lowercase_sha256 + LF))))",
+    "whole_source_set_hash": "d2091ef71fbd7a62f17ff8a42a922357759817073d97f1343d27b6ff7c9c3bb1",
+    "reads_include_partial": true,
+    "project_rules_index": "ABSENT",
+    "network_calls": 0,
+    "real_key_reads": 0,
+    "environment_reads": 0,
+    "credential_store_reads": 0,
+    "system_account_changes": 0,
+    "acl_changes": 0,
+    "historical_delivery_writes": 0,
+    "reviewed_module_set_is_whole_source_set": false,
+    "final_manifest_current_files_verified": 185,
+    "previous_review_input_hash_mismatches": []
+  },
+  "findings": [
+    {
+      "id": "SEC-M181-001",
+      "priority": "P2",
+      "status": "FIXED_VERIFIED",
+      "title": "Campaign completion metadata was not checked as a runtime boolean",
+      "boundary": "Trusted Host Campaign owner API; ordinary Gateway supplied booleans, no ordinary-facade exploitation proved",
+      "before": {
+        "location": "model-runtime/campaign.ts:60-68 (pre-fix)",
+        "setup": {
+          "limit": 100,
+          "reserved_input": 30,
+          "reserved_output": 30,
+          "request_state": "SENT",
+          "observed_input": 10,
+          "observed_output": 20,
+          "cost_estimate_micros": 42
+        },
+        "input_complete": "false",
+        "input_complete_type": "string",
+        "observed": {
+          "state": "OPEN",
+          "used": 30,
+          "held": 0,
+          "unknown": 0,
+          "remaining_tokens": 70
+        },
+        "expected": "Reject non-boolean input without changing counters; valid false must retain the sent hold",
+        "execution": "Direct import of real CampaignTokenLedger, in-memory Map State; no filesystem, network or environment access",
+        "original_full_source_snapshot_retained": false,
+        "pre_fix_evidence": "Independent tool transcript reproduced the state before source fix; exact pre-fix full-file hash was not captured"
+      },
+      "fix": {
+        "location": "model-runtime/campaign.ts:61",
+        "runtime_check": "typeof complete==='boolean'",
+        "error_code": "MODEL181_CAMPAIGN_COMPLETE",
+        "test": "tests/agentnexus/m181-control.test.ts:63"
+      },
+      "after": {
+        "independent_execution": "MEMORY_STATE_DIRECT_MODULE_IMPORT",
+        "invalid_values": [
+          "undefined",
+          "null",
+          "0",
+          "1",
+          "string false",
+          "empty object"
+        ],
+        "rejected": 6,
+        "each_campaign_snapshot_unchanged": true,
+        "valid_false_result": {
+          "held": 60,
+          "unknown": 1,
+          "state": "BLOCKED"
+        },
+        "sqlite_test_reviewed": true,
+        "sqlite_execution_by_this_reviewer": false,
+        "main_final_sqlite_or_control_test_evidence": "PASS in final 41 M181 cases; reviewed, not independently executed by this reviewer"
+      }
+    },
+    {
+      "id": "SEC-M181-002",
+      "priority": "NON_BLOCKING_HARDENING",
+      "status": "FIXED_VERIFIED",
+      "title": "Strict receipt schema and self-field consistency at both egress fences",
+      "before": {
+        "issue": "Durable grant already bound actual body/context, but receipt self-fields were not all compared",
+        "unapproved_bytes_egress_proved": false
+      },
+      "fix": {
+        "locations": [
+          "model-runtime/egress.ts:17",
+          "model-runtime/egress.ts:60",
+          "model-runtime/protocol.ts:22"
+        ],
+        "strict_fields": [
+          "grant_id",
+          "context_hash",
+          "body_hash",
+          "sources_hash",
+          "classification",
+          "authorization_ref"
+        ]
+      },
+      "after": {
+        "independent_execution": "MEMORY_STATE_DIRECT_MODULE_IMPORT",
+        "valid_receipt_passed_both_fences": true,
+        "patches": [
+          "grant_id",
+          "context_hash",
+          "body_hash",
+          "sources_hash",
+          "classification",
+          "authorization_ref",
+          "extra field"
+        ],
+        "rejected_at_policy_fence": 7,
+        "rejected_at_transport_admission": 7,
+        "sqlite_tests_reviewed": true,
+        "sqlite_execution_by_this_reviewer": false,
+        "main_final_sqlite_or_control_test_evidence": "PASS in final 41 M181 cases; reviewed, not independently executed by this reviewer"
+      }
+    }
+  ],
+  "credential_qualification": {
+    "status": "BLOCKED",
+    "live_gate_evidence": [
+      "vault.ts:231 assurance SIMULATED",
+      "vault.ts:255 rejects mode LIVE",
+      "vault.ts:353-355 synthetic-only bytes",
+      "gateway.ts:35 Vault/Transport assurance equality"
+    ],
+    "os_gap_evidence": [
+      "dpapi.ps1:22-27 public entropy and CurrentUser",
+      "vault.ts:70-73 no identity switch in helper spawn",
+      "vault.ts:197-204 owner/mode checks only outside Windows",
+      "vault.ts:54-56 executable path shape without pinned bytes",
+      "production/qualification.ts:9,24-28 composed deny-test certificate requirements",
+      "bootstrap/config.ts:25-26,62 distinct SIDs and native standard-account process attestation",
+      "production/windows/NativeRuntime.cs:240 pre-existing approved Worker/AppContainer required",
+      "production/resources.ts:33-34 REAL_WINDOWS hard blocked"
+    ],
+    "historical_not_run": {
+      "path": "deliverables/AgentNexus-M1.8/evidence/verification/all-tests.tap",
+      "line": 1184,
+      "meaning": "Approved distinct standard accounts, exact deployment ACL/profile and startup objects absent; same-account primitives do not qualify",
+      "is_current_os_attack_test": false
+    },
+    "qualification_callback_is_os_evidence": false,
+    "object_facade_is_os_isolation": false,
+    "dpapi_roundtrip_is_worker_isolation": false,
+    "minimal_entry_design": [
+      "Default LIVE disabled",
+      "Approved distinct OS identities, protected pinned code/helper and credential-store ACL attested by trusted startup",
+      "Local masked Host-only credential input; no chat/argv/env/plaintext temporary file",
+      "Bounded anonymous transfer and encrypted atomic persistence; fixed dispatch destination",
+      "Worker receives only scoped completion capability; no raw credential read or arbitrary callback"
+    ],
+    "can_close_without_authorized_system_changes": "Only if an already-approved deployment exists and passes read-only attestation; current evidence is insufficient, so no",
+    "unverified": [
+      "Current machine identity/ACL/profile deployment",
+      "Real-key entry",
+      "Cross-account deny/memory/DPAPI attack",
+      "Arbitrary Worker isolation",
+      "Real provider/network/actual invoice",
+      "Real autonomous DeepSeek Reviewer and long-running capability"
+    ],
+    "remaining_deployment_dependencies": [
+      "Pin the authorized durable Host store; a new database must never reset campaign authorization",
+      "External trusted source/data review and user-authorization verifiers",
+      "No universal unknown-secret or arbitrary-encoding detection guarantee",
+      "Immutable JS/.NET strings make zeroization best-effort",
+      "eof=false wire evidence describes consumed prefix, not a complete HTTP response"
+    ]
+  },
+  "independent_executions": [
+    {
+      "id": "adapter-final-frozen",
+      "command": "node --test --test-reporter=tap tests/agentnexus/m181-adapter.test.ts",
+      "cwd": "I:/AI_AgentNexus/deliverables/AgentNexus-M1.8.1/source",
+      "exit_code": 0,
+      "pass": 21,
+      "fail": 0,
+      "skip": 0,
+      "raw_tap": "TAP version 13\n# Subtest: M181 DEEPSEEK documented request uses the exact endpoint, Flash ID and provider token fields\nok 1 - M181 DEEPSEEK documented request uses the exact endpoint, Flash ID and provider token fields\n  ---\n  duration_ms: 3.5732\n  type: 'test'\n  ...\n# Subtest: M181 DEEPSEEK REAL models accept current exact IDs and reject aliases, snapshots and case changes\nok 2 - M181 DEEPSEEK REAL models accept current exact IDs and reject aliases, snapshots and case changes\n  ---\n  duration_ms: 1.6426\n  type: 'test'\n  ...\n# Subtest: M181 DEEPSEEK official terminal choice carries usage and fragmented Chinese retains response identity\nok 3 - M181 DEEPSEEK official terminal choice carries usage and fragmented Chinese retains response identity\n  ---\n  duration_ms: 20.5344\n  type: 'test'\n  ...\n# Subtest: M181 DEEPSEEK cache aliases and a single known cache count determine a conserved prompt split\nok 4 - M181 DEEPSEEK cache aliases and a single known cache count determine a conserved prompt split\n  ---\n  duration_ms: 5.3583\n  type: 'test'\n  ...\n# Subtest: M181 DEEPSEEK invalid cache, total and reasoning usage never become observed billing evidence\nok 5 - M181 DEEPSEEK invalid cache, total and reasoning usage never become observed billing evidence\n  ---\n  duration_ms: 15.6947\n  type: 'test'\n  ...\n# Subtest: M181 DEEPSEEK SIMULATED compatibility keeps legacy usage-only chunks and absent cache fields\nok 6 - M181 DEEPSEEK SIMULATED compatibility keeps legacy usage-only chunks and absent cache fields\n  ---\n  duration_ms: 0.9768\n  type: 'test'\n  ...\n# Subtest: M181 DEEPSEEK REAL usage-only and early-usage chunks fail the documented terminal format\nok 7 - M181 DEEPSEEK REAL usage-only and early-usage chunks fail the documented terminal format\n  ---\n  duration_ms: 2.9455\n  type: 'test'\n  ...\n# Subtest: M181 DEEPSEEK response model and fingerprint are bounded and stable, including explicit null\nok 8 - M181 DEEPSEEK response model and fingerprint are bounded and stable, including explicit null\n  ---\n  duration_ms: 7.8791\n  type: 'test'\n  ...\n# Subtest: M181 DEEPSEEK native tools join fragmented JSON and Chinese without executing a tool\nok 9 - M181 DEEPSEEK native tools join fragmented JSON and Chinese without executing a tool\n  ---\n  duration_ms: 17.7782\n  type: 'test'\n  ...\n# Subtest: M181 DEEPSEEK malformed tool JSON retains validated usage and never yields a tool proposal\nok 10 - M181 DEEPSEEK malformed tool JSON retains validated usage and never yields a tool proposal\n  ---\n  duration_ms: 1.2668\n  type: 'test'\n  ...\n# Subtest: M181 DEEPSEEK all documented unsuccessful finishes remain failures with observed usage\nok 11 - M181 DEEPSEEK all documented unsuccessful finishes remain failures with observed usage\n  ---\n  duration_ms: 3.9205\n  type: 'test'\n  ...\n# Subtest: M181 DEEPSEEK invalid reply JSON, invalid contract and truncated completion preserve validated usage\nok 12 - M181 DEEPSEEK invalid reply JSON, invalid contract and truncated completion preserve validated usage\n  ---\n  duration_ms: 3.9216\n  type: 'test'\n  ...\n# Subtest: M181 DEEPSEEK duplicate usage and data after finish never settle twice\nok 13 - M181 DEEPSEEK duplicate usage and data after finish never settle twice\n  ---\n  duration_ms: 2.9906\n  type: 'test'\n  ...\n# Subtest: M181 DEEPSEEK guard failures keep static codes and counts without reflecting private error text\nok 14 - M181 DEEPSEEK guard failures keep static codes and counts without reflecting private error text\n  ---\n  duration_ms: 3.6821\n  type: 'test'\n  ...\n# Subtest: M181 DEEPSEEK bounded SSE errors preserve only prior validated usage and release the parser binding\nok 15 - M181 DEEPSEEK bounded SSE errors preserve only prior validated usage and release the parser binding\n  ---\n  duration_ms: 0.846\n  type: 'test'\n  ...\n# Subtest: M181 DEEPSEEK missing provider usage remains explicitly unknown\nok 16 - M181 DEEPSEEK missing provider usage remains explicitly unknown\n  ---\n  duration_ms: 1.386\n  type: 'test'\n  ...\n# Subtest: M181 DEEPSEEK 402 is REQUEST, other HTTP faults keep their category and never read a response body\nok 17 - M181 DEEPSEEK 402 is REQUEST, other HTTP faults keep their category and never read a response body\n  ---\n  duration_ms: 1.4505\n  type: 'test'\n  ...\n# Subtest: M181 DEEPSEEK registry distinguishes documented provider limits from local support and price reservations\nok 18 - M181 DEEPSEEK registry distinguishes documented provider limits from local support and price reservations\n  ---\n  duration_ms: 0.637\n  type: 'test'\n  ...\n# Subtest: M181 DEEPSEEK cache-aware peak and off-peak cost use one integer ceiling and count reasoning once\nok 19 - M181 DEEPSEEK cache-aware peak and off-peak cost use one integer ceiling and count reasoning once\n  ---\n  duration_ms: 0.3291\n  type: 'test'\n  ...\n# Subtest: M181 DEEPSEEK unavailable cache counts conservatively estimate all prompt tokens as misses\nok 20 - M181 DEEPSEEK unavailable cache counts conservatively estimate all prompt tokens as misses\n  ---\n  duration_ms: 0.2278\n  type: 'test'\n  ...\n# Subtest: M181 DEEPSEEK cost rejects invalid evidence and overflow while retaining BigInt precision\nok 21 - M181 DEEPSEEK cost rejects invalid evidence and overflow while retaining BigInt precision\n  ---\n  duration_ms: 0.3888\n  type: 'test'\n  ...\n1..21\n# tests 21\n# suites 0\n# pass 21\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 301.5285\n"
+    },
+    {
+      "id": "campaign-pre-fix-memory",
+      "result": {
+        "state": "OPEN",
+        "used": 30,
+        "held": 0,
+        "unknown": 0,
+        "remaining_tokens": 70
+      },
+      "input_complete_type": "string",
+      "input_complete": "false",
+      "scope": "No transaction/SQLite claim"
+    },
+    {
+      "id": "fixes-memory-final",
+      "result": {
+        "invalid_completion_values_rejected": 6,
+        "hold_unchanged_after_rejections": true,
+        "false_completion_retained_hold": 60,
+        "forged_receipt_patches_rejected_at_both_fences": 7
+      },
+      "scope": "Real modules imported; Map State only; no filesystem/network/environment IO"
+    }
+  ],
+  "validation_not_claimed": {
+    "full_os_production_pass": false,
+    "real_provider_pass": false,
+    "invoice_reconciliation_pass": false,
+    "overall_full_regression_pass": false,
+    "fourteen_platform_storage_failures_reclassified_as_pass": false
+  },
+  "read_inputs": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "a868b01052ea5613300e6973fd1c65917ba2f10b01eea025214b513432cd4694",
+      "bytes": 2587,
+      "read_mode": "FULL",
+      "read_range": "1-end"
+    },
+    {
+      "path": ".workflow-kit/governance/policy.json",
+      "sha256": "ea91359de90e74cbb554f93ac2dae82509f93f5bcc05c65bf22384aba4dd4d83",
+      "bytes": 7919,
+      "read_mode": "FULL",
+      "read_range": "1-end"
+    },
+    {
+      "path": "ai-workflow-kit-v4/project-workflows/README.md",
+      "sha256": "1f12071a31eca68714381c3f543ff46ba81b20acd5c951e2eb68aee0f6bc9b21",
+      "bytes": 1027,
+      "read_mode": "FULL",
+      "read_range": "1-end"
+    },
+    {
+      "path": "ai-workflow-kit-v4/tools/govern.py",
+      "sha256": "ef1d398ba503333bf04e269ba97788252d95c84f667acab460d5e90dc64edfc1",
+      "bytes": 47383,
+      "read_mode": "PARTIAL",
+      "read_range": "1-180; 745-823 search excerpts"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8/credential-vault-design.md",
+      "sha256": "1ac7ebb9b425c637f3a5a215468bc4336ea07605def82363963f7c74e65cfba3",
+      "bytes": 2720,
+      "read_mode": "FULL",
+      "read_range": "1-end"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8/reports/credential-vault.md",
+      "sha256": "b1a8c6ff3fd9584cf6d98026946da82c2a7ea14a3dcee7039d5ba2990ee5500a",
+      "bytes": 894,
+      "read_mode": "FULL",
+      "read_range": "1-end"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8/acceptance-report.md",
+      "sha256": "e6ff157d3d677a3e0b5ec25f30628b7a682005512385a82044844903ce7012a0",
+      "bytes": 2292,
+      "read_mode": "FULL",
+      "read_range": "1-end"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8/reports/independent-security-review.md",
+      "sha256": "63da33a095dfdc25aad596f8794e12f0c16de77092c33b7e505151cede5416a7",
+      "bytes": 949,
+      "read_mode": "FULL",
+      "read_range": "1-end"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8/reports/phase0.md",
+      "sha256": "1bf623b53ed4edaf5b8b47c49c904fda66eb1c5f38930d77f94adede760ceddb",
+      "bytes": 1924,
+      "read_mode": "FULL",
+      "read_range": "1-end"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8/reports/real-provider-integration.md",
+      "sha256": "4eaea012b245b870182d08ed7ea72ad4ded2adcd07d39c13ccad7ac83a01e872",
+      "bytes": 1797,
+      "read_mode": "FULL",
+      "read_range": "1-end"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8/reports/deepseek-smoke-proposal.md",
+      "sha256": "b70db896abf3fcfdfc70b64bcf755631333a4369038a902f6c8b1852f97e1ba5",
+      "bytes": 3028,
+      "read_mode": "FULL",
+      "read_range": "1-end"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8/source/src/agentnexus/model-runtime/vault.ts",
+      "sha256": "399b05b1147c9c8ac7f62b5852834d86058de92192e846142fbccaa27c50dedd",
+      "bytes": 39974,
+      "read_mode": "FULL",
+      "read_range": "1-550"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8/source/src/agentnexus/model-runtime/dpapi.ps1",
+      "sha256": "a5284e726a8b888c143f4b4992e0280c389d623bc5cf5f8568a6199db7af1ded",
+      "bytes": 1737,
+      "read_mode": "FULL",
+      "read_range": "1-39"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8/source/src/agentnexus/model-runtime/transport.ts",
+      "sha256": "150e9a801c3ab56a8ebdfa203482ce90262252ae7be91ad3570b43cc69e3ed58",
+      "bytes": 12277,
+      "read_mode": "FULL",
+      "read_range": "1-90"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8/source/src/agentnexus/model-runtime/gateway.ts",
+      "sha256": "04254b260f3314ba7696ffc00bc1d127c1a4e62a971517688ef33e5f97f4136f",
+      "bytes": 18283,
+      "read_mode": "FULL",
+      "read_range": "1-135"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8/source/src/agentnexus/production/host.ts",
+      "sha256": "c849b9d28e583937449b63f863f147dcc51e683ee378edac44fc77245ab5c3ff",
+      "bytes": 5540,
+      "read_mode": "FULL",
+      "read_range": "1-62"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8/source/src/agentnexus/production/native-client.ts",
+      "sha256": "f378c1bf5938ae5821fc1130d60d920874891bdf76fb1a911dc0a9310e9f05e8",
+      "bytes": 7037,
+      "read_mode": "FULL",
+      "read_range": "1-85"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8/source/src/agentnexus/production/qualification.ts",
+      "sha256": "151529013bfab546831927c4f7f42d3961e268577ab27b5bd7c6de065e187e7f",
+      "bytes": 2691,
+      "read_mode": "FULL",
+      "read_range": "1-31"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8/source/src/agentnexus/production/identity.ts",
+      "sha256": "157d276bd002b5b624d40675e41b67d1beab86a1db478ba50b8a64324e24bba1",
+      "bytes": 6805,
+      "read_mode": "FULL",
+      "read_range": "1-91"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8/source/src/agentnexus/production/resources.ts",
+      "sha256": "949e0713c1ebeca78a1b8c9598aef8414a5166f6371cb4d1f106f311e6a67b2c",
+      "bytes": 2621,
+      "read_mode": "FULL",
+      "read_range": "1-35"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8/source/src/agentnexus/bootstrap/worker.ts",
+      "sha256": "39ee6763699b1db18466e30dab7538499d4f3315a80faaf674d853f620814158",
+      "bytes": 5184,
+      "read_mode": "FULL",
+      "read_range": "1-40"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8/source/src/agentnexus/bootstrap/runtime.ts",
+      "sha256": "f56ee410d95bded16f3af51010f7143cc836f84e4121df0340c7d85d5274b431",
+      "bytes": 19795,
+      "read_mode": "PARTIAL",
+      "read_range": "1-90 and relevant rg search matches"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8/source/src/agentnexus/bootstrap/config.ts",
+      "sha256": "281e683c0f4fac5a0618deff0976da09ccaca860935cf1c044541f5cf7e5aea0",
+      "bytes": 12928,
+      "read_mode": "PARTIAL",
+      "read_range": "59-80 and relevant rg search matches at 14-57"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8/source/src/agentnexus/production/windows/NativeRuntime.cs",
+      "sha256": "2c5cf6a60c33b91604763a12d7d5ac970c68a0b87a41510f5d09c5fa540398ca",
+      "bytes": 67315,
+      "read_mode": "PARTIAL",
+      "read_range": "228-255 and identity/token/AppContainer rg matches"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8/source/src/agentnexus/host.ts",
+      "sha256": "eca9cc4fc94f3d921cf7876b98c119e0684a92d80e1fc1fc042a8c2fa842d97b",
+      "bytes": 19004,
+      "read_mode": "SEARCH_ONLY",
+      "read_range": "facade/Vault/bindAgent matches"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8/source/src/agentnexus/harness/index.ts",
+      "sha256": "bbf5aeb5343f562bbc84475f98ef9348a5cec895d2d38d8e05c7cc983387d550",
+      "bytes": 33531,
+      "read_mode": "PARTIAL",
+      "read_range": "252-300 and facade/model-runtime rg matches"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8/source/tests/agentnexus/m18-vault.test.ts",
+      "sha256": "5c648d31576e21132ffb29f53ea2b46082017c05f741ef4c645fc4293e3cefe4",
+      "bytes": 32608,
+      "read_mode": "PARTIAL",
+      "read_range": "1-100 plus selected later tests; combined output truncated, not claimed FULL"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8/source/tests/agentnexus/m18-secret-boundary.test.ts",
+      "sha256": "c5eaa3ce96c34bd8348219f9112f680e40ca4307e0be04d76d7a6773f016a3cd",
+      "bytes": 4005,
+      "read_mode": "FULL",
+      "read_range": "1-37"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8/source/tests/agentnexus/m18-authorization.test.ts",
+      "sha256": "932567384d9897cb58493d792e9d07ef0340362efcee9101d60ac1116123000d",
+      "bytes": 4287,
+      "read_mode": "FULL",
+      "read_range": "1-32"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8/source/tests/agentnexus/m18-fixture.ts",
+      "sha256": "ca8f34780314c938a5c62a7c9157e86a97c66865e1766bac7188da76d1f298b5",
+      "bytes": 5385,
+      "read_mode": "FULL",
+      "read_range": "1-34"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8/source/tests/agentnexus/m14-production.test.ts",
+      "sha256": "f51c8794d705cefef7caa73b3234791b7dfffb256c92f3f227da0c7eba235d03",
+      "bytes": 37918,
+      "read_mode": "SEARCH_ONLY",
+      "read_range": "production/qualification/standard-account relevant matches"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8/source/tests/agentnexus/m15-bootstrap.test.ts",
+      "sha256": "bca5a8e6103eabe9b1768e57055f45967238ae479253b2dcd8e16733260c807f",
+      "bytes": 26114,
+      "read_mode": "SEARCH_ONLY",
+      "read_range": "SID/config/attestation relevant matches"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8/source/tests/agentnexus/m15-pipe.test.ts",
+      "sha256": "ef7dc6676067679a5cacab19db06fca204653632fc3c8e30c6eb0a2a00c1c54f",
+      "bytes": 23037,
+      "read_mode": "PARTIAL",
+      "read_range": "1-7; 281-286 and relevant search matches"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8/source/tests/agentnexus/m18-review-fixes.test.ts",
+      "sha256": "a873a259e5279ed161e562dd86c5e28df6eb7c65fee201e08893b6c7b696977f",
+      "bytes": 7900,
+      "read_mode": "SEARCH_ONLY",
+      "read_range": "Vault/DPAPI/SYNTHETIC/LIVE relevant matches"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8/evidence/verification/all-tests.tap",
+      "sha256": "ba6845d260e206da5bf39a2a1bbbb26f65bcd89881766fa0080603576dd1f4b9",
+      "bytes": 157334,
+      "read_mode": "SEARCH_ONLY",
+      "read_range": "M18 VAULT/AUTH/SECRET and cross-account qualification matches"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.1/source/package.json",
+      "sha256": "e89341aeb113d5a2c92a6bfc5a6b2ebd1a0ca3ac852d1e1b11cebc5d536405cb",
+      "bytes": 933,
+      "read_mode": "FULL",
+      "read_range": "1-end"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.1/source/tools/agentnexus/run-tests.mjs",
+      "sha256": "7b1b45b072e55e4c2e079e90aa963d94584a871496945ed88b737cb42dd4c0b7",
+      "bytes": 667,
+      "read_mode": "FULL",
+      "read_range": "1-end"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.1/source/src/agentnexus/harness/state.ts",
+      "sha256": "b290d9d03427e11b3bf42e5c7ee3eb3ad0b916060ceb2a336e50169b52b54ddf",
+      "bytes": 7890,
+      "read_mode": "FULL",
+      "read_range": "1-100"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.1/source/src/agentnexus/harness/contracts.ts",
+      "sha256": "fae11a6e1a11ea1cd1e737ce1320b344a17c974baba4f7d33402fff84c8dfc39",
+      "bytes": 2537,
+      "read_mode": "PARTIAL",
+      "read_range": "17-33"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.1/source/src/agentnexus/model-runtime/streaming.ts",
+      "sha256": "fb0044e550caab6458b5ada0226c7952be90c7e6eb76f2f0de378eec14aa1483",
+      "bytes": 2688,
+      "read_mode": "FULL",
+      "read_range": "1-33"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.1/source/src/agentnexus/model-runtime/gateway.ts",
+      "sha256": "fbe2728d9bfe1095231f1984b48c3f54f55dd0549c7226eb599a2b45a783be10",
+      "bytes": 21987,
+      "read_mode": "FULL",
+      "read_range": "1-end; fixes rechecked after source freeze"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.1/source/src/agentnexus/model-runtime/protocol.ts",
+      "sha256": "ffc652e21ef967684ca179729e1d20b9eb8f077e418949dcb0d32d1178d9b6e9",
+      "bytes": 9399,
+      "read_mode": "FULL",
+      "read_range": "1-end; fixes rechecked after source freeze"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.1/source/src/agentnexus/model-runtime/ledger.ts",
+      "sha256": "f2ec87c99af2b74555acd5acd6cd7f54bb15128c06e89df58f53d6ffd268baef",
+      "bytes": 18764,
+      "read_mode": "FULL",
+      "read_range": "1-end; fixes rechecked after source freeze"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.1/source/src/agentnexus/model-runtime/transport.ts",
+      "sha256": "ea066ee5a810e4227374cf18936e1d6b118f2673d6c0b10982c0671cba336549",
+      "bytes": 12824,
+      "read_mode": "FULL",
+      "read_range": "1-end; fixes rechecked after source freeze"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.1/source/src/agentnexus/model-runtime/campaign.ts",
+      "sha256": "c0a530c7b00f12e7a765b2774491813d48ceee123048987ca46df6b3e5e764cc",
+      "bytes": 9440,
+      "read_mode": "FULL",
+      "read_range": "1-end; fixes rechecked after source freeze"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.1/source/src/agentnexus/model-runtime/egress.ts",
+      "sha256": "77d5615af24924f6241779e2726b83faae8f99ec9142b454e4347f7de20b3957",
+      "bytes": 7881,
+      "read_mode": "FULL",
+      "read_range": "1-end; fixes rechecked after source freeze"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.1/source/src/agentnexus/model-runtime/response-evidence.ts",
+      "sha256": "5687c727d8910262129e6ce09836c57e34e4f7e3863471f9e6eaa085c74c78cb",
+      "bytes": 1105,
+      "read_mode": "FULL",
+      "read_range": "1-end; fixes rechecked after source freeze"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.1/source/src/agentnexus/model-runtime/adapters.ts",
+      "sha256": "df5bbdcf546e1099a3ddcd493d6292b5f8804df972edfacb7340e62462235e86",
+      "bytes": 14831,
+      "read_mode": "FULL",
+      "read_range": "1-end; fixes rechecked after source freeze"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.1/source/src/agentnexus/model-runtime/deepseek.ts",
+      "sha256": "7d6627468918c457ff0b6e130eb19cb45d7b105d975c7ad6714a50b92ff42d32",
+      "bytes": 3844,
+      "read_mode": "FULL",
+      "read_range": "1-end; fixes rechecked after source freeze"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.1/source/tests/agentnexus/m181-adapter.test.ts",
+      "sha256": "f92496b2b65565f9a58b241407a7c2295da96c382f5ad9d6e87fdeefc4f2d14a",
+      "bytes": 17904,
+      "read_mode": "FULL",
+      "read_range": "1-end; final control and review-fixes reread after source freeze"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.1/source/tests/agentnexus/m181-control.test.ts",
+      "sha256": "5f499902edd5fa3321d7ec842ad7305112be064c003fda47861e3ec91456ae8f",
+      "bytes": 18220,
+      "read_mode": "FULL",
+      "read_range": "1-end; final control and review-fixes reread after source freeze"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.1/source/tests/agentnexus/m18-review-fixes.test.ts",
+      "sha256": "04611df2b1aa0c2b51573331ab34c27aa5a14e807984589cb546c65d36caa59c",
+      "bytes": 8576,
+      "read_mode": "FULL",
+      "read_range": "1-end; final control and review-fixes reread after source freeze"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.1/source/src/agentnexus/model-runtime/vault.ts",
+      "sha256": "399b05b1147c9c8ac7f62b5852834d86058de92192e846142fbccaa27c50dedd",
+      "bytes": 39974,
+      "read_mode": "HASH_IDENTITY_CHECK",
+      "read_range": "identical bytes to deliverables/AgentNexus-M1.8/source/src/agentnexus/model-runtime/vault.ts; inherit only the FULL/PARTIAL scope recorded for that input"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.1/source/src/agentnexus/model-runtime/dpapi.ps1",
+      "sha256": "a5284e726a8b888c143f4b4992e0280c389d623bc5cf5f8568a6199db7af1ded",
+      "bytes": 1737,
+      "read_mode": "HASH_IDENTITY_CHECK",
+      "read_range": "identical bytes to deliverables/AgentNexus-M1.8/source/src/agentnexus/model-runtime/dpapi.ps1; inherit only the FULL/PARTIAL scope recorded for that input"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.1/source/src/agentnexus/production/resources.ts",
+      "sha256": "949e0713c1ebeca78a1b8c9598aef8414a5166f6371cb4d1f106f311e6a67b2c",
+      "bytes": 2621,
+      "read_mode": "HASH_IDENTITY_CHECK",
+      "read_range": "identical bytes to deliverables/AgentNexus-M1.8/source/src/agentnexus/production/resources.ts; inherit only the FULL/PARTIAL scope recorded for that input"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.1/source/src/agentnexus/production/qualification.ts",
+      "sha256": "151529013bfab546831927c4f7f42d3961e268577ab27b5bd7c6de065e187e7f",
+      "bytes": 2691,
+      "read_mode": "HASH_IDENTITY_CHECK",
+      "read_range": "identical bytes to deliverables/AgentNexus-M1.8/source/src/agentnexus/production/qualification.ts; inherit only the FULL/PARTIAL scope recorded for that input"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.1/source/src/agentnexus/bootstrap/config.ts",
+      "sha256": "281e683c0f4fac5a0618deff0976da09ccaca860935cf1c044541f5cf7e5aea0",
+      "bytes": 12928,
+      "read_mode": "HASH_IDENTITY_CHECK",
+      "read_range": "identical bytes to deliverables/AgentNexus-M1.8/source/src/agentnexus/bootstrap/config.ts; inherit only the FULL/PARTIAL scope recorded for that input"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.1/source/src/agentnexus/production/windows/NativeRuntime.cs",
+      "sha256": "2c5cf6a60c33b91604763a12d7d5ac970c68a0b87a41510f5d09c5fa540398ca",
+      "bytes": 67315,
+      "read_mode": "HASH_IDENTITY_CHECK",
+      "read_range": "identical bytes to deliverables/AgentNexus-M1.8/source/src/agentnexus/production/windows/NativeRuntime.cs; inherit only the FULL/PARTIAL scope recorded for that input"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.1/source/src/agentnexus/harness/index.ts",
+      "sha256": "bbf5aeb5343f562bbc84475f98ef9348a5cec895d2d38d8e05c7cc983387d550",
+      "bytes": 33531,
+      "read_mode": "HASH_IDENTITY_CHECK",
+      "read_range": "identical bytes to deliverables/AgentNexus-M1.8/source/src/agentnexus/harness/index.ts; inherit only the FULL/PARTIAL scope recorded for that input"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.1/evidence/verification/final-verification/r-47aaf595f735/results.json",
+      "sha256": "5674c5e1d5a90deeedd50e3c77931291a238d537c86f282830feaefaac66dfc8",
+      "bytes": 357309,
+      "read_mode": "STRUCTURED_FIELDS",
+      "read_range": "summary; all M181 case names/status; all FAIL names/status; syntax/tsc; source snapshot hashes and final metadata; unrelated case bodies not claimed FULL"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.1/evidence/verification/final-verification/r-47aaf595f735/source-manifest.json",
+      "sha256": "c7b5e07975d31a84832fed108a38ea62d3a5da861a6ff4b0c6e6b2615d65ece8",
+      "bytes": 31826,
+      "read_mode": "FULL_STRUCTURED_MANIFEST",
+      "read_range": "all 185 entries parsed and current bytes/SHA256 verified; set encoding and whole set hash recomputed"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.8.1/evidence/regression-comparison.json",
+      "sha256": "bfa61aa284d11855bbe0997b71b44f0e6ec5f1ceac66dd1494871ad22755ee13",
+      "bytes": 1369,
+      "read_mode": "FULL_STRUCTURED",
+      "read_range": "all baseline/candidate summary and failure-name comparison fields"
+    }
+  ],
+  "artifact_creation": {
+    "authorized_outputs": [
+      "deliverables/AgentNexus-M1.8.1/reports/independent-security-review.md",
+      "deliverables/AgentNexus-M1.8.1/evidence/reviews/security-review.json"
+    ],
+    "method": "Scoped apply_patch; scoped JSON update",
+    "govern_new_considered": true,
+    "reason": "govern.py new calls refresh_project and would mutate unrelated indexes beyond this reviewer's two-file write scope"
+  },
+  "final_verification": {
+    "reviewer_action": "READ_ONLY_STRUCTURED_RESULTS_REVIEW_AND_CURRENT_SOURCE_HASH_RECOMPUTATION",
+    "executed_by": "MAIN_AGENT",
+    "executed_by_this_reviewer": false,
+    "run_id": "47aaf595-f735-45e3-8613-269592fb3178",
+    "results_path": "deliverables/AgentNexus-M1.8.1/evidence/verification/final-verification/r-47aaf595f735/results.json",
+    "source_manifest_path": "deliverables/AgentNexus-M1.8.1/evidence/verification/final-verification/r-47aaf595f735/source-manifest.json",
+    "regression_comparison_path": "deliverables/AgentNexus-M1.8.1/evidence/regression-comparison.json",
+    "source_set_sha256": "d2091ef71fbd7a62f17ff8a42a922357759817073d97f1343d27b6ff7c9c3bb1",
+    "source_snapshot_stable": true,
+    "current_source_files_rehashed": 185,
+    "current_source_manifest_file_mismatches": [],
+    "source_set_encoding": "UTF8(path + NUL + lowercase_sha256 + LF)",
+    "overall_status": "FAIL",
+    "counts": {
+      "tests": 681,
+      "failed": 14,
+      "passed": 635,
+      "cancelled": 0,
+      "skipped": 32,
+      "todo": 0,
+      "topLevel": 614,
+      "suites": 0
+    },
+    "m181_added": {
+      "tests": 41,
+      "pass": 41,
+      "fail": 0,
+      "skip": 0
+    },
+    "syntax_pass": true,
+    "strict_typecheck": "PASS",
+    "baseline_counts": {
+      "tests": 640,
+      "failed": 15,
+      "passed": 593,
+      "cancelled": 0,
+      "skipped": 32,
+      "todo": 0,
+      "topLevel": 573,
+      "suites": 0
+    },
+    "added_failure_names": [],
+    "resolved_failure_names": [
+      "M1.4 REAL_WINDOWS_PRIMITIVE: cumulative Job CPU time kills a busy fixture before wall deadline"
+    ],
+    "comparison_caveat": "Same sandbox, separate retained runs. Windows concurrency/timing failures may vary; no OS qualification is inferred.",
+    "retained_failure_names": [
+      "M151 REAL_WINDOWS_PRIMITIVE: concurrent directory replacement never returns junction target bytes",
+      "M151 REAL_WINDOWS_PRIMITIVE: CREATE_BREAKAWAY_FROM_JOB is denied by the private Job",
+      "M161 GATE actual file candidate is bound from trusted PASS to the approved Storage input",
+      "M161 STORAGE real atomic CREATE binds exact approval, content, Artifact/Audit and persistent budget ownership",
+      "M161 STORAGE REPLACE requires the exact owned version; original Artifact remains reconstructible",
+      "M161 STORAGE bounded streaming verifies 3 MiB without materializing the input in the request",
+      "M161 STORAGE publish-link gap is reconciled by identity/hash without republishing",
+      "M161 STORAGE concurrent same-resource writers conflict before the second file effect",
+      "M161 STORAGE changed bytes between publication and ACK stay UNKNOWN and cannot be reconciled by pathname",
+      "M161 STORAGE persistent resource quota rejects a second allocation before a temporary object",
+      "M161 STORAGE REAL_PROCESS_CRASH at UNLINK_TEMP preserves evidence and never automatically retries",
+      "M161 STORAGE REAL_PROCESS_CRASH at PUBLISHED preserves evidence and never automatically retries",
+      "M161 STORAGE REAL_PROCESS_CRASH at AUDIT_ACKNOWLEDGED preserves evidence and never automatically retries",
+      "M17 Native Pilot actually publishes, reviews, repairs, restores and gates a complete CLI through a SIMULATED provider"
+    ],
+    "full_regression_pass": false,
+    "os_or_cpu_qualification_inferred": false,
+    "real_provider_or_model_capability_inferred": false
+  }
+}

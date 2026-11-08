@@ -1,0 +1,2217 @@
+{
+  "schema": "agentnexus/m1.8.1/verification/1",
+  "run_id": "0a9cbf81-776c-4862-8e90-598760759b5c",
+  "suite": "model",
+  "started_at": "2026-11-08T10:04:51.231Z",
+  "node": "v24.15.0",
+  "platform": "win32",
+  "status": "PASS",
+  "exit_code": 0,
+  "execution_started": true,
+  "source_set_sha256": "e1e398d5a89cbaeb219a0e1f8572935059e5f6357d028869ac5bbd559cc2bd37",
+  "source_snapshot_stable": true,
+  "test_files": [
+    "tests/agentnexus/m18-authorization.test.ts",
+    "tests/agentnexus/m18-gateway.test.ts",
+    "tests/agentnexus/m18-git-reviewer.test.ts",
+    "tests/agentnexus/m18-ledger.test.ts",
+    "tests/agentnexus/m18-multi-agent.test.ts",
+    "tests/agentnexus/m18-protocol.test.ts",
+    "tests/agentnexus/m18-review-bridge.test.ts",
+    "tests/agentnexus/m18-review-fixes.test.ts",
+    "tests/agentnexus/m18-secret-boundary.test.ts",
+    "tests/agentnexus/m18-vault.test.ts",
+    "tests/agentnexus/m181-adapter.test.ts",
+    "tests/agentnexus/m181-control.test.ts"
+  ],
+  "summary": {
+    "type": "test:summary",
+    "success": true,
+    "counts": {
+      "tests": 148,
+      "failed": 0,
+      "passed": 146,
+      "cancelled": 0,
+      "skipped": 2,
+      "todo": 0,
+      "topLevel": 140,
+      "suites": 0
+    },
+    "duration_ms": 31758.3698
+  },
+  "cases": [
+    {
+      "type": "test:pass",
+      "name": "M18 AUTH no explicit verified user grant or missing qualification can call an HTTPS Provider",
+      "nesting": 0,
+      "testNumber": 1,
+      "details": {
+        "duration_ms": 220.9952,
+        "type": "test"
+      },
+      "line": 13,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-authorization.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M18 AUTH grant binds Provider, Model, endpoint, project, exact context and upload scope",
+      "nesting": 0,
+      "testNumber": 2,
+      "details": {
+        "duration_ms": 180.3743,
+        "type": "test"
+      },
+      "line": 17,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-authorization.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M18 AUTH grant budgets are reserved atomically and cannot be replenished with negative costs",
+      "nesting": 0,
+      "testNumber": 3,
+      "details": {
+        "duration_ms": 177.3838,
+        "type": "test"
+      },
+      "line": 23,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-authorization.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M18 AUTH synchronous final fence rejects revoked, expired and mismatched dispatch after durable intent",
+      "nesting": 0,
+      "testNumber": 4,
+      "details": {
+        "duration_ms": 216.5523,
+        "type": "test"
+      },
+      "line": 28,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-authorization.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M18 GATEWAY native Loop uses encrypted synthetic credentials, Tool Gateway and exact source archive",
+      "nesting": 0,
+      "testNumber": 5,
+      "details": {
+        "duration_ms": 734.3954,
+        "type": "test"
+      },
+      "line": 11,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-gateway.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M18 GATEWAY durable terminal dedup and conflicting input never make a second request",
+      "nesting": 0,
+      "testNumber": 6,
+      "details": {
+        "duration_ms": 292.2039,
+        "type": "test"
+      },
+      "line": 19,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-gateway.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M18 GATEWAY caller mutation while reconstructing cannot alter validated output bound or fingerprint",
+      "nesting": 0,
+      "testNumber": 7,
+      "details": {
+        "duration_ms": 286.9399,
+        "type": "test"
+      },
+      "line": 24,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-gateway.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "partial",
+      "nesting": 1,
+      "testNumber": 1,
+      "details": {
+        "duration_ms": 273.685,
+        "type": "test"
+      },
+      "line": 29,
+      "column": 86,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-gateway.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "no-usage",
+      "nesting": 1,
+      "testNumber": 2,
+      "details": {
+        "duration_ms": 277.6026,
+        "type": "test"
+      },
+      "line": 29,
+      "column": 86,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-gateway.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "overrun",
+      "nesting": 1,
+      "testNumber": 3,
+      "details": {
+        "duration_ms": 291.6306,
+        "type": "test"
+      },
+      "line": 29,
+      "column": 86,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-gateway.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "invalid-json",
+      "nesting": 1,
+      "testNumber": 4,
+      "details": {
+        "duration_ms": 269.807,
+        "type": "test"
+      },
+      "line": 29,
+      "column": 86,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-gateway.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M18 GATEWAY incomplete/disconnected/overbudget streams keep key and four-level holds without retry",
+      "nesting": 0,
+      "testNumber": 8,
+      "details": {
+        "duration_ms": 1113.5876,
+        "type": "test"
+      },
+      "line": 28,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-gateway.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M18 GATEWAY sent timeout returns bounded UNKNOWN and aborts the original stream",
+      "nesting": 0,
+      "testNumber": 9,
+      "details": {
+        "duration_ms": 292.0422,
+        "type": "test"
+      },
+      "line": 35,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-gateway.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M18 GATEWAY pre-send cancellation and atomic budget denial never touch Provider transport",
+      "nesting": 0,
+      "testNumber": 10,
+      "details": {
+        "duration_ms": 242.3974,
+        "type": "test"
+      },
+      "line": 39,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-gateway.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M18 GATEWAY independently scoped concurrent Agent requests cannot overconsume one Key",
+      "nesting": 0,
+      "testNumber": 11,
+      "details": {
+        "duration_ms": 362.3689,
+        "type": "test"
+      },
+      "line": 44,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-gateway.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M18 GATEWAY model RPM, role routing and reasoned upgrade limits remain independent of permissions",
+      "nesting": 0,
+      "testNumber": 12,
+      "details": {
+        "duration_ms": 661.7316,
+        "type": "test"
+      },
+      "line": 50,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-gateway.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "echo",
+      "nesting": 1,
+      "testNumber": 1,
+      "details": {
+        "duration_ms": 352.1113,
+        "type": "test"
+      },
+      "line": 58,
+      "column": 55,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-gateway.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "error",
+      "nesting": 1,
+      "testNumber": 2,
+      "details": {
+        "duration_ms": 395.5033,
+        "type": "test"
+      },
+      "line": 58,
+      "column": 55,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-gateway.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M18 GATEWAY echoed secret and hostile error text never reach Archive/Audit/results",
+      "nesting": 0,
+      "testNumber": 13,
+      "details": {
+        "duration_ms": 748.2488,
+        "type": "test"
+      },
+      "line": 57,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-gateway.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M18-GIT: fixed reader rejects shell/ref/path injection before any spawn",
+      "nesting": 0,
+      "testNumber": 14,
+      "details": {
+        "duration_ms": 1.7564,
+        "type": "test"
+      },
+      "line": 49,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-git-reviewer.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M18-GIT: reader actually supplies fixed diff argv, transport denial and a minimal environment",
+      "nesting": 0,
+      "testNumber": 15,
+      "details": {
+        "duration_ms": 5.4077,
+        "type": "test"
+      },
+      "line": 59,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-git-reviewer.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M18-GIT: combined output cap and timeout terminate the owned reader with stable error codes",
+      "nesting": 0,
+      "testNumber": 16,
+      "details": {
+        "duration_ms": 18.2507,
+        "type": "test"
+      },
+      "line": 85,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-git-reviewer.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M18-GIT: acknowledged event durably precedes one independent read-only review and notification receipt",
+      "nesting": 0,
+      "testNumber": 17,
+      "details": {
+        "duration_ms": 94.8346,
+        "type": "test"
+      },
+      "line": 103,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-git-reviewer.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M18-GIT: duplicate events, concurrent observation and changed replay never duplicate a reviewer",
+      "nesting": 0,
+      "testNumber": 18,
+      "details": {
+        "duration_ms": 66.9685,
+        "type": "test"
+      },
+      "line": 121,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-git-reviewer.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M18-GIT: ordinary Agent/forged JSON has no event, result or Git-reader authority",
+      "nesting": 0,
+      "testNumber": 19,
+      "details": {
+        "duration_ms": 48.1914,
+        "type": "test"
+      },
+      "line": 130,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-git-reviewer.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M18-GIT: PUSH requires an explicit Host-local event source and performs no push or polling",
+      "nesting": 0,
+      "testNumber": 20,
+      "details": {
+        "duration_ms": 74.7729,
+        "type": "test"
+      },
+      "line": 138,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-git-reviewer.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M18-GIT: forged snapshot hash cannot create a task; explicitly pending work can continue once",
+      "nesting": 0,
+      "testNumber": 21,
+      "details": {
+        "duration_ms": 61.0351,
+        "type": "test"
+      },
+      "line": 145,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-git-reviewer.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M18-GIT: an uncertain creator is durable UNKNOWN and repeated events never automatically retry",
+      "nesting": 0,
+      "testNumber": 22,
+      "details": {
+        "duration_ms": 59.4088,
+        "type": "test"
+      },
+      "line": 158,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-git-reviewer.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M18-GIT: creator cannot bind the author, author task or a writable reviewer",
+      "nesting": 0,
+      "testNumber": 23,
+      "details": {
+        "duration_ms": 166.8555,
+        "type": "test"
+      },
+      "line": 165,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-git-reviewer.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M18-GIT: exact result binds commit/diff/candidate/source/rules/reviewer and remains only Gate evidence",
+      "nesting": 0,
+      "testNumber": 24,
+      "details": {
+        "duration_ms": 79.2186,
+        "type": "test"
+      },
+      "line": 176,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-git-reviewer.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M18-GIT: changing a commit invalidates old review acceptance while other repositories remain current",
+      "nesting": 0,
+      "testNumber": 25,
+      "details": {
+        "duration_ms": 90.1663,
+        "type": "test"
+      },
+      "line": 193,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-git-reviewer.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M18-GIT: an accepted projection without an acknowledged audit barrier cannot supply Gate evidence",
+      "nesting": 0,
+      "testNumber": 26,
+      "details": {
+        "duration_ms": 67.4015,
+        "type": "test"
+      },
+      "line": 203,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-git-reviewer.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M18-GIT: a commit change while a creator is pending cannot revive the stale review",
+      "nesting": 0,
+      "testNumber": 27,
+      "details": {
+        "duration_ms": 72.6912,
+        "type": "test"
+      },
+      "line": 214,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-git-reviewer.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M18-GIT: actual store reopen quarantines CREATING without invoking either callback again",
+      "nesting": 0,
+      "testNumber": 28,
+      "details": {
+        "duration_ms": 76.0223,
+        "type": "test"
+      },
+      "line": 227,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-git-reviewer.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M18-GIT: failed durable creation barrier invokes no callback and preserves the claim",
+      "nesting": 0,
+      "testNumber": 29,
+      "details": {
+        "duration_ms": 48.2938,
+        "type": "test"
+      },
+      "line": 241,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-git-reviewer.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M18-GIT: retained event capacity is 128 including stale and uncertain work",
+      "nesting": 0,
+      "testNumber": 30,
+      "details": {
+        "duration_ms": 2287.087,
+        "type": "test"
+      },
+      "line": 249,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-git-reviewer.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M18 LEDGER composite Task budget identities cannot alias through colon-containing IDs",
+      "nesting": 0,
+      "testNumber": 31,
+      "details": {
+        "duration_ms": 1.5703,
+        "type": "test"
+      },
+      "line": 42,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-ledger.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M18 LEDGER real SQLite four-level admission is atomic under competing reservations",
+      "nesting": 0,
+      "testNumber": 32,
+      "details": {
+        "duration_ms": 101.7159,
+        "type": "test"
+      },
+      "line": 46,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-ledger.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M18 LEDGER each independently exhausted scope rejects without partial holds",
+      "nesting": 0,
+      "testNumber": 33,
+      "details": {
+        "duration_ms": 205.7639,
+        "type": "test"
+      },
+      "line": 55,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-ledger.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M18 LEDGER sibling agents share project allowance and separate projects share platform allowance",
+      "nesting": 0,
+      "testNumber": 34,
+      "details": {
+        "duration_ms": 92.6723,
+        "type": "test"
+      },
+      "line": 64,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-ledger.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M18 LEDGER a missing level, forged admin, injected fields and static reason violations fail before mutation",
+      "nesting": 0,
+      "testNumber": 35,
+      "details": {
+        "duration_ms": 57.6057,
+        "type": "test"
+      },
+      "line": 81,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-ledger.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M18 LEDGER request idempotency binds the complete subject, context, model, assurance and estimates",
+      "nesting": 0,
+      "testNumber": 36,
+      "details": {
+        "duration_ms": 53.5638,
+        "type": "test"
+      },
+      "line": 96,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-ledger.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M18 LEDGER proven-not-sent releases once; durable SENT and UNKNOWN cannot be replayed or released",
+      "nesting": 0,
+      "testNumber": 37,
+      "details": {
+        "duration_ms": 73.0341,
+        "type": "test"
+      },
+      "line": 107,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-ledger.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M18 LEDGER provider actual usage settles all scopes once and reasoning remains inside output tokens",
+      "nesting": 0,
+      "testNumber": 38,
+      "details": {
+        "duration_ms": 56.1219,
+        "type": "test"
+      },
+      "line": 122,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-ledger.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M18 LEDGER REAL and SIMULATED limits and receipts are isolated, including HTTP rejection estimates",
+      "nesting": 0,
+      "testNumber": 39,
+      "details": {
+        "duration_ms": 71.1268,
+        "type": "test"
+      },
+      "line": 133,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-ledger.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M18 LEDGER estimated tokens and fees remain separate from actual usage and retain uncertain allowance",
+      "nesting": 0,
+      "testNumber": 40,
+      "details": {
+        "duration_ms": 54.3337,
+        "type": "test"
+      },
+      "line": 146,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-ledger.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M18 LEDGER actual overshoot is retained as UNKNOWN with all observed usage and no accounting rollback",
+      "nesting": 0,
+      "testNumber": 41,
+      "details": {
+        "duration_ms": 54.9531,
+        "type": "test"
+      },
+      "line": 152,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-ledger.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M18 LEDGER invalid reasoning, attempt counts, numeric overflow and non-provider real usage never settle",
+      "nesting": 0,
+      "testNumber": 42,
+      "details": {
+        "duration_ms": 50.7755,
+        "type": "test"
+      },
+      "line": 164,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-ledger.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M18 LEDGER SQLite close/reopen recovery quarantines every unresolved request without calls or released holds",
+      "nesting": 0,
+      "testNumber": 43,
+      "details": {
+        "duration_ms": 100.6472,
+        "type": "test"
+      },
+      "line": 173,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-ledger.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M18 LEDGER failed durable reservation ACK performs zero send transitions and keeps all committed holds",
+      "nesting": 0,
+      "testNumber": 44,
+      "details": {
+        "duration_ms": 47.8542,
+        "type": "test"
+      },
+      "line": 186,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-ledger.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M18 MULTI SIMULATED wire adapters drive two concurrent independent subcontexts, structured messages and read-only review",
+      "nesting": 0,
+      "testNumber": 45,
+      "details": {
+        "duration_ms": 1838.2639,
+        "type": "test"
+      },
+      "line": 7,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-multi-agent.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M18 PROTOCOL three provider builders explicitly distinguish token, storage, reasoning and usage fields",
+      "nesting": 0,
+      "testNumber": 46,
+      "details": {
+        "duration_ms": 1.3662,
+        "type": "test"
+      },
+      "line": 15,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-protocol.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M18 STREAM fragmented UTF-8, CRLF, comments and multiline SSE retain pull backpressure",
+      "nesting": 0,
+      "testNumber": 47,
+      "details": {
+        "duration_ms": 1.5969,
+        "type": "test"
+      },
+      "line": 23,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-protocol.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M18 STREAM overlong event/chunk, malformed UTF-8 and trailing partial fail without a completed response",
+      "nesting": 0,
+      "testNumber": 48,
+      "details": {
+        "duration_ms": 73.8649,
+        "type": "test"
+      },
+      "line": 28,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-protocol.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M18 STREAM cancellation interrupts a pending next without waiting for an uncontrolled iterator",
+      "nesting": 0,
+      "testNumber": 49,
+      "details": {
+        "duration_ms": 0.3807,
+        "type": "test"
+      },
+      "line": 33,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-protocol.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M18 ADAPTER every provider decodes bounded fragmented replies and reported reasoning usage",
+      "nesting": 0,
+      "testNumber": 50,
+      "details": {
+        "duration_ms": 7.8264,
+        "type": "test"
+      },
+      "line": 37,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-protocol.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M18 ADAPTER partial streams, length finish and missing tool termination never become usable tool calls",
+      "nesting": 0,
+      "testNumber": 51,
+      "details": {
+        "duration_ms": 1.2264,
+        "type": "test"
+      },
+      "line": 43,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-protocol.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M18 ADAPTER complete native tool fragments are joined but never executed or given approval authority",
+      "nesting": 0,
+      "testNumber": 52,
+      "details": {
+        "duration_ms": 1.2746,
+        "type": "test"
+      },
+      "line": 48,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-protocol.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M18 REGISTRY prices use integer ceiling without double charging reasoning or losing precision",
+      "nesting": 0,
+      "testNumber": 53,
+      "details": {
+        "duration_ms": 0.4412,
+        "type": "test"
+      },
+      "line": 57,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-protocol.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M18 ROUTER explicit capabilities, stale price, role routes and bounded escalation do not infer model powers",
+      "nesting": 0,
+      "testNumber": 54,
+      "details": {
+        "duration_ms": 0.592,
+        "type": "test"
+      },
+      "line": 62,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-protocol.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M18 REVIEW BRIDGE SIMULATED_GIT_REAL_HARNESS creates an independent read-only Reviewer and delivers exact immutable inputs",
+      "nesting": 0,
+      "testNumber": 55,
+      "details": {
+        "duration_ms": 695.6798,
+        "type": "test"
+      },
+      "line": 50,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-review-bridge.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M18 REVIEW BRIDGE duplicate callbacks reuse one Task/message and never wake a terminal Reviewer",
+      "nesting": 0,
+      "testNumber": 56,
+      "details": {
+        "duration_ms": 529.2081,
+        "type": "test"
+      },
+      "line": 67,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-review-bridge.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M18 REVIEW BRIDGE explicit TASK_READY fallback dispatches through events when MessageBus auto-event option is absent",
+      "nesting": 0,
+      "testNumber": 57,
+      "details": {
+        "duration_ms": 518.212,
+        "type": "test"
+      },
+      "line": 80,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-review-bridge.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M18 REVIEW BRIDGE rejects author/project/session/Diff spoofing before creating any Reviewer",
+      "nesting": 0,
+      "testNumber": 58,
+      "details": {
+        "duration_ms": 168.3,
+        "type": "test"
+      },
+      "line": 87,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-review-bridge.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M18 REVIEW BRIDGE a model tool proposal cannot give its Reviewer a write or PROCESS capability",
+      "nesting": 0,
+      "testNumber": 59,
+      "details": {
+        "duration_ms": 504.1009,
+        "type": "test"
+      },
+      "line": 97,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-review-bridge.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M18 REVIEW BRIDGE reconciles a durable Task after lost ACK and Host reopen without duplicate objects or implicit model calls",
+      "nesting": 0,
+      "testNumber": 60,
+      "details": {
+        "duration_ms": 749.765,
+        "type": "test"
+      },
+      "line": 105,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-review-bridge.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M18 REVIEW BRIDGE uncertain partial Agent initialization is never recreated by an exact retry",
+      "nesting": 0,
+      "testNumber": 61,
+      "details": {
+        "duration_ms": 249.0585,
+        "type": "test"
+      },
+      "line": 117,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-review-bridge.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M18 REVIEW BRIDGE trusted G4 checks exact Watcher evidence; model PASS alone does not certify and a changed commit invalidates the old result",
+      "nesting": 0,
+      "testNumber": 62,
+      "details": {
+        "duration_ms": 1410.5048,
+        "type": "test"
+      },
+      "line": 125,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-review-bridge.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M18 REVIEW sent UNKNOWN transport closure keeps the global slot after cancellation",
+      "nesting": 0,
+      "testNumber": 63,
+      "details": {
+        "duration_ms": 332.9592,
+        "type": "test"
+      },
+      "line": 11,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-review-fixes.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M18 REVIEW a response archive ACK failure preserves settled usage and never repeats the paid request",
+      "nesting": 0,
+      "testNumber": 64,
+      "details": {
+        "duration_ms": 274.8309,
+        "type": "test"
+      },
+      "line": 16,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-review-fixes.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M18 REVIEW reasoning leaks split across events cannot hide behind a long discarded suffix",
+      "nesting": 0,
+      "testNumber": 65,
+      "details": {
+        "duration_ms": 279.455,
+        "type": "test"
+      },
+      "line": 23,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-review-fixes.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M18 REVIEW reported model mismatch cannot settle at the requested model price",
+      "nesting": 0,
+      "testNumber": 66,
+      "details": {
+        "duration_ms": 274.3132,
+        "type": "test"
+      },
+      "line": 27,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-review-fixes.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M18 REVIEW grant preflight atomically reserves its sixteen pending slots before await",
+      "nesting": 0,
+      "testNumber": 67,
+      "details": {
+        "duration_ms": 271.0677,
+        "type": "test"
+      },
+      "line": 31,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-review-fixes.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M18 REVIEW an already-sent Key cannot be released as NOT_SENT and a closed guard rejects all attached channels",
+      "nesting": 0,
+      "testNumber": 68,
+      "details": {
+        "duration_ms": 203.254,
+        "type": "test"
+      },
+      "line": 41,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-review-fixes.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M18 REVIEW rotate fences the original credential generation across asynchronous encryption",
+      "nesting": 0,
+      "testNumber": 69,
+      "details": {
+        "duration_ms": 65.0083,
+        "type": "test"
+      },
+      "line": 47,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-review-fixes.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M18 SECRET Prompt/Context, Audit detail and artifact bytes fail before persistent publication",
+      "nesting": 0,
+      "testNumber": 70,
+      "details": {
+        "duration_ms": 243.5937,
+        "type": "test"
+      },
+      "line": 8,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-secret-boundary.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M18 SECRET cross-chunk and encoded artifact secrets are detected before opening partial files",
+      "nesting": 0,
+      "testNumber": 71,
+      "details": {
+        "duration_ms": 146.8688,
+        "type": "test"
+      },
+      "line": 17,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-secret-boundary.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M18 SECRET queued mutable byte buffers are owned before inspection and queue waits",
+      "nesting": 0,
+      "testNumber": 72,
+      "details": {
+        "duration_ms": 213.2703,
+        "type": "test"
+      },
+      "line": 22,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-secret-boundary.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M18 SECRET guarded large streams have an explicit memory cap and never create partial payloads on overflow",
+      "nesting": 0,
+      "testNumber": 73,
+      "details": {
+        "duration_ms": 139.2432,
+        "type": "test"
+      },
+      "line": 27,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-secret-boundary.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M18 SECRET closing a Vault cannot silently disable guard enforcement on attached Host storage",
+      "nesting": 0,
+      "testNumber": 74,
+      "details": {
+        "duration_ms": 190.0191,
+        "type": "test"
+      },
+      "line": 30,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-secret-boundary.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M18 SECRET ordinary Worker and child facades expose no Vault, credential or management database",
+      "nesting": 0,
+      "testNumber": 75,
+      "details": {
+        "duration_ms": 228.9194,
+        "type": "test"
+      },
+      "line": 33,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-secret-boundary.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M18 VAULT rotation never extends the old credential expiry before or during asynchronous decrypt",
+      "nesting": 0,
+      "testNumber": 76,
+      "details": {
+        "duration_ms": 95.1108,
+        "type": "test"
+      },
+      "line": 21,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-vault.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M18 VAULT rotating a rate-limited key prevents automatic cooldown resurrection",
+      "nesting": 0,
+      "testNumber": 77,
+      "details": {
+        "duration_ms": 62.8769,
+        "type": "test"
+      },
+      "line": 31,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-vault.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M18 VAULT accepts only fabricated secrets and identity-bound host authority; LIVE is BLOCKED",
+      "nesting": 0,
+      "testNumber": 78,
+      "details": {
+        "duration_ms": 43.3587,
+        "type": "test"
+      },
+      "line": 50,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-vault.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M18 VAULT encrypts actual persisted bytes and reloads only its own fabricated entries",
+      "nesting": 0,
+      "testNumber": 79,
+      "details": {
+        "duration_ms": 65.4641,
+        "type": "test"
+      },
+      "line": 62,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-vault.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M18 VAULT inactive states, model eligibility, and expiration prevent acquisition",
+      "nesting": 0,
+      "testNumber": 80,
+      "details": {
+        "duration_ms": 117.4613,
+        "type": "test"
+      },
+      "line": 78,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-vault.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M18 VAULT two SQLite connections atomically reserve concurrency and cost before sending",
+      "nesting": 0,
+      "testNumber": 81,
+      "details": {
+        "duration_ms": 104.2589,
+        "type": "test"
+      },
+      "line": 92,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-vault.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M18 VAULT subject binding, request conflicts, and once-only send prevent lease reuse",
+      "nesting": 0,
+      "testNumber": 82,
+      "details": {
+        "duration_ms": 74.998,
+        "type": "test"
+      },
+      "line": 116,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-vault.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M18 VAULT rate windows, AUTH and RATE_LIMIT alter future eligibility",
+      "nesting": 0,
+      "testNumber": 83,
+      "details": {
+        "duration_ms": 102.3973,
+        "type": "test"
+      },
+      "line": 136,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-vault.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M18 VAULT deterministic health/cost/concurrency selection and rotation preserve old inflight",
+      "nesting": 0,
+      "testNumber": 84,
+      "details": {
+        "duration_ms": 86.3127,
+        "type": "test"
+      },
+      "line": 153,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-vault.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M18 VAULT UNKNOWN and close/reopen retain reservations and never automatically resend",
+      "nesting": 0,
+      "testNumber": 85,
+      "details": {
+        "duration_ms": 124.272,
+        "type": "test"
+      },
+      "line": 168,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-vault.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M18 VAULT guard blocks raw/JSON/URL/base64 known secrets and emits static events",
+      "nesting": 0,
+      "testNumber": 86,
+      "details": {
+        "duration_ms": 54.0255,
+        "type": "test"
+      },
+      "line": 190,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-vault.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M18 VAULT callback errors and returned credentials are sanitized and quarantined",
+      "nesting": 0,
+      "testNumber": 87,
+      "details": {
+        "duration_ms": 84.5998,
+        "type": "test"
+      },
+      "line": 202,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-vault.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M18 VAULT import snapshot survives caller mutation while encryption awaits",
+      "nesting": 0,
+      "testNumber": 88,
+      "details": {
+        "duration_ms": 42.5451,
+        "type": "test"
+      },
+      "line": 215,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-vault.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M18 VAULT revocation during asynchronous unprotect blocks the host callback",
+      "nesting": 0,
+      "testNumber": 89,
+      "details": {
+        "duration_ms": 45.9652,
+        "type": "test"
+      },
+      "line": 228,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-vault.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M18 VAULT removing a settled key preserves request replay tombstones",
+      "nesting": 0,
+      "testNumber": 90,
+      "details": {
+        "duration_ms": 64.2218,
+        "type": "test"
+      },
+      "line": 241,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-vault.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M18 VAULT failed duplicate import never forgets the existing known secret",
+      "nesting": 0,
+      "testNumber": 91,
+      "details": {
+        "duration_ms": 36.4428,
+        "type": "test"
+      },
+      "line": 249,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-vault.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M18 VAULT independent connection guards reject stale imports/rotation until owner refresh",
+      "nesting": 0,
+      "testNumber": 92,
+      "details": {
+        "duration_ms": 78.7858,
+        "type": "test"
+      },
+      "line": 255,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-vault.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M18 VAULT open rejects a generation changed while its own encrypted entries load",
+      "nesting": 0,
+      "testNumber": 93,
+      "details": {
+        "duration_ms": 54.7569,
+        "type": "test"
+      },
+      "line": 273,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-vault.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M18 VAULT security events retain only 256 entries and preserve a lifetime count",
+      "nesting": 0,
+      "testNumber": 94,
+      "details": {
+        "duration_ms": 46.8189,
+        "type": "test"
+      },
+      "line": 284,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-vault.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M18 VAULT key/import and request evidence capacities fail closed without evicting leases",
+      "nesting": 0,
+      "testNumber": 95,
+      "details": {
+        "duration_ms": 161.6448,
+        "type": "test"
+      },
+      "line": 290,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-vault.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M18 VAULT DPAPI all child/pipe errors converge on static failure after confirmed close",
+      "nesting": 0,
+      "testNumber": 96,
+      "details": {
+        "duration_ms": 2.037,
+        "type": "test"
+      },
+      "line": 325,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-vault.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M18 VAULT DPAPI helper capacity and unconfirmed close permanently poison the protector",
+      "nesting": 0,
+      "testNumber": 97,
+      "details": {
+        "duration_ms": 2006.5872,
+        "type": "test"
+      },
+      "line": 338,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-vault.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M18 VAULT native DPAPI failed spawn is a static rejection without unhandled pipe error",
+      "nesting": 0,
+      "testNumber": 98,
+      "details": {
+        "duration_ms": 4.1925,
+        "type": "test"
+      },
+      "line": 354,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-vault.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "hardlink fixture is rejected where host permits creating it",
+      "nesting": 1,
+      "testNumber": 1,
+      "details": {
+        "duration_ms": 1.8347,
+        "type": "test"
+      },
+      "line": 367,
+      "column": 11,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-vault.test.ts",
+      "skip": "Host denies hardlink fixture creation; no ACL/account changes attempted.",
+      "status": "NOT_RUN"
+    },
+    {
+      "type": "test:pass",
+      "name": "junction/symlink fixture is rejected where host permits creating it",
+      "nesting": 1,
+      "testNumber": 2,
+      "details": {
+        "duration_ms": 2.4998,
+        "type": "test"
+      },
+      "line": 373,
+      "column": 11,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-vault.test.ts",
+      "skip": "Host denies junction/symlink fixture creation; no ACL/account changes attempted.",
+      "status": "NOT_RUN"
+    },
+    {
+      "type": "test:pass",
+      "name": "M18 VAULT refuses wrong DB content, foreign SQLite, hardlinks, symlinks, and protector mismatch",
+      "nesting": 0,
+      "testNumber": 99,
+      "details": {
+        "duration_ms": 95.3099,
+        "type": "test"
+      },
+      "line": 359,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-vault.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M18 VAULT actual CurrentUser DPAPI anonymous-pipe synthetic smoke and persistent reopen",
+      "nesting": 0,
+      "testNumber": 100,
+      "details": {
+        "duration_ms": 2075.7358,
+        "type": "test"
+      },
+      "line": 382,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m18-vault.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M181 DEEPSEEK documented request uses the exact endpoint, Flash ID and provider token fields",
+      "nesting": 0,
+      "testNumber": 101,
+      "details": {
+        "duration_ms": 1.9023,
+        "type": "test"
+      },
+      "line": 41,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m181-adapter.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M181 DEEPSEEK REAL models accept current exact IDs and reject aliases, snapshots and case changes",
+      "nesting": 0,
+      "testNumber": 102,
+      "details": {
+        "duration_ms": 0.9746,
+        "type": "test"
+      },
+      "line": 52,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m181-adapter.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M181 DEEPSEEK official terminal choice carries usage and fragmented Chinese retains response identity",
+      "nesting": 0,
+      "testNumber": 103,
+      "details": {
+        "duration_ms": 13.93,
+        "type": "test"
+      },
+      "line": 60,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m181-adapter.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M181 DEEPSEEK cache aliases and a single known cache count determine a conserved prompt split",
+      "nesting": 0,
+      "testNumber": 104,
+      "details": {
+        "duration_ms": 3.2976,
+        "type": "test"
+      },
+      "line": 70,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m181-adapter.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M181 DEEPSEEK invalid cache, total and reasoning usage never become observed billing evidence",
+      "nesting": 0,
+      "testNumber": 105,
+      "details": {
+        "duration_ms": 8.5967,
+        "type": "test"
+      },
+      "line": 82,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m181-adapter.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M181 DEEPSEEK SIMULATED compatibility keeps legacy usage-only chunks and absent cache fields",
+      "nesting": 0,
+      "testNumber": 106,
+      "details": {
+        "duration_ms": 0.5653,
+        "type": "test"
+      },
+      "line": 98,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m181-adapter.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M181 DEEPSEEK REAL usage-only and early-usage chunks fail the documented terminal format",
+      "nesting": 0,
+      "testNumber": 107,
+      "details": {
+        "duration_ms": 4.6505,
+        "type": "test"
+      },
+      "line": 106,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m181-adapter.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M181 DEEPSEEK response model and fingerprint are bounded and stable, including explicit null",
+      "nesting": 0,
+      "testNumber": 108,
+      "details": {
+        "duration_ms": 3.7364,
+        "type": "test"
+      },
+      "line": 113,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m181-adapter.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M181 DEEPSEEK native tools join fragmented JSON and Chinese without executing a tool",
+      "nesting": 0,
+      "testNumber": 109,
+      "details": {
+        "duration_ms": 8.0356,
+        "type": "test"
+      },
+      "line": 124,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m181-adapter.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M181 DEEPSEEK malformed tool JSON retains validated usage and never yields a tool proposal",
+      "nesting": 0,
+      "testNumber": 110,
+      "details": {
+        "duration_ms": 1.4833,
+        "type": "test"
+      },
+      "line": 137,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m181-adapter.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M181 DEEPSEEK all documented unsuccessful finishes remain failures with observed usage",
+      "nesting": 0,
+      "testNumber": 111,
+      "details": {
+        "duration_ms": 2.2611,
+        "type": "test"
+      },
+      "line": 143,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m181-adapter.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M181 DEEPSEEK invalid reply JSON, invalid contract and truncated completion preserve validated usage",
+      "nesting": 0,
+      "testNumber": 112,
+      "details": {
+        "duration_ms": 1.9901,
+        "type": "test"
+      },
+      "line": 149,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m181-adapter.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M181 DEEPSEEK duplicate usage and data after finish never settle twice",
+      "nesting": 0,
+      "testNumber": 113,
+      "details": {
+        "duration_ms": 2.1794,
+        "type": "test"
+      },
+      "line": 155,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m181-adapter.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M181 DEEPSEEK guard failures keep static codes and counts without reflecting private error text",
+      "nesting": 0,
+      "testNumber": 114,
+      "details": {
+        "duration_ms": 2.142,
+        "type": "test"
+      },
+      "line": 160,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m181-adapter.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M181 DEEPSEEK bounded SSE errors preserve only prior validated usage and release the parser binding",
+      "nesting": 0,
+      "testNumber": 115,
+      "details": {
+        "duration_ms": 0.5596,
+        "type": "test"
+      },
+      "line": 171,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m181-adapter.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M181 DEEPSEEK missing provider usage remains explicitly unknown",
+      "nesting": 0,
+      "testNumber": 116,
+      "details": {
+        "duration_ms": 0.7819,
+        "type": "test"
+      },
+      "line": 178,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m181-adapter.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M181 DEEPSEEK 402 is REQUEST, other HTTP faults keep their category and never read a response body",
+      "nesting": 0,
+      "testNumber": 117,
+      "details": {
+        "duration_ms": 1.7249,
+        "type": "test"
+      },
+      "line": 183,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m181-adapter.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M181 DEEPSEEK registry distinguishes documented provider limits from local support and price reservations",
+      "nesting": 0,
+      "testNumber": 118,
+      "details": {
+        "duration_ms": 0.3849,
+        "type": "test"
+      },
+      "line": 192,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m181-adapter.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M181 DEEPSEEK cache-aware peak and off-peak cost use one integer ceiling and count reasoning once",
+      "nesting": 0,
+      "testNumber": 119,
+      "details": {
+        "duration_ms": 0.2183,
+        "type": "test"
+      },
+      "line": 203,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m181-adapter.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M181 DEEPSEEK unavailable cache counts conservatively estimate all prompt tokens as misses",
+      "nesting": 0,
+      "testNumber": 120,
+      "details": {
+        "duration_ms": 0.1325,
+        "type": "test"
+      },
+      "line": 211,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m181-adapter.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M181 DEEPSEEK cost rejects invalid evidence and overflow while retaining BigInt precision",
+      "nesting": 0,
+      "testNumber": 121,
+      "details": {
+        "duration_ms": 0.2132,
+        "type": "test"
+      },
+      "line": 218,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m181-adapter.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M181 campaign atomic reservations share one ceiling across concurrent agents and sessions",
+      "nesting": 0,
+      "testNumber": 122,
+      "details": {
+        "duration_ms": 69.0962,
+        "type": "test"
+      },
+      "line": 34,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m181-control.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M181 campaign paid usage survives reopen and cannot be reset or reauthorized as extra quota",
+      "nesting": 0,
+      "testNumber": 123,
+      "details": {
+        "duration_ms": 85.492,
+        "type": "test"
+      },
+      "line": 39,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m181-control.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M181 real campaign ceiling is fixed at 100 million and all other providers are denied",
+      "nesting": 0,
+      "testNumber": 124,
+      "details": {
+        "duration_ms": 43.4375,
+        "type": "test"
+      },
+      "line": 47,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m181-control.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M181 sent failures keep full holds, record provider usage once and stop all new requests",
+      "nesting": 0,
+      "testNumber": 125,
+      "details": {
+        "duration_ms": 51.3041,
+        "type": "test"
+      },
+      "line": 52,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m181-control.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M181 missing usage is explicitly estimated and never refunds a timed-out reservation",
+      "nesting": 0,
+      "testNumber": 126,
+      "details": {
+        "duration_ms": 44.3642,
+        "type": "test"
+      },
+      "line": 59,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m181-control.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M181 known-not-sent releases only its own unused reservation; replay cannot consume again",
+      "nesting": 0,
+      "testNumber": 127,
+      "details": {
+        "duration_ms": 48.8911,
+        "type": "test"
+      },
+      "line": 63,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m181-control.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M181 restart quarantines reservations and later pages without resetting budget",
+      "nesting": 0,
+      "testNumber": 128,
+      "details": {
+        "duration_ms": 590.5309,
+        "type": "test"
+      },
+      "line": 67,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m181-control.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M181 provider usage overruns remain charged and stop admission",
+      "nesting": 0,
+      "testNumber": 129,
+      "details": {
+        "duration_ms": 46.5984,
+        "type": "test"
+      },
+      "line": 73,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m181-control.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M181 gateway denies unreviewed context before Key lease or any transport call",
+      "nesting": 0,
+      "testNumber": 130,
+      "details": {
+        "duration_ms": 253.5232,
+        "type": "test"
+      },
+      "line": 89,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m181-control.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M181 reviewed synthetic context traverses Gateway, Vault, campaign, ledger and Audit",
+      "nesting": 0,
+      "testNumber": 131,
+      "details": {
+        "duration_ms": 313.7792,
+        "type": "test"
+      },
+      "line": 94,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m181-control.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M181 Agent classification labels and authorization strings cannot approve INTERNAL, CONFIDENTIAL or SECRET",
+      "nesting": 0,
+      "testNumber": 132,
+      "details": {
+        "duration_ms": 269.8517,
+        "type": "test"
+      },
+      "line": 99,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m181-control.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M181 exact request body and source manifest are bound independently of context label",
+      "nesting": 0,
+      "testNumber": 133,
+      "details": {
+        "duration_ms": 222.6663,
+        "type": "test"
+      },
+      "line": 105,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m181-control.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M181 grant revoke and expiry are checked at the final synchronous send fence",
+      "nesting": 0,
+      "testNumber": 134,
+      "details": {
+        "duration_ms": 308.3359,
+        "type": "test"
+      },
+      "line": 111,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m181-control.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M181 forged egress receipts cannot enter transport without durable host-reviewed grant",
+      "nesting": 0,
+      "testNumber": 135,
+      "details": {
+        "duration_ms": 205.4317,
+        "type": "test"
+      },
+      "line": 117,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m181-control.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M181 known credential material is rejected from otherwise approved request bytes",
+      "nesting": 0,
+      "testNumber": 136,
+      "details": {
+        "duration_ms": 260.8724,
+        "type": "test"
+      },
+      "line": 121,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m181-control.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M181 malformed paid reply preserves provider usage and partial hash, stops campaign and never replays tools",
+      "nesting": 0,
+      "testNumber": 137,
+      "details": {
+        "duration_ms": 375.8337,
+        "type": "test"
+      },
+      "line": 127,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m181-control.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M181 cancelled or missing-usage streams cannot refund campaign budget",
+      "nesting": 0,
+      "testNumber": 138,
+      "details": {
+        "duration_ms": 357.8892,
+        "type": "test"
+      },
+      "line": 134,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m181-control.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M181 a declared qualified callback still cannot promote a synthetic Vault to live Gateway",
+      "nesting": 0,
+      "testNumber": 139,
+      "details": {
+        "duration_ms": 238.5659,
+        "type": "test"
+      },
+      "line": 138,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m181-control.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M181 response evidence is pull based, hashes exact bytes and retains incomplete state without publishing data",
+      "nesting": 0,
+      "testNumber": 140,
+      "details": {
+        "duration_ms": 0.4332,
+        "type": "test"
+      },
+      "line": 143,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace\\tests\\agentnexus\\m181-control.test.ts",
+      "status": "PASS"
+    }
+  ],
+  "syntax_pass": true,
+  "tsc": "PASS",
+  "tests": "PASS",
+  "workspace": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\workspace",
+  "data": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\data",
+  "limits": {
+    "command_timeout_ms": 600000,
+    "close_grace_ms": 10000,
+    "bytes_per_output_stream": 8388608,
+    "no_automatic_retry": true
+  },
+  "security_assurance": "TRUSTED_LOCAL_ENGINEERING_RUNNER; PER_CASE_EXPLICIT; NOT_RUN AND SIMULATED ARE NOT OS EVIDENCE",
+  "production_deployment": "BLOCKED",
+  "linux": "NOT_RUN",
+  "os_reboot": "NOT_RUN",
+  "cpu_qualification": "SEPARATE_RAW_REPORT_REQUIRED; INHERITED_TEST_PASS_DOES_NOT_QUALIFY",
+  "errors": [],
+  "environment": {
+    "node_executable": "D:\\Nodejs\\node.exe",
+    "type_tools": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.5\\type-tools",
+    "python": "C:\\Users\\28642\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "powershell": "C:\\Program Files\\WindowsApps\\OpenAI.CodexPrimaryRuntime.v26-1104-709-0_26.1104.709.0_x64__3k8sg7r9htsxt\\dependencies\\native\\powershell\\pwsh.exe",
+    "git": "C:\\Program Files\\Git\\cmd\\git.exe",
+    "tmp": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\data\\tmp",
+    "m17_event_output": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\data\\m17-event-output",
+    "child_environment_keys": [
+      "AGENTNEXUS_M17_EVENT_OUTPUT",
+      "AGENTNEXUS_TEST_DATA_ROOT",
+      "AGENTNEXUS_TEST_GIT_PATH",
+      "AGENTNEXUS_TEST_POWERSHELL_PATH",
+      "AGENTNEXUS_TEST_PYTHON_PATH",
+      "AGENTNEXUS_TYPE_TOOLS",
+      "NODE_OPTIONS",
+      "NODE_PATH",
+      "SystemRoot",
+      "TEMP",
+      "TMP",
+      "WINDIR"
+    ],
+    "inherited_environment": "SystemRoot/WINDIR only; no credential lookup"
+  },
+  "test_command": {
+    "status": "PASS",
+    "executable": "D:\\Nodejs\\node.exe",
+    "argv": [
+      "--test",
+      "--test-concurrency=1",
+      "--test-reporter=tap",
+      "--test-reporter=./tools/agentnexus/json-reporter.mjs",
+      "--test-reporter-destination=stdout",
+      "--test-reporter-destination=stderr",
+      "tests/agentnexus/m18-authorization.test.ts",
+      "tests/agentnexus/m18-gateway.test.ts",
+      "tests/agentnexus/m18-git-reviewer.test.ts",
+      "tests/agentnexus/m18-ledger.test.ts",
+      "tests/agentnexus/m18-multi-agent.test.ts",
+      "tests/agentnexus/m18-protocol.test.ts",
+      "tests/agentnexus/m18-review-bridge.test.ts",
+      "tests/agentnexus/m18-review-fixes.test.ts",
+      "tests/agentnexus/m18-secret-boundary.test.ts",
+      "tests/agentnexus/m18-vault.test.ts",
+      "tests/agentnexus/m181-adapter.test.ts",
+      "tests/agentnexus/m181-control.test.ts"
+    ],
+    "started_at": "2026-11-08T10:05:14.871Z",
+    "ended_at": "2026-11-08T10:05:46.731Z",
+    "elapsed_ms": 31860,
+    "exit_code": 0,
+    "signal": null,
+    "exit_observed": true,
+    "close_observed": true,
+    "timed_out": false,
+    "timeout_ms": 600000,
+    "kill_requested": false,
+    "kill_returned": null,
+    "stop_reason": null,
+    "error": null,
+    "stdout": {
+      "path": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\all-tests.tap",
+      "bytes": 36869,
+      "observed_bytes": 36869,
+      "sha256": "2a87ea78be3802de33953e156da63d89183f0df479b6541820431e34e071be20",
+      "truncated": false
+    },
+    "stderr": {
+      "path": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\model-verification\\r-0a9cbf81776c\\runner.stderr.txt",
+      "bytes": 62051,
+      "observed_bytes": 62051,
+      "sha256": "1c5f4fd19cccb33578f65bed3c49b9addc7967c990ef0aadd50c5f5e83895773",
+      "truncated": false
+    }
+  },
+  "reporter_diagnostics": {
+    "lines": 0,
+    "samples": []
+  },
+  "event_count": 161,
+  "source_snapshot_after_sha256": "e1e398d5a89cbaeb219a0e1f8572935059e5f6357d028869ac5bbd559cc2bd37",
+  "ended_at": "2026-11-08T10:05:46.870Z"
+}

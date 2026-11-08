@@ -1,0 +1,3 @@
+# Debug
+
+真实Debug Agent修复NOT_RUN；Repair Success Rate不可计算。当前complete类型修复与receipt一致性加固是Codex工程整改，由SQLite测试和独立复核验证。没有以模型自我评价、手工修补或合成wire输出冒充真实修复成功。

@@ -1,0 +1,43 @@
+{
+  "schema": "agentnexus/m1.8.1/capabilities/1",
+  "checked_at": "2026-11-08T10:15:37.168675+00:00",
+  "evidence_type": "OFFICIAL_DOCUMENTATION_NOT_LIVE_DISCOVERY",
+  "provider": "deepseek",
+  "endpoint": "https://api.deepseek.com/chat/completions",
+  "request_model_id": "deepseek-flash",
+  "documented_served_label": "DeepSeek-V4.1-Flash-1017",
+  "response_model_documented_example": "deepseek-flash",
+  "response_model_observed": null,
+  "system_fingerprint_observed": null,
+  "exact_snapshot_pin": "UNQUALIFIED_ALIAS_CAN_CHANGE",
+  "other_documented_id": "deepseek-v4-pro",
+  "other_model_selected": false,
+  "official_limits": {
+    "context_tokens": 1048576,
+    "output_tokens": 393216,
+    "account_concurrency": 2500
+  },
+  "local_limits": {
+    "context_bytes": 262144,
+    "registered_output_tokens": 65536,
+    "gateway_output_tokens": 4096,
+    "response_bytes": 1048576,
+    "normalized_output_bytes": 32768,
+    "requests_per_minute": 60,
+    "max_gateway_concurrency": 4
+  },
+  "protocol_offline_tests": "PASS",
+  "live": "NOT_RUN",
+  "text": true,
+  "json_output": true,
+  "streaming": true,
+  "tool_intents": true,
+  "vision_in_current_contract": false,
+  "native_tool_history_replay": "NOT_IMPLEMENTED",
+  "gateway_reasoning_selection": "DISABLED_CURRENT_GATEWAY",
+  "sources": [
+    "https://api-docs.deepseek.com/quick_start/pricing/",
+    "https://api-docs.deepseek.com/api/list-models/",
+    "https://api-docs.deepseek.com/api/create-chat-completion/"
+  ]
+}

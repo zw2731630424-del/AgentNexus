@@ -1,0 +1,26 @@
+{
+  "schema": "agentnexus/m1.8.1/publication/1",
+  "authorization": "用户明确要求：全部保存提交推送",
+  "target": "https://github.com/zw2731630424-del/AgentNexus.git",
+  "branch": "main",
+  "base_head": "9d38c92c1c77d079622f03358c09f875bfdd49a8",
+  "source_set_sha256": "d2091ef71fbd7a62f17ff8a42a922357759817073d97f1343d27b6ff7c9c3bb1",
+  "scope": "全部 M1.8.1 可发布交付、完整源码、测试、报告、脱敏合成转录与 Audit、任务记录和构建工具",
+  "publication_boundary": "沿用既有 .gitignore 与公开发布基线；原始运行目录、数据库、压缩对象和未获分发许可的第三方材料保留本地",
+  "local_only": [
+    ".workflow-kit/runtime/AgentNexus-M1.8.1/"
+  ],
+  "history": "M0–M1.8 交付保持原字节；未 Commit/Push 描述保留为实施阶段历史事实，本发布为后续明确授权动作",
+  "validation": {
+    "new_tests": "41 PASS / 0 FAIL / 0 SKIP",
+    "full_regression": "635 PASS / 32 SKIP / 14 FAIL; no added failure names against same-environment baseline",
+    "strict_types": "PASS",
+    "full_root_governance": "PASS; retained evidence in delivery",
+    "publication_validation": "delivery SHA256 recheck, exact staged bytes and governance path classification"
+  },
+  "live_provider_status": "BLOCKED",
+  "real_provider_requests": 0,
+  "actual_model_tokens": 0,
+  "actual_model_cost_micros": 0,
+  "commit_binding": "由 Git 内容地址与最终推送回执绑定，避免提交号自引用"
+}

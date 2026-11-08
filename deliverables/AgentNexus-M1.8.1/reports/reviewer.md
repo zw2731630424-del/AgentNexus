@@ -1,0 +1,3 @@
+# Background Reviewer
+
+真实模型未知缺陷检测NOT_RUN，Detection Rate不可计算。本轮独立工程安全审查发现一个Host账本complete参数运行时类型缺口，已修复；这不是DeepSeek Reviewer发现问题的证据。未来Reviewer默认只读，不获得Vault、源码写权限或全部隐藏缺陷答案；模型报告不取代G0–G6程序门禁。

@@ -1,0 +1,115 @@
+{
+  "schema": "agentnexus/m1.8.1/acceptance/1",
+  "generated_at": "2026-11-08T10:15:37.168675+00:00",
+  "status": "BLOCKED",
+  "offline_new_scope": "PASS",
+  "production_vault": "BLOCKED",
+  "real_provider": "NOT_RUN",
+  "real_model_rnd": "NOT_RUN",
+  "real_multi_agent": "NOT_RUN",
+  "resident_24h": "NOT_RUN",
+  "single_multi": "INCONCLUSIVE",
+  "real_provider_requests": 0,
+  "actual_tokens": 0,
+  "actual_cost_micros": 0,
+  "new_tests": {
+    "tests": 41,
+    "passed": 41,
+    "failed": 0,
+    "skipped": 0
+  },
+  "regression": {
+    "tests": 681,
+    "failed": 14,
+    "passed": 635,
+    "cancelled": 0,
+    "skipped": 32,
+    "todo": 0,
+    "topLevel": 614,
+    "suites": 0
+  },
+  "regression_status": "FAIL",
+  "syntax": "PASS",
+  "strict_types": "PASS",
+  "source_set_sha256": "d2091ef71fbd7a62f17ff8a42a922357759817073d97f1343d27b6ff7c9c3bb1",
+  "regression_failures": [
+    {
+      "name": "M151 REAL_WINDOWS_PRIMITIVE: concurrent directory replacement never returns junction target bytes",
+      "error": "fixture must actually install junction replacements"
+    },
+    {
+      "name": "M151 REAL_WINDOWS_PRIMITIVE: CREATE_BREAKAWAY_FROM_JOB is denied by the private Job",
+      "error": "{\"code\":\"WIN32_5\",\"message\":\"NtCreateFile component\"}\n\nfalse !== true\n"
+    },
+    {
+      "name": "M161 GATE actual file candidate is bound from trusted PASS to the approved Storage input",
+      "error": "Expected values to be strictly equal:\n+ actual - expected\n\n+ 'UNKNOWN_QUARANTINED'\n- 'SUCCEEDED'\n"
+    },
+    {
+      "name": "M161 STORAGE real atomic CREATE binds exact approval, content, Artifact/Audit and persistent budget ownership",
+      "error": "PERSISTENT_DISK_OWNER_UNVERIFIED\n+ actual - expected\n\n+ 'UNKNOWN_QUARANTINED'\n- 'SUCCEEDED'\n"
+    },
+    {
+      "name": "M161 STORAGE REPLACE requires the exact owned version; original Artifact remains reconstructible",
+      "error": "Expected values to be strictly equal:\n+ actual - expected\n\n+ 'UNKNOWN_QUARANTINED'\n- 'SUCCEEDED'\n"
+    },
+    {
+      "name": "M161 STORAGE bounded streaming verifies 3 MiB without materializing the input in the request",
+      "error": "Expected values to be strictly equal:\n+ actual - expected\n\n+ 'UNKNOWN_QUARANTINED'\n- 'SUCCEEDED'\n"
+    },
+    {
+      "name": "M161 STORAGE publish-link gap is reconciled by identity/hash without republishing",
+      "error": "ENOENT: no such file or directory, stat 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.1\\final-verification\\r-47aaf595f735\\data\\storage-BwUnHT\\files\\result.txt'"
+    },
+    {
+      "name": "M161 STORAGE concurrent same-resource writers conflict before the second file effect",
+      "error": "Expected values to be strictly equal:\n+ actual - expected\n\n+ 'UNKNOWN_QUARANTINED'\n- 'SUCCEEDED'\n"
+    },
+    {
+      "name": "M161 STORAGE changed bytes between publication and ACK stay UNKNOWN and cannot be reconciled by pathname",
+      "error": "Expected values to be strictly equal:\n+ actual - expected\n\n+ 'EPERM'\n- 'STORAGE_PUBLICATION_CHANGED_BEFORE_ACK'\n"
+    },
+    {
+      "name": "M161 STORAGE persistent resource quota rejects a second allocation before a temporary object",
+      "error": "Expected values to be strictly equal:\n+ actual - expected\n\n+ 'UNKNOWN_QUARANTINED'\n- 'SUCCEEDED'\n"
+    },
+    {
+      "name": "M161 STORAGE REAL_PROCESS_CRASH at UNLINK_TEMP preserves evidence and never automatically retries",
+      "error": "child exited before crash point: "
+    },
+    {
+      "name": "M161 STORAGE REAL_PROCESS_CRASH at PUBLISHED preserves evidence and never automatically retries",
+      "error": "child exited before crash point: "
+    },
+    {
+      "name": "M161 STORAGE REAL_PROCESS_CRASH at AUDIT_ACKNOWLEDGED preserves evidence and never automatically retries",
+      "error": "child exited before crash point: "
+    },
+    {
+      "name": "M17 Native Pilot actually publishes, reviews, repairs, restores and gates a complete CLI through a SIMULATED provider",
+      "error": "Error: code-model:UNKNOWN_QUARANTINED:PERSISTENT_DISK_OWNER_UNVERIFIED\n    at drive (file:///I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.8.1/final-verification/r-47aaf595f735/workspace/src/agentnexus/harness/pilot-run.ts:136:146)\n    at async runPilot (file:///I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.8.1/final-verification/r-47aaf595f735/workspace/src/agentnexus/harness/pilot-run.ts:176:190)\n    at async TestContext.<anonymous> (file:///I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.8.1/final-verification/r-47aaf595f735/workspace/tests/agentnexus/m17-pilot.test.ts:13:18)\n    at async Test.run (node:internal/test_runner/test:1208:7)\n    at async startSubtestAfterBootstrap (node:internal/test_runner/harness:385:3)\n\n'FAIL' !== 'PASS'\n"
+    }
+  ],
+  "model_fixtures": {
+    "requests": 30,
+    "traces": 39,
+    "assurance": "SIMULATED"
+  },
+  "os_security_changes": 0,
+  "real_key_reads": 0,
+  "git_commits": 0,
+  "git_pushes": 0,
+  "history_preservation": "evidence/history-preservation.json",
+  "unimplemented": [
+    "native multi-turn tool message replay",
+    "Gateway reasoning selection",
+    "isolated raw partial chunk persistence",
+    "production singleton ledger deployment",
+    "real billing reconciliation"
+  ],
+  "governance": {
+    "full_root": "PASS",
+    "final_delivery_path_delta": "evidence/governance/final-delta.json",
+    "rules_changed": false
+  }
+}
