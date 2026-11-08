@@ -1,0 +1,389 @@
+{
+  "attempts": [
+    {
+      "path": "evidence/verification/2026-11-08T15-55-41-788Z/result.json",
+      "status": "FAIL",
+      "source_unchanged": false,
+      "stages": [
+        {
+          "name": "typecheck",
+          "args": [
+            "tools/agentnexus/typecheck-m15.mjs"
+          ],
+          "code": 0,
+          "signal": null,
+          "summary": []
+        },
+        {
+          "name": "affected-tests",
+          "args": [
+            "--test",
+            "--test-reporter=tap",
+            "--test-concurrency=1",
+            "tests/agentnexus/m18-vault.test.ts",
+            "tests/agentnexus/m18-ledger.test.ts",
+            "tests/agentnexus/m18-gateway.test.ts",
+            "tests/agentnexus/m18-secret-boundary.test.ts",
+            "tests/agentnexus/m18-authorization.test.ts",
+            "tests/agentnexus/m18-protocol.test.ts",
+            "tests/agentnexus/m18-review-fixes.test.ts",
+            "tests/agentnexus/m181-control.test.ts",
+            "tests/agentnexus/m181-adapter.test.ts",
+            "tests/agentnexus/m182-egress.test.ts",
+            "tests/agentnexus/m183-service.test.ts",
+            "tests/desktop/service.test.ts",
+            "tests/desktop/isolated.test.ts"
+          ],
+          "code": 1,
+          "signal": null,
+          "summary": [
+            "# tests 178",
+            "# pass 175",
+            "# fail 1",
+            "# cancelled 0",
+            "# skipped 2",
+            "# duration_ms 62516.6433"
+          ]
+        },
+        {
+          "name": "desktop-build",
+          "args": [
+            "tools/agentnexus/build-desktop.mjs"
+          ],
+          "code": 0,
+          "signal": null,
+          "summary": []
+        },
+        {
+          "name": "syntax-desktop-main.mjs",
+          "args": [
+            "--check",
+            "desktop/main.mjs"
+          ],
+          "code": 0,
+          "signal": null,
+          "summary": []
+        },
+        {
+          "name": "syntax-desktop-preload.cjs",
+          "args": [
+            "--check",
+            "desktop/preload.cjs"
+          ],
+          "code": 0,
+          "signal": null,
+          "summary": []
+        },
+        {
+          "name": "syntax-desktop-renderer-app.js",
+          "args": [
+            "--check",
+            "desktop/renderer/app.js"
+          ],
+          "code": 0,
+          "signal": null,
+          "summary": []
+        },
+        {
+          "name": "syntax-tools-agentnexus-verify-m183.mjs",
+          "args": [
+            "--check",
+            "tools/agentnexus/verify-m183.mjs"
+          ],
+          "code": 0,
+          "signal": null,
+          "summary": []
+        }
+      ]
+    },
+    {
+      "path": "evidence/verification/2026-11-08T16-04-34-974Z/result.json",
+      "status": "PASS",
+      "source_unchanged": true,
+      "stages": [
+        {
+          "name": "typecheck",
+          "args": [
+            "tools/agentnexus/typecheck-m15.mjs"
+          ],
+          "code": 0,
+          "signal": null,
+          "summary": []
+        },
+        {
+          "name": "affected-tests",
+          "args": [
+            "--test",
+            "--test-reporter=tap",
+            "--test-concurrency=1",
+            "tests/agentnexus/m18-vault.test.ts",
+            "tests/agentnexus/m18-ledger.test.ts",
+            "tests/agentnexus/m18-gateway.test.ts",
+            "tests/agentnexus/m18-secret-boundary.test.ts",
+            "tests/agentnexus/m18-authorization.test.ts",
+            "tests/agentnexus/m18-protocol.test.ts",
+            "tests/agentnexus/m18-review-fixes.test.ts",
+            "tests/agentnexus/m181-control.test.ts",
+            "tests/agentnexus/m181-adapter.test.ts",
+            "tests/agentnexus/m182-egress.test.ts",
+            "tests/agentnexus/m183-service.test.ts",
+            "tests/desktop/service.test.ts",
+            "tests/desktop/isolated.test.ts"
+          ],
+          "code": 0,
+          "signal": null,
+          "summary": [
+            "# tests 178",
+            "# pass 176",
+            "# fail 0",
+            "# cancelled 0",
+            "# skipped 2",
+            "# duration_ms 67324.6592"
+          ]
+        },
+        {
+          "name": "desktop-build",
+          "args": [
+            "tools/agentnexus/build-desktop.mjs"
+          ],
+          "code": 0,
+          "signal": null,
+          "summary": []
+        },
+        {
+          "name": "syntax-desktop-main.mjs",
+          "args": [
+            "--check",
+            "desktop/main.mjs"
+          ],
+          "code": 0,
+          "signal": null,
+          "summary": []
+        },
+        {
+          "name": "syntax-desktop-preload.cjs",
+          "args": [
+            "--check",
+            "desktop/preload.cjs"
+          ],
+          "code": 0,
+          "signal": null,
+          "summary": []
+        },
+        {
+          "name": "syntax-desktop-renderer-app.js",
+          "args": [
+            "--check",
+            "desktop/renderer/app.js"
+          ],
+          "code": 0,
+          "signal": null,
+          "summary": []
+        },
+        {
+          "name": "syntax-tools-agentnexus-verify-m183.mjs",
+          "args": [
+            "--check",
+            "tools/agentnexus/verify-m183.mjs"
+          ],
+          "code": 0,
+          "signal": null,
+          "summary": []
+        }
+      ]
+    },
+    {
+      "path": "evidence/verification/2026-11-08T16-17-45-601Z/result.json",
+      "status": "PASS",
+      "source_unchanged": true,
+      "stages": [
+        {
+          "name": "typecheck",
+          "args": [
+            "tools/agentnexus/typecheck-m15.mjs"
+          ],
+          "code": 0,
+          "signal": null,
+          "summary": []
+        },
+        {
+          "name": "affected-tests",
+          "args": [
+            "--test",
+            "--test-reporter=tap",
+            "--test-concurrency=1",
+            "tests/agentnexus/m18-vault.test.ts",
+            "tests/agentnexus/m18-ledger.test.ts",
+            "tests/agentnexus/m18-gateway.test.ts",
+            "tests/agentnexus/m18-secret-boundary.test.ts",
+            "tests/agentnexus/m18-authorization.test.ts",
+            "tests/agentnexus/m18-protocol.test.ts",
+            "tests/agentnexus/m18-review-fixes.test.ts",
+            "tests/agentnexus/m181-control.test.ts",
+            "tests/agentnexus/m181-adapter.test.ts",
+            "tests/agentnexus/m182-egress.test.ts",
+            "tests/agentnexus/m183-service.test.ts",
+            "tests/desktop/service.test.ts",
+            "tests/desktop/isolated.test.ts"
+          ],
+          "code": 0,
+          "signal": null,
+          "summary": [
+            "# tests 183",
+            "# pass 181",
+            "# fail 0",
+            "# cancelled 0",
+            "# skipped 2",
+            "# duration_ms 65258.9703"
+          ]
+        },
+        {
+          "name": "desktop-build",
+          "args": [
+            "tools/agentnexus/build-desktop.mjs"
+          ],
+          "code": 0,
+          "signal": null,
+          "summary": []
+        },
+        {
+          "name": "syntax-desktop-main.mjs",
+          "args": [
+            "--check",
+            "desktop/main.mjs"
+          ],
+          "code": 0,
+          "signal": null,
+          "summary": []
+        },
+        {
+          "name": "syntax-desktop-preload.cjs",
+          "args": [
+            "--check",
+            "desktop/preload.cjs"
+          ],
+          "code": 0,
+          "signal": null,
+          "summary": []
+        },
+        {
+          "name": "syntax-desktop-renderer-app.js",
+          "args": [
+            "--check",
+            "desktop/renderer/app.js"
+          ],
+          "code": 0,
+          "signal": null,
+          "summary": []
+        },
+        {
+          "name": "syntax-tools-agentnexus-verify-m183.mjs",
+          "args": [
+            "--check",
+            "tools/agentnexus/verify-m183.mjs"
+          ],
+          "code": 0,
+          "signal": null,
+          "summary": []
+        }
+      ]
+    },
+    {
+      "path": "evidence/verification/2026-11-08T16-23-49-656Z/result.json",
+      "status": "PASS",
+      "source_unchanged": true,
+      "stages": [
+        {
+          "name": "typecheck",
+          "args": [
+            "tools/agentnexus/typecheck-m15.mjs"
+          ],
+          "code": 0,
+          "signal": null,
+          "summary": []
+        },
+        {
+          "name": "affected-tests",
+          "args": [
+            "--test",
+            "--test-reporter=tap",
+            "--test-concurrency=1",
+            "tests/agentnexus/m18-vault.test.ts",
+            "tests/agentnexus/m18-ledger.test.ts",
+            "tests/agentnexus/m18-gateway.test.ts",
+            "tests/agentnexus/m18-secret-boundary.test.ts",
+            "tests/agentnexus/m18-authorization.test.ts",
+            "tests/agentnexus/m18-protocol.test.ts",
+            "tests/agentnexus/m18-review-fixes.test.ts",
+            "tests/agentnexus/m181-control.test.ts",
+            "tests/agentnexus/m181-adapter.test.ts",
+            "tests/agentnexus/m182-egress.test.ts",
+            "tests/agentnexus/m183-service.test.ts",
+            "tests/desktop/service.test.ts",
+            "tests/desktop/isolated.test.ts"
+          ],
+          "code": 0,
+          "signal": null,
+          "summary": [
+            "# tests 185",
+            "# pass 183",
+            "# fail 0",
+            "# cancelled 0",
+            "# skipped 2",
+            "# duration_ms 67555.147"
+          ]
+        },
+        {
+          "name": "desktop-build",
+          "args": [
+            "tools/agentnexus/build-desktop.mjs"
+          ],
+          "code": 0,
+          "signal": null,
+          "summary": []
+        },
+        {
+          "name": "syntax-desktop-main.mjs",
+          "args": [
+            "--check",
+            "desktop/main.mjs"
+          ],
+          "code": 0,
+          "signal": null,
+          "summary": []
+        },
+        {
+          "name": "syntax-desktop-preload.cjs",
+          "args": [
+            "--check",
+            "desktop/preload.cjs"
+          ],
+          "code": 0,
+          "signal": null,
+          "summary": []
+        },
+        {
+          "name": "syntax-desktop-renderer-app.js",
+          "args": [
+            "--check",
+            "desktop/renderer/app.js"
+          ],
+          "code": 0,
+          "signal": null,
+          "summary": []
+        },
+        {
+          "name": "syntax-tools-agentnexus-verify-m183.mjs",
+          "args": [
+            "--check",
+            "tools/agentnexus/verify-m183.mjs"
+          ],
+          "code": 0,
+          "signal": null,
+          "summary": []
+        }
+      ]
+    }
+  ],
+  "original_failures_preserved": true
+}

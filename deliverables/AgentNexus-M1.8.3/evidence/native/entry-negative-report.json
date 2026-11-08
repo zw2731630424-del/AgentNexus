@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "checked_at_utc": "2026-11-08T16:10:45.4434794Z",
+  "mode": "ABSENT_INSTALL_NEGATIVE_ENTRY_PROBE",
+  "passed": 6,
+  "failed": 0,
+  "results": [
+    {
+      "binary": "AgentNexusCredential.exe",
+      "binary_sha256": "06a7cda4ed06172c2ba5612b6e661d42d569978c7851ff31d6dd8c1e7a11b754",
+      "argument": "--install",
+      "exit_code": 78,
+      "stdout_empty": true,
+      "stderr_static": "CREDENTIAL_BOUNDARY_BLOCKED:SCM_START_REQUIRED",
+      "real_ipc_or_service_install": false
+    },
+    {
+      "binary": "AgentNexusCredential.exe",
+      "binary_sha256": "06a7cda4ed06172c2ba5612b6e661d42d569978c7851ff31d6dd8c1e7a11b754",
+      "argument": "--qualification-only",
+      "exit_code": 78,
+      "stdout_empty": true,
+      "stderr_static": "CREDENTIAL_BOUNDARY_BLOCKED:SCM_START_REQUIRED",
+      "real_ipc_or_service_install": false
+    },
+    {
+      "binary": "AgentNexusCredential.exe",
+      "binary_sha256": "06a7cda4ed06172c2ba5612b6e661d42d569978c7851ff31d6dd8c1e7a11b754",
+      "argument": "--attest-engine",
+      "exit_code": 78,
+      "stdout_empty": true,
+      "stderr_static": "CREDENTIAL_BOUNDARY_BLOCKED:VALIDATION_FAILED",
+      "real_ipc_or_service_install": false
+    },
+    {
+      "binary": "AgentNexusCredential.exe",
+      "binary_sha256": "06a7cda4ed06172c2ba5612b6e661d42d569978c7851ff31d6dd8c1e7a11b754",
+      "argument": "--attest-consents",
+      "exit_code": 78,
+      "stdout_empty": true,
+      "stderr_static": "CREDENTIAL_BOUNDARY_BLOCKED:VALIDATION_FAILED",
+      "real_ipc_or_service_install": false
+    },
+    {
+      "binary": "pipe-client.exe",
+      "binary_sha256": "224a451717beb8cce345364a214673afee1cd1bd683a6616c9adb07a65f80029",
+      "argument": "--stdio",
+      "exit_code": 78,
+      "stdout_empty": true,
+      "stderr_static": "CREDENTIAL_CLIENT_BLOCKED:TRANSPORT_FAILED",
+      "real_ipc_or_service_install": false
+    },
+    {
+      "binary": "pipe-client.exe",
+      "binary_sha256": "224a451717beb8cce345364a214673afee1cd1bd683a6616c9adb07a65f80029",
+      "argument": "--pipe=attacker",
+      "exit_code": 78,
+      "stdout_empty": true,
+      "stderr_static": "CREDENTIAL_CLIENT_BLOCKED:FIXED_STDIO_MODE_REQUIRED",
+      "real_ipc_or_service_install": false
+    }
+  ],
+  "windows_qualification": "BLOCKED"
+}

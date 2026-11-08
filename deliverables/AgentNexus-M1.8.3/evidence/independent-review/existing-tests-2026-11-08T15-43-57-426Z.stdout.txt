@@ -1,0 +1,47 @@
+✔ M183 SIMULATED service owns encrypted storage and exposes no secret read/decrypt/export API (539.4161ms)
+✔ M183 LIVE Vault rejects a forged service permit before opening any real credential store (1.6173ms)
+✔ M183 exact reviewed bytes bind subject/body/context and unreviewed PUBLIC claims grant nothing (531.57ms)
+✔ M183 endpoint/method/model/header allowlists reject generic HTTP proxy and auth injection (36.5165ms)
+✔ M183 duplicate JSON, hidden source, INTERNAL and self-declared PUBLIC decisions fail closed (38.3331ms)
+✔ M183 request/operation/nonce replay and forged runtime/deadline/policy epoch are denied (1096.3294ms)
+✔ M183 key revoke invalidates old handle immediately without resetting the shared budget (1762.8505ms)
+✔ M183 expired credentials and rotated handles are denied on all new requests (2202.1499ms)
+✔ M183 in-flight revoke and rotation retain the original sent operation and do not resend (1600.3783ms)
+✔ M183 UNKNOWN and partial provider usage hold reservations and forbid automatic retry (1036.7439ms)
+✔ M183 missing Usage never releases the reservation after a complete stream (992.375ms)
+✖ M183 provider timeout/cancel preserves unknown outcome, bounded slots and no automatic resend (1007.447ms)
+✔ M183 service streaming respects consumer backpressure and UTF-8 with bounded guard holdback (1064.5267ms)
+✔ M183 encoded and fragmented known secrets cannot leave service deltas, context or audit (1005.571ms)
+✔ M183 ledger atomically reserves global/agent/task/project and recovers UNKNOWN without resetting (18.5873ms)
+✔ M183 actual same-SID subprocess RPC rejects forged methods/identity, preserves usage across service restart (1875.1686ms)
+✔ M183 actual synthetic service crash retains sent hold and never replays on restart (1897.0563ms)
+✔ ISOLATED desktop keeps metadata and BLOCKED entry without opening a Host Vault (389.0392ms)
+✔ ISOLATED existing credential UI payloads forward save, scope, rotation, state and deletion (364.8194ms)
+✔ ISOLATED routing and synthetic connection execute only the broker and show authoritative usage (482.5668ms)
+✔ ISOLATED ordinary bootstrap refuses the no-port implicit Vault path (1.1484ms)
+✔ ISOLATED connection taxonomy uses trusted broker status and timeout evidence (2177.0005ms)
+✔ ISOLATED original renderer keeps Provider layout and disables missing-service credential entry (541.0625ms)
+✔ ISOLATED actual renderer submits synthetic input, clears it, and reloads service metadata (565.3303ms)
+✔ ISOLATED desktop integration uses the real synthetic credential subprocess (1851.2102ms)
+ℹ tests 25
+ℹ suites 0
+ℹ pass 24
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 16879.1395
+
+✖ failing tests:
+
+test at tests\agentnexus\m183-service.test.ts:111:1
+✖ M183 provider timeout/cancel preserves unknown outcome, bounded slots and no automatic resend (1007.447ms)
+  Error: VAULT_CREDENTIAL_OPERATION_FAILED
+      at CredentialBroker.execute (file:///I:/AI_AgentNexus/deliverables/AgentNexus-M1.8.3/source/src/agentnexus/credential-service/broker.ts:237:37)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5) {
+    code: 'VAULT_CREDENTIAL_OPERATION_FAILED',
+    http_status: null,
+    timed_out: true,
+    sent: false,
+    partial: false
+  }

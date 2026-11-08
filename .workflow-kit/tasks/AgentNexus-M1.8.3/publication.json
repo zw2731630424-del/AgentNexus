@@ -1,0 +1,55 @@
+{
+  "schema": "agentnexus/m183/publication/1",
+  "authorization": "用户明确要求：全部保存提交推送",
+  "authorized_at_utc": "2026-11-08T22:23:38.036934+00:00",
+  "target": "https://github.com/zw2731630424-del/AgentNexus.git",
+  "branch": "main",
+  "base_head": "1e77c6627769ecc82cac11c8b4010bc08b53eddc",
+  "source_set_sha256": "108e724d0b5796f472d5eb46a9088c556f04084c4bca0dad9bceb9a691d0090a",
+  "scope": "完整M1.8.3交付、225文件源码、源码ZIP、自有native二进制、测试与原始失败证据、独立审查、部署审批与DeepSeek未发送请求审阅材料、构建和发布校验工具、任务发布记录",
+  "explicit_archive": {
+    "path": "deliverables/AgentNexus-M1.8.3/AgentNexus-M1.8.3-source.zip",
+    "sha256": "71a4cc1b2c687bbf443e33a91323cadcf6599a30c96d8d36e8b1d790a7364252",
+    "basis": "用户全部提交授权包含本轮自有源码包；精确force-add此文件，不扩大到其他被忽略归档"
+  },
+  "local_only": [
+    ".workflow-kit/runtime/",
+    "node_modules/",
+    "source/dist/",
+    "运行数据库、依赖缓存和历史大型归档"
+  ],
+  "preserved_original_delivery": {
+    "manifest": "evidence/SHA256SUMS.before-publication.txt",
+    "manifest_sha256": "3a0d56d9e708153030a57ab2f8107391f8e702d21b8e044d372f3199c41ff19f",
+    "readme": "evidence/README.before-publication.txt",
+    "readme_sha256": "015090a66a43d56463e4fb124934659561e09ae08f8c10cc9dc8d7170730ac42"
+  },
+  "validation": {
+    "affected_regression": "183 PASS / 0 FAIL / 2 SKIP",
+    "native_pure_selftests": "40 x 2 PASS; SIMULATED",
+    "undeployed_entry_negative": "6 PASS; no installed service",
+    "independent_review": "32/32 on preceding candidate; final 4/4 targeted on final audit correction; separate snapshots retained",
+    "native_desktop": "BLOCKED: Electron exits before app startup",
+    "root_governance": "PASS retained from completed full-root verification",
+    "publication_validation": "All SHA256 files; exact source/archive members; 706 historical files; original governance classifier/path checks; exact staged blob bytes",
+    "staged_publication": "381/381 exact staged blob bytes PASS",
+    "whitespace_check": {
+      "exit_code": 2,
+      "crlf_preserved": true,
+      "findings": 3,
+      "paths": [
+        "evidence/verification/2026-11-08T15-55-41-788Z/affected-tests.stdout.txt:355,357",
+        "source/src/agentnexus/model-runtime/gateway.ts:180"
+      ],
+      "disposition": "保留已冻结测试原始输出和源码字节；不以格式调整覆盖审查与失败证据"
+    }
+  },
+  "implementation_history": "未commit/push为实施阶段事实；本次后续Git发布不解除系统部署、生产凭证或LIVE门禁",
+  "live": "BLOCKED",
+  "production_vault": "BLOCKED",
+  "real_key_imports": 0,
+  "real_provider_requests": 0,
+  "real_model_fees": 0,
+  "global_token_authorization": 100000000,
+  "commit_binding": "由Git内容地址和实际推送回执绑定，不写自引用提交号"
+}

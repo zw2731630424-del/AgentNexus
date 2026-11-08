@@ -1,0 +1,160 @@
+{
+  "schema": 1,
+  "mode": "READ_ONLY_PREFLIGHT",
+  "checked_at_utc": "2026-11-08T16:03:22.6052887Z",
+  "overall": "BLOCKED",
+  "production_service_qualified": false,
+  "qualification_only_plan_activated": false,
+  "installed_or_started_service": false,
+  "changed_accounts_acl_registry_or_system_settings": false,
+  "connected_named_pipe": false,
+  "read_or_imported_real_credentials": false,
+  "contacted_provider_api": false,
+  "checks": [
+    {
+      "id": "framework_compiler",
+      "status": "OBSERVED",
+      "observation": "C:\\Windows\\Microsoft.NET\\Framework64\\v4.0.30319\\csc.exe"
+    },
+    {
+      "id": "current_token",
+      "status": "OBSERVED",
+      "observation": "sid=S-1-5-21-2532670394-1554971530-4095700938-1001; administrator_enabled=False; service_identity_required_for_runtime=true"
+    },
+    {
+      "id": "protected_root",
+      "status": "BLOCKED",
+      "observation": "C:\\Program Files\\AgentNexus is absent"
+    },
+    {
+      "id": "protected_root",
+      "status": "BLOCKED",
+      "observation": "C:\\ProgramData\\AgentNexusCredential is absent"
+    },
+    {
+      "id": "fixed_artifact",
+      "status": "BLOCKED",
+      "observation": "C:\\Program Files\\AgentNexus\\AgentNexusCredential.exe is absent"
+    },
+    {
+      "id": "fixed_artifact",
+      "status": "BLOCKED",
+      "observation": "C:\\Program Files\\AgentNexus\\pipe-client.exe is absent"
+    },
+    {
+      "id": "fixed_artifact",
+      "status": "BLOCKED",
+      "observation": "C:\\Program Files\\AgentNexus\\node.exe is absent"
+    },
+    {
+      "id": "fixed_artifact",
+      "status": "BLOCKED",
+      "observation": "C:\\Program Files\\AgentNexus\\app-manifest.json is absent"
+    },
+    {
+      "id": "fixed_artifact",
+      "status": "BLOCKED",
+      "observation": "C:\\Program Files\\AgentNexus\\app\\dist\\src\\agentnexus\\credential-service\\engine.js is absent"
+    },
+    {
+      "id": "fixed_artifact",
+      "status": "BLOCKED",
+      "observation": "C:\\ProgramData\\AgentNexusCredential\\service-config.json is absent"
+    },
+    {
+      "id": "fixed_artifact",
+      "status": "BLOCKED",
+      "observation": "C:\\ProgramData\\AgentNexusCredential\\qualification.json is absent"
+    },
+    {
+      "id": "fixed_artifact",
+      "status": "BLOCKED",
+      "observation": "C:\\ProgramData\\AgentNexusCredential\\qualification.p7s is absent"
+    },
+    {
+      "id": "sensitive_state_tree",
+      "status": "BLOCKED",
+      "observation": "C:\\ProgramData\\AgentNexusCredential\\engine is absent; read-only preflight did not create it"
+    },
+    {
+      "id": "sensitive_state_tree",
+      "status": "BLOCKED",
+      "observation": "C:\\ProgramData\\AgentNexusCredential\\qualification is absent; read-only preflight did not create it"
+    },
+    {
+      "id": "sensitive_state_tree",
+      "status": "BLOCKED",
+      "observation": "C:\\ProgramData\\AgentNexusCredential\\temp is absent; read-only preflight did not create it"
+    },
+    {
+      "id": "signed_qualification_plan",
+      "status": "BLOCKED",
+      "observation": "Only a separately approved, host/binary-bound CMS plan may select QUALIFICATION_ONLY; this inventory cannot authorize it"
+    },
+    {
+      "id": "scm_registration",
+      "status": "BLOCKED",
+      "observation": "Service is not installed; no installation was attempted"
+    },
+    {
+      "id": "virtual_service_sid",
+      "status": "BLOCKED",
+      "observation": "Virtual service SID could not be resolved; no account was created"
+    },
+    {
+      "id": "service_account_isolation",
+      "status": "BLOCKED",
+      "observation": "Requires approved installed-service OS verification and signed evidence; pure fixtures cannot qualify it"
+    },
+    {
+      "id": "protected_install_acl",
+      "status": "BLOCKED",
+      "observation": "Requires approved installed-service OS verification and signed evidence; pure fixtures cannot qualify it"
+    },
+    {
+      "id": "pipe_dacl_remote_reject",
+      "status": "BLOCKED",
+      "observation": "Requires approved installed-service OS verification and signed evidence; pure fixtures cannot qualify it"
+    },
+    {
+      "id": "medium_integrity_rejection",
+      "status": "BLOCKED",
+      "observation": "Requires approved installed-service OS verification and signed evidence; pure fixtures cannot qualify it"
+    },
+    {
+      "id": "server_impersonation_rejection",
+      "status": "BLOCKED",
+      "observation": "Requires approved installed-service OS verification and signed evidence; pure fixtures cannot qualify it"
+    },
+    {
+      "id": "same_sid_dpapi_denial",
+      "status": "BLOCKED",
+      "observation": "Requires approved installed-service OS verification and signed evidence; pure fixtures cannot qualify it"
+    },
+    {
+      "id": "import_ticket_single_use",
+      "status": "BLOCKED",
+      "observation": "Requires approved installed-service OS verification and signed evidence; pure fixtures cannot qualify it"
+    },
+    {
+      "id": "confirmation_queue_disconnect",
+      "status": "BLOCKED",
+      "observation": "Requires approved installed-service OS verification and signed evidence; pure fixtures cannot qualify it"
+    },
+    {
+      "id": "crash_recovery_no_replay",
+      "status": "BLOCKED",
+      "observation": "Requires approved installed-service OS verification and signed evidence; pure fixtures cannot qualify it"
+    },
+    {
+      "id": "audit_no_plaintext",
+      "status": "BLOCKED",
+      "observation": "Requires approved installed-service OS verification and signed evidence; pure fixtures cannot qualify it"
+    },
+    {
+      "id": "negative_host_or_binary",
+      "status": "BLOCKED",
+      "observation": "Requires approved installed-service OS verification and signed evidence; pure fixtures cannot qualify it"
+    }
+  ]
+}

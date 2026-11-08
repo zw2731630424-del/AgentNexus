@@ -1,0 +1,40 @@
+✔ M183 SIMULATED service owns encrypted storage and exposes no secret read/decrypt/export API (676.7917ms)
+✔ M183 LIVE Vault rejects a forged service permit before opening any real credential store (1.3045ms)
+✔ M183 credential import tickets bind channel, metadata and secret hash, and cannot replay (691.1978ms)
+✔ M183 disconnect revokes queued import and rechecks authorization before encrypted commit (536.8604ms)
+✔ M183 exact reviewed bytes bind subject/body/context and unreviewed PUBLIC claims grant nothing (634.296ms)
+✔ M183 endpoint/method/model/header allowlists reject generic HTTP proxy and auth injection (40.8957ms)
+✔ M183 duplicate JSON, hidden source, INTERNAL and self-declared PUBLIC decisions fail closed (40.953ms)
+✔ M183 request/operation/nonce replay and forged runtime/deadline/policy epoch are denied (1066.1959ms)
+✔ M183 key revoke invalidates old handle immediately without resetting the shared budget (1721.5538ms)
+✔ M183 expired credentials and rotated handles are denied on all new requests (2146.0517ms)
+✔ M183 in-flight revoke and rotation retain the original sent operation and do not resend (1609.214ms)
+✔ M183 UNKNOWN and partial provider usage hold reservations and forbid automatic retry (1050.6189ms)
+✔ M183 missing Usage never releases the reservation after a complete stream (1049.4231ms)
+✔ M183 provider timeout/cancel preserves unknown outcome, bounded slots and no automatic resend (2550.1441ms)
+✔ M183 service streaming respects consumer backpressure and UTF-8 with bounded guard holdback (1125.6391ms)
+✔ M183 encoded and fragmented known secrets cannot leave service deltas, context or audit (1029.3237ms)
+✔ M183 prepare-issued full binding rejects null or substituted handles and concurrent duplicate IDs (1716.5954ms)
+✔ M183 ledger atomically reserves global/agent/task/project and recovers UNKNOWN without resetting (31.7556ms)
+✔ M183 service owns configured Agent/Task limits and changing scope never resets global spend (1146.5422ms)
+✔ M183 misspelled or duplicate GLOBAL ledger identity never creates a replacement quota (47.2739ms)
+✔ M183 actual synthetic IPC duplicate execution preserves cancellation ownership (1433.7036ms)
+✔ M183 management request identifiers cannot be replayed after state changes (51.6927ms)
+✔ M183 actual same-SID subprocess RPC rejects forged methods/identity, preserves usage across service restart (2202.4415ms)
+✔ M183 actual synthetic service crash retains sent hold and never replays on restart (2073.7291ms)
+✔ ISOLATED desktop keeps metadata and BLOCKED entry without opening a Host Vault (449.2594ms)
+✔ ISOLATED existing credential UI payloads forward save, scope, rotation, state and deletion (525.3173ms)
+✔ ISOLATED routing and synthetic connection execute only the broker and show authoritative usage (513.8105ms)
+✔ ISOLATED ordinary bootstrap refuses the no-port implicit Vault path (1.0331ms)
+✔ ISOLATED connection taxonomy uses trusted broker status and timeout evidence (2336.0974ms)
+✔ ISOLATED original renderer keeps Provider layout and disables missing-service credential entry (430.9956ms)
+✔ ISOLATED actual renderer submits synthetic input, clears it, and reloads service metadata (408.181ms)
+✔ ISOLATED desktop integration uses the real synthetic credential subprocess (3451.6164ms)
+ℹ tests 32
+ℹ suites 0
+ℹ pass 32
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 24871.5702

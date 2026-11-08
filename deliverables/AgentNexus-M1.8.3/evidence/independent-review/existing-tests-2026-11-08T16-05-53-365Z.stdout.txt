@@ -1,0 +1,35 @@
+✔ M183 SIMULATED service owns encrypted storage and exposes no secret read/decrypt/export API (715.0715ms)
+✔ M183 LIVE Vault rejects a forged service permit before opening any real credential store (1.2542ms)
+✔ M183 exact reviewed bytes bind subject/body/context and unreviewed PUBLIC claims grant nothing (632.6526ms)
+✔ M183 endpoint/method/model/header allowlists reject generic HTTP proxy and auth injection (44.1218ms)
+✔ M183 duplicate JSON, hidden source, INTERNAL and self-declared PUBLIC decisions fail closed (43.497ms)
+✔ M183 request/operation/nonce replay and forged runtime/deadline/policy epoch are denied (1102.9642ms)
+✔ M183 key revoke invalidates old handle immediately without resetting the shared budget (1700.3132ms)
+✔ M183 expired credentials and rotated handles are denied on all new requests (2088.3328ms)
+✔ M183 in-flight revoke and rotation retain the original sent operation and do not resend (1650.2978ms)
+✔ M183 UNKNOWN and partial provider usage hold reservations and forbid automatic retry (1187.1745ms)
+✔ M183 missing Usage never releases the reservation after a complete stream (1034.6013ms)
+✔ M183 provider timeout/cancel preserves unknown outcome, bounded slots and no automatic resend (2548.9974ms)
+✔ M183 service streaming respects consumer backpressure and UTF-8 with bounded guard holdback (1043.8037ms)
+✔ M183 encoded and fragmented known secrets cannot leave service deltas, context or audit (1098.0088ms)
+✔ M183 prepare-issued full binding rejects null or substituted handles and concurrent duplicate IDs (1720.0791ms)
+✔ M183 ledger atomically reserves global/agent/task/project and recovers UNKNOWN without resetting (34.3707ms)
+✔ M183 service owns configured Agent/Task limits and changing scope never resets global spend (1199.2044ms)
+✔ M183 actual same-SID subprocess RPC rejects forged methods/identity, preserves usage across service restart (2053.6847ms)
+✔ M183 actual synthetic service crash retains sent hold and never replays on restart (2019.0767ms)
+✔ ISOLATED desktop keeps metadata and BLOCKED entry without opening a Host Vault (446.1646ms)
+✔ ISOLATED existing credential UI payloads forward save, scope, rotation, state and deletion (461.0158ms)
+✔ ISOLATED routing and synthetic connection execute only the broker and show authoritative usage (543.5072ms)
+✔ ISOLATED ordinary bootstrap refuses the no-port implicit Vault path (1.6769ms)
+✔ ISOLATED connection taxonomy uses trusted broker status and timeout evidence (2425.3667ms)
+✔ ISOLATED original renderer keeps Provider layout and disables missing-service credential entry (462.1095ms)
+✔ ISOLATED actual renderer submits synthetic input, clears it, and reloads service metadata (444.2856ms)
+✔ ISOLATED desktop integration uses the real synthetic credential subprocess (3197.2079ms)
+ℹ tests 27
+ℹ suites 0
+ℹ pass 27
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 22108.2817

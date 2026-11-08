@@ -1,0 +1,903 @@
+// .NET Framework 4.x, C# 5. No package dependencies. Never log protocol payloads.
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Diagnostics;
+using System.Globalization;
+using System.IO;
+using System.IO.Pipes;
+using System.Linq;
+using System.Runtime.InteropServices;
+using System.Security.AccessControl;
+using System.Security.Cryptography;
+using System.Security.Cryptography.Pkcs;
+using System.Security.Principal;
+using System.Text;
+using System.Text.RegularExpressions;
+using System.Threading;
+using System.Web.Script.Serialization;
+using Microsoft.Win32;
+using Microsoft.Win32.SafeHandles;
+
+namespace AgentNexus.CredentialBoundary
+{
+    internal static class Fixed
+    {
+        internal const string ServiceName = "AgentNexusCredential";
+        internal const string ServiceAccount = "NT SERVICE\\AgentNexusCredential";
+        internal const string InstallRoot = @"C:\Program Files\AgentNexus";
+        internal const string DataRoot = @"C:\ProgramData\AgentNexusCredential";
+        internal const string QualificationDataRoot = DataRoot + @"\qualification";
+        internal const string ServiceExe = InstallRoot + @"\AgentNexusCredential.exe";
+        internal const string ClientExe = InstallRoot + @"\pipe-client.exe";
+        internal const string NodeExe = InstallRoot + @"\node.exe";
+        internal const string EngineJs = InstallRoot + @"\app\dist\src\agentnexus\credential-service\engine.js";
+        internal const string ConfigFile = DataRoot + @"\service-config.json";
+        internal const string ApplicationManifest = InstallRoot + @"\app-manifest.json";
+        internal const string QualificationFile = DataRoot + @"\qualification.json";
+        internal const string QualificationSignature = DataRoot + @"\qualification.p7s";
+        internal const string RequestConsentsFile = DataRoot + @"\request-consents.json";
+        internal const string RequestConsentsSignature = DataRoot + @"\request-consents.p7s";
+        internal const string PipeName = "AgentNexus.Credential.v1";
+        internal const string PipePath = @"\\.\pipe\" + PipeName;
+        internal const int MaxFrameBytes = 1048576;
+        internal const int MaxConnections = 4;
+        internal const int ConnectTimeoutMs = 5000;
+        internal const int FrameTimeoutMs = 15000;
+        internal const int IdleTimeoutMs = 30000;
+        internal const int WriteTimeoutMs = 10000;
+        internal static readonly UTF8Encoding Utf8 = new UTF8Encoding(false, true);
+        internal static readonly string[] QualificationTests = {
+            "service_account_isolation", "protected_install_acl", "pipe_dacl_remote_reject",
+            "medium_integrity_rejection", "server_impersonation_rejection", "same_sid_dpapi_denial",
+            "import_ticket_single_use", "confirmation_queue_disconnect", "crash_recovery_no_replay",
+            "audit_no_plaintext", "negative_host_or_binary"
+        };
+    }
+
+    internal sealed class PolicyException : Exception
+    {
+        internal readonly string Code;
+        internal PolicyException(string code) : base(code) { Code = code; }
+    }
+
+    internal static class Json
+    {
+        private static JavaScriptSerializer Serializer()
+        {
+            return new JavaScriptSerializer { MaxJsonLength = Fixed.MaxFrameBytes, RecursionLimit = 48 };
+        }
+        internal static Dictionary<string, object> Object(string text)
+        {
+            try
+            {
+                Dictionary<string, object> result = Serializer().DeserializeObject(text) as Dictionary<string, object>;
+                Require(result != null, "JSON_OBJECT_REQUIRED");
+                return result;
+            }
+            catch (PolicyException) { throw; }
+            catch { throw new PolicyException("INVALID_JSON"); }
+        }
+        internal static string Encode(object value)
+        {
+            try { return Serializer().Serialize(value); }
+            catch { throw new PolicyException("JSON_ENCODING_LIMIT"); }
+        }
+        internal static void Require(bool value, string code) { if (!value) throw new PolicyException(code); }
+        internal static string String(Dictionary<string, object> value, string key)
+        {
+            object item;
+            Require(value.TryGetValue(key, out item) && item is string, "CONFIG_FIELD_INVALID");
+            return (string)item;
+        }
+        internal static int Integer(Dictionary<string, object> value, string key)
+        {
+            object item;
+            Require(value.TryGetValue(key, out item) && item is int, "CONFIG_FIELD_INVALID");
+            return (int)item;
+        }
+        internal static void ExactKeys(Dictionary<string, object> value, params string[] keys)
+        {
+            Require(value.Count == keys.Length && keys.All(value.ContainsKey), "UNEXPECTED_FIELDS");
+        }
+        internal static Dictionary<string, object> Request(string text)
+        {
+            Dictionary<string, object> request = Object(text);
+            ExactKeys(request, "id", "method", "params");
+            string id = String(request, "id"), method = String(request, "method");
+            Require(id.Length > 0 && id.Length <= 128, "RPC_ID_INVALID");
+            Require(Regex.IsMatch(method, "^[a-z][a-z0-9_.]{0,79}$", RegexOptions.CultureInvariant), "RPC_METHOD_INVALID");
+            Require(method != "session.disconnect" && method != "native.bootstrap", "RESERVED_METHOD");
+            Require(request["params"] is Dictionary<string, object>, "RPC_PARAMS_INVALID");
+            return request;
+        }
+    }
+
+    internal static class Digests
+    {
+        internal static string Bytes(byte[] value)
+        {
+            using (SHA256 sha = SHA256.Create()) return BitConverter.ToString(sha.ComputeHash(value)).Replace("-", "").ToLowerInvariant();
+        }
+        internal static string Stream(Stream value)
+        {
+            using (SHA256 sha = SHA256.Create())
+            {
+                long old = value.Position;
+                value.Position = 0;
+                string hash = BitConverter.ToString(sha.ComputeHash(value)).Replace("-", "").ToLowerInvariant();
+                value.Position = old;
+                return hash;
+            }
+        }
+        internal static bool IsHash(string value) { return Regex.IsMatch(value ?? "", "^[a-f0-9]{64}$", RegexOptions.CultureInvariant); }
+        internal static string MachineId()
+        {
+            using (RegistryKey root = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry64))
+            using (RegistryKey key = root.OpenSubKey(@"SOFTWARE\Microsoft\Cryptography", false))
+            {
+                string guid = key == null ? null : key.GetValue("MachineGuid") as string;
+                Json.Require(!String.IsNullOrWhiteSpace(guid), "MACHINE_ID_UNAVAILABLE");
+                return Bytes(Fixed.Utf8.GetBytes(guid.ToLowerInvariant()));
+            }
+        }
+    }
+
+    internal sealed class TokenFacts
+    {
+        internal string Sid;
+        internal bool Elevated;
+        internal int Integrity;
+        internal bool AppContainer;
+        internal int SessionId;
+        internal static TokenFacts Read(IntPtr token)
+        {
+            TokenFacts facts = new TokenFacts();
+            IntPtr buffer = Win32.TokenInfo(token, 1);
+            try { facts.Sid = new SecurityIdentifier(Marshal.ReadIntPtr(buffer)).Value; }
+            finally { Marshal.FreeHGlobal(buffer); }
+            facts.Elevated = ReadNumber(token, 20) != 0;
+            facts.AppContainer = ReadNumber(token, 29) != 0;
+            facts.SessionId = ReadNumber(token, 12);
+            buffer = Win32.TokenInfo(token, 25);
+            try
+            {
+                string label = new SecurityIdentifier(Marshal.ReadIntPtr(buffer)).Value;
+                facts.Integrity = Int32.Parse(label.Substring(label.LastIndexOf('-') + 1), CultureInfo.InvariantCulture);
+            }
+            finally { Marshal.FreeHGlobal(buffer); }
+            return facts;
+        }
+        private static int ReadNumber(IntPtr token, int kind)
+        {
+            IntPtr buffer = Win32.TokenInfo(token, kind);
+            try { return Marshal.ReadInt32(buffer); }
+            finally { Marshal.FreeHGlobal(buffer); }
+        }
+        internal static TokenFacts Current()
+        {
+            IntPtr token;
+            Win32.Check(Win32.OpenProcessToken(Win32.GetCurrentProcess(), 8, out token), "TOKEN_QUERY_FAILED");
+            try { return Read(token); } finally { Win32.CloseHandle(token); }
+        }
+        internal static void RequireOperator(TokenFacts facts, string expectedSid)
+        {
+            Json.Require(facts.Sid == expectedSid && facts.Elevated && facts.Integrity >= 0x3000 && !facts.AppContainer, "OPERATOR_TOKEN_REJECTED");
+        }
+        internal static void RequireService(TokenFacts facts, string serviceSid)
+        {
+            Json.Require(facts.Sid == serviceSid && !facts.AppContainer && facts.SessionId == 0, "SERVICE_TOKEN_REJECTED");
+        }
+    }
+
+    internal sealed class ProcessFacts : IDisposable
+    {
+        internal IntPtr Handle;
+        internal uint Pid;
+        internal string Path;
+        internal string StartId;
+        internal long Created;
+        internal TokenFacts Token;
+        internal static ProcessFacts Open(uint pid)
+        {
+            ProcessFacts result = new ProcessFacts();
+            try
+            {
+                result.Pid = pid;
+                result.Handle = Win32.OpenProcess(0x101000, false, pid); // QUERY_LIMITED_INFORMATION | SYNCHRONIZE
+                Json.Require(result.Handle != IntPtr.Zero, "PEER_PROCESS_UNAVAILABLE");
+                StringBuilder path = new StringBuilder(32768);
+                int size = path.Capacity;
+                Win32.Check(Win32.QueryFullProcessImageName(result.Handle, 0, path, ref size), "PEER_IMAGE_UNAVAILABLE");
+                result.Path = System.IO.Path.GetFullPath(path.ToString());
+                Win32.FILETIME created, exited, kernel, user;
+                Win32.Check(Win32.GetProcessTimes(result.Handle, out created, out exited, out kernel, out user), "PEER_TIME_UNAVAILABLE");
+                result.Created = ((long)created.High << 32) | created.Low;
+                result.StartId = result.Created.ToString("x16", CultureInfo.InvariantCulture);
+                IntPtr token;
+                Win32.Check(Win32.OpenProcessToken(result.Handle, 8, out token), "PEER_TOKEN_UNAVAILABLE");
+                try { result.Token = TokenFacts.Read(token); } finally { Win32.CloseHandle(token); }
+                result.RequireAlive();
+                return result;
+            }
+            catch { result.Dispose(); throw; }
+        }
+        internal void RequireAlive()
+        {
+            Json.Require(Win32.WaitForSingleObject(Handle, 0) == 0x102, "PEER_PROCESS_EXITED");
+            Win32.FILETIME created, exited, kernel, user;
+            Win32.Check(Win32.GetProcessTimes(Handle, out created, out exited, out kernel, out user), "PEER_TIME_UNAVAILABLE");
+            Json.Require((((long)created.High << 32) | created.Low) == Created, "PEER_PROCESS_CHANGED");
+        }
+        public void Dispose() { if (Handle != IntPtr.Zero) { Win32.CloseHandle(Handle); Handle = IntPtr.Zero; } }
+    }
+
+    internal sealed class ServiceFacts
+    {
+        internal uint Pid;
+        internal static ServiceFacts Read()
+        {
+            IntPtr scm = Win32.OpenSCManager(null, null, 1);
+            Json.Require(scm != IntPtr.Zero, "SCM_UNAVAILABLE");
+            IntPtr service = IntPtr.Zero, buffer = IntPtr.Zero;
+            try
+            {
+                service = Win32.OpenService(scm, Fixed.ServiceName, 1 | 4); // QUERY_CONFIG | QUERY_STATUS
+                Json.Require(service != IntPtr.Zero, "SERVICE_NOT_INSTALLED");
+                int needed;
+                Win32.QueryServiceConfig(service, IntPtr.Zero, 0, out needed);
+                Json.Require(needed > 0 && needed <= 65536, "SERVICE_CONFIG_INVALID");
+                buffer = Marshal.AllocHGlobal(needed);
+                Win32.Check(Win32.QueryServiceConfig(service, buffer, needed, out needed), "SERVICE_CONFIG_UNAVAILABLE");
+                Win32.QUERY_SERVICE_CONFIG config = (Win32.QUERY_SERVICE_CONFIG)Marshal.PtrToStructure(buffer, typeof(Win32.QUERY_SERVICE_CONFIG));
+                string command = Marshal.PtrToStringUni(config.BinaryPath);
+                string account = Marshal.PtrToStringUni(config.StartName);
+                Json.Require(config.ServiceType == 0x10 && command == "\"" + Fixed.ServiceExe + "\"" && String.Equals(account, Fixed.ServiceAccount, StringComparison.OrdinalIgnoreCase), "SERVICE_REGISTRATION_REJECTED");
+                Marshal.FreeHGlobal(buffer); buffer = IntPtr.Zero;
+                Win32.SERVICE_STATUS_PROCESS status;
+                Win32.Check(Win32.QueryServiceStatusEx(service, 0, out status, Marshal.SizeOf(typeof(Win32.SERVICE_STATUS_PROCESS)), out needed), "SERVICE_STATUS_UNAVAILABLE");
+                Json.Require((status.CurrentState == 2 || status.CurrentState == 4) && status.ProcessId > 0, "SERVICE_NOT_RUNNING");
+                // An independent virtual account plus an unrestricted service SID is required.
+                buffer = Marshal.AllocHGlobal(4);
+                Win32.Check(Win32.QueryServiceConfig2(service, 5, buffer, 4, out needed), "SERVICE_SID_MODE_UNAVAILABLE");
+                Json.Require(Marshal.ReadInt32(buffer) == 1, "SERVICE_SID_MODE_REJECTED");
+                return new ServiceFacts { Pid = status.ProcessId };
+            }
+            finally
+            {
+                if (buffer != IntPtr.Zero) Marshal.FreeHGlobal(buffer);
+                if (service != IntPtr.Zero) Win32.CloseServiceHandle(service);
+                Win32.CloseServiceHandle(scm);
+            }
+        }
+    }
+
+    internal sealed class Deployment : IDisposable
+    {
+        internal string ServiceSid;
+        internal string OperatorSid;
+        internal string EvidenceHash;
+        internal string MachineId;
+        internal int PolicyEpoch;
+        internal string Mode;
+        internal bool Qualified { get { return Mode == "QUALIFIED"; } }
+        internal string QualificationTestApproval;
+        internal DateTime ApprovalExpiresUtc;
+        internal bool RealImportEnabled;
+        internal bool LiveEnabled;
+        internal string RealImportApproval;
+        internal string LiveApproval;
+        private Dictionary<string, object> config;
+        private readonly List<FileStream> lockedFiles = new List<FileStream>();
+        private static readonly string SystemSid = "S-1-5-18", AdminSid = "S-1-5-32-544";
+        private static readonly string InstallerSid = "S-1-5-80-956008885-3418522649-1831038044-1853292631-2271478464";
+
+        internal static Deployment Load()
+        {
+            Deployment result = new Deployment();
+            try
+            {
+                result.ServiceSid = ((SecurityIdentifier)new NTAccount(Fixed.ServiceAccount).Translate(typeof(SecurityIdentifier))).Value;
+                result.CheckPath(Fixed.InstallRoot, false, true);
+                result.CheckPath(Fixed.DataRoot, true, true);
+                byte[] configBytes = result.LockRead(Fixed.ConfigFile, true, 65536);
+                result.config = Json.Object(Fixed.Utf8.GetString(configBytes));
+                Json.Require(Json.Integer(result.config, "schema_version") == 1, "CONFIG_SCHEMA_REJECTED");
+                result.OperatorSid = Json.String(result.config, "operator_sid");
+                Json.Require(new SecurityIdentifier(result.OperatorSid).IsAccountSid(), "OPERATOR_SID_INVALID");
+                result.PolicyEpoch = Json.Integer(result.config, "policy_epoch");
+                Json.Require(result.PolicyEpoch > 0, "POLICY_EPOCH_INVALID");
+                object live, importing = null;
+                Json.Require(result.config.TryGetValue("live_enabled", out live) && live is bool && result.config.TryGetValue("real_import_enabled", out importing) && importing is bool, "REAL_OPERATION_POLICY_INVALID");
+                result.LiveEnabled = (bool)live;
+                result.RealImportEnabled = (bool)importing;
+                result.RealImportApproval = Json.String(result.config, "real_import_approval_ref");
+                result.LiveApproval = Json.String(result.config, "live_approval_ref");
+                result.QualificationTestApproval = Json.String(result.config, "qualification_test_approval_ref");
+                Json.Require(!result.RealImportEnabled || ValidApproval(result.RealImportApproval), "REAL_IMPORT_NOT_APPROVED");
+                Json.Require(!result.LiveEnabled || (result.RealImportEnabled && ValidApproval(result.LiveApproval) && result.LiveApproval != result.RealImportApproval), "LIVE_NOT_SEPARATELY_APPROVED");
+                result.CheckHash(Fixed.ServiceExe, "service_sha256");
+                result.CheckHash(Fixed.ClientExe, "client_sha256");
+                result.CheckHash(Fixed.NodeExe, "node_sha256");
+                result.CheckHash(Fixed.EngineJs, "engine_sha256");
+                result.CheckHash(Fixed.ApplicationManifest, "application_manifest_sha256");
+                result.VerifyApplicationManifest();
+                result.VerifyQualification();
+                result.CheckDataTree(result.Qualified ? Fixed.DataRoot + @"\engine" : Fixed.QualificationDataRoot);
+                result.CheckDataTree(Fixed.DataRoot + @"\temp");
+                return result;
+            }
+            catch { result.Dispose(); throw; }
+        }
+        internal void CheckPath(string path, bool data, bool requireProtected)
+        {
+            string full = System.IO.Path.GetFullPath(path);
+            string root = data ? Fixed.DataRoot : Fixed.InstallRoot;
+            Json.Require(full.Equals(root, StringComparison.OrdinalIgnoreCase) || full.StartsWith(root + "\\", StringComparison.OrdinalIgnoreCase), "PATH_OUTSIDE_FIXED_ROOT");
+            string cursor = full;
+            while (!String.IsNullOrEmpty(cursor))
+            {
+                Json.Require(File.Exists(cursor) || Directory.Exists(cursor), "PROTECTED_PATH_MISSING");
+                Json.Require((File.GetAttributes(cursor) & FileAttributes.ReparsePoint) == 0, "REPARSE_PATH_REJECTED");
+                if (cursor.Equals(root, StringComparison.OrdinalIgnoreCase) || cursor.StartsWith(root + "\\", StringComparison.OrdinalIgnoreCase)) CheckAcl(cursor, data, requireProtected && cursor == full);
+                else CheckAncestorAcl(cursor);
+                string parent = System.IO.Path.GetDirectoryName(cursor);
+                if (parent == cursor) break;
+                cursor = parent;
+            }
+        }
+        private void CheckAcl(string path, bool data, bool requireProtected)
+        {
+            FileSystemSecurity acl = Directory.Exists(path) ? (FileSystemSecurity)Directory.GetAccessControl(path, AccessControlSections.Access | AccessControlSections.Owner) : File.GetAccessControl(path, AccessControlSections.Access | AccessControlSections.Owner);
+            HashSet<string> trusted = new HashSet<string>(new[] { SystemSid, AdminSid, InstallerSid }, StringComparer.Ordinal);
+            // Only state subdirectories are service-writable. Signed plans/qualifications remain admin-only.
+            bool sensitive = data && SensitiveStatePath(path);
+            if (sensitive) trusted.Add(ServiceSid);
+            string owner = ((SecurityIdentifier)acl.GetOwner(typeof(SecurityIdentifier))).Value;
+            Json.Require(trusted.Contains(owner), "UNTRUSTED_PATH_OWNER");
+            RawSecurityDescriptor raw = new RawSecurityDescriptor(acl.GetSecurityDescriptorBinaryForm(), 0);
+            Json.Require(raw.DiscretionaryAcl != null, "NULL_DACL_REJECTED");
+            Json.Require(!requireProtected || acl.AreAccessRulesProtected, "INHERITED_ROOT_DACL_REJECTED");
+            const FileSystemRights writes = FileSystemRights.Write | FileSystemRights.Delete | FileSystemRights.DeleteSubdirectoriesAndFiles | FileSystemRights.ChangePermissions | FileSystemRights.TakeOwnership;
+            foreach (FileSystemAccessRule rule in acl.GetAccessRules(true, true, typeof(SecurityIdentifier)))
+            {
+                if ((rule.PropagationFlags & PropagationFlags.InheritOnly) != 0) continue;
+                if (sensitive && rule.AccessControlType == AccessControlType.Allow && ContainsSensitiveRead(rule.FileSystemRights))
+                    Json.Require(trusted.Contains(((SecurityIdentifier)rule.IdentityReference).Value), "UNTRUSTED_SENSITIVE_READ_ACE");
+                if (rule.AccessControlType == AccessControlType.Allow && (((long)rule.FileSystemRights & ((long)writes | 0x50000000L)) != 0))
+                    Json.Require(trusted.Contains(((SecurityIdentifier)rule.IdentityReference).Value), "UNTRUSTED_WRITE_ACE");
+            }
+        }
+        private static void CheckAncestorAcl(string path)
+        {
+            DirectorySecurity acl = Directory.GetAccessControl(path, AccessControlSections.Access | AccessControlSections.Owner);
+            HashSet<string> trusted = new HashSet<string>(new[] { SystemSid, AdminSid, InstallerSid }, StringComparer.Ordinal);
+            Json.Require(trusted.Contains(((SecurityIdentifier)acl.GetOwner(typeof(SecurityIdentifier))).Value), "UNTRUSTED_ANCESTOR_OWNER");
+            RawSecurityDescriptor raw = new RawSecurityDescriptor(acl.GetSecurityDescriptorBinaryForm(), 0);
+            Json.Require(raw.DiscretionaryAcl != null, "NULL_ANCESTOR_DACL_REJECTED");
+            // A broad CREATE_CHILD permission on ProgramData is harmless once the protected root exists;
+            // DELETE_CHILD, DELETE, WRITE_DAC/OWNER or GENERIC_ALL could replace that root.
+            foreach (FileSystemAccessRule rule in acl.GetAccessRules(true, true, typeof(SecurityIdentifier)))
+                if ((rule.PropagationFlags & PropagationFlags.InheritOnly) == 0 && rule.AccessControlType == AccessControlType.Allow && (((long)rule.FileSystemRights & 0x100D0040L) != 0))
+                    Json.Require(trusted.Contains(((SecurityIdentifier)rule.IdentityReference).Value), "UNTRUSTED_ANCESTOR_REPLACEMENT_ACE");
+        }
+        private static bool Within(string path, string root)
+        {
+            return path.Equals(root, StringComparison.OrdinalIgnoreCase) || path.StartsWith(root + "\\", StringComparison.OrdinalIgnoreCase);
+        }
+        private static bool SensitiveStatePath(string path)
+        {
+            return Within(path, Fixed.DataRoot + @"\engine") || Within(path, Fixed.DataRoot + @"\temp") || Within(path, Fixed.QualificationDataRoot);
+        }
+        internal static bool ContainsSensitiveRead(FileSystemRights rights)
+        {
+            const long readMask = 0x90020089L; // GENERIC_READ/ALL, READ_CONTROL, READ_DATA, READ_EA, READ_ATTRIBUTES.
+            return ((long)rights & readMask) != 0;
+        }
+        private void CheckDataTree(string root)
+        {
+            CheckPath(root, true, false);
+            Stack<string> directories = new Stack<string>();
+            directories.Push(root);
+            int count = 0;
+            while (directories.Count > 0)
+                foreach (string entry in Directory.GetFileSystemEntries(directories.Pop()))
+                {
+                    Json.Require(++count <= 20000, "STATE_TREE_TOO_LARGE");
+                    CheckPath(entry, true, false);
+                    if (Directory.Exists(entry)) directories.Push(entry);
+                }
+        }
+        private static bool ValidApproval(string value)
+        {
+            return Regex.IsMatch(value ?? "", "^APPROVED-[A-Za-z0-9][A-Za-z0-9_.:-]{7,159}$", RegexOptions.CultureInvariant);
+        }
+        // Called only after CMS verification in production. Fixtures exercise the state policy, not OS qualification.
+        internal static void RequireModePolicy(string mode, string decision, bool realImport, bool live, string realRef, string liveRef, string qualificationRef)
+        {
+            Json.Require(mode == "QUALIFICATION_ONLY" || mode == "QUALIFIED", "QUALIFICATION_MODE_INVALID");
+            if (mode == "QUALIFICATION_ONLY")
+            {
+                Json.Require((decision == "NOT_RUN" || decision == "BLOCKED") && ValidApproval(qualificationRef), "QUALIFICATION_TEST_APPROVAL_REQUIRED");
+                Json.Require(!realImport && !live && realRef == "" && liveRef == "", "QUALIFICATION_REAL_OPERATIONS_DENIED");
+            }
+            else Json.Require(decision == "PASS", "QUALIFICATION_NOT_PASSED");
+        }
+        internal static void RequireTestResult(string mode, string observed)
+        {
+            Json.Require(mode == "QUALIFIED" ? observed == "PASS" : mode == "QUALIFICATION_ONLY" && (observed == "NOT_RUN" || observed == "BLOCKED"), "QUALIFICATION_TEST_RESULT_REJECTED");
+        }
+        internal void ValidateRequestForMode(Dictionary<string, object> request)
+        {
+            if (Mode != "QUALIFICATION_ONLY" || (string)request["method"] != "credential.save") return;
+            Dictionary<string, object> parameters = (Dictionary<string, object>)request["params"];
+            string encoded = Json.String(parameters, "secret_b64");
+            Json.Require(encoded.Length <= 5500, "QUALIFICATION_SYNTHETIC_KEY_REQUIRED");
+            byte[] clear = null;
+            try
+            {
+                try { clear = Convert.FromBase64String(encoded); } catch { throw new PolicyException("QUALIFICATION_SYNTHETIC_KEY_REQUIRED"); }
+                byte[] prefix = Encoding.ASCII.GetBytes("synthetic-test-");
+                Json.Require(clear.Length >= 24 && clear.Length <= 4096 && clear.Take(prefix.Length).SequenceEqual(prefix), "QUALIFICATION_SYNTHETIC_KEY_REQUIRED");
+            }
+            finally { if (clear != null) Array.Clear(clear, 0, clear.Length); }
+        }
+        private HashSet<string> CheckTree(string root)
+        {
+            CheckPath(root, false, false);
+            // No recursive enumeration follows a junction: inspect each directory before descending.
+            Stack<string> directories = new Stack<string>();
+            directories.Push(root);
+            int count = 0;
+            HashSet<string> files = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+            while (directories.Count > 0)
+            {
+                string directory = directories.Pop();
+                foreach (string entry in Directory.GetFileSystemEntries(directory))
+                {
+                    Json.Require(++count <= 20000, "INSTALL_TREE_TOO_LARGE");
+                    CheckPath(entry, false, false);
+                    if (Directory.Exists(entry)) directories.Push(entry);
+                    else files.Add(System.IO.Path.GetFullPath(entry));
+                }
+            }
+            return files;
+        }
+        private void VerifyApplicationManifest()
+        {
+            Dictionary<string, object> manifest = Json.Object(Fixed.Utf8.GetString(LockRead(Fixed.ApplicationManifest, false, 1048576)));
+            Json.Require(Json.String(manifest, "schema") == "agentnexus.application-manifest.v1", "APPLICATION_MANIFEST_SCHEMA_REJECTED");
+            object entries;
+            Json.Require(manifest.TryGetValue("files", out entries) && entries is object[], "APPLICATION_MANIFEST_FILES_MISSING");
+            HashSet<string> actual = CheckTree(Fixed.InstallRoot + @"\app");
+            foreach (object entry in (object[])entries)
+            {
+                Dictionary<string, object> file = entry as Dictionary<string, object>;
+                Json.Require(file != null, "APPLICATION_MANIFEST_ENTRY_INVALID");
+                string relative = Json.String(file, "path"), hash = Json.String(file, "sha256");
+                Json.Require(relative.StartsWith("app/", StringComparison.Ordinal) && relative.IndexOf('\\') < 0 && relative.IndexOf(':') < 0 && !relative.Split('/').Any(p => p == ".." || p == "." || String.IsNullOrWhiteSpace(p) || p.EndsWith(".", StringComparison.Ordinal) || p.EndsWith(" ", StringComparison.Ordinal)) && Digests.IsHash(hash), "APPLICATION_MANIFEST_PATH_REJECTED");
+                string path = System.IO.Path.GetFullPath(Fixed.InstallRoot + "\\" + relative.Replace('/', '\\'));
+                Json.Require(Within(path, Fixed.InstallRoot + @"\app") && actual.Remove(path), "APPLICATION_MANIFEST_FILE_REJECTED");
+                CheckPath(path, false, false);
+                FileStream stream = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.Read);
+                lockedFiles.Add(stream);
+                Json.Require(Digests.Stream(stream) == hash, "APPLICATION_MANIFEST_HASH_MISMATCH");
+            }
+            Json.Require(actual.Count == 0, "APPLICATION_MANIFEST_INCOMPLETE");
+        }
+        private byte[] LockRead(string path, bool data, int maximum)
+        {
+            CheckPath(path, data, false);
+            FileStream stream = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.Read);
+            lockedFiles.Add(stream); // Deny file mutation/replacement for the lifetime of the service/client.
+            Json.Require(stream.Length > 0 && stream.Length <= maximum, "PROTECTED_FILE_SIZE_INVALID");
+            byte[] bytes = new byte[(int)stream.Length];
+            int done = 0;
+            while (done < bytes.Length)
+            {
+                int count = stream.Read(bytes, done, bytes.Length - done);
+                Json.Require(count != 0, "PROTECTED_FILE_TRUNCATED");
+                done += count;
+            }
+            return bytes;
+        }
+        private void CheckHash(string path, string field)
+        {
+            CheckPath(path, false, false);
+            string expected = Json.String(config, field);
+            Json.Require(Digests.IsHash(expected), "MANIFEST_HASH_INVALID");
+            FileStream stream = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.Read);
+            lockedFiles.Add(stream);
+            Json.Require(Digests.Stream(stream) == expected, "MANIFEST_HASH_MISMATCH");
+        }
+        private void VerifyQualification()
+        {
+            byte[] evidence = LockRead(Fixed.QualificationFile, true, 262144);
+            byte[] signature = LockRead(Fixed.QualificationSignature, true, 131072);
+            VerifyDetached(evidence, signature);
+            Dictionary<string, object> document = Json.Object(Fixed.Utf8.GetString(evidence));
+            MachineId = Digests.MachineId();
+            Json.Require(Json.String(document, "schema") == "agentnexus.windows-qualification.v1" && Json.String(document, "scope") == "WINDOWS_BOUNDARY_ONLY", "QUALIFICATION_SCHEMA_REJECTED");
+            Json.Require(Json.String(document, "machine_id") == MachineId && Json.String(document, "service_sid") == ServiceSid && Json.Integer(document, "policy_epoch") == PolicyEpoch, "QUALIFICATION_HOST_MISMATCH");
+            DateTime issued, expires = default(DateTime);
+            Json.Require(DateTime.TryParse(Json.String(document, "issued_at_utc"), CultureInfo.InvariantCulture, DateTimeStyles.AdjustToUniversal | DateTimeStyles.AssumeUniversal, out issued) && DateTime.TryParse(Json.String(document, "expires_at_utc"), CultureInfo.InvariantCulture, DateTimeStyles.AdjustToUniversal | DateTimeStyles.AssumeUniversal, out expires), "QUALIFICATION_TIME_INVALID");
+            Json.Require(issued <= DateTime.UtcNow && expires > DateTime.UtcNow && expires > issued && expires - issued <= TimeSpan.FromDays(7), "QUALIFICATION_EXPIRED");
+            ApprovalExpiresUtc = expires;
+            foreach (string field in new[] { "service_sha256", "client_sha256", "node_sha256", "engine_sha256", "application_manifest_sha256" })
+                Json.Require(Json.String(document, field) == Json.String(config, field), "QUALIFICATION_BINARY_MISMATCH");
+            foreach (string field in new[] { "live_enabled", "real_import_enabled", "live_approval_ref", "real_import_approval_ref", "qualification_test_approval_ref" })
+            {
+                object value;
+                Json.Require(document.TryGetValue(field, out value) && Object.Equals(value, config[field]), "QUALIFICATION_APPROVAL_MISMATCH");
+            }
+            Mode = Json.String(document, "status"); // Only the signed plan chooses a mode; no CLI/environment/config switch.
+            RequireModePolicy(Mode, Json.String(document, "decision"), RealImportEnabled, LiveEnabled, RealImportApproval, LiveApproval, QualificationTestApproval);
+            object testsValue;
+            Json.Require(document.TryGetValue("tests", out testsValue) && testsValue is object[], "QUALIFICATION_TESTS_MISSING");
+            HashSet<string> required = new HashSet<string>(Fixed.QualificationTests, StringComparer.Ordinal);
+            foreach (object item in (object[])testsValue)
+            {
+                Dictionary<string, object> test = item as Dictionary<string, object>;
+                Json.Require(test != null && required.Remove(Json.String(test, "name")), "QUALIFICATION_TEST_REJECTED");
+                string observed = Json.String(test, "observed_result");
+                RequireTestResult(Mode, observed);
+                if (!Qualified)
+                {
+                    continue; // An approved plan is not evidence. Never read/generate hypothetical PASS artifacts.
+                }
+                string file = Json.String(test, "evidence_file"), hash = Json.String(test, "evidence_sha256");
+                Json.Require(Regex.IsMatch(file, "^[a-z0-9][a-z0-9_.-]{0,119}\\.json$", RegexOptions.CultureInvariant) && Digests.IsHash(hash), "QUALIFICATION_ARTIFACT_INVALID");
+                byte[] artifact = LockRead(Fixed.DataRoot + @"\qualification-evidence\" + file, true, 1048576);
+                Json.Require(Digests.Bytes(artifact) == hash, "QUALIFICATION_ARTIFACT_MISMATCH");
+            }
+            Json.Require(required.Count == 0, "QUALIFICATION_TESTS_INCOMPLETE");
+            EvidenceHash = Digests.Bytes(evidence);
+        }
+        private void VerifyDetached(byte[] evidence, byte[] signature)
+        {
+            string pin = Json.String(config, "authority_certificate_sha256");
+            Json.Require(Digests.IsHash(pin), "QUALIFICATION_AUTHORITY_UNCONFIGURED");
+            SignedCms signed = new SignedCms(new ContentInfo(evidence), true);
+            try { signed.Decode(signature); signed.CheckSignature(true); }
+            catch { throw new PolicyException("QUALIFICATION_SIGNATURE_INVALID"); }
+            Json.Require(signed.SignerInfos.Count == 1 && signed.SignerInfos[0].Certificate != null, "QUALIFICATION_SIGNER_INVALID");
+            string digest = signed.SignerInfos[0].DigestAlgorithm.Value;
+            Json.Require(digest == "2.16.840.1.101.3.4.2.1" || digest == "2.16.840.1.101.3.4.2.2" || digest == "2.16.840.1.101.3.4.2.3", "QUALIFICATION_WEAK_DIGEST_REJECTED");
+            System.Security.Cryptography.X509Certificates.X509Certificate2 certificate = signed.SignerInfos[0].Certificate;
+            Json.Require(Digests.Bytes(certificate.RawData) == pin && certificate.NotBefore.ToUniversalTime() <= DateTime.UtcNow && certificate.NotAfter.ToUniversalTime() > DateTime.UtcNow, "QUALIFICATION_SIGNER_REJECTED");
+        }
+        internal Dictionary<string, object> VerifiedConsents()
+        {
+            if (!Qualified) return new Dictionary<string, object> { { "consents", new object[0] } };
+            bool file = File.Exists(Fixed.RequestConsentsFile), signature = File.Exists(Fixed.RequestConsentsSignature);
+            Json.Require(!Directory.Exists(Fixed.RequestConsentsFile) && !Directory.Exists(Fixed.RequestConsentsSignature), "CONSENT_PATH_REJECTED");
+            if (!file && !signature) return new Dictionary<string, object> { { "consents", new object[0] } };
+            Json.Require(file && signature, "CONSENT_SIGNATURE_REQUIRED");
+            byte[] bytes = LockRead(Fixed.RequestConsentsFile, true, Fixed.MaxFrameBytes);
+            VerifyDetached(bytes, LockRead(Fixed.RequestConsentsSignature, true, 131072));
+            Dictionary<string, object> document = Json.Object(Fixed.Utf8.GetString(bytes));
+            Json.Require(Json.String(document, "schema") == "agentnexus.request-consents.v1" && Json.String(document, "machine_id") == MachineId && Json.String(document, "service_sid") == ServiceSid && Json.Integer(document, "policy_epoch") == PolicyEpoch, "CONSENT_HOST_MISMATCH");
+            Json.Require(ValidApproval(Json.String(document, "external_user_review_ref")), "CONSENT_USER_REVIEW_REQUIRED");
+            DateTime issued, expires = default(DateTime);
+            Json.Require(DateTime.TryParse(Json.String(document, "issued_at_utc"), CultureInfo.InvariantCulture, DateTimeStyles.AdjustToUniversal | DateTimeStyles.AssumeUniversal, out issued) && DateTime.TryParse(Json.String(document, "expires_at_utc"), CultureInfo.InvariantCulture, DateTimeStyles.AdjustToUniversal | DateTimeStyles.AssumeUniversal, out expires), "CONSENT_TIME_INVALID");
+            Json.Require(issued <= DateTime.UtcNow && expires > DateTime.UtcNow && expires > issued && expires - issued <= TimeSpan.FromDays(7), "CONSENT_EXPIRED");
+            object entries;
+            Json.Require(document.TryGetValue("consents", out entries) && entries is object[] && ((object[])entries).Length <= 64, "CONSENT_ENTRIES_INVALID");
+            foreach (object item in (object[])entries)
+            {
+                Dictionary<string, object> entry = item as Dictionary<string, object>;
+                Json.Require(entry != null, "CONSENT_ENTRY_INVALID");
+                Json.ExactKeys(entry, "input", "decisions", "classification", "approval_ref");
+                string classification = Json.String(entry, "classification");
+                Json.Require((classification == "PUBLIC" || classification == "SYNTHETIC") && entry["input"] is Dictionary<string, object> && entry["decisions"] is Dictionary<string, object> && ValidApproval(Json.String(entry, "approval_ref")), "CONSENT_SCOPE_REJECTED");
+            }
+            return new Dictionary<string, object> {
+                { "consents", entries }, { "issued_at_utc", Json.String(document, "issued_at_utc") },
+                { "expires_at_utc", Json.String(document, "expires_at_utc") },
+                { "external_user_review_ref", Json.String(document, "external_user_review_ref") }
+            };
+        }
+        internal Dictionary<string, object> Attestation()
+        {
+            RequireCurrentApproval();
+            return new Dictionary<string, object> { { "mode", Mode }, { "qualified", Qualified }, { "service_sid", ServiceSid }, { "evidence_sha256", EvidenceHash }, { "machine_id", MachineId }, { "policy_epoch", PolicyEpoch }, { "expires_at_utc", ApprovalExpiresUtc.ToUniversalTime().ToString("o", CultureInfo.InvariantCulture) }, { "qualification_test_approval_ref", QualificationTestApproval }, { "real_import_enabled", RealImportEnabled }, { "live_enabled", LiveEnabled }, { "real_import_approval_ref", RealImportApproval }, { "live_approval_ref", LiveApproval } };
+        }
+        internal void RequireCurrentApproval() { Json.Require(DateTime.UtcNow < ApprovalExpiresUtc, "QUALIFICATION_EXPIRED"); }
+        public void Dispose() { foreach (FileStream stream in lockedFiles) stream.Dispose(); lockedFiles.Clear(); }
+    }
+
+    internal static class Identity
+    {
+        internal static Dictionary<string, object> Client(NamedPipeServerStream pipe, Deployment deployment)
+        {
+            uint pid, session;
+            Win32.Check(Win32.GetNamedPipeClientProcessId(pipe.SafePipeHandle, out pid), "PIPE_CLIENT_PID_UNAVAILABLE");
+            Win32.Check(Win32.GetNamedPipeClientSessionId(pipe.SafePipeHandle, out session), "PIPE_CLIENT_SESSION_UNAVAILABLE");
+            TokenFacts impersonated;
+            Win32.Check(Win32.ImpersonateNamedPipeClient(pipe.SafePipeHandle), "PIPE_IMPERSONATION_FAILED");
+            try
+            {
+                IntPtr token;
+                Win32.Check(Win32.OpenThreadToken(Win32.GetCurrentThread(), 8, true, out token), "PIPE_TOKEN_UNAVAILABLE");
+                try { impersonated = TokenFacts.Read(token); } finally { Win32.CloseHandle(token); }
+            }
+            finally { if (!Win32.RevertToSelf()) Environment.FailFast("CREDENTIAL_REVERT_FAILED"); }
+            TokenFacts.RequireOperator(impersonated, deployment.OperatorSid);
+            using (ProcessFacts process = ProcessFacts.Open(pid))
+            {
+                TokenFacts.RequireOperator(process.Token, deployment.OperatorSid);
+                Json.Require(process.Token.Sid == impersonated.Sid && process.Token.Integrity == impersonated.Integrity && process.Token.SessionId == impersonated.SessionId && (uint)process.Token.SessionId == session, "PIPE_TOKEN_PROCESS_MISMATCH");
+                Json.Require(String.Equals(process.Path, Fixed.ClientExe, StringComparison.OrdinalIgnoreCase), "CLIENT_IMAGE_REJECTED");
+                process.RequireAlive();
+                return new Dictionary<string, object> {
+                    { "sid", impersonated.Sid }, { "elevated", true }, { "integrity", "high" },
+                    { "process_id", (long)pid }, { "start_id", process.StartId }, { "session_id", impersonated.SessionId },
+                    { "service_sid", deployment.ServiceSid }, { "authenticated", true }
+                };
+            }
+        }
+        internal static void Server(NamedPipeClientStream pipe, Deployment deployment, string expectedStart)
+        {
+            deployment.RequireCurrentApproval();
+            uint pid, session;
+            Win32.Check(Win32.GetNamedPipeServerProcessId(pipe.SafePipeHandle, out pid), "PIPE_SERVER_PID_UNAVAILABLE");
+            Win32.Check(Win32.GetNamedPipeServerSessionId(pipe.SafePipeHandle, out session), "PIPE_SERVER_SESSION_UNAVAILABLE");
+            ServiceFacts registered = ServiceFacts.Read();
+            Json.Require(pid == registered.Pid && session == 0, "PIPE_SERVER_SCM_MISMATCH");
+            using (ProcessFacts process = ProcessFacts.Open(pid))
+            {
+                TokenFacts.RequireService(process.Token, deployment.ServiceSid);
+                Json.Require(String.Equals(process.Path, Fixed.ServiceExe, StringComparison.OrdinalIgnoreCase), "SERVER_IMAGE_REJECTED");
+                Json.Require(expectedStart == null || process.StartId == expectedStart, "SERVER_PROCESS_CHANGED");
+                process.RequireAlive();
+            }
+        }
+        internal static string ServerStart(NamedPipeClientStream pipe)
+        {
+            uint pid;
+            Win32.Check(Win32.GetNamedPipeServerProcessId(pipe.SafePipeHandle, out pid), "PIPE_SERVER_PID_UNAVAILABLE");
+            using (ProcessFacts process = ProcessFacts.Open(pid)) return process.StartId;
+        }
+        internal static void RequireEngineParent(Deployment deployment)
+        {
+            uint own = (uint)Process.GetCurrentProcess().Id;
+            uint parent = Win32.ParentPid(own);
+            using (ProcessFacts helper = ProcessFacts.Open(own))
+            using (ProcessFacts node = ProcessFacts.Open(parent))
+            using (ProcessFacts service = ProcessFacts.Open(Win32.ParentPid(parent)))
+            {
+                TokenFacts.RequireService(helper.Token, deployment.ServiceSid);
+                TokenFacts.RequireService(node.Token, deployment.ServiceSid);
+                TokenFacts.RequireService(service.Token, deployment.ServiceSid);
+                Json.Require(String.Equals(helper.Path, Fixed.ServiceExe, StringComparison.OrdinalIgnoreCase) && String.Equals(node.Path, Fixed.NodeExe, StringComparison.OrdinalIgnoreCase) && String.Equals(service.Path, Fixed.ServiceExe, StringComparison.OrdinalIgnoreCase), "ATTESTATION_PARENT_IMAGE_REJECTED");
+                Json.Require(ServiceFacts.Read().Pid == service.Pid && service.Created < node.Created && node.Created < helper.Created, "ATTESTATION_PARENT_CHAIN_REJECTED");
+                helper.RequireAlive(); node.RequireAlive(); service.RequireAlive();
+            }
+        }
+    }
+
+    // Strict UTF-8 NDJSON. Both directions cap the entire line, not just a JSON field.
+    internal sealed class Frames
+    {
+        private readonly Stream stream;
+        private readonly WaitHandle stop;
+        private readonly byte[] buffer = new byte[8192];
+        private int offset, length;
+        private readonly object writeLock = new object();
+        private readonly Action onAbort;
+        internal Frames(Stream stream, WaitHandle stop) : this(stream, stop, null) { }
+        internal Frames(Stream stream, WaitHandle stop, Action onAbort) { this.stream = stream; this.stop = stop; this.onAbort = onAbort; }
+        internal string Read(int idleMs)
+        {
+            using (MemoryStream line = new MemoryStream())
+            {
+                Stopwatch frameTimer = null;
+                for (;;)
+                {
+                    if (offset == length)
+                    {
+                        int wait = idleMs;
+                        if (frameTimer != null)
+                        {
+                            long remaining = Math.Max(0L, (long)Fixed.FrameTimeoutMs - frameTimer.ElapsedMilliseconds);
+                            wait = (int)Math.Min((long)Int32.MaxValue, remaining);
+                        }
+                        IAsyncResult pending = stream.BeginRead(buffer, 0, buffer.Length, null, null);
+                        int ready;
+                        using (WaitHandle completed = pending.AsyncWaitHandle)
+                        {
+                            ready = WaitHandle.WaitAny(new[] { completed, stop }, wait);
+                            if (ready != 0)
+                            {
+                                Abort();
+                                if (completed.WaitOne(1000)) { try { stream.EndRead(pending); } catch { } }
+                                else stream.Dispose();
+                                throw new PolicyException(ready == 1 ? "STOPPED" : "FRAME_TIMEOUT");
+                            }
+                        }
+                        length = stream.EndRead(pending); offset = 0;
+                        if (length == 0) { Json.Require(line.Length == 0, "TRUNCATED_FRAME"); return null; }
+                    }
+                    // Start on the first consumed byte, including a prefix left in the previous read buffer.
+                    // One monotonic budget covers the entire frame and is never reset by later I/O.
+                    if (frameTimer == null) frameTimer = Stopwatch.StartNew();
+                    byte value = buffer[offset++];
+                    if (value == 10)
+                    {
+                        Json.Require(line.Length > 0, "EMPTY_FRAME");
+                        byte[] bytes = line.ToArray();
+                        Json.Require(bytes[bytes.Length - 1] != 13, "CRLF_NOT_SUPPORTED");
+                        try { return Fixed.Utf8.GetString(bytes); } catch { throw new PolicyException("INVALID_UTF8"); }
+                    }
+                    Json.Require(line.Length < Fixed.MaxFrameBytes, "FRAME_TOO_LARGE");
+                    line.WriteByte(value);
+                }
+            }
+        }
+        internal void Write(object value) { WriteText(Json.Encode(value)); }
+        internal void WriteText(string value)
+        {
+            byte[] bytes = Fixed.Utf8.GetBytes(value + "\n");
+            Json.Require(bytes.Length <= Fixed.MaxFrameBytes + 1 && value.IndexOf('\n') < 0 && value.IndexOf('\r') < 0, "FRAME_TOO_LARGE");
+            lock (writeLock)
+            {
+                IAsyncResult pending = stream.BeginWrite(bytes, 0, bytes.Length, null, null);
+                int ready;
+                using (WaitHandle completed = pending.AsyncWaitHandle)
+                {
+                    ready = WaitHandle.WaitAny(new[] { completed, stop }, Fixed.WriteTimeoutMs);
+                    if (ready != 0)
+                    {
+                        Abort();
+                        if (completed.WaitOne(1000)) { try { stream.EndWrite(pending); } catch { } }
+                        else stream.Dispose();
+                        throw new PolicyException(ready == 1 ? "STOPPED" : "WRITE_TIMEOUT");
+                    }
+                }
+                stream.EndWrite(pending);
+                stream.Flush();
+            }
+        }
+        private void Abort()
+        {
+            if (onAbort != null) onAbort(); // Kill a hung child before closing synchronous anonymous-pipe I/O.
+            PipeStream pipe = stream as PipeStream;
+            if (pipe != null) Win32.CancelIoEx(pipe.SafePipeHandle, IntPtr.Zero);
+            else stream.Dispose();
+        }
+    }
+
+    internal static class PureTests
+    {
+        internal static int Run()
+        {
+            int passed = 0;
+            string sid = "S-1-5-21-111-222-333-1001";
+            TokenFacts good = new TokenFacts { Sid = sid, Elevated = true, Integrity = 0x3000, AppContainer = false, SessionId = 1 };
+            TokenFacts.RequireOperator(good, sid); passed++;
+            foreach (TokenFacts bad in new[] {
+                new TokenFacts { Sid = sid, Elevated = false, Integrity = 0x2000 },
+                new TokenFacts { Sid = sid, Elevated = true, Integrity = 0x1000 },
+                new TokenFacts { Sid = sid, Elevated = true, Integrity = 0x2000 },
+                new TokenFacts { Sid = sid, Elevated = true, Integrity = 0x3000, AppContainer = true },
+                new TokenFacts { Sid = "S-1-5-18", Elevated = true, Integrity = 0x4000 }
+            }) { Reject(delegate { TokenFacts.RequireOperator(bad, sid); }); passed++; }
+            string qualificationApproval = "APPROVED-QUALIFICATION-TEST-FIXTURE";
+            Deployment.RequireModePolicy("QUALIFICATION_ONLY", "BLOCKED", false, false, "", "", qualificationApproval); passed++;
+            Deployment.RequireModePolicy("QUALIFICATION_ONLY", "NOT_RUN", false, false, "", "", qualificationApproval); passed++;
+            Deployment.RequireModePolicy("QUALIFIED", "PASS", false, false, "", "", ""); passed++;
+            foreach (Action bad in new Action[] {
+                delegate { Deployment.RequireModePolicy("BLOCKED", "BLOCKED", false, false, "", "", qualificationApproval); },
+                delegate { Deployment.RequireModePolicy("QUALIFICATION_ONLY", "PASS", false, false, "", "", qualificationApproval); },
+                delegate { Deployment.RequireModePolicy("QUALIFICATION_ONLY", "NOT_RUN", false, false, "", "", ""); },
+                delegate { Deployment.RequireModePolicy("QUALIFICATION_ONLY", "NOT_RUN", true, false, "", "", qualificationApproval); },
+                delegate { Deployment.RequireModePolicy("QUALIFICATION_ONLY", "NOT_RUN", false, true, "", "", qualificationApproval); },
+                delegate { Deployment.RequireModePolicy("QUALIFICATION_ONLY", "NOT_RUN", false, false, "APPROVED-REAL-IMPORT", "", qualificationApproval); },
+                delegate { Deployment.RequireModePolicy("QUALIFICATION_ONLY", "NOT_RUN", false, false, "", "APPROVED-LIVE-REQUEST", qualificationApproval); },
+                delegate { Deployment.RequireModePolicy("QUALIFIED", "NOT_RUN", false, false, "", "", qualificationApproval); },
+                delegate { Deployment.RequireTestResult("QUALIFICATION_ONLY", "PASS"); },
+                delegate { Deployment.RequireTestResult("QUALIFIED", "BLOCKED"); }
+            }) { Reject(bad); passed++; }
+            Deployment.RequireTestResult("QUALIFICATION_ONLY", "NOT_RUN"); passed++;
+            Json.Require(Deployment.ContainsSensitiveRead(FileSystemRights.ReadData) && Deployment.ContainsSensitiveRead((FileSystemRights)unchecked((int)0x80000000)) && Deployment.ContainsSensitiveRead((FileSystemRights)0x10000000) && !Deployment.ContainsSensitiveRead(FileSystemRights.WriteData), "SELF_TEST_SENSITIVE_READ_MASK_FAILED"); passed++;
+            Deployment plan = new Deployment { Mode = "QUALIFICATION_ONLY", ApprovalExpiresUtc = DateTime.UtcNow.AddMinutes(1) };
+            Dictionary<string, object> attestation = plan.Attestation();
+            Json.Require((string)attestation["mode"] == "QUALIFICATION_ONLY" && !(bool)attestation["qualified"] && !(bool)attestation["real_import_enabled"] && !(bool)attestation["live_enabled"], "SELF_TEST_PLAN_ATTESTATION_FAILED"); passed++;
+            Reject(delegate { new Deployment { ApprovalExpiresUtc = DateTime.UtcNow.AddSeconds(-1) }.RequireCurrentApproval(); }); passed++;
+            plan.ValidateRequestForMode(Json.Request(Json.Encode(new { id = "fixture-1", method = "credential.save", @params = new { secret_b64 = Convert.ToBase64String(Fixed.Utf8.GetBytes("synthetic-test-qualification-fixture")) } }))); passed++;
+            Reject(delegate { plan.ValidateRequestForMode(Json.Request(Json.Encode(new { id = "fixture-2", method = "credential.save", @params = new { secret_b64 = Convert.ToBase64String(Fixed.Utf8.GetBytes("unapproved-test-token-value-without-prefix")) } }))); }); passed++;
+            Json.Request("{\"id\":\"1\",\"method\":\"health.read\",\"params\":{}}"); passed++;
+            foreach (string invalid in new[] {
+                "{\"id\":\"1\",\"method\":\"health.read\",\"params\":{},\"peer\":{\"authenticated\":true}}",
+                "{\"id\":\"1\",\"method\":\"session.disconnect\",\"params\":{}}",
+                "{\"id\":\"1\",\"method\":\"native.bootstrap\",\"params\":{}}",
+                "{\"id\":\"1\",\"method\":\"health.read\",\"params\":[]}", "[]", "{"
+            }) { Reject(delegate { Json.Request(invalid); }); passed++; }
+            using (ManualResetEvent stop = new ManualResetEvent(false))
+            {
+                using (MemoryStream stream = new MemoryStream(Fixed.Utf8.GetBytes("{\"x\":1}\n{\"x\":2}\n")))
+                {
+                    Frames frames = new Frames(stream, stop);
+                    Json.Require(frames.Read(1000) == "{\"x\":1}" && frames.Read(1000) == "{\"x\":2}" && frames.Read(1000) == null, "SELF_TEST_FAILED"); passed++;
+                }
+                string secondFrame = "{\"payload\":\"" + new string('x', 10000) + "\"}";
+                using (MemoryStream stream = new MemoryStream(Fixed.Utf8.GetBytes("{\"x\":1}\n" + secondFrame + "\n")))
+                {
+                    Frames frames = new Frames(stream, stop);
+                    Json.Require(frames.Read(1000) == "{\"x\":1}" && stream.Position == 8192, "SELF_TEST_BUFFER_PREFIX_REQUIRED");
+                    Json.Require(frames.Read(1000) == secondFrame && frames.Read(1000) == null, "SELF_TEST_CROSS_BUFFER_FRAME_FAILED"); passed++;
+                }
+                using (MemoryStream stream = new MemoryStream(Encoding.ASCII.GetBytes(new string('x', Fixed.MaxFrameBytes) + "\n")))
+                { Json.Require(new Frames(stream, stop).Read(1000).Length == Fixed.MaxFrameBytes, "SELF_TEST_FRAME_BOUNDARY_FAILED"); passed++; }
+                foreach (byte[] invalid in new[] { Fixed.Utf8.GetBytes("\n"), Fixed.Utf8.GetBytes("{}\r\n"), Fixed.Utf8.GetBytes("{}"), new byte[] { 0xff, 10 }, Encoding.ASCII.GetBytes(new string('x', Fixed.MaxFrameBytes + 1) + "\n") })
+                    using (MemoryStream stream = new MemoryStream(invalid))
+                    { Reject(delegate { new Frames(stream, stop).Read(1000); }); passed++; }
+            }
+            Console.WriteLine(Json.Encode(new { schema = 1, mode = "PURE_SELF_TEST", passed = passed, failed = 0, windows_boundary_qualified = false, installed_service = false, touched_real_credentials = false }));
+            return 0;
+        }
+        private static void Reject(Action action)
+        {
+            try { action(); } catch (PolicyException) { return; }
+            throw new PolicyException("SELF_TEST_EXPECTED_REJECTION");
+        }
+    }
+
+    internal static class Win32
+    {
+        internal static void Check(bool result, string code) { if (!result) throw new PolicyException(code); }
+        [StructLayout(LayoutKind.Sequential)] internal struct FILETIME { internal uint Low, High; }
+        [StructLayout(LayoutKind.Sequential)] internal struct SECURITY_ATTRIBUTES { internal int Length; internal IntPtr Descriptor; [MarshalAs(UnmanagedType.Bool)] internal bool Inherit; }
+        [StructLayout(LayoutKind.Sequential)] internal struct QUERY_SERVICE_CONFIG { internal uint ServiceType, StartType, ErrorControl; internal IntPtr BinaryPath, LoadOrderGroup; internal uint TagId; internal IntPtr Dependencies, StartName, DisplayName; }
+        [StructLayout(LayoutKind.Sequential)] internal struct SERVICE_STATUS_PROCESS { internal uint ServiceType, CurrentState, ControlsAccepted, Win32ExitCode, ServiceSpecificExitCode, CheckPoint, WaitHint, ProcessId, ServiceFlags; }
+        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)] internal struct PROCESSENTRY32 { internal uint Size, Usage, ProcessId; internal UIntPtr DefaultHeapId; internal uint ModuleId, Threads, ParentProcessId; internal int BasePriority; internal uint Flags; [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 260)] internal string ExeFile; }
+        [DllImport("kernel32.dll", SetLastError = true)] internal static extern bool CloseHandle(IntPtr handle);
+        [DllImport("kernel32.dll")] internal static extern IntPtr GetCurrentProcess();
+        [DllImport("kernel32.dll")] internal static extern IntPtr GetCurrentThread();
+        [DllImport("kernel32.dll", SetLastError = true)] internal static extern IntPtr OpenProcess(uint access, bool inherit, uint pid);
+        [DllImport("kernel32.dll", CharSet = CharSet.Unicode, SetLastError = true)] internal static extern bool QueryFullProcessImageName(IntPtr process, uint flags, StringBuilder path, ref int size);
+        [DllImport("kernel32.dll", SetLastError = true)] internal static extern bool GetProcessTimes(IntPtr process, out FILETIME created, out FILETIME exited, out FILETIME kernel, out FILETIME user);
+        [DllImport("kernel32.dll", SetLastError = true)] internal static extern uint WaitForSingleObject(IntPtr handle, uint milliseconds);
+        [DllImport("advapi32.dll", SetLastError = true)] internal static extern bool OpenProcessToken(IntPtr process, uint access, out IntPtr token);
+        [DllImport("advapi32.dll", SetLastError = true)] internal static extern bool OpenThreadToken(IntPtr thread, uint access, bool openAsSelf, out IntPtr token);
+        [DllImport("advapi32.dll", SetLastError = true)] private static extern bool GetTokenInformation(IntPtr token, int kind, IntPtr buffer, int length, out int returned);
+        internal static IntPtr TokenInfo(IntPtr token, int kind)
+        {
+            int size;
+            GetTokenInformation(token, kind, IntPtr.Zero, 0, out size);
+            Json.Require(size > 0 && size <= 1048576, "TOKEN_INFORMATION_UNAVAILABLE");
+            IntPtr buffer = Marshal.AllocHGlobal(size);
+            if (!GetTokenInformation(token, kind, buffer, size, out size)) { Marshal.FreeHGlobal(buffer); throw new PolicyException("TOKEN_INFORMATION_UNAVAILABLE"); }
+            return buffer;
+        }
+        [DllImport("advapi32.dll", SetLastError = true)] internal static extern bool ImpersonateNamedPipeClient(SafePipeHandle pipe);
+        [DllImport("advapi32.dll", SetLastError = true)] internal static extern bool RevertToSelf();
+        [DllImport("kernel32.dll", SetLastError = true)] internal static extern bool GetNamedPipeClientProcessId(SafePipeHandle pipe, out uint pid);
+        [DllImport("kernel32.dll", SetLastError = true)] internal static extern bool GetNamedPipeClientSessionId(SafePipeHandle pipe, out uint session);
+        [DllImport("kernel32.dll", SetLastError = true)] internal static extern bool GetNamedPipeServerProcessId(SafePipeHandle pipe, out uint pid);
+        [DllImport("kernel32.dll", SetLastError = true)] internal static extern bool GetNamedPipeServerSessionId(SafePipeHandle pipe, out uint session);
+        [DllImport("kernel32.dll", SetLastError = true)] internal static extern bool CancelIoEx(SafePipeHandle pipe, IntPtr overlapped);
+        [DllImport("advapi32.dll", CharSet = CharSet.Unicode, SetLastError = true)] internal static extern IntPtr OpenSCManager(string machine, string database, uint access);
+        [DllImport("advapi32.dll", CharSet = CharSet.Unicode, SetLastError = true)] internal static extern IntPtr OpenService(IntPtr scm, string service, uint access);
+        [DllImport("advapi32.dll", CharSet = CharSet.Unicode, SetLastError = true)] internal static extern bool QueryServiceConfig(IntPtr service, IntPtr config, int size, out int needed);
+        [DllImport("advapi32.dll", CharSet = CharSet.Unicode, SetLastError = true)] internal static extern bool QueryServiceConfig2(IntPtr service, int level, IntPtr config, int size, out int needed);
+        [DllImport("advapi32.dll", SetLastError = true)] internal static extern bool QueryServiceStatusEx(IntPtr service, int level, out SERVICE_STATUS_PROCESS status, int size, out int needed);
+        [DllImport("advapi32.dll", SetLastError = true)] internal static extern bool CloseServiceHandle(IntPtr service);
+        [DllImport("kernel32.dll", SetLastError = true)] private static extern IntPtr CreateToolhelp32Snapshot(uint flags, uint pid);
+        [DllImport("kernel32.dll", CharSet = CharSet.Unicode, SetLastError = true)] private static extern bool Process32First(IntPtr snapshot, ref PROCESSENTRY32 entry);
+        [DllImport("kernel32.dll", CharSet = CharSet.Unicode, SetLastError = true)] private static extern bool Process32Next(IntPtr snapshot, ref PROCESSENTRY32 entry);
+        internal static uint ParentPid(uint pid)
+        {
+            IntPtr snapshot = CreateToolhelp32Snapshot(2, 0);
+            Json.Require(snapshot != new IntPtr(-1), "PROCESS_SNAPSHOT_UNAVAILABLE");
+            try
+            {
+                PROCESSENTRY32 entry = new PROCESSENTRY32 { Size = (uint)Marshal.SizeOf(typeof(PROCESSENTRY32)) };
+                bool exists = Process32First(snapshot, ref entry);
+                while (exists) { if (entry.ProcessId == pid) return entry.ParentProcessId; exists = Process32Next(snapshot, ref entry); }
+                throw new PolicyException("PROCESS_PARENT_UNAVAILABLE");
+            }
+            finally { CloseHandle(snapshot); }
+        }
+    }
+}

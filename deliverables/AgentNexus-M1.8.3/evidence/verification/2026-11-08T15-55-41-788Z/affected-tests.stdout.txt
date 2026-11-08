@@ -1,0 +1,1095 @@
+TAP version 13
+# Subtest: M18 AUTH no explicit verified user grant or missing qualification can call an HTTPS Provider
+ok 1 - M18 AUTH no explicit verified user grant or missing qualification can call an HTTPS Provider
+  ---
+  duration_ms: 221.0166
+  type: 'test'
+  ...
+# Subtest: M18 AUTH grant binds Provider, Model, endpoint, project, exact context and upload scope
+ok 2 - M18 AUTH grant binds Provider, Model, endpoint, project, exact context and upload scope
+  ---
+  duration_ms: 181.4142
+  type: 'test'
+  ...
+# Subtest: M18 AUTH grant budgets are reserved atomically and cannot be replenished with negative costs
+ok 3 - M18 AUTH grant budgets are reserved atomically and cannot be replenished with negative costs
+  ---
+  duration_ms: 171.9777
+  type: 'test'
+  ...
+# Subtest: M18 AUTH synchronous final fence rejects revoked, expired and mismatched dispatch after durable intent
+ok 4 - M18 AUTH synchronous final fence rejects revoked, expired and mismatched dispatch after durable intent
+  ---
+  duration_ms: 180.1349
+  type: 'test'
+  ...
+# Subtest: M18 GATEWAY native Loop uses encrypted synthetic credentials, Tool Gateway and exact source archive
+ok 5 - M18 GATEWAY native Loop uses encrypted synthetic credentials, Tool Gateway and exact source archive
+  ---
+  duration_ms: 719.8152
+  type: 'test'
+  ...
+# Subtest: M18 GATEWAY durable terminal dedup and conflicting input never make a second request
+ok 6 - M18 GATEWAY durable terminal dedup and conflicting input never make a second request
+  ---
+  duration_ms: 294.0072
+  type: 'test'
+  ...
+# Subtest: M18 GATEWAY caller mutation while reconstructing cannot alter validated output bound or fingerprint
+ok 7 - M18 GATEWAY caller mutation while reconstructing cannot alter validated output bound or fingerprint
+  ---
+  duration_ms: 275.0087
+  type: 'test'
+  ...
+# Subtest: M18 GATEWAY incomplete/disconnected/overbudget streams keep key and four-level holds without retry
+    # Subtest: partial
+    ok 1 - partial
+      ---
+      duration_ms: 258.2313
+      type: 'test'
+      ...
+    # Subtest: no-usage
+    ok 2 - no-usage
+      ---
+      duration_ms: 266.163
+      type: 'test'
+      ...
+    # Subtest: overrun
+    ok 3 - overrun
+      ---
+      duration_ms: 277.2025
+      type: 'test'
+      ...
+    # Subtest: invalid-json
+    ok 4 - invalid-json
+      ---
+      duration_ms: 276.2343
+      type: 'test'
+      ...
+    1..4
+ok 8 - M18 GATEWAY incomplete/disconnected/overbudget streams keep key and four-level holds without retry
+  ---
+  duration_ms: 1078.6445
+  type: 'test'
+  ...
+# Subtest: M18 GATEWAY sent timeout returns bounded UNKNOWN and aborts the original stream
+ok 9 - M18 GATEWAY sent timeout returns bounded UNKNOWN and aborts the original stream
+  ---
+  duration_ms: 287.136
+  type: 'test'
+  ...
+# Subtest: M18 GATEWAY pre-send cancellation and atomic budget denial never touch Provider transport
+ok 10 - M18 GATEWAY pre-send cancellation and atomic budget denial never touch Provider transport
+  ---
+  duration_ms: 218.5029
+  type: 'test'
+  ...
+# Subtest: M18 GATEWAY independently scoped concurrent Agent requests cannot overconsume one Key
+ok 11 - M18 GATEWAY independently scoped concurrent Agent requests cannot overconsume one Key
+  ---
+  duration_ms: 329.7261
+  type: 'test'
+  ...
+# Subtest: M18 GATEWAY model RPM, role routing and reasoned upgrade limits remain independent of permissions
+ok 12 - M18 GATEWAY model RPM, role routing and reasoned upgrade limits remain independent of permissions
+  ---
+  duration_ms: 596.443
+  type: 'test'
+  ...
+# Subtest: M18 GATEWAY echoed secret and hostile error text never reach Archive/Audit/results
+    # Subtest: echo
+    ok 1 - echo
+      ---
+      duration_ms: 277.0824
+      type: 'test'
+      ...
+    # Subtest: error
+    ok 2 - error
+      ---
+      duration_ms: 318.0776
+      type: 'test'
+      ...
+    1..2
+ok 13 - M18 GATEWAY echoed secret and hostile error text never reach Archive/Audit/results
+  ---
+  duration_ms: 595.712
+  type: 'test'
+  ...
+# Subtest: M18 LEDGER composite Task budget identities cannot alias through colon-containing IDs
+ok 14 - M18 LEDGER composite Task budget identities cannot alias through colon-containing IDs
+  ---
+  duration_ms: 1.0571
+  type: 'test'
+  ...
+# Subtest: M18 LEDGER real SQLite four-level admission is atomic under competing reservations
+ok 15 - M18 LEDGER real SQLite four-level admission is atomic under competing reservations
+  ---
+  duration_ms: 76.6167
+  type: 'test'
+  ...
+# Subtest: M18 LEDGER each independently exhausted scope rejects without partial holds
+ok 16 - M18 LEDGER each independently exhausted scope rejects without partial holds
+  ---
+  duration_ms: 207.0787
+  type: 'test'
+  ...
+# Subtest: M18 LEDGER sibling agents share project allowance and separate projects share platform allowance
+ok 17 - M18 LEDGER sibling agents share project allowance and separate projects share platform allowance
+  ---
+  duration_ms: 85.8573
+  type: 'test'
+  ...
+# Subtest: M18 LEDGER a missing level, forged admin, injected fields and static reason violations fail before mutation
+ok 18 - M18 LEDGER a missing level, forged admin, injected fields and static reason violations fail before mutation
+  ---
+  duration_ms: 64.0811
+  type: 'test'
+  ...
+# Subtest: M18 LEDGER request idempotency binds the complete subject, context, model, assurance and estimates
+ok 19 - M18 LEDGER request idempotency binds the complete subject, context, model, assurance and estimates
+  ---
+  duration_ms: 53.568
+  type: 'test'
+  ...
+# Subtest: M18 LEDGER proven-not-sent releases once; durable SENT and UNKNOWN cannot be replayed or released
+ok 20 - M18 LEDGER proven-not-sent releases once; durable SENT and UNKNOWN cannot be replayed or released
+  ---
+  duration_ms: 70.964
+  type: 'test'
+  ...
+# Subtest: M18 LEDGER provider actual usage settles all scopes once and reasoning remains inside output tokens
+ok 21 - M18 LEDGER provider actual usage settles all scopes once and reasoning remains inside output tokens
+  ---
+  duration_ms: 59.4321
+  type: 'test'
+  ...
+# Subtest: M18 LEDGER REAL and SIMULATED limits and receipts are isolated, including HTTP rejection estimates
+ok 22 - M18 LEDGER REAL and SIMULATED limits and receipts are isolated, including HTTP rejection estimates
+  ---
+  duration_ms: 69.3753
+  type: 'test'
+  ...
+# Subtest: M18 LEDGER estimated tokens and fees remain separate from actual usage and retain uncertain allowance
+ok 23 - M18 LEDGER estimated tokens and fees remain separate from actual usage and retain uncertain allowance
+  ---
+  duration_ms: 52.0239
+  type: 'test'
+  ...
+# Subtest: M18 LEDGER actual overshoot is retained as UNKNOWN with all observed usage and no accounting rollback
+ok 24 - M18 LEDGER actual overshoot is retained as UNKNOWN with all observed usage and no accounting rollback
+  ---
+  duration_ms: 59.2102
+  type: 'test'
+  ...
+# Subtest: M18 LEDGER invalid reasoning, attempt counts, numeric overflow and non-provider real usage never settle
+ok 25 - M18 LEDGER invalid reasoning, attempt counts, numeric overflow and non-provider real usage never settle
+  ---
+  duration_ms: 49.1264
+  type: 'test'
+  ...
+# Subtest: M18 LEDGER SQLite close/reopen recovery quarantines every unresolved request without calls or released holds
+ok 26 - M18 LEDGER SQLite close/reopen recovery quarantines every unresolved request without calls or released holds
+  ---
+  duration_ms: 100.4296
+  type: 'test'
+  ...
+# Subtest: M18 LEDGER failed durable reservation ACK performs zero send transitions and keeps all committed holds
+ok 27 - M18 LEDGER failed durable reservation ACK performs zero send transitions and keeps all committed holds
+  ---
+  duration_ms: 45.413
+  type: 'test'
+  ...
+# Subtest: M18 PROTOCOL three provider builders explicitly distinguish token, storage, reasoning and usage fields
+ok 28 - M18 PROTOCOL three provider builders explicitly distinguish token, storage, reasoning and usage fields
+  ---
+  duration_ms: 1.3117
+  type: 'test'
+  ...
+# Subtest: M18 STREAM fragmented UTF-8, CRLF, comments and multiline SSE retain pull backpressure
+ok 29 - M18 STREAM fragmented UTF-8, CRLF, comments and multiline SSE retain pull backpressure
+  ---
+  duration_ms: 1.4715
+  type: 'test'
+  ...
+# Subtest: M18 STREAM overlong event/chunk, malformed UTF-8 and trailing partial fail without a completed response
+ok 30 - M18 STREAM overlong event/chunk, malformed UTF-8 and trailing partial fail without a completed response
+  ---
+  duration_ms: 62.8042
+  type: 'test'
+  ...
+# Subtest: M18 STREAM cancellation interrupts a pending next without waiting for an uncontrolled iterator
+ok 31 - M18 STREAM cancellation interrupts a pending next without waiting for an uncontrolled iterator
+  ---
+  duration_ms: 0.5273
+  type: 'test'
+  ...
+# Subtest: M18 ADAPTER every provider decodes bounded fragmented replies and reported reasoning usage
+ok 32 - M18 ADAPTER every provider decodes bounded fragmented replies and reported reasoning usage
+  ---
+  duration_ms: 9.5883
+  type: 'test'
+  ...
+# Subtest: M18 ADAPTER partial streams, length finish and missing tool termination never become usable tool calls
+ok 33 - M18 ADAPTER partial streams, length finish and missing tool termination never become usable tool calls
+  ---
+  duration_ms: 1.0273
+  type: 'test'
+  ...
+# Subtest: M18 ADAPTER complete native tool fragments are joined but never executed or given approval authority
+ok 34 - M18 ADAPTER complete native tool fragments are joined but never executed or given approval authority
+  ---
+  duration_ms: 1.0963
+  type: 'test'
+  ...
+# Subtest: M18 REGISTRY prices use integer ceiling without double charging reasoning or losing precision
+ok 35 - M18 REGISTRY prices use integer ceiling without double charging reasoning or losing precision
+  ---
+  duration_ms: 0.4237
+  type: 'test'
+  ...
+# Subtest: M18 ROUTER explicit capabilities, stale price, role routes and bounded escalation do not infer model powers
+ok 36 - M18 ROUTER explicit capabilities, stale price, role routes and bounded escalation do not infer model powers
+  ---
+  duration_ms: 0.5472
+  type: 'test'
+  ...
+# Subtest: M18 REVIEW sent UNKNOWN transport closure keeps the global slot after cancellation
+ok 37 - M18 REVIEW sent UNKNOWN transport closure keeps the global slot after cancellation
+  ---
+  duration_ms: 343.4461
+  type: 'test'
+  ...
+# Subtest: M18 REVIEW a response archive ACK failure preserves settled usage and never repeats the paid request
+ok 38 - M18 REVIEW a response archive ACK failure preserves settled usage and never repeats the paid request
+  ---
+  duration_ms: 347.1544
+  type: 'test'
+  ...
+# Subtest: M18 REVIEW reasoning leaks split across events cannot hide behind a long discarded suffix
+ok 39 - M18 REVIEW reasoning leaks split across events cannot hide behind a long discarded suffix
+  ---
+  duration_ms: 279.931
+  type: 'test'
+  ...
+# Subtest: M18 REVIEW reported model mismatch cannot settle at the requested model price
+ok 40 - M18 REVIEW reported model mismatch cannot settle at the requested model price
+  ---
+  duration_ms: 271.2041
+  type: 'test'
+  ...
+# Subtest: M18 REVIEW grant preflight atomically reserves its sixteen pending slots before await
+ok 41 - M18 REVIEW grant preflight atomically reserves its sixteen pending slots before await
+  ---
+  duration_ms: 448.2708
+  type: 'test'
+  ...
+# Subtest: M18 REVIEW an already-sent Key cannot be released as NOT_SENT and a closed guard rejects all attached channels
+ok 42 - M18 REVIEW an already-sent Key cannot be released as NOT_SENT and a closed guard rejects all attached channels
+  ---
+  duration_ms: 197.8625
+  type: 'test'
+  ...
+# Subtest: M18 REVIEW rotate fences the original credential generation across asynchronous encryption
+ok 43 - M18 REVIEW rotate fences the original credential generation across asynchronous encryption
+  ---
+  duration_ms: 70.1366
+  type: 'test'
+  ...
+# Subtest: M18 SECRET Prompt/Context, Audit detail and artifact bytes fail before persistent publication
+ok 44 - M18 SECRET Prompt/Context, Audit detail and artifact bytes fail before persistent publication
+  ---
+  duration_ms: 224.2302
+  type: 'test'
+  ...
+# Subtest: M18 SECRET cross-chunk and encoded artifact secrets are detected before opening partial files
+ok 45 - M18 SECRET cross-chunk and encoded artifact secrets are detected before opening partial files
+  ---
+  duration_ms: 137.3784
+  type: 'test'
+  ...
+# Subtest: M18 SECRET queued mutable byte buffers are owned before inspection and queue waits
+ok 46 - M18 SECRET queued mutable byte buffers are owned before inspection and queue waits
+  ---
+  duration_ms: 144.3452
+  type: 'test'
+  ...
+# Subtest: M18 SECRET guarded large streams have an explicit memory cap and never create partial payloads on overflow
+ok 47 - M18 SECRET guarded large streams have an explicit memory cap and never create partial payloads on overflow
+  ---
+  duration_ms: 148.4033
+  type: 'test'
+  ...
+# Subtest: M18 SECRET closing a Vault cannot silently disable guard enforcement on attached Host storage
+ok 48 - M18 SECRET closing a Vault cannot silently disable guard enforcement on attached Host storage
+  ---
+  duration_ms: 185.7758
+  type: 'test'
+  ...
+# Subtest: M18 SECRET ordinary Worker and child facades expose no Vault, credential or management database
+ok 49 - M18 SECRET ordinary Worker and child facades expose no Vault, credential or management database
+  ---
+  duration_ms: 224.0337
+  type: 'test'
+  ...
+# Subtest: M18 VAULT rotation never extends the old credential expiry before or during asynchronous decrypt
+ok 50 - M18 VAULT rotation never extends the old credential expiry before or during asynchronous decrypt
+  ---
+  duration_ms: 92.4145
+  type: 'test'
+  ...
+# Subtest: M18 VAULT rotating a rate-limited key prevents automatic cooldown resurrection
+ok 51 - M18 VAULT rotating a rate-limited key prevents automatic cooldown resurrection
+  ---
+  duration_ms: 58.1056
+  type: 'test'
+  ...
+# Subtest: M18 VAULT accepts only fabricated secrets and identity-bound host authority; LIVE is BLOCKED
+not ok 52 - M18 VAULT accepts only fabricated secrets and identity-bound host authority; LIVE is BLOCKED
+  ---
+  duration_ms: 24.5592
+  type: 'test'
+  location: 'I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3\\source\\tests\\agentnexus\\m18-vault.test.ts:50:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    The validation function is expected to return "true". Received false
+    
+    Caught error:
+    
+    NexusError: CREDENTIAL_SERVICE_BOUNDARY_REQUIRED
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  stack: |-
+    async TestContext.<anonymous> (file:///I:/AI_AgentNexus/deliverables/AgentNexus-M1.8.3/source/tests/agentnexus/m18-vault.test.ts:52:3)
+    async Test.run (node:internal/test_runner/test:1208:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:831:7)
+  ...
+# Subtest: M18 VAULT encrypts actual persisted bytes and reloads only its own fabricated entries
+ok 53 - M18 VAULT encrypts actual persisted bytes and reloads only its own fabricated entries
+  ---
+  duration_ms: 60.547
+  type: 'test'
+  ...
+# Subtest: M18 VAULT inactive states, model eligibility, and expiration prevent acquisition
+ok 54 - M18 VAULT inactive states, model eligibility, and expiration prevent acquisition
+  ---
+  duration_ms: 111.5909
+  type: 'test'
+  ...
+# Subtest: M18 VAULT two SQLite connections atomically reserve concurrency and cost before sending
+ok 55 - M18 VAULT two SQLite connections atomically reserve concurrency and cost before sending
+  ---
+  duration_ms: 100.4373
+  type: 'test'
+  ...
+# Subtest: M18 VAULT subject binding, request conflicts, and once-only send prevent lease reuse
+ok 56 - M18 VAULT subject binding, request conflicts, and once-only send prevent lease reuse
+  ---
+  duration_ms: 68.9315
+  type: 'test'
+  ...
+# Subtest: M18 VAULT rate windows, AUTH and RATE_LIMIT alter future eligibility
+ok 57 - M18 VAULT rate windows, AUTH and RATE_LIMIT alter future eligibility
+  ---
+  duration_ms: 96.1682
+  type: 'test'
+  ...
+# Subtest: M18 VAULT deterministic health/cost/concurrency selection and rotation preserve old inflight
+ok 58 - M18 VAULT deterministic health/cost/concurrency selection and rotation preserve old inflight
+  ---
+  duration_ms: 92.4581
+  type: 'test'
+  ...
+# Subtest: M18 VAULT UNKNOWN and close/reopen retain reservations and never automatically resend
+ok 59 - M18 VAULT UNKNOWN and close/reopen retain reservations and never automatically resend
+  ---
+  duration_ms: 127.7391
+  type: 'test'
+  ...
+# Subtest: M18 VAULT guard blocks raw/JSON/URL/base64 known secrets and emits static events
+ok 60 - M18 VAULT guard blocks raw/JSON/URL/base64 known secrets and emits static events
+  ---
+  duration_ms: 53.8476
+  type: 'test'
+  ...
+# Subtest: M18 VAULT callback errors and returned credentials are sanitized and quarantined
+ok 61 - M18 VAULT callback errors and returned credentials are sanitized and quarantined
+  ---
+  duration_ms: 84.2979
+  type: 'test'
+  ...
+# Subtest: M18 VAULT import snapshot survives caller mutation while encryption awaits
+ok 62 - M18 VAULT import snapshot survives caller mutation while encryption awaits
+  ---
+  duration_ms: 42.9126
+  type: 'test'
+  ...
+# Subtest: M18 VAULT revocation during asynchronous unprotect blocks the host callback
+ok 63 - M18 VAULT revocation during asynchronous unprotect blocks the host callback
+  ---
+  duration_ms: 54.5335
+  type: 'test'
+  ...
+# Subtest: M18 VAULT removing a settled key preserves request replay tombstones
+ok 64 - M18 VAULT removing a settled key preserves request replay tombstones
+  ---
+  duration_ms: 61.4113
+  type: 'test'
+  ...
+# Subtest: M18 VAULT failed duplicate import never forgets the existing known secret
+ok 65 - M18 VAULT failed duplicate import never forgets the existing known secret
+  ---
+  duration_ms: 35.4715
+  type: 'test'
+  ...
+# Subtest: M18 VAULT independent connection guards reject stale imports/rotation until owner refresh
+ok 66 - M18 VAULT independent connection guards reject stale imports/rotation until owner refresh
+  ---
+  duration_ms: 82.4005
+  type: 'test'
+  ...
+# Subtest: M18 VAULT open rejects a generation changed while its own encrypted entries load
+ok 67 - M18 VAULT open rejects a generation changed while its own encrypted entries load
+  ---
+  duration_ms: 63.9423
+  type: 'test'
+  ...
+# Subtest: M18 VAULT security events retain only 256 entries and preserve a lifetime count
+ok 68 - M18 VAULT security events retain only 256 entries and preserve a lifetime count
+  ---
+  duration_ms: 47.4587
+  type: 'test'
+  ...
+# Subtest: M18 VAULT key/import and request evidence capacities fail closed without evicting leases
+ok 69 - M18 VAULT key/import and request evidence capacities fail closed without evicting leases
+  ---
+  duration_ms: 158.4914
+  type: 'test'
+  ...
+# Subtest: M18 VAULT DPAPI all child/pipe errors converge on static failure after confirmed close
+ok 70 - M18 VAULT DPAPI all child/pipe errors converge on static failure after confirmed close
+  ---
+  duration_ms: 2.1339
+  type: 'test'
+  ...
+# Subtest: M18 VAULT DPAPI helper capacity and unconfirmed close permanently poison the protector
+ok 71 - M18 VAULT DPAPI helper capacity and unconfirmed close permanently poison the protector
+  ---
+  duration_ms: 2016.0211
+  type: 'test'
+  ...
+# Subtest: M18 VAULT native DPAPI failed spawn is a static rejection without unhandled pipe error
+ok 72 - M18 VAULT native DPAPI failed spawn is a static rejection without unhandled pipe error
+  ---
+  duration_ms: 2.7313
+  type: 'test'
+  ...
+# Subtest: M18 VAULT refuses wrong DB content, foreign SQLite, hardlinks, symlinks, and protector mismatch
+    # Subtest: hardlink fixture is rejected where host permits creating it
+    ok 1 - hardlink fixture is rejected where host permits creating it # SKIP Host denies hardlink fixture creation; no ACL/account changes attempted.
+      ---
+      duration_ms: 1.7562
+      type: 'test'
+      ...
+    # Subtest: junction/symlink fixture is rejected where host permits creating it
+    ok 2 - junction/symlink fixture is rejected where host permits creating it # SKIP Host denies junction/symlink fixture creation; no ACL/account changes attempted.
+      ---
+      duration_ms: 1.8601
+      type: 'test'
+      ...
+    1..2
+ok 73 - M18 VAULT refuses wrong DB content, foreign SQLite, hardlinks, symlinks, and protector mismatch
+  ---
+  duration_ms: 65.1919
+  type: 'test'
+  ...
+# Subtest: M18 VAULT actual CurrentUser DPAPI anonymous-pipe synthetic smoke and persistent reopen
+ok 74 - M18 VAULT actual CurrentUser DPAPI anonymous-pipe synthetic smoke and persistent reopen
+  ---
+  duration_ms: 1889.8998
+  type: 'test'
+  ...
+# Subtest: M181 DEEPSEEK documented request uses the exact endpoint, Flash ID and provider token fields
+ok 75 - M181 DEEPSEEK documented request uses the exact endpoint, Flash ID and provider token fields
+  ---
+  duration_ms: 1.7175
+  type: 'test'
+  ...
+# Subtest: M181 DEEPSEEK REAL models accept current exact IDs and reject aliases, snapshots and case changes
+ok 76 - M181 DEEPSEEK REAL models accept current exact IDs and reject aliases, snapshots and case changes
+  ---
+  duration_ms: 1.2121
+  type: 'test'
+  ...
+# Subtest: M181 DEEPSEEK official terminal choice carries usage and fragmented Chinese retains response identity
+ok 77 - M181 DEEPSEEK official terminal choice carries usage and fragmented Chinese retains response identity
+  ---
+  duration_ms: 14.4362
+  type: 'test'
+  ...
+# Subtest: M181 DEEPSEEK cache aliases and a single known cache count determine a conserved prompt split
+ok 78 - M181 DEEPSEEK cache aliases and a single known cache count determine a conserved prompt split
+  ---
+  duration_ms: 3.823
+  type: 'test'
+  ...
+# Subtest: M181 DEEPSEEK invalid cache, total and reasoning usage never become observed billing evidence
+ok 79 - M181 DEEPSEEK invalid cache, total and reasoning usage never become observed billing evidence
+  ---
+  duration_ms: 11.0871
+  type: 'test'
+  ...
+# Subtest: M181 DEEPSEEK SIMULATED compatibility keeps legacy usage-only chunks and absent cache fields
+ok 80 - M181 DEEPSEEK SIMULATED compatibility keeps legacy usage-only chunks and absent cache fields
+  ---
+  duration_ms: 0.6342
+  type: 'test'
+  ...
+# Subtest: M181 DEEPSEEK REAL usage-only and early-usage chunks fail the documented terminal format
+ok 81 - M181 DEEPSEEK REAL usage-only and early-usage chunks fail the documented terminal format
+  ---
+  duration_ms: 1.8086
+  type: 'test'
+  ...
+# Subtest: M181 DEEPSEEK response model and fingerprint are bounded and stable, including explicit null
+ok 82 - M181 DEEPSEEK response model and fingerprint are bounded and stable, including explicit null
+  ---
+  duration_ms: 4.9987
+  type: 'test'
+  ...
+# Subtest: M181 DEEPSEEK native tools join fragmented JSON and Chinese without executing a tool
+ok 83 - M181 DEEPSEEK native tools join fragmented JSON and Chinese without executing a tool
+  ---
+  duration_ms: 8.2133
+  type: 'test'
+  ...
+# Subtest: M181 DEEPSEEK malformed tool JSON retains validated usage and never yields a tool proposal
+ok 84 - M181 DEEPSEEK malformed tool JSON retains validated usage and never yields a tool proposal
+  ---
+  duration_ms: 0.6923
+  type: 'test'
+  ...
+# Subtest: M181 DEEPSEEK all documented unsuccessful finishes remain failures with observed usage
+ok 85 - M181 DEEPSEEK all documented unsuccessful finishes remain failures with observed usage
+  ---
+  duration_ms: 2.3743
+  type: 'test'
+  ...
+# Subtest: M181 DEEPSEEK invalid reply JSON, invalid contract and truncated completion preserve validated usage
+ok 86 - M181 DEEPSEEK invalid reply JSON, invalid contract and truncated completion preserve validated usage
+  ---
+  duration_ms: 2.5152
+  type: 'test'
+  ...
+# Subtest: M181 DEEPSEEK duplicate usage and data after finish never settle twice
+ok 87 - M181 DEEPSEEK duplicate usage and data after finish never settle twice
+  ---
+  duration_ms: 2.0513
+  type: 'test'
+  ...
+# Subtest: M181 DEEPSEEK guard failures keep static codes and counts without reflecting private error text
+ok 88 - M181 DEEPSEEK guard failures keep static codes and counts without reflecting private error text
+  ---
+  duration_ms: 3.169
+  type: 'test'
+  ...
+# Subtest: M181 DEEPSEEK bounded SSE errors preserve only prior validated usage and release the parser binding
+ok 89 - M181 DEEPSEEK bounded SSE errors preserve only prior validated usage and release the parser binding
+  ---
+  duration_ms: 0.5311
+  type: 'test'
+  ...
+# Subtest: M181 DEEPSEEK missing provider usage remains explicitly unknown
+ok 90 - M181 DEEPSEEK missing provider usage remains explicitly unknown
+  ---
+  duration_ms: 0.8555
+  type: 'test'
+  ...
+# Subtest: M181 DEEPSEEK 402 is REQUEST, other HTTP faults keep their category and never read a response body
+ok 91 - M181 DEEPSEEK 402 is REQUEST, other HTTP faults keep their category and never read a response body
+  ---
+  duration_ms: 0.9367
+  type: 'test'
+  ...
+# Subtest: M181 DEEPSEEK registry distinguishes documented provider limits from local support and price reservations
+ok 92 - M181 DEEPSEEK registry distinguishes documented provider limits from local support and price reservations
+  ---
+  duration_ms: 0.377
+  type: 'test'
+  ...
+# Subtest: M181 DEEPSEEK cache-aware peak and off-peak cost use one integer ceiling and count reasoning once
+ok 93 - M181 DEEPSEEK cache-aware peak and off-peak cost use one integer ceiling and count reasoning once
+  ---
+  duration_ms: 0.2204
+  type: 'test'
+  ...
+# Subtest: M181 DEEPSEEK unavailable cache counts conservatively estimate all prompt tokens as misses
+ok 94 - M181 DEEPSEEK unavailable cache counts conservatively estimate all prompt tokens as misses
+  ---
+  duration_ms: 0.1329
+  type: 'test'
+  ...
+# Subtest: M181 DEEPSEEK cost rejects invalid evidence and overflow while retaining BigInt precision
+ok 95 - M181 DEEPSEEK cost rejects invalid evidence and overflow while retaining BigInt precision
+  ---
+  duration_ms: 0.2434
+  type: 'test'
+  ...
+# Subtest: M181 campaign atomic reservations share one ceiling across concurrent agents and sessions
+ok 96 - M181 campaign atomic reservations share one ceiling across concurrent agents and sessions
+  ---
+  duration_ms: 69.5655
+  type: 'test'
+  ...
+# Subtest: M181 campaign paid usage survives reopen and cannot be reset or reauthorized as extra quota
+ok 97 - M181 campaign paid usage survives reopen and cannot be reset or reauthorized as extra quota
+  ---
+  duration_ms: 81.3788
+  type: 'test'
+  ...
+# Subtest: M181 real campaign ceiling is fixed at 100 million and all other providers are denied
+ok 98 - M181 real campaign ceiling is fixed at 100 million and all other providers are denied
+  ---
+  duration_ms: 42.5062
+  type: 'test'
+  ...
+# Subtest: M181 sent failures keep full holds, record provider usage once and stop all new requests
+ok 99 - M181 sent failures keep full holds, record provider usage once and stop all new requests
+  ---
+  duration_ms: 52.064
+  type: 'test'
+  ...
+# Subtest: M181 missing usage is explicitly estimated and never refunds a timed-out reservation
+ok 100 - M181 missing usage is explicitly estimated and never refunds a timed-out reservation
+  ---
+  duration_ms: 47.3242
+  type: 'test'
+  ...
+# Subtest: M181 campaign rejects non-boolean completion metadata without releasing a sent hold
+ok 101 - M181 campaign rejects non-boolean completion metadata without releasing a sent hold
+  ---
+  duration_ms: 48.35
+  type: 'test'
+  ...
+# Subtest: M181 known-not-sent releases only its own unused reservation; replay cannot consume again
+ok 102 - M181 known-not-sent releases only its own unused reservation; replay cannot consume again
+  ---
+  duration_ms: 49.7936
+  type: 'test'
+  ...
+# Subtest: M181 restart quarantines reservations and later pages without resetting budget
+ok 103 - M181 restart quarantines reservations and later pages without resetting budget
+  ---
+  duration_ms: 581.8166
+  type: 'test'
+  ...
+# Subtest: M181 provider usage overruns remain charged and stop admission
+ok 104 - M181 provider usage overruns remain charged and stop admission
+  ---
+  duration_ms: 41.9448
+  type: 'test'
+  ...
+# Subtest: M181 gateway denies unreviewed context before Key lease or any transport call
+ok 105 - M181 gateway denies unreviewed context before Key lease or any transport call
+  ---
+  duration_ms: 245.2189
+  type: 'test'
+  ...
+# Subtest: M181 reviewed synthetic context traverses Gateway, Vault, campaign, ledger and Audit
+ok 106 - M181 reviewed synthetic context traverses Gateway, Vault, campaign, ledger and Audit
+  ---
+  duration_ms: 286.9205
+  type: 'test'
+  ...
+# Subtest: M181 Agent classification labels and authorization strings cannot approve INTERNAL, CONFIDENTIAL or SECRET
+ok 107 - M181 Agent classification labels and authorization strings cannot approve INTERNAL, CONFIDENTIAL or SECRET
+  ---
+  duration_ms: 207.2179
+  type: 'test'
+  ...
+# Subtest: M181 exact request body and source manifest are bound independently of context label
+ok 108 - M181 exact request body and source manifest are bound independently of context label
+  ---
+  duration_ms: 210.7948
+  type: 'test'
+  ...
+# Subtest: M181 grant revoke and expiry are checked at the final synchronous send fence
+ok 109 - M181 grant revoke and expiry are checked at the final synchronous send fence
+  ---
+  duration_ms: 298.3624
+  type: 'test'
+  ...
+# Subtest: M181 forged egress receipts cannot enter transport without durable host-reviewed grant
+ok 110 - M181 forged egress receipts cannot enter transport without durable host-reviewed grant
+  ---
+  duration_ms: 202.157
+  type: 'test'
+  ...
+# Subtest: M181 known credential material is rejected from otherwise approved request bytes
+ok 111 - M181 known credential material is rejected from otherwise approved request bytes
+  ---
+  duration_ms: 241.0446
+  type: 'test'
+  ...
+# Subtest: M181 malformed paid reply preserves provider usage and partial hash, stops campaign and never replays tools
+ok 112 - M181 malformed paid reply preserves provider usage and partial hash, stops campaign and never replays tools
+  ---
+  duration_ms: 326.9326
+  type: 'test'
+  ...
+# Subtest: M181 cancelled or missing-usage streams cannot refund campaign budget
+ok 113 - M181 cancelled or missing-usage streams cannot refund campaign budget
+  ---
+  duration_ms: 324.2711
+  type: 'test'
+  ...
+# Subtest: M181 a declared qualified callback still cannot promote a synthetic Vault to live Gateway
+ok 114 - M181 a declared qualified callback still cannot promote a synthetic Vault to live Gateway
+  ---
+  duration_ms: 230.3105
+  type: 'test'
+  ...
+# Subtest: M181 response evidence is pull based, hashes exact bytes and retains incomplete state without publishing data
+ok 115 - M181 response evidence is pull based, hashes exact bytes and retains incomplete state without publishing data
+  ---
+  duration_ms: 0.4463
+  type: 'test'
+  ...
+# Subtest: M182 full final request review covers fixed system protocol, actual assembled bytes and every source
+ok 116 - M182 full final request review covers fixed system protocol, actual assembled bytes and every source
+  ---
+  duration_ms: 254.6669
+  type: 'test'
+  ...
+# Subtest: M182 source labels and draft review never replace verified user consent
+ok 117 - M182 source labels and draft review never replace verified user consent
+  ---
+  duration_ms: 214.8011
+  type: 'test'
+  ...
+# Subtest: M182 verifier results must be the boolean true in both independent authorization owners
+ok 118 - M182 verifier results must be the boolean true in both independent authorization owners
+  ---
+  duration_ms: 215.402
+  type: 'test'
+  ...
+# Subtest: M182 credential material in headers or provenance is scanned before draft output or persistence
+ok 119 - M182 credential material in headers or provenance is scanned before draft output or persistence
+  ---
+  duration_ms: 417.1455
+  type: 'test'
+  ...
+# Subtest: M182 REAL egress rejects a legacy hash-only grant until full request review is durably approved
+ok 120 - M182 REAL egress rejects a legacy hash-only grant until full request review is durably approved
+  ---
+  duration_ms: 212.5952
+  type: 'test'
+  ...
+# Subtest: M182 changing only the request correlation header requires a new final review
+ok 121 - M182 changing only the request correlation header requires a new final review
+  ---
+  duration_ms: 221.3627
+  type: 'test'
+  ...
+# Subtest: M182 final review rejects missing, mismatched, unknown and confidential source decisions
+ok 122 - M182 final review rejects missing, mismatched, unknown and confidential source decisions
+  ---
+  duration_ms: 202.0393
+  type: 'test'
+  ...
+# Subtest: M182 context hash and actual source bytes must agree before any grant is created
+ok 123 - M182 context hash and actual source bytes must agree before any grant is created
+  ---
+  duration_ms: 209.4893
+  type: 'test'
+  ...
+# Subtest: M182 unreviewed system, developer, history and attachment fields cannot be appended after context assembly
+ok 124 - M182 unreviewed system, developer, history and attachment fields cannot be appended after context assembly
+  ---
+  duration_ms: 199.2697
+  type: 'test'
+  ...
+# Subtest: M182 duplicate and escaped duplicate JSON keys cannot hide unclassified bytes from the final review
+ok 125 - M182 duplicate and escaped duplicate JSON keys cannot hide unclassified bytes from the final review
+  ---
+  duration_ms: 390.8856
+  type: 'test'
+  ...
+# Subtest: M182 initial public-synthetic profile rejects local paths, server addresses, research names and credential-shaped text
+ok 126 - M182 initial public-synthetic profile rejects local paths, server addresses, research names and credential-shaped text
+  ---
+  duration_ms: 449.6182
+  type: 'test'
+  ...
+# Subtest: M182 complete tool schema needs an independent exact synthetic review and changed descriptions invalidate it
+ok 127 - M182 complete tool schema needs an independent exact synthetic review and changed descriptions invalidate it
+  ---
+  duration_ms: 212.5677
+  type: 'test'
+  ...
+# Subtest: M182 revoked final review grant still denies after all offline review checks passed
+ok 128 - M182 revoked final review grant still denies after all offline review checks passed
+  ---
+  duration_ms: 231.6402
+  type: 'test'
+  ...
+# Subtest: M182 production upload flag cannot bypass Data Egress in the authorization owner
+ok 129 - M182 production upload flag cannot bypass Data Egress in the authorization owner
+  ---
+  duration_ms: 240.8847
+  type: 'test'
+  ...
+# Subtest: M183 SIMULATED service owns encrypted storage and exposes no secret read/decrypt/export API
+ok 130 - M183 SIMULATED service owns encrypted storage and exposes no secret read/decrypt/export API
+  ---
+  duration_ms: 538.1
+  type: 'test'
+  ...
+# Subtest: M183 LIVE Vault rejects a forged service permit before opening any real credential store
+ok 131 - M183 LIVE Vault rejects a forged service permit before opening any real credential store
+  ---
+  duration_ms: 1.1014
+  type: 'test'
+  ...
+# Subtest: M183 exact reviewed bytes bind subject/body/context and unreviewed PUBLIC claims grant nothing
+ok 132 - M183 exact reviewed bytes bind subject/body/context and unreviewed PUBLIC claims grant nothing
+  ---
+  duration_ms: 508.5938
+  type: 'test'
+  ...
+# Subtest: M183 endpoint/method/model/header allowlists reject generic HTTP proxy and auth injection
+ok 133 - M183 endpoint/method/model/header allowlists reject generic HTTP proxy and auth injection
+  ---
+  duration_ms: 33.5818
+  type: 'test'
+  ...
+# Subtest: M183 duplicate JSON, hidden source, INTERNAL and self-declared PUBLIC decisions fail closed
+ok 134 - M183 duplicate JSON, hidden source, INTERNAL and self-declared PUBLIC decisions fail closed
+  ---
+  duration_ms: 34.6797
+  type: 'test'
+  ...
+# Subtest: M183 request/operation/nonce replay and forged runtime/deadline/policy epoch are denied
+ok 135 - M183 request/operation/nonce replay and forged runtime/deadline/policy epoch are denied
+  ---
+  duration_ms: 1066.1396
+  type: 'test'
+  ...
+# Subtest: M183 key revoke invalidates old handle immediately without resetting the shared budget
+ok 136 - M183 key revoke invalidates old handle immediately without resetting the shared budget
+  ---
+  duration_ms: 1485.1417
+  type: 'test'
+  ...
+# Subtest: M183 expired credentials and rotated handles are denied on all new requests
+ok 137 - M183 expired credentials and rotated handles are denied on all new requests
+  ---
+  duration_ms: 1944.2174
+  type: 'test'
+  ...
+# Subtest: M183 in-flight revoke and rotation retain the original sent operation and do not resend
+ok 138 - M183 in-flight revoke and rotation retain the original sent operation and do not resend
+  ---
+  duration_ms: 1561.1635
+  type: 'test'
+  ...
+# Subtest: M183 UNKNOWN and partial provider usage hold reservations and forbid automatic retry
+ok 139 - M183 UNKNOWN and partial provider usage hold reservations and forbid automatic retry
+  ---
+  duration_ms: 1007.1171
+  type: 'test'
+  ...
+# Subtest: M183 missing Usage never releases the reservation after a complete stream
+ok 140 - M183 missing Usage never releases the reservation after a complete stream
+  ---
+  duration_ms: 1110.0033
+  type: 'test'
+  ...
+# Subtest: M183 provider timeout/cancel preserves unknown outcome, bounded slots and no automatic resend
+ok 141 - M183 provider timeout/cancel preserves unknown outcome, bounded slots and no automatic resend
+  ---
+  duration_ms: 2521.9096
+  type: 'test'
+  ...
+# Subtest: M183 service streaming respects consumer backpressure and UTF-8 with bounded guard holdback
+ok 142 - M183 service streaming respects consumer backpressure and UTF-8 with bounded guard holdback
+  ---
+  duration_ms: 1007.6488
+  type: 'test'
+  ...
+# Subtest: M183 encoded and fragmented known secrets cannot leave service deltas, context or audit
+ok 143 - M183 encoded and fragmented known secrets cannot leave service deltas, context or audit
+  ---
+  duration_ms: 1058.208
+  type: 'test'
+  ...
+# Subtest: M183 prepare-issued full binding rejects null or substituted handles and concurrent duplicate IDs
+ok 144 - M183 prepare-issued full binding rejects null or substituted handles and concurrent duplicate IDs
+  ---
+  duration_ms: 1443.8163
+  type: 'test'
+  ...
+# Subtest: M183 ledger atomically reserves global/agent/task/project and recovers UNKNOWN without resetting
+ok 145 - M183 ledger atomically reserves global/agent/task/project and recovers UNKNOWN without resetting
+  ---
+  duration_ms: 22.0132
+  type: 'test'
+  ...
+# Subtest: M183 service owns configured Agent/Task limits and changing scope never resets global spend
+ok 146 - M183 service owns configured Agent/Task limits and changing scope never resets global spend
+  ---
+  duration_ms: 1021.1017
+  type: 'test'
+  ...
+# Subtest: M183 actual same-SID subprocess RPC rejects forged methods/identity, preserves usage across service restart
+ok 147 - M183 actual same-SID subprocess RPC rejects forged methods/identity, preserves usage across service restart
+  ---
+  duration_ms: 2055.8815
+  type: 'test'
+  ...
+# Subtest: M183 actual synthetic service crash retains sent hold and never replays on restart
+ok 148 - M183 actual synthetic service crash retains sent hold and never replays on restart
+  ---
+  duration_ms: 2048.1643
+  type: 'test'
+  ...
+# Subtest: ISOLATED desktop keeps metadata and BLOCKED entry without opening a Host Vault
+ok 149 - ISOLATED desktop keeps metadata and BLOCKED entry without opening a Host Vault
+  ---
+  duration_ms: 416.7494
+  type: 'test'
+  ...
+# Subtest: ISOLATED existing credential UI payloads forward save, scope, rotation, state and deletion
+ok 150 - ISOLATED existing credential UI payloads forward save, scope, rotation, state and deletion
+  ---
+  duration_ms: 388.3796
+  type: 'test'
+  ...
+# Subtest: ISOLATED routing and synthetic connection execute only the broker and show authoritative usage
+ok 151 - ISOLATED routing and synthetic connection execute only the broker and show authoritative usage
+  ---
+  duration_ms: 469.2312
+  type: 'test'
+  ...
+# Subtest: ISOLATED ordinary bootstrap refuses the no-port implicit Vault path
+ok 152 - ISOLATED ordinary bootstrap refuses the no-port implicit Vault path
+  ---
+  duration_ms: 0.9808
+  type: 'test'
+  ...
+# Subtest: ISOLATED connection taxonomy uses trusted broker status and timeout evidence
+ok 153 - ISOLATED connection taxonomy uses trusted broker status and timeout evidence
+  ---
+  duration_ms: 2034.3346
+  type: 'test'
+  ...
+# Subtest: ISOLATED original renderer keeps Provider layout and disables missing-service credential entry
+ok 154 - ISOLATED original renderer keeps Provider layout and disables missing-service credential entry
+  ---
+  duration_ms: 410.5756
+  type: 'test'
+  ...
+# Subtest: ISOLATED actual renderer submits synthetic input, clears it, and reloads service metadata
+ok 155 - ISOLATED actual renderer submits synthetic input, clears it, and reloads service metadata
+  ---
+  duration_ms: 391.6017
+  type: 'test'
+  ...
+# Subtest: ISOLATED desktop integration uses the real synthetic credential subprocess
+ok 156 - ISOLATED desktop integration uses the real synthetic credential subprocess
+  ---
+  duration_ms: 3106.2783
+  type: 'test'
+  ...
+# Subtest: DESKTOP provider CRUD, strict revision, unsupported protocols and model wire IDs
+ok 157 - DESKTOP provider CRUD, strict revision, unsupported protocols and model wire IDs
+  ---
+  duration_ms: 532.4322
+  type: 'test'
+  ...
+# Subtest: DESKTOP credential add, zeroization, no read API, rotation, disable, revoke and audit safety
+ok 158 - DESKTOP credential add, zeroization, no read API, rotation, disable, revoke and audit safety
+  ---
+  duration_ms: 578.3184
+  type: 'test'
+  ...
+# Subtest: DESKTOP credential protector failure never reports success and clears submitted bytes
+ok 159 - DESKTOP credential protector failure never reports success and clears submitted bytes
+  ---
+  duration_ms: 470.6805
+  type: 'test'
+  ...
+# Subtest: DESKTOP synthetic connection uses Gateway and ledger but never marks CONNECTED; LIVE never sends
+ok 160 - DESKTOP synthetic connection uses Gateway and ledger but never marks CONNECTED; LIVE never sends
+  ---
+  duration_ms: 717.6727
+  type: 'test'
+  ...
+# Subtest: DESKTOP Agent bindings, task override, reset, favorites/defaults and pre-send failover execute Model Router
+ok 161 - DESKTOP Agent bindings, task override, reset, favorites/defaults and pre-send failover execute Model Router
+  ---
+  duration_ms: 1110.9505
+  type: 'test'
+  ...
+# Subtest: DESKTOP all Keys and Providers share platform usage; per-Agent budget cannot be expanded by adding Keys
+ok 162 - DESKTOP all Keys and Providers share platform usage; per-Agent budget cannot be expanded by adding Keys
+  ---
+  duration_ms: 916.9965
+  type: 'test'
+  ...
+# Subtest: DESKTOP UNKNOWN holds survive rotation and Host reopen and never auto-replay
+ok 163 - DESKTOP UNKNOWN holds survive rotation and Host reopen and never auto-replay
+  ---
+  duration_ms: 777.277
+  type: 'test'
+  ...
+# Subtest: DESKTOP multiple scoped Agent requests occupy separate pool Keys concurrently
+ok 164 - DESKTOP multiple scoped Agent requests occupy separate pool Keys concurrently
+  ---
+  duration_ms: 786.1942
+  type: 'test'
+  ...
+# Subtest: DESKTOP IPC contract denies claimed roles, unknown fields, revoked sessions, real Transport and secret metadata
+ok 165 - DESKTOP IPC contract denies claimed roles, unknown fields, revoked sessions, real Transport and secret metadata
+  ---
+  duration_ms: 505.9884
+  type: 'test'
+  ...
+# Subtest: DESKTOP connection error taxonomy does not infer success from configuration
+ok 166 - DESKTOP connection error taxonomy does not infer success from configuration
+  ---
+  duration_ms: 0.2308
+  type: 'test'
+  ...
+# Subtest: DESKTOP provider permission denial remains UNAUTHORIZED through actual Gateway path
+ok 167 - DESKTOP provider permission denial remains UNAUTHORIZED through actual Gateway path
+  ---
+  duration_ms: 803.8872
+  type: 'test'
+  ...
+# Subtest: DESKTOP runtime shares four slots across all facades and close cannot partially close an active Vault
+ok 168 - DESKTOP runtime shares four slots across all facades and close cannot partially close an active Vault
+  ---
+  duration_ms: 1286.2016
+  type: 'test'
+  ...
+# Subtest: DESKTOP acknowledged not-sent primary RPM failure uses fallback without replaying a sent request
+ok 169 - DESKTOP acknowledged not-sent primary RPM failure uses fallback without replaying a sent request
+  ---
+  duration_ms: 773.4335
+  type: 'test'
+  ...
+# Subtest: DESKTOP deadline is displayed as TIMEOUT while retaining unknown usage and no replay
+ok 170 - DESKTOP deadline is displayed as TIMEOUT while retaining unknown usage and no replay
+  ---
+  duration_ms: 621.0488
+  type: 'test'
+  ...
+1..170
+# tests 178
+# suites 0
+# pass 175
+# fail 1
+# cancelled 0
+# skipped 2
+# todo 0
+# duration_ms 62516.6433

@@ -1,0 +1,206 @@
+{
+  "source_sha256": "108e724d0b5796f472d5eb46a9088c556f04084c4bca0dad9bceb9a691d0090a",
+  "overall_production": "BLOCKED",
+  "cases": [
+    {
+      "id": 1,
+      "scenario": "Credential Service 自身读取凭证",
+      "assurance": "SIMULATED",
+      "result": "PASS",
+      "production": "BLOCKED",
+      "evidence_scope": "实际独立服务 SID 读取/DPAPI 仍 NOT_RUN"
+    },
+    {
+      "id": 2,
+      "scenario": "同 SID 普通进程读取 Vault 密文",
+      "assurance": "HISTORICAL_REAL_OS",
+      "result": "FAIL",
+      "production": "BLOCKED",
+      "evidence_scope": "M1.8.2 反例仍可读；新服务 DACL 未部署"
+    },
+    {
+      "id": 3,
+      "scenario": "同 SID 普通进程尝试独立解密",
+      "assurance": "HISTORICAL_REAL_OS",
+      "result": "FAIL",
+      "production": "BLOCKED",
+      "evidence_scope": "M1.8.2 SHA 相符反例保持；新服务身份密文测试 BLOCKED"
+    },
+    {
+      "id": 4,
+      "scenario": "同 SID 普通进程连接服务",
+      "assurance": "SIMULATED",
+      "result": "PASS",
+      "production": "BLOCKED",
+      "evidence_scope": "native token fixture 拒绝；真实 pipe 连接 NOT_RUN"
+    },
+    {
+      "id": 5,
+      "scenario": "伪造 Host PID",
+      "assurance": "SIMULATED",
+      "result": "PASS",
+      "production": "BLOCKED",
+      "evidence_scope": "payload 声明不授权；实际 OS 对抗 NOT_RUN"
+    },
+    {
+      "id": 6,
+      "scenario": "伪造 Process Start Identity",
+      "assurance": "SIMULATED",
+      "result": "PASS",
+      "production": "BLOCKED",
+      "evidence_scope": "native 句柄/创建时间核验源码；实际 OS 对抗 NOT_RUN"
+    },
+    {
+      "id": 7,
+      "scenario": "伪造 IPC 消息",
+      "assurance": "SIMULATED",
+      "result": "PASS",
+      "production": "BLOCKED",
+      "evidence_scope": "严格方法/字段与非读取 API；真实 native 认证 NOT_RUN"
+    },
+    {
+      "id": 8,
+      "scenario": "重放旧 IPC 请求",
+      "assurance": "SIMULATED",
+      "result": "PASS",
+      "production": "BLOCKED",
+      "evidence_scope": "prepared nonce、管理 id、导入 ticket 单次消费"
+    },
+    {
+      "id": 9,
+      "scenario": "过期 Credential Handle",
+      "assurance": "SIMULATED",
+      "result": "PASS",
+      "production": "BLOCKED",
+      "evidence_scope": "过期 Key / ticket / deadline 拒绝"
+    },
+    {
+      "id": 10,
+      "scenario": "撤销 Credential Handle",
+      "assurance": "SIMULATED",
+      "result": "PASS",
+      "production": "BLOCKED",
+      "evidence_scope": "旧 prepare 也不可重选 Handle"
+    },
+    {
+      "id": 11,
+      "scenario": "Worker 读取 Vault",
+      "assurance": "NONE",
+      "result": "NOT_RUN",
+      "production": "BLOCKED",
+      "evidence_scope": "需真实 Worker token/受保护目录"
+    },
+    {
+      "id": 12,
+      "scenario": "Reviewer 读取 Vault",
+      "assurance": "NONE",
+      "result": "NOT_RUN",
+      "production": "BLOCKED",
+      "evidence_scope": "需真实 Reviewer token/受保护目录"
+    },
+    {
+      "id": 13,
+      "scenario": "Agent 读取完整 Key",
+      "assurance": "SIMULATED",
+      "result": "PASS",
+      "production": "BLOCKED",
+      "evidence_scope": "scoped complete 与无 read/export；OS 权限未验证"
+    },
+    {
+      "id": 14,
+      "scenario": "日志泄漏",
+      "assurance": "SIMULATED",
+      "result": "PASS",
+      "production": "BLOCKED",
+      "evidence_scope": "已知及本次新 Key、编码元数据在 audit 前拒绝"
+    },
+    {
+      "id": 15,
+      "scenario": "Context 泄漏",
+      "assurance": "SIMULATED",
+      "result": "PASS",
+      "production": "BLOCKED",
+      "evidence_scope": "Guard/egress 来源覆盖；未真实外发"
+    },
+    {
+      "id": 16,
+      "scenario": "Prompt 泄漏",
+      "assurance": "SIMULATED",
+      "result": "PASS",
+      "production": "BLOCKED",
+      "evidence_scope": "原文/编码/跨语义 delta Guard；非通用 DLP"
+    },
+    {
+      "id": 17,
+      "scenario": "Host 崩溃",
+      "assurance": "NONE",
+      "result": "NOT_RUN",
+      "production": "BLOCKED",
+      "evidence_scope": "新安装 Host/服务组合崩溃未测"
+    },
+    {
+      "id": 18,
+      "scenario": "Credential Service 崩溃",
+      "assurance": "SIMULATED_PROCESS",
+      "result": "PASS",
+      "production": "BLOCKED",
+      "evidence_scope": "真实同账户 fork 被 kill，重启保留 UNKNOWN；非 SCM 身份资格"
+    },
+    {
+      "id": 19,
+      "scenario": "Host 重启",
+      "assurance": "SIMULATED",
+      "result": "PASS",
+      "production": "BLOCKED",
+      "evidence_scope": "显式旧合成回归/新远端元数据恢复，非安装身份资格"
+    },
+    {
+      "id": 20,
+      "scenario": "Credential Service 重启",
+      "assurance": "SIMULATED_PROCESS",
+      "result": "PASS",
+      "production": "BLOCKED",
+      "evidence_scope": "私有 IPC 子进程重开；无预算重置/自动重发"
+    },
+    {
+      "id": 21,
+      "scenario": "轮换期间并发请求",
+      "assurance": "SIMULATED",
+      "result": "PASS",
+      "production": "BLOCKED",
+      "evidence_scope": "已发送请求保持原 Handle，旧 Handle 拒新请求"
+    },
+    {
+      "id": 22,
+      "scenario": "Token 预算竞争",
+      "assurance": "SIMULATED",
+      "result": "PASS",
+      "production": "BLOCKED",
+      "evidence_scope": "单 Owner 同步事务四级原子预留/失败回滚"
+    },
+    {
+      "id": 23,
+      "scenario": "Data Egress 拒绝",
+      "assurance": "SIMULATED",
+      "result": "PASS",
+      "production": "BLOCKED",
+      "evidence_scope": "完整字节/分类/工具 schema /重复 JSON /最终 fence"
+    },
+    {
+      "id": 24,
+      "scenario": "Provider 超时",
+      "assurance": "SIMULATED",
+      "result": "PASS",
+      "production": "BLOCKED",
+      "evidence_scope": "Fixture 进入发送后超时持有；真实 Provider NOT_RUN"
+    },
+    {
+      "id": 25,
+      "scenario": "Streaming 中断",
+      "assurance": "SIMULATED",
+      "result": "PASS",
+      "production": "BLOCKED",
+      "evidence_scope": "部分 Usage、背压、UTF8、取消、断连保留"
+    }
+  ]
+}

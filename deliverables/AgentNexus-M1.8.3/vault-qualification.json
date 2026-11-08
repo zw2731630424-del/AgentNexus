@@ -1,0 +1,116 @@
+{
+  "status": "BLOCKED",
+  "offline_implementation": "PASS",
+  "source_sha256": "108e724d0b5796f472d5eb46a9088c556f04084c4bca0dad9bceb9a691d0090a",
+  "deployed": false,
+  "real_os_isolation": "NOT_RUN",
+  "historical_same_sid_counterexample": "FAIL_PRESERVED",
+  "real_credentials_imported": 0,
+  "criteria": [
+    {
+      "id": "VQ01",
+      "requirement": "用户在原 UI 添加 API Key",
+      "production": "BLOCKED",
+      "offline": "SIMULATED; see test matrix and UI report",
+      "note": "Real Windows service identity/permissions/composition evidence required."
+    },
+    {
+      "id": "VQ02",
+      "requirement": "无需 JSON/环境变量认证",
+      "production": "BLOCKED",
+      "offline": "SIMULATED; see test matrix and UI report",
+      "note": "Real Windows service identity/permissions/composition evidence required."
+    },
+    {
+      "id": "VQ03",
+      "requirement": "普通 Renderer 不读已存 Key",
+      "production": "BLOCKED",
+      "offline": "SIMULATED; see test matrix and UI report",
+      "note": "Trusted input Renderer/Main transiently see new input; stored Key never has a readback API."
+    },
+    {
+      "id": "VQ04",
+      "requirement": "普通 Agent 不读 Key",
+      "production": "BLOCKED",
+      "offline": "SIMULATED; see test matrix and UI report",
+      "note": "Real Windows service identity/permissions/composition evidence required."
+    },
+    {
+      "id": "VQ05",
+      "requirement": "Subagent 不读 Key",
+      "production": "BLOCKED",
+      "offline": "SIMULATED; see test matrix and UI report",
+      "note": "Real Windows service identity/permissions/composition evidence required."
+    },
+    {
+      "id": "VQ06",
+      "requirement": "同 SID 普通进程不能独立解密",
+      "production": "BLOCKED",
+      "offline": "SIMULATED; see test matrix and UI report",
+      "note": "Real Windows service identity/permissions/composition evidence required."
+    },
+    {
+      "id": "VQ07",
+      "requirement": "同 SID 不能伪造可信服务请求",
+      "production": "BLOCKED",
+      "offline": "SIMULATED; see test matrix and UI report",
+      "note": "Real Windows service identity/permissions/composition evidence required."
+    },
+    {
+      "id": "VQ08",
+      "requirement": "服务独占凭证使用",
+      "production": "BLOCKED",
+      "offline": "SIMULATED; see test matrix and UI report",
+      "note": "Real Windows service identity/permissions/composition evidence required."
+    },
+    {
+      "id": "VQ09",
+      "requirement": "Gateway 受控使用凭证",
+      "production": "BLOCKED",
+      "offline": "SIMULATED; see test matrix and UI report",
+      "note": "Real Windows service identity/permissions/composition evidence required."
+    },
+    {
+      "id": "VQ10",
+      "requirement": "最终出站前 Data Egress",
+      "production": "BLOCKED",
+      "offline": "SIMULATED; see test matrix and UI report",
+      "note": "Real Windows service identity/permissions/composition evidence required."
+    },
+    {
+      "id": "VQ11",
+      "requirement": "唯一1亿 Token Owner",
+      "production": "BLOCKED",
+      "offline": "SIMULATED; see test matrix and UI report",
+      "note": "Real Windows service identity/permissions/composition evidence required."
+    },
+    {
+      "id": "VQ12",
+      "requirement": "撤销与轮换",
+      "production": "BLOCKED",
+      "offline": "SIMULATED; see test matrix and UI report",
+      "note": "Real Windows service identity/permissions/composition evidence required."
+    },
+    {
+      "id": "VQ13",
+      "requirement": "Host/服务重启恢复",
+      "production": "BLOCKED",
+      "offline": "SIMULATED; see test matrix and UI report",
+      "note": "Real Windows service identity/permissions/composition evidence required."
+    },
+    {
+      "id": "VQ14",
+      "requirement": "凭证操作审计",
+      "production": "BLOCKED",
+      "offline": "SIMULATED; see test matrix and UI report",
+      "note": "Real Windows service identity/permissions/composition evidence required."
+    },
+    {
+      "id": "VQ15",
+      "requirement": "UI 正确 Provider/模型状态",
+      "production": "BLOCKED",
+      "offline": "SIMULATED; see test matrix and UI report",
+      "note": "Real Windows service identity/permissions/composition evidence required."
+    }
+  ]
+}
