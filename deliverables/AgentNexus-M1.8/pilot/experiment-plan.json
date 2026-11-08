@@ -1,0 +1,66 @@
+{
+  "schema": "agentnexus/m1.8/comparison-preflight/1",
+  "status": "NOT_RUN",
+  "assurance": "UNAPPROVED_REAL_EXPERIMENT",
+  "fixed_before_any_real_experiment": true,
+  "task": "Extend the existing analysis CLI with bounded UTF-8 JSONL stream ingestion, independent line error reports and deterministic aggregate results; preserve existing CLI behavior.",
+  "initial_files": [
+    {
+      "path": "package.json",
+      "sha256": "1d2fe1bd8dc1f028dd03c50f4cdfabdf523e32f4528d94aea757c828b4ef71f0"
+    },
+    {
+      "path": "README.md",
+      "sha256": "a30c88540f6033f1ea29337faaf9f8c0aef17540e83295d9012298d89805baf0"
+    },
+    {
+      "path": "src/analytics.ts",
+      "sha256": "1891389bbf37412873ec54514081f4506cd33a379c459f82d497e58a6fb6cf85"
+    },
+    {
+      "path": "src/cli.ts",
+      "sha256": "4b5ba92131e38eea102d97a21d837e61bc2001f711cd5ee7f700e30d9f3b1482"
+    },
+    {
+      "path": "src/entry.ts",
+      "sha256": "a8b2a785e2c607334c3874cf5f1c5513b98fec195bc0453c64dcdaae56b9ec6b"
+    },
+    {
+      "path": "src/model.ts",
+      "sha256": "e0c52d2a329fe1316e30852c52ec8e77dc275642de410e04cc23af46f4ab7ec6"
+    },
+    {
+      "path": "tests/analytics.test.ts",
+      "sha256": "682ee814243a59ec725bfb961e4d6b7244af5dd06e4f14b2568d61f2fd347373"
+    },
+    {
+      "path": "tests/cli.test.ts",
+      "sha256": "853167fb0e1fa5322e66fd07de22d6f82094efaeef4907b330249112c5f3c123"
+    },
+    {
+      "path": "tests/model.test.ts",
+      "sha256": "f2a5d93dc8635248b20951aa10b09e18d50cf41af26df3a09a63e5cc024a3331"
+    },
+    {
+      "path": "tsconfig.json",
+      "sha256": "1c9c694e19805f2b8bdedb0de9d33385fdfed110767bb2c6bcec524506d27cd5"
+    }
+  ],
+  "arms": [
+    "SINGLE",
+    "MULTI_SAME_PROVIDER",
+    "MULTI_PROVIDER"
+  ],
+  "equal_limits": {
+    "max_requests": null,
+    "input_tokens": null,
+    "output_tokens": null,
+    "cost_micros": null,
+    "wall_ms": null
+  },
+  "models": [],
+  "sampling_parameters": null,
+  "independent_hidden_tests_sha256": null,
+  "evaluator_identity": null,
+  "preflight": "BLOCKED until every null, independent assessment and separate provider approvals are resolved; no mock scoring substitutes"
+}

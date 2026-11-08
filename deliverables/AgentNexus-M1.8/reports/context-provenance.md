@@ -1,0 +1,5 @@
+# Context Provenance
+
+沿用原始Archive、独立input_ref/manifest_ref/源record hash、规则/Feature/Policy绑定。Gateway每次重建exact Context并验证来源后才预算准入；回复和脱敏请求另归档。新增NativeState/Store/Artifact已知secret预写门，跨chunk预扫描与排队buffer自有副本，错误sidecar仅静态分类。
+
+原始历史不由摘要覆盖；热窗口仍有界。未完成的producer清理使Store失败关闭，不假称void return为退出证明。真实模型长期上下文一致性NOT_RUN，已知secret识别不承诺任意未知变换通用识别。

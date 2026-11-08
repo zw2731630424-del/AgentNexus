@@ -1,0 +1,2179 @@
+{
+  "schema": "agentnexus/m18/independent-security-review/1",
+  "reviewer": {
+    "agent": "/root/baseline_security",
+    "role": "independent reviewer of other authors' M1.8 implementation",
+    "recursive_delegation": false,
+    "authored_files_excluded_from_independent_approval": [
+      "deliverables/AgentNexus-M1.8/source/src/agentnexus/model-runtime/git-reviewer.ts",
+      "deliverables/AgentNexus-M1.8/source/tests/agentnexus/m18-git-reviewer.test.ts"
+    ],
+    "note": "Git reviewer implementation and its self-tests are engineering evidence only. Parent reports reading that implementation independently; this report does not substitute for that review."
+  },
+  "classification": {
+    "category": "runtime",
+    "path": ".workflow-kit/runtime/AgentNexus-M1.8/reviews/security-review.json",
+    "authorization": "Explicit parent instruction to write this independent report after source freeze. No product or rules files changed for this report."
+  },
+  "decision": {
+    "status": "REVIEW_COMPLETE_SCOPE_LIMITED",
+    "open_critical_or_high_findings_in_reviewed_scope": 0,
+    "allows_production": false,
+    "allows_real_credentials": false,
+    "allows_provider_network": false,
+    "actual_provider_api_calls": 0,
+    "qualification": "LOCAL_TRUSTED_LIBRARY with SYNTHETIC credentials and in-process wire fixtures only",
+    "summary": "Reported persistence, grant, lease, accounting and async race findings were corrected and the changed regions were reread against the frozen hashes. This is not an OS isolation, LIVE Vault or actual Provider qualification.",
+    "review_recommendation": "PASS_LOCAL_TRUSTED_SYNTHETIC_REVIEW",
+    "test_gate": "PARENT_FINAL_FROZEN_FULL_REGRESSION_REQUIRED"
+  },
+  "scope": {
+    "baseline_required_complete_counts": {
+      "rules": 2,
+      "non_harness_source": 55,
+      "tests_and_helpers": 29,
+      "acceptance_review_and_M0_documents": 7,
+      "total": 93
+    },
+    "baseline_method": "Complete source/test/document reads in bounded batches. Output that truncated was supplemented before counting FULL. M1.7 harness was excluded from the original non-harness baseline assignment; selected harness interfaces were read separately for M1.8 integration.",
+    "final_method": "Full reads of new files, followed by final changed-region review; unchanged inherited non-harness source is linked by byte-identical M1.7/M1.8 hashes. For storage/host integration the complete M1.7 source plus complete final unified diff was reviewed.",
+    "runtime_interfaces": [
+      "CredentialVault.open/add/rotate/refreshGuard/acquire/withCredential/settle/guard/close",
+      "ProviderAuthorizationBook.approve/admit/dispatch/fence/revoke",
+      "AuthorizedHttpsTransport.preflight/send/abandon",
+      "UnifiedModelGateway.bind/complete/recover/requestEscalation",
+      "ModelUsageLedger.configure/reserve/markSent/settle/notSent/unknown/recover/modelTaskBudgetId",
+      "KernelStore.append/assertSafeValue/enforcesContentGuard",
+      "ArtifactStore.put/putBytes/putQueued/putBytesQueued/guardedSource",
+      "NativeState.change/insert/update",
+      "HarnessOptions.modelRuntimeFactory and scoped Worker facade",
+      "createNativeGitReviewBridge and createNativeGitG4Checker"
+    ],
+    "not_full_read_or_not_independently_reviewed": [
+      "M1.7 acceptance.json, fixture-review.json and runtime-review.json had metadata inspection only; no FULL claim.",
+      "Other M1.7/M1.8 harness modules outside the separately listed interface files are not claimed as fully read by this reviewer.",
+      "Authored Git reviewer implementation is excluded from independent approval.",
+      "Actual Provider product availability, current pricing and external documentation were not verified by this offline review."
+    ]
+  },
+  "preserved_constraints": [
+    {
+      "id": "L0_SECRET",
+      "text": "P.SECRET_BOUNDARY and P.MODEL_CREDENTIAL remain nondegradable. Credentials never enter ordinary Agent/Worker facades, prompts, contexts, audit or artifact persistence."
+    },
+    {
+      "id": "NO_OS_UPGRADE",
+      "text": "Same-account DPAPI is not Worker isolation. No ACL/account/AppContainer changes were performed or authorized by this review; production and LIVE credential admission remain BLOCKED."
+    },
+    {
+      "id": "GATE_AUTHORITY",
+      "text": "Model text, hook events, review reports and PASS-shaped JSON do not grant a Gate or Tool permit. G4 requires registered trusted checker execution over exact immutable evidence."
+    },
+    {
+      "id": "TOOL_BOUNDARY",
+      "text": "Ordinary Tool Gateway PROCESS/EXTERNAL_EFFECT and unqualified sandbox paths retain prior hard rejection. Model routing or escalation cannot enlarge permissions."
+    },
+    {
+      "id": "UNKNOWN_OWNERSHIP",
+      "text": "Uncertain sends, usage, callbacks and producer/helper closure retain owner-held reservations/slots. They cannot automatically retry, release, or turn UNKNOWN into SUCCESS."
+    },
+    {
+      "id": "EXACT_PROVENANCE",
+      "text": "Prompt reconstruction uses exact archived context and manifest bytes. Review binding includes project/repository/base/head/diff/candidate/source/rules; stale commits invalidate prior review authority."
+    },
+    {
+      "id": "STORAGE_OWNER",
+      "text": "One trusted Storage Owner controls ordinary managed persistence. Public Host/NativeState/raw SQL interfaces remain TCB and are not an OS boundary."
+    },
+    {
+      "id": "BASELINE_FIX",
+      "text": "Preserve M1.7 started + INCONCLUSIVE as UNKNOWN even for empty commands or declared-closed commands; only explicit blocked, not-started, zero-command proof can release."
+    },
+    {
+      "id": "QUALIFICATION",
+      "text": "Strict CPU hard limit remains unqualified/BLOCKED; Ubuntu/real network and other unexecuted capabilities stay NOT_RUN. No historical PASS is relabeled from fixtures."
+    },
+    {
+      "id": "M0_AND_WORKFLOW",
+      "text": "Native core is reimplemented; reusable dependencies require provenance/license closure. Workflow hooks and compaction do not replace authorization or the original archive; BYPASSED is not PASS and no workflow switch disables L0."
+    }
+  ],
+  "findings": [
+    {
+      "id": "SEC18-01",
+      "severity": "P1",
+      "status": "CLOSED",
+      "title": "Grant dispatch could outlive revocation/expiry at its final await",
+      "fix": "Admission and dispatch now finish in preflight before credential reveal. Send performs synchronous qualification, signal, exact admission/approval and store-fault checks immediately before HTTPS construction.",
+      "verification": [
+        "Frozen transport.ts final changed region reread.",
+        "Authorization tests and review-fixes preflight-capacity test passed.",
+        "Earlier mock-only Key-disable-in-dispatch-ACK attack reproduced one attempted HTTPS construction; moving dispatch before decryption removes that await window. No real network call was made."
+      ]
+    },
+    {
+      "id": "SEC18-02",
+      "severity": "P1",
+      "status": "CLOSED",
+      "title": "Negative grant amounts and wrong approval identity could weaken reservation/replay binding",
+      "fix": "Amounts are safe natural integers, input/output positive; dispatch/fence require exact approval_id, canonical admission hash and expected durable state.",
+      "verification": [
+        "m18-authorization.test.ts",
+        "m18-review-fixes.test.ts"
+      ]
+    },
+    {
+      "id": "SEC18-03",
+      "severity": "P1",
+      "status": "CLOSED",
+      "title": "Closing Vault could silently disable an attached guard",
+      "fix": "Guard clear permanently closes the instance; attached Host storage then fails closed.",
+      "verification": [
+        "m18-secret-boundary.test.ts",
+        "vault.ts closed guard final code reread"
+      ]
+    },
+    {
+      "id": "SEC18-04",
+      "severity": "P1",
+      "status": "CLOSED",
+      "title": "Used or UNKNOWN leases could be released as not sent or directly settled",
+      "fix": "NOT_SENT requires unused INFLIGHT; UNKNOWN can only remain UNKNOWN without explicit reconciliation, which is not enabled.",
+      "verification": [
+        "m18-review-fixes.test.ts",
+        "m18-vault.test.ts read only for this reviewer; parent runner is separate evidence"
+      ]
+    },
+    {
+      "id": "SEC18-05",
+      "severity": "P2",
+      "status": "CLOSED",
+      "title": "Attempt count could be zero or disagree with retries",
+      "fix": "Ledger settlement requires requests >= 1 and requests == retries + 1 within reserved attempts.",
+      "verification": [
+        "m18-review-fixes.test.ts",
+        "m18-ledger.test.ts final 14 PASS"
+      ]
+    },
+    {
+      "id": "SEC18-06",
+      "severity": "P2",
+      "status": "CLOSED",
+      "title": "Concurrent preflight could exceed its pending capacity across an await",
+      "fix": "Reserve a unique pending slot synchronously before awaiting admission/dispatch and clean it on failure or abandon.",
+      "verification": [
+        "m18-review-fixes.test.ts sixteen-slot test"
+      ]
+    },
+    {
+      "id": "SEC18-07",
+      "severity": "P2",
+      "status": "CLOSED",
+      "title": "Long reasoning suffix could truncate a cross-event secret before inspection",
+      "fix": "Inspect bounded joined reasoning before retaining its tail; final content and tool argument assembly are also guarded.",
+      "verification": [
+        "Independent pure in-memory cross-event attack returned REJECTED/BLOCKED, one guard hit.",
+        "m18-review-fixes.test.ts reasoning test",
+        "m18-gateway.test.ts one-byte chunk echoed-secret test"
+      ]
+    },
+    {
+      "id": "SEC18-08",
+      "severity": "P1",
+      "status": "CLOSED",
+      "title": "Provider-reported model could be priced as a different requested model",
+      "fix": "Per-request local adapter binding includes expected model. Reported mismatch is rejected; REAL chunks missing model are rejected.",
+      "verification": [
+        "m18-review-fixes.test.ts model-mismatch test",
+        "adapters.ts final changed region reread"
+      ]
+    },
+    {
+      "id": "SEC18-09",
+      "severity": "P2",
+      "status": "CLOSED",
+      "title": "Rotation could affect a replacement key reusing the old key_id during encryption",
+      "fix": "After encryption, transaction rechecks original provider_id and opaque key_handle_id; stale rotation fails.",
+      "verification": [
+        "Independent delayed-protector SQLite fixture returned VAULT_ROTATION_STALE with replacement provider key still ACTIVE.",
+        "m18-review-fixes.test.ts rotation test"
+      ]
+    },
+    {
+      "id": "SEC18-10",
+      "severity": "P1",
+      "status": "CLOSED",
+      "title": "Uncooperative transport timeout could release the global concurrency slot",
+      "fix": "Durable INDETERMINATE requests consume unresolved capacity, including after Host reopen; ordinary cancellation is not closure proof.",
+      "verification": [
+        "m18-review-fixes.test.ts UNKNOWN closure slot test",
+        "gateway.ts final persistent-slot code reread"
+      ]
+    },
+    {
+      "id": "SEC18-11",
+      "severity": "P1",
+      "status": "CLOSED",
+      "title": "Known settlement or observed overruns could be lost at a later archive/ACK failure",
+      "fix": "Preserve settled ledger facts; independently capture observedUsage before settlement and pass observed cost to Vault UNKNOWN reservation.",
+      "verification": [
+        "m18-review-fixes.test.ts post-settlement ACK failure",
+        "m18-gateway.test.ts overrun path",
+        "gateway.ts observedUsage and catch path reread"
+      ]
+    },
+    {
+      "id": "SEC18-12",
+      "severity": "P1",
+      "status": "CLOSED",
+      "title": "Artifact failure sidecar could persist a known secret from abort reason.code",
+      "fix": "Guarded failure metadata uses a static reason and is guard-checked before write; guarded exceptions use static codes.",
+      "verification": [
+        "Independent synthetic attack initially produced incomplete_metadata_secret=true.",
+        "After fix the same attack returned GUARDED_ARTIFACT_FAILED and incomplete_metadata_secret=false.",
+        "artifacts.ts final failure-metadata seam reread"
+      ]
+    },
+    {
+      "id": "SEC18-13",
+      "severity": "P1",
+      "status": "CLOSED",
+      "title": "Producer cleanup could throw arbitrary text or release capacity without confirmed closure",
+      "fix": "Synchronous cleanup exceptions are contained. Any guarded preflight that exits before iterator completion faults the owner as SOURCE_CLEANUP_UNKNOWN; void return is not closure evidence.",
+      "verification": [
+        "artifacts.ts final guardedSource region reread",
+        "m18-secret-boundary.test.ts bounded overflow/cross-chunk tests passed"
+      ]
+    },
+    {
+      "id": "SEC18-14",
+      "severity": "P1",
+      "status": "CLOSED",
+      "title": "Independent Vault connections could silently scan different known-secret sets",
+      "fix": "Persist import generation; stale guards reject until explicit bounded refresh. Refresh verifies generation after all decrypt awaits, preserves old patterns, and binds patterns to opaque handles.",
+      "verification": [
+        "Independent dual-connection fixture originally returned ACCEPTED_UNSCANNED.",
+        "After fix it returned VAULT_GUARD_STALE before refresh and VAULT_KNOWN_SECRET_BLOCKED after refresh.",
+        "Final Vault refresh/generation regions reread."
+      ]
+    },
+    {
+      "id": "SEC18-15",
+      "severity": "P2",
+      "status": "CLOSED",
+      "title": "Vault state and security event retention had no declared capacities",
+      "fix": "Keys <= 128, imports <= 1024, request evidence <= 4096, events <= 256 plus saturated lifetime count; live evidence is not evicted.",
+      "verification": [
+        "Final Vault capacity code reread.",
+        "m18-vault.test.ts capacity tests fully read; execution attributed to parent runner only."
+      ]
+    },
+    {
+      "id": "SEC18-16",
+      "severity": "P2",
+      "status": "CLOSED",
+      "title": "DPAPI helper errors or unconfirmed termination could leave resource closure ambiguous",
+      "fix": "All pipe/child errors converge on static failure; output chunks are wiped. At most two helpers; unconfirmed termination permanently poisons that protector and retains unknown capacity.",
+      "verification": [
+        "Final DPAPI helper code reread.",
+        "Mock helper tests fully read; not run by this reviewer.",
+        "Actual DPAPI smoke not independently executed."
+      ]
+    },
+    {
+      "id": "SEC18-17",
+      "severity": "P2",
+      "status": "CLOSED",
+      "title": "Composite task/escalation keys could alias with colon-containing IDs",
+      "fix": "Task accounting and escalation identity use canonical structured hashes; escalation lookup checks owner project/task/agent.",
+      "verification": [
+        "Final modelTaskBudgetId and escalation code reread.",
+        "m18-ledger.test.ts composite-id test and final 14 PASS"
+      ]
+    },
+    {
+      "id": "SEC18-18",
+      "severity": "P2",
+      "status": "CLOSED",
+      "title": "Host boot/recovery labels could imply fixture assurance for a configured runtime port",
+      "fix": "Boot diagnostics identify the configured Host port and per-result assurance; stored request assurance is retained across recovery, with invalid legacy state rejected.",
+      "verification": [
+        "Final harness/index.ts full unified diff reread.",
+        "Final gateway stored-assurance code reread."
+      ]
+    },
+    {
+      "id": "SEC18-19",
+      "severity": "P1",
+      "status": "CLOSED",
+      "title": "Rotating credentials could bypass their original expiry",
+      "fix": "Refresh now expires ROTATING keys. Both the initial and post-decrypt credential fences independently check expires_at and permit only ACTIVE/ROTATING.",
+      "verification": [
+        "Independent in-process clock fixture initially returned CALLBACK_ALLOWED with one callback after expiry.",
+        "After fix the same fixture returned VAULT_KEY_NOT_SENDABLE, callback_calls=0 and old_state=EXPIRED.",
+        "Final frozen Vault changed regions reread; new before/during-decrypt expiry regression test fully read. No OS clock change occurred."
+      ]
+    },
+    {
+      "id": "SEC18-20",
+      "severity": "P2",
+      "status": "CLOSED",
+      "title": "Rotating a rate-limited key could allow automatic cooldown resurrection",
+      "fix": "Rotation permanently disables the old RATE_LIMITED key, retaining existing evidence/leases while preventing automatic re-entry to the pool.",
+      "verification": [
+        "Independent synthetic clock fixture disabled the replacement and advanced beyond old cooldown; final result VAULT_NO_ELIGIBLE_KEY, old_state=DISABLED.",
+        "Final rotation clause and new cooldown regression test fully read. No OS clock change occurred."
+      ]
+    }
+  ],
+  "qualification_limits": [
+    {
+      "area": "Same-account Worker/credential isolation",
+      "status": "BLOCKED",
+      "reason": "DPAPI CurrentUser encryption cannot isolate an ordinary same-account Worker. LIVE Vault import is rejected. No ACL/account/AppContainer change was attempted by this reviewer."
+    },
+    {
+      "area": "Actual Provider API / actual prices / network grants",
+      "status": "NOT_RUN",
+      "reason": "No actual API call or live grant was configured or executed by this reviewer. Global actual API calls are reported as zero by parent. REAL transport cannot pair with this SYNTHETIC Vault through UnifiedModelGateway."
+    },
+    {
+      "area": "Strict CPU and production native execution",
+      "status": "BLOCKED",
+      "reason": "Existing M1.7 strict hard-limit qualification remains blocked; M1.8 local model fixtures do not upgrade it."
+    },
+    {
+      "area": "Ubuntu and destructive/native OS security probes",
+      "status": "NOT_RUN",
+      "reason": "No OS probe, identity/ACL change or production security setup was executed by this reviewer."
+    },
+    {
+      "area": "Actual DPAPI helper smoke",
+      "status": "NOT_RUN_BY_THIS_REVIEWER",
+      "reason": "Source and tests read only; parent/author execution, if recorded, must cite its own artifact and cannot be inferred from this report."
+    },
+    {
+      "area": "Actual Git event monitoring / Git reader",
+      "status": "NOT_INDEPENDENTLY_QUALIFIED_BY_THIS_REPORT",
+      "reason": "Reviewer authored Git reader/watcher. Its tests used injected snapshots and process mocks, with no commit/push/hook/network. Host must supply trusted local COMMIT/PUSH events and the current exact binding; the bridge does not poll or push."
+    },
+    {
+      "area": "Trusted Host callbacks, raw SQL, filesystem",
+      "status": "TCB_ASSUMPTION",
+      "reason": "Factory/admin objects and callbacks remain trusted local code. This report does not turn a JavaScript library or same-account storage into an OS sandbox."
+    },
+    {
+      "area": "Wall clock rollback",
+      "status": "NOT_RUN",
+      "reason": "Grant expiry, price freshness and RPM use trusted wall clock. Adversarial wall-clock rollback is not qualified by these tests."
+    },
+    {
+      "area": "General secret detection",
+      "status": "LIMITED",
+      "reason": "Known imported SYNTHETIC secrets and specified raw/JSON/URL/base64 variants are covered; this is not universal detection of unknown secrets or arbitrary encodings."
+    },
+    {
+      "area": "Closure/reconciliation recovery",
+      "status": "FAIL_CLOSED",
+      "reason": "Unknown transport, lease or producer/helper closure can exhaust retained capacity. No automatic reconciliation/retry/release is authorized by this report."
+    }
+  ],
+  "verification": {
+    "independent_final_synthetic_batch": {
+      "status": "PARTIAL_BATCH_THEN_TARGETED_FIX",
+      "files": [
+        "m18-protocol.test.ts",
+        "m18-ledger.test.ts",
+        "m18-gateway.test.ts",
+        "m18-authorization.test.ts",
+        "m18-secret-boundary.test.ts",
+        "m18-review-bridge.test.ts",
+        "m18-review-fixes.test.ts",
+        "m18-multi-agent.test.ts"
+      ],
+      "test_data_root": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.8/tests",
+      "initial": {
+        "tests": 64,
+        "pass": 63,
+        "fail": 1,
+        "skip": 0,
+        "exit_code": 1,
+        "duration_ms": 17609.6944,
+        "log": ".workflow-kit/runtime/AgentNexus-M1.8/reviews/security-tests-final.log",
+        "failure": "m18-ledger.test.ts:71 still queried the old TASK scope p:sibling-work after canonical task scope migration."
+      },
+      "fix": {
+        "author": "parent",
+        "change": "Only m18-ledger.test.ts:71 changed to modelTaskBudgetId(sibling); product source stayed frozen."
+      },
+      "targeted_after_fix": {
+        "tests": 14,
+        "pass": 14,
+        "fail": 0,
+        "skip": 0,
+        "exit_code": 0,
+        "duration_ms": 1166.1617,
+        "log": ".workflow-kit/runtime/AgentNexus-M1.8/reviews/security-ledger-final.log"
+      },
+      "latest_result_by_file": {
+        "unique_tests": 64,
+        "pass": 64,
+        "fail": 0,
+        "skip": 0,
+        "method": "Seven unchanged files contributed 50 PASS in the initial batch; the corrected ledger file contributed 14 PASS in the targeted rerun. This is not a claim that the initial batch was all green."
+      },
+      "network_calls": 0,
+      "OS_security_probes": 0,
+      "snapshot": "The 64-test batch and 14-test ledger rerun used the initial frozen Vault 3cb52051... before final rotation-expiry/cooldown fixes. They are retained as actual execution history, not relabeled as a full run of the final Vault hash."
+    },
+    "typescript": {
+      "status": "PASS",
+      "exit_code": 0,
+      "command": "node .workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/typescript/lib/tsc.js --project deliverables/AgentNexus-M1.8/source/tsconfig.json --typeRoots .workflow-kit/runtime/AgentNexus-M1.5/type-tools/node_modules/@types --pretty false",
+      "earlier_failure": "An earlier check found invalid RESEARCH/CODING work_role literals in m18-multi-agent.test.ts; parent corrected them to existing SCOUT/WORKER contracts before the final passing check.",
+      "checked_after_final_vault_rotation_patch": true,
+      "final_exit_code": 0,
+      "checked_at_utc": "2026-11-08T06:44:49.782Z"
+    },
+    "authored_git_engineering_tests": {
+      "independent_approval": false,
+      "tests": 17,
+      "pass": 17,
+      "fail": 0,
+      "skip": 0,
+      "command": "node --test --test-concurrency=1 deliverables/AgentNexus-M1.8/source/tests/agentnexus/m18-git-reviewer.test.ts",
+      "note": "No real Git process, automatic commit, push or hook. Exact subprocess argv/environment were checked through process mocks."
+    },
+    "parent_final_full_regression": {
+      "status": "EXTERNAL_PENDING_AT_REPORT",
+      "note": "Parent is running a separate immutable final full regression. Its final result must be cited from that runner; this report does not infer it or overwrite prior failures."
+    },
+    "baseline_execution": {
+      "status": "NOT_RUN_BY_THIS_REVIEWER",
+      "note": "M1.7 source/tests/acceptance were read. Parent earlier reported 488 PASS, 14 FAIL, 30 SKIP under restricted permissions, including hardlink/native/junction cases. That historical relay is not asserted as the final full result and no privilege expansion is authorized."
+    },
+    "final_vault_rotation_fix": {
+      "source_sha256": "399b05b1147c9c8ac7f62b5852834d86058de92192e846142fbccaa27c50dedd",
+      "method": "Two independent inline Node fixtures using SyntheticMemoryProtector, actual owned SQLite fixtures, and a process-local Date.now substitute; OS time unchanged.",
+      "expiry": {
+        "before": "CALLBACK_ALLOWED, callback_calls=1, old_state=ROTATING",
+        "after": "VAULT_KEY_NOT_SENDABLE, callback_calls=0, old_state=EXPIRED"
+      },
+      "cooldown": {
+        "after": "VAULT_NO_ELIGIBLE_KEY, old_state=DISABLED"
+      },
+      "network_calls": 0,
+      "OS_security_probes": 0,
+      "note": "Parent final full frozen-source runner remains the final execution Gate. This report does not claim its result."
+    }
+  },
+  "writes_performed": {
+    "product_files": [
+      "deliverables/AgentNexus-M1.8/source/src/agentnexus/model-runtime/git-reviewer.ts",
+      "deliverables/AgentNexus-M1.8/source/tests/agentnexus/m18-git-reviewer.test.ts"
+    ],
+    "other_authors_product_files": [],
+    "runtime_only": [
+      "This report and final independent test logs",
+      "Owned synthetic SQLite/artifact fixtures under .workflow-kit/runtime/AgentNexus-M1.8/tests"
+    ],
+    "rules_modified": false,
+    "credential_or_environment_discovery": false,
+    "network_used": false,
+    "git_commit_push_or_hooks": false
+  },
+  "source_freeze": {
+    "core_expected_sha256": {
+      "src/agentnexus/model-runtime/protocol.ts": "0af02ae92224351a09e22d6eaa6ab7dc6a55a05e11385c65a66f38efe129fca1",
+      "src/agentnexus/model-runtime/streaming.ts": "fb0044e550caab6458b5ada0226c7952be90c7e6eb76f2f0de378eec14aa1483",
+      "src/agentnexus/model-runtime/adapters.ts": "f668ab313b8e54186909424633984fa5a3e03cae274963f9be78dce7ccf3455e",
+      "src/agentnexus/model-runtime/transport.ts": "150e9a801c3ab56a8ebdfa203482ce90262252ae7be91ad3570b43cc69e3ed58",
+      "src/agentnexus/model-runtime/gateway.ts": "04254b260f3314ba7696ffc00bc1d127c1a4e62a971517688ef33e5f97f4136f",
+      "src/agentnexus/model-runtime/ledger.ts": "002714ede3b3f674317fbdf011e6ae70b73799e5080a50c063dc776c3ec6031b",
+      "src/agentnexus/model-runtime/vault.ts": "399b05b1147c9c8ac7f62b5852834d86058de92192e846142fbccaa27c50dedd",
+      "src/agentnexus/model-runtime/dpapi.ps1": "a5284e726a8b888c143f4b4992e0280c389d623bc5cf5f8568a6199db7af1ded",
+      "src/agentnexus/model-runtime/review-bridge.ts": "427b4fbb2dc7fb684088950b7943f9700648cec68ba3cc1eaf7da237a536cf22"
+    },
+    "initial_vault_sha256": "3cb52051c51b3a1e592cb6d67f190e1a253bb6a1dd749cb97b2872038ac2d74a",
+    "note": "Final Vault changed after initial freeze only to close SEC18-19/20. Source hashes are rechecked when this report is written."
+  },
+  "manifest_status": "COMPLETE",
+  "manifests": {
+    "baseline_rules": [
+      {
+        "path": "I:\\AI_AgentNexus\\AGENTS.md",
+        "relative_path": "AGENTS.md",
+        "sha256": "a868b01052ea5613300e6973fd1c65917ba2f10b01eea025214b513432cd4694",
+        "bytes": 2587,
+        "lines": 29,
+        "read_method": "FULL_IN_BOUNDED_BATCHES",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\ai-workflow-kit-v4\\project-workflows\\README.md",
+        "relative_path": "ai-workflow-kit-v4/project-workflows/README.md",
+        "sha256": "1f12071a31eca68714381c3f543ff46ba81b20acd5c951e2eb68aee0f6bc9b21",
+        "bytes": 1027,
+        "lines": 13,
+        "read_method": "FULL_IN_BOUNDED_BATCHES",
+        "independent_review": true
+      }
+    ],
+    "baseline_source": [
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\types.ts",
+        "relative_path": "deliverables/AgentNexus-M1.7/source/src/agentnexus/types.ts",
+        "sha256": "7bd207b6d34d63d5d443eedae516abc292942562b6b58ecf2f3ffccd566fdb25",
+        "bytes": 6839,
+        "lines": 128,
+        "read_method": "FULL_IN_BOUNDED_BATCHES",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\records.ts",
+        "relative_path": "deliverables/AgentNexus-M1.7/source/src/agentnexus/records.ts",
+        "sha256": "393e0a70a20a4dae21287169d1313bae949842cf0f712bacb3ebf432a5ed7800",
+        "bytes": 6510,
+        "lines": 100,
+        "read_method": "FULL_IN_BOUNDED_BATCHES",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\control.ts",
+        "relative_path": "deliverables/AgentNexus-M1.7/source/src/agentnexus/control.ts",
+        "sha256": "3a549eb7bf5548b2b0453711899c0b7bfb1ea4d346dfad0bca11d4c166bf46d4",
+        "bytes": 8234,
+        "lines": 107,
+        "read_method": "FULL_IN_BOUNDED_BATCHES",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\cli.ts",
+        "relative_path": "deliverables/AgentNexus-M1.7/source/src/agentnexus/cli.ts",
+        "sha256": "21b22392926ebe706f3d2a382205a7ed0afcf9477b619707df250dd2089334bb",
+        "bytes": 1927,
+        "lines": 29,
+        "read_method": "FULL_IN_BOUNDED_BATCHES",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\runtime\\contracts.ts",
+        "relative_path": "deliverables/AgentNexus-M1.7/source/src/agentnexus/runtime/contracts.ts",
+        "sha256": "308378e645233f6317de44399d59eb0a15bbaf4b0f506a2083917a999651b725",
+        "bytes": 7187,
+        "lines": 85,
+        "read_method": "FULL_IN_BOUNDED_BATCHES",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\runtime\\ipc.ts",
+        "relative_path": "deliverables/AgentNexus-M1.7/source/src/agentnexus/runtime/ipc.ts",
+        "sha256": "9b8d5c096ffc4b529a5919047d84cff16dfdef495b148f1af7748f49380130a5",
+        "bytes": 2759,
+        "lines": 43,
+        "read_method": "FULL_IN_BOUNDED_BATCHES",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\runtime\\broker.ts",
+        "relative_path": "deliverables/AgentNexus-M1.7/source/src/agentnexus/runtime/broker.ts",
+        "sha256": "611056760e82606bae893c2ed78831adb0e3b8ac102a4206b8af6cafc021efc2",
+        "bytes": 884,
+        "lines": 14,
+        "read_method": "FULL_IN_BOUNDED_BATCHES",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\runtime\\audit.ts",
+        "relative_path": "deliverables/AgentNexus-M1.7/source/src/agentnexus/runtime/audit.ts",
+        "sha256": "14f06526c6a48473aca95e5a47077e69b63db646ca1d605af0df8272207584c4",
+        "bytes": 2003,
+        "lines": 28,
+        "read_method": "FULL_IN_BOUNDED_BATCHES",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\resources\\contracts.ts",
+        "relative_path": "deliverables/AgentNexus-M1.7/source/src/agentnexus/resources/contracts.ts",
+        "sha256": "537d73a7c108bd986df2445ed9949363ee043ad82a53ae7bf6946c75b076221d",
+        "bytes": 3328,
+        "lines": 32,
+        "read_method": "FULL_IN_BOUNDED_BATCHES",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\resources\\registry.ts",
+        "relative_path": "deliverables/AgentNexus-M1.7/source/src/agentnexus/resources/registry.ts",
+        "sha256": "ca34e7885011e9ffdc9f5588cf3201d2361baa5a6cefb86a9eaea9f9629f9661",
+        "bytes": 2892,
+        "lines": 17,
+        "read_method": "FULL_IN_BOUNDED_BATCHES",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\resources\\index.ts",
+        "relative_path": "deliverables/AgentNexus-M1.7/source/src/agentnexus/resources/index.ts",
+        "sha256": "382ed3c1750941feb1642edc4fa1462760c7eb4176ffd95fc7167d5af87bf042",
+        "bytes": 166,
+        "lines": 4,
+        "read_method": "FULL_IN_BOUNDED_BATCHES",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\gateway.ts",
+        "relative_path": "deliverables/AgentNexus-M1.7/source/src/agentnexus/gateway.ts",
+        "sha256": "89324db842f7ce1cdac2c5dcaf73441ea84fff549b943953514b845b3b8670d3",
+        "bytes": 24460,
+        "lines": 272,
+        "read_method": "FULL_IN_BOUNDED_BATCHES",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\policy.ts",
+        "relative_path": "deliverables/AgentNexus-M1.7/source/src/agentnexus/policy.ts",
+        "sha256": "31a6f1250ab2c5e9271181b23cc347b72fd502d7b2bfa229716dd976ee040f49",
+        "bytes": 18232,
+        "lines": 225,
+        "read_method": "FULL_IN_BOUNDED_BATCHES",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\policy-contracts.ts",
+        "relative_path": "deliverables/AgentNexus-M1.7/source/src/agentnexus/policy-contracts.ts",
+        "sha256": "e8610d492624c29fac7ad557c0363c6b704f6ba8ab01c110517e7d0299286511",
+        "bytes": 4635,
+        "lines": 193,
+        "read_method": "FULL_IN_BOUNDED_BATCHES",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\features.ts",
+        "relative_path": "deliverables/AgentNexus-M1.7/source/src/agentnexus/features.ts",
+        "sha256": "d6aafeafd88f6fd5660afa6b4f29b68625d70ffc8f8138f90db657b6acacda5e",
+        "bytes": 12008,
+        "lines": 163,
+        "read_method": "FULL_IN_BOUNDED_BATCHES",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\storage.ts",
+        "relative_path": "deliverables/AgentNexus-M1.7/source/src/agentnexus/storage.ts",
+        "sha256": "a693dde21a10e501c1e7172d1cf24a3dd99317b9bbfcfe2c235631926a33bff0",
+        "bytes": 33038,
+        "lines": 475,
+        "read_method": "FULL_IN_BOUNDED_BATCHES",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\artifacts.ts",
+        "relative_path": "deliverables/AgentNexus-M1.7/source/src/agentnexus/artifacts.ts",
+        "sha256": "506347b26285855c3f2ea60007ed77debe39a360130990a018e092069c2f0ab2",
+        "bytes": 18086,
+        "lines": 284,
+        "read_method": "FULL_IN_BOUNDED_BATCHES",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\host.ts",
+        "relative_path": "deliverables/AgentNexus-M1.7/source/src/agentnexus/host.ts",
+        "sha256": "4d27e744f60b646715417fa8a6db5cb33b5e92e4e8b2082be54628e4898645c9",
+        "bytes": 18913,
+        "lines": 237,
+        "read_method": "FULL_IN_BOUNDED_BATCHES",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\reconciliation.ts",
+        "relative_path": "deliverables/AgentNexus-M1.7/source/src/agentnexus/reconciliation.ts",
+        "sha256": "9f65ae9b5b0e4f049efabfadc1cb5ad263ce0b5ea7703a15bb8789f27d3f1906",
+        "bytes": 14568,
+        "lines": 171,
+        "read_method": "FULL_IN_BOUNDED_BATCHES",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\integrity.ts",
+        "relative_path": "deliverables/AgentNexus-M1.7/source/src/agentnexus/integrity.ts",
+        "sha256": "172a40c429c9e8a99f8cc1fcee2ef500adb4e7d378f0f6188fbbe7f792edfe66",
+        "bytes": 18691,
+        "lines": 342,
+        "read_method": "FULL_IN_BOUNDED_BATCHES",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\diagnostics.ts",
+        "relative_path": "deliverables/AgentNexus-M1.7/source/src/agentnexus/diagnostics.ts",
+        "sha256": "d869a291068564eb942b05623f2b8e3f0f8348c40647215e1b85d86eef27d86d",
+        "bytes": 31299,
+        "lines": 469,
+        "read_method": "FULL_IN_BOUNDED_BATCHES",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\runtime\\control.ts",
+        "relative_path": "deliverables/AgentNexus-M1.7/source/src/agentnexus/runtime/control.ts",
+        "sha256": "4b78fdfdbab38bc1d07dafea5fa323c72e1d02eeefbc7071b13f515ef6cec502",
+        "bytes": 27386,
+        "lines": 300,
+        "read_method": "FULL_IN_BOUNDED_BATCHES",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\resources\\budget-manager.ts",
+        "relative_path": "deliverables/AgentNexus-M1.7/source/src/agentnexus/resources/budget-manager.ts",
+        "sha256": "7ea22cc6c6b9facf741413be900fd1c9b0396f07d1d6472e4787f8a4014737b9",
+        "bytes": 18270,
+        "lines": 147,
+        "read_method": "FULL_IN_BOUNDED_BATCHES",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\production\\contracts.ts",
+        "relative_path": "deliverables/AgentNexus-M1.7/source/src/agentnexus/production/contracts.ts",
+        "sha256": "368e611e224288350ca5a9eeeb883ccdc2b5d02129fbcbd5718cdf1e88f65620",
+        "bytes": 7169,
+        "lines": 94,
+        "read_method": "FULL_IN_BOUNDED_BATCHES",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\production\\qualification.ts",
+        "relative_path": "deliverables/AgentNexus-M1.7/source/src/agentnexus/production/qualification.ts",
+        "sha256": "151529013bfab546831927c4f7f42d3961e268577ab27b5bd7c6de065e187e7f",
+        "bytes": 2691,
+        "lines": 32,
+        "read_method": "FULL_IN_BOUNDED_BATCHES",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\production\\identity.ts",
+        "relative_path": "deliverables/AgentNexus-M1.7/source/src/agentnexus/production/identity.ts",
+        "sha256": "157d276bd002b5b624d40675e41b67d1beab86a1db478ba50b8a64324e24bba1",
+        "bytes": 6805,
+        "lines": 92,
+        "read_method": "FULL_IN_BOUNDED_BATCHES",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\production\\resources.ts",
+        "relative_path": "deliverables/AgentNexus-M1.7/source/src/agentnexus/production/resources.ts",
+        "sha256": "949e0713c1ebeca78a1b8c9598aef8414a5166f6371cb4d1f106f311e6a67b2c",
+        "bytes": 2621,
+        "lines": 36,
+        "read_method": "FULL_IN_BOUNDED_BATCHES",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\production\\service.ts",
+        "relative_path": "deliverables/AgentNexus-M1.7/source/src/agentnexus/production/service.ts",
+        "sha256": "4954b7cc8e005d961ee6408dd161046c8337c44dfe3b3439d1a2b289fdc2150d",
+        "bytes": 1626,
+        "lines": 27,
+        "read_method": "FULL_IN_BOUNDED_BATCHES",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\production\\audit.ts",
+        "relative_path": "deliverables/AgentNexus-M1.7/source/src/agentnexus/production/audit.ts",
+        "sha256": "51ede7c82086d72707cc965891a673e2addf4cfd6efdf836b534988823c485f8",
+        "bytes": 1494,
+        "lines": 22,
+        "read_method": "FULL_IN_BOUNDED_BATCHES",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\production\\authority.ts",
+        "relative_path": "deliverables/AgentNexus-M1.7/source/src/agentnexus/production/authority.ts",
+        "sha256": "47546dbe8f131e27a1ae2ddfafec3f1227c06deee0dc395100e9dc60ee623e05",
+        "bytes": 12620,
+        "lines": 130,
+        "read_method": "FULL_IN_BOUNDED_BATCHES",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\production\\host.ts",
+        "relative_path": "deliverables/AgentNexus-M1.7/source/src/agentnexus/production/host.ts",
+        "sha256": "c849b9d28e583937449b63f863f147dcc51e683ee378edac44fc77245ab5c3ff",
+        "bytes": 5540,
+        "lines": 63,
+        "read_method": "FULL_IN_BOUNDED_BATCHES",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\production\\transport.ts",
+        "relative_path": "deliverables/AgentNexus-M1.7/source/src/agentnexus/production/transport.ts",
+        "sha256": "1d4d6ca1d680be24aef8e40ee703f66d11ec25e5514cb53c74f2f470a09d120d",
+        "bytes": 6280,
+        "lines": 67,
+        "read_method": "FULL_IN_BOUNDED_BATCHES",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\production\\broker.ts",
+        "relative_path": "deliverables/AgentNexus-M1.7/source/src/agentnexus/production/broker.ts",
+        "sha256": "dc7a7f7294d9035e97f41058d60b802f804fe8b18e7c232a29906f5de8ee1e3c",
+        "bytes": 17841,
+        "lines": 164,
+        "read_method": "FULL_IN_BOUNDED_BATCHES",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\production\\file-broker.ts",
+        "relative_path": "deliverables/AgentNexus-M1.7/source/src/agentnexus/production/file-broker.ts",
+        "sha256": "1fdbdf438e2ab5591b56d90a69786cbcf27bacc0290e200e09bc6c4e771f1a51",
+        "bytes": 10339,
+        "lines": 103,
+        "read_method": "FULL_IN_BOUNDED_BATCHES",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\production\\exit.ts",
+        "relative_path": "deliverables/AgentNexus-M1.7/source/src/agentnexus/production/exit.ts",
+        "sha256": "fce46daa7544c1f6de2544cd4def6856e99c285717d47caed1fbe6362ec9101d",
+        "bytes": 11644,
+        "lines": 108,
+        "read_method": "FULL_IN_BOUNDED_BATCHES",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\production\\windows-supervisor.ts",
+        "relative_path": "deliverables/AgentNexus-M1.7/source/src/agentnexus/production/windows-supervisor.ts",
+        "sha256": "7006732045e8e96f66dba6f68c4367ecf947a353f61a63f0b4992ad86746f724",
+        "bytes": 9261,
+        "lines": 79,
+        "read_method": "FULL_IN_BOUNDED_BATCHES",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\production\\native-client.ts",
+        "relative_path": "deliverables/AgentNexus-M1.7/source/src/agentnexus/production/native-client.ts",
+        "sha256": "f378c1bf5938ae5821fc1130d60d920874891bdf76fb1a911dc0a9310e9f05e8",
+        "bytes": 7037,
+        "lines": 86,
+        "read_method": "FULL_IN_BOUNDED_BATCHES",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\production\\windows\\runtime.ps1",
+        "relative_path": "deliverables/AgentNexus-M1.7/source/src/agentnexus/production/windows/runtime.ps1",
+        "sha256": "7ea9a3fc50965611e21103469c28d47bdeb4893728c193d60074faf9ff2741cd",
+        "bytes": 8978,
+        "lines": 114,
+        "read_method": "FULL_IN_BOUNDED_BATCHES",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\runtime\\windows\\NativeProbe.cs",
+        "relative_path": "deliverables/AgentNexus-M1.7/source/src/agentnexus/runtime/windows/NativeProbe.cs",
+        "sha256": "3a96b192e46bca3f5774c8096ca598e4ce723776993062cd363e6a8cfe7e202f",
+        "bytes": 15171,
+        "lines": 149,
+        "read_method": "FULL_IN_BOUNDED_BATCHES",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\production\\windows\\NativeRuntime.cs",
+        "relative_path": "deliverables/AgentNexus-M1.7/source/src/agentnexus/production/windows/NativeRuntime.cs",
+        "sha256": "2c5cf6a60c33b91604763a12d7d5ac970c68a0b87a41510f5d09c5fa540398ca",
+        "bytes": 67315,
+        "lines": 282,
+        "read_method": "FULL_IN_BOUNDED_BATCHES",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\production\\windows\\BootstrapNative.cs",
+        "relative_path": "deliverables/AgentNexus-M1.7/source/src/agentnexus/production/windows/BootstrapNative.cs",
+        "sha256": "f44ee579f9c3a78419acab4e2a3dc85aab9cca0acc6ceb4e44f40f1a86923e80",
+        "bytes": 55713,
+        "lines": 687,
+        "read_method": "FULL_IN_BOUNDED_BATCHES",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\bootstrap\\config.ts",
+        "relative_path": "deliverables/AgentNexus-M1.7/source/src/agentnexus/bootstrap/config.ts",
+        "sha256": "281e683c0f4fac5a0618deff0976da09ccaca860935cf1c044541f5cf7e5aea0",
+        "bytes": 12928,
+        "lines": 81,
+        "read_method": "FULL_IN_BOUNDED_BATCHES",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\bootstrap\\permissions.ts",
+        "relative_path": "deliverables/AgentNexus-M1.7/source/src/agentnexus/bootstrap/permissions.ts",
+        "sha256": "4019e1c2ee1a663eec62a9e68d4ccb5dd774e88ecb571e532c81c10e39d6b2b7",
+        "bytes": 2307,
+        "lines": 19,
+        "read_method": "FULL_IN_BOUNDED_BATCHES",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\bootstrap\\entry.ts",
+        "relative_path": "deliverables/AgentNexus-M1.7/source/src/agentnexus/bootstrap/entry.ts",
+        "sha256": "fda08b8be8ffe4d232f3803955e335e8e1f27fdb2eb31738e390cce380ce7fb7",
+        "bytes": 7082,
+        "lines": 61,
+        "read_method": "FULL_IN_BOUNDED_BATCHES",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\bootstrap\\launcher-proof.ts",
+        "relative_path": "deliverables/AgentNexus-M1.7/source/src/agentnexus/bootstrap/launcher-proof.ts",
+        "sha256": "a05e7450e54618e5cde093f283211ab1e0dfc5630e1cd5b365103b2d2a9e0ed2",
+        "bytes": 3221,
+        "lines": 26,
+        "read_method": "FULL_IN_BOUNDED_BATCHES",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\bootstrap\\ubuntu\\peer_probe.c",
+        "relative_path": "deliverables/AgentNexus-M1.7/source/src/agentnexus/bootstrap/ubuntu/peer_probe.c",
+        "sha256": "db6938c1978ae79c2c371ac473fab68619077ca093e6a93b0d6dcbe79581dfba",
+        "bytes": 867,
+        "lines": 20,
+        "read_method": "FULL_IN_BOUNDED_BATCHES",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\bootstrap\\session.ts",
+        "relative_path": "deliverables/AgentNexus-M1.7/source/src/agentnexus/bootstrap/session.ts",
+        "sha256": "97b0e9435f9468fd9b46f56792f0335ab1d20ec915b832f98b836334662daec5",
+        "bytes": 9978,
+        "lines": 104,
+        "read_method": "FULL_IN_BOUNDED_BATCHES",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\bootstrap\\worker.ts",
+        "relative_path": "deliverables/AgentNexus-M1.7/source/src/agentnexus/bootstrap/worker.ts",
+        "sha256": "39ee6763699b1db18466e30dab7538499d4f3315a80faaf674d853f620814158",
+        "bytes": 5184,
+        "lines": 41,
+        "read_method": "FULL_IN_BOUNDED_BATCHES",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\bootstrap\\ubuntu.ts",
+        "relative_path": "deliverables/AgentNexus-M1.7/source/src/agentnexus/bootstrap/ubuntu.ts",
+        "sha256": "42685813efcc56eebfede5097d81d56bb0445cd8fa32a1d0c70e793a9db5a3f3",
+        "bytes": 3650,
+        "lines": 26,
+        "read_method": "FULL_IN_BOUNDED_BATCHES",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\bootstrap\\supervisor.ts",
+        "relative_path": "deliverables/AgentNexus-M1.7/source/src/agentnexus/bootstrap/supervisor.ts",
+        "sha256": "58a926b240429ddc4f45595b16566069294541839a549443483ccdeecccea77e",
+        "bytes": 12489,
+        "lines": 104,
+        "read_method": "FULL_IN_BOUNDED_BATCHES",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\bootstrap\\reservations.ts",
+        "relative_path": "deliverables/AgentNexus-M1.7/source/src/agentnexus/bootstrap/reservations.ts",
+        "sha256": "b62f7dec432c201fd549aa276d303af756c8a8d90fe974be42603097077adc93",
+        "bytes": 6251,
+        "lines": 42,
+        "read_method": "FULL_IN_BOUNDED_BATCHES",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\bootstrap\\exit-closure.ts",
+        "relative_path": "deliverables/AgentNexus-M1.7/source/src/agentnexus/bootstrap/exit-closure.ts",
+        "sha256": "c2aacb31be493bd47f697f0397bfae11d37d5f79639596bd3f884f5a65d82dcf",
+        "bytes": 4432,
+        "lines": 35,
+        "read_method": "FULL_IN_BOUNDED_BATCHES",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\bootstrap\\runtime.ts",
+        "relative_path": "deliverables/AgentNexus-M1.7/source/src/agentnexus/bootstrap/runtime.ts",
+        "sha256": "f56ee410d95bded16f3af51010f7143cc836f84e4121df0340c7d85d5274b431",
+        "bytes": 19795,
+        "lines": 132,
+        "read_method": "FULL_IN_BOUNDED_BATCHES",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\checkers\\python_ast.py",
+        "relative_path": "deliverables/AgentNexus-M1.7/source/src/agentnexus/checkers/python_ast.py",
+        "sha256": "a9595eca900b49c4ec88e82599c28569b01e543ed8ecb52908ae0772b104fc6e",
+        "bytes": 2998,
+        "lines": 74,
+        "read_method": "FULL_IN_BOUNDED_BATCHES",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\checkers\\powershell_ast.ps1",
+        "relative_path": "deliverables/AgentNexus-M1.7/source/src/agentnexus/checkers/powershell_ast.ps1",
+        "sha256": "90079d41e2083df61ee87456cbe81a4d1863b2f4053df0ab9e78b668e3789ae8",
+        "bytes": 3780,
+        "lines": 88,
+        "read_method": "FULL_IN_BOUNDED_BATCHES",
+        "independent_review": true
+      }
+    ],
+    "baseline_tests": [
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\tests\\agentnexus\\control.test.ts",
+        "relative_path": "deliverables/AgentNexus-M1.7/source/tests/agentnexus/control.test.ts",
+        "sha256": "5434e80937f050429198eb81d73045b291aed433285dc28fdcfa7d4cdb215ef1",
+        "bytes": 17191,
+        "lines": 212,
+        "read_method": "FULL_IN_BOUNDED_BATCHES",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\tests\\agentnexus\\diagnostics.test.ts",
+        "relative_path": "deliverables/AgentNexus-M1.7/source/tests/agentnexus/diagnostics.test.ts",
+        "sha256": "a3b4a33ceed558659f67af248c6a94f1a9abc6571814a5ba33e22c0c196e9b8f",
+        "bytes": 19171,
+        "lines": 319,
+        "read_method": "FULL_IN_BOUNDED_BATCHES",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\tests\\agentnexus\\gateway.test.ts",
+        "relative_path": "deliverables/AgentNexus-M1.7/source/tests/agentnexus/gateway.test.ts",
+        "sha256": "b9bb3d122ab0e56a4b3cea17cb9a99c41bcebe7ce47b30aea600be6943a9b8ba",
+        "bytes": 18503,
+        "lines": 205,
+        "read_method": "FULL_IN_BOUNDED_BATCHES",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\tests\\agentnexus\\security.test.ts",
+        "relative_path": "deliverables/AgentNexus-M1.7/source/tests/agentnexus/security.test.ts",
+        "sha256": "25d4ca4c4d943ac995b1965149a913b25933a84a68c234eef9670a27b55a10b3",
+        "bytes": 15678,
+        "lines": 164,
+        "read_method": "FULL_IN_BOUNDED_BATCHES",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\tests\\agentnexus\\integrity.test.ts",
+        "relative_path": "deliverables/AgentNexus-M1.7/source/tests/agentnexus/integrity.test.ts",
+        "sha256": "2d4f1212dc62716a8281e83eb2ef9e579213c707e6ff97fb5b13c32d39806e80",
+        "bytes": 21629,
+        "lines": 416,
+        "read_method": "FULL_IN_BOUNDED_BATCHES",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\tests\\agentnexus\\storage.test.ts",
+        "relative_path": "deliverables/AgentNexus-M1.7/source/tests/agentnexus/storage.test.ts",
+        "sha256": "7fe63fae9c892983a20cff6363daea390b95f9535d9aab8b231a79509bf722ea",
+        "bytes": 28922,
+        "lines": 369,
+        "read_method": "FULL_IN_BOUNDED_BATCHES",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\tests\\agentnexus\\runtime.test.ts",
+        "relative_path": "deliverables/AgentNexus-M1.7/source/tests/agentnexus/runtime.test.ts",
+        "sha256": "f71d9405adca5c4490def3cf8ee847d230d82162fa57a423f37195404c787d37",
+        "bytes": 23844,
+        "lines": 216,
+        "read_method": "FULL_IN_BOUNDED_BATCHES",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\tests\\agentnexus\\runtime-worker.mjs",
+        "relative_path": "deliverables/AgentNexus-M1.7/source/tests/agentnexus/runtime-worker.mjs",
+        "sha256": "a77ff4f6f333967e4df0c5c60bf8aa67843263639679180f5de8b6d6e1dd6b65",
+        "bytes": 1097,
+        "lines": 18,
+        "read_method": "FULL_IN_BOUNDED_BATCHES",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\tests\\agentnexus\\runtime-crash-child.mjs",
+        "relative_path": "deliverables/AgentNexus-M1.7/source/tests/agentnexus/runtime-crash-child.mjs",
+        "sha256": "79cfb0f2b443604ddcffd5da414eccb01aee7b724943b52e6789930078a7f562",
+        "bytes": 2474,
+        "lines": 21,
+        "read_method": "FULL_IN_BOUNDED_BATCHES",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\tests\\agentnexus\\owned-storage-child.mjs",
+        "relative_path": "deliverables/AgentNexus-M1.7/source/tests/agentnexus/owned-storage-child.mjs",
+        "sha256": "7a469bfa662d98f39f06b4483eaa1f49809e490817679cce5f7f1fa366133139",
+        "bytes": 1885,
+        "lines": 38,
+        "read_method": "FULL_IN_BOUNDED_BATCHES",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\tests\\agentnexus\\windows-native.test.ts",
+        "relative_path": "deliverables/AgentNexus-M1.7/source/tests/agentnexus/windows-native.test.ts",
+        "sha256": "358299b2b7f059273a47c5d79acf97c3f71cc35d2339d090f98f5fec47bef506",
+        "bytes": 3164,
+        "lines": 33,
+        "read_method": "FULL_IN_BOUNDED_BATCHES",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\tests\\agentnexus\\reconciliation.test.ts",
+        "relative_path": "deliverables/AgentNexus-M1.7/source/tests/agentnexus/reconciliation.test.ts",
+        "sha256": "3ddf54e2ec6e741fb7b4003124338bbb41f5e271bd12632e4e4152fae2f61e80",
+        "bytes": 19989,
+        "lines": 191,
+        "read_method": "FULL_IN_BOUNDED_BATCHES",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\tests\\agentnexus\\reconciliation-child.mjs",
+        "relative_path": "deliverables/AgentNexus-M1.7/source/tests/agentnexus/reconciliation-child.mjs",
+        "sha256": "17067655828b662d7393ea55805d5438ff8ed0110610f13fc394d82d61a4a521",
+        "bytes": 2373,
+        "lines": 34,
+        "read_method": "FULL_IN_BOUNDED_BATCHES",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\tests\\agentnexus\\m14-native.test.ts",
+        "relative_path": "deliverables/AgentNexus-M1.7/source/tests/agentnexus/m14-native.test.ts",
+        "sha256": "4a9994d283d2e5280ab5cefbab701edfb92f12de688ae8474c7280de102681af",
+        "bytes": 20352,
+        "lines": 184,
+        "read_method": "FULL_IN_BOUNDED_BATCHES",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\tests\\agentnexus\\m14-native-worker.mjs",
+        "relative_path": "deliverables/AgentNexus-M1.7/source/tests/agentnexus/m14-native-worker.mjs",
+        "sha256": "501e013660d7f11119f79455cc17669aa47e0bbe7c2c4491071e058e7edd66a5",
+        "bytes": 1382,
+        "lines": 34,
+        "read_method": "FULL_IN_BOUNDED_BATCHES",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\tests\\agentnexus\\m14-broker-child.mjs",
+        "relative_path": "deliverables/AgentNexus-M1.7/source/tests/agentnexus/m14-broker-child.mjs",
+        "sha256": "bc6800f9f0219114babbe61ffb022302c9892117228947f7eecd633fa77ec58c",
+        "bytes": 4995,
+        "lines": 53,
+        "read_method": "FULL_IN_BOUNDED_BATCHES",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\tests\\agentnexus\\m14-adapter.test.ts",
+        "relative_path": "deliverables/AgentNexus-M1.7/source/tests/agentnexus/m14-adapter.test.ts",
+        "sha256": "e40821919ac3eb487768baf155284d4458834c3b95638f50f2ded8581163ee85",
+        "bytes": 2160,
+        "lines": 22,
+        "read_method": "FULL_IN_BOUNDED_BATCHES",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\tests\\agentnexus\\m14-production.test.ts",
+        "relative_path": "deliverables/AgentNexus-M1.7/source/tests/agentnexus/m14-production.test.ts",
+        "sha256": "f51c8794d705cefef7caa73b3234791b7dfffb256c92f3f227da0c7eba235d03",
+        "bytes": 37918,
+        "lines": 303,
+        "read_method": "FULL_IN_BOUNDED_BATCHES",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\tests\\agentnexus\\m15-bootstrap.test.ts",
+        "relative_path": "deliverables/AgentNexus-M1.7/source/tests/agentnexus/m15-bootstrap.test.ts",
+        "sha256": "bca5a8e6103eabe9b1768e57055f45967238ae479253b2dcd8e16733260c807f",
+        "bytes": 26114,
+        "lines": 156,
+        "read_method": "FULL_IN_BOUNDED_BATCHES",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\tests\\agentnexus\\m15-pipe.test.ts",
+        "relative_path": "deliverables/AgentNexus-M1.7/source/tests/agentnexus/m15-pipe.test.ts",
+        "sha256": "ef7dc6676067679a5cacab19db06fca204653632fc3c8e30c6eb0a2a00c1c54f",
+        "bytes": 23037,
+        "lines": 287,
+        "read_method": "FULL_IN_BOUNDED_BATCHES",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\tests\\agentnexus\\m15-cpu-worker.mjs",
+        "relative_path": "deliverables/AgentNexus-M1.7/source/tests/agentnexus/m15-cpu-worker.mjs",
+        "sha256": "f59b524a7d2e4b8bd0792be3a166f379776c0089f4ac7b44e886c678659570fa",
+        "bytes": 516,
+        "lines": 10,
+        "read_method": "FULL_IN_BOUNDED_BATCHES",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\tests\\agentnexus\\m15-pipe-owner-child.mjs",
+        "relative_path": "deliverables/AgentNexus-M1.7/source/tests/agentnexus/m15-pipe-owner-child.mjs",
+        "sha256": "590f71d73e3ef6c95ebe9b796f3ccec5d01a010921850b423ea566469605e665",
+        "bytes": 2689,
+        "lines": 26,
+        "read_method": "FULL_IN_BOUNDED_BATCHES",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\tests\\agentnexus\\M151LifecycleProbe.cs",
+        "relative_path": "deliverables/AgentNexus-M1.7/source/tests/agentnexus/M151LifecycleProbe.cs",
+        "sha256": "02b4e22b1b19fc75cfffd591c4cbad64da6a832fe7f0f04c160800c95ea55ce8",
+        "bytes": 3073,
+        "lines": 33,
+        "read_method": "FULL_IN_BOUNDED_BATCHES",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\tests\\agentnexus\\m151-tree-worker.mjs",
+        "relative_path": "deliverables/AgentNexus-M1.7/source/tests/agentnexus/m151-tree-worker.mjs",
+        "sha256": "c396fc0ce003cf3b03bd5e23a1c3a305821710dca0cdd24b610042a518e61d52",
+        "bytes": 884,
+        "lines": 15,
+        "read_method": "FULL_IN_BOUNDED_BATCHES",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\tests\\agentnexus\\m151-rpc.ts",
+        "relative_path": "deliverables/AgentNexus-M1.7/source/tests/agentnexus/m151-rpc.ts",
+        "sha256": "c66a286325beb733e765683b722a00d2eb604ebf82662fbbdb5dc282633d4ddc",
+        "bytes": 3612,
+        "lines": 39,
+        "read_method": "FULL_IN_BOUNDED_BATCHES",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\tests\\agentnexus\\m151-resources.test.ts",
+        "relative_path": "deliverables/AgentNexus-M1.7/source/tests/agentnexus/m151-resources.test.ts",
+        "sha256": "038fe2069fd1fe21fb1978606026f54800f2ea9b33b5835b847ec9d692bc90d5",
+        "bytes": 3497,
+        "lines": 35,
+        "read_method": "FULL_IN_BOUNDED_BATCHES",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\tests\\agentnexus\\m151-lifecycle.test.ts",
+        "relative_path": "deliverables/AgentNexus-M1.7/source/tests/agentnexus/m151-lifecycle.test.ts",
+        "sha256": "2da7c48040cf0419d872bcfbca5b9dc9e9d9c18407e03ad73ae9a8bb5b324abd",
+        "bytes": 6082,
+        "lines": 52,
+        "read_method": "FULL_IN_BOUNDED_BATCHES",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\tests\\agentnexus\\m151-lifecycle-probe.ps1",
+        "relative_path": "deliverables/AgentNexus-M1.7/source/tests/agentnexus/m151-lifecycle-probe.ps1",
+        "sha256": "73c2deb04b67bf5fc7219f16b83d980b6cf0a5c4119f01e5bc1a81102f551774",
+        "bytes": 1447,
+        "lines": 20,
+        "read_method": "FULL_IN_BOUNDED_BATCHES",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\tests\\agentnexus\\m151-boundaries.test.ts",
+        "relative_path": "deliverables/AgentNexus-M1.7/source/tests/agentnexus/m151-boundaries.test.ts",
+        "sha256": "c9f6878769708d0d58f1f71e1edc3ca2d7d0b51444de3765870c7495149a09d6",
+        "bytes": 7084,
+        "lines": 53,
+        "read_method": "FULL_IN_BOUNDED_BATCHES",
+        "independent_review": true
+      }
+    ],
+    "baseline_documents": [
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\acceptance-report.md",
+        "relative_path": "deliverables/AgentNexus-M1.7/acceptance-report.md",
+        "sha256": "c06d565c67a80c201328760612cbcc1bb57c2ce3d7f9cb3f87572cb95c31b5e7",
+        "bytes": 2592,
+        "lines": 25,
+        "read_method": "FULL_IN_BOUNDED_BATCHES",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\reports\\independent-security-review.md",
+        "relative_path": "deliverables/AgentNexus-M1.7/reports/independent-security-review.md",
+        "sha256": "a5331c6b64a86fbdc398f0ab15d8c70c0ddfa1cabaa04cd6dd1e18c53f4f2f8f",
+        "bytes": 1665,
+        "lines": 10,
+        "read_method": "FULL_IN_BOUNDED_BATCHES",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\reports\\failures-and-qualifications.md",
+        "relative_path": "deliverables/AgentNexus-M1.7/reports/failures-and-qualifications.md",
+        "sha256": "082777fe1343a093569324b6f3c55d07dfb781b63df34894bfc933bf4f9ea31a",
+        "bytes": 1647,
+        "lines": 12,
+        "read_method": "FULL_IN_BOUNDED_BATCHES",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\.workflow-kit\\tasks\\AgentNexus-v0.4-M0\\research\\harvest_matrix.md",
+        "relative_path": ".workflow-kit/tasks/AgentNexus-v0.4-M0/research/harvest_matrix.md",
+        "sha256": "a23d26b851ffca49263b9ef7e74c31ca7514e07af169bc049787f12316526676",
+        "bytes": 8426,
+        "lines": 47,
+        "read_method": "FULL_IN_BOUNDED_BATCHES",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\.workflow-kit\\tasks\\AgentNexus-v0.4-M0\\research\\primary_harness_audit.md",
+        "relative_path": ".workflow-kit/tasks/AgentNexus-v0.4-M0/research/primary_harness_audit.md",
+        "sha256": "6e7b79dda12d7257cc300c695bb436a6dfb669100e5e08860510e3df75449fba",
+        "bytes": 18183,
+        "lines": 73,
+        "read_method": "FULL_IN_BOUNDED_BATCHES",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\.workflow-kit\\tasks\\AgentNexus-v0.4-M0\\architecture\\workflow_kit_mapping.md",
+        "relative_path": ".workflow-kit/tasks/AgentNexus-v0.4-M0/architecture/workflow_kit_mapping.md",
+        "sha256": "90a6cc4e943813d189145b3f75a6ec7e6e0c279fe7ccefe1660bd37437ea1d6d",
+        "bytes": 40972,
+        "lines": 230,
+        "read_method": "FULL_IN_BOUNDED_BATCHES",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\evidence\\reviews\\security-review.json",
+        "relative_path": "deliverables/AgentNexus-M1.7/evidence/reviews/security-review.json",
+        "sha256": "80353ba55e8917dc6d101ea1d7c105e70c295675034d70e903e44f289b5e54a6",
+        "bytes": 27564,
+        "lines": 571,
+        "read_method": "FULL_IN_BOUNDED_BATCHES",
+        "independent_review": true
+      }
+    ],
+    "supplemental_rules": [
+      {
+        "path": "I:\\AI_AgentNexus\\.workflow-kit\\governance\\policy.json",
+        "relative_path": ".workflow-kit/governance/policy.json",
+        "sha256": "ea91359de90e74cbb554f93ac2dae82509f93f5bcc05c65bf22384aba4dd4d83",
+        "bytes": 7919,
+        "lines": 484,
+        "read_method": "FULL_IN_BOUNDED_BATCHES",
+        "independent_review": true
+      }
+    ],
+    "final_independent": [
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8\\source\\src\\agentnexus\\model-runtime\\protocol.ts",
+        "relative_path": "deliverables/AgentNexus-M1.8/source/src/agentnexus/model-runtime/protocol.ts",
+        "sha256": "0af02ae92224351a09e22d6eaa6ab7dc6a55a05e11385c65a66f38efe129fca1",
+        "bytes": 9150,
+        "lines": 91,
+        "read_method": "FULL_READ_PLUS_FINAL_CHANGE_REVIEW",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8\\source\\src\\agentnexus\\model-runtime\\streaming.ts",
+        "relative_path": "deliverables/AgentNexus-M1.8/source/src/agentnexus/model-runtime/streaming.ts",
+        "sha256": "fb0044e550caab6458b5ada0226c7952be90c7e6eb76f2f0de378eec14aa1483",
+        "bytes": 2688,
+        "lines": 34,
+        "read_method": "FULL_READ_PLUS_FINAL_CHANGE_REVIEW",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8\\source\\src\\agentnexus\\model-runtime\\adapters.ts",
+        "relative_path": "deliverables/AgentNexus-M1.8/source/src/agentnexus/model-runtime/adapters.ts",
+        "sha256": "f668ab313b8e54186909424633984fa5a3e03cae274963f9be78dce7ccf3455e",
+        "bytes": 11086,
+        "lines": 108,
+        "read_method": "FULL_READ_PLUS_FINAL_CHANGE_REVIEW",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8\\source\\src\\agentnexus\\model-runtime\\transport.ts",
+        "relative_path": "deliverables/AgentNexus-M1.8/source/src/agentnexus/model-runtime/transport.ts",
+        "sha256": "150e9a801c3ab56a8ebdfa203482ce90262252ae7be91ad3570b43cc69e3ed58",
+        "bytes": 12277,
+        "lines": 91,
+        "read_method": "FULL_READ_PLUS_FINAL_CHANGE_REVIEW",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8\\source\\src\\agentnexus\\model-runtime\\gateway.ts",
+        "relative_path": "deliverables/AgentNexus-M1.8/source/src/agentnexus/model-runtime/gateway.ts",
+        "sha256": "04254b260f3314ba7696ffc00bc1d127c1a4e62a971517688ef33e5f97f4136f",
+        "bytes": 18283,
+        "lines": 136,
+        "read_method": "FULL_READ_PLUS_FINAL_CHANGE_REVIEW",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8\\source\\src\\agentnexus\\model-runtime\\ledger.ts",
+        "relative_path": "deliverables/AgentNexus-M1.8/source/src/agentnexus/model-runtime/ledger.ts",
+        "sha256": "002714ede3b3f674317fbdf011e6ae70b73799e5080a50c063dc776c3ec6031b",
+        "bytes": 17792,
+        "lines": 236,
+        "read_method": "FULL_READ_PLUS_FINAL_CHANGE_REVIEW",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8\\source\\src\\agentnexus\\model-runtime\\vault.ts",
+        "relative_path": "deliverables/AgentNexus-M1.8/source/src/agentnexus/model-runtime/vault.ts",
+        "sha256": "399b05b1147c9c8ac7f62b5852834d86058de92192e846142fbccaa27c50dedd",
+        "bytes": 39974,
+        "lines": 551,
+        "read_method": "FULL_READ_PLUS_FINAL_CHANGE_REVIEW",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8\\source\\src\\agentnexus\\model-runtime\\dpapi.ps1",
+        "relative_path": "deliverables/AgentNexus-M1.8/source/src/agentnexus/model-runtime/dpapi.ps1",
+        "sha256": "a5284e726a8b888c143f4b4992e0280c389d623bc5cf5f8568a6199db7af1ded",
+        "bytes": 1737,
+        "lines": 40,
+        "read_method": "FULL_READ_PLUS_FINAL_CHANGE_REVIEW",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8\\source\\src\\agentnexus\\model-runtime\\review-bridge.ts",
+        "relative_path": "deliverables/AgentNexus-M1.8/source/src/agentnexus/model-runtime/review-bridge.ts",
+        "sha256": "427b4fbb2dc7fb684088950b7943f9700648cec68ba3cc1eaf7da237a536cf22",
+        "bytes": 21842,
+        "lines": 241,
+        "read_method": "FULL_READ_PLUS_FINAL_CHANGE_REVIEW",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8\\source\\src\\agentnexus\\artifacts.ts",
+        "relative_path": "deliverables/AgentNexus-M1.8/source/src/agentnexus/artifacts.ts",
+        "sha256": "6bf7fe570a6f1896261b7f3bdacdc8acd06ce78e43ee1e65ec49a00799643727",
+        "bytes": 21134,
+        "lines": 306,
+        "read_method": "FULL_READ_PLUS_FINAL_CHANGE_REVIEW",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8\\source\\src\\agentnexus\\storage.ts",
+        "relative_path": "deliverables/AgentNexus-M1.8/source/src/agentnexus/storage.ts",
+        "sha256": "d5f80585faac9ca2e1023d547feb43af7f0ba0d507233ab23af1a13f2bc56943",
+        "bytes": 33512,
+        "lines": 481,
+        "read_method": "COMPLETE_M17_BASELINE_PLUS_COMPLETE_FINAL_UNIFIED_DIFF",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8\\source\\src\\agentnexus\\host.ts",
+        "relative_path": "deliverables/AgentNexus-M1.8/source/src/agentnexus/host.ts",
+        "sha256": "eca9cc4fc94f3d921cf7876b98c119e0684a92d80e1fc1fc042a8c2fa842d97b",
+        "bytes": 19004,
+        "lines": 238,
+        "read_method": "COMPLETE_M17_BASELINE_PLUS_COMPLETE_FINAL_UNIFIED_DIFF",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8\\source\\src\\agentnexus\\harness\\index.ts",
+        "relative_path": "deliverables/AgentNexus-M1.8/source/src/agentnexus/harness/index.ts",
+        "sha256": "bbf5aeb5343f562bbc84475f98ef9348a5cec895d2d38d8e05c7cc983387d550",
+        "bytes": 33531,
+        "lines": 307,
+        "read_method": "FULL_READ_PLUS_FINAL_CHANGE_REVIEW",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8\\source\\src\\agentnexus\\harness\\models.ts",
+        "relative_path": "deliverables/AgentNexus-M1.8/source/src/agentnexus/harness/models.ts",
+        "sha256": "2c6a79d5e26a48948c9243b7a74118aa63da4561035bdccf80a0fd3db90f050d",
+        "bytes": 31311,
+        "lines": 353,
+        "read_method": "FULL_READ_PLUS_FINAL_CHANGE_REVIEW",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8\\source\\src\\agentnexus\\harness\\state.ts",
+        "relative_path": "deliverables/AgentNexus-M1.8/source/src/agentnexus/harness/state.ts",
+        "sha256": "b290d9d03427e11b3bf42e5c7ee3eb3ad0b916060ceb2a336e50169b52b54ddf",
+        "bytes": 7890,
+        "lines": 101,
+        "read_method": "FULL_READ_PLUS_FINAL_CHANGE_REVIEW",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8\\source\\tests\\agentnexus\\m18-fixture.ts",
+        "relative_path": "deliverables/AgentNexus-M1.8/source/tests/agentnexus/m18-fixture.ts",
+        "sha256": "ca8f34780314c938a5c62a7c9157e86a97c66865e1766bac7188da76d1f298b5",
+        "bytes": 5385,
+        "lines": 35,
+        "read_method": "FULL_READ_PLUS_FINAL_CHANGE_REVIEW",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8\\source\\tests\\agentnexus\\m18-protocol.test.ts",
+        "relative_path": "deliverables/AgentNexus-M1.8/source/tests/agentnexus/m18-protocol.test.ts",
+        "sha256": "02c69521127bee592162fdfb47d963869bbeea6eb180ffb6843f6ec852d3f3c9",
+        "bytes": 7972,
+        "lines": 71,
+        "read_method": "FULL_READ_PLUS_FINAL_CHANGE_REVIEW",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8\\source\\tests\\agentnexus\\m18-ledger.test.ts",
+        "relative_path": "deliverables/AgentNexus-M1.8/source/tests/agentnexus/m18-ledger.test.ts",
+        "sha256": "2fa929a507b1bec7d632c8aeebb98314a6b3ca8c2185691923c334fd730aa8aa",
+        "bytes": 17660,
+        "lines": 194,
+        "read_method": "FULL_READ_PLUS_FINAL_CHANGE_REVIEW",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8\\source\\tests\\agentnexus\\m18-vault.test.ts",
+        "relative_path": "deliverables/AgentNexus-M1.8/source/tests/agentnexus/m18-vault.test.ts",
+        "sha256": "5c648d31576e21132ffb29f53ea2b46082017c05f741ef4c645fc4293e3cefe4",
+        "bytes": 32608,
+        "lines": 392,
+        "read_method": "FULL_READ_PLUS_FINAL_CHANGE_REVIEW",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8\\source\\tests\\agentnexus\\m18-gateway.test.ts",
+        "relative_path": "deliverables/AgentNexus-M1.8/source/tests/agentnexus/m18-gateway.test.ts",
+        "sha256": "db5b7119ee95456829ad5b9932d558b58fd61e0e3778ea911357528e6e8b58c4",
+        "bytes": 8879,
+        "lines": 66,
+        "read_method": "FULL_READ_PLUS_FINAL_CHANGE_REVIEW",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8\\source\\tests\\agentnexus\\m18-authorization.test.ts",
+        "relative_path": "deliverables/AgentNexus-M1.8/source/tests/agentnexus/m18-authorization.test.ts",
+        "sha256": "932567384d9897cb58493d792e9d07ef0340362efcee9101d60ac1116123000d",
+        "bytes": 4287,
+        "lines": 33,
+        "read_method": "FULL_READ_PLUS_FINAL_CHANGE_REVIEW",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8\\source\\tests\\agentnexus\\m18-secret-boundary.test.ts",
+        "relative_path": "deliverables/AgentNexus-M1.8/source/tests/agentnexus/m18-secret-boundary.test.ts",
+        "sha256": "c5eaa3ce96c34bd8348219f9112f680e40ca4307e0be04d76d7a6773f016a3cd",
+        "bytes": 4005,
+        "lines": 38,
+        "read_method": "FULL_READ_PLUS_FINAL_CHANGE_REVIEW",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8\\source\\tests\\agentnexus\\m18-review-bridge.test.ts",
+        "relative_path": "deliverables/AgentNexus-M1.8/source/tests/agentnexus/m18-review-bridge.test.ts",
+        "sha256": "c0ec50a11f7f9df4a3987247516e42ddb09f8b2b2baa548dacf9ddc5b8b1ba1b",
+        "bytes": 15751,
+        "lines": 150,
+        "read_method": "FULL_READ_PLUS_FINAL_CHANGE_REVIEW",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8\\source\\tests\\agentnexus\\m18-multi-agent.test.ts",
+        "relative_path": "deliverables/AgentNexus-M1.8/source/tests/agentnexus/m18-multi-agent.test.ts",
+        "sha256": "77ecfda469b9980e5542c6b4f25dd81bee75f7c0b403f225003488fe5d034106",
+        "bytes": 3895,
+        "lines": 24,
+        "read_method": "FULL_READ_PLUS_FINAL_CHANGE_REVIEW",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8\\source\\src\\agentnexus\\harness\\context.ts",
+        "relative_path": "deliverables/AgentNexus-M1.8/source/src/agentnexus/harness/context.ts",
+        "sha256": "322c8f68c7d19181a973a9f9cbd7a7d39cbd348a8b8442904b32924b9c209f97",
+        "bytes": 25433,
+        "lines": 303,
+        "read_method": "FULL_READ_PLUS_FINAL_CHANGE_REVIEW",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8\\source\\src\\agentnexus\\harness\\contracts.ts",
+        "relative_path": "deliverables/AgentNexus-M1.8/source/src/agentnexus/harness/contracts.ts",
+        "sha256": "fae11a6e1a11ea1cd1e737ce1320b344a17c974baba4f7d33402fff84c8dfc39",
+        "bytes": 2537,
+        "lines": 36,
+        "read_method": "FULL_READ_PLUS_FINAL_CHANGE_REVIEW",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8\\source\\tests\\agentnexus\\m18-review-fixes.test.ts",
+        "relative_path": "deliverables/AgentNexus-M1.8/source/tests/agentnexus/m18-review-fixes.test.ts",
+        "sha256": "a873a259e5279ed161e562dd86c5e28df6eb7c65fee201e08893b6c7b696977f",
+        "bytes": 7900,
+        "lines": 51,
+        "read_method": "FULL_READ_PLUS_FINAL_CHANGE_REVIEW",
+        "independent_review": true
+      }
+    ],
+    "authored_excluded": [
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8\\source\\src\\agentnexus\\model-runtime\\git-reviewer.ts",
+        "relative_path": "deliverables/AgentNexus-M1.8/source/src/agentnexus/model-runtime/git-reviewer.ts",
+        "sha256": "a4a754264d24918e6c98a8e7fff176e44e476377a573b560757807e60d62550d",
+        "bytes": 18606,
+        "lines": 262,
+        "read_method": "ENGINEERING_AUTHORSHIP_NOT_INDEPENDENT",
+        "independent_review": false
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8\\source\\tests\\agentnexus\\m18-git-reviewer.test.ts",
+        "relative_path": "deliverables/AgentNexus-M1.8/source/tests/agentnexus/m18-git-reviewer.test.ts",
+        "sha256": "00c7c385b91a4026dabeffc58016f8de477793befb3d07a07daeee1b7062e279",
+        "bytes": 19153,
+        "lines": 255,
+        "read_method": "ENGINEERING_AUTHORSHIP_NOT_INDEPENDENT",
+        "independent_review": false
+      }
+    ],
+    "execution_logs": [
+      {
+        "path": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8\\reviews\\security-tests-final.log",
+        "relative_path": ".workflow-kit/runtime/AgentNexus-M1.8/reviews/security-tests-final.log",
+        "sha256": "66eeda6a99ee88dcb778a86d0b4e143e70a5bbf1b172f1abea418387adf5be42",
+        "bytes": 8033,
+        "lines": 88,
+        "read_method": "EXECUTED_AND_RECORDED",
+        "independent_review": true
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8\\reviews\\security-ledger-final.log",
+        "relative_path": ".workflow-kit/runtime/AgentNexus-M1.8/reviews/security-ledger-final.log",
+        "sha256": "a5bb2ed03c06e78082432ceb8727387431ee9e78aba2e7bb19f2dd5382a7084f",
+        "bytes": 1729,
+        "lines": 23,
+        "read_method": "EXECUTED_AND_RECORDED",
+        "independent_review": true
+      }
+    ],
+    "inherited_identical_m18_non_harness": [
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8\\source\\src\\agentnexus\\types.ts",
+        "relative_path": "deliverables/AgentNexus-M1.8/source/src/agentnexus/types.ts",
+        "sha256": "7bd207b6d34d63d5d443eedae516abc292942562b6b58ecf2f3ffccd566fdb25",
+        "bytes": 6839,
+        "lines": 128,
+        "read_method": "BYTE_IDENTICAL_TO_FULLY_READ_M17_SOURCE",
+        "independent_review": true,
+        "baseline_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\types.ts"
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8\\source\\src\\agentnexus\\records.ts",
+        "relative_path": "deliverables/AgentNexus-M1.8/source/src/agentnexus/records.ts",
+        "sha256": "393e0a70a20a4dae21287169d1313bae949842cf0f712bacb3ebf432a5ed7800",
+        "bytes": 6510,
+        "lines": 100,
+        "read_method": "BYTE_IDENTICAL_TO_FULLY_READ_M17_SOURCE",
+        "independent_review": true,
+        "baseline_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\records.ts"
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8\\source\\src\\agentnexus\\control.ts",
+        "relative_path": "deliverables/AgentNexus-M1.8/source/src/agentnexus/control.ts",
+        "sha256": "3a549eb7bf5548b2b0453711899c0b7bfb1ea4d346dfad0bca11d4c166bf46d4",
+        "bytes": 8234,
+        "lines": 107,
+        "read_method": "BYTE_IDENTICAL_TO_FULLY_READ_M17_SOURCE",
+        "independent_review": true,
+        "baseline_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\control.ts"
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8\\source\\src\\agentnexus\\cli.ts",
+        "relative_path": "deliverables/AgentNexus-M1.8/source/src/agentnexus/cli.ts",
+        "sha256": "21b22392926ebe706f3d2a382205a7ed0afcf9477b619707df250dd2089334bb",
+        "bytes": 1927,
+        "lines": 29,
+        "read_method": "BYTE_IDENTICAL_TO_FULLY_READ_M17_SOURCE",
+        "independent_review": true,
+        "baseline_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\cli.ts"
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8\\source\\src\\agentnexus\\runtime\\contracts.ts",
+        "relative_path": "deliverables/AgentNexus-M1.8/source/src/agentnexus/runtime/contracts.ts",
+        "sha256": "308378e645233f6317de44399d59eb0a15bbaf4b0f506a2083917a999651b725",
+        "bytes": 7187,
+        "lines": 85,
+        "read_method": "BYTE_IDENTICAL_TO_FULLY_READ_M17_SOURCE",
+        "independent_review": true,
+        "baseline_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\runtime\\contracts.ts"
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8\\source\\src\\agentnexus\\runtime\\ipc.ts",
+        "relative_path": "deliverables/AgentNexus-M1.8/source/src/agentnexus/runtime/ipc.ts",
+        "sha256": "9b8d5c096ffc4b529a5919047d84cff16dfdef495b148f1af7748f49380130a5",
+        "bytes": 2759,
+        "lines": 43,
+        "read_method": "BYTE_IDENTICAL_TO_FULLY_READ_M17_SOURCE",
+        "independent_review": true,
+        "baseline_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\runtime\\ipc.ts"
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8\\source\\src\\agentnexus\\runtime\\broker.ts",
+        "relative_path": "deliverables/AgentNexus-M1.8/source/src/agentnexus/runtime/broker.ts",
+        "sha256": "611056760e82606bae893c2ed78831adb0e3b8ac102a4206b8af6cafc021efc2",
+        "bytes": 884,
+        "lines": 14,
+        "read_method": "BYTE_IDENTICAL_TO_FULLY_READ_M17_SOURCE",
+        "independent_review": true,
+        "baseline_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\runtime\\broker.ts"
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8\\source\\src\\agentnexus\\runtime\\audit.ts",
+        "relative_path": "deliverables/AgentNexus-M1.8/source/src/agentnexus/runtime/audit.ts",
+        "sha256": "14f06526c6a48473aca95e5a47077e69b63db646ca1d605af0df8272207584c4",
+        "bytes": 2003,
+        "lines": 28,
+        "read_method": "BYTE_IDENTICAL_TO_FULLY_READ_M17_SOURCE",
+        "independent_review": true,
+        "baseline_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\runtime\\audit.ts"
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8\\source\\src\\agentnexus\\resources\\contracts.ts",
+        "relative_path": "deliverables/AgentNexus-M1.8/source/src/agentnexus/resources/contracts.ts",
+        "sha256": "537d73a7c108bd986df2445ed9949363ee043ad82a53ae7bf6946c75b076221d",
+        "bytes": 3328,
+        "lines": 32,
+        "read_method": "BYTE_IDENTICAL_TO_FULLY_READ_M17_SOURCE",
+        "independent_review": true,
+        "baseline_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\resources\\contracts.ts"
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8\\source\\src\\agentnexus\\resources\\registry.ts",
+        "relative_path": "deliverables/AgentNexus-M1.8/source/src/agentnexus/resources/registry.ts",
+        "sha256": "ca34e7885011e9ffdc9f5588cf3201d2361baa5a6cefb86a9eaea9f9629f9661",
+        "bytes": 2892,
+        "lines": 17,
+        "read_method": "BYTE_IDENTICAL_TO_FULLY_READ_M17_SOURCE",
+        "independent_review": true,
+        "baseline_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\resources\\registry.ts"
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8\\source\\src\\agentnexus\\resources\\index.ts",
+        "relative_path": "deliverables/AgentNexus-M1.8/source/src/agentnexus/resources/index.ts",
+        "sha256": "382ed3c1750941feb1642edc4fa1462760c7eb4176ffd95fc7167d5af87bf042",
+        "bytes": 166,
+        "lines": 4,
+        "read_method": "BYTE_IDENTICAL_TO_FULLY_READ_M17_SOURCE",
+        "independent_review": true,
+        "baseline_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\resources\\index.ts"
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8\\source\\src\\agentnexus\\gateway.ts",
+        "relative_path": "deliverables/AgentNexus-M1.8/source/src/agentnexus/gateway.ts",
+        "sha256": "89324db842f7ce1cdac2c5dcaf73441ea84fff549b943953514b845b3b8670d3",
+        "bytes": 24460,
+        "lines": 272,
+        "read_method": "BYTE_IDENTICAL_TO_FULLY_READ_M17_SOURCE",
+        "independent_review": true,
+        "baseline_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\gateway.ts"
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8\\source\\src\\agentnexus\\policy.ts",
+        "relative_path": "deliverables/AgentNexus-M1.8/source/src/agentnexus/policy.ts",
+        "sha256": "31a6f1250ab2c5e9271181b23cc347b72fd502d7b2bfa229716dd976ee040f49",
+        "bytes": 18232,
+        "lines": 225,
+        "read_method": "BYTE_IDENTICAL_TO_FULLY_READ_M17_SOURCE",
+        "independent_review": true,
+        "baseline_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\policy.ts"
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8\\source\\src\\agentnexus\\policy-contracts.ts",
+        "relative_path": "deliverables/AgentNexus-M1.8/source/src/agentnexus/policy-contracts.ts",
+        "sha256": "e8610d492624c29fac7ad557c0363c6b704f6ba8ab01c110517e7d0299286511",
+        "bytes": 4635,
+        "lines": 193,
+        "read_method": "BYTE_IDENTICAL_TO_FULLY_READ_M17_SOURCE",
+        "independent_review": true,
+        "baseline_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\policy-contracts.ts"
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8\\source\\src\\agentnexus\\features.ts",
+        "relative_path": "deliverables/AgentNexus-M1.8/source/src/agentnexus/features.ts",
+        "sha256": "d6aafeafd88f6fd5660afa6b4f29b68625d70ffc8f8138f90db657b6acacda5e",
+        "bytes": 12008,
+        "lines": 163,
+        "read_method": "BYTE_IDENTICAL_TO_FULLY_READ_M17_SOURCE",
+        "independent_review": true,
+        "baseline_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\features.ts"
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8\\source\\src\\agentnexus\\reconciliation.ts",
+        "relative_path": "deliverables/AgentNexus-M1.8/source/src/agentnexus/reconciliation.ts",
+        "sha256": "9f65ae9b5b0e4f049efabfadc1cb5ad263ce0b5ea7703a15bb8789f27d3f1906",
+        "bytes": 14568,
+        "lines": 171,
+        "read_method": "BYTE_IDENTICAL_TO_FULLY_READ_M17_SOURCE",
+        "independent_review": true,
+        "baseline_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\reconciliation.ts"
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8\\source\\src\\agentnexus\\integrity.ts",
+        "relative_path": "deliverables/AgentNexus-M1.8/source/src/agentnexus/integrity.ts",
+        "sha256": "172a40c429c9e8a99f8cc1fcee2ef500adb4e7d378f0f6188fbbe7f792edfe66",
+        "bytes": 18691,
+        "lines": 342,
+        "read_method": "BYTE_IDENTICAL_TO_FULLY_READ_M17_SOURCE",
+        "independent_review": true,
+        "baseline_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\integrity.ts"
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8\\source\\src\\agentnexus\\diagnostics.ts",
+        "relative_path": "deliverables/AgentNexus-M1.8/source/src/agentnexus/diagnostics.ts",
+        "sha256": "d869a291068564eb942b05623f2b8e3f0f8348c40647215e1b85d86eef27d86d",
+        "bytes": 31299,
+        "lines": 469,
+        "read_method": "BYTE_IDENTICAL_TO_FULLY_READ_M17_SOURCE",
+        "independent_review": true,
+        "baseline_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\diagnostics.ts"
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8\\source\\src\\agentnexus\\runtime\\control.ts",
+        "relative_path": "deliverables/AgentNexus-M1.8/source/src/agentnexus/runtime/control.ts",
+        "sha256": "4b78fdfdbab38bc1d07dafea5fa323c72e1d02eeefbc7071b13f515ef6cec502",
+        "bytes": 27386,
+        "lines": 300,
+        "read_method": "BYTE_IDENTICAL_TO_FULLY_READ_M17_SOURCE",
+        "independent_review": true,
+        "baseline_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\runtime\\control.ts"
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8\\source\\src\\agentnexus\\resources\\budget-manager.ts",
+        "relative_path": "deliverables/AgentNexus-M1.8/source/src/agentnexus/resources/budget-manager.ts",
+        "sha256": "7ea22cc6c6b9facf741413be900fd1c9b0396f07d1d6472e4787f8a4014737b9",
+        "bytes": 18270,
+        "lines": 147,
+        "read_method": "BYTE_IDENTICAL_TO_FULLY_READ_M17_SOURCE",
+        "independent_review": true,
+        "baseline_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\resources\\budget-manager.ts"
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8\\source\\src\\agentnexus\\production\\contracts.ts",
+        "relative_path": "deliverables/AgentNexus-M1.8/source/src/agentnexus/production/contracts.ts",
+        "sha256": "368e611e224288350ca5a9eeeb883ccdc2b5d02129fbcbd5718cdf1e88f65620",
+        "bytes": 7169,
+        "lines": 94,
+        "read_method": "BYTE_IDENTICAL_TO_FULLY_READ_M17_SOURCE",
+        "independent_review": true,
+        "baseline_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\production\\contracts.ts"
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8\\source\\src\\agentnexus\\production\\qualification.ts",
+        "relative_path": "deliverables/AgentNexus-M1.8/source/src/agentnexus/production/qualification.ts",
+        "sha256": "151529013bfab546831927c4f7f42d3961e268577ab27b5bd7c6de065e187e7f",
+        "bytes": 2691,
+        "lines": 32,
+        "read_method": "BYTE_IDENTICAL_TO_FULLY_READ_M17_SOURCE",
+        "independent_review": true,
+        "baseline_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\production\\qualification.ts"
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8\\source\\src\\agentnexus\\production\\identity.ts",
+        "relative_path": "deliverables/AgentNexus-M1.8/source/src/agentnexus/production/identity.ts",
+        "sha256": "157d276bd002b5b624d40675e41b67d1beab86a1db478ba50b8a64324e24bba1",
+        "bytes": 6805,
+        "lines": 92,
+        "read_method": "BYTE_IDENTICAL_TO_FULLY_READ_M17_SOURCE",
+        "independent_review": true,
+        "baseline_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\production\\identity.ts"
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8\\source\\src\\agentnexus\\production\\resources.ts",
+        "relative_path": "deliverables/AgentNexus-M1.8/source/src/agentnexus/production/resources.ts",
+        "sha256": "949e0713c1ebeca78a1b8c9598aef8414a5166f6371cb4d1f106f311e6a67b2c",
+        "bytes": 2621,
+        "lines": 36,
+        "read_method": "BYTE_IDENTICAL_TO_FULLY_READ_M17_SOURCE",
+        "independent_review": true,
+        "baseline_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\production\\resources.ts"
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8\\source\\src\\agentnexus\\production\\service.ts",
+        "relative_path": "deliverables/AgentNexus-M1.8/source/src/agentnexus/production/service.ts",
+        "sha256": "4954b7cc8e005d961ee6408dd161046c8337c44dfe3b3439d1a2b289fdc2150d",
+        "bytes": 1626,
+        "lines": 27,
+        "read_method": "BYTE_IDENTICAL_TO_FULLY_READ_M17_SOURCE",
+        "independent_review": true,
+        "baseline_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\production\\service.ts"
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8\\source\\src\\agentnexus\\production\\audit.ts",
+        "relative_path": "deliverables/AgentNexus-M1.8/source/src/agentnexus/production/audit.ts",
+        "sha256": "51ede7c82086d72707cc965891a673e2addf4cfd6efdf836b534988823c485f8",
+        "bytes": 1494,
+        "lines": 22,
+        "read_method": "BYTE_IDENTICAL_TO_FULLY_READ_M17_SOURCE",
+        "independent_review": true,
+        "baseline_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\production\\audit.ts"
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8\\source\\src\\agentnexus\\production\\authority.ts",
+        "relative_path": "deliverables/AgentNexus-M1.8/source/src/agentnexus/production/authority.ts",
+        "sha256": "47546dbe8f131e27a1ae2ddfafec3f1227c06deee0dc395100e9dc60ee623e05",
+        "bytes": 12620,
+        "lines": 130,
+        "read_method": "BYTE_IDENTICAL_TO_FULLY_READ_M17_SOURCE",
+        "independent_review": true,
+        "baseline_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\production\\authority.ts"
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8\\source\\src\\agentnexus\\production\\host.ts",
+        "relative_path": "deliverables/AgentNexus-M1.8/source/src/agentnexus/production/host.ts",
+        "sha256": "c849b9d28e583937449b63f863f147dcc51e683ee378edac44fc77245ab5c3ff",
+        "bytes": 5540,
+        "lines": 63,
+        "read_method": "BYTE_IDENTICAL_TO_FULLY_READ_M17_SOURCE",
+        "independent_review": true,
+        "baseline_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\production\\host.ts"
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8\\source\\src\\agentnexus\\production\\transport.ts",
+        "relative_path": "deliverables/AgentNexus-M1.8/source/src/agentnexus/production/transport.ts",
+        "sha256": "1d4d6ca1d680be24aef8e40ee703f66d11ec25e5514cb53c74f2f470a09d120d",
+        "bytes": 6280,
+        "lines": 67,
+        "read_method": "BYTE_IDENTICAL_TO_FULLY_READ_M17_SOURCE",
+        "independent_review": true,
+        "baseline_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\production\\transport.ts"
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8\\source\\src\\agentnexus\\production\\broker.ts",
+        "relative_path": "deliverables/AgentNexus-M1.8/source/src/agentnexus/production/broker.ts",
+        "sha256": "dc7a7f7294d9035e97f41058d60b802f804fe8b18e7c232a29906f5de8ee1e3c",
+        "bytes": 17841,
+        "lines": 164,
+        "read_method": "BYTE_IDENTICAL_TO_FULLY_READ_M17_SOURCE",
+        "independent_review": true,
+        "baseline_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\production\\broker.ts"
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8\\source\\src\\agentnexus\\production\\file-broker.ts",
+        "relative_path": "deliverables/AgentNexus-M1.8/source/src/agentnexus/production/file-broker.ts",
+        "sha256": "1fdbdf438e2ab5591b56d90a69786cbcf27bacc0290e200e09bc6c4e771f1a51",
+        "bytes": 10339,
+        "lines": 103,
+        "read_method": "BYTE_IDENTICAL_TO_FULLY_READ_M17_SOURCE",
+        "independent_review": true,
+        "baseline_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\production\\file-broker.ts"
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8\\source\\src\\agentnexus\\production\\exit.ts",
+        "relative_path": "deliverables/AgentNexus-M1.8/source/src/agentnexus/production/exit.ts",
+        "sha256": "fce46daa7544c1f6de2544cd4def6856e99c285717d47caed1fbe6362ec9101d",
+        "bytes": 11644,
+        "lines": 108,
+        "read_method": "BYTE_IDENTICAL_TO_FULLY_READ_M17_SOURCE",
+        "independent_review": true,
+        "baseline_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\production\\exit.ts"
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8\\source\\src\\agentnexus\\production\\windows-supervisor.ts",
+        "relative_path": "deliverables/AgentNexus-M1.8/source/src/agentnexus/production/windows-supervisor.ts",
+        "sha256": "7006732045e8e96f66dba6f68c4367ecf947a353f61a63f0b4992ad86746f724",
+        "bytes": 9261,
+        "lines": 79,
+        "read_method": "BYTE_IDENTICAL_TO_FULLY_READ_M17_SOURCE",
+        "independent_review": true,
+        "baseline_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\production\\windows-supervisor.ts"
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8\\source\\src\\agentnexus\\production\\native-client.ts",
+        "relative_path": "deliverables/AgentNexus-M1.8/source/src/agentnexus/production/native-client.ts",
+        "sha256": "f378c1bf5938ae5821fc1130d60d920874891bdf76fb1a911dc0a9310e9f05e8",
+        "bytes": 7037,
+        "lines": 86,
+        "read_method": "BYTE_IDENTICAL_TO_FULLY_READ_M17_SOURCE",
+        "independent_review": true,
+        "baseline_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\production\\native-client.ts"
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8\\source\\src\\agentnexus\\production\\windows\\runtime.ps1",
+        "relative_path": "deliverables/AgentNexus-M1.8/source/src/agentnexus/production/windows/runtime.ps1",
+        "sha256": "7ea9a3fc50965611e21103469c28d47bdeb4893728c193d60074faf9ff2741cd",
+        "bytes": 8978,
+        "lines": 114,
+        "read_method": "BYTE_IDENTICAL_TO_FULLY_READ_M17_SOURCE",
+        "independent_review": true,
+        "baseline_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\production\\windows\\runtime.ps1"
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8\\source\\src\\agentnexus\\runtime\\windows\\NativeProbe.cs",
+        "relative_path": "deliverables/AgentNexus-M1.8/source/src/agentnexus/runtime/windows/NativeProbe.cs",
+        "sha256": "3a96b192e46bca3f5774c8096ca598e4ce723776993062cd363e6a8cfe7e202f",
+        "bytes": 15171,
+        "lines": 149,
+        "read_method": "BYTE_IDENTICAL_TO_FULLY_READ_M17_SOURCE",
+        "independent_review": true,
+        "baseline_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\runtime\\windows\\NativeProbe.cs"
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8\\source\\src\\agentnexus\\production\\windows\\NativeRuntime.cs",
+        "relative_path": "deliverables/AgentNexus-M1.8/source/src/agentnexus/production/windows/NativeRuntime.cs",
+        "sha256": "2c5cf6a60c33b91604763a12d7d5ac970c68a0b87a41510f5d09c5fa540398ca",
+        "bytes": 67315,
+        "lines": 282,
+        "read_method": "BYTE_IDENTICAL_TO_FULLY_READ_M17_SOURCE",
+        "independent_review": true,
+        "baseline_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\production\\windows\\NativeRuntime.cs"
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8\\source\\src\\agentnexus\\production\\windows\\BootstrapNative.cs",
+        "relative_path": "deliverables/AgentNexus-M1.8/source/src/agentnexus/production/windows/BootstrapNative.cs",
+        "sha256": "f44ee579f9c3a78419acab4e2a3dc85aab9cca0acc6ceb4e44f40f1a86923e80",
+        "bytes": 55713,
+        "lines": 687,
+        "read_method": "BYTE_IDENTICAL_TO_FULLY_READ_M17_SOURCE",
+        "independent_review": true,
+        "baseline_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\production\\windows\\BootstrapNative.cs"
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8\\source\\src\\agentnexus\\bootstrap\\config.ts",
+        "relative_path": "deliverables/AgentNexus-M1.8/source/src/agentnexus/bootstrap/config.ts",
+        "sha256": "281e683c0f4fac5a0618deff0976da09ccaca860935cf1c044541f5cf7e5aea0",
+        "bytes": 12928,
+        "lines": 81,
+        "read_method": "BYTE_IDENTICAL_TO_FULLY_READ_M17_SOURCE",
+        "independent_review": true,
+        "baseline_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\bootstrap\\config.ts"
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8\\source\\src\\agentnexus\\bootstrap\\permissions.ts",
+        "relative_path": "deliverables/AgentNexus-M1.8/source/src/agentnexus/bootstrap/permissions.ts",
+        "sha256": "4019e1c2ee1a663eec62a9e68d4ccb5dd774e88ecb571e532c81c10e39d6b2b7",
+        "bytes": 2307,
+        "lines": 19,
+        "read_method": "BYTE_IDENTICAL_TO_FULLY_READ_M17_SOURCE",
+        "independent_review": true,
+        "baseline_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\bootstrap\\permissions.ts"
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8\\source\\src\\agentnexus\\bootstrap\\entry.ts",
+        "relative_path": "deliverables/AgentNexus-M1.8/source/src/agentnexus/bootstrap/entry.ts",
+        "sha256": "fda08b8be8ffe4d232f3803955e335e8e1f27fdb2eb31738e390cce380ce7fb7",
+        "bytes": 7082,
+        "lines": 61,
+        "read_method": "BYTE_IDENTICAL_TO_FULLY_READ_M17_SOURCE",
+        "independent_review": true,
+        "baseline_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\bootstrap\\entry.ts"
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8\\source\\src\\agentnexus\\bootstrap\\launcher-proof.ts",
+        "relative_path": "deliverables/AgentNexus-M1.8/source/src/agentnexus/bootstrap/launcher-proof.ts",
+        "sha256": "a05e7450e54618e5cde093f283211ab1e0dfc5630e1cd5b365103b2d2a9e0ed2",
+        "bytes": 3221,
+        "lines": 26,
+        "read_method": "BYTE_IDENTICAL_TO_FULLY_READ_M17_SOURCE",
+        "independent_review": true,
+        "baseline_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\bootstrap\\launcher-proof.ts"
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8\\source\\src\\agentnexus\\bootstrap\\ubuntu\\peer_probe.c",
+        "relative_path": "deliverables/AgentNexus-M1.8/source/src/agentnexus/bootstrap/ubuntu/peer_probe.c",
+        "sha256": "db6938c1978ae79c2c371ac473fab68619077ca093e6a93b0d6dcbe79581dfba",
+        "bytes": 867,
+        "lines": 20,
+        "read_method": "BYTE_IDENTICAL_TO_FULLY_READ_M17_SOURCE",
+        "independent_review": true,
+        "baseline_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\bootstrap\\ubuntu\\peer_probe.c"
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8\\source\\src\\agentnexus\\bootstrap\\session.ts",
+        "relative_path": "deliverables/AgentNexus-M1.8/source/src/agentnexus/bootstrap/session.ts",
+        "sha256": "97b0e9435f9468fd9b46f56792f0335ab1d20ec915b832f98b836334662daec5",
+        "bytes": 9978,
+        "lines": 104,
+        "read_method": "BYTE_IDENTICAL_TO_FULLY_READ_M17_SOURCE",
+        "independent_review": true,
+        "baseline_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\bootstrap\\session.ts"
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8\\source\\src\\agentnexus\\bootstrap\\worker.ts",
+        "relative_path": "deliverables/AgentNexus-M1.8/source/src/agentnexus/bootstrap/worker.ts",
+        "sha256": "39ee6763699b1db18466e30dab7538499d4f3315a80faaf674d853f620814158",
+        "bytes": 5184,
+        "lines": 41,
+        "read_method": "BYTE_IDENTICAL_TO_FULLY_READ_M17_SOURCE",
+        "independent_review": true,
+        "baseline_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\bootstrap\\worker.ts"
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8\\source\\src\\agentnexus\\bootstrap\\ubuntu.ts",
+        "relative_path": "deliverables/AgentNexus-M1.8/source/src/agentnexus/bootstrap/ubuntu.ts",
+        "sha256": "42685813efcc56eebfede5097d81d56bb0445cd8fa32a1d0c70e793a9db5a3f3",
+        "bytes": 3650,
+        "lines": 26,
+        "read_method": "BYTE_IDENTICAL_TO_FULLY_READ_M17_SOURCE",
+        "independent_review": true,
+        "baseline_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\bootstrap\\ubuntu.ts"
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8\\source\\src\\agentnexus\\bootstrap\\supervisor.ts",
+        "relative_path": "deliverables/AgentNexus-M1.8/source/src/agentnexus/bootstrap/supervisor.ts",
+        "sha256": "58a926b240429ddc4f45595b16566069294541839a549443483ccdeecccea77e",
+        "bytes": 12489,
+        "lines": 104,
+        "read_method": "BYTE_IDENTICAL_TO_FULLY_READ_M17_SOURCE",
+        "independent_review": true,
+        "baseline_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\bootstrap\\supervisor.ts"
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8\\source\\src\\agentnexus\\bootstrap\\reservations.ts",
+        "relative_path": "deliverables/AgentNexus-M1.8/source/src/agentnexus/bootstrap/reservations.ts",
+        "sha256": "b62f7dec432c201fd549aa276d303af756c8a8d90fe974be42603097077adc93",
+        "bytes": 6251,
+        "lines": 42,
+        "read_method": "BYTE_IDENTICAL_TO_FULLY_READ_M17_SOURCE",
+        "independent_review": true,
+        "baseline_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\bootstrap\\reservations.ts"
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8\\source\\src\\agentnexus\\bootstrap\\exit-closure.ts",
+        "relative_path": "deliverables/AgentNexus-M1.8/source/src/agentnexus/bootstrap/exit-closure.ts",
+        "sha256": "c2aacb31be493bd47f697f0397bfae11d37d5f79639596bd3f884f5a65d82dcf",
+        "bytes": 4432,
+        "lines": 35,
+        "read_method": "BYTE_IDENTICAL_TO_FULLY_READ_M17_SOURCE",
+        "independent_review": true,
+        "baseline_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\bootstrap\\exit-closure.ts"
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8\\source\\src\\agentnexus\\bootstrap\\runtime.ts",
+        "relative_path": "deliverables/AgentNexus-M1.8/source/src/agentnexus/bootstrap/runtime.ts",
+        "sha256": "f56ee410d95bded16f3af51010f7143cc836f84e4121df0340c7d85d5274b431",
+        "bytes": 19795,
+        "lines": 132,
+        "read_method": "BYTE_IDENTICAL_TO_FULLY_READ_M17_SOURCE",
+        "independent_review": true,
+        "baseline_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\bootstrap\\runtime.ts"
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8\\source\\src\\agentnexus\\checkers\\python_ast.py",
+        "relative_path": "deliverables/AgentNexus-M1.8/source/src/agentnexus/checkers/python_ast.py",
+        "sha256": "a9595eca900b49c4ec88e82599c28569b01e543ed8ecb52908ae0772b104fc6e",
+        "bytes": 2998,
+        "lines": 74,
+        "read_method": "BYTE_IDENTICAL_TO_FULLY_READ_M17_SOURCE",
+        "independent_review": true,
+        "baseline_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\checkers\\python_ast.py"
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8\\source\\src\\agentnexus\\checkers\\powershell_ast.ps1",
+        "relative_path": "deliverables/AgentNexus-M1.8/source/src/agentnexus/checkers/powershell_ast.ps1",
+        "sha256": "90079d41e2083df61ee87456cbe81a4d1863b2f4053df0ab9e78b668e3789ae8",
+        "bytes": 3780,
+        "lines": 88,
+        "read_method": "BYTE_IDENTICAL_TO_FULLY_READ_M17_SOURCE",
+        "independent_review": true,
+        "baseline_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.7\\source\\src\\agentnexus\\checkers\\powershell_ast.ps1"
+      }
+    ]
+  },
+  "generated_at_utc": "2026-11-08T06:44:09.948Z",
+  "manifest_counts": {
+    "baseline_rules": 2,
+    "baseline_source": 55,
+    "baseline_tests": 29,
+    "baseline_documents": 7,
+    "supplemental_rules": 1,
+    "final_independent": 27,
+    "authored_excluded": 2,
+    "execution_logs": 2,
+    "inherited_identical_m18_non_harness": 52
+  },
+  "final_independent_source_manifest_sha256": "7ca2ce1c11ee34201ba0d0dc4a883e598603ac3c5a30890d5d2b96ce21639329"
+}

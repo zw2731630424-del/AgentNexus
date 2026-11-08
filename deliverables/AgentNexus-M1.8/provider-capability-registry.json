@@ -1,0 +1,15 @@
+{
+  "schema": "agentnexus/m1.8/provider-catalog/1",
+  "checked_at": "2026-11-08",
+  "purpose": "Host admission template; executable validation is CapabilityRegistry, no automatic network registration",
+  "live_enabled": false,
+  "providers": [
+    {"provider_id":"openai","endpoint":"https://api.openai.com/v1/chat/completions","adapter":"OpenAIAdapter","integration_status":"NOT_RUN","source":"https://developers.openai.com/api/reference/resources/chat/subresources/completions/methods/create"},
+    {"provider_id":"deepseek","endpoint":"https://api.deepseek.com/chat/completions","adapter":"DeepSeekAdapter","integration_status":"NOT_RUN","source":"https://api-docs.deepseek.com/api/create-chat-completion/"},
+    {"provider_id":"glm","endpoint":"https://open.bigmodel.cn/api/paas/v4/chat/completions","adapter":"GLMAdapter","integration_status":"NOT_RUN","source":"https://docs.bigmodel.cn/api-reference/模型-api/对话补全"}
+  ],
+  "real_models": [],
+  "real_prices": [],
+  "registration_requirements": ["exact Model ID chosen by user", "official model capability evidence", "explicit prices/currency/source/checked_at/valid_until", "approved endpoint and data hashes", "verified user budget authorization", "qualified credential service and Worker boundary"],
+  "synthetic_models": "Only in explicitly labeled engineering fixtures; never Provider capability or pricing evidence"
+}

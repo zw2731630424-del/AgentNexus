@@ -1,0 +1,108 @@
+{
+  "schema": "agentnexus/m1.8/acceptance/1",
+  "generated_at": "2026-11-08T06:47:50.741771+00:00",
+  "status": "BLOCKED",
+  "offline_scope": "PASS",
+  "full_regression": "FAIL",
+  "real_provider": "NOT_RUN",
+  "production_credential_isolation": "BLOCKED",
+  "real_model_rnd": "NOT_RUN",
+  "comparative_superiority": "INCONCLUSIVE",
+  "resident_24_hours": "NOT_RUN",
+  "source_set_sha256": "cddca8b1cc71876d8a078018aaac09fc8804df7ce0453b8fd455d150ed5475dc",
+  "source_files": 178,
+  "head_at_start": "c45822ac2867a4975cc6ba833430dc0140410bfe",
+  "baseline_set_sha256": "8167ce3e78c602f43bee2b3a4d792a5054f76d7121a6a7730b14cc37eb5c4c6c",
+  "new_tests": {
+    "tests": 108,
+    "passed": 108,
+    "failed": 0,
+    "skipped": 0
+  },
+  "regression": {
+    "tests": 640,
+    "failed": 1,
+    "passed": 623,
+    "cancelled": 0,
+    "skipped": 16,
+    "todo": 0,
+    "topLevel": 573,
+    "suites": 0
+  },
+  "regression_failures": [
+    {
+      "name": "M151 REAL_WINDOWS_PRIMITIVE: CREATE_BREAKAWAY_FROM_JOB is denied by the private Job",
+      "error": "{\"code\":\"WIN32_5\",\"message\":\"NtCreateFile component\"}\n\nfalse !== true\n"
+    }
+  ],
+  "syntax": "PASS",
+  "strict_types": "PASS",
+  "historical_files_preserved": 15510,
+  "model_evidence": {
+    "status": "NOT_RUN",
+    "real_provider_requests": 0,
+    "real_credential_imports": 0,
+    "actual_cost_micros": 0,
+    "currency": "USD",
+    "source": "All executed Gateway traces are FixtureTransport SIMULATED; no live Vault backend or real Provider grant used. Pure ledger arithmetic fixtures are excluded.",
+    "synthetic_gateway_requests": 25,
+    "synthetic_traces": 35
+  },
+  "ordinary_worker_process": "BLOCKED",
+  "ordinary_worker_external_effect": "BLOCKED",
+  "strict_cumulative_cpu": "BLOCKED",
+  "os_security_changes": 0,
+  "automatic_commits": 0,
+  "automatic_pushes": 0,
+  "git_hooks_installed": 0,
+  "resident_short_runs": [
+    {
+      "status": "NOT_RUN",
+      "short_run_status": "PASS",
+      "observed_ms": 4182.9374,
+      "events": 1
+    },
+    {
+      "status": "NOT_RUN",
+      "short_run_status": "PASS",
+      "observed_ms": 4186.920300000001,
+      "events": 1
+    }
+  ],
+  "verification_directory": ".workflow-kit\\runtime\\AgentNexus-M1.8\\w\\r-fe266e156726",
+  "limitations": [
+    "LIVE CredentialVault always refuses import; synthetic DPAPI does not qualify same-account Worker isolation.",
+    "All model intelligence remains SIMULATED. Three adapters are not three real integrations.",
+    "Unknown requests/closures retain holds and capacity; automatic retry/release prohibited.",
+    "Price/capability configuration requires exact model evidence; no live pricing was selected. Cache-specific actual billing is NOT_RUN.",
+    "Wall clock is a trusted Host assumption; rollback-resistant credential/approval expiry is not qualified.",
+    "Git COMMIT/PUSH event source is a trusted local Host input. No deployed continuous watcher or real push event was exercised.",
+    "24 hours was not run; short wall-clock observation is reported separately.",
+    "No sample supports Multi-Agent superiority."
+  ],
+  "first_provider_selected": "deepseek",
+  "provider_selection_is_spending_authorization": false,
+  "governance": {
+    "status": "PASS",
+    "root": "I:/AI_AgentNexus",
+    "target_format": "Windows extended-length path",
+    "log": "evidence/governance/governance-root-final.txt",
+    "history_preserved": 15510,
+    "temporary_junctions_removed": 5,
+    "recursive_delete": false,
+    "os_rules_changed": false
+  },
+  "deepseek_proposal": {
+    "status": "BLOCKED",
+    "model_id": "deepseek-flash",
+    "endpoint": "https://api.deepseek.com/chat/completions",
+    "max_requests": 3,
+    "max_input_tokens": 24000,
+    "max_output_tokens": 1536,
+    "max_cost_micros": 10000,
+    "currency": "USD",
+    "spending_authorized": false,
+    "source_upload": false,
+    "path": "reports/deepseek-smoke-proposal.md"
+  }
+}

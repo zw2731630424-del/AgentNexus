@@ -1,0 +1,5 @@
+# 多 Agent Pilot
+
+真实模型Pilot NOT_RUN。M1.7既有独立Pilot在M1.8完整回归中仍执行原ToolGateway/StorageOwner/MessageBus/Gate链；模型策略明确SIMULATED。新增wire测试实际运行主Agent、两个独立Subagent、只读Reviewer，两个子请求并发峰值2，三个Provider协议/model路由及结构化消息交付有断言，但全部由FixtureTransport提供合成答案。
+
+不把工程子代理或固定响应当成AgentNexus真实模型研发，不宣称Reviewer发现未知问题。正式研究项目未修改，未知模型生成代码不获得PROCESS资格。

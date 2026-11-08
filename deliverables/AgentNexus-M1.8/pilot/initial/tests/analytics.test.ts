@@ -1,0 +1,5 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {summarize} from '../src/analytics.ts';import type {Task} from '../src/model.ts';
+const task=(id:string,estimate_minutes:number,status:Task['status']):Task=>({id,title:id,status,estimate_minutes,spent_minutes:0,version:1});
+test('analytics uses estimate weights rather than task counts',()=>{const result=summarize([task('a',90,'done'),task('b',30,'todo')]);assert.equal(result.completion_percent,75);assert.equal(result.count,2);assert.equal(result.done,1);});
+test('empty and zero weight analytics are finite zero',()=>{assert.equal(summarize([]).completion_percent,0);assert.equal(summarize([task('a',0,'done')]).completion_percent,0);});
+test('analytics rejects duplicates, negative values and overflow',()=>{const t=task('x',1,'todo');assert.throws(()=>summarize([t,t]),/DUPLICATE_ID/);assert.throws(()=>summarize([{...t,estimate_minutes:-1}]),/INVALID_TASK/);assert.throws(()=>summarize([task('a',Number.MAX_SAFE_INTEGER,'todo'),task('b',1,'todo')]),/TOTAL_OVERFLOW/);});

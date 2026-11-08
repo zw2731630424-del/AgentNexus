@@ -1,0 +1,3883 @@
+TAP version 13
+# Subtest: FT-RESOLVE: defaults, child narrowing, ancestor veto, explicit INHERIT
+ok 1 - FT-RESOLVE: defaults, child narrowing, ancestor veto, explicit INHERIT
+  ---
+  duration_ms: 74.0083
+  type: 'test'
+  ...
+# Subtest: FT: unknown IDs, illegal scopes and non-admin payloads rejected
+ok 2 - FT: unknown IDs, illegal scopes and non-admin payloads rejected
+  ---
+  duration_ms: 39.7288
+  type: 'test'
+  ...
+# Subtest: FT-DEPENDENCY: rejects partial disable and does not enable a dependency implicitly
+ok 3 - FT-DEPENDENCY: rejects partial disable and does not enable a dependency implicitly
+  ---
+  duration_ms: 41.9447
+  type: 'test'
+  ...
+# Subtest: FT: mutual conflict, wrong preview hash and stale revision cannot commit
+ok 4 - FT: mutual conflict, wrong preview hash and stale revision cannot commit
+  ---
+  duration_ms: 48.9558
+  type: 'test'
+  ...
+# Subtest: FT-OFF: live work aborts; failure remains FAILED until explicit recovery
+ok 5 - FT-OFF: live work aborts; failure remains FAILED until explicit recovery
+  ---
+  duration_ms: 49.9008
+  type: 'test'
+  ...
+# Subtest: FT-RETAIN: configuration survives real reopen, facts remain and old epoch is invalid
+ok 6 - FT-RETAIN: configuration survives real reopen, facts remain and old epoch is invalid
+  ---
+  duration_ms: 63.1535
+  type: 'test'
+  ...
+# Subtest: FT-INHERIT-OFF: ON to INHERIT must quiesce when default is OFF
+ok 7 - FT-INHERIT-OFF: ON to INHERIT must quiesce when default is OFF
+  ---
+  duration_ms: 55.8112
+  type: 'test'
+  ...
+# Subtest: FT-LATE-STOP: timeout cannot recover or enable until the old stop actually settles
+ok 8 - FT-LATE-STOP: timeout cannot recover or enable until the old stop actually settles
+  ---
+  duration_ms: 1063.8035
+  type: 'test'
+  ...
+# Subtest: FT catalog is capacity, unimplemented module never becomes enabled from default ON
+ok 9 - FT catalog is capacity, unimplemented module never becomes enabled from default ON
+  ---
+  duration_ms: 44.0297
+  type: 'test'
+  ...
+# Subtest: P.ADMIN_MODE: forged admin, L0 degradation and missing reason rejected
+ok 10 - P.ADMIN_MODE: forged admin, L0 degradation and missing reason rejected
+  ---
+  duration_ms: 33.4224
+  type: 'test'
+  ...
+# Subtest: P.ADMIN_MODE: two distinct confirmations, preview binding and challenge replay
+ok 11 - P.ADMIN_MODE: two distinct confirmations, preview binding and challenge replay
+  ---
+  duration_ms: 42.9056
+  type: 'test'
+  ...
+# Subtest: P.MODE: same denied request has distinct enforce/audit/disabled behavior
+ok 12 - P.MODE: same denied request has distinct enforce/audit/disabled behavior
+  ---
+  duration_ms: 50.0527
+  type: 'test'
+  ...
+# Subtest: P.MODE: selected IDs and project scope; explicit ENFORCE dominates overlap
+ok 13 - P.MODE: selected IDs and project scope; explicit ENFORCE dominates overlap
+  ---
+  duration_ms: 49.0177
+  type: 'test'
+  ...
+# Subtest: P.MODE: PDP fault stays closed in ENFORCE and AUDIT_ONLY; DISABLED actually skips PDP
+ok 14 - P.MODE: PDP fault stays closed in ENFORCE and AUDIT_ONLY; DISABLED actually skips PDP
+  ---
+  duration_ms: 52.4208
+  type: 'test'
+  ...
+# Subtest: P.MODE-EXPIRY: real deadline freezes until persisted-chain preflight
+ok 15 - P.MODE-EXPIRY: real deadline freezes until persisted-chain preflight
+  ---
+  duration_ms: 1153.4387
+  type: 'test'
+  ...
+# Subtest: P.MODE-RECOVERY: reboot never restores a permissive lease without preflight
+ok 16 - P.MODE-RECOVERY: reboot never restores a permissive lease without preflight
+  ---
+  duration_ms: 73.5293
+  type: 'test'
+  ...
+# Subtest: P.APPROVAL: hash/identity/epoch/expiry bind grants and no self-reported approval
+ok 17 - P.APPROVAL: hash/identity/epoch/expiry bind grants and no self-reported approval
+  ---
+  duration_ms: 40.9323
+  type: 'test'
+  ...
+# Subtest: P.APPROVAL-EXPIRY: real expiry cannot revive under an in-process clock rollback
+ok 18 - P.APPROVAL-EXPIRY: real expiry cannot revive under an in-process clock rollback
+  ---
+  duration_ms: 93.0767
+  type: 'test'
+  ...
+# Subtest: Json canonical contract rejects accessors/cycles/nonfinite numbers
+ok 19 - Json canonical contract rejects accessors/cycles/nonfinite numbers
+  ---
+  duration_ms: 0.2898
+  type: 'test'
+  ...
+# Subtest: JSON uses real JSON.parse and preserves independent safety/authorization dimensions
+ok 20 - JSON uses real JSON.parse and preserves independent safety/authorization dimensions
+  ---
+  duration_ms: 6.6386
+  type: 'test'
+  ...
+# Subtest: Python AST actually parses valid/invalid source, with explicitly limited coverage
+ok 21 - Python AST actually parses valid/invalid source, with explicitly limited coverage
+  ---
+  duration_ms: 372.4736
+  type: 'test'
+  ...
+# Subtest: PowerShell Parser actually returns AST diagnostics and UTF-16 positions
+ok 22 - PowerShell Parser actually returns AST diagnostics and UTF-16 positions
+  ---
+  duration_ms: 785.248
+  type: 'test'
+  ...
+# Subtest: Python and PowerShell source side effects remain unexecuted
+ok 23 - Python and PowerShell source side effects remain unexecuted
+  ---
+  duration_ms: 471.0435
+  type: 'test'
+  ...
+# Subtest: all relevant source Feature OFF paths bypass without a configured parser
+ok 24 - all relevant source Feature OFF paths bypass without a configured parser
+  ---
+  duration_ms: 0.4022
+  type: 'test'
+  ...
+# Subtest: optional environment/safety OFF remains BYPASSED while syntax independently runs
+ok 25 - optional environment/safety OFF remains BYPASSED while syntax independently runs
+  ---
+  duration_ms: 0.5382
+  type: 'test'
+  ...
+# Subtest: missing parsers and unsupported languages/dialects never produce PASS
+ok 26 - missing parsers and unsupported languages/dialects never produce PASS
+  ---
+  duration_ms: 0.4963
+  type: 'test'
+  ...
+# Subtest: new document version, same-version hash mismatch and close fence old results
+ok 27 - new document version, same-version hash mismatch and close fence old results
+  ---
+  duration_ms: 0.7721
+  type: 'test'
+  ...
+# Subtest: real parser requests respect newer versions and Feature epoch changes
+ok 28 - real parser requests respect newer versions and Feature epoch changes
+  ---
+  duration_ms: 126.0454
+  type: 'test'
+  ...
+# Subtest: AbortSignal, timeout and dispose are bounded and never become PASS
+ok 29 - AbortSignal, timeout and dispose are bounded and never become PASS
+  ---
+  duration_ms: 1.184
+  type: 'test'
+  ...
+# Subtest: source/Unicode/request budgets reject before parsing and constructor budgets are fixed
+ok 30 - source/Unicode/request budgets reject before parsing and constructor budgets are fixed
+  ---
+  duration_ms: 0.4978
+  type: 'test'
+  ...
+# Subtest: queue admission caps concurrent work and recovers after backpressure
+ok 31 - queue admission caps concurrent work and recovers after backpressure
+  ---
+  duration_ms: 2.5184
+  type: 'test'
+  ...
+# Subtest: PowerShell error floods remain bounded and do not turn truncation into PASS
+ok 32 - PowerShell error floods remain bounded and do not turn truncation into PASS
+  ---
+  duration_ms: 569.1482
+  type: 'test'
+  ...
+# Subtest: registered Git/Python argv schemas are static, limited and independently typed
+ok 33 - registered Git/Python argv schemas are static, limited and independently typed
+  ---
+  duration_ms: 1.3692
+  type: 'test'
+  ...
+# Subtest: argv environment checks inspect only the Host file and preserve the actual args result
+ok 34 - argv environment checks inspect only the Host file and preserve the actual args result
+  ---
+  duration_ms: 0.5893
+  type: 'test'
+  ...
+# Subtest: argv family and values are copied before asynchronous work
+ok 35 - argv family and values are copied before asynchronous work
+  ---
+  duration_ms: 0.1773
+  type: 'test'
+  ...
+# Subtest: argument Feature OFF bypasses schema and dispose prevents subsequent work
+ok 36 - argument Feature OFF bypasses schema and dispose prevents subsequent work
+  ---
+  duration_ms: 0.161
+  type: 'test'
+  ...
+# Subtest: disposeAndWait confirms real interpreter child close and all queued work is drained
+ok 37 - disposeAndWait confirms real interpreter child close and all queued work is drained
+  ---
+  duration_ms: 42.1252
+  type: 'test'
+  ...
+# Subtest: AT/Context/Artifact: real invocation produces separate hash-linked facts and byte-exact output
+ok 38 - AT/Context/Artifact: real invocation produces separate hash-linked facts and byte-exact output
+  ---
+  duration_ms: 151.4996
+  type: 'test'
+  ...
+# Subtest: P.MODE+Gateway: same safe synthetic operation blocked/enforced, would-deny, and unevaluated
+ok 39 - P.MODE+Gateway: same safe synthetic operation blocked/enforced, would-deny, and unevaluated
+  ---
+  duration_ms: 184.069
+  type: 'test'
+  ...
+# Subtest: P.SANDBOX: DISABLED does not admit arbitrary execution or close independent protection
+ok 40 - P.SANDBOX: DISABLED does not admit arbitrary execution or close independent protection
+  ---
+  duration_ms: 74.2004
+  type: 'test'
+  ...
+# Subtest: P.IDENTITY: facade has no administration and JSON admin/mode flags cannot elevate
+ok 41 - P.IDENTITY: facade has no administration and JSON admin/mode flags cannot elevate
+  ---
+  duration_ms: 57.6279
+  type: 'test'
+  ...
+# Subtest: P.APPROVAL_REPLAY: exact approval executes once; altered intent and replay denied
+ok 42 - P.APPROVAL_REPLAY: exact approval executes once; altered intent and replay denied
+  ---
+  duration_ms: 135.3138
+  type: 'test'
+  ...
+# Subtest: P.DB_ATOMIC: 16 concurrent duplicate requests invoke a real handler at most once
+ok 43 - P.DB_ATOMIC: 16 concurrent duplicate requests invoke a real handler at most once
+  ---
+  duration_ms: 141.7861
+  type: 'test'
+  ...
+# Subtest: P.WORKSPACE_WRITER: concurrent distinct calls cannot overwrite active resource; modes cannot change mid-action
+ok 44 - P.WORKSPACE_WRITER: concurrent distinct calls cannot overwrite active resource; modes cannot change mid-action
+  ---
+  duration_ms: 126.1607
+  type: 'test'
+  ...
+# Subtest: AT-IOFAIL-before: actual SQLite readonly persistence failure prevents handler execution
+ok 45 - AT-IOFAIL-before: actual SQLite readonly persistence failure prevents handler execution
+  ---
+  duration_ms: 115.9295
+  type: 'test'
+  ...
+# Subtest: AT-IOFAIL-after: actual effect with unrecordable result keeps claim and never replays
+ok 46 - AT-IOFAIL-after: actual effect with unrecordable result keeps claim and never replays
+  ---
+  duration_ms: 109.5262
+  type: 'test'
+  ...
+# Subtest: P.TIMEOUT: timeout retains owned lease until actual handler settlement and never resets claim
+ok 47 - P.TIMEOUT: timeout retains owned lease until actual handler settlement and never resets claim
+  ---
+  duration_ms: 120.7651
+  type: 'test'
+  ...
+# Subtest: AT-REPLAY: reconstruction is readonly and session scope does not grant peer context
+ok 48 - AT-REPLAY: reconstruction is readonly and session scope does not grant peer context
+  ---
+  duration_ms: 109.611
+  type: 'test'
+  ...
+# Subtest: P.IDENTITY-revocation: old facade cannot read or close a replacement session
+ok 49 - P.IDENTITY-revocation: old facade cannot read or close a replacement session
+  ---
+  duration_ms: 161.0933
+  type: 'test'
+  ...
+# Subtest: P.IDENTITY-close-race: close revokes facade before its first asynchronous cleanup
+ok 50 - P.IDENTITY-close-race: close revokes facade before its first asynchronous cleanup
+  ---
+  duration_ms: 110.5123
+  type: 'test'
+  ...
+# Subtest: P.TIMEOUT-clock: handler deadline uses elapsed time under a wall-clock rollback
+ok 51 - P.TIMEOUT-clock: handler deadline uses elapsed time under a wall-clock rollback
+  ---
+  duration_ms: 117.4651
+  type: 'test'
+  ...
+# Subtest: P.MODE-START: a bypass expiring during a real delayed durability barrier cannot execute
+ok 52 - P.MODE-START: a bypass expiring during a real delayed durability barrier cannot execute
+  ---
+  duration_ms: 507.774
+  type: 'test'
+  ...
+# Subtest: DI integration: malformed code remains FAIL, checks OFF are BYPASSED, raw/audit continue
+ok 53 - DI integration: malformed code remains FAIL, checks OFF are BYPASSED, raw/audit continue
+  ---
+  duration_ms: 184.05
+  type: 'test'
+  ...
+# Subtest: Tool OFF rejects invocation, diagnostics log OFF does not silence core audit, oversized request is bounded
+ok 54 - Tool OFF rejects invocation, diagnostics log OFF does not silence core audit, oversized request is bounded
+  ---
+  duration_ms: 87.7784
+  type: 'test'
+  ...
+# Subtest: P.ARG_BINDING: mutation by schema or caller cannot replace the authorized snapshot
+ok 55 - P.ARG_BINDING: mutation by schema or caller cannot replace the authorized snapshot
+  ---
+  duration_ms: 103.2453
+  type: 'test'
+  ...
+# Subtest: DI command checking keeps argv preview as data and cannot execute Git/Python
+ok 56 - DI command checking keeps argv preview as data and cannot execute Git/Python
+  ---
+  duration_ms: 98.1107
+  type: 'test'
+  ...
+# Subtest: controlled static bytes close over binary, empty and nested same-name files
+ok 57 - controlled static bytes close over binary, empty and nested same-name files
+  ---
+  duration_ms: 28.4446
+  type: 'test'
+  ...
+# Subtest: empty package permits exactly its manifest, with zero payload budgets
+ok 58 - empty package permits exactly its manifest, with zero payload budgets
+  ---
+  duration_ms: 7.3271
+  type: 'test'
+  ...
+# Subtest: matching mutable tree is INCONCLUSIVE, never a trusted release root
+ok 59 - matching mutable tree is INCONCLUSIVE, never a trusted release root
+  ---
+  duration_ms: 8.3319
+  type: 'test'
+  ...
+# Subtest: same-size modified content fails its SHA-256
+ok 60 - same-size modified content fails its SHA-256
+  ---
+  duration_ms: 7.7741
+  type: 'test'
+  ...
+# Subtest: appended content fails declared byte size
+ok 61 - appended content fails declared byte size
+  ---
+  duration_ms: 7.8939
+  type: 'test'
+  ...
+# Subtest: missing and unlisted files are both reported by full relative path
+ok 62 - missing and unlisted files are both reported by full relative path
+  ---
+  duration_ms: 7.5508
+  type: 'test'
+  ...
+# Subtest: unlisted nested manifest and SHA256SUMS names are never self exceptions
+    # Subtest: sub/manifest.json
+    ok 1 - sub/manifest.json
+      ---
+      duration_ms: 8.9545
+      type: 'test'
+      ...
+    # Subtest: validation/SHA256SUMS.txt
+    ok 2 - validation/SHA256SUMS.txt
+      ---
+      duration_ms: 10.8674
+      type: 'test'
+      ...
+    # Subtest: unexpected.cjs
+    ok 3 - unexpected.cjs
+      ---
+      duration_ms: 6.8157
+      type: 'test'
+      ...
+    # Subtest: .hidden
+    ok 4 - .hidden
+      ---
+      duration_ms: 7.654
+      type: 'test'
+      ...
+    1..4
+ok 63 - unlisted nested manifest and SHA256SUMS names are never self exceptions
+  ---
+  duration_ms: 35.2028
+  type: 'test'
+  ...
+# Subtest: root manifest is required and cannot list itself
+ok 64 - root manifest is required and cannot list itself
+  ---
+  duration_ms: 6.0831
+  type: 'test'
+  ...
+# Subtest: root manifest directory and non-directory roots fail
+ok 65 - root manifest directory and non-directory roots fail
+  ---
+  duration_ms: 6.052
+  type: 'test'
+  ...
+# Subtest: duplicate JSON keys are rejected despite JSON.parse last-wins semantics
+ok 66 - duplicate JSON keys are rejected despite JSON.parse last-wins semantics
+  ---
+  duration_ms: 9.7874
+  type: 'test'
+  ...
+# Subtest: duplicate complete path and unsorted arrays fail independently
+ok 67 - duplicate complete path and unsorted arrays fail independently
+  ---
+  duration_ms: 6.3151
+  type: 'test'
+  ...
+# Subtest: case conflicts include ancestor directories and file-directory prefixes
+    # Subtest: A vs a
+    ok 1 - A vs a
+      ---
+      duration_ms: 4.3082
+      type: 'test'
+      ...
+    # Subtest: Dir/a vs dir/b
+    ok 2 - Dir/a vs dir/b
+      ---
+      duration_ms: 5.0485
+      type: 'test'
+      ...
+    # Subtest: a vs a/b
+    ok 3 - a vs a/b
+      ---
+      duration_ms: 4.5515
+      type: 'test'
+      ...
+    1..3
+ok 68 - case conflicts include ancestor directories and file-directory prefixes
+  ---
+  duration_ms: 14.3375
+  type: 'test'
+  ...
+# Subtest: path traversal, device aliases, malformed separators and Unicode reject before payload reads
+    # Subtest: "../outside"
+    ok 1 - "../outside"
+      ---
+      duration_ms: 5.3208
+      type: 'test'
+      ...
+    # Subtest: "./a"
+    ok 2 - "./a"
+      ---
+      duration_ms: 5.6173
+      type: 'test'
+      ...
+    # Subtest: "a//b"
+    ok 3 - "a//b"
+      ---
+      duration_ms: 7.6719
+      type: 'test'
+      ...
+    # Subtest: "/outside"
+    ok 4 - "/outside"
+      ---
+      duration_ms: 5.6719
+      type: 'test'
+      ...
+    # Subtest: "C:/outside"
+    ok 5 - "C:/outside"
+      ---
+      duration_ms: 5.9316
+      type: 'test'
+      ...
+    # Subtest: "//server/share"
+    ok 6 - "//server/share"
+      ---
+      duration_ms: 5.6
+      type: 'test'
+      ...
+    # Subtest: "a\\\\b"
+    ok 7 - "a\\\\b"
+      ---
+      duration_ms: 4.6938
+      type: 'test'
+      ...
+    # Subtest: "a:stream"
+    ok 8 - "a:stream"
+      ---
+      duration_ms: 4.441
+      type: 'test'
+      ...
+    # Subtest: "NUL.txt"
+    ok 9 - "NUL.txt"
+      ---
+      duration_ms: 5.7573
+      type: 'test'
+      ...
+    # Subtest: "COM1"
+    ok 10 - "COM1"
+      ---
+      duration_ms: 4.4542
+      type: 'test'
+      ...
+    # Subtest: "con.tar.gz"
+    ok 11 - "con.tar.gz"
+      ---
+      duration_ms: 4.3285
+      type: 'test'
+      ...
+    # Subtest: "a."
+    ok 12 - "a."
+      ---
+      duration_ms: 5.5433
+      type: 'test'
+      ...
+    # Subtest: "a "
+    ok 13 - "a "
+      ---
+      duration_ms: 4.7284
+      type: 'test'
+      ...
+    # Subtest: "PROGRA~1/file"
+    ok 14 - "PROGRA~1/file"
+      ---
+      duration_ms: 4.2803
+      type: 'test'
+      ...
+    # Subtest: ""
+    ok 15 - ""
+      ---
+      duration_ms: 6.7106
+      type: 'test'
+      ...
+    # Subtest: "a\\u0000b"
+    ok 16 - "a\\u0000b"
+      ---
+      duration_ms: 4.7406
+      type: 'test'
+      ...
+    # Subtest: "é"
+    ok 17 - "é"
+      ---
+      duration_ms: 4.4398
+      type: 'test'
+      ...
+    # Subtest: "é"
+    ok 18 - "é"
+      ---
+      duration_ms: 5.9355
+      type: 'test'
+      ...
+    # Subtest: "İ"
+    ok 19 - "İ"
+      ---
+      duration_ms: 5.3946
+      type: 'test'
+      ...
+    # Subtest: "a/a/"
+    ok 20 - "a/a/"
+      ---
+      duration_ms: 4.9125
+      type: 'test'
+      ...
+    1..20
+ok 69 - path traversal, device aliases, malformed separators and Unicode reject before payload reads
+  ---
+  duration_ms: 108.4943
+  type: 'test'
+  ...
+# Subtest: schema, digest and byte count reject invalid declarations
+ok 70 - schema, digest and byte count reject invalid declarations
+  ---
+  duration_ms: 20.3399
+  type: 'test'
+  ...
+# Subtest: canonical encoding rejects whitespace, BOM, bad UTF-8 and equivalent escapes
+ok 71 - canonical encoding rejects whitespace, BOM, bad UTF-8 and equivalent escapes
+  ---
+  duration_ms: 12.9032
+  type: 'test'
+  ...
+# Subtest: extra empty directory and file-vs-directory mismatch cannot disappear
+ok 72 - extra empty directory and file-vs-directory mismatch cannot disappear
+  ---
+  duration_ms: 10.2003
+  type: 'test'
+  ...
+# Subtest: file count and total bytes budgets work at exact limit and limit plus one
+ok 73 - file count and total bytes budgets work at exact limit and limit plus one
+  ---
+  duration_ms: 10.7243
+  type: 'test'
+  ...
+# Subtest: actual unlisted content also consumes size and count budgets
+ok 74 - actual unlisted content also consumes size and count budgets
+  ---
+  duration_ms: 7.7611
+  type: 'test'
+  ...
+# Subtest: manifest and single-file caps are enforced without reading an oversized payload
+ok 75 - manifest and single-file caps are enforced without reading an oversized payload
+  ---
+  duration_ms: 6.517
+  type: 'test'
+  ...
+# Subtest: path length and depth have bounded rejection
+ok 76 - path length and depth have bounded rejection
+  ---
+  duration_ms: 5.7181
+  type: 'test'
+  ...
+# Subtest: actual default file and directory count limits accept the edge and reject one more
+ok 77 - actual default file and directory count limits accept the edge and reject one more
+  ---
+  duration_ms: 975.3061
+  type: 'test'
+  ...
+# Subtest: actual 8 MiB files and 16 MiB total accept the edge; declared and actual overflow reject
+ok 78 - actual 8 MiB files and 16 MiB total accept the edge; declared and actual overflow reject
+  ---
+  duration_ms: 46.6496
+  type: 'test'
+  ...
+# Subtest: maximum component and depth are accepted on an actually created portable path
+ok 79 - maximum component and depth are accepted on an actually created portable path
+  ---
+  duration_ms: 31.6139
+  type: 'test'
+  ...
+# Subtest: Host cannot expand limits or choose an unknown mode; relative roots reject
+ok 80 - Host cannot expand limits or choose an unknown mode; relative roots reject
+  ---
+  duration_ms: 3.3725
+  type: 'test'
+  ...
+# Subtest: pre-abort is NOT_RUN; in-flight abort is INCONCLUSIVE with closed file work
+ok 81 - pre-abort is NOT_RUN; in-flight abort is INCONCLUSIVE with closed file work
+  ---
+  duration_ms: 6.6929
+  type: 'test'
+  ...
+# Subtest: diagnostic count and encoded bytes remain bounded for many extra files
+ok 82 - diagnostic count and encoded bytes remain bounded for many extra files
+  ---
+  duration_ms: 53.0624
+  type: 'test'
+  ...
+# Subtest: candidate scripts, package metadata and git-looking files are data and never executed
+ok 83 - candidate scripts, package metadata and git-looking files are data and never executed
+  ---
+  duration_ms: 11.8978
+  type: 'test'
+  ...
+# Subtest: real OS file symlink is rejected without following its target
+ok 84 - real OS file symlink is rejected without following its target # SKIP NOT_RUN: real OS link fixture unavailable (EPERM); no simulated OS PASS
+  ---
+  duration_ms: 5.2604
+  type: 'test'
+  ...
+# Subtest: real OS dir link is rejected
+ok 85 - real OS dir link is rejected # SKIP NOT_RUN: real OS link fixture unavailable (EPERM); no simulated OS PASS
+  ---
+  duration_ms: 4.2896
+  type: 'test'
+  ...
+# Subtest: real OS junction link is rejected
+ok 86 - real OS junction link is rejected
+  ---
+  duration_ms: 5.6812
+  type: 'test'
+  ...
+# Subtest: real OS hardlink to an outside object is rejected by link count
+ok 87 - real OS hardlink to an outside object is rejected by link count
+  ---
+  duration_ms: 7.6379
+  type: 'test'
+  ...
+# Subtest: M14-ADAPTER REAL_WINDOWS_LIMITED: pinned native RPC maps handle-based files and bounded identities
+ok 88 - M14-ADAPTER REAL_WINDOWS_LIMITED: pinned native RPC maps handle-based files and bounded identities
+  ---
+  duration_ms: 1303.6248
+  type: 'test'
+  ...
+# Subtest: M1.4 REAL_WINDOWS: actual process/token identity
+ok 89 - M1.4 REAL_WINDOWS: actual process/token identity
+  ---
+  duration_ms: 1303.8681
+  type: 'test'
+  ...
+# Subtest: M1.4 REAL_WINDOWS: exact 64KiB RPC boundary accepted and larger frame rejected
+ok 90 - M1.4 REAL_WINDOWS: exact 64KiB RPC boundary accepted and larger frame rejected
+  ---
+  duration_ms: 2460.8484
+  type: 'test'
+  ...
+# Subtest: M1.4 REAL_WINDOWS: restricted-token detailed readback
+ok 91 - M1.4 REAL_WINDOWS: restricted-token detailed readback
+  ---
+  duration_ms: 1017.6206
+  type: 'test'
+  ...
+# Subtest: M1.4 REAL_WINDOWS: root-relative file create/read and path/link rejection
+ok 92 - M1.4 REAL_WINDOWS: root-relative file create/read and path/link rejection
+  ---
+  duration_ms: 1056.8605
+  type: 'test'
+  ...
+# Subtest: M1.4 REAL_WINDOWS: broker rejects an actual hardlink
+ok 93 - M1.4 REAL_WINDOWS: broker rejects an actual hardlink
+  ---
+  duration_ms: 1079.4423
+  type: 'test'
+  ...
+# Subtest: M1.4 REAL_WINDOWS: broker rejects an actual junction
+ok 94 - M1.4 REAL_WINDOWS: broker rejects an actual junction
+  ---
+  duration_ms: 1053.0073
+  type: 'test'
+  ...
+# Subtest: M1.4 REAL_WINDOWS: protected named pipe binds both actual peer handles
+ok 95 - M1.4 REAL_WINDOWS: protected named pipe binds both actual peer handles
+  ---
+  duration_ms: 1174.8604
+  type: 'test'
+  ...
+# Subtest: M1.4 REAL_WINDOWS: pipe refuses forged supervisor start identity and deadline is bounded
+ok 96 - M1.4 REAL_WINDOWS: pipe refuses forged supervisor start identity and deadline is bounded
+  ---
+  duration_ms: 1180.1068
+  type: 'test'
+  ...
+# Subtest: M1.4 REAL_WINDOWS_PRIMITIVE: suspended Job normal, distinct root/tree/output observations
+ok 97 - M1.4 REAL_WINDOWS_PRIMITIVE: suspended Job normal, distinct root/tree/output observations
+  ---
+  duration_ms: 1262.0309
+  type: 'test'
+  ...
+# Subtest: M1.4 REAL_WINDOWS_PRIMITIVE: suspended Job hold, distinct root/tree/output observations
+ok 98 - M1.4 REAL_WINDOWS_PRIMITIVE: suspended Job hold, distinct root/tree/output observations
+  ---
+  duration_ms: 2169.592
+  type: 'test'
+  ...
+# Subtest: M1.4 REAL_WINDOWS_PRIMITIVE: suspended Job orphan, distinct root/tree/output observations
+ok 99 - M1.4 REAL_WINDOWS_PRIMITIVE: suspended Job orphan, distinct root/tree/output observations
+  ---
+  duration_ms: 1952.8812
+  type: 'test'
+  ...
+# Subtest: M1.4 REAL_WINDOWS_PRIMITIVE: bounded streamed output events terminate a flood
+ok 100 - M1.4 REAL_WINDOWS_PRIMITIVE: bounded streamed output events terminate a flood
+  ---
+  duration_ms: 1231.0547
+  type: 'test'
+  ...
+# Subtest: M1.4 REAL_WINDOWS_PRIMITIVE: cumulative Job CPU time kills a busy fixture before wall deadline
+ok 101 - M1.4 REAL_WINDOWS_PRIMITIVE: cumulative Job CPU time kills a busy fixture before wall deadline
+  ---
+  duration_ms: 3066.1911
+  type: 'test'
+  ...
+# Subtest: M1.4 REAL_WINDOWS_PRIMITIVE: prepare pins actual suspended identity, resume runs once
+ok 102 - M1.4 REAL_WINDOWS_PRIMITIVE: prepare pins actual suspended identity, resume runs once
+  ---
+  duration_ms: 1291.9129
+  type: 'test'
+  ...
+# Subtest: M1.4 REAL_WINDOWS_PRIMITIVE: mismatched/terminated/expired prepares never execute
+ok 103 - M1.4 REAL_WINDOWS_PRIMITIVE: mismatched/terminated/expired prepares never execute
+  ---
+  duration_ms: 1777.2642
+  type: 'test'
+  ...
+# Subtest: M1.4 deployment guards: same-account launch rejected and Derive is not provisioning
+ok 104 - M1.4 deployment guards: same-account launch rejected and Derive is not provisioning
+  ---
+  duration_ms: 1136.1235
+  type: 'test'
+  ...
+# NOT_RUN: approved distinct standard identities/profile and independent deployment bootstrap wiring are absent. Native prepare/resume is implemented and separately tested in primitive mode. Production BLOCKED. Derivation is not profile existence or combined evidence.
+# Subtest: M1.4 production combination and independent pre-pinned bootstrap/Grant bridge
+ok 105 - M1.4 production combination and independent pre-pinned bootstrap/Grant bridge # SKIP NOT_RUN / BLOCKED: independent approved accounts/profile and deployment bootstrap wiring are unavailable
+  ---
+  duration_ms: 0.104
+  type: 'test'
+  ...
+# Subtest: M14-PERMIT SIMULATED: exact approval bridges consumed original Permit and retains five resources
+ok 106 - M14-PERMIT SIMULATED: exact approval bridges consumed original Permit and retains five resources
+  ---
+  duration_ms: 258.2513
+  type: 'test'
+  ...
+# Subtest: M14-HOST SIMULATED: Agent facade traverses Permit/IPC/Broker/streamed Artifact/ExitProof and quarantines
+ok 107 - M14-HOST SIMULATED: Agent facade traverses Permit/IPC/Broker/streamed Artifact/ExitProof and quarantines
+  ---
+  duration_ms: 246.1824
+  type: 'test'
+  ...
+# Subtest: M14-ARTIFACT SIMULATED: cancelled remote proof import settles locally and never authorizes release
+ok 108 - M14-ARTIFACT SIMULATED: cancelled remote proof import settles locally and never authorizes release
+  ---
+  duration_ms: 254.3154
+  type: 'test'
+  ...
+# Subtest: M14-HOST SIMULATED: post-consume identity failure returns original operation and unknown reservations
+ok 109 - M14-HOST SIMULATED: post-consume identity failure returns original operation and unknown reservations
+  ---
+  duration_ms: 166.1413
+  type: 'test'
+  ...
+# Subtest: M14-IPC SIMULATED: service disconnect uses trusted channel ownership to terminate and quarantine
+ok 110 - M14-IPC SIMULATED: service disconnect uses trusted channel ownership to terminate and quarantine
+  ---
+  duration_ms: 185.9096
+  type: 'test'
+  ...
+# Subtest: M14-PERMIT SIMULATED: missing approval, other project, changed args or sandbox cannot bridge
+ok 111 - M14-PERMIT SIMULATED: missing approval, other project, changed args or sandbox cannot bridge
+  ---
+  duration_ms: 161.1214
+  type: 'test'
+  ...
+# Subtest: M14-PERMIT SIMULATED: signed grant tamper, Worker swap, tool/version/resource and epoch denied
+ok 112 - M14-PERMIT SIMULATED: signed grant tamper, Worker swap, tool/version/resource and epoch denied
+  ---
+  duration_ms: 205.8119
+  type: 'test'
+  ...
+# Subtest: M14-PERMIT SIMULATED: concurrent Permit consumers commit once; disconnect never replays
+ok 113 - M14-PERMIT SIMULATED: concurrent Permit consumers commit once; disconnect never replays
+  ---
+  duration_ms: 234.5423
+  type: 'test'
+  ...
+# Subtest: M14-SANDBOX SIMULATED: default absent qualification rejects before Supervisor start
+ok 114 - M14-SANDBOX SIMULATED: default absent qualification rejects before Supervisor start
+  ---
+  duration_ms: 164.2614
+  type: 'test'
+  ...
+# Subtest: M14-IPC SIMULATED: same SID foreign PID, reused PID/start, session and payload identity rejected
+ok 115 - M14-IPC SIMULATED: same SID foreign PID, reused PID/start, session and payload identity rejected
+  ---
+  duration_ms: 190.9237
+  type: 'test'
+  ...
+# Subtest: M14-IPC SIMULATED: revoke is synchronous, pending connection slots and key cleanup bounded
+ok 116 - M14-IPC SIMULATED: revoke is synchronous, pending connection slots and key cleanup bounded
+  ---
+  duration_ms: 162.3327
+  type: 'test'
+  ...
+# Subtest: M14-AUDIT SIMULATED: durable authorization/start barrier failures never start execution
+ok 117 - M14-AUDIT SIMULATED: durable authorization/start barrier failures never start execution
+  ---
+  duration_ms: 170.2779
+  type: 'test'
+  ...
+# Subtest: M14-RECOVERY SIMULATED: Broker reopen preserves spent Permit, unknown Job and no automatic replay
+ok 118 - M14-RECOVERY SIMULATED: Broker reopen preserves spent Permit, unknown Job and no automatic replay
+  ---
+  duration_ms: 178.9389
+  type: 'test'
+  ...
+# Subtest: M14-FEATURE SIMULATED: epoch change or module off at last fence rejects consumed work
+ok 119 - M14-FEATURE SIMULATED: epoch change or module off at last fence rejects consumed work
+  ---
+  duration_ms: 166.3194
+  type: 'test'
+  ...
+# Subtest: M14-EXIT SIMULATED: parent exit, child alive and output unknown stay independent and retain Writer
+ok 120 - M14-EXIT SIMULATED: parent exit, child alive and output unknown stay independent and retain Writer
+  ---
+  duration_ms: 209.0549
+  type: 'test'
+  ...
+# Subtest: M14-IR SIMULATED: immutable CREATE bytes survive audit wait; oversized/invalid inputs return slots
+ok 121 - M14-IR SIMULATED: immutable CREATE bytes survive audit wait; oversized/invalid inputs return slots
+  ---
+  duration_ms: 149.1822
+  type: 'test'
+  ...
+# Subtest: M14-IR SIMULATED: an expired signed file grant cannot revive after a sub-100ms wall rollback
+ok 122 - M14-IR SIMULATED: an expired signed file grant cannot revive after a sub-100ms wall rollback
+  ---
+  duration_ms: 175.8297
+  type: 'test'
+  ...
+# Subtest: M14-IR SIMULATED: uncooperative file owners time out without unbounded replacement native work
+ok 123 - M14-IR SIMULATED: uncooperative file owners time out without unbounded replacement native work
+  ---
+  duration_ms: 372.888
+  type: 'test'
+  ...
+# Subtest: M14-IR SIMULATED: complete-looking member list with disconnected parent cycle never verifies
+ok 124 - M14-IR SIMULATED: complete-looking member list with disconnected parent cycle never verifies
+  ---
+  duration_ms: 178.6805
+  type: 'test'
+  ...
+# Subtest: M14-IR SIMULATED: short Envelope deadline is fenced after asynchronous Supervisor preparation
+ok 125 - M14-IR SIMULATED: short Envelope deadline is fenced after asynchronous Supervisor preparation
+  ---
+  duration_ms: 224.5659
+  type: 'test'
+  ...
+# Subtest: M14-IR SIMULATED: closed registry synchronously rejects existing authorization and channel
+ok 126 - M14-IR SIMULATED: closed registry synchronously rejects existing authorization and channel
+  ---
+  duration_ms: 188.305
+  type: 'test'
+  ...
+# Subtest: M14-IR SIMULATED: OS identity observers retain at most 32 unresolved observations
+ok 127 - M14-IR SIMULATED: OS identity observers retain at most 32 unresolved observations
+  ---
+  duration_ms: 2153.9939
+  type: 'test'
+  ...
+# Subtest: M14-RECOVERY SQLITE_REOPEN: remote START_INTENT absence cannot become NOT_INVOKED on Host restart
+ok 128 - M14-RECOVERY SQLITE_REOPEN: remote START_INTENT absence cannot become NOT_INVOKED on Host restart
+  ---
+  duration_ms: 207.4043
+  type: 'test'
+  ...
+# Subtest: M14-OUTPUT SIMULATED: streaming output budget failure terminates Worker and keeps slot
+ok 129 - M14-OUTPUT SIMULATED: streaming output budget failure terminates Worker and keeps slot
+  ---
+  duration_ms: 204.4752
+  type: 'test'
+  ...
+# Subtest: M14-BROKER REAL_OS_PROCESS / SIMULATED_SECURITY: independent consume ledger and streamed fixed Worker
+ok 130 - M14-BROKER REAL_OS_PROCESS / SIMULATED_SECURITY: independent consume ledger and streamed fixed Worker
+  ---
+  duration_ms: 523.4157
+  type: 'test'
+  ...
+# Subtest: M14-EXIT SIMULATED: contradictory membership, forged signature and synthetic production proof rejected
+ok 131 - M14-EXIT SIMULATED: contradictory membership, forged signature and synthetic production proof rejected
+  ---
+  duration_ms: 167.3683
+  type: 'test'
+  ...
+# Subtest: M14-EXIT SIMULATED: original M1.2 reconciliation cannot release remote Writer with manual SETTLED
+ok 132 - M14-EXIT SIMULATED: original M1.2 reconciliation cannot release remote Writer with manual SETTLED
+  ---
+  duration_ms: 330.2652
+  type: 'test'
+  ...
+# Subtest: M14-RESOURCE SIMULATED: global concurrency quota counts unknown retained resources
+ok 133 - M14-RESOURCE SIMULATED: global concurrency quota counts unknown retained resources
+  ---
+  duration_ms: 169.9488
+  type: 'test'
+  ...
+# Subtest: M14-QUALIFICATION SIMULATED: incomplete checks and same-account real deployment cannot qualify
+ok 134 - M14-QUALIFICATION SIMULATED: incomplete checks and same-account real deployment cannot qualify
+  ---
+  duration_ms: 126.4975
+  type: 'test'
+  ...
+# Subtest: M14-FILE SIMULATED: path validation rejects escape, ADS, UNC, devices, overwrite spelling
+ok 135 - M14-FILE SIMULATED: path validation rejects escape, ADS, UNC, devices, overwrite spelling
+  ---
+  duration_ms: 0.4448
+  type: 'test'
+  ...
+# Subtest: M14-FILE SIMULATED: signed file scope, immutable version read, audit and Artifact submission
+ok 136 - M14-FILE SIMULATED: signed file scope, immutable version read, audit and Artifact submission
+  ---
+  duration_ms: 160.4761
+  type: 'test'
+  ...
+# Subtest: M15-IPC SIMULATED: OS peer check precedes private key bootstrap
+ok 137 - M15-IPC SIMULATED: OS peer check precedes private key bootstrap
+  ---
+  duration_ms: 1.4926
+  type: 'test'
+  ...
+# Subtest: M15-IPC SIMULATED: persistent two-way MAC sequence and exact RPC correlation
+ok 138 - M15-IPC SIMULATED: persistent two-way MAC sequence and exact RPC correlation
+  ---
+  duration_ms: 4.1961
+  type: 'test'
+  ...
+# Subtest: M15-IPC SIMULATED: replay, MAC mutation, expiry and extra fields close the connection
+ok 139 - M15-IPC SIMULATED: replay, MAC mutation, expiry and extra fields close the connection
+  ---
+  duration_ms: 21.8303
+  type: 'test'
+  ...
+# Subtest: M15-IPC SIMULATED: wrong response correlation and disconnect never retransmit an operation
+ok 140 - M15-IPC SIMULATED: wrong response correlation and disconnect never retransmit an operation
+  ---
+  duration_ms: 0.9762
+  type: 'test'
+  ...
+# Subtest: M15-IPC SIMULATED: peer monitoring and output serialize onto a single bounded native RPC owner
+ok 141 - M15-IPC SIMULATED: peer monitoring and output serialize onto a single bounded native RPC owner
+  ---
+  duration_ms: 31.8431
+  type: 'test'
+  ...
+# Subtest: M15-WORKER SIMULATED: signed one-operation bootstrap validates PID/tool/args/key/expiry
+ok 142 - M15-WORKER SIMULATED: signed one-operation bootstrap validates PID/tool/args/key/expiry
+  ---
+  duration_ms: 5.7938
+  type: 'test'
+  ...
+# Subtest: M15-FILE SIMULATED: Worker consumes only exact brokered, version-pinned file bytes
+ok 143 - M15-FILE SIMULATED: Worker consumes only exact brokered, version-pinned file bytes
+  ---
+  duration_ms: 2.6578
+  type: 'test'
+  ...
+# Subtest: M15-BOOTSTRAP SIMULATED: configuration is exact, separate identities and private directories are required
+ok 144 - M15-BOOTSTRAP SIMULATED: configuration is exact, separate identities and private directories are required
+  ---
+  duration_ms: 5.7862
+  type: 'test'
+  ...
+# Subtest: M15-BOOTSTRAP SIMULATED: Launcher enrollment signature binds actual peers, config, code and fresh challenge
+ok 145 - M15-BOOTSTRAP SIMULATED: Launcher enrollment signature binds actual peers, config, code and fresh challenge
+  ---
+  duration_ms: 1.6147
+  type: 'test'
+  ...
+# Subtest: M15-BOOTSTRAP REAL_LOCAL: exact source inventory rejects missing, extra and changed Worker dependencies
+ok 146 - M15-BOOTSTRAP REAL_LOCAL: exact source inventory rejects missing, extra and changed Worker dependencies
+  ---
+  duration_ms: 8.3074
+  type: 'test'
+  ...
+# Subtest: M15-BOOTSTRAP REAL_LOCAL: changed config hash is rejected before admin/database construction
+ok 147 - M15-BOOTSTRAP REAL_LOCAL: changed config hash is rejected before admin/database construction
+  ---
+  duration_ms: 2.6964
+  type: 'test'
+  ...
+# Subtest: M15-CATALOG REAL_LOCAL: new protection defaults OFF and original policies/features are retained
+ok 148 - M15-CATALOG REAL_LOCAL: new protection defaults OFF and original policies/features are retained
+  ---
+  duration_ms: 2.087
+  type: 'test'
+  ...
+# Subtest: M15-UBUNTU SIMULATED: adapter preparation requires distinct unprivileged UID/GID and pinned SO_PEERCRED/pidfd
+ok 149 - M15-UBUNTU SIMULATED: adapter preparation requires distinct unprivileged UID/GID and pinned SO_PEERCRED/pidfd
+  ---
+  duration_ms: 0.691
+  type: 'test'
+  ...
+# Subtest: M15-CLOSURE SIMULATED: partial/unknown IPC or owner evidence never releases five claims
+ok 150 - M15-CLOSURE SIMULATED: partial/unknown IPC or owner evidence never releases five claims
+  ---
+  duration_ms: 41.6891
+  type: 'test'
+  ...
+# Subtest: M15-CPU REAL_LOCAL: historical non-DEADLINE PASS cannot satisfy the hard-budget criterion
+ok 151 - M15-CPU REAL_LOCAL: historical non-DEADLINE PASS cannot satisfy the hard-budget criterion
+  ---
+  duration_ms: 1.0468
+  type: 'test'
+  ...
+# Subtest: M15-BOOTSTRAP SIMULATED: disabled Launcher refuses PREPARE before creating any OS process
+ok 152 - M15-BOOTSTRAP SIMULATED: disabled Launcher refuses PREPARE before creating any OS process
+  ---
+  duration_ms: 1.2506
+  type: 'test'
+  ...
+# Subtest: M15-BOOTSTRAP SIMULATED: provisional slot transfers atomically with Grant ownership and never overwrites uncertainty
+ok 153 - M15-BOOTSTRAP SIMULATED: provisional slot transfers atomically with Grant ownership and never overwrites uncertainty
+  ---
+  duration_ms: 39.5725
+  type: 'test'
+  ...
+# Subtest: M15-BOOTSTRAP SIMULATED: audit barrier failure prevents creation and restart preserves a provisional unknown slot
+ok 154 - M15-BOOTSTRAP SIMULATED: audit barrier failure prevents creation and restart preserves a provisional unknown slot
+  ---
+  duration_ms: 55.5361
+  type: 'test'
+  ...
+# Subtest: M15-PIPE REAL_WINDOWS_PRIMITIVE: persistent bidirectional frames bind kernel peers and exclude client instance right
+ok 155 - M15-PIPE REAL_WINDOWS_PRIMITIVE: persistent bidirectional frames bind kernel peers and exclude client instance right # SKIP NOT_RUN: host AppContainer denies this exact user-SID-only named pipe; no permission fallback
+  ---
+  duration_ms: 1151.1412
+  type: 'test'
+  ...
+# Subtest: M15-PIPE REAL_WINDOWS_PRIMITIVE: first-instance ownership rejects a second native listener
+ok 156 - M15-PIPE REAL_WINDOWS_PRIMITIVE: first-instance ownership rejects a second native listener
+  ---
+  duration_ms: 1171.1641
+  type: 'test'
+  ...
+# Subtest: M15-PIPE REAL_WINDOWS_PRIMITIVE: four listener owners and exact endpoint grammar are bounded without accepting a client
+ok 157 - M15-PIPE REAL_WINDOWS_PRIMITIVE: four listener owners and exact endpoint grammar are bounded without accepting a client
+  ---
+  duration_ms: 1065.4367
+  type: 'test'
+  ...
+# Subtest: M15-PIPE REAL_WINDOWS_PRIMITIVE: forged sid cannot authenticate a persistent native peer
+ok 158 - M15-PIPE REAL_WINDOWS_PRIMITIVE: forged sid cannot authenticate a persistent native peer # SKIP NOT_RUN: exact pipe connection denied by host sandbox
+  ---
+  duration_ms: 1101.0712
+  type: 'test'
+  ...
+# Subtest: M15-PIPE REAL_WINDOWS_PRIMITIVE: forged image cannot authenticate a persistent native peer
+ok 159 - M15-PIPE REAL_WINDOWS_PRIMITIVE: forged image cannot authenticate a persistent native peer # SKIP NOT_RUN: exact pipe connection denied by host sandbox
+  ---
+  duration_ms: 1273.5989
+  type: 'test'
+  ...
+# Subtest: M15-PIPE REAL_WINDOWS_PRIMITIVE: forged hash cannot authenticate a persistent native peer
+ok 160 - M15-PIPE REAL_WINDOWS_PRIMITIVE: forged hash cannot authenticate a persistent native peer # SKIP NOT_RUN: exact pipe connection denied by host sandbox
+  ---
+  duration_ms: 1139.2314
+  type: 'test'
+  ...
+# Subtest: M15-PIPE REAL_WINDOWS_PRIMITIVE: forged pid cannot authenticate a persistent native peer
+ok 161 - M15-PIPE REAL_WINDOWS_PRIMITIVE: forged pid cannot authenticate a persistent native peer
+  ---
+  duration_ms: 1179.2137
+  type: 'test'
+  ...
+# Subtest: M15-PIPE REAL_WINDOWS_PRIMITIVE: forged start cannot authenticate a persistent native peer
+ok 162 - M15-PIPE REAL_WINDOWS_PRIMITIVE: forged start cannot authenticate a persistent native peer
+  ---
+  duration_ms: 1134.2101
+  type: 'test'
+  ...
+# Subtest: M15-PIPE REAL_WINDOWS_PRIMITIVE: oversized outbound payload revokes the channel without retry
+ok 163 - M15-PIPE REAL_WINDOWS_PRIMITIVE: oversized outbound payload revokes the channel without retry # SKIP NOT_RUN: host AppContainer denies this exact user-SID-only named pipe; no permission fallback
+  ---
+  duration_ms: 1182.6567
+  type: 'test'
+  ...
+# Subtest: M15-PIPE REAL_WINDOWS_PRIMITIVE: oversized inbound length destroys a raw same-account connection
+ok 164 - M15-PIPE REAL_WINDOWS_PRIMITIVE: oversized inbound length destroys a raw same-account connection
+  ---
+  duration_ms: 1460.9656
+  type: 'test'
+  ...
+# Subtest: M15-PIPE REAL_WINDOWS_PRIMITIVE: read deadline, explicit close and endpoint revocation are terminal
+ok 165 - M15-PIPE REAL_WINDOWS_PRIMITIVE: read deadline, explicit close and endpoint revocation are terminal # SKIP NOT_RUN: host AppContainer denies this exact user-SID-only named pipe; no permission fallback
+  ---
+  duration_ms: 1095.1957
+  type: 'test'
+  ...
+# Subtest: M15-PIPE REAL_WINDOWS_PRIMITIVE: four live native channels fill owner quota and a closed slot can be reused
+ok 166 - M15-PIPE REAL_WINDOWS_PRIMITIVE: four live native channels fill owner quota and a closed slot can be reused # SKIP NOT_RUN: host AppContainer denies this exact user-SID-only named pipe; no permission fallback
+  ---
+  duration_ms: 1181.6804
+  type: 'test'
+  ...
+# Subtest: M15-ATTEST REAL_WINDOWS_PRIMITIVE: only the actual pinned parent and exact protected file security can attest
+    # Subtest: positive protected-pin attestation
+    ok 1 - positive protected-pin attestation # SKIP NOT_RUN: existing Node image has an unprotected inherited DACL; no ACL was modified. The actual unprotected DACL was rejected.
+      ---
+      duration_ms: 0.1514
+      type: 'test'
+      ...
+    1..1
+ok 167 - M15-ATTEST REAL_WINDOWS_PRIMITIVE: only the actual pinned parent and exact protected file security can attest
+  ---
+  duration_ms: 1653.4396
+  type: 'test'
+  ...
+# Subtest: M15-PIPE REAL_WINDOWS_PRIMITIVE: killing the actual Node owner retires its native helper
+ok 168 - M15-PIPE REAL_WINDOWS_PRIMITIVE: killing the actual Node owner retires its native helper
+  ---
+  duration_ms: 1448.8393
+  type: 'test'
+  ...
+# Subtest: M15-PIPE production cross-account protected bootstrap and effective client-instance denial
+ok 169 - M15-PIPE production cross-account protected bootstrap and effective client-instance denial # SKIP NOT_RUN / BLOCKED: approved distinct standard accounts, exact deployment ACL/profile and startup objects are absent; same-account primitives grant no qualification
+  ---
+  duration_ms: 0.0615
+  type: 'test'
+  ...
+# Subtest: M151 REAL_WINDOWS_PRIMITIVE: actual file link cannot escape the directory handle boundary
+ok 170 - M151 REAL_WINDOWS_PRIMITIVE: actual file link cannot escape the directory handle boundary # SKIP BLOCKED: OS refused file fixture (EPERM); no privilege or policy changed
+  ---
+  duration_ms: 1038.0086
+  type: 'test'
+  ...
+# Subtest: M151 REAL_WINDOWS_PRIMITIVE: actual dir link cannot escape the directory handle boundary
+ok 171 - M151 REAL_WINDOWS_PRIMITIVE: actual dir link cannot escape the directory handle boundary # SKIP BLOCKED: OS refused dir fixture (EPERM); no privilege or policy changed
+  ---
+  duration_ms: 1035.2813
+  type: 'test'
+  ...
+# Subtest: M151 REAL_WINDOWS_PRIMITIVE: actual junction link cannot escape the directory handle boundary
+ok 172 - M151 REAL_WINDOWS_PRIMITIVE: actual junction link cannot escape the directory handle boundary
+  ---
+  duration_ms: 1325.4199
+  type: 'test'
+  ...
+# Subtest: M151 REAL_WINDOWS_PRIMITIVE: actual hard link cannot escape the directory handle boundary
+ok 173 - M151 REAL_WINDOWS_PRIMITIVE: actual hard link cannot escape the directory handle boundary
+  ---
+  duration_ms: 1096.7318
+  type: 'test'
+  ...
+# Subtest: M151 REAL_WINDOWS_PRIMITIVE: sibling project and management fixture paths are rejected; file byte limit is enforced
+ok 174 - M151 REAL_WINDOWS_PRIMITIVE: sibling project and management fixture paths are rejected; file byte limit is enforced
+  ---
+  duration_ms: 1122.4188
+  type: 'test'
+  ...
+# Subtest: M151 REAL_WINDOWS_PRIMITIVE: concurrent directory replacement never returns junction target bytes
+ok 175 - M151 REAL_WINDOWS_PRIMITIVE: concurrent directory replacement never returns junction target bytes
+  ---
+  duration_ms: 1221.5157
+  type: 'test'
+  ...
+# Subtest: M151 REAL_WINDOWS_PRIMITIVE: normal observes root, tree, producers and native handle cleanup separately
+ok 176 - M151 REAL_WINDOWS_PRIMITIVE: normal observes root, tree, producers and native handle cleanup separately
+  ---
+  duration_ms: 1428.6456
+  type: 'test'
+  ...
+# Subtest: M151 REAL_WINDOWS_PRIMITIVE: crash observes root, tree, producers and native handle cleanup separately
+ok 177 - M151 REAL_WINDOWS_PRIMITIVE: crash observes root, tree, producers and native handle cleanup separately
+  ---
+  duration_ms: 1413.858
+  type: 'test'
+  ...
+# Subtest: M151 REAL_WINDOWS_PRIMITIVE: hold observes root, tree, producers and native handle cleanup separately
+ok 178 - M151 REAL_WINDOWS_PRIMITIVE: hold observes root, tree, producers and native handle cleanup separately
+  ---
+  duration_ms: 2782.0063
+  type: 'test'
+  ...
+# Subtest: M151 REAL_WINDOWS_PRIMITIVE: levels observes root, tree, producers and native handle cleanup separately
+ok 179 - M151 REAL_WINDOWS_PRIMITIVE: levels observes root, tree, producers and native handle cleanup separately
+  ---
+  duration_ms: 2778.6294
+  type: 'test'
+  ...
+# Subtest: M151 REAL_WINDOWS_PRIMITIVE: orphan observes root, tree, producers and native handle cleanup separately
+ok 180 - M151 REAL_WINDOWS_PRIMITIVE: orphan observes root, tree, producers and native handle cleanup separately
+  ---
+  duration_ms: 2800.6606
+  type: 'test'
+  ...
+# Subtest: M151 REAL_WINDOWS_PRIMITIVE: owner death closes its Job and pinned root/descendant producers actually exit
+ok 181 - M151 REAL_WINDOWS_PRIMITIVE: owner death closes its Job and pinned root/descendant producers actually exit
+  ---
+  duration_ms: 2429.1773
+  type: 'test'
+  ...
+# Subtest: M151 REAL_WINDOWS_PRIMITIVE: stale creation time is rejected before an exit observation is accepted
+ok 182 - M151 REAL_WINDOWS_PRIMITIVE: stale creation time is rejected before an exit observation is accepted
+  ---
+  duration_ms: 749.3686
+  type: 'test'
+  ...
+# Subtest: M151 REAL_WINDOWS_PRIMITIVE: CREATE_BREAKAWAY_FROM_JOB is denied by the private Job
+not ok 183 - M151 REAL_WINDOWS_PRIMITIVE: CREATE_BREAKAWAY_FROM_JOB is denied by the private Job
+  ---
+  duration_ms: 1088.8891
+  type: 'test'
+  location: 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8\\w\\r-fe266e156726\\workspace\\tests\\agentnexus\\m151-lifecycle.test.ts:42:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    {"code":"WIN32_5","message":"NtCreateFile component"}
+    
+    false !== true
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: 'strictEqual'
+  stack: |-
+    EvidenceRpc.good (file:///I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.8/w/r-fe266e156726/workspace/tests/agentnexus/m151-rpc.ts:35:134)
+    process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    async TestContext.<anonymous> (file:///I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.8/w/r-fe266e156726/workspace/tests/agentnexus/m151-lifecycle.test.ts:44:18)
+    async Test.run (node:internal/test_runner/test:1208:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:831:7)
+  ...
+# Subtest: M151 RESOURCE CONTRACT SIMULATED: valid signed full-check Windows certificate cannot enable a known failed CPU capability
+ok 184 - M151 RESOURCE CONTRACT SIMULATED: valid signed full-check Windows certificate cannot enable a known failed CPU capability
+  ---
+  duration_ms: 4.6844
+  type: 'test'
+  ...
+# Subtest: M151 RESOURCE CONTRACT: no runtime flag or unsupported assurance opens production
+ok 185 - M151 RESOURCE CONTRACT: no runtime flag or unsupported assurance opens production
+  ---
+  duration_ms: 0.2113
+  type: 'test'
+  ...
+# Subtest: M16-CONTEXT-RAW: separate summary/index views preserve original bytes and source hashes
+ok 186 - M16-CONTEXT-RAW: separate summary/index views preserve original bytes and source hashes
+  ---
+  duration_ms: 159.2565
+  type: 'test'
+  ...
+# Subtest: M16-CONTEXT-STREAM: bounded range scans a multi-chunk lossless object and restores after reopen
+ok 187 - M16-CONTEXT-STREAM: bounded range scans a multi-chunk lossless object and restores after reopen
+  ---
+  duration_ms: 119.0874
+  type: 'test'
+  ...
+# Subtest: M16-CONTEXT-BOUNDS: required rules never truncate and optional omissions are explicit
+ok 188 - M16-CONTEXT-BOUNDS: required rules never truncate and optional omissions are explicit
+  ---
+  duration_ms: 178.8434
+  type: 'test'
+  ...
+# Subtest: M16-CONTEXT-SCOPE: project/task authority and exact immutable reference are checked independently
+ok 189 - M16-CONTEXT-SCOPE: project/task authority and exact immutable reference are checked independently
+  ---
+  duration_ms: 69.231
+  type: 'test'
+  ...
+# Subtest: M16-CONTEXT-HASH: corruption outside the selected range fails the complete verification barrier
+ok 190 - M16-CONTEXT-HASH: corruption outside the selected range fails the complete verification barrier
+  ---
+  duration_ms: 44.6171
+  type: 'test'
+  ...
+# Subtest: M16-CONTEXT-ACK: failed archive ACK cannot become an acknowledged model context
+ok 191 - M16-CONTEXT-ACK: failed archive ACK cannot become an acknowledged model context
+  ---
+  duration_ms: 72.7999
+  type: 'test'
+  ...
+# Subtest: M16-CONTEXT-EGRESS: asynchronous scans recheck task authorization and support the exact model byte ceiling
+ok 192 - M16-CONTEXT-EGRESS: asynchronous scans recheck task authorization and support the exact model byte ceiling
+  ---
+  duration_ms: 92.6508
+  type: 'test'
+  ...
+# Subtest: M16-HARNESS-LOOP: executable loop routes a mock tool call through original Policy/Permit/Archive/Audit
+ok 193 - M16-HARNESS-LOOP: executable loop routes a mock tool call through original Policy/Permit/Archive/Audit
+  ---
+  duration_ms: 560.9287
+  type: 'test'
+  ...
+# Subtest: M16-HARNESS-TYPES: five type contracts, independent subagent context and read-only boundaries
+ok 194 - M16-HARNESS-TYPES: five type contracts, independent subagent context and read-only boundaries
+  ---
+  duration_ms: 269.7883
+  type: 'test'
+  ...
+# Subtest: M16-HARNESS-MESSAGES: durable bidirectional messages, dedupe, wake and source-bound model context
+ok 195 - M16-HARNESS-MESSAGES: durable bidirectional messages, dedupe, wake and source-bound model context
+  ---
+  duration_ms: 561.4885
+  type: 'test'
+  ...
+# Subtest: M16-HARNESS-WRITE: exact LOCAL_WRITE approval executes once and retains unverified persistent storage ownership
+ok 196 - M16-HARNESS-WRITE: exact LOCAL_WRITE approval executes once and retains unverified persistent storage ownership
+  ---
+  duration_ms: 398.7073
+  type: 'test'
+  ...
+# Subtest: M16-HARNESS-CANCEL-ACTIVE: cancellation while handler runs retains claims until outcome/outputs are reconciled
+ok 197 - M16-HARNESS-CANCEL-ACTIVE: cancellation while handler runs retains claims until outcome/outputs are reconciled
+  ---
+  duration_ms: 317.1264
+  type: 'test'
+  ...
+# Subtest: M16-HARNESS-BUDGET: concurrent budget shortage creates one persisted waiter and resumes after release
+ok 198 - M16-HARNESS-BUDGET: concurrent budget shortage creates one persisted waiter and resumes after release
+  ---
+  duration_ms: 634.7539
+  type: 'test'
+  ...
+# Subtest: M16-HARNESS-UNKNOWN: model unknown outcome retains all reservations and cannot resume or retry
+ok 199 - M16-HARNESS-UNKNOWN: model unknown outcome retains all reservations and cannot resume or retry
+  ---
+  duration_ms: 260.6512
+  type: 'test'
+  ...
+# Subtest: M16-HARNESS-RECOVERY: safe WAITING checkpoint survives reopen, old facade fails and no automatic model call occurs
+ok 200 - M16-HARNESS-RECOVERY: safe WAITING checkpoint survives reopen, old facade fails and no automatic model call occurs
+  ---
+  duration_ms: 526.0872
+  type: 'test'
+  ...
+# Subtest: M16-HARNESS-SCOPE: cross-project context/messages, capability escalation and malformed parameters fail before effect
+ok 201 - M16-HARNESS-SCOPE: cross-project context/messages, capability escalation and malformed parameters fail before effect
+  ---
+  duration_ms: 321.351
+  type: 'test'
+  ...
+# Subtest: M16-HARNESS-WORKFLOW: disabled gate is BYPASSED, self review is rejected, versions/evidence bind review
+ok 202 - M16-HARNESS-WORKFLOW: disabled gate is BYPASSED, self review is rejected, versions/evidence bind review
+  ---
+  duration_ms: 134.1466
+  type: 'test'
+  ...
+# Subtest: M16-HARNESS-CANCEL-FENCE: acknowledged cancellation prevents an approved pending write from starting
+ok 203 - M16-HARNESS-CANCEL-FENCE: acknowledged cancellation prevents an approved pending write from starting
+  ---
+  duration_ms: 369.7195
+  type: 'test'
+  ...
+# Subtest: M16-HARNESS-MODEL-CANCEL: cancellation at a model reservation ACK consumes zero sequence/tokens
+ok 204 - M16-HARNESS-MODEL-CANCEL: cancellation at a model reservation ACK consumes zero sequence/tokens
+  ---
+  duration_ms: 270.118
+  type: 'test'
+  ...
+# Subtest: M16-HARNESS-PROJECT-FENCE: project pause closes admission before draining an existing turn
+ok 205 - M16-HARNESS-PROJECT-FENCE: project pause closes admission before draining an existing turn
+  ---
+  duration_ms: 226.347
+  type: 'test'
+  ...
+# Subtest: M16-HARNESS-FEATURE: role/type-registry OFF blocks existing dispatch and new registration at project scope
+ok 206 - M16-HARNESS-FEATURE: role/type-registry OFF blocks existing dispatch and new registration at project scope
+  ---
+  duration_ms: 187.5671
+  type: 'test'
+  ...
+# Subtest: M16-HARNESS-HANDOFF: explicit handoff preserves independent task/context and delivers a structured completion
+ok 207 - M16-HARNESS-HANDOFF: explicit handoff preserves independent task/context and delivers a structured completion
+  ---
+  duration_ms: 497.5858
+  type: 'test'
+  ...
+# Subtest: M16-HARNESS-DEADLINE: queued deadlines and dependencies do not create workers or model requests
+ok 208 - M16-HARNESS-DEADLINE: queued deadlines and dependencies do not create workers or model requests
+  ---
+  duration_ms: 224.4089
+  type: 'test'
+  ...
+# Subtest: M16-HARNESS-WORKFLOW-FENCE: a gate disabled during evidence verification commits BYPASSED
+ok 209 - M16-HARNESS-WORKFLOW-FENCE: a gate disabled during evidence verification commits BYPASSED
+  ---
+  duration_ms: 137.4825
+  type: 'test'
+  ...
+# Subtest: M16-HARNESS-DIAGNOSTICS: read-only tool uses the original bound Host session and native parser
+ok 210 - M16-HARNESS-DIAGNOSTICS: read-only tool uses the original bound Host session and native parser
+  ---
+  duration_ms: 466.3842
+  type: 'test'
+  ...
+# Subtest: M16-HARNESS-RECOVER-OFF: disabled resource module permits control-plane recovery and later explicit preflight
+ok 211 - M16-HARNESS-RECOVER-OFF: disabled resource module permits control-plane recovery and later explicit preflight
+  ---
+  duration_ms: 380.7253
+  type: 'test'
+  ...
+# Subtest: M16-HARNESS-APPROVAL-RECOVER: old approval is revoked, reapproval is possible and real disk claim stays held
+ok 212 - M16-HARNESS-APPROVAL-RECOVER: old approval is revoked, reapproval is possible and real disk claim stays held
+  ---
+  duration_ms: 494.794
+  type: 'test'
+  ...
+# Subtest: M16-HARNESS-MESSAGE-RECOVER: logical text dedup survives replacement sender and receiver runtimes
+ok 213 - M16-HARNESS-MESSAGE-RECOVER: logical text dedup survives replacement sender and receiver runtimes
+  ---
+  duration_ms: 244.3009
+  type: 'test'
+  ...
+# Subtest: M16-HARNESS-AUDIT: a failed native intent barrier freezes admission and causes zero model/tool effects
+ok 214 - M16-HARNESS-AUDIT: a failed native intent barrier freezes admission and causes zero model/tool effects
+  ---
+  duration_ms: 174.2727
+  type: 'test'
+  ...
+# Subtest: M16-HARNESS-POLICY-OWNER: every new L0 owner rejects application DISABLED mode
+ok 215 - M16-HARNESS-POLICY-OWNER: every new L0 owner rejects application DISABLED mode
+  ---
+  duration_ms: 83.5425
+  type: 'test'
+  ...
+# Subtest: M16-HARNESS-DISK-RESULT: a large successful gateway result cannot free a real persistent disk claim
+ok 216 - M16-HARNESS-DISK-RESULT: a large successful gateway result cannot free a real persistent disk claim
+  ---
+  duration_ms: 395.3985
+  type: 'test'
+  ...
+# Subtest: M16-HARNESS-WORKFLOW-CONTRACT: typed task inputs, role restrictions and evidence checklists use native state
+ok 217 - M16-HARNESS-WORKFLOW-CONTRACT: typed task inputs, role restrictions and evidence checklists use native state
+  ---
+  duration_ms: 297.9208
+  type: 'test'
+  ...
+# Subtest: M16-HARNESS-OUTPUT-ROOT: existing Windows case aliases cannot write verification/demo output inside source
+ok 218 - M16-HARNESS-OUTPUT-ROOT: existing Windows case aliases cannot write verification/demo output inside source
+  ---
+  duration_ms: 1.4981
+  type: 'test'
+  ...
+# Subtest: M16-HARNESS-REQUEST-ACCOUNTING: actual zero-token fixture dispatch still consumes a request and cannot request zero workers
+ok 219 - M16-HARNESS-REQUEST-ACCOUNTING: actual zero-token fixture dispatch still consumes a request and cannot request zero workers
+  ---
+  duration_ms: 266.2391
+  type: 'test'
+  ...
+# Subtest: M16-MESSAGE-DURABLE: host-bound sender, exactly matching dedup and bidirectional ACK survive durable storage
+ok 220 - M16-MESSAGE-DURABLE: host-bound sender, exactly matching dedup and bidirectional ACK survive durable storage
+  ---
+  duration_ms: 133.2822
+  type: 'test'
+  ...
+# Subtest: M16-MESSAGE-AUTH: spoofed fields, foreign project, stale runtime and changed permissions fail closed
+ok 221 - M16-MESSAGE-AUTH: spoofed fields, foreign project, stale runtime and changed permissions fail closed
+  ---
+  duration_ms: 59.2463
+  type: 'test'
+  ...
+# Subtest: M16-MESSAGE-RETRY: bounded retries, expired leases, expiry/revocation and unknown effects never auto-replay
+ok 222 - M16-MESSAGE-RETRY: bounded retries, expired leases, expiry/revocation and unknown effects never auto-replay
+  ---
+  duration_ms: 251.9815
+  type: 'test'
+  ...
+# Subtest: M16-MESSAGE-CAPACITY: byte/record backpressure remains bounded and priority does not discard low priority
+ok 223 - M16-MESSAGE-CAPACITY: byte/record backpressure remains bounded and priority does not discard low priority
+  ---
+  duration_ms: 74.368
+  type: 'test'
+  ...
+# Subtest: M16-MESSAGE-ACK-FAILURE: audit failure suppresses wake; callback failure retains acknowledged queue
+ok 224 - M16-MESSAGE-ACK-FAILURE: audit failure suppresses wake; callback failure retains acknowledged queue
+  ---
+  duration_ms: 76.8616
+  type: 'test'
+  ...
+# Subtest: M16-MESSAGE-RECOVERY: real close/reopen fences old leases and quarantines external uncertainty
+ok 225 - M16-MESSAGE-RECOVERY: real close/reopen fences old leases and quarantines external uncertainty
+  ---
+  duration_ms: 126.7409
+  type: 'test'
+  ...
+# Subtest: M16-MESSAGE-CLOCK: rollback cannot revive expired or leased deliveries
+ok 226 - M16-MESSAGE-CLOCK: rollback cannot revive expired or leased deliveries
+  ---
+  duration_ms: 44.9408
+  type: 'test'
+  ...
+# Subtest: M16-MESSAGE-LOGICAL-DEDUPE: sender runtime replacement does not reset a task business dedup key
+ok 227 - M16-MESSAGE-LOGICAL-DEDUPE: sender runtime replacement does not reset a task business dedup key
+  ---
+  duration_ms: 52.8469
+  type: 'test'
+  ...
+# Subtest: M16-MODEL-TRACE: simulated results preserve original context provenance, integer usage and durable dedup
+ok 228 - M16-MODEL-TRACE: simulated results preserve original context provenance, integer usage and durable dedup
+  ---
+  duration_ms: 152.1315
+  type: 'test'
+  ...
+# Subtest: M16-MODEL-REAL-BLOCKED: no real adapter/provider or plaintext credential entry exists
+ok 229 - M16-MODEL-REAL-BLOCKED: no real adapter/provider or plaintext credential entry exists
+  ---
+  duration_ms: 74.1682
+  type: 'test'
+  ...
+# Subtest: M16-MODEL-FAILOVER: only proven not-sent failures may advance to an independent provider pool
+ok 230 - M16-MODEL-FAILOVER: only proven not-sent failures may advance to an independent provider pool
+  ---
+  duration_ms: 122.7254
+  type: 'test'
+  ...
+# Subtest: M16-MODEL-UNKNOWN: sent unknown results retain budget/key quota, persist and never fail over or replay
+ok 231 - M16-MODEL-UNKNOWN: sent unknown results retain budget/key quota, persist and never fail over or replay
+  ---
+  duration_ms: 128.2498
+  type: 'test'
+  ...
+# Subtest: M16-MODEL-POOL: independent key state, rotation and round robin keep provider/account limits
+ok 232 - M16-MODEL-POOL: independent key state, rotation and round robin keep provider/account limits
+  ---
+  duration_ms: 163.7839
+  type: 'test'
+  ...
+# Subtest: M16-MODEL-CONCURRENCY: active key limit rejects a concurrent request and releases known unused reservation
+ok 233 - M16-MODEL-CONCURRENCY: active key limit rejects a concurrent request and releases known unused reservation
+  ---
+  duration_ms: 134.7078
+  type: 'test'
+  ...
+# Subtest: M16-MODEL-BUDGET: reservation failure and unknown settlement fail closed without unmetered dispatch
+ok 234 - M16-MODEL-BUDGET: reservation failure and unknown settlement fail closed without unmetered dispatch
+  ---
+  duration_ms: 186.1931
+  type: 'test'
+  ...
+# Subtest: M16-MODEL-FEATURE: disabled failover, authentication failure and usage excess have separate outcomes
+ok 235 - M16-MODEL-FEATURE: disabled failover, authentication failure and usage excess have separate outcomes
+  ---
+  duration_ms: 265.8716
+  type: 'test'
+  ...
+# Subtest: M16-MODEL-TOOL: full JSON arguments/resource remain data and model cannot supply approval authority
+ok 236 - M16-MODEL-TOOL: full JSON arguments/resource remain data and model cannot supply approval authority
+  ---
+  duration_ms: 110.6322
+  type: 'test'
+  ...
+# Subtest: M16-MODEL-RECOVERY: persisted reserve/send crash windows become unknown without dispatch or quota release
+ok 237 - M16-MODEL-RECOVERY: persisted reserve/send crash windows become unknown without dispatch or quota release
+  ---
+  duration_ms: 109.178
+  type: 'test'
+  ...
+# Subtest: M16-MODEL-CANCEL-NOT-SENT: real durable barriers fence cancellation before fixture sequence or token consumption
+    # Subtest: MODEL_REQUEST_PREPARED
+    ok 1 - MODEL_REQUEST_PREPARED
+      ---
+      duration_ms: 77.9788
+      type: 'test'
+      ...
+    # Subtest: MODEL_BUDGET_RESERVED
+    ok 2 - MODEL_BUDGET_RESERVED
+      ---
+      duration_ms: 84.7935
+      type: 'test'
+      ...
+    # Subtest: CONTEXT_CAPTURED
+    ok 3 - CONTEXT_CAPTURED
+      ---
+      duration_ms: 98.2724
+      type: 'test'
+      ...
+    # Subtest: MODEL_DISPATCH_INTENT
+    ok 4 - MODEL_DISPATCH_INTENT
+      ---
+      duration_ms: 97.5149
+      type: 'test'
+      ...
+    1..4
+ok 238 - M16-MODEL-CANCEL-NOT-SENT: real durable barriers fence cancellation before fixture sequence or token consumption
+  ---
+  duration_ms: 359.2995
+  type: 'test'
+  ...
+# Subtest: M16-MODEL-CANCEL-SENT: cancellation after actual fixture dispatch retains unknown quota and never fails over
+ok 239 - M16-MODEL-CANCEL-SENT: cancellation after actual fixture dispatch retains unknown quota and never fails over
+  ---
+  duration_ms: 100.0303
+  type: 'test'
+  ...
+# Subtest: M16-MODEL-CANCEL-FAILOVER: cancellation at known-not-sent ACK cannot advance to another provider
+ok 240 - M16-MODEL-CANCEL-FAILOVER: cancellation at known-not-sent ACK cannot advance to another provider
+  ---
+  duration_ms: 100.3588
+  type: 'test'
+  ...
+# Subtest: M16-MODEL-CANCEL-SETTLED: cancellation after a known usage settlement preserves actual metering
+ok 241 - M16-MODEL-CANCEL-SETTLED: cancellation after a known usage settlement preserves actual metering
+  ---
+  duration_ms: 105.7903
+  type: 'test'
+  ...
+# Subtest: M16 RESOURCES SIMULATED: strict CPU remains BLOCKED independent of a registry description
+ok 242 - M16 RESOURCES SIMULATED: strict CPU remains BLOCKED independent of a registry description
+  ---
+  duration_ms: 1.1124
+  type: 'test'
+  ...
+# Subtest: M16 RESOURCES SQLITE: competing reservations atomically obey all three budgets
+ok 243 - M16 RESOURCES SQLITE: competing reservations atomically obey all three budgets
+  ---
+  duration_ms: 109.0466
+  type: 'test'
+  ...
+# Subtest: M16 RESOURCES SIMULATED: admin and exact subject/project/worker scope cannot be forged
+ok 244 - M16 RESOURCES SIMULATED: admin and exact subject/project/worker scope cannot be forged
+  ---
+  duration_ms: 53.9835
+  type: 'test'
+  ...
+# Subtest: M16 RESOURCES SQLITE: cumulative consumption settles once while capacity stays held until owner closure
+ok 245 - M16 RESOURCES SQLITE: cumulative consumption settles once while capacity stays held until owner closure
+  ---
+  duration_ms: 94.5098
+  type: 'test'
+  ...
+# Subtest: M16 RESOURCES SIMULATED: fabricated, serialized, wrong-reservation and stale closure objects fail
+ok 246 - M16 RESOURCES SIMULATED: fabricated, serialized, wrong-reservation and stale closure objects fail
+  ---
+  duration_ms: 63.7711
+  type: 'test'
+  ...
+# Subtest: M16 RESOURCES SIMULATED: UNKNOWN, expiration and production-looking JSON never free capacity
+ok 247 - M16 RESOURCES SIMULATED: UNKNOWN, expiration and production-looking JSON never free capacity
+  ---
+  duration_ms: 53.6207
+  type: 'test'
+  ...
+# Subtest: M16 RESOURCES SQLITE: bounded persistent wait resumes only after a verified unused reservation closes
+ok 248 - M16 RESOURCES SQLITE: bounded persistent wait resumes only after a verified unused reservation closes
+  ---
+  duration_ms: 56.2378
+  type: 'test'
+  ...
+# Subtest: M16 RESOURCES SIMULATED: waiting state has a hard count bound; no unbounded in-memory queue
+ok 249 - M16 RESOURCES SIMULATED: waiting state has a hard count bound; no unbounded in-memory queue
+  ---
+  duration_ms: 222.8586
+  type: 'test'
+  ...
+# Subtest: M16 RESOURCES SQLITE: cancelled waiting requests cannot later acquire capacity or cancel active claims
+ok 250 - M16 RESOURCES SQLITE: cancelled waiting requests cannot later acquire capacity or cancel active claims
+  ---
+  duration_ms: 52.974
+  type: 'test'
+  ...
+# Subtest: M16 RESOURCES SQLITE: old boot recovery preserves holds and consumed counters, rejects old wait and closure
+ok 251 - M16 RESOURCES SQLITE: old boot recovery preserves holds and consumed counters, rejects old wait and closure
+  ---
+  duration_ms: 85.987
+  type: 'test'
+  ...
+# Subtest: M16 RESOURCES FEATURE: OFF blocks reserve/start and permits evidence-based cleanup without reopening execution
+ok 252 - M16 RESOURCES FEATURE: OFF blocks reserve/start and permits evidence-based cleanup without reopening execution
+  ---
+  duration_ms: 57.8961
+  type: 'test'
+  ...
+# Subtest: M16 RESOURCES AUDIT: failed durable reservation barrier produces zero starts and retains the committed hold
+ok 253 - M16 RESOURCES AUDIT: failed durable reservation barrier produces zero starts and retains the committed hold
+  ---
+  duration_ms: 43.3062
+  type: 'test'
+  ...
+# Subtest: M16 RESOURCES ACCOUNTING: observed overspend is recorded in all scopes and quarantines further admission
+ok 254 - M16 RESOURCES ACCOUNTING: observed overspend is recorded in all scopes and quarantines further admission
+  ---
+  duration_ms: 49.6605
+  type: 'test'
+  ...
+# Subtest: M16 RESOURCES VALIDATION: invalid amounts, expired requests and strict mode cannot mutate holds
+ok 255 - M16 RESOURCES VALIDATION: invalid amounts, expired requests and strict mode cannot mutate holds
+  ---
+  duration_ms: 41.2546
+  type: 'test'
+  ...
+# Subtest: M16 RESOURCES SIMULATED: application bookkeeping never accepts a simulated completion as real OS proof
+ok 256 - M16 RESOURCES SIMULATED: application bookkeeping never accepts a simulated completion as real OS proof
+  ---
+  duration_ms: 48.8579
+  type: 'test'
+  ...
+# Subtest: M161 ARTIFACT queued writers retain two active streams, sixteen waiters, and legacy reject-third semantics
+ok 257 - M161 ARTIFACT queued writers retain two active streams, sixteen waiters, and legacy reject-third semantics
+  ---
+  duration_ms: 76.056
+  type: 'test'
+  ...
+# Subtest: M161 ARTIFACT aborting a queued producer never starts its iterator and leaves no queued capacity
+ok 258 - M161 ARTIFACT aborting a queued producer never starts its iterator and leaves no queued capacity
+  ---
+  duration_ms: 5.5976
+  type: 'test'
+  ...
+# Subtest: M161 ARTIFACT close rejects queued work while awaiting the two actual producers
+ok 259 - M161 ARTIFACT close rejects queued work while awaiting the two actual producers
+  ---
+  duration_ms: 25.7433
+  type: 'test'
+  ...
+# Subtest: M161 CPU qualification: strict Windows profiles fail closed before certificate lookup
+ok 260 - M161 CPU qualification: strict Windows profiles fail closed before certificate lookup
+  ---
+  duration_ms: 1.9686
+  type: 'test'
+  ...
+# Subtest: M161 REAL_WINDOWS_PRIMITIVE: observed junction replacement is denied, concurrent swaps and interrupted fixture recover
+ok 261 - M161 REAL_WINDOWS_PRIMITIVE: observed junction replacement is denied, concurrent swaps and interrupted fixture recover
+  ---
+  duration_ms: 1642.352
+  type: 'test'
+  ...
+# TOCTOU raw evidence: I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8\\w\\r-fe266e156726\\data\\m161-historical\\toctou-Ibin35\\report.json
+# Subtest: M161-CONTEXT-EXACT: every source category and version survives immutable input/manifest reconstruction
+ok 262 - M161-CONTEXT-EXACT: every source category and version survives immutable input/manifest reconstruction
+  ---
+  duration_ms: 244.6266
+  type: 'test'
+  ...
+# Subtest: M161-CONTEXT-VERSIONS: actual file/rule changes cannot silently replace a bound version
+ok 263 - M161-CONTEXT-VERSIONS: actual file/rule changes cannot silently replace a bound version
+  ---
+  duration_ms: 95.8906
+  type: 'test'
+  ...
+# Subtest: M161-CONTEXT-LARGE: 8MiB raw history remains chunked and exact ranges retain complete hash verification
+ok 264 - M161-CONTEXT-LARGE: 8MiB raw history remains chunked and exact ranges retain complete hash verification
+  ---
+  duration_ms: 92.2535
+  type: 'test'
+  ...
+# Subtest: M161-CONTEXT-BACKPRESSURE SIMULATED_SCHEDULING_BARRIER: shared read pool bounds concurrent readers and aborts queued reads
+ok 265 - M161-CONTEXT-BACKPRESSURE SIMULATED_SCHEDULING_BARRIER: shared read pool bounds concurrent readers and aborts queued reads
+  ---
+  duration_ms: 56.9843
+  type: 'test'
+  ...
+# Subtest: M161-CONTEXT-DERIVED: missing/corrupt derived references never replace original raw history and indexes can be regenerated
+ok 266 - M161-CONTEXT-DERIVED: missing/corrupt derived references never replace original raw history and indexes can be regenerated
+  ---
+  duration_ms: 96.6553
+  type: 'test'
+  ...
+# Subtest: M161-CONTEXT-CORRUPTION: damaged original history outside selected range rejects assembly and leaves prior exact input intact
+ok 267 - M161-CONTEXT-CORRUPTION: damaged original history outside selected range rejects assembly and leaves prior exact input intact
+  ---
+  duration_ms: 61.8544
+  type: 'test'
+  ...
+# Subtest: M161-CONTEXT-LEGACY SIMULATED_LEGACY_PROJECTION: old M1.6 views reconstruct without rewriting or upgrading raw records
+ok 268 - M161-CONTEXT-LEGACY SIMULATED_LEGACY_PROJECTION: old M1.6 views reconstruct without rewriting or upgrading raw records
+  ---
+  duration_ms: 49.5197
+  type: 'test'
+  ...
+# Subtest: M161-CONTEXT-CEILING: full 256KiB control-byte input is exact and does not overflow metadata serialization
+ok 269 - M161-CONTEXT-CEILING: full 256KiB control-byte input is exact and does not overflow metadata serialization
+  ---
+  duration_ms: 152.6899
+  type: 'test'
+  ...
+# Subtest: M161-CONTEXT-REQUEST-FAILURE SIMULATED_PROVIDER: known-not-sent and unknown requests preserve exact acknowledged input across reopen
+ok 270 - M161-CONTEXT-REQUEST-FAILURE SIMULATED_PROVIDER: known-not-sent and unknown requests preserve exact acknowledged input across reopen
+  ---
+  duration_ms: 151.2431
+  type: 'test'
+  ...
+# Subtest: M161-CONTEXT-REQUIRED: important rules never silently truncate and stale/missing references fail closed
+ok 271 - M161-CONTEXT-REQUIRED: important rules never silently truncate and stale/missing references fail closed
+  ---
+  duration_ms: 73.1831
+  type: 'test'
+  ...
+# Subtest: M161-CONTEXT-INDEX-CORRUPTION: damaged derived index is detected while original raw/input objects remain recoverable
+ok 272 - M161-CONTEXT-INDEX-CORRUPTION: damaged derived index is detected while original raw/input objects remain recoverable
+  ---
+  duration_ms: 69.5863
+  type: 'test'
+  ...
+# Subtest: M161-CONTEXT-CONCURRENT-WRITES SIMULATED_PRODUCER_BARRIER: four capture/assembly callers wait on two real Artifact writers
+ok 273 - M161-CONTEXT-CONCURRENT-WRITES SIMULATED_PRODUCER_BARRIER: four capture/assembly callers wait on two real Artifact writers
+  ---
+  duration_ms: 132.7797
+  type: 'test'
+  ...
+# Subtest: M161-CONTEXT-COMPOSED-POOLS SIMULATED_SCAN_BARRIER: two assemblies release read slots before waiting on producers that read context
+ok 274 - M161-CONTEXT-COMPOSED-POOLS SIMULATED_SCAN_BARRIER: two assemblies release read slots before waiting on producers that read context
+  ---
+  duration_ms: 99.5913
+  type: 'test'
+  ...
+# Subtest: M161-GATE-FORGERY: caller status and a model PASS artifact never certify an unexecuted gate
+ok 275 - M161-GATE-FORGERY: caller status and a model PASS artifact never certify an unexecuted gate
+  ---
+  duration_ms: 120.4017
+  type: 'test'
+  ...
+# Subtest: M161-GATE-ADMISSION-INTEGRITY: engine validates admitted Task, frozen rules and actual Artifact bytes
+ok 276 - M161-GATE-ADMISSION-INTEGRITY: engine validates admitted Task, frozen rules and actual Artifact bytes
+  ---
+  duration_ms: 99.1984
+  type: 'test'
+  ...
+# Subtest: M161-GATE-CHECKER: trusted checker runs actual bounded reads and engine captures code provenance
+ok 277 - M161-GATE-CHECKER: trusted checker runs actual bounded reads and engine captures code provenance
+  ---
+  duration_ms: 89.7174
+  type: 'test'
+  ...
+# Subtest: M161-GATE-STATUS: FAIL, NOT_RUN, BLOCKED, INCONCLUSIVE and SIMULATED remain distinct
+ok 278 - M161-GATE-STATUS: FAIL, NOT_RUN, BLOCKED, INCONCLUSIVE and SIMULATED remain distinct
+  ---
+  duration_ms: 448.4234
+  type: 'test'
+  ...
+# Subtest: M161-GATE-MOCK: simulated checkers and profiles cannot become real PASS
+ok 279 - M161-GATE-MOCK: simulated checkers and profiles cannot become real PASS
+  ---
+  duration_ms: 169.6186
+  type: 'test'
+  ...
+# Subtest: M161-GATE-MISSING: missing design, delivery and unknown checker are NOT_RUN
+ok 280 - M161-GATE-MISSING: missing design, delivery and unknown checker are NOT_RUN
+  ---
+  duration_ms: 104.3315
+  type: 'test'
+  ...
+# Subtest: M161-GATE-INDEPENDENCE: G4 requires registered independent reviewer and exact candidate/author binding
+ok 281 - M161-GATE-INDEPENDENCE: G4 requires registered independent reviewer and exact candidate/author binding
+  ---
+  duration_ms: 201.8384
+  type: 'test'
+  ...
+# Subtest: M161-GATE-HUMAN: actual trusted approval record is required and bound to candidate/rules/profile
+ok 282 - M161-GATE-HUMAN: actual trusted approval record is required and bound to candidate/rules/profile
+  ---
+  duration_ms: 151.2613
+  type: 'test'
+  ...
+# Subtest: M161-GATE-OFF: OFF records BYPASSED, does not execute checker, and cannot authorize protected capability
+ok 283 - M161-GATE-OFF: OFF records BYPASSED, does not execute checker, and cannot authorize protected capability
+  ---
+  duration_ms: 99.0399
+  type: 'test'
+  ...
+# Subtest: M161-GATE-OFF-RACE: gate disabled while actual artifact stream awaits commits BYPASSED
+ok 284 - M161-GATE-OFF-RACE: gate disabled while actual artifact stream awaits commits BYPASSED
+  ---
+  duration_ms: 99.2931
+  type: 'test'
+  ...
+# Subtest: M161-GATE-EPOCH-RACE: unrelated control change during validation becomes INCONCLUSIVE
+ok 285 - M161-GATE-EPOCH-RACE: unrelated control change during validation becomes INCONCLUSIVE
+  ---
+  duration_ms: 89.2059
+  type: 'test'
+  ...
+# Subtest: M161-GATE-RULE-BINDING: changed Task binding is blocked while new registry alone preserves frozen Task
+ok 286 - M161-GATE-RULE-BINDING: changed Task binding is blocked while new registry alone preserves frozen Task
+  ---
+  duration_ms: 107.1432
+  type: 'test'
+  ...
+# Subtest: M161-GATE-FINAL: seven actual gates share candidate/baseline/profile/rules and old evidence cannot pass a new candidate
+ok 287 - M161-GATE-FINAL: seven actual gates share candidate/baseline/profile/rules and old evidence cannot pass a new candidate
+  ---
+  duration_ms: 236.0318
+  type: 'test'
+  ...
+# Subtest: M161-GATE-CORRUPT: actual corrupted Artifact freezes owner and leaves no PASS or protected authorization
+ok 288 - M161-GATE-CORRUPT: actual corrupted Artifact freezes owner and leaves no PASS or protected authorization
+  ---
+  duration_ms: 69.5536
+  type: 'test'
+  ...
+# Subtest: M161-GATE-LIMITS: evidence, duplicate kinds and concurrent gate execution are bounded
+ok 289 - M161-GATE-LIMITS: evidence, duplicate kinds and concurrent gate execution are bounded
+  ---
+  duration_ms: 109.6193
+  type: 'test'
+  ...
+# Subtest: M161-GATE-COMPILED-CONSTRAINT: frozen DSL predicates enforce artifact, checker, byte and human requirements
+ok 290 - M161-GATE-COMPILED-CONSTRAINT: frozen DSL predicates enforce artifact, checker, byte and human requirements
+  ---
+  duration_ms: 110.0799
+  type: 'test'
+  ...
+# Subtest: M161-GATE-CHECKER-PROVENANCE: an invalid checker report cannot forge engine-generated provenance
+ok 291 - M161-GATE-CHECKER-PROVENANCE: an invalid checker report cannot forge engine-generated provenance
+  ---
+  duration_ms: 90.1871
+  type: 'test'
+  ...
+# Subtest: M161-GATE-ENGINE-OFF: disabling the engine records BYPASSED and preserves core feature owners
+ok 292 - M161-GATE-ENGINE-OFF: disabling the engine records BYPASSED and preserves core feature owners
+  ---
+  duration_ms: 81.3481
+  type: 'test'
+  ...
+# Subtest: M161-GATE-STALE-PASS: OFF then ON cannot revive an earlier gate authorization epoch
+ok 293 - M161-GATE-STALE-PASS: OFF then ON cannot revive an earlier gate authorization epoch
+  ---
+  duration_ms: 121.4469
+  type: 'test'
+  ...
+# Subtest: M161-GATE-RECOVERY: interrupted intent is INCONCLUSIVE without rerunning trusted code
+ok 294 - M161-GATE-RECOVERY: interrupted intent is INCONCLUSIVE without rerunning trusted code
+  ---
+  duration_ms: 73.4275
+  type: 'test'
+  ...
+# Subtest: M161-GATE-ACTUAL-NODE-TEST: trusted runner executes a real bounded Node test and gate consumes its actual exit/result
+ok 295 - M161-GATE-ACTUAL-NODE-TEST: trusted runner executes a real bounded Node test and gate consumes its actual exit/result
+  ---
+  duration_ms: 186.9845
+  type: 'test'
+  ...
+# Subtest: M161-GATE-SCHEDULER: frozen requirements block dispatch until a trusted matching native gate is explicitly bound
+ok 296 - M161-GATE-SCHEDULER: frozen requirements block dispatch until a trusted matching native gate is explicitly bound
+  ---
+  duration_ms: 436.0682
+  type: 'test'
+  ...
+# Subtest: M161 TASK stable ID rejects changed budget, input, and acceptance contracts
+ok 297 - M161 TASK stable ID rejects changed budget, input, and acceptance contracts
+  ---
+  duration_ms: 173.7748
+  type: 'test'
+  ...
+# Subtest: M161 TASK rules update freezes old tasks, new tasks take new version, explicit migration archives the original contract
+ok 298 - M161 TASK rules update freezes old tasks, new tasks take new version, explicit migration archives the original contract
+  ---
+  duration_ms: 777.1174
+  type: 'test'
+  ...
+# Subtest: M161 TASK handoff repeats the same frozen plan and preserves old rules after project update
+ok 299 - M161 TASK handoff repeats the same frozen plan and preserves old rules after project update
+  ---
+  duration_ms: 540.4063
+  type: 'test'
+  ...
+# Subtest: M161 GATE actual file candidate is bound from trusted PASS to the approved Storage input
+ok 300 - M161 GATE actual file candidate is bound from trusted PASS to the approved Storage input
+  ---
+  duration_ms: 456.7971
+  type: 'test'
+  ...
+# Subtest: M161 FIVE AGENTS durable messages, independent tasks, event wake, resource competition and coordinator status grants
+ok 301 - M161 FIVE AGENTS durable messages, independent tasks, event wake, resource competition and coordinator status grants
+  ---
+  duration_ms: 1561.4984
+  type: 'test'
+  ...
+# Subtest: M161 COORDINATOR notices cross only explicitly granted projects and preserve original identity
+ok 302 - M161 COORDINATOR notices cross only explicitly granted projects and preserve original identity
+  ---
+  duration_ms: 666.3752
+  type: 'test'
+  ...
+# Subtest: M161 SUBAGENTS use independent contexts and parallel sibling messages without repeated tasks
+ok 303 - M161 SUBAGENTS use independent contexts and parallel sibling messages without repeated tasks
+  ---
+  duration_ms: 847.5853
+  type: 'test'
+  ...
+# Subtest: M161 PROJECT budgets compete atomically and resume a known undispatched waiter once
+ok 304 - M161 PROJECT budgets compete atomically and resume a known undispatched waiter once
+  ---
+  duration_ms: 597.855
+  type: 'test'
+  ...
+# Subtest: M161 DRAFT REAL_PROCESS_CRASH after durable admission resumes exact internal capture without a lost message
+ok 305 - M161 DRAFT REAL_PROCESS_CRASH after durable admission resumes exact internal capture without a lost message
+  ---
+  duration_ms: 798.8408
+  type: 'test'
+  ...
+# Subtest: M161 DRAFT transient shared write backpressure releases capture ownership for a same-boot exact retry
+ok 306 - M161 DRAFT transient shared write backpressure releases capture ownership for a same-boot exact retry
+  ---
+  duration_ms: 295.1952
+  type: 'test'
+  ...
+# Subtest: M161-MESSAGE-ACK: delivery and receiver ACK cannot claim task processed/completed
+ok 307 - M161-MESSAGE-ACK: delivery and receiver ACK cannot claim task processed/completed
+  ---
+  duration_ms: 82.2657
+  type: 'test'
+  ...
+# Subtest: M161-MESSAGE-HANDOFF SIMULATED_TASK_OWNER: atomic adoption, ACK and actual result evidence are separate from completion
+ok 308 - M161-MESSAGE-HANDOFF SIMULATED_TASK_OWNER: atomic adoption, ACK and actual result evidence are separate from completion
+  ---
+  duration_ms: 104.6818
+  type: 'test'
+  ...
+# Subtest: M161-MESSAGE-ROLLBACK SIMULATED_TASK_OWNER: incomplete or throwing adoption rolls back task, receipt and ACK together
+ok 309 - M161-MESSAGE-ROLLBACK SIMULATED_TASK_OWNER: incomplete or throwing adoption rolls back task, receipt and ACK together
+  ---
+  duration_ms: 60.5061
+  type: 'test'
+  ...
+# Subtest: M161-MESSAGE-OPERATION-DEDUPE SIMULATED_TASK_OWNER: copied envelopes with one stable operation do not adopt twice
+ok 310 - M161-MESSAGE-OPERATION-DEDUPE SIMULATED_TASK_OWNER: copied envelopes with one stable operation do not adopt twice
+  ---
+  duration_ms: 82.8242
+  type: 'test'
+  ...
+# Subtest: M161-MESSAGE-OPERATION-CONFLICT SIMULATED_TASK_OWNER: changed payload/task/correlation cannot reuse adoption authority
+ok 311 - M161-MESSAGE-OPERATION-CONFLICT SIMULATED_TASK_OWNER: changed payload/task/correlation cannot reuse adoption authority
+  ---
+  duration_ms: 74.7316
+  type: 'test'
+  ...
+# Subtest: M161-MESSAGE-CONCURRENT: parallel consumers obtain disjoint leases and equal-priority delivery preserves durable enqueue order
+ok 312 - M161-MESSAGE-CONCURRENT: parallel consumers obtain disjoint leases and equal-priority delivery preserves durable enqueue order
+  ---
+  duration_ms: 189.7909
+  type: 'test'
+  ...
+# Subtest: M161-MESSAGE-PERMISSIONS: permission revocation and replacement receiver runtime fence ACK and trusted handoff
+ok 313 - M161-MESSAGE-PERMISSIONS: permission revocation and replacement receiver runtime fence ACK and trusted handoff
+  ---
+  duration_ms: 52.0269
+  type: 'test'
+  ...
+# Subtest: M161-MESSAGE-WAKE-OUTBOX SIMULATED_CALLBACK_FAILURE: durable message survives sender exit and pending notification is recovered
+ok 314 - M161-MESSAGE-WAKE-OUTBOX SIMULATED_CALLBACK_FAILURE: durable message survives sender exit and pending notification is recovered
+  ---
+  duration_ms: 59.6649
+  type: 'test'
+  ...
+# Subtest: M161-MESSAGE-EXPIRY-REVOKE: queued expiry/revocation terminate delivery and in-flight external uncertainty never retries
+ok 315 - M161-MESSAGE-EXPIRY-REVOKE: queued expiry/revocation terminate delivery and in-flight external uncertainty never retries
+  ---
+  duration_ms: 204.1221
+  type: 'test'
+  ...
+# Subtest: M161-MESSAGE-REAL-PROCESS-RESTART: killed host recovers internal delivery but quarantines leased external effects
+ok 316 - M161-MESSAGE-REAL-PROCESS-RESTART: killed host recovers internal delivery but quarantines leased external effects
+  ---
+  duration_ms: 334.9227
+  type: 'test'
+  ...
+# Subtest: M161-MESSAGE-REAL-ACK-LOSS SIMULATED_CRASH_BARRIER: process death after durable handoff before caller ACK never repeats task adoption
+ok 317 - M161-MESSAGE-REAL-ACK-LOSS SIMULATED_CRASH_BARRIER: process death after durable handoff before caller ACK never repeats task adoption
+  ---
+  duration_ms: 265.8379
+  type: 'test'
+  ...
+# Subtest: M161-MESSAGE-COMPLETION-EVIDENCE SIMULATED_TASK_OWNER: self-reported success or held/unknown task claims cannot become completed
+ok 318 - M161-MESSAGE-COMPLETION-EVIDENCE SIMULATED_TASK_OWNER: self-reported success or held/unknown task claims cannot become completed
+  ---
+  duration_ms: 80.0854
+  type: 'test'
+  ...
+# Subtest: M161-MESSAGE-RECOVERY-BOUND SIMULATED_BOOT_REPLACEMENT: mass lease recovery commits at most 32 audited transitions per call
+ok 319 - M161-MESSAGE-RECOVERY-BOUND SIMULATED_BOOT_REPLACEMENT: mass lease recovery commits at most 32 audited transitions per call
+  ---
+  duration_ms: 1085.7574
+  type: 'test'
+  ...
+# Subtest: M161-MESSAGE-EXPIRED-BATCH SIMULATED_WALL_ADVANCE: unswept expired queue records never leak into delivery
+ok 320 - M161-MESSAGE-EXPIRED-BATCH SIMULATED_WALL_ADVANCE: unswept expired queue records never leak into delivery
+  ---
+  duration_ms: 969.9303
+  type: 'test'
+  ...
+# Subtest: M161-MESSAGE-COORDINATOR: fixed trusted notices reach two project tasks without cross-project raw access or generic send authority
+ok 321 - M161-MESSAGE-COORDINATOR: fixed trusted notices reach two project tasks without cross-project raw access or generic send authority
+  ---
+  duration_ms: 106.5094
+  type: 'test'
+  ...
+# Subtest: M161-MESSAGE-COORDINATOR-DENIAL: admin/type/runtime/target payload/permission fences and content dedup survive the advisory lane
+ok 322 - M161-MESSAGE-COORDINATOR-DENIAL: admin/type/runtime/target payload/permission fences and content dedup survive the advisory lane
+  ---
+  duration_ms: 93.2344
+  type: 'test'
+  ...
+# Subtest: M161-RULES-TEXT: source text remains verbatim and never becomes an executable natural-language rule
+ok 323 - M161-RULES-TEXT: source text remains verbatim and never becomes an executable natural-language rule
+  ---
+  duration_ms: 80.6468
+  type: 'test'
+  ...
+# Subtest: M161-RULES-DSL: all five classes, finite constraints, dependencies, scope and enforcement bindings are explicit
+ok 324 - M161-RULES-DSL: all five classes, finite constraints, dependencies, scope and enforcement bindings are explicit
+  ---
+  duration_ms: 61.0207
+  type: 'test'
+  ...
+# Subtest: M161-RULES-UNKNOWN: unknown constraint, class, fields, feature and policy are rejected
+ok 325 - M161-RULES-UNKNOWN: unknown constraint, class, fields, feature and policy are rejected
+  ---
+  duration_ms: 65.0325
+  type: 'test'
+  ...
+# Subtest: M161-RULES-DEPENDENCIES: duplicates, unknown dependencies, cycles and narrowing dependencies fail closed
+ok 326 - M161-RULES-DEPENDENCIES: duplicates, unknown dependencies, cycles and narrowing dependencies fail closed
+  ---
+  duration_ms: 59.3395
+  type: 'test'
+  ...
+# Subtest: M161-RULES-NO-PROMPT-PEP: natural language cannot claim machine enforcement or a forged owner
+ok 327 - M161-RULES-NO-PROMPT-PEP: natural language cannot claim machine enforcement or a forged owner
+  ---
+  duration_ms: 50.6252
+  type: 'test'
+  ...
+# Subtest: M161-RULES-VERSIONS: new tasks capture the new version while existing task bindings remain frozen
+ok 328 - M161-RULES-VERSIONS: new tasks capture the new version while existing task bindings remain frozen
+  ---
+  duration_ms: 79.4738
+  type: 'test'
+  ...
+# Subtest: M161-RULES-MIGRATION: migration requires explicit trusted authorization and persists separately from Task state
+ok 329 - M161-RULES-MIGRATION: migration requires explicit trusted authorization and persists separately from Task state
+  ---
+  duration_ms: 78.5142
+  type: 'test'
+  ...
+# Subtest: M161-RULES-LIMITS: source count, source bytes, duplicate source and rule count are strictly bounded
+ok 330 - M161-RULES-LIMITS: source count, source bytes, duplicate source and rule count are strictly bounded
+  ---
+  duration_ms: 51.5045
+  type: 'test'
+  ...
+# Subtest: M161-RULES-CLOSE-FENCE: compiler OFF during streamed source validation prevents publishing a registry
+ok 331 - M161-RULES-CLOSE-FENCE: compiler OFF during streamed source validation prevents publishing a registry
+  ---
+  duration_ms: 75.3017
+  type: 'test'
+  ...
+# Subtest: M161-RULES-REOPEN: immutable registry and task binding survive actual SQLite close/reopen
+ok 332 - M161-RULES-REOPEN: immutable registry and task binding survive actual SQLite close/reopen
+  ---
+  duration_ms: 72.8759
+  type: 'test'
+  ...
+# Subtest: M161-RULES-VERSION-FORMAT: compile rejects versions that downstream frozen context cannot identify
+ok 333 - M161-RULES-VERSION-FORMAT: compile rejects versions that downstream frozen context cannot identify
+  ---
+  duration_ms: 53.7269
+  type: 'test'
+  ...
+# Subtest: M161 STORAGE real atomic CREATE binds exact approval, content, Artifact/Audit and persistent budget ownership
+ok 334 - M161 STORAGE real atomic CREATE binds exact approval, content, Artifact/Audit and persistent budget ownership
+  ---
+  duration_ms: 538.9719
+  type: 'test'
+  ...
+# Subtest: M161 STORAGE unauthorized write is rejected before files and before owner intent
+ok 335 - M161 STORAGE unauthorized write is rejected before files and before owner intent
+  ---
+  duration_ms: 220.5958
+  type: 'test'
+  ...
+# Subtest: M161 STORAGE no-clobber CREATE preserves unowned history
+ok 336 - M161 STORAGE no-clobber CREATE preserves unowned history
+  ---
+  duration_ms: 263.161
+  type: 'test'
+  ...
+# Subtest: M161 STORAGE REPLACE requires the exact owned version; original Artifact remains reconstructible
+ok 337 - M161 STORAGE REPLACE requires the exact owned version; original Artifact remains reconstructible
+  ---
+  duration_ms: 729.8987
+  type: 'test'
+  ...
+# Subtest: M161 STORAGE bounded streaming verifies 3 MiB without materializing the input in the request
+ok 338 - M161 STORAGE bounded streaming verifies 3 MiB without materializing the input in the request
+  ---
+  duration_ms: 452.7549
+  type: 'test'
+  ...
+# Subtest: M161 STORAGE injected ENOSPC before publication leaves no target and quarantines original operation
+ok 339 - M161 STORAGE injected ENOSPC before publication leaves no target and quarantines original operation
+  ---
+  duration_ms: 276.9547
+  type: 'test'
+  ...
+# Subtest: M161 STORAGE injected EACCES before publication leaves no target and quarantines original operation
+ok 340 - M161 STORAGE injected EACCES before publication leaves no target and quarantines original operation
+  ---
+  duration_ms: 284.7951
+  type: 'test'
+  ...
+# Subtest: M161 STORAGE publish-link gap is reconciled by identity/hash without republishing
+ok 341 - M161 STORAGE publish-link gap is reconciled by identity/hash without republishing
+  ---
+  duration_ms: 294.3057
+  type: 'test'
+  ...
+# Subtest: M161 STORAGE concurrent same-resource writers conflict before the second file effect
+ok 342 - M161 STORAGE concurrent same-resource writers conflict before the second file effect
+  ---
+  duration_ms: 572.4975
+  type: 'test'
+  ...
+# Subtest: M161 STORAGE changed bytes between publication and ACK stay UNKNOWN and cannot be reconciled by pathname
+ok 343 - M161 STORAGE changed bytes between publication and ACK stay UNKNOWN and cannot be reconciled by pathname
+  ---
+  duration_ms: 293.6397
+  type: 'test'
+  ...
+# Subtest: M161 STORAGE persistent resource quota rejects a second allocation before a temporary object
+ok 344 - M161 STORAGE persistent resource quota rejects a second allocation before a temporary object
+  ---
+  duration_ms: 562.5913
+  type: 'test'
+  ...
+# Subtest: M161 STORAGE REAL_PROCESS_CRASH at REQUESTED preserves evidence and never automatically retries
+ok 345 - M161 STORAGE REAL_PROCESS_CRASH at REQUESTED preserves evidence and never automatically retries
+  ---
+  duration_ms: 654.9317
+  type: 'test'
+  ...
+# Subtest: M161 STORAGE REAL_PROCESS_CRASH at AUTHORIZED preserves evidence and never automatically retries
+ok 346 - M161 STORAGE REAL_PROCESS_CRASH at AUTHORIZED preserves evidence and never automatically retries
+  ---
+  duration_ms: 586.4412
+  type: 'test'
+  ...
+# Subtest: M161 STORAGE REAL_PROCESS_CRASH at WRITE_INTENT preserves evidence and never automatically retries
+ok 347 - M161 STORAGE REAL_PROCESS_CRASH at WRITE_INTENT preserves evidence and never automatically retries
+  ---
+  duration_ms: 585.6858
+  type: 'test'
+  ...
+# Subtest: M161 STORAGE REAL_PROCESS_CRASH at TEMP_OBJECT_CREATED preserves evidence and never automatically retries
+ok 348 - M161 STORAGE REAL_PROCESS_CRASH at TEMP_OBJECT_CREATED preserves evidence and never automatically retries
+  ---
+  duration_ms: 606.3015
+  type: 'test'
+  ...
+# Subtest: M161 STORAGE REAL_PROCESS_CRASH at WRITE_CHUNK preserves evidence and never automatically retries
+ok 349 - M161 STORAGE REAL_PROCESS_CRASH at WRITE_CHUNK preserves evidence and never automatically retries
+  ---
+  duration_ms: 585.7073
+  type: 'test'
+  ...
+# Subtest: M161 STORAGE REAL_PROCESS_CRASH at CONTENT_WRITTEN preserves evidence and never automatically retries
+ok 350 - M161 STORAGE REAL_PROCESS_CRASH at CONTENT_WRITTEN preserves evidence and never automatically retries
+  ---
+  duration_ms: 644.8345
+  type: 'test'
+  ...
+# Subtest: M161 STORAGE REAL_PROCESS_CRASH at CONTENT_VERIFIED preserves evidence and never automatically retries
+ok 351 - M161 STORAGE REAL_PROCESS_CRASH at CONTENT_VERIFIED preserves evidence and never automatically retries
+  ---
+  duration_ms: 613.2873
+  type: 'test'
+  ...
+# Subtest: M161 STORAGE REAL_PROCESS_CRASH at PUBLISH_READY preserves evidence and never automatically retries
+ok 352 - M161 STORAGE REAL_PROCESS_CRASH at PUBLISH_READY preserves evidence and never automatically retries
+  ---
+  duration_ms: 612.1719
+  type: 'test'
+  ...
+# Subtest: M161 STORAGE REAL_PROCESS_CRASH at UNLINK_TEMP preserves evidence and never automatically retries
+ok 353 - M161 STORAGE REAL_PROCESS_CRASH at UNLINK_TEMP preserves evidence and never automatically retries
+  ---
+  duration_ms: 630.5092
+  type: 'test'
+  ...
+# Subtest: M161 STORAGE REAL_PROCESS_CRASH at PUBLISHED preserves evidence and never automatically retries
+ok 354 - M161 STORAGE REAL_PROCESS_CRASH at PUBLISHED preserves evidence and never automatically retries
+  ---
+  duration_ms: 672.4974
+  type: 'test'
+  ...
+# Subtest: M161 STORAGE REAL_PROCESS_CRASH at AUDIT_ACKNOWLEDGED preserves evidence and never automatically retries
+ok 355 - M161 STORAGE REAL_PROCESS_CRASH at AUDIT_ACKNOWLEDGED preserves evidence and never automatically retries
+  ---
+  duration_ms: 634.2771
+  type: 'test'
+  ...
+# Subtest: M17 CHECKER REAL_LOCAL: exact trusted snapshot runs fixed syntax/types/tests and retains hash-bound evidence
+ok 356 - M17 CHECKER REAL_LOCAL: exact trusted snapshot runs fixed syntax/types/tests and retains hash-bound evidence
+  ---
+  duration_ms: 3406.1182
+  type: 'test'
+  ...
+# Subtest: M17 CHECKER ADMISSION: exact manifest and Host tools root cannot be expanded by candidate metadata
+ok 357 - M17 CHECKER ADMISSION: exact manifest and Host tools root cannot be expanded by candidate metadata
+  ---
+  duration_ms: 43.9899
+  type: 'test'
+  ...
+# Subtest: M17 CHECKER ADMISSION: unapproved hash, changed bytes and extra files never start a command
+ok 358 - M17 CHECKER ADMISSION: unapproved hash, changed bytes and extra files never start a command
+  ---
+  duration_ms: 40.1767
+  type: 'test'
+  ...
+# Subtest: M17 CHECKER ADMISSION: approved malicious config still cannot select plugins, extends or emit
+ok 359 - M17 CHECKER ADMISSION: approved malicious config still cannot select plugins, extends or emit
+  ---
+  duration_ms: 77.699
+  type: 'test'
+  ...
+# Subtest: M17 CHECKER ADMISSION: symlink candidate file is rejected without following its target
+ok 360 - M17 CHECKER ADMISSION: symlink candidate file is rejected without following its target # SKIP NOT_RUN: OS refused the temporary symlink fixture; no privilege changes
+  ---
+  duration_ms: 8.729
+  type: 'test'
+  ...
+# Subtest: M17 CHECKER ADMISSION: junction or symlink root alias is rejected
+ok 361 - M17 CHECKER ADMISSION: junction or symlink root alias is rejected
+  ---
+  duration_ms: 10.3216
+  type: 'test'
+  ...
+# Subtest: M17 CHECKER REAL_LOCAL: TypeScript diagnostic gives actual file, line and fixed reproduction
+ok 362 - M17 CHECKER REAL_LOCAL: TypeScript diagnostic gives actual file, line and fixed reproduction
+  ---
+  duration_ms: 2754.3817
+  type: 'test'
+  ...
+# Subtest: M17 CHECKER REAL_LOCAL: syntax failure retains a real source line before type or test execution
+ok 363 - M17 CHECKER REAL_LOCAL: syntax failure retains a real source line before type or test execution
+  ---
+  duration_ms: 377.0522
+  type: 'test'
+  ...
+# Subtest: M17 CHECKER REAL_LOCAL: tests catch a type-correct wrong implementation
+ok 364 - M17 CHECKER REAL_LOCAL: tests catch a type-correct wrong implementation
+  ---
+  duration_ms: 3323.4998
+  type: 'test'
+  ...
+# Subtest: M17 CHECKER REAL_LOCAL: output budget stops the fixed test process and observes close
+ok 365 - M17 CHECKER REAL_LOCAL: output budget stops the fixed test process and observes close
+  ---
+  duration_ms: 3381.1783
+  type: 'test'
+  ...
+# Subtest: M17 CHECKER REAL_LOCAL: deadline termination waits for actual child close and does not retry
+ok 366 - M17 CHECKER REAL_LOCAL: deadline termination waits for actual child close and does not retry
+  ---
+  duration_ms: 1865.4069
+  type: 'test'
+  ...
+# Subtest: M17 CHECKER INJECTED_IO_FAILURE: failed-spawn pipes are observed; started output loss is INCONCLUSIVE
+ok 367 - M17 CHECKER INJECTED_IO_FAILURE: failed-spawn pipes are observed; started output loss is INCONCLUSIVE
+  ---
+  duration_ms: 645.795
+  type: 'test'
+  ...
+# Subtest: M17 Development plan exposes three independent jobs without broadening model permissions
+ok 368 - M17 Development plan exposes three independent jobs without broadening model permissions
+  ---
+  duration_ms: 8.488
+  type: 'test'
+  ...
+# Subtest: M17 Development admission rejects scope escalation, cycles, file aliases, and budget abuse
+ok 369 - M17 Development admission rejects scope escalation, cycles, file aliases, and budget abuse
+  ---
+  duration_ms: 1.4018
+  type: 'test'
+  ...
+# Subtest: M17 Development output paths reject Windows devices, alternate streams, and normalization aliases
+ok 370 - M17 Development output paths reject Windows devices, alternate streams, and normalization aliases
+  ---
+  duration_ms: 0.7206
+  type: 'test'
+  ...
+# Subtest: M17 Development ownership treats prototype names and directory prefix conflicts as real files
+ok 371 - M17 Development ownership treats prototype names and directory prefix conflicts as real files
+  ---
+  duration_ms: 0.4238
+  type: 'test'
+  ...
+# Subtest: M17 Development plan must actually consume the exact original requirement source in its verified model input
+ok 372 - M17 Development plan must actually consume the exact original requirement source in its verified model input
+  ---
+  duration_ms: 724.9919
+  type: 'test'
+  ...
+# Subtest: M17 EVENT durable admission, exact dedup, bounded queue/history and zero idle model calls
+ok 373 - M17 EVENT durable admission, exact dedup, bounded queue/history and zero idle model calls
+  ---
+  duration_ms: 819.8758
+  type: 'test'
+  ...
+# Subtest: M17 EVENT three real concurrent Harness tasks obey priority, dependencies and one execution per task
+ok 374 - M17 EVENT three real concurrent Harness tasks obey priority, dependencies and one execution per task
+  ---
+  duration_ms: 1316.9448
+  type: 'test'
+  ...
+# Subtest: M17 EVENT real durable message wakes WAIT, atomically adopts payload and does not model while idle
+ok 375 - M17 EVENT real durable message wakes WAIT, atomically adopts payload and does not model while idle
+  ---
+  duration_ms: 638.1754
+  type: 'test'
+  ...
+# Subtest: M17 EVENT message admitted during a real active dispatch survives until the subsequent WAIT turn
+ok 376 - M17 EVENT message admitted during a real active dispatch survives until the subsequent WAIT turn
+  ---
+  duration_ms: 625.9103
+  type: 'test'
+  ...
+# Subtest: M17 EVENT resource wait is not busy retried and known completion releases the next task once
+ok 377 - M17 EVENT resource wait is not busy retried and known completion releases the next task once
+  ---
+  duration_ms: 609.3339
+  type: 'test'
+  ...
+# Subtest: M17 EVENT capacity completion arriving before the waiting dispatch returns is retained
+ok 378 - M17 EVENT capacity completion arriving before the waiting dispatch returns is retained
+  ---
+  duration_ms: 611.1117
+  type: 'test'
+  ...
+# Subtest: M17 EVENT stop waits for known active work and leaves later events durable for explicit restart
+ok 379 - M17 EVENT stop waits for known active work and leaves later events durable for explicit restart
+  ---
+  duration_ms: 570.0193
+  type: 'test'
+  ...
+# Subtest: M17 EVENT resident role OFF during durable intent blocks dispatch until an explicit enabled restart
+ok 380 - M17 EVENT resident role OFF during durable intent blocks dispatch until an explicit enabled restart
+  ---
+  duration_ms: 372.5722
+  type: 'test'
+  ...
+# Subtest: M17 EVENT approvals stay waiting and role OFF fences new dispatch while stop/recover remain usable
+ok 381 - M17 EVENT approvals stay waiting and role OFF fences new dispatch while stop/recover remain usable
+  ---
+  duration_ms: 171.3632
+  type: 'test'
+  ...
+# Subtest: M17 EVENT cancelled and UNKNOWN Tasks are not replayed or automatically released
+ok 382 - M17 EVENT cancelled and UNKNOWN Tasks are not replayed or automatically released
+  ---
+  duration_ms: 336.2887
+  type: 'test'
+  ...
+# Subtest: M17 EVENT real close/reopen retains PENDING and requires explicit event start
+ok 383 - M17 EVENT real close/reopen retains PENDING and requires explicit event start
+  ---
+  duration_ms: 402.8111
+  type: 'test'
+  ...
+# Subtest: M17 EVENT REAL_PROCESS_KILL durable DISPATCHING intent recovers INDETERMINATE without replay
+ok 384 - M17 EVENT REAL_PROCESS_KILL durable DISPATCHING intent recovers INDETERMINATE without replay
+  ---
+  duration_ms: 525.3516
+  type: 'test'
+  ...
+# Subtest: M17 bounded task history continues beyond 32 references, preserves raw inputs and reopens the original task
+ok 385 - M17 bounded task history continues beyond 32 references, preserves raw inputs and reopens the original task
+  ---
+  duration_ms: 6560.059
+  type: 'test'
+  ...
+# Subtest: M17 default task history retains the inherited hard reference limit unless explicitly enabled
+ok 386 - M17 default task history retains the inherited hard reference limit unless explicitly enabled
+  ---
+  duration_ms: 3035.1668
+  type: 'test'
+  ...
+# Subtest: M17 handoff freezes both enabled and disabled history policies across opposite Host defaults
+ok 387 - M17 handoff freezes both enabled and disabled history policies across opposite Host defaults
+  ---
+  duration_ms: 484.9939
+  type: 'test'
+  ...
+# Subtest: M17 message adoption and a pending handoff roll only the bounded index and preserve all original payloads
+ok 388 - M17 message adoption and a pending handoff roll only the bounded index and preserve all original payloads
+  ---
+  duration_ms: 1745.4114
+  type: 'test'
+  ...
+# Subtest: M17 MODEL context responder computes different tool proposals from exact reconstructed sources and observed tool results
+ok 389 - M17 MODEL context responder computes different tool proposals from exact reconstructed sources and observed tool results
+  ---
+  duration_ms: 330.8709
+  type: 'test'
+  ...
+# Subtest: M17 MODEL responder input is deeply frozen, excludes privileged handles, and returns are copied before asynchronous work
+ok 390 - M17 MODEL responder input is deeply frozen, excludes privileged handles, and returns are copied before asynchronous work
+  ---
+  duration_ms: 109.1908
+  type: 'test'
+  ...
+# Subtest: M17 MODEL responder accepts the existing escaped context envelope without narrowing context limits
+ok 391 - M17 MODEL responder accepts the existing escaped context envelope without narrowing context limits
+  ---
+  duration_ms: 171.2136
+  type: 'test'
+  ...
+# Subtest: M17 MODEL responder provenance is durable data and terminal request dedup never reruns programmable code
+ok 392 - M17 MODEL responder provenance is durable data and terminal request dedup never reruns programmable code
+  ---
+  duration_ms: 151.0674
+  type: 'test'
+  ...
+# Subtest: M17 MODEL invalid registration/accessors and legacy adapter options reject before callback execution
+ok 393 - M17 MODEL invalid registration/accessors and legacy adapter options reject before callback execution
+  ---
+  duration_ms: 81.1124
+  type: 'test'
+  ...
+# Subtest: M17 MODEL synchronous failures, promise results and invalid replies retain SENT quota without fallback or replay
+    # Subtest: throw
+    ok 1 - throw
+      ---
+      duration_ms: 107.9805
+      type: 'test'
+      ...
+    # Subtest: promise
+    ok 2 - promise
+      ---
+      duration_ms: 119.3122
+      type: 'test'
+      ...
+    # Subtest: reply-authority
+    ok 3 - reply-authority
+      ---
+      duration_ms: 117.6619
+      type: 'test'
+      ...
+    # Subtest: reply-accessor
+    ok 4 - reply-accessor
+      ---
+      duration_ms: 109.3372
+      type: 'test'
+      ...
+    # Subtest: oversized
+    ok 5 - oversized
+      ---
+      duration_ms: 125.1298
+      type: 'test'
+      ...
+    # Subtest: usage-over-budget
+    ok 6 - usage-over-budget
+      ---
+      duration_ms: 100.8502
+      type: 'test'
+      ...
+    # Subtest: explicit-unknown
+    ok 7 - explicit-unknown
+      ---
+      duration_ms: 115.9433
+      type: 'test'
+      ...
+    1..7
+ok 394 - M17 MODEL synchronous failures, promise results and invalid replies retain SENT quota without fallback or replay
+  ---
+  duration_ms: 797.5259
+  type: 'test'
+  ...
+# Subtest: M17 MODEL only explicit proven-not-sent simulation may call responder on the fallback model
+ok 395 - M17 MODEL only explicit proven-not-sent simulation may call responder on the fallback model
+  ---
+  duration_ms: 121.7234
+  type: 'test'
+  ...
+# Subtest: M17 MODEL budget rejection and pre-send cancellation invoke no responder and consume no fixture sequence
+ok 396 - M17 MODEL budget rejection and pre-send cancellation invoke no responder and consume no fixture sequence
+  ---
+  duration_ms: 206.4189
+  type: 'test'
+  ...
+# Subtest: M17 MODEL cancellation during synchronous simulation retains unknown budget and key occupancy
+ok 397 - M17 MODEL cancellation during synchronous simulation retains unknown budget and key occupancy
+  ---
+  duration_ms: 112.1107
+  type: 'test'
+  ...
+# Subtest: M17 Native Pilot actually publishes, reviews, repairs, restores and gates a complete CLI through a SIMULATED provider
+ok 398 - M17 Native Pilot actually publishes, reviews, repairs, restores and gates a complete CLI through a SIMULATED provider
+  ---
+  duration_ms: 89193.1551
+  type: 'test'
+  ...
+# Evidence: I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8\\w\\r-fe266e156726\\data\\native-pilot\\2026-11-08T06-44-49-479Z-35868
+# Subtest: M17 started checker without command/exit evidence retains UNKNOWN and cannot be silently retried
+ok 399 - M17 started checker without command/exit evidence retains UNKNOWN and cannot be silently retried
+  ---
+  duration_ms: 180.7389
+  type: 'test'
+  ...
+# Subtest: M17 known checker admission rejection has zero invocation and releases only its own logical reservation
+ok 400 - M17 known checker admission rejection has zero invocation and releases only its own logical reservation
+  ---
+  duration_ms: 143.4616
+  type: 'test'
+  ...
+# Subtest: M17 thrown checker result retains UNKNOWN rather than manufacturing a completion receipt
+ok 401 - M17 thrown checker result retains UNKNOWN rather than manufacturing a completion receipt
+  ---
+  duration_ms: 134.5126
+  type: 'test'
+  ...
+# Subtest: M18 AUTH no explicit verified user grant or missing qualification can call an HTTPS Provider
+ok 402 - M18 AUTH no explicit verified user grant or missing qualification can call an HTTPS Provider
+  ---
+  duration_ms: 207.5504
+  type: 'test'
+  ...
+# Subtest: M18 AUTH grant binds Provider, Model, endpoint, project, exact context and upload scope
+ok 403 - M18 AUTH grant binds Provider, Model, endpoint, project, exact context and upload scope
+  ---
+  duration_ms: 172.1659
+  type: 'test'
+  ...
+# Subtest: M18 AUTH grant budgets are reserved atomically and cannot be replenished with negative costs
+ok 404 - M18 AUTH grant budgets are reserved atomically and cannot be replenished with negative costs
+  ---
+  duration_ms: 171.464
+  type: 'test'
+  ...
+# Subtest: M18 AUTH synchronous final fence rejects revoked, expired and mismatched dispatch after durable intent
+ok 405 - M18 AUTH synchronous final fence rejects revoked, expired and mismatched dispatch after durable intent
+  ---
+  duration_ms: 176.652
+  type: 'test'
+  ...
+# Subtest: M18 GATEWAY native Loop uses encrypted synthetic credentials, Tool Gateway and exact source archive
+ok 406 - M18 GATEWAY native Loop uses encrypted synthetic credentials, Tool Gateway and exact source archive
+  ---
+  duration_ms: 675.4628
+  type: 'test'
+  ...
+# Subtest: M18 GATEWAY durable terminal dedup and conflicting input never make a second request
+ok 407 - M18 GATEWAY durable terminal dedup and conflicting input never make a second request
+  ---
+  duration_ms: 261.8002
+  type: 'test'
+  ...
+# Subtest: M18 GATEWAY caller mutation while reconstructing cannot alter validated output bound or fingerprint
+ok 408 - M18 GATEWAY caller mutation while reconstructing cannot alter validated output bound or fingerprint
+  ---
+  duration_ms: 243.9759
+  type: 'test'
+  ...
+# Subtest: M18 GATEWAY incomplete/disconnected/overbudget streams keep key and four-level holds without retry
+    # Subtest: partial
+    ok 1 - partial
+      ---
+      duration_ms: 244.5277
+      type: 'test'
+      ...
+    # Subtest: no-usage
+    ok 2 - no-usage
+      ---
+      duration_ms: 246.3798
+      type: 'test'
+      ...
+    # Subtest: overrun
+    ok 3 - overrun
+      ---
+      duration_ms: 247.2749
+      type: 'test'
+      ...
+    # Subtest: invalid-json
+    ok 4 - invalid-json
+      ---
+      duration_ms: 236.426
+      type: 'test'
+      ...
+    1..4
+ok 409 - M18 GATEWAY incomplete/disconnected/overbudget streams keep key and four-level holds without retry
+  ---
+  duration_ms: 975.4968
+  type: 'test'
+  ...
+# Subtest: M18 GATEWAY sent timeout returns bounded UNKNOWN and aborts the original stream
+ok 410 - M18 GATEWAY sent timeout returns bounded UNKNOWN and aborts the original stream
+  ---
+  duration_ms: 260.0704
+  type: 'test'
+  ...
+# Subtest: M18 GATEWAY pre-send cancellation and atomic budget denial never touch Provider transport
+ok 411 - M18 GATEWAY pre-send cancellation and atomic budget denial never touch Provider transport
+  ---
+  duration_ms: 202.1046
+  type: 'test'
+  ...
+# Subtest: M18 GATEWAY independently scoped concurrent Agent requests cannot overconsume one Key
+ok 412 - M18 GATEWAY independently scoped concurrent Agent requests cannot overconsume one Key
+  ---
+  duration_ms: 270.2286
+  type: 'test'
+  ...
+# Subtest: M18 GATEWAY model RPM, role routing and reasoned upgrade limits remain independent of permissions
+ok 413 - M18 GATEWAY model RPM, role routing and reasoned upgrade limits remain independent of permissions
+  ---
+  duration_ms: 507.2761
+  type: 'test'
+  ...
+# Subtest: M18 GATEWAY echoed secret and hostile error text never reach Archive/Audit/results
+    # Subtest: echo
+    ok 1 - echo
+      ---
+      duration_ms: 254.7208
+      type: 'test'
+      ...
+    # Subtest: error
+    ok 2 - error
+      ---
+      duration_ms: 251.5488
+      type: 'test'
+      ...
+    1..2
+ok 414 - M18 GATEWAY echoed secret and hostile error text never reach Archive/Audit/results
+  ---
+  duration_ms: 506.7524
+  type: 'test'
+  ...
+# Subtest: M18-GIT: fixed reader rejects shell/ref/path injection before any spawn
+ok 415 - M18-GIT: fixed reader rejects shell/ref/path injection before any spawn
+  ---
+  duration_ms: 2.1388
+  type: 'test'
+  ...
+# Subtest: M18-GIT: reader actually supplies fixed diff argv, transport denial and a minimal environment
+ok 416 - M18-GIT: reader actually supplies fixed diff argv, transport denial and a minimal environment
+  ---
+  duration_ms: 5.2489
+  type: 'test'
+  ...
+# Subtest: M18-GIT: combined output cap and timeout terminate the owned reader with stable error codes
+ok 417 - M18-GIT: combined output cap and timeout terminate the owned reader with stable error codes
+  ---
+  duration_ms: 22.6475
+  type: 'test'
+  ...
+# Subtest: M18-GIT: acknowledged event durably precedes one independent read-only review and notification receipt
+ok 418 - M18-GIT: acknowledged event durably precedes one independent read-only review and notification receipt
+  ---
+  duration_ms: 77.7779
+  type: 'test'
+  ...
+# Subtest: M18-GIT: duplicate events, concurrent observation and changed replay never duplicate a reviewer
+ok 419 - M18-GIT: duplicate events, concurrent observation and changed replay never duplicate a reviewer
+  ---
+  duration_ms: 51.2012
+  type: 'test'
+  ...
+# Subtest: M18-GIT: ordinary Agent/forged JSON has no event, result or Git-reader authority
+ok 420 - M18-GIT: ordinary Agent/forged JSON has no event, result or Git-reader authority
+  ---
+  duration_ms: 29.732
+  type: 'test'
+  ...
+# Subtest: M18-GIT: PUSH requires an explicit Host-local event source and performs no push or polling
+ok 421 - M18-GIT: PUSH requires an explicit Host-local event source and performs no push or polling
+  ---
+  duration_ms: 48.4258
+  type: 'test'
+  ...
+# Subtest: M18-GIT: forged snapshot hash cannot create a task; explicitly pending work can continue once
+ok 422 - M18-GIT: forged snapshot hash cannot create a task; explicitly pending work can continue once
+  ---
+  duration_ms: 51.7038
+  type: 'test'
+  ...
+# Subtest: M18-GIT: an uncertain creator is durable UNKNOWN and repeated events never automatically retry
+ok 423 - M18-GIT: an uncertain creator is durable UNKNOWN and repeated events never automatically retry
+  ---
+  duration_ms: 52.5558
+  type: 'test'
+  ...
+# Subtest: M18-GIT: creator cannot bind the author, author task or a writable reviewer
+ok 424 - M18-GIT: creator cannot bind the author, author task or a writable reviewer
+  ---
+  duration_ms: 139.627
+  type: 'test'
+  ...
+# Subtest: M18-GIT: exact result binds commit/diff/candidate/source/rules/reviewer and remains only Gate evidence
+ok 425 - M18-GIT: exact result binds commit/diff/candidate/source/rules/reviewer and remains only Gate evidence
+  ---
+  duration_ms: 70.41
+  type: 'test'
+  ...
+# Subtest: M18-GIT: changing a commit invalidates old review acceptance while other repositories remain current
+ok 426 - M18-GIT: changing a commit invalidates old review acceptance while other repositories remain current
+  ---
+  duration_ms: 81.8094
+  type: 'test'
+  ...
+# Subtest: M18-GIT: an accepted projection without an acknowledged audit barrier cannot supply Gate evidence
+ok 427 - M18-GIT: an accepted projection without an acknowledged audit barrier cannot supply Gate evidence
+  ---
+  duration_ms: 56.6785
+  type: 'test'
+  ...
+# Subtest: M18-GIT: a commit change while a creator is pending cannot revive the stale review
+ok 428 - M18-GIT: a commit change while a creator is pending cannot revive the stale review
+  ---
+  duration_ms: 73.5471
+  type: 'test'
+  ...
+# Subtest: M18-GIT: actual store reopen quarantines CREATING without invoking either callback again
+ok 429 - M18-GIT: actual store reopen quarantines CREATING without invoking either callback again
+  ---
+  duration_ms: 69.0439
+  type: 'test'
+  ...
+# Subtest: M18-GIT: failed durable creation barrier invokes no callback and preserves the claim
+ok 430 - M18-GIT: failed durable creation barrier invokes no callback and preserves the claim
+  ---
+  duration_ms: 49.5032
+  type: 'test'
+  ...
+# Subtest: M18-GIT: retained event capacity is 128 including stale and uncertain work
+ok 431 - M18-GIT: retained event capacity is 128 including stale and uncertain work
+  ---
+  duration_ms: 2041.5216
+  type: 'test'
+  ...
+# Subtest: M18 LEDGER composite Task budget identities cannot alias through colon-containing IDs
+ok 432 - M18 LEDGER composite Task budget identities cannot alias through colon-containing IDs
+  ---
+  duration_ms: 1.0601
+  type: 'test'
+  ...
+# Subtest: M18 LEDGER real SQLite four-level admission is atomic under competing reservations
+ok 433 - M18 LEDGER real SQLite four-level admission is atomic under competing reservations
+  ---
+  duration_ms: 72.7862
+  type: 'test'
+  ...
+# Subtest: M18 LEDGER each independently exhausted scope rejects without partial holds
+ok 434 - M18 LEDGER each independently exhausted scope rejects without partial holds
+  ---
+  duration_ms: 195.9987
+  type: 'test'
+  ...
+# Subtest: M18 LEDGER sibling agents share project allowance and separate projects share platform allowance
+ok 435 - M18 LEDGER sibling agents share project allowance and separate projects share platform allowance
+  ---
+  duration_ms: 91.9441
+  type: 'test'
+  ...
+# Subtest: M18 LEDGER a missing level, forged admin, injected fields and static reason violations fail before mutation
+ok 436 - M18 LEDGER a missing level, forged admin, injected fields and static reason violations fail before mutation
+  ---
+  duration_ms: 55.9121
+  type: 'test'
+  ...
+# Subtest: M18 LEDGER request idempotency binds the complete subject, context, model, assurance and estimates
+ok 437 - M18 LEDGER request idempotency binds the complete subject, context, model, assurance and estimates
+  ---
+  duration_ms: 49.3762
+  type: 'test'
+  ...
+# Subtest: M18 LEDGER proven-not-sent releases once; durable SENT and UNKNOWN cannot be replayed or released
+ok 438 - M18 LEDGER proven-not-sent releases once; durable SENT and UNKNOWN cannot be replayed or released
+  ---
+  duration_ms: 64.9029
+  type: 'test'
+  ...
+# Subtest: M18 LEDGER provider actual usage settles all scopes once and reasoning remains inside output tokens
+ok 439 - M18 LEDGER provider actual usage settles all scopes once and reasoning remains inside output tokens
+  ---
+  duration_ms: 61.0967
+  type: 'test'
+  ...
+# Subtest: M18 LEDGER REAL and SIMULATED limits and receipts are isolated, including HTTP rejection estimates
+ok 440 - M18 LEDGER REAL and SIMULATED limits and receipts are isolated, including HTTP rejection estimates
+  ---
+  duration_ms: 68.9694
+  type: 'test'
+  ...
+# Subtest: M18 LEDGER estimated tokens and fees remain separate from actual usage and retain uncertain allowance
+ok 441 - M18 LEDGER estimated tokens and fees remain separate from actual usage and retain uncertain allowance
+  ---
+  duration_ms: 51.8491
+  type: 'test'
+  ...
+# Subtest: M18 LEDGER actual overshoot is retained as UNKNOWN with all observed usage and no accounting rollback
+ok 442 - M18 LEDGER actual overshoot is retained as UNKNOWN with all observed usage and no accounting rollback
+  ---
+  duration_ms: 52.2511
+  type: 'test'
+  ...
+# Subtest: M18 LEDGER invalid reasoning, attempt counts, numeric overflow and non-provider real usage never settle
+ok 443 - M18 LEDGER invalid reasoning, attempt counts, numeric overflow and non-provider real usage never settle
+  ---
+  duration_ms: 48.9428
+  type: 'test'
+  ...
+# Subtest: M18 LEDGER SQLite close/reopen recovery quarantines every unresolved request without calls or released holds
+ok 444 - M18 LEDGER SQLite close/reopen recovery quarantines every unresolved request without calls or released holds
+  ---
+  duration_ms: 104.1522
+  type: 'test'
+  ...
+# Subtest: M18 LEDGER failed durable reservation ACK performs zero send transitions and keeps all committed holds
+ok 445 - M18 LEDGER failed durable reservation ACK performs zero send transitions and keeps all committed holds
+  ---
+  duration_ms: 44.8739
+  type: 'test'
+  ...
+# Subtest: M18 MULTI SIMULATED wire adapters drive two concurrent independent subcontexts, structured messages and read-only review
+ok 446 - M18 MULTI SIMULATED wire adapters drive two concurrent independent subcontexts, structured messages and read-only review
+  ---
+  duration_ms: 1642.4968
+  type: 'test'
+  ...
+# Subtest: M18 PROTOCOL three provider builders explicitly distinguish token, storage, reasoning and usage fields
+ok 447 - M18 PROTOCOL three provider builders explicitly distinguish token, storage, reasoning and usage fields
+  ---
+  duration_ms: 1.7118
+  type: 'test'
+  ...
+# Subtest: M18 STREAM fragmented UTF-8, CRLF, comments and multiline SSE retain pull backpressure
+ok 448 - M18 STREAM fragmented UTF-8, CRLF, comments and multiline SSE retain pull backpressure
+  ---
+  duration_ms: 1.6454
+  type: 'test'
+  ...
+# Subtest: M18 STREAM overlong event/chunk, malformed UTF-8 and trailing partial fail without a completed response
+ok 449 - M18 STREAM overlong event/chunk, malformed UTF-8 and trailing partial fail without a completed response
+  ---
+  duration_ms: 65.9689
+  type: 'test'
+  ...
+# Subtest: M18 STREAM cancellation interrupts a pending next without waiting for an uncontrolled iterator
+ok 450 - M18 STREAM cancellation interrupts a pending next without waiting for an uncontrolled iterator
+  ---
+  duration_ms: 0.3601
+  type: 'test'
+  ...
+# Subtest: M18 ADAPTER every provider decodes bounded fragmented replies and reported reasoning usage
+ok 451 - M18 ADAPTER every provider decodes bounded fragmented replies and reported reasoning usage
+  ---
+  duration_ms: 9.3142
+  type: 'test'
+  ...
+# Subtest: M18 ADAPTER partial streams, length finish and missing tool termination never become usable tool calls
+ok 452 - M18 ADAPTER partial streams, length finish and missing tool termination never become usable tool calls
+  ---
+  duration_ms: 0.835
+  type: 'test'
+  ...
+# Subtest: M18 ADAPTER complete native tool fragments are joined but never executed or given approval authority
+ok 453 - M18 ADAPTER complete native tool fragments are joined but never executed or given approval authority
+  ---
+  duration_ms: 1.0436
+  type: 'test'
+  ...
+# Subtest: M18 REGISTRY prices use integer ceiling without double charging reasoning or losing precision
+ok 454 - M18 REGISTRY prices use integer ceiling without double charging reasoning or losing precision
+  ---
+  duration_ms: 0.5127
+  type: 'test'
+  ...
+# Subtest: M18 ROUTER explicit capabilities, stale price, role routes and bounded escalation do not infer model powers
+ok 455 - M18 ROUTER explicit capabilities, stale price, role routes and bounded escalation do not infer model powers
+  ---
+  duration_ms: 0.5673
+  type: 'test'
+  ...
+# Subtest: M18 REVIEW BRIDGE SIMULATED_GIT_REAL_HARNESS creates an independent read-only Reviewer and delivers exact immutable inputs
+ok 456 - M18 REVIEW BRIDGE SIMULATED_GIT_REAL_HARNESS creates an independent read-only Reviewer and delivers exact immutable inputs
+  ---
+  duration_ms: 612.0929
+  type: 'test'
+  ...
+# Subtest: M18 REVIEW BRIDGE duplicate callbacks reuse one Task/message and never wake a terminal Reviewer
+ok 457 - M18 REVIEW BRIDGE duplicate callbacks reuse one Task/message and never wake a terminal Reviewer
+  ---
+  duration_ms: 500.104
+  type: 'test'
+  ...
+# Subtest: M18 REVIEW BRIDGE explicit TASK_READY fallback dispatches through events when MessageBus auto-event option is absent
+ok 458 - M18 REVIEW BRIDGE explicit TASK_READY fallback dispatches through events when MessageBus auto-event option is absent
+  ---
+  duration_ms: 473.3695
+  type: 'test'
+  ...
+# Subtest: M18 REVIEW BRIDGE rejects author/project/session/Diff spoofing before creating any Reviewer
+ok 459 - M18 REVIEW BRIDGE rejects author/project/session/Diff spoofing before creating any Reviewer
+  ---
+  duration_ms: 140.7905
+  type: 'test'
+  ...
+# Subtest: M18 REVIEW BRIDGE a model tool proposal cannot give its Reviewer a write or PROCESS capability
+ok 460 - M18 REVIEW BRIDGE a model tool proposal cannot give its Reviewer a write or PROCESS capability
+  ---
+  duration_ms: 447.734
+  type: 'test'
+  ...
+# Subtest: M18 REVIEW BRIDGE reconciles a durable Task after lost ACK and Host reopen without duplicate objects or implicit model calls
+ok 461 - M18 REVIEW BRIDGE reconciles a durable Task after lost ACK and Host reopen without duplicate objects or implicit model calls
+  ---
+  duration_ms: 700.276
+  type: 'test'
+  ...
+# Subtest: M18 REVIEW BRIDGE uncertain partial Agent initialization is never recreated by an exact retry
+ok 462 - M18 REVIEW BRIDGE uncertain partial Agent initialization is never recreated by an exact retry
+  ---
+  duration_ms: 208.6194
+  type: 'test'
+  ...
+# Subtest: M18 REVIEW BRIDGE trusted G4 checks exact Watcher evidence; model PASS alone does not certify and a changed commit invalidates the old result
+ok 463 - M18 REVIEW BRIDGE trusted G4 checks exact Watcher evidence; model PASS alone does not certify and a changed commit invalidates the old result
+  ---
+  duration_ms: 1023.4806
+  type: 'test'
+  ...
+# Subtest: M18 REVIEW sent UNKNOWN transport closure keeps the global slot after cancellation
+ok 464 - M18 REVIEW sent UNKNOWN transport closure keeps the global slot after cancellation
+  ---
+  duration_ms: 340.4765
+  type: 'test'
+  ...
+# Subtest: M18 REVIEW a response archive ACK failure preserves settled usage and never repeats the paid request
+ok 465 - M18 REVIEW a response archive ACK failure preserves settled usage and never repeats the paid request
+  ---
+  duration_ms: 261.5207
+  type: 'test'
+  ...
+# Subtest: M18 REVIEW reasoning leaks split across events cannot hide behind a long discarded suffix
+ok 466 - M18 REVIEW reasoning leaks split across events cannot hide behind a long discarded suffix
+  ---
+  duration_ms: 247.8693
+  type: 'test'
+  ...
+# Subtest: M18 REVIEW reported model mismatch cannot settle at the requested model price
+ok 467 - M18 REVIEW reported model mismatch cannot settle at the requested model price
+  ---
+  duration_ms: 244.3379
+  type: 'test'
+  ...
+# Subtest: M18 REVIEW grant preflight atomically reserves its sixteen pending slots before await
+ok 468 - M18 REVIEW grant preflight atomically reserves its sixteen pending slots before await
+  ---
+  duration_ms: 250.2633
+  type: 'test'
+  ...
+# Subtest: M18 REVIEW an already-sent Key cannot be released as NOT_SENT and a closed guard rejects all attached channels
+ok 469 - M18 REVIEW an already-sent Key cannot be released as NOT_SENT and a closed guard rejects all attached channels
+  ---
+  duration_ms: 182.9023
+  type: 'test'
+  ...
+# Subtest: M18 REVIEW rotate fences the original credential generation across asynchronous encryption
+ok 470 - M18 REVIEW rotate fences the original credential generation across asynchronous encryption
+  ---
+  duration_ms: 51.7111
+  type: 'test'
+  ...
+# Subtest: M18 SECRET Prompt/Context, Audit detail and artifact bytes fail before persistent publication
+ok 471 - M18 SECRET Prompt/Context, Audit detail and artifact bytes fail before persistent publication
+  ---
+  duration_ms: 224.0805
+  type: 'test'
+  ...
+# Subtest: M18 SECRET cross-chunk and encoded artifact secrets are detected before opening partial files
+ok 472 - M18 SECRET cross-chunk and encoded artifact secrets are detected before opening partial files
+  ---
+  duration_ms: 134.8537
+  type: 'test'
+  ...
+# Subtest: M18 SECRET queued mutable byte buffers are owned before inspection and queue waits
+ok 473 - M18 SECRET queued mutable byte buffers are owned before inspection and queue waits
+  ---
+  duration_ms: 137.6802
+  type: 'test'
+  ...
+# Subtest: M18 SECRET guarded large streams have an explicit memory cap and never create partial payloads on overflow
+ok 474 - M18 SECRET guarded large streams have an explicit memory cap and never create partial payloads on overflow
+  ---
+  duration_ms: 118.0388
+  type: 'test'
+  ...
+# Subtest: M18 SECRET closing a Vault cannot silently disable guard enforcement on attached Host storage
+ok 475 - M18 SECRET closing a Vault cannot silently disable guard enforcement on attached Host storage
+  ---
+  duration_ms: 166.8264
+  type: 'test'
+  ...
+# Subtest: M18 SECRET ordinary Worker and child facades expose no Vault, credential or management database
+ok 476 - M18 SECRET ordinary Worker and child facades expose no Vault, credential or management database
+  ---
+  duration_ms: 199.0019
+  type: 'test'
+  ...
+# Subtest: M18 VAULT rotation never extends the old credential expiry before or during asynchronous decrypt
+ok 477 - M18 VAULT rotation never extends the old credential expiry before or during asynchronous decrypt
+  ---
+  duration_ms: 71.8331
+  type: 'test'
+  ...
+# Subtest: M18 VAULT rotating a rate-limited key prevents automatic cooldown resurrection
+ok 478 - M18 VAULT rotating a rate-limited key prevents automatic cooldown resurrection
+  ---
+  duration_ms: 47.9767
+  type: 'test'
+  ...
+# Subtest: M18 VAULT accepts only fabricated secrets and identity-bound host authority; LIVE is BLOCKED
+ok 479 - M18 VAULT accepts only fabricated secrets and identity-bound host authority; LIVE is BLOCKED
+  ---
+  duration_ms: 34.1993
+  type: 'test'
+  ...
+# Subtest: M18 VAULT encrypts actual persisted bytes and reloads only its own fabricated entries
+ok 480 - M18 VAULT encrypts actual persisted bytes and reloads only its own fabricated entries
+  ---
+  duration_ms: 51.4604
+  type: 'test'
+  ...
+# Subtest: M18 VAULT inactive states, model eligibility, and expiration prevent acquisition
+ok 481 - M18 VAULT inactive states, model eligibility, and expiration prevent acquisition
+  ---
+  duration_ms: 86.3443
+  type: 'test'
+  ...
+# Subtest: M18 VAULT two SQLite connections atomically reserve concurrency and cost before sending
+ok 482 - M18 VAULT two SQLite connections atomically reserve concurrency and cost before sending
+  ---
+  duration_ms: 75.0602
+  type: 'test'
+  ...
+# Subtest: M18 VAULT subject binding, request conflicts, and once-only send prevent lease reuse
+ok 483 - M18 VAULT subject binding, request conflicts, and once-only send prevent lease reuse
+  ---
+  duration_ms: 52.8413
+  type: 'test'
+  ...
+# Subtest: M18 VAULT rate windows, AUTH and RATE_LIMIT alter future eligibility
+ok 484 - M18 VAULT rate windows, AUTH and RATE_LIMIT alter future eligibility
+  ---
+  duration_ms: 70.5911
+  type: 'test'
+  ...
+# Subtest: M18 VAULT deterministic health/cost/concurrency selection and rotation preserve old inflight
+ok 485 - M18 VAULT deterministic health/cost/concurrency selection and rotation preserve old inflight
+  ---
+  duration_ms: 62.5847
+  type: 'test'
+  ...
+# Subtest: M18 VAULT UNKNOWN and close/reopen retain reservations and never automatically resend
+ok 486 - M18 VAULT UNKNOWN and close/reopen retain reservations and never automatically resend
+  ---
+  duration_ms: 99.9949
+  type: 'test'
+  ...
+# Subtest: M18 VAULT guard blocks raw/JSON/URL/base64 known secrets and emits static events
+ok 487 - M18 VAULT guard blocks raw/JSON/URL/base64 known secrets and emits static events
+  ---
+  duration_ms: 45.2882
+  type: 'test'
+  ...
+# Subtest: M18 VAULT callback errors and returned credentials are sanitized and quarantined
+ok 488 - M18 VAULT callback errors and returned credentials are sanitized and quarantined
+  ---
+  duration_ms: 68.9081
+  type: 'test'
+  ...
+# Subtest: M18 VAULT import snapshot survives caller mutation while encryption awaits
+ok 489 - M18 VAULT import snapshot survives caller mutation while encryption awaits
+  ---
+  duration_ms: 36.3756
+  type: 'test'
+  ...
+# Subtest: M18 VAULT revocation during asynchronous unprotect blocks the host callback
+ok 490 - M18 VAULT revocation during asynchronous unprotect blocks the host callback
+  ---
+  duration_ms: 35.3169
+  type: 'test'
+  ...
+# Subtest: M18 VAULT removing a settled key preserves request replay tombstones
+ok 491 - M18 VAULT removing a settled key preserves request replay tombstones
+  ---
+  duration_ms: 45.0805
+  type: 'test'
+  ...
+# Subtest: M18 VAULT failed duplicate import never forgets the existing known secret
+ok 492 - M18 VAULT failed duplicate import never forgets the existing known secret
+  ---
+  duration_ms: 31.813
+  type: 'test'
+  ...
+# Subtest: M18 VAULT independent connection guards reject stale imports/rotation until owner refresh
+ok 493 - M18 VAULT independent connection guards reject stale imports/rotation until owner refresh
+  ---
+  duration_ms: 64.5128
+  type: 'test'
+  ...
+# Subtest: M18 VAULT open rejects a generation changed while its own encrypted entries load
+ok 494 - M18 VAULT open rejects a generation changed while its own encrypted entries load
+  ---
+  duration_ms: 41.3369
+  type: 'test'
+  ...
+# Subtest: M18 VAULT security events retain only 256 entries and preserve a lifetime count
+ok 495 - M18 VAULT security events retain only 256 entries and preserve a lifetime count
+  ---
+  duration_ms: 42.3001
+  type: 'test'
+  ...
+# Subtest: M18 VAULT key/import and request evidence capacities fail closed without evicting leases
+ok 496 - M18 VAULT key/import and request evidence capacities fail closed without evicting leases
+  ---
+  duration_ms: 129.3729
+  type: 'test'
+  ...
+# Subtest: M18 VAULT DPAPI all child/pipe errors converge on static failure after confirmed close
+ok 497 - M18 VAULT DPAPI all child/pipe errors converge on static failure after confirmed close
+  ---
+  duration_ms: 2.3528
+  type: 'test'
+  ...
+# Subtest: M18 VAULT DPAPI helper capacity and unconfirmed close permanently poison the protector
+ok 498 - M18 VAULT DPAPI helper capacity and unconfirmed close permanently poison the protector
+  ---
+  duration_ms: 2010.2942
+  type: 'test'
+  ...
+# Subtest: M18 VAULT native DPAPI failed spawn is a static rejection without unhandled pipe error
+ok 499 - M18 VAULT native DPAPI failed spawn is a static rejection without unhandled pipe error
+  ---
+  duration_ms: 2.8528
+  type: 'test'
+  ...
+# Subtest: M18 VAULT refuses wrong DB content, foreign SQLite, hardlinks, symlinks, and protector mismatch
+    # Subtest: hardlink fixture is rejected where host permits creating it
+    ok 1 - hardlink fixture is rejected where host permits creating it
+      ---
+      duration_ms: 5.1714
+      type: 'test'
+      ...
+    # Subtest: junction/symlink fixture is rejected where host permits creating it
+    ok 2 - junction/symlink fixture is rejected where host permits creating it
+      ---
+      duration_ms: 3.4308
+      type: 'test'
+      ...
+    1..2
+ok 500 - M18 VAULT refuses wrong DB content, foreign SQLite, hardlinks, symlinks, and protector mismatch
+  ---
+  duration_ms: 57.0811
+  type: 'test'
+  ...
+# Subtest: M18 VAULT actual CurrentUser DPAPI anonymous-pipe synthetic smoke and persistent reopen
+ok 501 - M18 VAULT actual CurrentUser DPAPI anonymous-pipe synthetic smoke and persistent reopen
+  ---
+  duration_ms: 1285.9877
+  type: 'test'
+  ...
+# Subtest: M12-REC-APPLIED: exact intent, evidence, append-only audit and single-use adjudication release settled writer
+ok 502 - M12-REC-APPLIED: exact intent, evidence, append-only audit and single-use adjudication release settled writer
+  ---
+  duration_ms: 131.632
+  type: 'test'
+  ...
+# Subtest: M12-REC-NOT-APPLIED: evidence-confirmed absence never automatically reexecutes the original call
+ok 503 - M12-REC-NOT-APPLIED: evidence-confirmed absence never automatically reexecutes the original call
+  ---
+  duration_ms: 143.9584
+  type: 'test'
+  ...
+# Subtest: M12-REC-NEGATIVE: missing evidence, wrong intent, forged authority and invalid outcomes fail closed
+ok 504 - M12-REC-NEGATIVE: missing evidence, wrong intent, forged authority and invalid outcomes fail closed
+  ---
+  duration_ms: 99.51
+  type: 'test'
+  ...
+# Subtest: M12-REC-UNKNOWN: quarantine persists over restart and may only advance with a new exact revision/challenge
+ok 505 - M12-REC-UNKNOWN: quarantine persists over restart and may only advance with a new exact revision/challenge
+  ---
+  duration_ms: 154.2239
+  type: 'test'
+  ...
+# Subtest: M12-REC-CONCURRENCY: competing administrator challenges create one final adjudication
+ok 506 - M12-REC-CONCURRENCY: competing administrator challenges create one final adjudication
+  ---
+  duration_ms: 105.6273
+  type: 'test'
+  ...
+# Subtest: M12-REC-TIMEOUT: effect adjudication cannot release a running executor; explicit later release uses trusted settlement
+ok 507 - M12-REC-TIMEOUT: effect adjudication cannot release a running executor; explicit later release uses trusted settlement
+  ---
+  duration_ms: 168.6267
+  type: 'test'
+  ...
+# Subtest: M12-REC-UNKNOWN-EXIT: administrator evidence alone cannot assert executor exit
+ok 508 - M12-REC-UNKNOWN-EXIT: administrator evidence alone cannot assert executor exit
+  ---
+  duration_ms: 99.1527
+  type: 'test'
+  ...
+# Subtest: M12-REC-IOFAIL: failed adjudication transaction does not consume authorization or release writer
+ok 509 - M12-REC-IOFAIL: failed adjudication transaction does not consume authorization or release writer
+  ---
+  duration_ms: 111.0494
+  type: 'test'
+  ...
+# Subtest: M12-REC-OUTPUT-TIMEOUT: late output never becomes PASS and UNKNOWN producer keeps its writer over restart
+ok 510 - M12-REC-OUTPUT-TIMEOUT: late output never becomes PASS and UNKNOWN producer keeps its writer over restart
+  ---
+  duration_ms: 204.655
+  type: 'test'
+  ...
+# Subtest: M12-REC-CRASH: real process kill at before-call never replays local effect
+ok 511 - M12-REC-CRASH: real process kill at before-call never replays local effect
+  ---
+  duration_ms: 347.5655
+  type: 'test'
+  ...
+# Subtest: M12-REC-CRASH: real process kill at after-call-before-started never replays local effect
+ok 512 - M12-REC-CRASH: real process kill at after-call-before-started never replays local effect
+  ---
+  duration_ms: 327.2409
+  type: 'test'
+  ...
+# Subtest: M12-REC-CRASH: real process kill at handler-before-result never replays local effect
+ok 513 - M12-REC-CRASH: real process kill at handler-before-result never replays local effect
+  ---
+  duration_ms: 359.2422
+  type: 'test'
+  ...
+# Subtest: M12-REC-CRASH: real process kill at result-before-ack never replays local effect
+ok 514 - M12-REC-CRASH: real process kill at result-before-ack never replays local effect
+  ---
+  duration_ms: 360.5341
+  type: 'test'
+  ...
+# Subtest: M12-REC-CRASH: real process kill at ack-before-delivery never replays local effect
+ok 515 - M12-REC-CRASH: real process kill at ack-before-delivery never replays local effect
+  ---
+  duration_ms: 326.0561
+  type: 'test'
+  ...
+# Subtest: M13-IDENTITY: only trusted bootstrap creates bindings; malformed logical/process/profile denied
+ok 516 - M13-IDENTITY: only trusted bootstrap creates bindings; malformed logical/process/profile denied
+  ---
+  duration_ms: 56.7519
+  type: 'test'
+  ...
+# Subtest: M13-IDENTITY: real peer tuple required; PID reuse, SID and session mismatch rejected in contract model
+ok 517 - M13-IDENTITY: real peer tuple required; PID reuse, SID and session mismatch rejected in contract model
+  ---
+  duration_ms: 44.7353
+  type: 'test'
+  ...
+# Subtest: M13-IDENTITY: CREATED/AUTHENTICATED/ACTIVE/REVOKING/REVOKED audited; revoke is immediate
+ok 518 - M13-IDENTITY: CREATED/AUTHENTICATED/ACTIVE/REVOKING/REVOKED audited; revoke is immediate
+  ---
+  duration_ms: 53.6222
+  type: 'test'
+  ...
+# Subtest: M13-IPC: exact contract request consumes one capability and returns no execution authority
+ok 519 - M13-IPC: exact contract request consumes one capability and returns no execution authority
+  ---
+  duration_ms: 54.6149
+  type: 'test'
+  ...
+# Subtest: M13-IPC: authenticated Worker cannot change logical/runtime/task/instance/resource/profile/payload
+ok 520 - M13-IPC: authenticated Worker cannot change logical/runtime/task/instance/resource/profile/payload
+  ---
+  duration_ms: 96.32
+  type: 'test'
+  ...
+# Subtest: M13-IPC: concurrent duplicate, request/operation and nonce replay reject atomically
+ok 521 - M13-IPC: concurrent duplicate, request/operation and nonce replay reject atomically
+  ---
+  duration_ms: 78.7281
+  type: 'test'
+  ...
+# Subtest: M13-IPC: MAC tamper, invalid UTF8, unknown/duplicate keys and malformed frame fail closed
+ok 522 - M13-IPC: MAC tamper, invalid UTF8, unknown/duplicate keys and malformed frame fail closed
+  ---
+  duration_ms: 46.8678
+  type: 'test'
+  ...
+# Subtest: M13-IPC: expiry, clock lease and epochs reject old capabilities
+ok 523 - M13-IPC: expiry, clock lease and epochs reject old capabilities
+  ---
+  duration_ms: 95.7391
+  type: 'test'
+  ...
+# Subtest: M13-IPC: revocation while peer observation is pending fences consume
+ok 524 - M13-IPC: revocation while peer observation is pending fences consume
+  ---
+  duration_ms: 64.341
+  type: 'test'
+  ...
+# Subtest: M13-IPC: authorization barrier failure consumes no second request and retains original operation
+ok 525 - M13-IPC: authorization barrier failure consumes no second request and retains original operation
+  ---
+  duration_ms: 58.0776
+  type: 'test'
+  ...
+# Subtest: M13-FEATURE: OFF blocks new IPC; Broker remains blocked for every capability and mode
+ok 526 - M13-FEATURE: OFF blocks new IPC; Broker remains blocked for every capability and mode
+  ---
+  duration_ms: 49.7767
+  type: 'test'
+  ...
+# Subtest: M13-IPC: PROCESS capability cannot use protocol-only admission
+ok 527 - M13-IPC: PROCESS capability cannot use protocol-only admission
+  ---
+  duration_ms: 51.4498
+  type: 'test'
+  ...
+# Subtest: M13-RECOVERY: IPC loss preserves operation ID and all five resource reservations
+ok 528 - M13-RECOVERY: IPC loss preserves operation ID and all five resource reservations
+  ---
+  duration_ms: 54.8738
+  type: 'test'
+  ...
+# Subtest: M13-EXIT: incomplete evidence, parent-only exit and even complete MODEL proof cannot release
+ok 529 - M13-EXIT: incomplete evidence, parent-only exit and even complete MODEL proof cannot release
+  ---
+  duration_ms: 54.2891
+  type: 'test'
+  ...
+# Subtest: M13-EXIT: termination request is separate from tree exit and abnormal exit is independent state
+ok 530 - M13-EXIT: termination request is separate from tree exit and abnormal exit is independent state
+  ---
+  duration_ms: 52.0432
+  type: 'test'
+  ...
+# Subtest: M13-EXIT: mismatched start identity and untrusted proof source are rejected
+ok 531 - M13-EXIT: mismatched start identity and untrusted proof source are rejected
+  ---
+  duration_ms: 45.0893
+  type: 'test'
+  ...
+# Subtest: M13-RECOVERY: new Host boot quarantines old identities and resources; original M12 Writer remains
+ok 532 - M13-RECOVERY: new Host boot quarantines old identities and resources; original M12 Writer remains
+  ---
+  duration_ms: 74.331
+  type: 'test'
+  ...
+# Subtest: M13-AUDIT: Worker producer cannot declare RESULT; correlation records append
+ok 533 - M13-AUDIT: Worker producer cannot declare RESULT; correlation records append
+  ---
+  duration_ms: 41.643
+  type: 'test'
+  ...
+# Subtest: M13-FEATURE: Host Agent facade has no runtime/admin and independent owners cannot be disabled
+ok 534 - M13-FEATURE: Host Agent facade has no runtime/admin and independent owners cannot be disabled
+  ---
+  duration_ms: 108.6722
+  type: 'test'
+  ...
+# Subtest: M13-IR: exit observation cannot attach to unowned operation; one-operation profile is fixed
+ok 535 - M13-IR: exit observation cannot attach to unowned operation; one-operation profile is fixed
+  ---
+  duration_ms: 46.9689
+  type: 'test'
+  ...
+# Subtest: M13-IR: stalled peer observation times out; unresolved native work remains bounded
+ok 536 - M13-IR: stalled peer observation times out; unresolved native work remains bounded
+  ---
+  duration_ms: 1238.9313
+  type: 'test'
+  ...
+# Subtest: M13-IR: terminal observed exit recycles authenticated connection slots without releasing resources
+ok 537 - M13-IR: terminal observed exit recycles authenticated connection slots without releasing resources
+  ---
+  duration_ms: 482.385
+  type: 'test'
+  ...
+# Subtest: M13-IR: logical session close revokes its runtime binding
+ok 538 - M13-IR: logical session close revokes its runtime binding
+  ---
+  duration_ms: 58.2356
+  type: 'test'
+  ...
+# Subtest: M13-IR: contradictory root or tree observations cannot create proof
+ok 539 - M13-IR: contradictory root or tree observations cannot create proof
+  ---
+  duration_ms: 41.6646
+  type: 'test'
+  ...
+# Subtest: M13-CRASH: actual Host process kill before/after proof and at release barrier retains all reservations
+    # Subtest: resources-held
+    ok 1 - resources-held
+      ---
+      duration_ms: 255.3582
+      type: 'test'
+      ...
+    # Subtest: proof-recorded
+    ok 2 - proof-recorded
+      ---
+      duration_ms: 239.2585
+      type: 'test'
+      ...
+    # Subtest: release-barrier
+    ok 3 - release-barrier
+      ---
+      duration_ms: 237.4833
+      type: 'test'
+      ...
+    1..3
+ok 540 - M13-CRASH: actual Host process kill before/after proof and at release barrier retains all reservations
+  ---
+  duration_ms: 732.7505
+  type: 'test'
+  ...
+# Subtest: M12-PE-CONFIG: closed policy identity and runtime contract reject malformed definitions
+    # Subtest: unknown ID
+    ok 1 - unknown ID
+      ---
+      duration_ms: 1.2987
+      type: 'test'
+      ...
+    # Subtest: unknown level
+    ok 2 - unknown level
+      ---
+      duration_ms: 0.2078
+      type: 'test'
+      ...
+    # Subtest: wrong known level
+    ok 3 - wrong known level
+      ---
+      duration_ms: 0.1641
+      type: 'test'
+      ...
+    # Subtest: owner
+    ok 4 - owner
+      ---
+      duration_ms: 0.1911
+      type: 'test'
+      ...
+    # Subtest: degradable
+    ok 5 - degradable
+      ---
+      duration_ms: 0.2054
+      type: 'test'
+      ...
+    # Subtest: missing field
+    ok 6 - missing field
+      ---
+      duration_ms: 0.1706
+      type: 'test'
+      ...
+    # Subtest: empty modes
+    ok 7 - empty modes
+      ---
+      duration_ms: 0.148
+      type: 'test'
+      ...
+    # Subtest: unknown mode
+    ok 8 - unknown mode
+      ---
+      duration_ms: 0.1866
+      type: 'test'
+      ...
+    # Subtest: invalid mode value
+    ok 9 - invalid mode value
+      ---
+      duration_ms: 0.2409
+      type: 'test'
+      ...
+    # Subtest: unknown authority field
+    ok 10 - unknown authority field
+      ---
+      duration_ms: 0.2148
+      type: 'test'
+      ...
+    # Subtest: permissive default
+    ok 11 - permissive default
+      ---
+      duration_ms: 0.1406
+      type: 'test'
+      ...
+    1..11
+ok 541 - M12-PE-CONFIG: closed policy identity and runtime contract reject malformed definitions
+  ---
+  duration_ms: 55.7547
+  type: 'test'
+  ...
+# Subtest: M12-PE-LEVELS: L0 owner, L1 exact approval, L2 implemented dimension, L3 advisory have explicit semantics
+ok 542 - M12-PE-LEVELS: L0 owner, L1 exact approval, L2 implemented dimension, L3 advisory have explicit semantics
+  ---
+  duration_ms: 131.9758
+  type: 'test'
+  ...
+# Subtest: M12-PE-INJECTION: trusted evaluator may only restrict and receives frozen policy/context
+ok 543 - M12-PE-INJECTION: trusted evaluator may only restrict and receives frozen policy/context
+  ---
+  duration_ms: 53.6391
+  type: 'test'
+  ...
+# Subtest: M12-PE-REGISTER: unknown capability, missing declaration, empty effect policy and owner bypass rejected
+ok 544 - M12-PE-REGISTER: unknown capability, missing declaration, empty effect policy and owner bypass rejected
+  ---
+  duration_ms: 52.6435
+  type: 'test'
+  ...
+# Subtest: M12-PE-MODE-OWNER: even ENFORCE changes cannot persist an independent owner in the application mode table
+ok 545 - M12-PE-MODE-OWNER: even ENFORCE changes cannot persist an independent owner in the application mode table
+  ---
+  duration_ms: 50.9581
+  type: 'test'
+  ...
+# Subtest: M12-PE-CONTEXT: tool sees no KernelStore, database, authorization or administration capability
+ok 546 - M12-PE-CONTEXT: tool sees no KernelStore, database, authorization or administration capability
+  ---
+  duration_ms: 101.6594
+  type: 'test'
+  ...
+# Subtest: M12-PE-MODE: disabled application PDP and advisory policy cannot bypass mandatory side-effect approval
+ok 547 - M12-PE-MODE: disabled application PDP and advisory policy cannot bypass mandatory side-effect approval
+  ---
+  duration_ms: 144.1633
+  type: 'test'
+  ...
+# Subtest: M12-PE-SANDBOX: process/external capabilities stay blocked even if requires_sandbox is false and PDP disabled
+ok 548 - M12-PE-SANDBOX: process/external capabilities stay blocked even if requires_sandbox is false and PDP disabled
+  ---
+  duration_ms: 85.9592
+  type: 'test'
+  ...
+# Subtest: M12-PE-START: approval expiry at the durable START_INTENT barrier prevents invocation
+ok 549 - M12-PE-START: approval expiry at the durable START_INTENT barrier prevents invocation
+  ---
+  duration_ms: 391.4328
+  type: 'test'
+  ...
+# Subtest: M12-PE-EPOCH: policy change after permit issuance fences the old exact approval
+ok 550 - M12-PE-EPOCH: policy change after permit issuance fences the old exact approval
+  ---
+  duration_ms: 71.6534
+  type: 'test'
+  ...
+# Subtest: M12-PE-RESOURCE: approval binds the exact resource; late resolver changes cannot redirect execution
+ok 551 - M12-PE-RESOURCE: approval binds the exact resource; late resolver changes cannot redirect execution
+  ---
+  duration_ms: 90.486
+  type: 'test'
+  ...
+# Subtest: real SQLite, three independent domain chains and global pagination
+ok 552 - real SQLite, three independent domain chains and global pagination
+  ---
+  duration_ms: 97.8532
+  type: 'test'
+  ...
+# Subtest: synchronous cross-table transaction, rollback, UNIQUE and business errors do not fault
+ok 553 - synchronous cross-table transaction, rollback, UNIQUE and business errors do not fault
+  ---
+  duration_ms: 27.5622
+  type: 'test'
+  ...
+# Subtest: agent and session SQL filters apply before LIMIT and preserve global cursor pages
+ok 554 - agent and session SQL filters apply before LIMIT and preserve global cursor pages
+  ---
+  duration_ms: 232.9094
+  type: 'test'
+  ...
+# Subtest: flush covers its captured target after an empty or older shared flush
+ok 555 - flush covers its captured target after an empty or older shared flush
+  ---
+  duration_ms: 31.849
+  type: 'test'
+  ...
+# Subtest: required fields, malformed refs, oversized envelopes and query budgets reject without fault
+ok 556 - required fields, malformed refs, oversized envelopes and query budgets reject without fault
+  ---
+  duration_ms: 28.4127
+  type: 'test'
+  ...
+# Subtest: outbox high water rejects new records, then drains without unbounded queues
+ok 557 - outbox high water rejects new records, then drains without unbounded queues
+  ---
+  duration_ms: 35.4101
+  type: 'test'
+  ...
+# Subtest: second writer and live lock recovery are blocked; real owner death is explicit
+ok 558 - second writer and live lock recovery are blocked; real owner death is explicit
+  ---
+  duration_ms: 208.6534
+  type: 'test'
+  ...
+# Subtest: process crash after file fsync and before receipt reexports no duplicate
+ok 559 - process crash after file fsync and before receipt reexports no duplicate
+  ---
+  duration_ms: 184.4093
+  type: 'test'
+  ...
+# Subtest: unacknowledged crash tail is preserved then repaired from durable outbox
+ok 560 - unacknowledged crash tail is preserved then repaired from durable outbox
+  ---
+  duration_ms: 384.5845
+  type: 'test'
+  ...
+# Subtest: actual export I/O failure freezes writes and preserves outbox until explicit recovery
+ok 561 - actual export I/O failure freezes writes and preserves outbox until explicit recovery
+  ---
+  duration_ms: 31.3202
+  type: 'test'
+  ...
+# Subtest: acknowledged truncation is never silently discarded or rebuilt as success
+ok 562 - acknowledged truncation is never silently discarded or rebuilt as success
+  ---
+  duration_ms: 22.0714
+  type: 'test'
+  ...
+# Subtest: actual artifact publication I/O failure retains bytes and freezes both record and object admission
+ok 563 - actual artifact publication I/O failure retains bytes and freezes both record and object admission
+  ---
+  duration_ms: 27.743
+  type: 'test'
+  ...
+# Subtest: database hash tampering throws, freezes writes and does not fake repair
+ok 564 - database hash tampering throws, freezes writes and does not fake repair
+  ---
+  duration_ms: 19.4248
+  type: 'test'
+  ...
+# Subtest: 32 MiB randomized artifact roundtrip streams with real backpressure and two hashes
+ok 565 - 32 MiB randomized artifact roundtrip streams with real backpressure and two hashes
+  ---
+  duration_ms: 281.3346
+  type: 'test'
+  ...
+# Subtest: cancelled, over-budget and invalid-chunk objects remain incomplete; secret is rejected
+ok 566 - cancelled, over-budget and invalid-chunk objects remain incomplete; secret is rejected
+  ---
+  duration_ms: 35.2812
+  type: 'test'
+  ...
+# Subtest: early artifact iterator return is not verification; full corrupted stream fails closed
+ok 567 - early artifact iterator return is not verification; full corrupted stream fails closed
+  ---
+  duration_ms: 40.6534
+  type: 'test'
+  ...
+# Subtest: concurrent artifact admission is bounded and rejects a third stream without queueing
+ok 568 - concurrent artifact admission is bounded and rejects a third stream without queueing
+  ---
+  duration_ms: 34.5056
+  type: 'test'
+  ...
+# Subtest: abort races a permanently pending source.next without retaining Store writers or accepting late bytes
+ok 569 - abort races a permanently pending source.next without retaining Store writers or accepting late bytes
+  ---
+  duration_ms: 20.3933
+  type: 'test'
+  ...
+# Subtest: concurrent close calls share the real drain and lock-release promise
+ok 570 - concurrent close calls share the real drain and lock-release promise
+  ---
+  duration_ms: 19.6443
+  type: 'test'
+  ...
+# Subtest: sealed segments are compressed, chained and verified; stored bit flip is detected
+ok 571 - sealed segments are compressed, chained and verified; stored bit flip is detected
+  ---
+  duration_ms: 100.3994
+  type: 'test'
+  ...
+# Subtest: process-killed partial artifact remains retained without a complete object reference
+ok 572 - process-killed partial artifact remains retained without a complete object reference
+  ---
+  duration_ms: 173.3627
+  type: 'test'
+  ...
+# Subtest: M13-WINDOWS: actual native primitives; no full sandbox or release authority inferred
+    # Subtest: job-normal
+    ok 1 - job-normal
+      ---
+      duration_ms: 0.6286
+      type: 'test'
+      ...
+    # Subtest: job-hold
+    ok 2 - job-hold
+      ---
+      duration_ms: 0.133
+      type: 'test'
+      ...
+    # Subtest: job-orphan
+    ok 3 - job-orphan # SKIP Parent-exited/child-alive window not observed in this managed environment
+      ---
+      duration_ms: 0.1169
+      type: 'test'
+      ...
+    # Subtest: pipe-True
+    ok 4 - pipe-True
+      ---
+      duration_ms: 0.1146
+      type: 'test'
+      ...
+    # Subtest: pipe-False
+    ok 5 - pipe-False
+      ---
+      duration_ms: 0.0605
+      type: 'test'
+      ...
+    # Subtest: restricted-token
+    ok 6 - restricted-token
+      ---
+      duration_ms: 0.0796
+      type: 'test'
+      ...
+    1..6
+ok 573 - M13-WINDOWS: actual native primitives; no full sandbox or release authority inferred
+  ---
+  duration_ms: 3699.9318
+  type: 'test'
+  ...
+1..573
+# tests 640
+# suites 0
+# pass 623
+# fail 1
+# cancelled 0
+# skipped 16
+# todo 0
+# duration_ms 296355.7117

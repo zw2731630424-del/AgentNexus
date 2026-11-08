@@ -1,0 +1,2534 @@
+{
+  "schema": "agentnexus/m1.8/model-evidence/1",
+  "environment": "ENGINEERING_FIXTURES_ONLY",
+  "requests": [
+    {
+      "fixture": "wire-8AuwBn",
+      "request": {
+        "assurance": "SIMULATED",
+        "context_view_id": "23fd47d8-8200-4455-b42c-e931a49b0923",
+        "input_hash": "4b7582f21db0d0afd63f77327d4e2e3dc4d1cffa8f9180cb64b9f69ce31630c5",
+        "key_handle_id": "f5548bb2-a7e6-45ad-b8e0-53d5619f2316",
+        "model_id": "synthetic-small",
+        "owner": {
+          "agent_id": "lead",
+          "agent_type": "DEVELOPMENT",
+          "model_binding": "wire",
+          "policy_scope": "project",
+          "project_id": "project",
+          "resource_budget_id": "worker.f31fb5b0-8535-4207-bf41-5cb28eb9cb0e",
+          "runtime_instance_id": "f31fb5b0-8535-4207-bf41-5cb28eb9cb0e",
+          "session_id": "047e7bf0-66a5-49b3-9e44-19b6cb0e82ee",
+          "task_id": "work"
+        },
+        "provider_id": "openai",
+        "request_id": "secret",
+        "result": {
+          "assurance": "SIMULATED",
+          "model_id": "synthetic-small",
+          "outcome": "INDETERMINATE",
+          "provider_id": "openai",
+          "reason": "MODEL18_SENT_OUTCOME_UNKNOWN",
+          "reply": null,
+          "request_id": "secret",
+          "response_source": null,
+          "status": "SIMULATED",
+          "usage": null
+        },
+        "revision": 2,
+        "state": "INDETERMINATE"
+      },
+      "usage": {
+        "assurance": "SIMULATED",
+        "completed_at": "2026-11-08T06:46:24.376Z",
+        "context_hash": "4723c7d2cc19eeddde9e42624fd7fe72d6a3b10fb3667d21240aed7d5b858569",
+        "created_at": "2026-11-08T06:46:24.342Z",
+        "held": {
+          "cost_micros": 4967,
+          "requests": 1,
+          "tokens": 4711
+        },
+        "input_tokens": 4455,
+        "key_handle_id": "f5548bb2-a7e6-45ad-b8e0-53d5619f2316",
+        "model_id": "synthetic-small",
+        "output_tokens": 256,
+        "overrun": {
+          "cost_micros": 0,
+          "requests": 0,
+          "tokens": 0
+        },
+        "provider_id": "openai",
+        "reason": "TRANSPORT_UNKNOWN",
+        "request_hash": "21e067f954377eb4a67e6754305ebaf562a357d504835c22763687ceaa32fbc9",
+        "request_id": "secret",
+        "reserved": {
+          "cost_micros": 4967,
+          "requests": 1,
+          "tokens": 4711
+        },
+        "revision": 2,
+        "sent_at": "2026-11-08T06:46:24.361Z",
+        "state": "UNKNOWN",
+        "subject": {
+          "agent_id": "lead",
+          "agent_type": "DEVELOPMENT",
+          "model_binding": "wire",
+          "policy_scope": "project",
+          "project_id": "project",
+          "resource_budget_id": "worker.f31fb5b0-8535-4207-bf41-5cb28eb9cb0e",
+          "runtime_instance_id": "f31fb5b0-8535-4207-bf41-5cb28eb9cb0e",
+          "session_id": "047e7bf0-66a5-49b3-9e44-19b6cb0e82ee",
+          "task_id": "work"
+        },
+        "usage": null,
+        "usage_hash": null
+      },
+      "environment": "ENGINEERING_FIXTURE_ONLY"
+    },
+    {
+      "fixture": "wire-EYH1N4",
+      "request": {
+        "assurance": "SIMULATED",
+        "context_view_id": "8c273d46-a14c-4b2f-80ab-fd0eea98c4c7",
+        "input_hash": "887f0c7c7cf8bfd9cc5e4ee9b4315fedea01bb9d19c79bad405ed3083e6d2579",
+        "key_handle_id": "a47c22b7-f980-4bbc-9403-852d48f0c581",
+        "model_id": "strong",
+        "owner": {
+          "agent_id": "lead",
+          "agent_type": "DEVELOPMENT",
+          "model_binding": "wire",
+          "policy_scope": "project",
+          "project_id": "project",
+          "resource_budget_id": "worker.0ad78832-2e07-4fb7-b63d-5dc61f64dd54",
+          "runtime_instance_id": "0ad78832-2e07-4fb7-b63d-5dc61f64dd54",
+          "session_id": "4557e98e-7174-4fb9-8414-e124c35db732",
+          "task_id": "work"
+        },
+        "provider_id": "openai",
+        "request_id": "upgrade",
+        "result": {
+          "assurance": "SIMULATED",
+          "model_id": "strong",
+          "outcome": "SUCCEEDED",
+          "provider_id": "openai",
+          "reason": "MODEL18_COMPLETE",
+          "reply": {
+            "kind": "FINAL",
+            "text": "SIMULATED wire fixture"
+          },
+          "request_id": "upgrade",
+          "response_source": {
+            "event_id": "c8ba4a38-2084-4434-9040-d216067ff9cf",
+            "kind": "RAW",
+            "length": 586,
+            "offset": 0,
+            "payload_ref": {
+              "artifact_id": "043ae3a1-9dcc-4dbb-aa1a-6b112c7c5d69",
+              "bytes": 586,
+              "codec": "zstd",
+              "media_type": "text/plain; charset=utf-8",
+              "sensitivity": "NORMAL",
+              "sha256": "5cee3a913dc677ea983ab40ee89cb2f1e1d30768beff2216a97b3ed0bdc101bf",
+              "stored_bytes": 341,
+              "stored_sha256": "776ac162f85cde7949ef51e5cda358681fff4d38eb807ac729b84f8ffc4356c6"
+            },
+            "project_id": "project",
+            "record_hash": "43b69d50895187d600482c75c0724857afa8ff60a96baea35ab05c5b79a2cecc",
+            "task_id": "work"
+          },
+          "status": "SIMULATED",
+          "usage": {
+            "assurance": "SIMULATED",
+            "concurrency": 0,
+            "cost_micros": 50,
+            "input_tokens": 10,
+            "output_tokens": 20,
+            "reasoning_tokens": null,
+            "request_id": "upgrade"
+          }
+        },
+        "revision": 2,
+        "state": "SUCCEEDED"
+      },
+      "usage": {
+        "assurance": "SIMULATED",
+        "completed_at": "2026-11-08T06:46:23.617Z",
+        "context_hash": "4723c7d2cc19eeddde9e42624fd7fe72d6a3b10fb3667d21240aed7d5b858569",
+        "created_at": "2026-11-08T06:46:23.586Z",
+        "held": {
+          "cost_micros": 0,
+          "requests": 0,
+          "tokens": 0
+        },
+        "input_tokens": 4455,
+        "key_handle_id": "a47c22b7-f980-4bbc-9403-852d48f0c581",
+        "model_id": "strong",
+        "output_tokens": 256,
+        "overrun": {
+          "cost_micros": 0,
+          "requests": 0,
+          "tokens": 0
+        },
+        "provider_id": "openai",
+        "reason": "SETTLED",
+        "request_hash": "a3fbf32fd05eaacc5b8ed5ce51a31ff687a076909fac9d2d126a15cb6a5035a4",
+        "request_id": "upgrade",
+        "reserved": {
+          "cost_micros": 4967,
+          "requests": 1,
+          "tokens": 4711
+        },
+        "revision": 2,
+        "sent_at": "2026-11-08T06:46:23.606Z",
+        "state": "SETTLED",
+        "subject": {
+          "agent_id": "lead",
+          "agent_type": "DEVELOPMENT",
+          "model_binding": "wire",
+          "policy_scope": "project",
+          "project_id": "project",
+          "resource_budget_id": "worker.0ad78832-2e07-4fb7-b63d-5dc61f64dd54",
+          "runtime_instance_id": "0ad78832-2e07-4fb7-b63d-5dc61f64dd54",
+          "session_id": "4557e98e-7174-4fb9-8414-e124c35db732",
+          "task_id": "work"
+        },
+        "usage": {
+          "cost_micros": 50,
+          "elapsed_ms": 36,
+          "estimated": false,
+          "input_tokens": 10,
+          "output_tokens": 20,
+          "provider_request_id": "synthetic-response",
+          "reasoning_tokens": null,
+          "requests": 1,
+          "retries": 0,
+          "usage_source": "SIMULATED"
+        },
+        "usage_hash": "f1dc1f5f5a24e4fab7fc54c6fdfd43e46e80e635fd5deabd3e200843273f8654"
+      },
+      "environment": "ENGINEERING_FIXTURE_ONLY"
+    },
+    {
+      "fixture": "wire-GcGS0a",
+      "request": {
+        "assurance": "SIMULATED",
+        "context_view_id": "b5ec2a4f-d34a-490f-bfa8-89fb36036d07",
+        "input_hash": "1608f67186088cc8d50ea06b9cc5b2e3ab7671780bb20b9accdfc5592df1155e",
+        "key_handle_id": "8ef37fd3-7ed1-46ef-84ea-cf1202d38cf7",
+        "model_id": "synthetic-small",
+        "owner": {
+          "agent_id": "lead",
+          "agent_type": "DEVELOPMENT",
+          "model_binding": "wire",
+          "policy_scope": "project",
+          "project_id": "project",
+          "resource_budget_id": "worker.12bb2eb8-dcd0-421d-bb9c-2aa3b3dba60e",
+          "runtime_instance_id": "12bb2eb8-dcd0-421d-bb9c-2aa3b3dba60e",
+          "session_id": "18506bae-a73a-482b-9f23-15332d8b8529",
+          "task_id": "work"
+        },
+        "provider_id": "openai",
+        "request_id": "unknown",
+        "result": {
+          "assurance": "SIMULATED",
+          "model_id": "synthetic-small",
+          "outcome": "INDETERMINATE",
+          "provider_id": "openai",
+          "reason": "MODEL18_SENT_OUTCOME_UNKNOWN",
+          "reply": null,
+          "request_id": "unknown",
+          "response_source": null,
+          "status": "SIMULATED",
+          "usage": null
+        },
+        "revision": 2,
+        "state": "INDETERMINATE"
+      },
+      "usage": {
+        "assurance": "SIMULATED",
+        "completed_at": "2026-11-08T06:46:22.637Z",
+        "context_hash": "4723c7d2cc19eeddde9e42624fd7fe72d6a3b10fb3667d21240aed7d5b858569",
+        "created_at": "2026-11-08T06:46:22.606Z",
+        "held": {
+          "cost_micros": 4967,
+          "requests": 1,
+          "tokens": 4711
+        },
+        "input_tokens": 4455,
+        "key_handle_id": "8ef37fd3-7ed1-46ef-84ea-cf1202d38cf7",
+        "model_id": "synthetic-small",
+        "output_tokens": 256,
+        "overrun": {
+          "cost_micros": 0,
+          "requests": 0,
+          "tokens": 0
+        },
+        "provider_id": "openai",
+        "reason": "TRANSPORT_UNKNOWN",
+        "request_hash": "089804a60d4ae39cb339177f39bf57f30f5d0ba20a851e5bf6fab4395dd6d10a",
+        "request_id": "unknown",
+        "reserved": {
+          "cost_micros": 4967,
+          "requests": 1,
+          "tokens": 4711
+        },
+        "revision": 2,
+        "sent_at": "2026-11-08T06:46:22.624Z",
+        "state": "UNKNOWN",
+        "subject": {
+          "agent_id": "lead",
+          "agent_type": "DEVELOPMENT",
+          "model_binding": "wire",
+          "policy_scope": "project",
+          "project_id": "project",
+          "resource_budget_id": "worker.12bb2eb8-dcd0-421d-bb9c-2aa3b3dba60e",
+          "runtime_instance_id": "12bb2eb8-dcd0-421d-bb9c-2aa3b3dba60e",
+          "session_id": "18506bae-a73a-482b-9f23-15332d8b8529",
+          "task_id": "work"
+        },
+        "usage": null,
+        "usage_hash": null
+      },
+      "environment": "ENGINEERING_FIXTURE_ONLY"
+    },
+    {
+      "fixture": "wire-H4oeV5",
+      "request": {
+        "assurance": "SIMULATED",
+        "context_view_id": "fb54c767-8637-431c-965b-4d110509fb68",
+        "input_hash": "2b83058a5e58bc36cf864cd3f9c9c694b31c6ef08701fccc2293db169d896c66",
+        "key_handle_id": "ff5f0b6e-fb0c-4634-a417-2616e4c44620",
+        "model_id": "synthetic-small",
+        "owner": {
+          "agent_id": "lead",
+          "agent_type": "DEVELOPMENT",
+          "model_binding": "wire",
+          "policy_scope": "project",
+          "project_id": "project",
+          "resource_budget_id": "worker.91502841-ef5b-48db-8ce0-0ea78524737b",
+          "runtime_instance_id": "91502841-ef5b-48db-8ce0-0ea78524737b",
+          "session_id": "ef7c7b40-7ae1-40f4-8355-192796002ff8",
+          "task_id": "work"
+        },
+        "provider_id": "openai",
+        "request_id": "unknown",
+        "result": {
+          "assurance": "SIMULATED",
+          "model_id": "synthetic-small",
+          "outcome": "INDETERMINATE",
+          "provider_id": "openai",
+          "reason": "MODEL18_USAGE_UNAVAILABLE",
+          "reply": null,
+          "request_id": "unknown",
+          "response_source": null,
+          "status": "SIMULATED",
+          "usage": null
+        },
+        "revision": 2,
+        "state": "INDETERMINATE"
+      },
+      "usage": {
+        "assurance": "SIMULATED",
+        "completed_at": "2026-11-08T06:46:22.151Z",
+        "context_hash": "4723c7d2cc19eeddde9e42624fd7fe72d6a3b10fb3667d21240aed7d5b858569",
+        "created_at": "2026-11-08T06:46:22.116Z",
+        "held": {
+          "cost_micros": 4967,
+          "requests": 1,
+          "tokens": 4711
+        },
+        "input_tokens": 4455,
+        "key_handle_id": "ff5f0b6e-fb0c-4634-a417-2616e4c44620",
+        "model_id": "synthetic-small",
+        "output_tokens": 256,
+        "overrun": {
+          "cost_micros": 0,
+          "requests": 0,
+          "tokens": 0
+        },
+        "provider_id": "openai",
+        "reason": "USAGE_UNAVAILABLE",
+        "request_hash": "35d958367a14ab2a1dd4affc62e2066b7d8d8add4788904fd60b7cf873b0771b",
+        "request_id": "unknown",
+        "reserved": {
+          "cost_micros": 4967,
+          "requests": 1,
+          "tokens": 4711
+        },
+        "revision": 2,
+        "sent_at": "2026-11-08T06:46:22.139Z",
+        "state": "UNKNOWN",
+        "subject": {
+          "agent_id": "lead",
+          "agent_type": "DEVELOPMENT",
+          "model_binding": "wire",
+          "policy_scope": "project",
+          "project_id": "project",
+          "resource_budget_id": "worker.91502841-ef5b-48db-8ce0-0ea78524737b",
+          "runtime_instance_id": "91502841-ef5b-48db-8ce0-0ea78524737b",
+          "session_id": "ef7c7b40-7ae1-40f4-8355-192796002ff8",
+          "task_id": "work"
+        },
+        "usage": null,
+        "usage_hash": null
+      },
+      "environment": "ENGINEERING_FIXTURE_ONLY"
+    },
+    {
+      "fixture": "wire-HwXhM7",
+      "request": {
+        "assurance": "SIMULATED",
+        "context_view_id": "9d121151-a820-4905-af55-83236bf1ceb5",
+        "input_hash": "1d265443acfec0d2d912956f956b1991a837f46c9e6a3d8337999048549bd7b3",
+        "key_handle_id": null,
+        "model_id": "synthetic-small",
+        "owner": {
+          "agent_id": "lead",
+          "agent_type": "DEVELOPMENT",
+          "model_binding": "wire",
+          "policy_scope": "project",
+          "project_id": "project",
+          "resource_budget_id": "worker.665c0e4b-49b1-4b2a-bedf-6e0e56e6643c",
+          "runtime_instance_id": "665c0e4b-49b1-4b2a-bedf-6e0e56e6643c",
+          "session_id": "d3d54ddf-53a8-4afd-a6a8-336fbeac90a8",
+          "task_id": "work"
+        },
+        "provider_id": "openai",
+        "request_id": "denied",
+        "result": {
+          "assurance": "SIMULATED",
+          "model_id": "synthetic-small",
+          "outcome": "FAILED",
+          "provider_id": "openai",
+          "reason": "MODEL18_NOT_SENT",
+          "reply": null,
+          "request_id": "denied",
+          "response_source": null,
+          "status": "SIMULATED",
+          "usage": null
+        },
+        "revision": 1,
+        "state": "FAILED"
+      },
+      "usage": null,
+      "environment": "ENGINEERING_FIXTURE_ONLY"
+    },
+    {
+      "fixture": "wire-IUXijs",
+      "request": {
+        "assurance": "SIMULATED",
+        "context_view_id": "703ef3bf-dcf6-46ad-944a-03443ffaf675",
+        "input_hash": "94f1e986fb89e0d7ebc5f00fc13d5d871b3372bc8e5b698c1bfe5e12bfb720e1",
+        "key_handle_id": "fcffd3b3-fcc3-4b5a-807c-07b9e6ccc9be",
+        "model_id": "synthetic-small",
+        "owner": {
+          "agent_id": "lead",
+          "agent_type": "DEVELOPMENT",
+          "model_binding": "wire",
+          "policy_scope": "project",
+          "project_id": "project",
+          "resource_budget_id": "worker.bb66724e-9a62-4521-806a-d1924c9dea6a",
+          "runtime_instance_id": "bb66724e-9a62-4521-806a-d1924c9dea6a",
+          "session_id": "688c4c67-7b4e-420e-b9ce-c28db6b32fd8",
+          "task_id": "work"
+        },
+        "provider_id": "openai",
+        "request_id": "timeout",
+        "result": {
+          "assurance": "SIMULATED",
+          "model_id": "synthetic-small",
+          "outcome": "INDETERMINATE",
+          "provider_id": "openai",
+          "reason": "MODEL18_SENT_OUTCOME_UNKNOWN",
+          "reply": null,
+          "request_id": "timeout",
+          "response_source": null,
+          "status": "SIMULATED",
+          "usage": null
+        },
+        "revision": 2,
+        "state": "INDETERMINATE"
+      },
+      "usage": {
+        "assurance": "SIMULATED",
+        "completed_at": "2026-11-08T06:46:22.902Z",
+        "context_hash": "4723c7d2cc19eeddde9e42624fd7fe72d6a3b10fb3667d21240aed7d5b858569",
+        "created_at": "2026-11-08T06:46:22.845Z",
+        "held": {
+          "cost_micros": 4967,
+          "requests": 1,
+          "tokens": 4711
+        },
+        "input_tokens": 4455,
+        "key_handle_id": "fcffd3b3-fcc3-4b5a-807c-07b9e6ccc9be",
+        "model_id": "synthetic-small",
+        "output_tokens": 256,
+        "overrun": {
+          "cost_micros": 0,
+          "requests": 0,
+          "tokens": 0
+        },
+        "provider_id": "openai",
+        "reason": "TRANSPORT_UNKNOWN",
+        "request_hash": "bcb0203d006945c9fb44cb7168f476758984ed4c00f7c62b69eb6932fee0c126",
+        "request_id": "timeout",
+        "reserved": {
+          "cost_micros": 4967,
+          "requests": 1,
+          "tokens": 4711
+        },
+        "revision": 2,
+        "sent_at": "2026-11-08T06:46:22.862Z",
+        "state": "UNKNOWN",
+        "subject": {
+          "agent_id": "lead",
+          "agent_type": "DEVELOPMENT",
+          "model_binding": "wire",
+          "policy_scope": "project",
+          "project_id": "project",
+          "resource_budget_id": "worker.bb66724e-9a62-4521-806a-d1924c9dea6a",
+          "runtime_instance_id": "bb66724e-9a62-4521-806a-d1924c9dea6a",
+          "session_id": "688c4c67-7b4e-420e-b9ce-c28db6b32fd8",
+          "task_id": "work"
+        },
+        "usage": null,
+        "usage_hash": null
+      },
+      "environment": "ENGINEERING_FIXTURE_ONLY"
+    },
+    {
+      "fixture": "wire-J0b3Dk",
+      "request": {
+        "assurance": "SIMULATED",
+        "context_view_id": "30590343-4cc9-4cfe-bcf0-6bc89195662b",
+        "input_hash": "7db525a0f49058dd8ec4b75339d23522985c812631e85925b6a16ced6ab09e12",
+        "key_handle_id": "0c3e0898-0839-4b9b-a168-f9beb030aeac",
+        "model_id": "synthetic-small",
+        "owner": {
+          "agent_id": "lead",
+          "agent_type": "DEVELOPMENT",
+          "model_binding": "wire",
+          "policy_scope": "project",
+          "project_id": "project",
+          "resource_budget_id": "worker.1fcb6bbf-092d-4061-8ade-52d690c1599a",
+          "runtime_instance_id": "1fcb6bbf-092d-4061-8ade-52d690c1599a",
+          "session_id": "18af6f68-b7f3-47f5-9dfe-b69100edd4ff",
+          "task_id": "work"
+        },
+        "provider_id": "openai",
+        "request_id": "secret",
+        "result": {
+          "assurance": "SIMULATED",
+          "model_id": "synthetic-small",
+          "outcome": "INDETERMINATE",
+          "provider_id": "openai",
+          "reason": "MODEL18_SENT_OUTCOME_UNKNOWN",
+          "reply": null,
+          "request_id": "secret",
+          "response_source": null,
+          "status": "SIMULATED",
+          "usage": null
+        },
+        "revision": 2,
+        "state": "INDETERMINATE"
+      },
+      "usage": {
+        "assurance": "SIMULATED",
+        "completed_at": "2026-11-08T06:46:24.118Z",
+        "context_hash": "4723c7d2cc19eeddde9e42624fd7fe72d6a3b10fb3667d21240aed7d5b858569",
+        "created_at": "2026-11-08T06:46:24.085Z",
+        "held": {
+          "cost_micros": 4967,
+          "requests": 1,
+          "tokens": 4711
+        },
+        "input_tokens": 4455,
+        "key_handle_id": "0c3e0898-0839-4b9b-a168-f9beb030aeac",
+        "model_id": "synthetic-small",
+        "output_tokens": 256,
+        "overrun": {
+          "cost_micros": 0,
+          "requests": 0,
+          "tokens": 0
+        },
+        "provider_id": "openai",
+        "reason": "TRANSPORT_UNKNOWN",
+        "request_hash": "e1aed9ea633afbd7ff4fbd88c9a0b6dbb5334217341f434ecaed8efeba3538e8",
+        "request_id": "secret",
+        "reserved": {
+          "cost_micros": 4967,
+          "requests": 1,
+          "tokens": 4711
+        },
+        "revision": 2,
+        "sent_at": "2026-11-08T06:46:24.103Z",
+        "state": "UNKNOWN",
+        "subject": {
+          "agent_id": "lead",
+          "agent_type": "DEVELOPMENT",
+          "model_binding": "wire",
+          "policy_scope": "project",
+          "project_id": "project",
+          "resource_budget_id": "worker.1fcb6bbf-092d-4061-8ade-52d690c1599a",
+          "runtime_instance_id": "1fcb6bbf-092d-4061-8ade-52d690c1599a",
+          "session_id": "18af6f68-b7f3-47f5-9dfe-b69100edd4ff",
+          "task_id": "work"
+        },
+        "usage": null,
+        "usage_hash": null
+      },
+      "environment": "ENGINEERING_FIXTURE_ONLY"
+    },
+    {
+      "fixture": "wire-K6nQ5f",
+      "request": {
+        "assurance": "SIMULATED",
+        "context_view_id": "df759503-2683-415e-a829-83a0dc512591",
+        "input_hash": "3e79d4d28e8a4dc36138265398b5e0cb856a8e942a6022d1f72c131dc7c518b5",
+        "key_handle_id": "e25339f2-5914-4b05-90f7-ae2ecfb3b0d3",
+        "model_id": "synthetic-small",
+        "owner": {
+          "agent_id": "lead",
+          "agent_type": "DEVELOPMENT",
+          "model_binding": "wire",
+          "policy_scope": "project",
+          "project_id": "project",
+          "resource_budget_id": "worker.00ab3e81-7783-473c-be1c-1378a53bdfef",
+          "runtime_instance_id": "00ab3e81-7783-473c-be1c-1378a53bdfef",
+          "session_id": "739517fd-02d7-4194-a8c8-b8bc2949bc98",
+          "task_id": "work"
+        },
+        "provider_id": "openai",
+        "request_id": "archive-fail",
+        "result": null,
+        "revision": 1,
+        "state": "SENT"
+      },
+      "usage": {
+        "assurance": "SIMULATED",
+        "completed_at": "2026-11-08T06:46:35.881Z",
+        "context_hash": "4723c7d2cc19eeddde9e42624fd7fe72d6a3b10fb3667d21240aed7d5b858569",
+        "created_at": "2026-11-08T06:46:35.850Z",
+        "held": {
+          "cost_micros": 0,
+          "requests": 0,
+          "tokens": 0
+        },
+        "input_tokens": 4455,
+        "key_handle_id": "e25339f2-5914-4b05-90f7-ae2ecfb3b0d3",
+        "model_id": "synthetic-small",
+        "output_tokens": 256,
+        "overrun": {
+          "cost_micros": 0,
+          "requests": 0,
+          "tokens": 0
+        },
+        "provider_id": "openai",
+        "reason": "SETTLED",
+        "request_hash": "b2a4a64329bfb4db0de32d9811115c509c56937bf681316359862fb6da01a930",
+        "request_id": "archive-fail",
+        "reserved": {
+          "cost_micros": 4967,
+          "requests": 1,
+          "tokens": 4711
+        },
+        "revision": 2,
+        "sent_at": "2026-11-08T06:46:35.867Z",
+        "state": "SETTLED",
+        "subject": {
+          "agent_id": "lead",
+          "agent_type": "DEVELOPMENT",
+          "model_binding": "wire",
+          "policy_scope": "project",
+          "project_id": "project",
+          "resource_budget_id": "worker.00ab3e81-7783-473c-be1c-1378a53bdfef",
+          "runtime_instance_id": "00ab3e81-7783-473c-be1c-1378a53bdfef",
+          "session_id": "739517fd-02d7-4194-a8c8-b8bc2949bc98",
+          "task_id": "work"
+        },
+        "usage": {
+          "cost_micros": 50,
+          "elapsed_ms": 38,
+          "estimated": false,
+          "input_tokens": 10,
+          "output_tokens": 20,
+          "provider_request_id": "synthetic-response",
+          "reasoning_tokens": null,
+          "requests": 1,
+          "retries": 0,
+          "usage_source": "SIMULATED"
+        },
+        "usage_hash": "97e8de846ae98e3a5e5065994ff5aa162cf7912bf103284e8e2af9e9575f52c5"
+      },
+      "environment": "ENGINEERING_FIXTURE_ONLY"
+    },
+    {
+      "fixture": "wire-Ok6jNs",
+      "request": {
+        "assurance": "SIMULATED",
+        "context_view_id": "73161586-1d64-4054-9e31-0fbe088da59b",
+        "input_hash": "ba9cbfc5276fd4be2103caa6c7fb0fd32b282c30167b7169b970dd472cec7bc2",
+        "key_handle_id": "013dcb3e-5d0a-448b-9dac-47cc27cc79f2",
+        "model_id": "synthetic-small",
+        "owner": {
+          "agent_id": "lead",
+          "agent_type": "DEVELOPMENT",
+          "model_binding": "wire",
+          "policy_scope": "project",
+          "project_id": "project",
+          "resource_budget_id": "worker.3780c02d-a199-4191-8ffc-988ebddbfb49",
+          "runtime_instance_id": "3780c02d-a199-4191-8ffc-988ebddbfb49",
+          "session_id": "a58f615f-6640-44fe-93ea-3ecc23cbab47",
+          "task_id": "work"
+        },
+        "provider_id": "openai",
+        "request_id": "work.turn.1",
+        "result": {
+          "assurance": "SIMULATED",
+          "model_id": "synthetic-small",
+          "outcome": "SUCCEEDED",
+          "provider_id": "openai",
+          "reason": "MODEL18_COMPLETE",
+          "reply": {
+            "arguments": {
+              "value": 7
+            },
+            "kind": "TOOL_CALL",
+            "tool_name": "native.echo",
+            "tool_version": "1"
+          },
+          "request_id": "work.turn.1",
+          "response_source": {
+            "event_id": "9fe0fa6a-369a-41a2-bc83-3de1b66b4af5",
+            "kind": "RAW",
+            "length": 635,
+            "offset": 0,
+            "payload_ref": {
+              "artifact_id": "a075b144-947a-4166-8beb-3d30ba299546",
+              "bytes": 635,
+              "codec": "zstd",
+              "media_type": "text/plain; charset=utf-8",
+              "sensitivity": "NORMAL",
+              "sha256": "f56b0db096845fd1aaf3b0d2336d820cbdd51af3f3e2230143b1e4d229e6da7b",
+              "stored_bytes": 372,
+              "stored_sha256": "09d158da9e043e78a68aeaa93412d0db6508482aa847fd66b2996b7f48853deb"
+            },
+            "project_id": "project",
+            "record_hash": "c3c9f5a4985bd77cd23d616db74806717499f92e3a9a447ddac01d71fdb0539e",
+            "task_id": "work"
+          },
+          "status": "SIMULATED",
+          "usage": {
+            "assurance": "SIMULATED",
+            "concurrency": 0,
+            "cost_micros": 50,
+            "input_tokens": 10,
+            "output_tokens": 20,
+            "reasoning_tokens": null,
+            "request_id": "work.turn.1"
+          }
+        },
+        "revision": 2,
+        "state": "SUCCEEDED"
+      },
+      "usage": {
+        "assurance": "SIMULATED",
+        "completed_at": "2026-11-08T06:46:20.823Z",
+        "context_hash": "bcaa83591ce9f04588b94a619894270d5ba6b9daeef1e531b2fb400239842098",
+        "created_at": "2026-11-08T06:46:20.789Z",
+        "held": {
+          "cost_micros": 0,
+          "requests": 0,
+          "tokens": 0
+        },
+        "input_tokens": 5227,
+        "key_handle_id": "013dcb3e-5d0a-448b-9dac-47cc27cc79f2",
+        "model_id": "synthetic-small",
+        "output_tokens": 1024,
+        "overrun": {
+          "cost_micros": 0,
+          "requests": 0,
+          "tokens": 0
+        },
+        "provider_id": "openai",
+        "reason": "SETTLED",
+        "request_hash": "2c17d179fa3d478be91a058b4c68a693bef826966889e82394b2a80163acc556",
+        "request_id": "work.turn.1",
+        "reserved": {
+          "cost_micros": 7275,
+          "requests": 1,
+          "tokens": 6251
+        },
+        "revision": 2,
+        "sent_at": "2026-11-08T06:46:20.808Z",
+        "state": "SETTLED",
+        "subject": {
+          "agent_id": "lead",
+          "agent_type": "DEVELOPMENT",
+          "model_binding": "wire",
+          "policy_scope": "project",
+          "project_id": "project",
+          "resource_budget_id": "worker.3780c02d-a199-4191-8ffc-988ebddbfb49",
+          "runtime_instance_id": "3780c02d-a199-4191-8ffc-988ebddbfb49",
+          "session_id": "a58f615f-6640-44fe-93ea-3ecc23cbab47",
+          "task_id": "work"
+        },
+        "usage": {
+          "cost_micros": 50,
+          "elapsed_ms": 45,
+          "estimated": false,
+          "input_tokens": 10,
+          "output_tokens": 20,
+          "provider_request_id": "synthetic-response",
+          "reasoning_tokens": null,
+          "requests": 1,
+          "retries": 0,
+          "usage_source": "SIMULATED"
+        },
+        "usage_hash": "ff6e2e2a579d445996b36fe418c71a16ccb1b9856870f21170daa34c9bb9ed44"
+      },
+      "environment": "ENGINEERING_FIXTURE_ONLY"
+    },
+    {
+      "fixture": "wire-Ok6jNs",
+      "request": {
+        "assurance": "SIMULATED",
+        "context_view_id": "2e2d2416-265f-41ec-b3d3-65620f3533a1",
+        "input_hash": "b644d554bba104332c5880ae99954bb370bf6074f2f55551c7615a4cf76fa725",
+        "key_handle_id": "013dcb3e-5d0a-448b-9dac-47cc27cc79f2",
+        "model_id": "synthetic-small",
+        "owner": {
+          "agent_id": "lead",
+          "agent_type": "DEVELOPMENT",
+          "model_binding": "wire",
+          "policy_scope": "project",
+          "project_id": "project",
+          "resource_budget_id": "worker.3780c02d-a199-4191-8ffc-988ebddbfb49",
+          "runtime_instance_id": "3780c02d-a199-4191-8ffc-988ebddbfb49",
+          "session_id": "a58f615f-6640-44fe-93ea-3ecc23cbab47",
+          "task_id": "work"
+        },
+        "provider_id": "openai",
+        "request_id": "work.turn.2",
+        "result": {
+          "assurance": "SIMULATED",
+          "model_id": "synthetic-small",
+          "outcome": "SUCCEEDED",
+          "provider_id": "openai",
+          "reason": "MODEL18_COMPLETE",
+          "reply": {
+            "kind": "FINAL",
+            "text": "SIMULATED completion"
+          },
+          "request_id": "work.turn.2",
+          "response_source": {
+            "event_id": "9c6114a7-5a1b-4c2f-8577-9888c0ea922f",
+            "kind": "RAW",
+            "length": 592,
+            "offset": 0,
+            "payload_ref": {
+              "artifact_id": "6dad0ddd-82ad-4944-bfa8-0bfa363c25b3",
+              "bytes": 592,
+              "codec": "zstd",
+              "media_type": "text/plain; charset=utf-8",
+              "sensitivity": "NORMAL",
+              "sha256": "98684d5673e874a5555597d87e1519e8843aa36f1686aaaae478440a8d96983a",
+              "stored_bytes": 344,
+              "stored_sha256": "4b9dd732100d9fdd6de1a35da82340f93c66c6700645f4d013bfeb2c8b866712"
+            },
+            "project_id": "project",
+            "record_hash": "e8cbe9c113cd5807293153c0ab729fc6a3bc720a6676be21563b9f53ab40c2fc",
+            "task_id": "work"
+          },
+          "status": "SIMULATED",
+          "usage": {
+            "assurance": "SIMULATED",
+            "concurrency": 0,
+            "cost_micros": 50,
+            "input_tokens": 10,
+            "output_tokens": 20,
+            "reasoning_tokens": null,
+            "request_id": "work.turn.2"
+          }
+        },
+        "revision": 2,
+        "state": "SUCCEEDED"
+      },
+      "usage": {
+        "assurance": "SIMULATED",
+        "completed_at": "2026-11-08T06:46:20.994Z",
+        "context_hash": "4e5eb52308a043d3d93a6e39e6e2f98d1251820ea3794202b4ea0c3155a98d4f",
+        "created_at": "2026-11-08T06:46:20.963Z",
+        "held": {
+          "cost_micros": 0,
+          "requests": 0,
+          "tokens": 0
+        },
+        "input_tokens": 6948,
+        "key_handle_id": "013dcb3e-5d0a-448b-9dac-47cc27cc79f2",
+        "model_id": "synthetic-small",
+        "output_tokens": 1024,
+        "overrun": {
+          "cost_micros": 0,
+          "requests": 0,
+          "tokens": 0
+        },
+        "provider_id": "openai",
+        "reason": "SETTLED",
+        "request_hash": "b4b10cdce06efb423b3e8e4363f5cf187139acbc2e95157091310e27ff8be5a5",
+        "request_id": "work.turn.2",
+        "reserved": {
+          "cost_micros": 8996,
+          "requests": 1,
+          "tokens": 7972
+        },
+        "revision": 2,
+        "sent_at": "2026-11-08T06:46:20.982Z",
+        "state": "SETTLED",
+        "subject": {
+          "agent_id": "lead",
+          "agent_type": "DEVELOPMENT",
+          "model_binding": "wire",
+          "policy_scope": "project",
+          "project_id": "project",
+          "resource_budget_id": "worker.3780c02d-a199-4191-8ffc-988ebddbfb49",
+          "runtime_instance_id": "3780c02d-a199-4191-8ffc-988ebddbfb49",
+          "session_id": "a58f615f-6640-44fe-93ea-3ecc23cbab47",
+          "task_id": "work"
+        },
+        "usage": {
+          "cost_micros": 50,
+          "elapsed_ms": 40,
+          "estimated": false,
+          "input_tokens": 10,
+          "output_tokens": 20,
+          "provider_request_id": "synthetic-response",
+          "reasoning_tokens": null,
+          "requests": 1,
+          "retries": 0,
+          "usage_source": "SIMULATED"
+        },
+        "usage_hash": "7f4b6b6dfc77ce1817b6480595bbe1ad1f8c4b9ce449d1c3bb2657c758283929"
+      },
+      "environment": "ENGINEERING_FIXTURE_ONLY"
+    },
+    {
+      "fixture": "wire-PHBh5v",
+      "request": {
+        "assurance": "SIMULATED",
+        "context_view_id": "a27016b9-d3c9-4a0b-9f4b-762fb88aa48b",
+        "input_hash": "bbdd477a2c6605258897f368603961aad59006a22d1f505ffd7e3db1405d4777",
+        "key_handle_id": "7cf6bfd8-5667-4900-80a3-3b1879c0142d",
+        "model_id": "synthetic-small",
+        "owner": {
+          "agent_id": "lead",
+          "agent_type": "DEVELOPMENT",
+          "model_binding": "wire",
+          "policy_scope": "project",
+          "project_id": "project",
+          "resource_budget_id": "worker.823034c1-5236-4ceb-a796-4453cf203ea7",
+          "runtime_instance_id": "823034c1-5236-4ceb-a796-4453cf203ea7",
+          "session_id": "3524b586-cd9e-42d7-b43a-9ca7e0b71cdd",
+          "task_id": "work"
+        },
+        "provider_id": "openai",
+        "request_id": "mutable",
+        "result": {
+          "assurance": "SIMULATED",
+          "model_id": "synthetic-small",
+          "outcome": "SUCCEEDED",
+          "provider_id": "openai",
+          "reason": "MODEL18_COMPLETE",
+          "reply": {
+            "kind": "FINAL"
+          },
+          "request_id": "mutable",
+          "response_source": {
+            "event_id": "b5132088-81e8-4a52-b526-5afb9b4c6019",
+            "kind": "RAW",
+            "length": 554,
+            "offset": 0,
+            "payload_ref": {
+              "artifact_id": "4d34c188-9a00-47d4-9b02-0aef8caa2894",
+              "bytes": 554,
+              "codec": "zstd",
+              "media_type": "text/plain; charset=utf-8",
+              "sensitivity": "NORMAL",
+              "sha256": "9980725058322d3841a9c74c1c9473fffadc58109a175c848acb2af3bb172278",
+              "stored_bytes": 324,
+              "stored_sha256": "6b8f142c9ee6dd99db92bc58da2f99e33e6d54c6fb888d47d24f367db3735d2d"
+            },
+            "project_id": "project",
+            "record_hash": "4e9135607532e4d64a603100a82e9119b4d8fb945e87918b0bded5261d224d04",
+            "task_id": "work"
+          },
+          "status": "SIMULATED",
+          "usage": {
+            "assurance": "SIMULATED",
+            "concurrency": 0,
+            "cost_micros": 50,
+            "input_tokens": 10,
+            "output_tokens": 20,
+            "reasoning_tokens": null,
+            "request_id": "mutable"
+          }
+        },
+        "revision": 2,
+        "state": "SUCCEEDED"
+      },
+      "usage": {
+        "assurance": "SIMULATED",
+        "completed_at": "2026-11-08T06:46:21.654Z",
+        "context_hash": "4723c7d2cc19eeddde9e42624fd7fe72d6a3b10fb3667d21240aed7d5b858569",
+        "created_at": "2026-11-08T06:46:21.623Z",
+        "held": {
+          "cost_micros": 0,
+          "requests": 0,
+          "tokens": 0
+        },
+        "input_tokens": 4455,
+        "key_handle_id": "7cf6bfd8-5667-4900-80a3-3b1879c0142d",
+        "model_id": "synthetic-small",
+        "output_tokens": 256,
+        "overrun": {
+          "cost_micros": 0,
+          "requests": 0,
+          "tokens": 0
+        },
+        "provider_id": "openai",
+        "reason": "SETTLED",
+        "request_hash": "28a239dc6b42815a65dfe5b57707cf2dcb859c555b6911ebf85b3f92681b499b",
+        "request_id": "mutable",
+        "reserved": {
+          "cost_micros": 4967,
+          "requests": 1,
+          "tokens": 4711
+        },
+        "revision": 2,
+        "sent_at": "2026-11-08T06:46:21.642Z",
+        "state": "SETTLED",
+        "subject": {
+          "agent_id": "lead",
+          "agent_type": "DEVELOPMENT",
+          "model_binding": "wire",
+          "policy_scope": "project",
+          "project_id": "project",
+          "resource_budget_id": "worker.823034c1-5236-4ceb-a796-4453cf203ea7",
+          "runtime_instance_id": "823034c1-5236-4ceb-a796-4453cf203ea7",
+          "session_id": "3524b586-cd9e-42d7-b43a-9ca7e0b71cdd",
+          "task_id": "work"
+        },
+        "usage": {
+          "cost_micros": 50,
+          "elapsed_ms": 37,
+          "estimated": false,
+          "input_tokens": 10,
+          "output_tokens": 20,
+          "provider_request_id": "synthetic-response",
+          "reasoning_tokens": null,
+          "requests": 1,
+          "retries": 0,
+          "usage_source": "SIMULATED"
+        },
+        "usage_hash": "f73bf8923dbd96cfc36f1ab5686e5b2d39f9240fcf07133b01cdeadcc29db293"
+      },
+      "environment": "ENGINEERING_FIXTURE_ONLY"
+    },
+    {
+      "fixture": "wire-ScYN03",
+      "request": {
+        "assurance": "SIMULATED",
+        "context_view_id": "bcc25591-1a49-4edc-b316-53899003c985",
+        "input_hash": "3beabcb5ade3d7e83e1a6d84001e4ac08650290ac225951564d1d98940673059",
+        "key_handle_id": "da3f35ca-7a86-42ba-824a-7536d9ab43ac",
+        "model_id": "synthetic-code",
+        "owner": {
+          "agent_id": "coding",
+          "agent_type": "SUBAGENT",
+          "model_binding": "wire",
+          "policy_scope": "project",
+          "project_id": "project",
+          "resource_budget_id": "worker.5cb91734-cf06-4878-b30d-8b15b58f42c5",
+          "runtime_instance_id": "5cb91734-cf06-4878-b30d-8b15b58f42c5",
+          "session_id": "560a5217-383a-4a52-b64e-f2f7e1a88ca2",
+          "task_id": "coding"
+        },
+        "provider_id": "deepseek",
+        "request_id": "coding.turn.1",
+        "result": {
+          "assurance": "SIMULATED",
+          "model_id": "synthetic-code",
+          "outcome": "SUCCEEDED",
+          "provider_id": "deepseek",
+          "reason": "MODEL18_COMPLETE",
+          "reply": {
+            "kind": "FINAL",
+            "text": "{\"schema\":\"synthetic-delivery/1\",\"status\":\"SIMULATED\",\"evidence\":\"fixture-only\"}"
+          },
+          "request_id": "coding.turn.1",
+          "response_source": {
+            "event_id": "a57824a2-46cc-47a6-8e4d-106ad85e562f",
+            "kind": "RAW",
+            "length": 668,
+            "offset": 0,
+            "payload_ref": {
+              "artifact_id": "082c06f6-8dce-4622-af16-27c3511f8deb",
+              "bytes": 668,
+              "codec": "zstd",
+              "media_type": "text/plain; charset=utf-8",
+              "sensitivity": "NORMAL",
+              "sha256": "328a228ca904765fc9e001a41cf8ebe412e5647a8c811119cfb52c37be993046",
+              "stored_bytes": 386,
+              "stored_sha256": "51aee04e865f0219cf622ed1bd33e18b684d0c13d1be22fe574e6f9dbace15b1"
+            },
+            "project_id": "project",
+            "record_hash": "d8455c9e4f95b192ef7730379bf60bfd8345ae41bab0d9c61b12c297ce714d6d",
+            "task_id": "coding"
+          },
+          "status": "SIMULATED",
+          "usage": {
+            "assurance": "SIMULATED",
+            "concurrency": 0,
+            "cost_micros": 50,
+            "input_tokens": 10,
+            "output_tokens": 20,
+            "reasoning_tokens": null,
+            "request_id": "coding.turn.1"
+          }
+        },
+        "revision": 2,
+        "state": "SUCCEEDED"
+      },
+      "usage": {
+        "assurance": "SIMULATED",
+        "completed_at": "2026-11-08T06:46:29.632Z",
+        "context_hash": "96178540a5ef9ca01101b65a56c3134089b3a51614dd5d3f8419d4049663604a",
+        "created_at": "2026-11-08T06:46:29.577Z",
+        "held": {
+          "cost_micros": 0,
+          "requests": 0,
+          "tokens": 0
+        },
+        "input_tokens": 5316,
+        "key_handle_id": "da3f35ca-7a86-42ba-824a-7536d9ab43ac",
+        "model_id": "synthetic-code",
+        "output_tokens": 1024,
+        "overrun": {
+          "cost_micros": 0,
+          "requests": 0,
+          "tokens": 0
+        },
+        "provider_id": "deepseek",
+        "reason": "SETTLED",
+        "request_hash": "7b044646d9d3d7eec8367bf8c0a23e53a56454191043260c9ab7df5d8b650ed9",
+        "request_id": "coding.turn.1",
+        "reserved": {
+          "cost_micros": 7364,
+          "requests": 1,
+          "tokens": 6340
+        },
+        "revision": 2,
+        "sent_at": "2026-11-08T06:46:29.607Z",
+        "state": "SETTLED",
+        "subject": {
+          "agent_id": "coding",
+          "agent_type": "SUBAGENT",
+          "model_binding": "wire",
+          "policy_scope": "project",
+          "project_id": "project",
+          "resource_budget_id": "worker.5cb91734-cf06-4878-b30d-8b15b58f42c5",
+          "runtime_instance_id": "5cb91734-cf06-4878-b30d-8b15b58f42c5",
+          "session_id": "560a5217-383a-4a52-b64e-f2f7e1a88ca2",
+          "task_id": "coding"
+        },
+        "usage": {
+          "cost_micros": 50,
+          "elapsed_ms": 70,
+          "estimated": false,
+          "input_tokens": 10,
+          "output_tokens": 20,
+          "provider_request_id": "synthetic-response",
+          "reasoning_tokens": null,
+          "requests": 1,
+          "retries": 0,
+          "usage_source": "SIMULATED"
+        },
+        "usage_hash": "3c56a4e87e73bfc6380ef8a15bb4f00b1aa5230bfba4fc3464f3dc77e7b890d3"
+      },
+      "environment": "ENGINEERING_FIXTURE_ONLY"
+    },
+    {
+      "fixture": "wire-ScYN03",
+      "request": {
+        "assurance": "SIMULATED",
+        "context_view_id": "7e98f704-28e4-4c64-9dbf-60c2b82a01d3",
+        "input_hash": "95ca8e7d7dfef4f6d1c268bdcfb0827096ddaed72b491ebda41b629c26cf9793",
+        "key_handle_id": "da3f35ca-7a86-42ba-824a-7536d9ab43ac",
+        "model_id": "synthetic-code",
+        "owner": {
+          "agent_id": "research",
+          "agent_type": "SUBAGENT",
+          "model_binding": "wire",
+          "policy_scope": "project",
+          "project_id": "project",
+          "resource_budget_id": "worker.d10ebe0f-3261-4ce0-b409-1047aea7fcc2",
+          "runtime_instance_id": "d10ebe0f-3261-4ce0-b409-1047aea7fcc2",
+          "session_id": "d56cd749-cb06-4f73-9fcb-0096bcc08b62",
+          "task_id": "research"
+        },
+        "provider_id": "deepseek",
+        "request_id": "research.turn.1",
+        "result": {
+          "assurance": "SIMULATED",
+          "model_id": "synthetic-code",
+          "outcome": "SUCCEEDED",
+          "provider_id": "deepseek",
+          "reason": "MODEL18_COMPLETE",
+          "reply": {
+            "kind": "FINAL",
+            "text": "{\"schema\":\"synthetic-delivery/1\",\"status\":\"SIMULATED\",\"evidence\":\"fixture-only\"}"
+          },
+          "request_id": "research.turn.1",
+          "response_source": {
+            "event_id": "bd232aa0-f6ee-460a-b231-42fad36f1d5b",
+            "kind": "RAW",
+            "length": 672,
+            "offset": 0,
+            "payload_ref": {
+              "artifact_id": "3214921a-e2ef-4e77-ae19-b3a12d214228",
+              "bytes": 672,
+              "codec": "zstd",
+              "media_type": "text/plain; charset=utf-8",
+              "sensitivity": "NORMAL",
+              "sha256": "fdd41167e6ec0e3574462e9fea4edd535ac2dcb34f5b71e2e34a6a154c9fbcaa",
+              "stored_bytes": 387,
+              "stored_sha256": "d58cf000c9903100756ec1fe30cd46b4b1ce663d060f0a9326d5171860b4f8b6"
+            },
+            "project_id": "project",
+            "record_hash": "21cde198e73112b2a7f319369d70f04ab7a4c98e8bd3671494b08c3d727a74ae",
+            "task_id": "research"
+          },
+          "status": "SIMULATED",
+          "usage": {
+            "assurance": "SIMULATED",
+            "concurrency": 0,
+            "cost_micros": 50,
+            "input_tokens": 10,
+            "output_tokens": 20,
+            "reasoning_tokens": null,
+            "request_id": "research.turn.1"
+          }
+        },
+        "revision": 2,
+        "state": "SUCCEEDED"
+      },
+      "usage": {
+        "assurance": "SIMULATED",
+        "completed_at": "2026-11-08T06:46:29.630Z",
+        "context_hash": "ffae2e4d10add68f6c0e3c1c2385bae942c04ba0942d9cf750ec8762247dc6ec",
+        "created_at": "2026-11-08T06:46:29.573Z",
+        "held": {
+          "cost_micros": 0,
+          "requests": 0,
+          "tokens": 0
+        },
+        "input_tokens": 5318,
+        "key_handle_id": "da3f35ca-7a86-42ba-824a-7536d9ab43ac",
+        "model_id": "synthetic-code",
+        "output_tokens": 1024,
+        "overrun": {
+          "cost_micros": 0,
+          "requests": 0,
+          "tokens": 0
+        },
+        "provider_id": "deepseek",
+        "reason": "SETTLED",
+        "request_hash": "fa0f06259fafb4300aa37c655387a76f4a7de83706b9e0b8e766d3aa88990839",
+        "request_id": "research.turn.1",
+        "reserved": {
+          "cost_micros": 7366,
+          "requests": 1,
+          "tokens": 6342
+        },
+        "revision": 2,
+        "sent_at": "2026-11-08T06:46:29.602Z",
+        "state": "SETTLED",
+        "subject": {
+          "agent_id": "research",
+          "agent_type": "SUBAGENT",
+          "model_binding": "wire",
+          "policy_scope": "project",
+          "project_id": "project",
+          "resource_budget_id": "worker.d10ebe0f-3261-4ce0-b409-1047aea7fcc2",
+          "runtime_instance_id": "d10ebe0f-3261-4ce0-b409-1047aea7fcc2",
+          "session_id": "d56cd749-cb06-4f73-9fcb-0096bcc08b62",
+          "task_id": "research"
+        },
+        "usage": {
+          "cost_micros": 50,
+          "elapsed_ms": 73,
+          "estimated": false,
+          "input_tokens": 10,
+          "output_tokens": 20,
+          "provider_request_id": "synthetic-response",
+          "reasoning_tokens": null,
+          "requests": 1,
+          "retries": 0,
+          "usage_source": "SIMULATED"
+        },
+        "usage_hash": "477223d45a52e934984e16f6b4cc693c3a54706982975dd481d74e4819375fc4"
+      },
+      "environment": "ENGINEERING_FIXTURE_ONLY"
+    },
+    {
+      "fixture": "wire-ScYN03",
+      "request": {
+        "assurance": "SIMULATED",
+        "context_view_id": "960cb96c-4036-457e-8faf-5ae8dfb711da",
+        "input_hash": "ead2d33991cc5c75df4d4e743a39f012ea591f13cdfcf84c1babddb1afb2e247",
+        "key_handle_id": "22558556-c35b-403f-95f0-640267a567d6",
+        "model_id": "synthetic-review",
+        "owner": {
+          "agent_id": "review",
+          "agent_type": "BACKGROUND_REVIEWER",
+          "model_binding": "wire",
+          "policy_scope": "project",
+          "project_id": "project",
+          "resource_budget_id": "worker.8dab1a47-9643-4d93-9d1c-c99897337e3c",
+          "runtime_instance_id": "8dab1a47-9643-4d93-9d1c-c99897337e3c",
+          "session_id": "dd33da1f-1032-478c-8506-6c847031e254",
+          "task_id": "review"
+        },
+        "provider_id": "glm",
+        "request_id": "review.turn.1",
+        "result": {
+          "assurance": "SIMULATED",
+          "model_id": "synthetic-review",
+          "outcome": "SUCCEEDED",
+          "provider_id": "glm",
+          "reason": "MODEL18_COMPLETE",
+          "reply": {
+            "kind": "WAIT",
+            "text": "{\"status\":\"SIMULATED\",\"finding\":\"This fixture proves message wiring only.\"}"
+          },
+          "request_id": "review.turn.1",
+          "response_source": {
+            "event_id": "0345a654-501d-44a6-811d-2e1c09d7d960",
+            "kind": "RAW",
+            "length": 658,
+            "offset": 0,
+            "payload_ref": {
+              "artifact_id": "da408998-3251-454e-899c-9481dc407d84",
+              "bytes": 658,
+              "codec": "zstd",
+              "media_type": "text/plain; charset=utf-8",
+              "sensitivity": "NORMAL",
+              "sha256": "d8f2a2dc31211595352a8aec95626be2d5a85b86e45a6e67c7a6cb003c3c97e5",
+              "stored_bytes": 390,
+              "stored_sha256": "48763b56cf0d6b76d0f96bf8ce5d521af7b969e1c45f50e436083c8510aa5992"
+            },
+            "project_id": "project",
+            "record_hash": "2c98bc42419848d0ebacea23d3774d39f86f616f18f3c1dde0b0299eb7bbf893",
+            "task_id": "review"
+          },
+          "status": "SIMULATED",
+          "usage": {
+            "assurance": "SIMULATED",
+            "concurrency": 0,
+            "cost_micros": 50,
+            "input_tokens": 10,
+            "output_tokens": 20,
+            "reasoning_tokens": null,
+            "request_id": "review.turn.1"
+          }
+        },
+        "revision": 2,
+        "state": "SUCCEEDED"
+      },
+      "usage": {
+        "assurance": "SIMULATED",
+        "completed_at": "2026-11-08T06:46:30.127Z",
+        "context_hash": "cd9a9b9ca11d3b8d9d5ee4482632348bac2a113c134920e159a13ea6e6c80ce0",
+        "created_at": "2026-11-08T06:46:30.099Z",
+        "held": {
+          "cost_micros": 0,
+          "requests": 0,
+          "tokens": 0
+        },
+        "input_tokens": 5256,
+        "key_handle_id": "22558556-c35b-403f-95f0-640267a567d6",
+        "model_id": "synthetic-review",
+        "output_tokens": 1024,
+        "overrun": {
+          "cost_micros": 0,
+          "requests": 0,
+          "tokens": 0
+        },
+        "provider_id": "glm",
+        "reason": "SETTLED",
+        "request_hash": "255c0249f38a454e68f838efa69fe45095cb31cac15efacc5f04f61cdf0b6dfa",
+        "request_id": "review.turn.1",
+        "reserved": {
+          "cost_micros": 7304,
+          "requests": 1,
+          "tokens": 6280
+        },
+        "revision": 2,
+        "sent_at": "2026-11-08T06:46:30.116Z",
+        "state": "SETTLED",
+        "subject": {
+          "agent_id": "review",
+          "agent_type": "BACKGROUND_REVIEWER",
+          "model_binding": "wire",
+          "policy_scope": "project",
+          "project_id": "project",
+          "resource_budget_id": "worker.8dab1a47-9643-4d93-9d1c-c99897337e3c",
+          "runtime_instance_id": "8dab1a47-9643-4d93-9d1c-c99897337e3c",
+          "session_id": "dd33da1f-1032-478c-8506-6c847031e254",
+          "task_id": "review"
+        },
+        "usage": {
+          "cost_micros": 50,
+          "elapsed_ms": 35,
+          "estimated": false,
+          "input_tokens": 10,
+          "output_tokens": 20,
+          "provider_request_id": "synthetic-response",
+          "reasoning_tokens": null,
+          "requests": 1,
+          "retries": 0,
+          "usage_source": "SIMULATED"
+        },
+        "usage_hash": "64b7261a49981589b58c5c8806d4c6f31d3fad2fb2049870ca1fd14e952e12b8"
+      },
+      "environment": "ENGINEERING_FIXTURE_ONLY"
+    },
+    {
+      "fixture": "wire-ScYN03",
+      "request": {
+        "assurance": "SIMULATED",
+        "context_view_id": "69ac0684-21a1-491b-b811-3b123d851c20",
+        "input_hash": "8e48825e8250b4493c652a84627cbf3728354cbdcca72e072d66abec7ac4e455",
+        "key_handle_id": "892c07b0-95a6-45b5-9d16-f8c0b101f1eb",
+        "model_id": "synthetic-lead",
+        "owner": {
+          "agent_id": "lead",
+          "agent_type": "DEVELOPMENT",
+          "model_binding": "wire",
+          "policy_scope": "project",
+          "project_id": "project",
+          "resource_budget_id": "worker.ee4477a2-8c16-45ff-bba8-92416d8feeaf",
+          "runtime_instance_id": "ee4477a2-8c16-45ff-bba8-92416d8feeaf",
+          "session_id": "d2feebb4-d422-4ff2-8449-13466d5dfab3",
+          "task_id": "work"
+        },
+        "provider_id": "openai",
+        "request_id": "work.turn.1",
+        "result": {
+          "assurance": "SIMULATED",
+          "model_id": "synthetic-lead",
+          "outcome": "SUCCEEDED",
+          "provider_id": "openai",
+          "reason": "MODEL18_COMPLETE",
+          "reply": {
+            "kind": "WAIT",
+            "text": "{\"status\":\"SIMULATED\",\"finding\":\"This fixture proves message wiring only.\"}"
+          },
+          "request_id": "work.turn.1",
+          "response_source": {
+            "event_id": "aac8a7ee-15bb-4101-86f2-aad4b8da17c7",
+            "kind": "RAW",
+            "length": 654,
+            "offset": 0,
+            "payload_ref": {
+              "artifact_id": "9d291274-ead6-4064-97ca-1d6ca21b88c7",
+              "bytes": 654,
+              "codec": "zstd",
+              "media_type": "text/plain; charset=utf-8",
+              "sensitivity": "NORMAL",
+              "sha256": "1d63884cfe7fc813d2531bfb8a55c5f7ec8a3946ef1aab859b05156410cc61bc",
+              "stored_bytes": 389,
+              "stored_sha256": "e483f8cabc31291c7eb7297cf858723e46884ef9f2c2b1c9e584e26a0a35953c"
+            },
+            "project_id": "project",
+            "record_hash": "dcb1c864d308a634c4f668ade6a5e163937742d96bc554e7d721e31455baa4e9",
+            "task_id": "work"
+          },
+          "status": "SIMULATED",
+          "usage": {
+            "assurance": "SIMULATED",
+            "concurrency": 0,
+            "cost_micros": 50,
+            "input_tokens": 10,
+            "output_tokens": 20,
+            "reasoning_tokens": null,
+            "request_id": "work.turn.1"
+          }
+        },
+        "revision": 2,
+        "state": "SUCCEEDED"
+      },
+      "usage": {
+        "assurance": "SIMULATED",
+        "completed_at": "2026-11-08T06:46:29.258Z",
+        "context_hash": "31895cb87f30820f2becdb7b213ce6bc34973a57f23b16f53cee5dd01fc95e4c",
+        "created_at": "2026-11-08T06:46:29.227Z",
+        "held": {
+          "cost_micros": 0,
+          "requests": 0,
+          "tokens": 0
+        },
+        "input_tokens": 5275,
+        "key_handle_id": "892c07b0-95a6-45b5-9d16-f8c0b101f1eb",
+        "model_id": "synthetic-lead",
+        "output_tokens": 1024,
+        "overrun": {
+          "cost_micros": 0,
+          "requests": 0,
+          "tokens": 0
+        },
+        "provider_id": "openai",
+        "reason": "SETTLED",
+        "request_hash": "ad027dc6ca5727cde28cab507dac47c4cf4fa38cad82b6dec888b3029cbf561e",
+        "request_id": "work.turn.1",
+        "reserved": {
+          "cost_micros": 7323,
+          "requests": 1,
+          "tokens": 6299
+        },
+        "revision": 2,
+        "sent_at": "2026-11-08T06:46:29.245Z",
+        "state": "SETTLED",
+        "subject": {
+          "agent_id": "lead",
+          "agent_type": "DEVELOPMENT",
+          "model_binding": "wire",
+          "policy_scope": "project",
+          "project_id": "project",
+          "resource_budget_id": "worker.ee4477a2-8c16-45ff-bba8-92416d8feeaf",
+          "runtime_instance_id": "ee4477a2-8c16-45ff-bba8-92416d8feeaf",
+          "session_id": "d2feebb4-d422-4ff2-8449-13466d5dfab3",
+          "task_id": "work"
+        },
+        "usage": {
+          "cost_micros": 50,
+          "elapsed_ms": 39,
+          "estimated": false,
+          "input_tokens": 10,
+          "output_tokens": 20,
+          "provider_request_id": "synthetic-response",
+          "reasoning_tokens": null,
+          "requests": 1,
+          "retries": 0,
+          "usage_source": "SIMULATED"
+        },
+        "usage_hash": "b9faef611271f2c19b445735de648d1f2d9ee6acc94bbb6e87819e69e3b96e0a"
+      },
+      "environment": "ENGINEERING_FIXTURE_ONLY"
+    },
+    {
+      "fixture": "wire-ScYN03",
+      "request": {
+        "assurance": "SIMULATED",
+        "context_view_id": "a34ffc15-62fd-4d63-af80-cd4eccd7a65b",
+        "input_hash": "65e78a468e956f68f15e7e819f005c0af71592a92d9cecec075da162395d153b",
+        "key_handle_id": "892c07b0-95a6-45b5-9d16-f8c0b101f1eb",
+        "model_id": "synthetic-lead",
+        "owner": {
+          "agent_id": "lead",
+          "agent_type": "DEVELOPMENT",
+          "model_binding": "wire",
+          "policy_scope": "project",
+          "project_id": "project",
+          "resource_budget_id": "worker.ee4477a2-8c16-45ff-bba8-92416d8feeaf",
+          "runtime_instance_id": "ee4477a2-8c16-45ff-bba8-92416d8feeaf",
+          "session_id": "d2feebb4-d422-4ff2-8449-13466d5dfab3",
+          "task_id": "work"
+        },
+        "provider_id": "openai",
+        "request_id": "work.turn.2",
+        "result": {
+          "assurance": "SIMULATED",
+          "model_id": "synthetic-lead",
+          "outcome": "SUCCEEDED",
+          "provider_id": "openai",
+          "reason": "MODEL18_COMPLETE",
+          "reply": {
+            "kind": "WAIT",
+            "text": "{\"status\":\"SIMULATED\",\"finding\":\"This fixture proves message wiring only.\"}"
+          },
+          "request_id": "work.turn.2",
+          "response_source": {
+            "event_id": "cd02ea10-0842-4115-9ad3-bceae72612b1",
+            "kind": "RAW",
+            "length": 654,
+            "offset": 0,
+            "payload_ref": {
+              "artifact_id": "1e1dac9b-d544-4ee4-b063-cf9b205b0bd6",
+              "bytes": 654,
+              "codec": "zstd",
+              "media_type": "text/plain; charset=utf-8",
+              "sensitivity": "NORMAL",
+              "sha256": "82ffa07e876c9b06d4ef6aeecc72783d26a9d6ed6a55b1b0453434600d2d4ce5",
+              "stored_bytes": 390,
+              "stored_sha256": "a9162e41bb697cf7e1f773136f1e3098102e569b3b508f90b38aa8fcf96aa725"
+            },
+            "project_id": "project",
+            "record_hash": "b781685f70ad9f2f9c1d50ff83726cc8a31945f7907fb8628ab0fb6c36415ac3",
+            "task_id": "work"
+          },
+          "status": "SIMULATED",
+          "usage": {
+            "assurance": "SIMULATED",
+            "concurrency": 0,
+            "cost_micros": 50,
+            "input_tokens": 10,
+            "output_tokens": 20,
+            "reasoning_tokens": null,
+            "request_id": "work.turn.2"
+          }
+        },
+        "revision": 2,
+        "state": "SUCCEEDED"
+      },
+      "usage": {
+        "assurance": "SIMULATED",
+        "completed_at": "2026-11-08T06:46:29.910Z",
+        "context_hash": "1c5bc8d374a9985b127e88e011268280202242df3c03f8fa51f08a01d240f2f9",
+        "created_at": "2026-11-08T06:46:29.880Z",
+        "held": {
+          "cost_micros": 0,
+          "requests": 0,
+          "tokens": 0
+        },
+        "input_tokens": 8359,
+        "key_handle_id": "892c07b0-95a6-45b5-9d16-f8c0b101f1eb",
+        "model_id": "synthetic-lead",
+        "output_tokens": 1024,
+        "overrun": {
+          "cost_micros": 0,
+          "requests": 0,
+          "tokens": 0
+        },
+        "provider_id": "openai",
+        "reason": "SETTLED",
+        "request_hash": "07f0ce01b423ed3b4ab949d3f24c25887a04d0d3761555a140847d71ce9f508f",
+        "request_id": "work.turn.2",
+        "reserved": {
+          "cost_micros": 10407,
+          "requests": 1,
+          "tokens": 9383
+        },
+        "revision": 2,
+        "sent_at": "2026-11-08T06:46:29.899Z",
+        "state": "SETTLED",
+        "subject": {
+          "agent_id": "lead",
+          "agent_type": "DEVELOPMENT",
+          "model_binding": "wire",
+          "policy_scope": "project",
+          "project_id": "project",
+          "resource_budget_id": "worker.ee4477a2-8c16-45ff-bba8-92416d8feeaf",
+          "runtime_instance_id": "ee4477a2-8c16-45ff-bba8-92416d8feeaf",
+          "session_id": "d2feebb4-d422-4ff2-8449-13466d5dfab3",
+          "task_id": "work"
+        },
+        "usage": {
+          "cost_micros": 50,
+          "elapsed_ms": 39,
+          "estimated": false,
+          "input_tokens": 10,
+          "output_tokens": 20,
+          "provider_request_id": "synthetic-response",
+          "reasoning_tokens": null,
+          "requests": 1,
+          "retries": 0,
+          "usage_source": "SIMULATED"
+        },
+        "usage_hash": "b9faef611271f2c19b445735de648d1f2d9ee6acc94bbb6e87819e69e3b96e0a"
+      },
+      "environment": "ENGINEERING_FIXTURE_ONLY"
+    },
+    {
+      "fixture": "wire-TBXEKN",
+      "request": {
+        "assurance": "SIMULATED",
+        "context_view_id": "71cbf688-e636-4147-84a6-934011605ff6",
+        "input_hash": "c8e0d377e4dd3a6a2affa2e5bd5f62fc5f0d7914d30f650fb243289079cee811",
+        "key_handle_id": "fad373ad-b302-4c7a-a84b-d0486b147766",
+        "model_id": "synthetic-small",
+        "owner": {
+          "agent_id": "lead",
+          "agent_type": "DEVELOPMENT",
+          "model_binding": "wire",
+          "policy_scope": "project",
+          "project_id": "project",
+          "resource_budget_id": "worker.531104ef-4216-4f92-9dbe-c5d780ea29f8",
+          "runtime_instance_id": "531104ef-4216-4f92-9dbe-c5d780ea29f8",
+          "session_id": "d8f5de7f-5ee4-485a-afae-1e4f16934251",
+          "task_id": "work"
+        },
+        "provider_id": "openai",
+        "request_id": "one",
+        "result": {
+          "assurance": "SIMULATED",
+          "model_id": "synthetic-small",
+          "outcome": "SUCCEEDED",
+          "provider_id": "openai",
+          "reason": "MODEL18_COMPLETE",
+          "reply": {
+            "kind": "FINAL"
+          },
+          "request_id": "one",
+          "response_source": {
+            "event_id": "4ab920c3-1f4d-4547-8712-14b05f3d68dc",
+            "kind": "RAW",
+            "length": 546,
+            "offset": 0,
+            "payload_ref": {
+              "artifact_id": "fc377207-2bcc-47c5-beb5-79acf46d34ac",
+              "bytes": 546,
+              "codec": "zstd",
+              "media_type": "text/plain; charset=utf-8",
+              "sensitivity": "NORMAL",
+              "sha256": "e77a9ec57fe6438eddd5f2006f2b9c7a89715fc69427265980a88beae4828e64",
+              "stored_bytes": 321,
+              "stored_sha256": "299848e5b3c5ca2e246f2efe52896dbc70a3d2ae4d0c808a5ae9aac045c53f6a"
+            },
+            "project_id": "project",
+            "record_hash": "b6672bdb983abdecba8545314956d1083d0fd75ba94c715927ff0860bfd4960c",
+            "task_id": "work"
+          },
+          "status": "SIMULATED",
+          "usage": {
+            "assurance": "SIMULATED",
+            "concurrency": 0,
+            "cost_micros": 50,
+            "input_tokens": 10,
+            "output_tokens": 20,
+            "reasoning_tokens": null,
+            "request_id": "one"
+          }
+        },
+        "revision": 2,
+        "state": "SUCCEEDED"
+      },
+      "usage": {
+        "assurance": "SIMULATED",
+        "completed_at": "2026-11-08T06:46:23.355Z",
+        "context_hash": "4723c7d2cc19eeddde9e42624fd7fe72d6a3b10fb3667d21240aed7d5b858569",
+        "created_at": "2026-11-08T06:46:23.307Z",
+        "held": {
+          "cost_micros": 0,
+          "requests": 0,
+          "tokens": 0
+        },
+        "input_tokens": 4455,
+        "key_handle_id": "fad373ad-b302-4c7a-a84b-d0486b147766",
+        "model_id": "synthetic-small",
+        "output_tokens": 256,
+        "overrun": {
+          "cost_micros": 0,
+          "requests": 0,
+          "tokens": 0
+        },
+        "provider_id": "openai",
+        "reason": "SETTLED",
+        "request_hash": "fb6f202e90cfdff539c51ad5b86b3ba764993eb7af7c1a4a131976c804310feb",
+        "request_id": "one",
+        "reserved": {
+          "cost_micros": 4967,
+          "requests": 1,
+          "tokens": 4711
+        },
+        "revision": 2,
+        "sent_at": "2026-11-08T06:46:23.324Z",
+        "state": "SETTLED",
+        "subject": {
+          "agent_id": "lead",
+          "agent_type": "DEVELOPMENT",
+          "model_binding": "wire",
+          "policy_scope": "project",
+          "project_id": "project",
+          "resource_budget_id": "worker.531104ef-4216-4f92-9dbe-c5d780ea29f8",
+          "runtime_instance_id": "531104ef-4216-4f92-9dbe-c5d780ea29f8",
+          "session_id": "d8f5de7f-5ee4-485a-afae-1e4f16934251",
+          "task_id": "work"
+        },
+        "usage": {
+          "cost_micros": 50,
+          "elapsed_ms": 53,
+          "estimated": false,
+          "input_tokens": 10,
+          "output_tokens": 20,
+          "provider_request_id": "synthetic-response",
+          "reasoning_tokens": null,
+          "requests": 1,
+          "retries": 0,
+          "usage_source": "SIMULATED"
+        },
+        "usage_hash": "955877a25c509cdd9b828f00ec092e20ec40e358dd37de8630d91dfabd0956d9"
+      },
+      "environment": "ENGINEERING_FIXTURE_ONLY"
+    },
+    {
+      "fixture": "wire-TBXEKN",
+      "request": {
+        "assurance": "SIMULATED",
+        "context_view_id": "71cbf688-e636-4147-84a6-934011605ff6",
+        "input_hash": "c8e0d377e4dd3a6a2affa2e5bd5f62fc5f0d7914d30f650fb243289079cee811",
+        "key_handle_id": null,
+        "model_id": "synthetic-small",
+        "owner": {
+          "agent_id": "lead",
+          "agent_type": "DEVELOPMENT",
+          "model_binding": "wire",
+          "policy_scope": "project",
+          "project_id": "project",
+          "resource_budget_id": "worker.531104ef-4216-4f92-9dbe-c5d780ea29f8",
+          "runtime_instance_id": "531104ef-4216-4f92-9dbe-c5d780ea29f8",
+          "session_id": "d8f5de7f-5ee4-485a-afae-1e4f16934251",
+          "task_id": "work"
+        },
+        "provider_id": "openai",
+        "request_id": "two",
+        "result": {
+          "assurance": "SIMULATED",
+          "model_id": "synthetic-small",
+          "outcome": "FAILED",
+          "provider_id": "openai",
+          "reason": "MODEL18_NOT_SENT",
+          "reply": null,
+          "request_id": "two",
+          "response_source": null,
+          "status": "SIMULATED",
+          "usage": null
+        },
+        "revision": 1,
+        "state": "FAILED"
+      },
+      "usage": {
+        "assurance": "SIMULATED",
+        "completed_at": "2026-11-08T06:46:23.349Z",
+        "context_hash": "4723c7d2cc19eeddde9e42624fd7fe72d6a3b10fb3667d21240aed7d5b858569",
+        "created_at": "2026-11-08T06:46:23.342Z",
+        "held": {
+          "cost_micros": 0,
+          "requests": 0,
+          "tokens": 0
+        },
+        "input_tokens": 4455,
+        "key_handle_id": null,
+        "model_id": "synthetic-small",
+        "output_tokens": 256,
+        "overrun": {
+          "cost_micros": 0,
+          "requests": 0,
+          "tokens": 0
+        },
+        "provider_id": "openai",
+        "reason": "KNOWN_NOT_SENT",
+        "request_hash": "21b6db86f3b9ae597a31ab7585f3b19f7747f61292e6e6dda786b22fa0788be3",
+        "request_id": "two",
+        "reserved": {
+          "cost_micros": 4967,
+          "requests": 1,
+          "tokens": 4711
+        },
+        "revision": 1,
+        "sent_at": null,
+        "state": "NOT_SENT",
+        "subject": {
+          "agent_id": "lead",
+          "agent_type": "DEVELOPMENT",
+          "model_binding": "wire",
+          "policy_scope": "project",
+          "project_id": "project",
+          "resource_budget_id": "worker.531104ef-4216-4f92-9dbe-c5d780ea29f8",
+          "runtime_instance_id": "531104ef-4216-4f92-9dbe-c5d780ea29f8",
+          "session_id": "d8f5de7f-5ee4-485a-afae-1e4f16934251",
+          "task_id": "work"
+        },
+        "usage": null,
+        "usage_hash": null
+      },
+      "environment": "ENGINEERING_FIXTURE_ONLY"
+    },
+    {
+      "fixture": "wire-bLY8RK",
+      "request": {
+        "assurance": "SIMULATED",
+        "context_view_id": "4ee1e275-3f20-4b96-9b21-f5f48eb46d7d",
+        "input_hash": "898ff5f9f86c4ce0ebd0e1cc4959d0d6406a3f7490a9616c448e0ff09db55d7c",
+        "key_handle_id": "08c9da24-f10a-49e5-95a3-f19135d7bc72",
+        "model_id": "limited",
+        "owner": {
+          "agent_id": "lead",
+          "agent_type": "DEVELOPMENT",
+          "model_binding": "wire",
+          "policy_scope": "project",
+          "project_id": "project",
+          "resource_budget_id": "worker.317b9386-6dad-49fe-aeb6-7f25a480b58c",
+          "runtime_instance_id": "317b9386-6dad-49fe-aeb6-7f25a480b58c",
+          "session_id": "9b980036-ff78-41fe-bbc7-7a19c47c5828",
+          "task_id": "work"
+        },
+        "provider_id": "openai",
+        "request_id": "rate-one",
+        "result": {
+          "assurance": "SIMULATED",
+          "model_id": "limited",
+          "outcome": "SUCCEEDED",
+          "provider_id": "openai",
+          "reason": "MODEL18_COMPLETE",
+          "reply": {
+            "kind": "FINAL",
+            "text": "SIMULATED wire fixture"
+          },
+          "request_id": "rate-one",
+          "response_source": {
+            "event_id": "279cc905-75b1-4c4a-b562-8ac820f90186",
+            "kind": "RAW",
+            "length": 588,
+            "offset": 0,
+            "payload_ref": {
+              "artifact_id": "402e7353-12f2-4954-9d38-33e3224e9ace",
+              "bytes": 588,
+              "codec": "zstd",
+              "media_type": "text/plain; charset=utf-8",
+              "sensitivity": "NORMAL",
+              "sha256": "24372bc6028174d9ed6af884c83fdfe4a4953746285a5a06adc5851d420ced57",
+              "stored_bytes": 343,
+              "stored_sha256": "4760c67c073a60790d30cb60555fad47acf815ec1ee4636bbceb87cbb90d1967"
+            },
+            "project_id": "project",
+            "record_hash": "efadb1ace8e53016a8a1e3092ab63ad0ba41f990c220ab4cb709b6cd7904d177",
+            "task_id": "work"
+          },
+          "status": "SIMULATED",
+          "usage": {
+            "assurance": "SIMULATED",
+            "concurrency": 0,
+            "cost_micros": 50,
+            "input_tokens": 10,
+            "output_tokens": 20,
+            "reasoning_tokens": null,
+            "request_id": "rate-one"
+          }
+        },
+        "revision": 2,
+        "state": "SUCCEEDED"
+      },
+      "usage": {
+        "assurance": "SIMULATED",
+        "completed_at": "2026-11-08T06:46:23.835Z",
+        "context_hash": "4723c7d2cc19eeddde9e42624fd7fe72d6a3b10fb3667d21240aed7d5b858569",
+        "created_at": "2026-11-08T06:46:23.808Z",
+        "held": {
+          "cost_micros": 0,
+          "requests": 0,
+          "tokens": 0
+        },
+        "input_tokens": 4455,
+        "key_handle_id": "08c9da24-f10a-49e5-95a3-f19135d7bc72",
+        "model_id": "limited",
+        "output_tokens": 256,
+        "overrun": {
+          "cost_micros": 0,
+          "requests": 0,
+          "tokens": 0
+        },
+        "provider_id": "openai",
+        "reason": "SETTLED",
+        "request_hash": "da9fcc74a704d0c13e6409bbf4b9ec3a2fc35afa3f38fc65f7ab758db498563e",
+        "request_id": "rate-one",
+        "reserved": {
+          "cost_micros": 4967,
+          "requests": 1,
+          "tokens": 4711
+        },
+        "revision": 2,
+        "sent_at": "2026-11-08T06:46:23.824Z",
+        "state": "SETTLED",
+        "subject": {
+          "agent_id": "lead",
+          "agent_type": "DEVELOPMENT",
+          "model_binding": "wire",
+          "policy_scope": "project",
+          "project_id": "project",
+          "resource_budget_id": "worker.317b9386-6dad-49fe-aeb6-7f25a480b58c",
+          "runtime_instance_id": "317b9386-6dad-49fe-aeb6-7f25a480b58c",
+          "session_id": "9b980036-ff78-41fe-bbc7-7a19c47c5828",
+          "task_id": "work"
+        },
+        "usage": {
+          "cost_micros": 50,
+          "elapsed_ms": 33,
+          "estimated": false,
+          "input_tokens": 10,
+          "output_tokens": 20,
+          "provider_request_id": "synthetic-response",
+          "reasoning_tokens": null,
+          "requests": 1,
+          "retries": 0,
+          "usage_source": "SIMULATED"
+        },
+        "usage_hash": "b21a6137e47cbe0f752c7daf89cf34e34a5d54d92d9c78706a81d4e413b52a3b"
+      },
+      "environment": "ENGINEERING_FIXTURE_ONLY"
+    },
+    {
+      "fixture": "wire-eaoH4Y",
+      "request": {
+        "assurance": "SIMULATED",
+        "context_view_id": "f0187883-5f1c-41b1-b072-701f93785afb",
+        "input_hash": "c81c5e65fcf6a59ccfac6daee38b8e8c0f8237578c25e56604016979b1fbd80b",
+        "key_handle_id": "d8ddc685-8feb-4bed-8632-c40d0854aea3",
+        "model_id": "synthetic-small",
+        "owner": {
+          "agent_id": "lead",
+          "agent_type": "DEVELOPMENT",
+          "model_binding": "wire",
+          "policy_scope": "project",
+          "project_id": "project",
+          "resource_budget_id": "worker.9d0f5ecd-8b3a-4562-be31-54e24fb3bac7",
+          "runtime_instance_id": "9d0f5ecd-8b3a-4562-be31-54e24fb3bac7",
+          "session_id": "01672c6a-16c9-41d0-934e-8f365e65f60e",
+          "task_id": "work"
+        },
+        "provider_id": "openai",
+        "request_id": "unknown",
+        "result": {
+          "assurance": "SIMULATED",
+          "model_id": "synthetic-small",
+          "outcome": "INDETERMINATE",
+          "provider_id": "openai",
+          "reason": "MODEL18_SENT_OUTCOME_UNKNOWN",
+          "reply": null,
+          "request_id": "unknown",
+          "response_source": null,
+          "status": "SIMULATED",
+          "usage": null
+        },
+        "revision": 2,
+        "state": "INDETERMINATE"
+      },
+      "usage": {
+        "assurance": "SIMULATED",
+        "completed_at": "2026-11-08T06:46:22.394Z",
+        "context_hash": "4723c7d2cc19eeddde9e42624fd7fe72d6a3b10fb3667d21240aed7d5b858569",
+        "created_at": "2026-11-08T06:46:22.364Z",
+        "held": {
+          "cost_micros": 4967,
+          "requests": 1,
+          "tokens": 4711
+        },
+        "input_tokens": 4455,
+        "key_handle_id": "d8ddc685-8feb-4bed-8632-c40d0854aea3",
+        "model_id": "synthetic-small",
+        "output_tokens": 256,
+        "overrun": {
+          "cost_micros": 95035,
+          "requests": 0,
+          "tokens": 95290
+        },
+        "provider_id": "openai",
+        "reason": "USAGE_OVERRUN",
+        "request_hash": "f0ba30bab4214684027e0ee16f26d96d296d25d22f60a542919abee6bb202e7b",
+        "request_id": "unknown",
+        "reserved": {
+          "cost_micros": 4967,
+          "requests": 1,
+          "tokens": 4711
+        },
+        "revision": 2,
+        "sent_at": "2026-11-08T06:46:22.382Z",
+        "state": "UNKNOWN",
+        "subject": {
+          "agent_id": "lead",
+          "agent_type": "DEVELOPMENT",
+          "model_binding": "wire",
+          "policy_scope": "project",
+          "project_id": "project",
+          "resource_budget_id": "worker.9d0f5ecd-8b3a-4562-be31-54e24fb3bac7",
+          "runtime_instance_id": "9d0f5ecd-8b3a-4562-be31-54e24fb3bac7",
+          "session_id": "01672c6a-16c9-41d0-934e-8f365e65f60e",
+          "task_id": "work"
+        },
+        "usage": {
+          "cost_micros": 100002,
+          "elapsed_ms": 35,
+          "estimated": false,
+          "input_tokens": 100000,
+          "output_tokens": 1,
+          "provider_request_id": "synthetic-response",
+          "reasoning_tokens": null,
+          "requests": 1,
+          "retries": 0,
+          "usage_source": "SIMULATED"
+        },
+        "usage_hash": "bca28108b9abd003b1bca7c7520f8d0ac9a93dd28e543c19bc8c7c556e48ebdf"
+      },
+      "environment": "ENGINEERING_FIXTURE_ONLY"
+    },
+    {
+      "fixture": "wire-ec8XaU",
+      "request": {
+        "assurance": "SIMULATED",
+        "context_view_id": "3a4c248a-3670-4032-8c5d-5c1de8f586f3",
+        "input_hash": "1c19be99aa7721f82b09d94c37442862d8429c95215ad74212ecec68e830e3f1",
+        "key_handle_id": "abfc945f-18dd-4882-8391-6501bf6d6b9a",
+        "model_id": "synthetic-small",
+        "owner": {
+          "agent_id": "lead",
+          "agent_type": "DEVELOPMENT",
+          "model_binding": "wire",
+          "policy_scope": "project",
+          "project_id": "project",
+          "resource_budget_id": "worker.daa9e2c3-adfc-4fa3-89ad-d23ecb6b0f89",
+          "runtime_instance_id": "daa9e2c3-adfc-4fa3-89ad-d23ecb6b0f89",
+          "session_id": "b4bb62d9-fed7-4ab5-aa8c-c1ef4a4d1cd1",
+          "task_id": "work"
+        },
+        "provider_id": "openai",
+        "request_id": "unknown",
+        "result": {
+          "assurance": "SIMULATED",
+          "model_id": "synthetic-small",
+          "outcome": "INDETERMINATE",
+          "provider_id": "openai",
+          "reason": "MODEL18_SENT_OUTCOME_UNKNOWN",
+          "reply": null,
+          "request_id": "unknown",
+          "response_source": null,
+          "status": "SIMULATED",
+          "usage": null
+        },
+        "revision": 2,
+        "state": "INDETERMINATE"
+      },
+      "usage": {
+        "assurance": "SIMULATED",
+        "completed_at": "2026-11-08T06:46:21.907Z",
+        "context_hash": "4723c7d2cc19eeddde9e42624fd7fe72d6a3b10fb3667d21240aed7d5b858569",
+        "created_at": "2026-11-08T06:46:21.872Z",
+        "held": {
+          "cost_micros": 4967,
+          "requests": 1,
+          "tokens": 4711
+        },
+        "input_tokens": 4455,
+        "key_handle_id": "abfc945f-18dd-4882-8391-6501bf6d6b9a",
+        "model_id": "synthetic-small",
+        "output_tokens": 256,
+        "overrun": {
+          "cost_micros": 0,
+          "requests": 0,
+          "tokens": 0
+        },
+        "provider_id": "openai",
+        "reason": "TRANSPORT_UNKNOWN",
+        "request_hash": "05011456193f53379286d2b5dc528fe2599f9b3a0448e92d3fe1e8fd84dc0d73",
+        "request_id": "unknown",
+        "reserved": {
+          "cost_micros": 4967,
+          "requests": 1,
+          "tokens": 4711
+        },
+        "revision": 2,
+        "sent_at": "2026-11-08T06:46:21.893Z",
+        "state": "UNKNOWN",
+        "subject": {
+          "agent_id": "lead",
+          "agent_type": "DEVELOPMENT",
+          "model_binding": "wire",
+          "policy_scope": "project",
+          "project_id": "project",
+          "resource_budget_id": "worker.daa9e2c3-adfc-4fa3-89ad-d23ecb6b0f89",
+          "runtime_instance_id": "daa9e2c3-adfc-4fa3-89ad-d23ecb6b0f89",
+          "session_id": "b4bb62d9-fed7-4ab5-aa8c-c1ef4a4d1cd1",
+          "task_id": "work"
+        },
+        "usage": null,
+        "usage_hash": null
+      },
+      "environment": "ENGINEERING_FIXTURE_ONLY"
+    },
+    {
+      "fixture": "wire-ek3uEg",
+      "request": {
+        "assurance": "SIMULATED",
+        "context_view_id": "539a94f1-faf1-4caf-9980-88309f7b7bb3",
+        "input_hash": "29e5179d90d961dc68254b87b1241adcd1887e6e653599cc1a07f511af5eafe1",
+        "key_handle_id": "da81337e-291a-46aa-8ca9-b39d0352551f",
+        "model_id": "synthetic-small",
+        "owner": {
+          "agent_id": "lead",
+          "agent_type": "DEVELOPMENT",
+          "model_binding": "wire",
+          "policy_scope": "project",
+          "project_id": "project",
+          "resource_budget_id": "worker.1a638196-8506-46a8-959f-8c2b7f59e1da",
+          "runtime_instance_id": "1a638196-8506-46a8-959f-8c2b7f59e1da",
+          "session_id": "f12e29bb-443a-47af-b883-aec61350fa99",
+          "task_id": "work"
+        },
+        "provider_id": "openai",
+        "request_id": "reasoning-leak",
+        "result": {
+          "assurance": "SIMULATED",
+          "model_id": "synthetic-small",
+          "outcome": "INDETERMINATE",
+          "provider_id": "openai",
+          "reason": "MODEL18_SENT_OUTCOME_UNKNOWN",
+          "reply": null,
+          "request_id": "reasoning-leak",
+          "response_source": null,
+          "status": "SIMULATED",
+          "usage": null
+        },
+        "revision": 2,
+        "state": "INDETERMINATE"
+      },
+      "usage": {
+        "assurance": "SIMULATED",
+        "completed_at": "2026-11-08T06:46:36.131Z",
+        "context_hash": "4723c7d2cc19eeddde9e42624fd7fe72d6a3b10fb3667d21240aed7d5b858569",
+        "created_at": "2026-11-08T06:46:36.096Z",
+        "held": {
+          "cost_micros": 4967,
+          "requests": 1,
+          "tokens": 4711
+        },
+        "input_tokens": 4455,
+        "key_handle_id": "da81337e-291a-46aa-8ca9-b39d0352551f",
+        "model_id": "synthetic-small",
+        "output_tokens": 256,
+        "overrun": {
+          "cost_micros": 0,
+          "requests": 0,
+          "tokens": 0
+        },
+        "provider_id": "openai",
+        "reason": "TRANSPORT_UNKNOWN",
+        "request_hash": "6fc97d86c31a676ba0464014d05f0189a1d2d6b9478d63d8b9391e1cdaf8a769",
+        "request_id": "reasoning-leak",
+        "reserved": {
+          "cost_micros": 4967,
+          "requests": 1,
+          "tokens": 4711
+        },
+        "revision": 2,
+        "sent_at": "2026-11-08T06:46:36.114Z",
+        "state": "UNKNOWN",
+        "subject": {
+          "agent_id": "lead",
+          "agent_type": "DEVELOPMENT",
+          "model_binding": "wire",
+          "policy_scope": "project",
+          "project_id": "project",
+          "resource_budget_id": "worker.1a638196-8506-46a8-959f-8c2b7f59e1da",
+          "runtime_instance_id": "1a638196-8506-46a8-959f-8c2b7f59e1da",
+          "session_id": "f12e29bb-443a-47af-b883-aec61350fa99",
+          "task_id": "work"
+        },
+        "usage": null,
+        "usage_hash": null
+      },
+      "environment": "ENGINEERING_FIXTURE_ONLY"
+    },
+    {
+      "fixture": "wire-gH7btS",
+      "request": {
+        "assurance": "SIMULATED",
+        "context_view_id": "bc82307c-5de4-4572-9fda-ebe6ec6f6b6f",
+        "input_hash": "247f4fdaf1ba8fe7d5d536ad85532d53882fc846a67b66de047de33564bcffea",
+        "key_handle_id": "3deb5db0-8f76-4d87-9946-47f67575111d",
+        "model_id": "synthetic-small",
+        "owner": {
+          "agent_id": "lead",
+          "agent_type": "DEVELOPMENT",
+          "model_binding": "wire",
+          "policy_scope": "project",
+          "project_id": "project",
+          "resource_budget_id": "worker.8c3c4258-9c0f-46ea-8a34-a75032339336",
+          "runtime_instance_id": "8c3c4258-9c0f-46ea-8a34-a75032339336",
+          "session_id": "c9b42590-381e-460a-8ef5-adbfcae7cbf9",
+          "task_id": "work"
+        },
+        "provider_id": "openai",
+        "request_id": "unknown-one",
+        "result": {
+          "assurance": "SIMULATED",
+          "model_id": "synthetic-small",
+          "outcome": "INDETERMINATE",
+          "provider_id": "openai",
+          "reason": "MODEL18_SENT_OUTCOME_UNKNOWN",
+          "reply": null,
+          "request_id": "unknown-one",
+          "response_source": null,
+          "status": "SIMULATED",
+          "usage": null
+        },
+        "revision": 2,
+        "state": "INDETERMINATE"
+      },
+      "usage": {
+        "assurance": "SIMULATED",
+        "completed_at": "2026-11-08T06:46:35.618Z",
+        "context_hash": "4723c7d2cc19eeddde9e42624fd7fe72d6a3b10fb3667d21240aed7d5b858569",
+        "created_at": "2026-11-08T06:46:35.563Z",
+        "held": {
+          "cost_micros": 4967,
+          "requests": 1,
+          "tokens": 4711
+        },
+        "input_tokens": 4455,
+        "key_handle_id": "3deb5db0-8f76-4d87-9946-47f67575111d",
+        "model_id": "synthetic-small",
+        "output_tokens": 256,
+        "overrun": {
+          "cost_micros": 0,
+          "requests": 0,
+          "tokens": 0
+        },
+        "provider_id": "openai",
+        "reason": "TRANSPORT_UNKNOWN",
+        "request_hash": "cc3ba0fa719ec41d1e1d5c1e71eb9367dc2fbcbabccbf98b60640c97e5679e93",
+        "request_id": "unknown-one",
+        "reserved": {
+          "cost_micros": 4967,
+          "requests": 1,
+          "tokens": 4711
+        },
+        "revision": 2,
+        "sent_at": "2026-11-08T06:46:35.581Z",
+        "state": "UNKNOWN",
+        "subject": {
+          "agent_id": "lead",
+          "agent_type": "DEVELOPMENT",
+          "model_binding": "wire",
+          "policy_scope": "project",
+          "project_id": "project",
+          "resource_budget_id": "worker.8c3c4258-9c0f-46ea-8a34-a75032339336",
+          "runtime_instance_id": "8c3c4258-9c0f-46ea-8a34-a75032339336",
+          "session_id": "c9b42590-381e-460a-8ef5-adbfcae7cbf9",
+          "task_id": "work"
+        },
+        "usage": null,
+        "usage_hash": null
+      },
+      "environment": "ENGINEERING_FIXTURE_ONLY"
+    },
+    {
+      "fixture": "wire-lWUv32",
+      "request": {
+        "assurance": "SIMULATED",
+        "context_view_id": "df79a448-6831-45fb-963b-bba1105c2954",
+        "input_hash": "0364a9df4a4b614ddf617419d357e3b495b202f1892f4c49c54f838e55a54f3d",
+        "key_handle_id": "cf470ec6-70df-483b-b6e7-8044b11fc093",
+        "model_id": "synthetic-small",
+        "owner": {
+          "agent_id": "lead",
+          "agent_type": "DEVELOPMENT",
+          "model_binding": "wire",
+          "policy_scope": "project",
+          "project_id": "project",
+          "resource_budget_id": "worker.01589eea-37ff-45df-b4a6-73fe55371ed1",
+          "runtime_instance_id": "01589eea-37ff-45df-b4a6-73fe55371ed1",
+          "session_id": "875e45be-f368-4e3f-b980-512ca6a6837d",
+          "task_id": "work"
+        },
+        "provider_id": "openai",
+        "request_id": "dedup",
+        "result": {
+          "assurance": "SIMULATED",
+          "model_id": "synthetic-small",
+          "outcome": "SUCCEEDED",
+          "provider_id": "openai",
+          "reason": "MODEL18_COMPLETE",
+          "reply": {
+            "kind": "FINAL",
+            "text": "SIMULATED wire fixture"
+          },
+          "request_id": "dedup",
+          "response_source": {
+            "event_id": "dae0ba51-dc86-48e7-8d30-ac19609995b6",
+            "kind": "RAW",
+            "length": 582,
+            "offset": 0,
+            "payload_ref": {
+              "artifact_id": "b28dfb0e-f0b3-408d-9f29-2cae47989732",
+              "bytes": 582,
+              "codec": "zstd",
+              "media_type": "text/plain; charset=utf-8",
+              "sensitivity": "NORMAL",
+              "sha256": "3b744735d6b2d64a15d93f28fbeb9f47f19329ea47dd6d485cf4820ef35d4489",
+              "stored_bytes": 340,
+              "stored_sha256": "08adfd0298d953adea3139674ca09be947cee0e90aba1735c6dc8a4112ba6ae7"
+            },
+            "project_id": "project",
+            "record_hash": "87ec4381cd7501295187013033d49f4461a3721c4a8617449ffd86550b7e3823",
+            "task_id": "work"
+          },
+          "status": "SIMULATED",
+          "usage": {
+            "assurance": "SIMULATED",
+            "concurrency": 0,
+            "cost_micros": 50,
+            "input_tokens": 10,
+            "output_tokens": 20,
+            "reasoning_tokens": null,
+            "request_id": "dedup"
+          }
+        },
+        "revision": 2,
+        "state": "SUCCEEDED"
+      },
+      "usage": {
+        "assurance": "SIMULATED",
+        "completed_at": "2026-11-08T06:46:21.404Z",
+        "context_hash": "4723c7d2cc19eeddde9e42624fd7fe72d6a3b10fb3667d21240aed7d5b858569",
+        "created_at": "2026-11-08T06:46:21.372Z",
+        "held": {
+          "cost_micros": 0,
+          "requests": 0,
+          "tokens": 0
+        },
+        "input_tokens": 4455,
+        "key_handle_id": "cf470ec6-70df-483b-b6e7-8044b11fc093",
+        "model_id": "synthetic-small",
+        "output_tokens": 256,
+        "overrun": {
+          "cost_micros": 0,
+          "requests": 0,
+          "tokens": 0
+        },
+        "provider_id": "openai",
+        "reason": "SETTLED",
+        "request_hash": "cee3086fe3ab6daae38323573f8b00b295cc6cf8d4ae4985239e6db7f4163513",
+        "request_id": "dedup",
+        "reserved": {
+          "cost_micros": 4967,
+          "requests": 1,
+          "tokens": 4711
+        },
+        "revision": 2,
+        "sent_at": "2026-11-08T06:46:21.391Z",
+        "state": "SETTLED",
+        "subject": {
+          "agent_id": "lead",
+          "agent_type": "DEVELOPMENT",
+          "model_binding": "wire",
+          "policy_scope": "project",
+          "project_id": "project",
+          "resource_budget_id": "worker.01589eea-37ff-45df-b4a6-73fe55371ed1",
+          "runtime_instance_id": "01589eea-37ff-45df-b4a6-73fe55371ed1",
+          "session_id": "875e45be-f368-4e3f-b980-512ca6a6837d",
+          "task_id": "work"
+        },
+        "usage": {
+          "cost_micros": 50,
+          "elapsed_ms": 38,
+          "estimated": false,
+          "input_tokens": 10,
+          "output_tokens": 20,
+          "provider_request_id": "synthetic-response",
+          "reasoning_tokens": null,
+          "requests": 1,
+          "retries": 0,
+          "usage_source": "SIMULATED"
+        },
+        "usage_hash": "97e8de846ae98e3a5e5065994ff5aa162cf7912bf103284e8e2af9e9575f52c5"
+      },
+      "environment": "ENGINEERING_FIXTURE_ONLY"
+    },
+    {
+      "fixture": "wire-rAozjR",
+      "request": {
+        "assurance": "SIMULATED",
+        "context_view_id": "d2d9501d-ba17-4183-80bb-ac9f26429172",
+        "input_hash": "ea047ac04d7bc51cbfe96fce50a48a01d1ddf7c084a331984c3a5d5a078e92e8",
+        "key_handle_id": "7168a59a-cd42-4021-9728-3656beb73337",
+        "model_id": "synthetic-small",
+        "owner": {
+          "agent_id": "lead",
+          "agent_type": "DEVELOPMENT",
+          "model_binding": "wire",
+          "policy_scope": "project",
+          "project_id": "project",
+          "resource_budget_id": "worker.64923646-5fd7-42e0-97f7-63e8edfb2c69",
+          "runtime_instance_id": "64923646-5fd7-42e0-97f7-63e8edfb2c69",
+          "session_id": "e2ee6258-ac68-49d3-90a5-2c634ea77bb7",
+          "task_id": "work"
+        },
+        "provider_id": "openai",
+        "request_id": "model-mismatch",
+        "result": {
+          "assurance": "SIMULATED",
+          "model_id": "synthetic-small",
+          "outcome": "INDETERMINATE",
+          "provider_id": "openai",
+          "reason": "MODEL18_SENT_OUTCOME_UNKNOWN",
+          "reply": null,
+          "request_id": "model-mismatch",
+          "response_source": null,
+          "status": "SIMULATED",
+          "usage": null
+        },
+        "revision": 2,
+        "state": "INDETERMINATE"
+      },
+      "usage": {
+        "assurance": "SIMULATED",
+        "completed_at": "2026-11-08T06:46:36.377Z",
+        "context_hash": "4723c7d2cc19eeddde9e42624fd7fe72d6a3b10fb3667d21240aed7d5b858569",
+        "created_at": "2026-11-08T06:46:36.345Z",
+        "held": {
+          "cost_micros": 4967,
+          "requests": 1,
+          "tokens": 4711
+        },
+        "input_tokens": 4455,
+        "key_handle_id": "7168a59a-cd42-4021-9728-3656beb73337",
+        "model_id": "synthetic-small",
+        "output_tokens": 256,
+        "overrun": {
+          "cost_micros": 0,
+          "requests": 0,
+          "tokens": 0
+        },
+        "provider_id": "openai",
+        "reason": "TRANSPORT_UNKNOWN",
+        "request_hash": "17ce8ce4f488ad020be81e93c4bfcd0622c011a65f3c15b88d94640dba153844",
+        "request_id": "model-mismatch",
+        "reserved": {
+          "cost_micros": 4967,
+          "requests": 1,
+          "tokens": 4711
+        },
+        "revision": 2,
+        "sent_at": "2026-11-08T06:46:36.363Z",
+        "state": "UNKNOWN",
+        "subject": {
+          "agent_id": "lead",
+          "agent_type": "DEVELOPMENT",
+          "model_binding": "wire",
+          "policy_scope": "project",
+          "project_id": "project",
+          "resource_budget_id": "worker.64923646-5fd7-42e0-97f7-63e8edfb2c69",
+          "runtime_instance_id": "64923646-5fd7-42e0-97f7-63e8edfb2c69",
+          "session_id": "e2ee6258-ac68-49d3-90a5-2c634ea77bb7",
+          "task_id": "work"
+        },
+        "usage": null,
+        "usage_hash": null
+      },
+      "environment": "ENGINEERING_FIXTURE_ONLY"
+    }
+  ],
+  "traces": 35,
+  "real_provider_requests": 0,
+  "actual_cost_micros": 0,
+  "notes": "SIMULATED wire fixtures only. REAL ledger arithmetic tests and artificial authorization fixtures are not real Provider metering."
+}

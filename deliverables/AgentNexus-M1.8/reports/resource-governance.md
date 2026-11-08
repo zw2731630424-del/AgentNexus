@@ -1,0 +1,5 @@
+# Resource Governance
+
+ModelUsageLedger是模型Token/费用的独立可信Owner，与原Task/Worker/Project/Platform逻辑运行预算并存；不冒用SIMULATED当OS硬计量。Key租约与四级模型预算两道发送前准入，第二道失败只释放确认未发送项。UNKNOWN账单、Key与transport slot保留；已观察超额同时扩展Key reserve。
+
+严格累计CPU、普通Agent PROCESS/EXTERNAL_EFFECT和OS生产组合继续BLOCKED。DPAPI helper未确认关闭保留poison槽，Vault/事件/账本容量有界且满则拒绝，不通过丢历史释放额度。
