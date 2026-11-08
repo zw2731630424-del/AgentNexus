@@ -1,0 +1,176 @@
+{
+  "schema": "agentnexus/m161/reliability-tap-results/1",
+  "status": "PASS",
+  "summary": {
+    "tests": 25,
+    "suites": 0,
+    "pass": 25,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "todo": 0,
+    "duration_ms": 8779.4018
+  },
+  "results": [
+    {
+      "depth": 0,
+      "index": 1,
+      "name": "M161-CONTEXT-EXACT: every source category and version survives immutable input/manifest reconstruction",
+      "status": "PASS"
+    },
+    {
+      "depth": 0,
+      "index": 2,
+      "name": "M161-CONTEXT-VERSIONS: actual file/rule changes cannot silently replace a bound version",
+      "status": "PASS"
+    },
+    {
+      "depth": 0,
+      "index": 3,
+      "name": "M161-CONTEXT-LARGE: 8MiB raw history remains chunked and exact ranges retain complete hash verification",
+      "status": "PASS"
+    },
+    {
+      "depth": 0,
+      "index": 4,
+      "name": "M161-CONTEXT-BACKPRESSURE SIMULATED_SCHEDULING_BARRIER: shared read pool bounds concurrent readers and aborts queued reads",
+      "status": "PASS"
+    },
+    {
+      "depth": 0,
+      "index": 5,
+      "name": "M161-CONTEXT-DERIVED: missing/corrupt derived references never replace original raw history and indexes can be regenerated",
+      "status": "PASS"
+    },
+    {
+      "depth": 0,
+      "index": 6,
+      "name": "M161-CONTEXT-CORRUPTION: damaged original history outside selected range rejects assembly and leaves prior exact input intact",
+      "status": "PASS"
+    },
+    {
+      "depth": 0,
+      "index": 7,
+      "name": "M161-CONTEXT-LEGACY SIMULATED_LEGACY_PROJECTION: old M1.6 views reconstruct without rewriting or upgrading raw records",
+      "status": "PASS"
+    },
+    {
+      "depth": 0,
+      "index": 8,
+      "name": "M161-CONTEXT-CEILING: full 256KiB control-byte input is exact and does not overflow metadata serialization",
+      "status": "PASS"
+    },
+    {
+      "depth": 0,
+      "index": 9,
+      "name": "M161-CONTEXT-REQUEST-FAILURE SIMULATED_PROVIDER: known-not-sent and unknown requests preserve exact acknowledged input across reopen",
+      "status": "PASS"
+    },
+    {
+      "depth": 0,
+      "index": 10,
+      "name": "M161-CONTEXT-REQUIRED: important rules never silently truncate and stale/missing references fail closed",
+      "status": "PASS"
+    },
+    {
+      "depth": 0,
+      "index": 11,
+      "name": "M161-CONTEXT-INDEX-CORRUPTION: damaged derived index is detected while original raw/input objects remain recoverable",
+      "status": "PASS"
+    },
+    {
+      "depth": 0,
+      "index": 12,
+      "name": "M161-MESSAGE-ACK: delivery and receiver ACK cannot claim task processed/completed",
+      "status": "PASS"
+    },
+    {
+      "depth": 0,
+      "index": 13,
+      "name": "M161-MESSAGE-HANDOFF SIMULATED_TASK_OWNER: atomic adoption, ACK and actual result evidence are separate from completion",
+      "status": "PASS"
+    },
+    {
+      "depth": 0,
+      "index": 14,
+      "name": "M161-MESSAGE-ROLLBACK SIMULATED_TASK_OWNER: incomplete or throwing adoption rolls back task, receipt and ACK together",
+      "status": "PASS"
+    },
+    {
+      "depth": 0,
+      "index": 15,
+      "name": "M161-MESSAGE-OPERATION-DEDUPE SIMULATED_TASK_OWNER: copied envelopes with one stable operation do not adopt twice",
+      "status": "PASS"
+    },
+    {
+      "depth": 0,
+      "index": 16,
+      "name": "M161-MESSAGE-OPERATION-CONFLICT SIMULATED_TASK_OWNER: changed payload/task/correlation cannot reuse adoption authority",
+      "status": "PASS"
+    },
+    {
+      "depth": 0,
+      "index": 17,
+      "name": "M161-MESSAGE-CONCURRENT: parallel consumers obtain disjoint leases and equal-priority delivery preserves durable enqueue order",
+      "status": "PASS"
+    },
+    {
+      "depth": 0,
+      "index": 18,
+      "name": "M161-MESSAGE-PERMISSIONS: permission revocation and replacement receiver runtime fence ACK and trusted handoff",
+      "status": "PASS"
+    },
+    {
+      "depth": 0,
+      "index": 19,
+      "name": "M161-MESSAGE-WAKE-OUTBOX SIMULATED_CALLBACK_FAILURE: durable message survives sender exit and pending notification is recovered",
+      "status": "PASS"
+    },
+    {
+      "depth": 0,
+      "index": 20,
+      "name": "M161-MESSAGE-EXPIRY-REVOKE: queued expiry/revocation terminate delivery and in-flight external uncertainty never retries",
+      "status": "PASS"
+    },
+    {
+      "depth": 0,
+      "index": 21,
+      "name": "M161-MESSAGE-REAL-PROCESS-RESTART: killed host recovers internal delivery but quarantines leased external effects",
+      "status": "PASS"
+    },
+    {
+      "depth": 0,
+      "index": 22,
+      "name": "M161-MESSAGE-REAL-ACK-LOSS SIMULATED_CRASH_BARRIER: process death after durable handoff before caller ACK never repeats task adoption",
+      "status": "PASS"
+    },
+    {
+      "depth": 0,
+      "index": 23,
+      "name": "M161-MESSAGE-COMPLETION-EVIDENCE SIMULATED_TASK_OWNER: self-reported success or held/unknown task claims cannot become completed",
+      "status": "PASS"
+    },
+    {
+      "depth": 0,
+      "index": 24,
+      "name": "M161-MESSAGE-RECOVERY-BOUND SIMULATED_BOOT_REPLACEMENT: mass lease recovery commits at most 32 audited transitions per call",
+      "status": "PASS"
+    },
+    {
+      "depth": 0,
+      "index": 25,
+      "name": "M161-MESSAGE-EXPIRED-BATCH SIMULATED_WALL_ADVANCE: unswept expired queue records never leak into delivery",
+      "status": "PASS"
+    }
+  ],
+  "raw_tap": {
+    "path": "I:/AI_AgentNexus/deliverables/AgentNexus-M1.6.1/evidence/reliability/final/tests.tap",
+    "bytes": 7644,
+    "sha256": "5be17f4ad227f46a5725040c665014d0b16ffea7e7a197c70b857e498d5f1bbc"
+  },
+  "raw_stderr": {
+    "path": "I:/AI_AgentNexus/deliverables/AgentNexus-M1.6.1/evidence/reliability/final/tests.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

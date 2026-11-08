@@ -1,0 +1,184 @@
+TAP version 13
+# Subtest: M161-GATE-FORGERY: caller status and a model PASS artifact never certify an unexecuted gate
+ok 1 - M161-GATE-FORGERY: caller status and a model PASS artifact never certify an unexecuted gate
+  ---
+  duration_ms: 126.0497
+  type: 'test'
+  ...
+# Subtest: M161-GATE-ADMISSION-INTEGRITY: engine validates admitted Task, frozen rules and actual Artifact bytes
+ok 2 - M161-GATE-ADMISSION-INTEGRITY: engine validates admitted Task, frozen rules and actual Artifact bytes
+  ---
+  duration_ms: 104.1957
+  type: 'test'
+  ...
+# Subtest: M161-GATE-CHECKER: trusted checker runs actual bounded reads and engine captures code provenance
+ok 3 - M161-GATE-CHECKER: trusted checker runs actual bounded reads and engine captures code provenance
+  ---
+  duration_ms: 97.2251
+  type: 'test'
+  ...
+# Subtest: M161-GATE-STATUS: FAIL, NOT_RUN, BLOCKED, INCONCLUSIVE and SIMULATED remain distinct
+ok 4 - M161-GATE-STATUS: FAIL, NOT_RUN, BLOCKED, INCONCLUSIVE and SIMULATED remain distinct
+  ---
+  duration_ms: 478.8129
+  type: 'test'
+  ...
+# Subtest: M161-GATE-MOCK: simulated checkers and profiles cannot become real PASS
+ok 5 - M161-GATE-MOCK: simulated checkers and profiles cannot become real PASS
+  ---
+  duration_ms: 189.8224
+  type: 'test'
+  ...
+# Subtest: M161-GATE-MISSING: missing design, delivery and unknown checker are NOT_RUN
+ok 6 - M161-GATE-MISSING: missing design, delivery and unknown checker are NOT_RUN
+  ---
+  duration_ms: 114.8516
+  type: 'test'
+  ...
+# Subtest: M161-GATE-INDEPENDENCE: G4 requires registered independent reviewer and exact candidate/author binding
+ok 7 - M161-GATE-INDEPENDENCE: G4 requires registered independent reviewer and exact candidate/author binding
+  ---
+  duration_ms: 221.4361
+  type: 'test'
+  ...
+# Subtest: M161-GATE-HUMAN: actual trusted approval record is required and bound to candidate/rules/profile
+ok 8 - M161-GATE-HUMAN: actual trusted approval record is required and bound to candidate/rules/profile
+  ---
+  duration_ms: 172.6418
+  type: 'test'
+  ...
+# Subtest: M161-GATE-OFF: OFF records BYPASSED, does not execute checker, and cannot authorize protected capability
+ok 9 - M161-GATE-OFF: OFF records BYPASSED, does not execute checker, and cannot authorize protected capability
+  ---
+  duration_ms: 114.2638
+  type: 'test'
+  ...
+# Subtest: M161-GATE-OFF-RACE: gate disabled while actual artifact stream awaits commits BYPASSED
+ok 10 - M161-GATE-OFF-RACE: gate disabled while actual artifact stream awaits commits BYPASSED
+  ---
+  duration_ms: 114.2992
+  type: 'test'
+  ...
+# Subtest: M161-GATE-EPOCH-RACE: unrelated control change during validation becomes INCONCLUSIVE
+ok 11 - M161-GATE-EPOCH-RACE: unrelated control change during validation becomes INCONCLUSIVE
+  ---
+  duration_ms: 113.9001
+  type: 'test'
+  ...
+# Subtest: M161-GATE-RULE-BINDING: changed Task binding is blocked while new registry alone preserves frozen Task
+ok 12 - M161-GATE-RULE-BINDING: changed Task binding is blocked while new registry alone preserves frozen Task
+  ---
+  duration_ms: 141.0234
+  type: 'test'
+  ...
+# Subtest: M161-GATE-FINAL: seven actual gates share candidate/baseline/profile/rules and old evidence cannot pass a new candidate
+ok 13 - M161-GATE-FINAL: seven actual gates share candidate/baseline/profile/rules and old evidence cannot pass a new candidate
+  ---
+  duration_ms: 277.7701
+  type: 'test'
+  ...
+# Subtest: M161-GATE-CORRUPT: actual corrupted Artifact freezes owner and leaves no PASS or protected authorization
+ok 14 - M161-GATE-CORRUPT: actual corrupted Artifact freezes owner and leaves no PASS or protected authorization
+  ---
+  duration_ms: 91.4706
+  type: 'test'
+  ...
+# Subtest: M161-GATE-LIMITS: evidence, duplicate kinds and concurrent gate execution are bounded
+ok 15 - M161-GATE-LIMITS: evidence, duplicate kinds and concurrent gate execution are bounded
+  ---
+  duration_ms: 136.5686
+  type: 'test'
+  ...
+# Subtest: M161-GATE-COMPILED-CONSTRAINT: frozen DSL predicates enforce artifact, checker, byte and human requirements
+ok 16 - M161-GATE-COMPILED-CONSTRAINT: frozen DSL predicates enforce artifact, checker, byte and human requirements
+  ---
+  duration_ms: 139.6644
+  type: 'test'
+  ...
+# Subtest: M161-GATE-CHECKER-PROVENANCE: an invalid checker report cannot forge engine-generated provenance
+ok 17 - M161-GATE-CHECKER-PROVENANCE: an invalid checker report cannot forge engine-generated provenance
+  ---
+  duration_ms: 95.6356
+  type: 'test'
+  ...
+# Subtest: M161-GATE-ENGINE-OFF: disabling the engine records BYPASSED and preserves core feature owners
+ok 18 - M161-GATE-ENGINE-OFF: disabling the engine records BYPASSED and preserves core feature owners
+  ---
+  duration_ms: 89.4886
+  type: 'test'
+  ...
+# Subtest: M161-GATE-RECOVERY: interrupted intent is INCONCLUSIVE without rerunning trusted code
+ok 19 - M161-GATE-RECOVERY: interrupted intent is INCONCLUSIVE without rerunning trusted code
+  ---
+  duration_ms: 101.0972
+  type: 'test'
+  ...
+# Subtest: M161-RULES-TEXT: source text remains verbatim and never becomes an executable natural-language rule
+ok 20 - M161-RULES-TEXT: source text remains verbatim and never becomes an executable natural-language rule
+  ---
+  duration_ms: 87.5219
+  type: 'test'
+  ...
+# Subtest: M161-RULES-DSL: all five classes, finite constraints, dependencies, scope and enforcement bindings are explicit
+ok 21 - M161-RULES-DSL: all five classes, finite constraints, dependencies, scope and enforcement bindings are explicit
+  ---
+  duration_ms: 63.1419
+  type: 'test'
+  ...
+# Subtest: M161-RULES-UNKNOWN: unknown constraint, class, fields, feature and policy are rejected
+ok 22 - M161-RULES-UNKNOWN: unknown constraint, class, fields, feature and policy are rejected
+  ---
+  duration_ms: 75.17
+  type: 'test'
+  ...
+# Subtest: M161-RULES-DEPENDENCIES: duplicates, unknown dependencies, cycles and narrowing dependencies fail closed
+ok 23 - M161-RULES-DEPENDENCIES: duplicates, unknown dependencies, cycles and narrowing dependencies fail closed
+  ---
+  duration_ms: 66.0945
+  type: 'test'
+  ...
+# Subtest: M161-RULES-NO-PROMPT-PEP: natural language cannot claim machine enforcement or a forged owner
+ok 24 - M161-RULES-NO-PROMPT-PEP: natural language cannot claim machine enforcement or a forged owner
+  ---
+  duration_ms: 58.0605
+  type: 'test'
+  ...
+# Subtest: M161-RULES-VERSIONS: new tasks capture the new version while existing task bindings remain frozen
+ok 25 - M161-RULES-VERSIONS: new tasks capture the new version while existing task bindings remain frozen
+  ---
+  duration_ms: 87.3461
+  type: 'test'
+  ...
+# Subtest: M161-RULES-MIGRATION: migration requires explicit trusted authorization and persists separately from Task state
+ok 26 - M161-RULES-MIGRATION: migration requires explicit trusted authorization and persists separately from Task state
+  ---
+  duration_ms: 85.0599
+  type: 'test'
+  ...
+# Subtest: M161-RULES-LIMITS: source count, source bytes, duplicate source and rule count are strictly bounded
+ok 27 - M161-RULES-LIMITS: source count, source bytes, duplicate source and rule count are strictly bounded
+  ---
+  duration_ms: 58.6705
+  type: 'test'
+  ...
+# Subtest: M161-RULES-CLOSE-FENCE: compiler OFF during streamed source validation prevents publishing a registry
+ok 28 - M161-RULES-CLOSE-FENCE: compiler OFF during streamed source validation prevents publishing a registry
+  ---
+  duration_ms: 77.751
+  type: 'test'
+  ...
+# Subtest: M161-RULES-REOPEN: immutable registry and task binding survive actual SQLite close/reopen
+ok 29 - M161-RULES-REOPEN: immutable registry and task binding survive actual SQLite close/reopen
+  ---
+  duration_ms: 82.7394
+  type: 'test'
+  ...
+1..29
+# tests 29
+# suites 0
+# pass 29
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 4122.5817

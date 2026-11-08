@@ -1,0 +1,1396 @@
+{
+  "schema": "agentnexus/m161/new-tests/1",
+  "source_set_sha256": "d14401d7c39b069555f43c60360d5aab83e40bb32995008652cfcefb9862e9da",
+  "counts": {
+    "total": 99,
+    "PASS": 99
+  },
+  "cases": [
+    {
+      "type": "test:pass",
+      "name": "M161 ARTIFACT queued writers retain two active streams, sixteen waiters, and legacy reject-third semantics",
+      "nesting": 0,
+      "testNumber": 257,
+      "details": {
+        "duration_ms": 82.7297,
+        "type": "test"
+      },
+      "line": 10,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m161-artifacts.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M161 ARTIFACT aborting a queued producer never starts its iterator and leaves no queued capacity",
+      "nesting": 0,
+      "testNumber": 258,
+      "details": {
+        "duration_ms": 6.9345,
+        "type": "test"
+      },
+      "line": 17,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m161-artifacts.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M161 ARTIFACT close rejects queued work while awaiting the two actual producers",
+      "nesting": 0,
+      "testNumber": 259,
+      "details": {
+        "duration_ms": 5.997,
+        "type": "test"
+      },
+      "line": 23,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m161-artifacts.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M161 CPU qualification: strict Windows profiles fail closed before certificate lookup",
+      "nesting": 0,
+      "testNumber": 260,
+      "details": {
+        "duration_ms": 1.7581,
+        "type": "test"
+      },
+      "line": 41,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m161-boundaries.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M161 REAL_WINDOWS_PRIMITIVE: observed junction replacement is denied, concurrent swaps and interrupted fixture recover",
+      "nesting": 0,
+      "testNumber": 261,
+      "details": {
+        "duration_ms": 1640.9634,
+        "type": "test"
+      },
+      "line": 51,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m161-boundaries.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M161-CONTEXT-EXACT: every source category and version survives immutable input/manifest reconstruction",
+      "nesting": 0,
+      "testNumber": 262,
+      "details": {
+        "duration_ms": 259.8969,
+        "type": "test"
+      },
+      "line": 22,
+      "column": 73,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m161-context.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M161-CONTEXT-VERSIONS: actual file/rule changes cannot silently replace a bound version",
+      "nesting": 0,
+      "testNumber": 263,
+      "details": {
+        "duration_ms": 92.8711,
+        "type": "test"
+      },
+      "line": 22,
+      "column": 73,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m161-context.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M161-CONTEXT-LARGE: 8MiB raw history remains chunked and exact ranges retain complete hash verification",
+      "nesting": 0,
+      "testNumber": 264,
+      "details": {
+        "duration_ms": 95.6082,
+        "type": "test"
+      },
+      "line": 22,
+      "column": 73,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m161-context.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M161-CONTEXT-BACKPRESSURE SIMULATED_SCHEDULING_BARRIER: shared read pool bounds concurrent readers and aborts queued reads",
+      "nesting": 0,
+      "testNumber": 265,
+      "details": {
+        "duration_ms": 61.5468,
+        "type": "test"
+      },
+      "line": 22,
+      "column": 73,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m161-context.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M161-CONTEXT-DERIVED: missing/corrupt derived references never replace original raw history and indexes can be regenerated",
+      "nesting": 0,
+      "testNumber": 266,
+      "details": {
+        "duration_ms": 101.9437,
+        "type": "test"
+      },
+      "line": 22,
+      "column": 73,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m161-context.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M161-CONTEXT-CORRUPTION: damaged original history outside selected range rejects assembly and leaves prior exact input intact",
+      "nesting": 0,
+      "testNumber": 267,
+      "details": {
+        "duration_ms": 64.2363,
+        "type": "test"
+      },
+      "line": 22,
+      "column": 73,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m161-context.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M161-CONTEXT-LEGACY SIMULATED_LEGACY_PROJECTION: old M1.6 views reconstruct without rewriting or upgrading raw records",
+      "nesting": 0,
+      "testNumber": 268,
+      "details": {
+        "duration_ms": 52.7929,
+        "type": "test"
+      },
+      "line": 22,
+      "column": 73,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m161-context.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M161-CONTEXT-CEILING: full 256KiB control-byte input is exact and does not overflow metadata serialization",
+      "nesting": 0,
+      "testNumber": 269,
+      "details": {
+        "duration_ms": 157.7402,
+        "type": "test"
+      },
+      "line": 22,
+      "column": 73,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m161-context.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M161-CONTEXT-REQUEST-FAILURE SIMULATED_PROVIDER: known-not-sent and unknown requests preserve exact acknowledged input across reopen",
+      "nesting": 0,
+      "testNumber": 270,
+      "details": {
+        "duration_ms": 152.6297,
+        "type": "test"
+      },
+      "line": 22,
+      "column": 73,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m161-context.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M161-CONTEXT-REQUIRED: important rules never silently truncate and stale/missing references fail closed",
+      "nesting": 0,
+      "testNumber": 271,
+      "details": {
+        "duration_ms": 74.2636,
+        "type": "test"
+      },
+      "line": 22,
+      "column": 73,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m161-context.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M161-CONTEXT-INDEX-CORRUPTION: damaged derived index is detected while original raw/input objects remain recoverable",
+      "nesting": 0,
+      "testNumber": 272,
+      "details": {
+        "duration_ms": 72.046,
+        "type": "test"
+      },
+      "line": 22,
+      "column": 73,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m161-context.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M161-CONTEXT-CONCURRENT-WRITES SIMULATED_PRODUCER_BARRIER: four capture/assembly callers wait on two real Artifact writers",
+      "nesting": 0,
+      "testNumber": 273,
+      "details": {
+        "duration_ms": 132.6631,
+        "type": "test"
+      },
+      "line": 22,
+      "column": 73,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m161-context.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M161-CONTEXT-COMPOSED-POOLS SIMULATED_SCAN_BARRIER: two assemblies release read slots before waiting on producers that read context",
+      "nesting": 0,
+      "testNumber": 274,
+      "details": {
+        "duration_ms": 126.9144,
+        "type": "test"
+      },
+      "line": 22,
+      "column": 73,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m161-context.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M161-GATE-FORGERY: caller status and a model PASS artifact never certify an unexecuted gate",
+      "nesting": 0,
+      "testNumber": 275,
+      "details": {
+        "duration_ms": 112.7792,
+        "type": "test"
+      },
+      "line": 39,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m161-gates.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M161-GATE-ADMISSION-INTEGRITY: engine validates admitted Task, frozen rules and actual Artifact bytes",
+      "nesting": 0,
+      "testNumber": 276,
+      "details": {
+        "duration_ms": 101.2564,
+        "type": "test"
+      },
+      "line": 45,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m161-gates.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M161-GATE-CHECKER: trusted checker runs actual bounded reads and engine captures code provenance",
+      "nesting": 0,
+      "testNumber": 277,
+      "details": {
+        "duration_ms": 128.046,
+        "type": "test"
+      },
+      "line": 51,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m161-gates.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M161-GATE-STATUS: FAIL, NOT_RUN, BLOCKED, INCONCLUSIVE and SIMULATED remain distinct",
+      "nesting": 0,
+      "testNumber": 278,
+      "details": {
+        "duration_ms": 452.7332,
+        "type": "test"
+      },
+      "line": 57,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m161-gates.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M161-GATE-MOCK: simulated checkers and profiles cannot become real PASS",
+      "nesting": 0,
+      "testNumber": 279,
+      "details": {
+        "duration_ms": 180.6242,
+        "type": "test"
+      },
+      "line": 60,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m161-gates.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M161-GATE-MISSING: missing design, delivery and unknown checker are NOT_RUN",
+      "nesting": 0,
+      "testNumber": 280,
+      "details": {
+        "duration_ms": 105.9388,
+        "type": "test"
+      },
+      "line": 64,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m161-gates.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M161-GATE-INDEPENDENCE: G4 requires registered independent reviewer and exact candidate/author binding",
+      "nesting": 0,
+      "testNumber": 281,
+      "details": {
+        "duration_ms": 199.1654,
+        "type": "test"
+      },
+      "line": 67,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m161-gates.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M161-GATE-HUMAN: actual trusted approval record is required and bound to candidate/rules/profile",
+      "nesting": 0,
+      "testNumber": 282,
+      "details": {
+        "duration_ms": 145.7968,
+        "type": "test"
+      },
+      "line": 71,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m161-gates.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M161-GATE-OFF: OFF records BYPASSED, does not execute checker, and cannot authorize protected capability",
+      "nesting": 0,
+      "testNumber": 283,
+      "details": {
+        "duration_ms": 90.8066,
+        "type": "test"
+      },
+      "line": 80,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m161-gates.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M161-GATE-OFF-RACE: gate disabled while actual artifact stream awaits commits BYPASSED",
+      "nesting": 0,
+      "testNumber": 284,
+      "details": {
+        "duration_ms": 102.2335,
+        "type": "test"
+      },
+      "line": 83,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m161-gates.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M161-GATE-EPOCH-RACE: unrelated control change during validation becomes INCONCLUSIVE",
+      "nesting": 0,
+      "testNumber": 285,
+      "details": {
+        "duration_ms": 96.3102,
+        "type": "test"
+      },
+      "line": 87,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m161-gates.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M161-GATE-RULE-BINDING: changed Task binding is blocked while new registry alone preserves frozen Task",
+      "nesting": 0,
+      "testNumber": 286,
+      "details": {
+        "duration_ms": 100.8749,
+        "type": "test"
+      },
+      "line": 91,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m161-gates.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M161-GATE-FINAL: seven actual gates share candidate/baseline/profile/rules and old evidence cannot pass a new candidate",
+      "nesting": 0,
+      "testNumber": 287,
+      "details": {
+        "duration_ms": 243.5954,
+        "type": "test"
+      },
+      "line": 96,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m161-gates.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M161-GATE-CORRUPT: actual corrupted Artifact freezes owner and leaves no PASS or protected authorization",
+      "nesting": 0,
+      "testNumber": 288,
+      "details": {
+        "duration_ms": 69.5643,
+        "type": "test"
+      },
+      "line": 105,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m161-gates.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M161-GATE-LIMITS: evidence, duplicate kinds and concurrent gate execution are bounded",
+      "nesting": 0,
+      "testNumber": 289,
+      "details": {
+        "duration_ms": 141.7145,
+        "type": "test"
+      },
+      "line": 108,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m161-gates.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M161-GATE-COMPILED-CONSTRAINT: frozen DSL predicates enforce artifact, checker, byte and human requirements",
+      "nesting": 0,
+      "testNumber": 290,
+      "details": {
+        "duration_ms": 114.14,
+        "type": "test"
+      },
+      "line": 113,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m161-gates.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M161-GATE-CHECKER-PROVENANCE: an invalid checker report cannot forge engine-generated provenance",
+      "nesting": 0,
+      "testNumber": 291,
+      "details": {
+        "duration_ms": 91.7981,
+        "type": "test"
+      },
+      "line": 124,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m161-gates.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M161-GATE-ENGINE-OFF: disabling the engine records BYPASSED and preserves core feature owners",
+      "nesting": 0,
+      "testNumber": 292,
+      "details": {
+        "duration_ms": 84.66,
+        "type": "test"
+      },
+      "line": 127,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m161-gates.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M161-GATE-STALE-PASS: OFF then ON cannot revive an earlier gate authorization epoch",
+      "nesting": 0,
+      "testNumber": 293,
+      "details": {
+        "duration_ms": 123.0172,
+        "type": "test"
+      },
+      "line": 130,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m161-gates.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M161-GATE-RECOVERY: interrupted intent is INCONCLUSIVE without rerunning trusted code",
+      "nesting": 0,
+      "testNumber": 294,
+      "details": {
+        "duration_ms": 74.0066,
+        "type": "test"
+      },
+      "line": 133,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m161-gates.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M161-GATE-ACTUAL-NODE-TEST: trusted runner executes a real bounded Node test and gate consumes its actual exit/result",
+      "nesting": 0,
+      "testNumber": 295,
+      "details": {
+        "duration_ms": 187.4963,
+        "type": "test"
+      },
+      "line": 138,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m161-gates.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M161-GATE-SCHEDULER: frozen requirements block dispatch until a trusted matching native gate is explicitly bound",
+      "nesting": 0,
+      "testNumber": 296,
+      "details": {
+        "duration_ms": 448.0472,
+        "type": "test"
+      },
+      "line": 152,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m161-gates.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M161 TASK stable ID rejects changed budget, input, and acceptance contracts",
+      "nesting": 0,
+      "testNumber": 297,
+      "details": {
+        "duration_ms": 173.2023,
+        "type": "test"
+      },
+      "line": 16,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m161-harness.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M161 TASK rules update freezes old tasks, new tasks take new version, explicit migration archives the original contract",
+      "nesting": 0,
+      "testNumber": 298,
+      "details": {
+        "duration_ms": 769.199,
+        "type": "test"
+      },
+      "line": 25,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m161-harness.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M161 TASK handoff repeats the same frozen plan and preserves old rules after project update",
+      "nesting": 0,
+      "testNumber": 299,
+      "details": {
+        "duration_ms": 543.2156,
+        "type": "test"
+      },
+      "line": 39,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m161-harness.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M161 GATE actual file candidate is bound from trusted PASS to the approved Storage input",
+      "nesting": 0,
+      "testNumber": 300,
+      "details": {
+        "duration_ms": 467.374,
+        "type": "test"
+      },
+      "line": 47,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m161-harness.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M161 FIVE AGENTS durable messages, independent tasks, event wake, resource competition and coordinator status grants",
+      "nesting": 0,
+      "testNumber": 301,
+      "details": {
+        "duration_ms": 1586.0123,
+        "type": "test"
+      },
+      "line": 58,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m161-harness.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M161 COORDINATOR notices cross only explicitly granted projects and preserve original identity",
+      "nesting": 0,
+      "testNumber": 302,
+      "details": {
+        "duration_ms": 675.9741,
+        "type": "test"
+      },
+      "line": 80,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m161-harness.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M161 SUBAGENTS use independent contexts and parallel sibling messages without repeated tasks",
+      "nesting": 0,
+      "testNumber": 303,
+      "details": {
+        "duration_ms": 834.7012,
+        "type": "test"
+      },
+      "line": 95,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m161-harness.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M161 PROJECT budgets compete atomically and resume a known undispatched waiter once",
+      "nesting": 0,
+      "testNumber": 304,
+      "details": {
+        "duration_ms": 549.7652,
+        "type": "test"
+      },
+      "line": 105,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m161-harness.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M161 DRAFT REAL_PROCESS_CRASH after durable admission resumes exact internal capture without a lost message",
+      "nesting": 0,
+      "testNumber": 305,
+      "details": {
+        "duration_ms": 790.283,
+        "type": "test"
+      },
+      "line": 14,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m161-message-drafts.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M161 DRAFT transient shared write backpressure releases capture ownership for a same-boot exact retry",
+      "nesting": 0,
+      "testNumber": 306,
+      "details": {
+        "duration_ms": 333.299,
+        "type": "test"
+      },
+      "line": 21,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m161-message-drafts.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M161-MESSAGE-ACK: delivery and receiver ACK cannot claim task processed/completed",
+      "nesting": 0,
+      "testNumber": 307,
+      "details": {
+        "duration_ms": 83.1772,
+        "type": "test"
+      },
+      "line": 63,
+      "column": 73,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m161-messages.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M161-MESSAGE-HANDOFF SIMULATED_TASK_OWNER: atomic adoption, ACK and actual result evidence are separate from completion",
+      "nesting": 0,
+      "testNumber": 308,
+      "details": {
+        "duration_ms": 107.6913,
+        "type": "test"
+      },
+      "line": 63,
+      "column": 73,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m161-messages.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M161-MESSAGE-ROLLBACK SIMULATED_TASK_OWNER: incomplete or throwing adoption rolls back task, receipt and ACK together",
+      "nesting": 0,
+      "testNumber": 309,
+      "details": {
+        "duration_ms": 63.7558,
+        "type": "test"
+      },
+      "line": 63,
+      "column": 73,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m161-messages.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M161-MESSAGE-OPERATION-DEDUPE SIMULATED_TASK_OWNER: copied envelopes with one stable operation do not adopt twice",
+      "nesting": 0,
+      "testNumber": 310,
+      "details": {
+        "duration_ms": 83.5587,
+        "type": "test"
+      },
+      "line": 63,
+      "column": 73,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m161-messages.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M161-MESSAGE-OPERATION-CONFLICT SIMULATED_TASK_OWNER: changed payload/task/correlation cannot reuse adoption authority",
+      "nesting": 0,
+      "testNumber": 311,
+      "details": {
+        "duration_ms": 74.5481,
+        "type": "test"
+      },
+      "line": 63,
+      "column": 73,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m161-messages.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M161-MESSAGE-CONCURRENT: parallel consumers obtain disjoint leases and equal-priority delivery preserves durable enqueue order",
+      "nesting": 0,
+      "testNumber": 312,
+      "details": {
+        "duration_ms": 173.9874,
+        "type": "test"
+      },
+      "line": 63,
+      "column": 73,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m161-messages.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M161-MESSAGE-PERMISSIONS: permission revocation and replacement receiver runtime fence ACK and trusted handoff",
+      "nesting": 0,
+      "testNumber": 313,
+      "details": {
+        "duration_ms": 51.4544,
+        "type": "test"
+      },
+      "line": 63,
+      "column": 73,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m161-messages.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M161-MESSAGE-WAKE-OUTBOX SIMULATED_CALLBACK_FAILURE: durable message survives sender exit and pending notification is recovered",
+      "nesting": 0,
+      "testNumber": 314,
+      "details": {
+        "duration_ms": 57.2705,
+        "type": "test"
+      },
+      "line": 63,
+      "column": 73,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m161-messages.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M161-MESSAGE-EXPIRY-REVOKE: queued expiry/revocation terminate delivery and in-flight external uncertainty never retries",
+      "nesting": 0,
+      "testNumber": 315,
+      "details": {
+        "duration_ms": 213.5306,
+        "type": "test"
+      },
+      "line": 63,
+      "column": 73,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m161-messages.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M161-MESSAGE-REAL-PROCESS-RESTART: killed host recovers internal delivery but quarantines leased external effects",
+      "nesting": 0,
+      "testNumber": 316,
+      "details": {
+        "duration_ms": 353.1858,
+        "type": "test"
+      },
+      "line": 63,
+      "column": 73,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m161-messages.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M161-MESSAGE-REAL-ACK-LOSS SIMULATED_CRASH_BARRIER: process death after durable handoff before caller ACK never repeats task adoption",
+      "nesting": 0,
+      "testNumber": 317,
+      "details": {
+        "duration_ms": 260.7825,
+        "type": "test"
+      },
+      "line": 63,
+      "column": 73,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m161-messages.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M161-MESSAGE-COMPLETION-EVIDENCE SIMULATED_TASK_OWNER: self-reported success or held/unknown task claims cannot become completed",
+      "nesting": 0,
+      "testNumber": 318,
+      "details": {
+        "duration_ms": 81.3378,
+        "type": "test"
+      },
+      "line": 63,
+      "column": 73,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m161-messages.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M161-MESSAGE-RECOVERY-BOUND SIMULATED_BOOT_REPLACEMENT: mass lease recovery commits at most 32 audited transitions per call",
+      "nesting": 0,
+      "testNumber": 319,
+      "details": {
+        "duration_ms": 1080.862,
+        "type": "test"
+      },
+      "line": 63,
+      "column": 73,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m161-messages.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M161-MESSAGE-EXPIRED-BATCH SIMULATED_WALL_ADVANCE: unswept expired queue records never leak into delivery",
+      "nesting": 0,
+      "testNumber": 320,
+      "details": {
+        "duration_ms": 933.6273,
+        "type": "test"
+      },
+      "line": 63,
+      "column": 73,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m161-messages.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M161-MESSAGE-COORDINATOR: fixed trusted notices reach two project tasks without cross-project raw access or generic send authority",
+      "nesting": 0,
+      "testNumber": 321,
+      "details": {
+        "duration_ms": 109.2731,
+        "type": "test"
+      },
+      "line": 63,
+      "column": 73,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m161-messages.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M161-MESSAGE-COORDINATOR-DENIAL: admin/type/runtime/target payload/permission fences and content dedup survive the advisory lane",
+      "nesting": 0,
+      "testNumber": 322,
+      "details": {
+        "duration_ms": 100.7511,
+        "type": "test"
+      },
+      "line": 63,
+      "column": 73,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m161-messages.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M161-RULES-TEXT: source text remains verbatim and never becomes an executable natural-language rule",
+      "nesting": 0,
+      "testNumber": 323,
+      "details": {
+        "duration_ms": 79.4446,
+        "type": "test"
+      },
+      "line": 31,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m161-rules.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M161-RULES-DSL: all five classes, finite constraints, dependencies, scope and enforcement bindings are explicit",
+      "nesting": 0,
+      "testNumber": 324,
+      "details": {
+        "duration_ms": 58.8363,
+        "type": "test"
+      },
+      "line": 38,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m161-rules.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M161-RULES-UNKNOWN: unknown constraint, class, fields, feature and policy are rejected",
+      "nesting": 0,
+      "testNumber": 325,
+      "details": {
+        "duration_ms": 68.2817,
+        "type": "test"
+      },
+      "line": 48,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m161-rules.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M161-RULES-DEPENDENCIES: duplicates, unknown dependencies, cycles and narrowing dependencies fail closed",
+      "nesting": 0,
+      "testNumber": 326,
+      "details": {
+        "duration_ms": 58.8762,
+        "type": "test"
+      },
+      "line": 53,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m161-rules.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M161-RULES-NO-PROMPT-PEP: natural language cannot claim machine enforcement or a forged owner",
+      "nesting": 0,
+      "testNumber": 327,
+      "details": {
+        "duration_ms": 52.6189,
+        "type": "test"
+      },
+      "line": 58,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m161-rules.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M161-RULES-VERSIONS: new tasks capture the new version while existing task bindings remain frozen",
+      "nesting": 0,
+      "testNumber": 328,
+      "details": {
+        "duration_ms": 78.6194,
+        "type": "test"
+      },
+      "line": 65,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m161-rules.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M161-RULES-MIGRATION: migration requires explicit trusted authorization and persists separately from Task state",
+      "nesting": 0,
+      "testNumber": 329,
+      "details": {
+        "duration_ms": 76.1475,
+        "type": "test"
+      },
+      "line": 72,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m161-rules.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M161-RULES-LIMITS: source count, source bytes, duplicate source and rule count are strictly bounded",
+      "nesting": 0,
+      "testNumber": 330,
+      "details": {
+        "duration_ms": 53.5531,
+        "type": "test"
+      },
+      "line": 78,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m161-rules.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M161-RULES-CLOSE-FENCE: compiler OFF during streamed source validation prevents publishing a registry",
+      "nesting": 0,
+      "testNumber": 331,
+      "details": {
+        "duration_ms": 72.5788,
+        "type": "test"
+      },
+      "line": 84,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m161-rules.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M161-RULES-REOPEN: immutable registry and task binding survive actual SQLite close/reopen",
+      "nesting": 0,
+      "testNumber": 332,
+      "details": {
+        "duration_ms": 73.9846,
+        "type": "test"
+      },
+      "line": 89,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m161-rules.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M161-RULES-VERSION-FORMAT: compile rejects versions that downstream frozen context cannot identify",
+      "nesting": 0,
+      "testNumber": 333,
+      "details": {
+        "duration_ms": 53.5881,
+        "type": "test"
+      },
+      "line": 94,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m161-rules.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M161 STORAGE real atomic CREATE binds exact approval, content, Artifact/Audit and persistent budget ownership",
+      "nesting": 0,
+      "testNumber": 334,
+      "details": {
+        "duration_ms": 554.5574,
+        "type": "test"
+      },
+      "line": 18,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M161 STORAGE unauthorized write is rejected before files and before owner intent",
+      "nesting": 0,
+      "testNumber": 335,
+      "details": {
+        "duration_ms": 211.2087,
+        "type": "test"
+      },
+      "line": 30,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M161 STORAGE no-clobber CREATE preserves unowned history",
+      "nesting": 0,
+      "testNumber": 336,
+      "details": {
+        "duration_ms": 303.7948,
+        "type": "test"
+      },
+      "line": 38,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M161 STORAGE REPLACE requires the exact owned version; original Artifact remains reconstructible",
+      "nesting": 0,
+      "testNumber": 337,
+      "details": {
+        "duration_ms": 833.8688,
+        "type": "test"
+      },
+      "line": 45,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M161 STORAGE bounded streaming verifies 3 MiB without materializing the input in the request",
+      "nesting": 0,
+      "testNumber": 338,
+      "details": {
+        "duration_ms": 453.9246,
+        "type": "test"
+      },
+      "line": 55,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M161 STORAGE injected ENOSPC before publication leaves no target and quarantines original operation",
+      "nesting": 0,
+      "testNumber": 339,
+      "details": {
+        "duration_ms": 288.9377,
+        "type": "test"
+      },
+      "line": 62,
+      "column": 39,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M161 STORAGE injected EACCES before publication leaves no target and quarantines original operation",
+      "nesting": 0,
+      "testNumber": 340,
+      "details": {
+        "duration_ms": 297.517,
+        "type": "test"
+      },
+      "line": 62,
+      "column": 39,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M161 STORAGE publish-link gap is reconciled by identity/hash without republishing",
+      "nesting": 0,
+      "testNumber": 341,
+      "details": {
+        "duration_ms": 304.3512,
+        "type": "test"
+      },
+      "line": 68,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M161 STORAGE concurrent same-resource writers conflict before the second file effect",
+      "nesting": 0,
+      "testNumber": 342,
+      "details": {
+        "duration_ms": 557.7393,
+        "type": "test"
+      },
+      "line": 76,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M161 STORAGE changed bytes between publication and ACK stay UNKNOWN and cannot be reconciled by pathname",
+      "nesting": 0,
+      "testNumber": 343,
+      "details": {
+        "duration_ms": 295.5963,
+        "type": "test"
+      },
+      "line": 85,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M161 STORAGE persistent resource quota rejects a second allocation before a temporary object",
+      "nesting": 0,
+      "testNumber": 344,
+      "details": {
+        "duration_ms": 654.6666,
+        "type": "test"
+      },
+      "line": 92,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M161 STORAGE REAL_PROCESS_CRASH at REQUESTED preserves evidence and never automatically retries",
+      "nesting": 0,
+      "testNumber": 345,
+      "details": {
+        "duration_ms": 664.1445,
+        "type": "test"
+      },
+      "line": 101,
+      "column": 198,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M161 STORAGE REAL_PROCESS_CRASH at AUTHORIZED preserves evidence and never automatically retries",
+      "nesting": 0,
+      "testNumber": 346,
+      "details": {
+        "duration_ms": 595.4362,
+        "type": "test"
+      },
+      "line": 101,
+      "column": 198,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M161 STORAGE REAL_PROCESS_CRASH at WRITE_INTENT preserves evidence and never automatically retries",
+      "nesting": 0,
+      "testNumber": 347,
+      "details": {
+        "duration_ms": 589.682,
+        "type": "test"
+      },
+      "line": 101,
+      "column": 198,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M161 STORAGE REAL_PROCESS_CRASH at TEMP_OBJECT_CREATED preserves evidence and never automatically retries",
+      "nesting": 0,
+      "testNumber": 348,
+      "details": {
+        "duration_ms": 576.7478,
+        "type": "test"
+      },
+      "line": 101,
+      "column": 198,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M161 STORAGE REAL_PROCESS_CRASH at WRITE_CHUNK preserves evidence and never automatically retries",
+      "nesting": 0,
+      "testNumber": 349,
+      "details": {
+        "duration_ms": 576.9357,
+        "type": "test"
+      },
+      "line": 101,
+      "column": 198,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M161 STORAGE REAL_PROCESS_CRASH at CONTENT_WRITTEN preserves evidence and never automatically retries",
+      "nesting": 0,
+      "testNumber": 350,
+      "details": {
+        "duration_ms": 595.6143,
+        "type": "test"
+      },
+      "line": 101,
+      "column": 198,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M161 STORAGE REAL_PROCESS_CRASH at CONTENT_VERIFIED preserves evidence and never automatically retries",
+      "nesting": 0,
+      "testNumber": 351,
+      "details": {
+        "duration_ms": 595.7004,
+        "type": "test"
+      },
+      "line": 101,
+      "column": 198,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M161 STORAGE REAL_PROCESS_CRASH at PUBLISH_READY preserves evidence and never automatically retries",
+      "nesting": 0,
+      "testNumber": 352,
+      "details": {
+        "duration_ms": 640.6437,
+        "type": "test"
+      },
+      "line": 101,
+      "column": 198,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M161 STORAGE REAL_PROCESS_CRASH at UNLINK_TEMP preserves evidence and never automatically retries",
+      "nesting": 0,
+      "testNumber": 353,
+      "details": {
+        "duration_ms": 692.5046,
+        "type": "test"
+      },
+      "line": 101,
+      "column": 198,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M161 STORAGE REAL_PROCESS_CRASH at PUBLISHED preserves evidence and never automatically retries",
+      "nesting": 0,
+      "testNumber": 354,
+      "details": {
+        "duration_ms": 748.2951,
+        "type": "test"
+      },
+      "line": 101,
+      "column": 198,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+      "status": "PASS"
+    },
+    {
+      "type": "test:pass",
+      "name": "M161 STORAGE REAL_PROCESS_CRASH at AUDIT_ACKNOWLEDGED preserves evidence and never automatically retries",
+      "nesting": 0,
+      "testNumber": 355,
+      "details": {
+        "duration_ms": 629.4212,
+        "type": "test"
+      },
+      "line": 101,
+      "column": 198,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+      "status": "PASS"
+    }
+  ]
+}

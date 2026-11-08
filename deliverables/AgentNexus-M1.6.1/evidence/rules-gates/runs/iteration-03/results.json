@@ -1,0 +1,181 @@
+{
+  "schema": "agentnexus/m161/rules-gates/tap-derived/1",
+  "source_tap": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\evidence\\rules-gates\\runs\\iteration-03\\tests.tap",
+  "source_sha256": "5b28592a0127dad06218f081230a042d8c4fb967f90af7c9622ec7addf35c13b",
+  "assurance": "REAL_LOCAL_SQLITE_ZSTD_ARTIFACT_AND_TRUSTED_LIBRARY; synthetic task/reviewer/human fixtures; no OS/provider qualification",
+  "counters": {
+    "tests": 33,
+    "pass": 32,
+    "fail": 1,
+    "cancelled": 0,
+    "skipped": 0,
+    "todo": 0
+  },
+  "tests": [
+    {
+      "number": 1,
+      "status": "PASS",
+      "name": "M161-GATE-FORGERY: caller status and a model PASS artifact never certify an unexecuted gate"
+    },
+    {
+      "number": 2,
+      "status": "PASS",
+      "name": "M161-GATE-ADMISSION-INTEGRITY: engine validates admitted Task, frozen rules and actual Artifact bytes"
+    },
+    {
+      "number": 3,
+      "status": "PASS",
+      "name": "M161-GATE-CHECKER: trusted checker runs actual bounded reads and engine captures code provenance"
+    },
+    {
+      "number": 4,
+      "status": "PASS",
+      "name": "M161-GATE-STATUS: FAIL, NOT_RUN, BLOCKED, INCONCLUSIVE and SIMULATED remain distinct"
+    },
+    {
+      "number": 5,
+      "status": "PASS",
+      "name": "M161-GATE-MOCK: simulated checkers and profiles cannot become real PASS"
+    },
+    {
+      "number": 6,
+      "status": "PASS",
+      "name": "M161-GATE-MISSING: missing design, delivery and unknown checker are NOT_RUN"
+    },
+    {
+      "number": 7,
+      "status": "PASS",
+      "name": "M161-GATE-INDEPENDENCE: G4 requires registered independent reviewer and exact candidate/author binding"
+    },
+    {
+      "number": 8,
+      "status": "PASS",
+      "name": "M161-GATE-HUMAN: actual trusted approval record is required and bound to candidate/rules/profile"
+    },
+    {
+      "number": 9,
+      "status": "PASS",
+      "name": "M161-GATE-OFF: OFF records BYPASSED, does not execute checker, and cannot authorize protected capability"
+    },
+    {
+      "number": 10,
+      "status": "PASS",
+      "name": "M161-GATE-OFF-RACE: gate disabled while actual artifact stream awaits commits BYPASSED"
+    },
+    {
+      "number": 11,
+      "status": "PASS",
+      "name": "M161-GATE-EPOCH-RACE: unrelated control change during validation becomes INCONCLUSIVE"
+    },
+    {
+      "number": 12,
+      "status": "PASS",
+      "name": "M161-GATE-RULE-BINDING: changed Task binding is blocked while new registry alone preserves frozen Task"
+    },
+    {
+      "number": 13,
+      "status": "PASS",
+      "name": "M161-GATE-FINAL: seven actual gates share candidate/baseline/profile/rules and old evidence cannot pass a new candidate"
+    },
+    {
+      "number": 14,
+      "status": "PASS",
+      "name": "M161-GATE-CORRUPT: actual corrupted Artifact freezes owner and leaves no PASS or protected authorization"
+    },
+    {
+      "number": 15,
+      "status": "PASS",
+      "name": "M161-GATE-LIMITS: evidence, duplicate kinds and concurrent gate execution are bounded"
+    },
+    {
+      "number": 16,
+      "status": "PASS",
+      "name": "M161-GATE-COMPILED-CONSTRAINT: frozen DSL predicates enforce artifact, checker, byte and human requirements"
+    },
+    {
+      "number": 17,
+      "status": "PASS",
+      "name": "M161-GATE-CHECKER-PROVENANCE: an invalid checker report cannot forge engine-generated provenance"
+    },
+    {
+      "number": 18,
+      "status": "PASS",
+      "name": "M161-GATE-ENGINE-OFF: disabling the engine records BYPASSED and preserves core feature owners"
+    },
+    {
+      "number": 19,
+      "status": "PASS",
+      "name": "M161-GATE-STALE-PASS: OFF then ON cannot revive an earlier gate authorization epoch"
+    },
+    {
+      "number": 20,
+      "status": "PASS",
+      "name": "M161-GATE-RECOVERY: interrupted intent is INCONCLUSIVE without rerunning trusted code"
+    },
+    {
+      "number": 21,
+      "status": "PASS",
+      "name": "M161-GATE-ACTUAL-NODE-TEST: trusted runner executes a real bounded Node test and gate consumes its actual exit/result"
+    },
+    {
+      "number": 22,
+      "status": "FAIL",
+      "name": "M161-GATE-SCHEDULER: frozen requirements block dispatch until a trusted matching native gate is explicitly bound"
+    },
+    {
+      "number": 23,
+      "status": "PASS",
+      "name": "M161-RULES-TEXT: source text remains verbatim and never becomes an executable natural-language rule"
+    },
+    {
+      "number": 24,
+      "status": "PASS",
+      "name": "M161-RULES-DSL: all five classes, finite constraints, dependencies, scope and enforcement bindings are explicit"
+    },
+    {
+      "number": 25,
+      "status": "PASS",
+      "name": "M161-RULES-UNKNOWN: unknown constraint, class, fields, feature and policy are rejected"
+    },
+    {
+      "number": 26,
+      "status": "PASS",
+      "name": "M161-RULES-DEPENDENCIES: duplicates, unknown dependencies, cycles and narrowing dependencies fail closed"
+    },
+    {
+      "number": 27,
+      "status": "PASS",
+      "name": "M161-RULES-NO-PROMPT-PEP: natural language cannot claim machine enforcement or a forged owner"
+    },
+    {
+      "number": 28,
+      "status": "PASS",
+      "name": "M161-RULES-VERSIONS: new tasks capture the new version while existing task bindings remain frozen"
+    },
+    {
+      "number": 29,
+      "status": "PASS",
+      "name": "M161-RULES-MIGRATION: migration requires explicit trusted authorization and persists separately from Task state"
+    },
+    {
+      "number": 30,
+      "status": "PASS",
+      "name": "M161-RULES-LIMITS: source count, source bytes, duplicate source and rule count are strictly bounded"
+    },
+    {
+      "number": 31,
+      "status": "PASS",
+      "name": "M161-RULES-CLOSE-FENCE: compiler OFF during streamed source validation prevents publishing a registry"
+    },
+    {
+      "number": 32,
+      "status": "PASS",
+      "name": "M161-RULES-REOPEN: immutable registry and task binding survive actual SQLite close/reopen"
+    },
+    {
+      "number": 33,
+      "status": "PASS",
+      "name": "M161-RULES-VERSION-FORMAT: compile rejects versions that downstream frozen context cannot identify"
+    }
+  ]
+}

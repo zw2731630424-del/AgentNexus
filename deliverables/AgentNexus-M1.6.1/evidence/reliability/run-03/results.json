@@ -1,0 +1,374 @@
+{
+  "schema": "agentnexus/m161/reliability-tap-results/1",
+  "status": "PASS",
+  "summary": {
+    "tests": 58,
+    "suites": 0,
+    "pass": 58,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "todo": 0,
+    "duration_ms": 12912.3957
+  },
+  "results": [
+    {
+      "depth": 0,
+      "index": 1,
+      "name": "M16-CONTEXT-RAW: separate summary/index views preserve original bytes and source hashes",
+      "status": "PASS"
+    },
+    {
+      "depth": 0,
+      "index": 2,
+      "name": "M16-CONTEXT-STREAM: bounded range scans a multi-chunk lossless object and restores after reopen",
+      "status": "PASS"
+    },
+    {
+      "depth": 0,
+      "index": 3,
+      "name": "M16-CONTEXT-BOUNDS: required rules never truncate and optional omissions are explicit",
+      "status": "PASS"
+    },
+    {
+      "depth": 0,
+      "index": 4,
+      "name": "M16-CONTEXT-SCOPE: project/task authority and exact immutable reference are checked independently",
+      "status": "PASS"
+    },
+    {
+      "depth": 0,
+      "index": 5,
+      "name": "M16-CONTEXT-HASH: corruption outside the selected range fails the complete verification barrier",
+      "status": "PASS"
+    },
+    {
+      "depth": 0,
+      "index": 6,
+      "name": "M16-CONTEXT-ACK: failed archive ACK cannot become an acknowledged model context",
+      "status": "PASS"
+    },
+    {
+      "depth": 0,
+      "index": 7,
+      "name": "M16-CONTEXT-EGRESS: asynchronous scans recheck task authorization and support the exact model byte ceiling",
+      "status": "PASS"
+    },
+    {
+      "depth": 0,
+      "index": 8,
+      "name": "M16-MESSAGE-DURABLE: host-bound sender, exactly matching dedup and bidirectional ACK survive durable storage",
+      "status": "PASS"
+    },
+    {
+      "depth": 0,
+      "index": 9,
+      "name": "M16-MESSAGE-AUTH: spoofed fields, foreign project, stale runtime and changed permissions fail closed",
+      "status": "PASS"
+    },
+    {
+      "depth": 0,
+      "index": 10,
+      "name": "M16-MESSAGE-RETRY: bounded retries, expired leases, expiry/revocation and unknown effects never auto-replay",
+      "status": "PASS"
+    },
+    {
+      "depth": 0,
+      "index": 11,
+      "name": "M16-MESSAGE-CAPACITY: byte/record backpressure remains bounded and priority does not discard low priority",
+      "status": "PASS"
+    },
+    {
+      "depth": 0,
+      "index": 12,
+      "name": "M16-MESSAGE-ACK-FAILURE: audit failure suppresses wake; callback failure retains acknowledged queue",
+      "status": "PASS"
+    },
+    {
+      "depth": 0,
+      "index": 13,
+      "name": "M16-MESSAGE-RECOVERY: real close/reopen fences old leases and quarantines external uncertainty",
+      "status": "PASS"
+    },
+    {
+      "depth": 0,
+      "index": 14,
+      "name": "M16-MESSAGE-CLOCK: rollback cannot revive expired or leased deliveries",
+      "status": "PASS"
+    },
+    {
+      "depth": 0,
+      "index": 15,
+      "name": "M16-MESSAGE-LOGICAL-DEDUPE: sender runtime replacement does not reset a task business dedup key",
+      "status": "PASS"
+    },
+    {
+      "depth": 0,
+      "index": 16,
+      "name": "M16-MODEL-TRACE: simulated results preserve original context provenance, integer usage and durable dedup",
+      "status": "PASS"
+    },
+    {
+      "depth": 0,
+      "index": 17,
+      "name": "M16-MODEL-REAL-BLOCKED: no real adapter/provider or plaintext credential entry exists",
+      "status": "PASS"
+    },
+    {
+      "depth": 0,
+      "index": 18,
+      "name": "M16-MODEL-FAILOVER: only proven not-sent failures may advance to an independent provider pool",
+      "status": "PASS"
+    },
+    {
+      "depth": 0,
+      "index": 19,
+      "name": "M16-MODEL-UNKNOWN: sent unknown results retain budget/key quota, persist and never fail over or replay",
+      "status": "PASS"
+    },
+    {
+      "depth": 0,
+      "index": 20,
+      "name": "M16-MODEL-POOL: independent key state, rotation and round robin keep provider/account limits",
+      "status": "PASS"
+    },
+    {
+      "depth": 0,
+      "index": 21,
+      "name": "M16-MODEL-CONCURRENCY: active key limit rejects a concurrent request and releases known unused reservation",
+      "status": "PASS"
+    },
+    {
+      "depth": 0,
+      "index": 22,
+      "name": "M16-MODEL-BUDGET: reservation failure and unknown settlement fail closed without unmetered dispatch",
+      "status": "PASS"
+    },
+    {
+      "depth": 0,
+      "index": 23,
+      "name": "M16-MODEL-FEATURE: disabled failover, authentication failure and usage excess have separate outcomes",
+      "status": "PASS"
+    },
+    {
+      "depth": 0,
+      "index": 24,
+      "name": "M16-MODEL-TOOL: full JSON arguments/resource remain data and model cannot supply approval authority",
+      "status": "PASS"
+    },
+    {
+      "depth": 0,
+      "index": 25,
+      "name": "M16-MODEL-RECOVERY: persisted reserve/send crash windows become unknown without dispatch or quota release",
+      "status": "PASS"
+    },
+    {
+      "depth": 4,
+      "index": 1,
+      "name": "MODEL_REQUEST_PREPARED",
+      "status": "PASS"
+    },
+    {
+      "depth": 4,
+      "index": 2,
+      "name": "MODEL_BUDGET_RESERVED",
+      "status": "PASS"
+    },
+    {
+      "depth": 4,
+      "index": 3,
+      "name": "CONTEXT_CAPTURED",
+      "status": "PASS"
+    },
+    {
+      "depth": 4,
+      "index": 4,
+      "name": "MODEL_DISPATCH_INTENT",
+      "status": "PASS"
+    },
+    {
+      "depth": 0,
+      "index": 26,
+      "name": "M16-MODEL-CANCEL-NOT-SENT: real durable barriers fence cancellation before fixture sequence or token consumption",
+      "status": "PASS"
+    },
+    {
+      "depth": 0,
+      "index": 27,
+      "name": "M16-MODEL-CANCEL-SENT: cancellation after actual fixture dispatch retains unknown quota and never fails over",
+      "status": "PASS"
+    },
+    {
+      "depth": 0,
+      "index": 28,
+      "name": "M16-MODEL-CANCEL-FAILOVER: cancellation at known-not-sent ACK cannot advance to another provider",
+      "status": "PASS"
+    },
+    {
+      "depth": 0,
+      "index": 29,
+      "name": "M16-MODEL-CANCEL-SETTLED: cancellation after a known usage settlement preserves actual metering",
+      "status": "PASS"
+    },
+    {
+      "depth": 0,
+      "index": 30,
+      "name": "M161-CONTEXT-EXACT: every source category and version survives immutable input/manifest reconstruction",
+      "status": "PASS"
+    },
+    {
+      "depth": 0,
+      "index": 31,
+      "name": "M161-CONTEXT-VERSIONS: actual file/rule changes cannot silently replace a bound version",
+      "status": "PASS"
+    },
+    {
+      "depth": 0,
+      "index": 32,
+      "name": "M161-CONTEXT-LARGE: 8MiB raw history remains chunked and exact ranges retain complete hash verification",
+      "status": "PASS"
+    },
+    {
+      "depth": 0,
+      "index": 33,
+      "name": "M161-CONTEXT-BACKPRESSURE SIMULATED_SCHEDULING_BARRIER: shared read pool bounds concurrent readers and aborts queued reads",
+      "status": "PASS"
+    },
+    {
+      "depth": 0,
+      "index": 34,
+      "name": "M161-CONTEXT-DERIVED: missing/corrupt derived references never replace original raw history and indexes can be regenerated",
+      "status": "PASS"
+    },
+    {
+      "depth": 0,
+      "index": 35,
+      "name": "M161-CONTEXT-CORRUPTION: damaged original history outside selected range rejects assembly and leaves prior exact input intact",
+      "status": "PASS"
+    },
+    {
+      "depth": 0,
+      "index": 36,
+      "name": "M161-CONTEXT-LEGACY SIMULATED_LEGACY_PROJECTION: old M1.6 views reconstruct without rewriting or upgrading raw records",
+      "status": "PASS"
+    },
+    {
+      "depth": 0,
+      "index": 37,
+      "name": "M161-CONTEXT-CEILING: full 256KiB control-byte input is exact and does not overflow metadata serialization",
+      "status": "PASS"
+    },
+    {
+      "depth": 0,
+      "index": 38,
+      "name": "M161-CONTEXT-REQUEST-FAILURE SIMULATED_PROVIDER: known-not-sent and unknown requests preserve exact acknowledged input across reopen",
+      "status": "PASS"
+    },
+    {
+      "depth": 0,
+      "index": 39,
+      "name": "M161-CONTEXT-REQUIRED: important rules never silently truncate and stale/missing references fail closed",
+      "status": "PASS"
+    },
+    {
+      "depth": 0,
+      "index": 40,
+      "name": "M161-CONTEXT-INDEX-CORRUPTION: damaged derived index is detected while original raw/input objects remain recoverable",
+      "status": "PASS"
+    },
+    {
+      "depth": 0,
+      "index": 41,
+      "name": "M161-MESSAGE-ACK: delivery and receiver ACK cannot claim task processed/completed",
+      "status": "PASS"
+    },
+    {
+      "depth": 0,
+      "index": 42,
+      "name": "M161-MESSAGE-HANDOFF SIMULATED_TASK_OWNER: atomic adoption, ACK and actual result evidence are separate from completion",
+      "status": "PASS"
+    },
+    {
+      "depth": 0,
+      "index": 43,
+      "name": "M161-MESSAGE-ROLLBACK SIMULATED_TASK_OWNER: incomplete or throwing adoption rolls back task, receipt and ACK together",
+      "status": "PASS"
+    },
+    {
+      "depth": 0,
+      "index": 44,
+      "name": "M161-MESSAGE-OPERATION-DEDUPE SIMULATED_TASK_OWNER: copied envelopes with one stable operation do not adopt twice",
+      "status": "PASS"
+    },
+    {
+      "depth": 0,
+      "index": 45,
+      "name": "M161-MESSAGE-OPERATION-CONFLICT SIMULATED_TASK_OWNER: changed payload/task/correlation cannot reuse adoption authority",
+      "status": "PASS"
+    },
+    {
+      "depth": 0,
+      "index": 46,
+      "name": "M161-MESSAGE-CONCURRENT: parallel consumers obtain disjoint leases and equal-priority delivery preserves durable enqueue order",
+      "status": "PASS"
+    },
+    {
+      "depth": 0,
+      "index": 47,
+      "name": "M161-MESSAGE-PERMISSIONS: permission revocation and replacement receiver runtime fence ACK and trusted handoff",
+      "status": "PASS"
+    },
+    {
+      "depth": 0,
+      "index": 48,
+      "name": "M161-MESSAGE-WAKE-OUTBOX SIMULATED_CALLBACK_FAILURE: durable message survives sender exit and pending notification is recovered",
+      "status": "PASS"
+    },
+    {
+      "depth": 0,
+      "index": 49,
+      "name": "M161-MESSAGE-EXPIRY-REVOKE: queued expiry/revocation terminate delivery and in-flight external uncertainty never retries",
+      "status": "PASS"
+    },
+    {
+      "depth": 0,
+      "index": 50,
+      "name": "M161-MESSAGE-REAL-PROCESS-RESTART: killed host recovers internal delivery but quarantines leased external effects",
+      "status": "PASS"
+    },
+    {
+      "depth": 0,
+      "index": 51,
+      "name": "M161-MESSAGE-REAL-ACK-LOSS SIMULATED_CRASH_BARRIER: process death after durable handoff before caller ACK never repeats task adoption",
+      "status": "PASS"
+    },
+    {
+      "depth": 0,
+      "index": 52,
+      "name": "M161-MESSAGE-COMPLETION-EVIDENCE SIMULATED_TASK_OWNER: self-reported success or held/unknown task claims cannot become completed",
+      "status": "PASS"
+    },
+    {
+      "depth": 0,
+      "index": 53,
+      "name": "M161-MESSAGE-RECOVERY-BOUND SIMULATED_BOOT_REPLACEMENT: mass lease recovery commits at most 32 audited transitions per call",
+      "status": "PASS"
+    },
+    {
+      "depth": 0,
+      "index": 54,
+      "name": "M161-MESSAGE-EXPIRED-BATCH SIMULATED_WALL_ADVANCE: unswept expired queue records never leak into delivery",
+      "status": "PASS"
+    }
+  ],
+  "raw_tap": {
+    "path": "I:/AI_AgentNexus/deliverables/AgentNexus-M1.6.1/evidence/reliability/run-03/tests.tap",
+    "bytes": 15899,
+    "sha256": "1d767bf138c6ff5d4edfd7a55e98ccc42a2d06b7fc48d2e5b7024b4c81848b09"
+  },
+  "raw_stderr": {
+    "path": "I:/AI_AgentNexus/deliverables/AgentNexus-M1.6.1/evidence/reliability/run-03/tests.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

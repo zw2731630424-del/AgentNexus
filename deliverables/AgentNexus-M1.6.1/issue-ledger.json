@@ -1,0 +1,53 @@
+{
+  "schema": "agentnexus/m161/issues/1",
+  "historical_ledger": "evidence/baseline/m16-issue-ledger.json",
+  "inherited_failures_preserved": true,
+  "remaining_limits": [
+    {
+      "id": "L-LEGACY-TOCTOU",
+      "status": "FAIL",
+      "detail": "Untouched legacy TOCTOU oracle rejects WIN32_1921 during concurrent replacement; new observed real-attack fixture PASS is reported separately, not substituted."
+    },
+    {
+      "id": "L-CPU",
+      "status": "BLOCKED",
+      "detail": "Strict cumulative CPU contract unqualified; original budgets/tolerances/history unchanged, CPU_RATE/deadline cannot replace it."
+    },
+    {
+      "id": "L-OS",
+      "status": "BLOCKED",
+      "detail": "Trusted local library is not a hostile-process sandbox or qualified production deployment."
+    },
+    {
+      "id": "L-POWER",
+      "status": "NOT_RUN",
+      "detail": "Real Node process termination/reopen tested; Windows reboot, power loss and directory durability not qualified."
+    },
+    {
+      "id": "L-PROVIDER",
+      "status": "SIMULATED",
+      "detail": "No real Provider/credential/key/cost; all mock usage explicitly simulated."
+    },
+    {
+      "id": "L-UNKNOWN",
+      "status": "BLOCKED",
+      "detail": "Explicit file reconciliation does not itself release old Gateway/Worker/unknown resources; no automatic replay."
+    },
+    {
+      "id": "L-GC",
+      "status": "NOT_RUN",
+      "detail": "No automatic version/Artifact GC, deletion proof, or disk ownership destruction; capacity retained conservatively."
+    },
+    {
+      "id": "L-LONG-RUN",
+      "status": "NOT_RUN",
+      "detail": "No long-term resident service, autonomous priority coordinator, Git watcher or full M1.7 autonomy qualification."
+    },
+    {
+      "id": "L-MULTI-FILE",
+      "status": "NOT_RUN",
+      "detail": "Gate-to-write bridge binds one file Artifact hash; no distributed or multi-file transaction claim."
+    }
+  ],
+  "independent_findings": "evidence/independent-review/review.json"
+}

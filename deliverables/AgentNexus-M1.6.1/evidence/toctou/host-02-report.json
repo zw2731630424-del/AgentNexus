@@ -1,0 +1,559 @@
+{
+  "schema": "agentnexus/m161/toctou-evidence/1",
+  "started_at": "2026-11-08T00:16:20.061Z",
+  "scope": "REAL_WINDOWS_SAME_ACCOUNT_PRIMITIVE",
+  "base": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-02-host\\data\\m161-historical\\toctou-M9tsdr",
+  "system_configuration_changed": false,
+  "historical_tests_modified": false,
+  "status": "PASS",
+  "before": {
+    "safe": {
+      "path": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-02-host\\data\\m161-historical\\toctou-M9tsdr\\root\\slot\\value",
+      "dev": "2854786294",
+      "ino": "562949954729901",
+      "size": "4",
+      "birthtime_ns": "1794096980060753600",
+      "mtime_ns": "1794096980060753600",
+      "sha256": "8b3369944dd2a3fab39e32d1aeb1f763946a458ae3e6368a46432adc8f3a0860"
+    },
+    "outside": {
+      "path": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-02-host\\data\\m161-historical\\toctou-M9tsdr\\outside\\value",
+      "dev": "2854786294",
+      "ino": "562949954729902",
+      "size": "14",
+      "birthtime_ns": "1794096980060753600",
+      "mtime_ns": "1794096980060753600",
+      "sha256": "169f1d3725c854c15cceeb4416c498a8c3bb439337c8d48d8142a5f173d26fd5"
+    }
+  },
+  "native_before": {
+    "operation": "FileRead",
+    "root": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-02-host\\data\\m161-historical\\toctou-M9tsdr\\root",
+    "relative_path": "slot\\value",
+    "final_path": "\\\\?\\I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-02-host\\data\\m161-historical\\toctou-M9tsdr\\root\\slot\\value",
+    "file_id": "aa2894f6:000200000013f7ad",
+    "link_count": 1,
+    "bytes": 4,
+    "sha256": "8b3369944dd2a3fab39e32d1aeb1f763946a458ae3e6368a46432adc8f3a0860",
+    "last_write_filetime": "134385705800607536",
+    "content_base64": "c2FmZQ==",
+    "ancestor_handles_pinned": true,
+    "ancestor_share_write": false,
+    "ancestor_share_delete": false,
+    "ancestor_versions": [
+      {
+        "file_id": "aa2894f6:0022000000129e50",
+        "handle_path": "\\\\?\\I:\\AI_AgentNexus"
+      },
+      {
+        "file_id": "aa2894f6:0003000000129ecb",
+        "handle_path": "\\\\?\\I:\\AI_AgentNexus\\.workflow-kit"
+      },
+      {
+        "file_id": "aa2894f6:0003000000129ed4",
+        "handle_path": "\\\\?\\I:\\AI_AgentNexus\\.workflow-kit\\runtime"
+      },
+      {
+        "file_id": "aa2894f6:0003000000133cd7",
+        "handle_path": "\\\\?\\I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1"
+      },
+      {
+        "file_id": "aa2894f6:000200000013f793",
+        "handle_path": "\\\\?\\I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures"
+      },
+      {
+        "file_id": "aa2894f6:000200000013f7a4",
+        "handle_path": "\\\\?\\I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-02-host"
+      },
+      {
+        "file_id": "aa2894f6:000200000013f7a7",
+        "handle_path": "\\\\?\\I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-02-host\\data"
+      },
+      {
+        "file_id": "aa2894f6:000200000013f7a8",
+        "handle_path": "\\\\?\\I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-02-host\\data\\m161-historical"
+      },
+      {
+        "file_id": "aa2894f6:000200000013f7a9",
+        "handle_path": "\\\\?\\I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-02-host\\data\\m161-historical\\toctou-M9tsdr"
+      },
+      {
+        "file_id": "aa2894f6:000200000013f7aa",
+        "handle_path": "\\\\?\\I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-02-host\\data\\m161-historical\\toctou-M9tsdr\\root"
+      },
+      {
+        "file_id": "aa2894f6:000200000013f7ab",
+        "handle_path": "\\\\?\\I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-02-host\\data\\m161-historical\\toctou-M9tsdr\\root\\slot"
+      }
+    ],
+    "exclusive_create": false,
+    "source": "REAL_WINDOWS_PRIMITIVE",
+    "release_authority": false
+  },
+  "legacy_diagnostic": {
+    "diagnostic_only": true,
+    "original_requirement": "swaps > 0",
+    "original_attack_requirement_met": true,
+    "attempts": 42,
+    "swaps": 21,
+    "successes": 14,
+    "rejections": 26,
+    "errors": {
+      "RENAME_SAFE_DIRECTORY:EPERM": 1
+    },
+    "samples": [
+      {
+        "at": "2026-11-08T00:16:21.329Z",
+        "stage": "RENAME_SAFE_DIRECTORY",
+        "code": "EPERM",
+        "errno": -4048,
+        "syscall": "rename",
+        "message": "EPERM: operation not permitted, rename 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-02-host\\data\\m161-historical\\toctou-M9tsdr\\root\\slot' -> 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-02-host\\data\\m161-historical\\toctou-M9tsdr\\root\\saved'"
+      }
+    ],
+    "explanation": "Errors are observed instead of swallowed; no result here replaces the original historical verdict."
+  },
+  "junction_deletion_probe": {
+    "unlink": {
+      "succeeded": true
+    },
+    "rmdir_cleanup_complete": true,
+    "target_after": {
+      "path": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-02-host\\data\\m161-historical\\toctou-M9tsdr\\outside\\value",
+      "dev": "2854786294",
+      "ino": "562949954729902",
+      "size": "14",
+      "birthtime_ns": "1794096980060753600",
+      "mtime_ns": "1794096980060753600",
+      "sha256": "169f1d3725c854c15cceeb4416c498a8c3bb439337c8d48d8142a5f173d26fd5"
+    }
+  },
+  "rename_interruption": {
+    "injection": "EXPLICIT_FIXTURE_EXCEPTION_AFTER_REAL_OS_RENAME",
+    "result": {
+      "id": 1,
+      "ok": true,
+      "state": {
+        "slot_present": true,
+        "saved_present": false,
+        "junction": false,
+        "target": null,
+        "resolved_target": null
+      },
+      "stats": {
+        "attempts": 1,
+        "swaps": 0,
+        "restores": 1,
+        "rollbacks": 1,
+        "faults_recovered": 1,
+        "errors": {
+          "RENAME_SAFE_DIRECTORY:INJECTED_AFTER_RENAME": 1
+        },
+        "samples": [
+          {
+            "at": "2026-11-08T00:16:21.449Z",
+            "stage": "RENAME_SAFE_DIRECTORY",
+            "code": "INJECTED_AFTER_RENAME",
+            "errno": null,
+            "syscall": null,
+            "message": "Intentional fixture interruption after successful OS rename"
+          }
+        ]
+      }
+    },
+    "restored_file": {
+      "path": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-02-host\\data\\m161-historical\\toctou-M9tsdr\\root\\slot\\value",
+      "dev": "2854786294",
+      "ino": "562949954729901",
+      "size": "4",
+      "birthtime_ns": "1794096980060753600",
+      "mtime_ns": "1794096980060753600",
+      "sha256": "8b3369944dd2a3fab39e32d1aeb1f763946a458ae3e6368a46432adc8f3a0860"
+    }
+  },
+  "installed_attack": {
+    "installed": {
+      "id": 2,
+      "ok": true,
+      "state": {
+        "slot_present": true,
+        "saved_present": true,
+        "junction": true,
+        "target": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-02-host\\data\\m161-historical\\toctou-M9tsdr\\outside",
+        "resolved_target": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-02-host\\data\\m161-historical\\toctou-M9tsdr\\outside"
+      },
+      "stats": {
+        "attempts": 2,
+        "swaps": 1,
+        "restores": 1,
+        "rollbacks": 1,
+        "faults_recovered": 1,
+        "errors": {
+          "RENAME_SAFE_DIRECTORY:INJECTED_AFTER_RENAME": 1
+        },
+        "samples": [
+          {
+            "at": "2026-11-08T00:16:21.449Z",
+            "stage": "RENAME_SAFE_DIRECTORY",
+            "code": "INJECTED_AFTER_RENAME",
+            "errno": null,
+            "syscall": null,
+            "message": "Intentional fixture interruption after successful OS rename"
+          }
+        ]
+      }
+    },
+    "native_rejection": {
+      "ok": false,
+      "id": "m151-43",
+      "error": {
+        "message": "Reparse point rejected",
+        "code": "REPARSE_REJECTED"
+      }
+    },
+    "verified_junction": {
+      "target": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-02-host\\data\\m161-historical\\toctou-M9tsdr\\outside",
+      "resolved_target": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-02-host\\data\\m161-historical\\toctou-M9tsdr\\outside"
+    }
+  },
+  "concurrent_attack": {
+    "start": {
+      "id": 4,
+      "ok": true,
+      "state": {
+        "slot_present": true,
+        "saved_present": false,
+        "junction": false,
+        "target": null,
+        "resolved_target": null
+      },
+      "stats": {
+        "attempts": 2,
+        "swaps": 1,
+        "restores": 2,
+        "rollbacks": 1,
+        "faults_recovered": 1,
+        "errors": {
+          "RENAME_SAFE_DIRECTORY:INJECTED_AFTER_RENAME": 1
+        },
+        "samples": [
+          {
+            "at": "2026-11-08T00:16:21.449Z",
+            "stage": "RENAME_SAFE_DIRECTORY",
+            "code": "INJECTED_AFTER_RENAME",
+            "errno": null,
+            "syscall": null,
+            "message": "Intentional fixture interruption after successful OS rename"
+          }
+        ]
+      }
+    },
+    "end": {
+      "id": 5,
+      "ok": true,
+      "state": {
+        "slot_present": true,
+        "saved_present": false,
+        "junction": false,
+        "target": null,
+        "resolved_target": null
+      },
+      "stats": {
+        "attempts": 105,
+        "swaps": 51,
+        "restores": 52,
+        "rollbacks": 5,
+        "faults_recovered": 1,
+        "errors": {
+          "RENAME_SAFE_DIRECTORY:INJECTED_AFTER_RENAME": 1,
+          "RENAME_SAFE_DIRECTORY:EPERM": 4,
+          "CONCURRENT_TOGGLE:EPERM": 4
+        },
+        "samples": [
+          {
+            "at": "2026-11-08T00:16:21.449Z",
+            "stage": "RENAME_SAFE_DIRECTORY",
+            "code": "INJECTED_AFTER_RENAME",
+            "errno": null,
+            "syscall": null,
+            "message": "Intentional fixture interruption after successful OS rename"
+          },
+          {
+            "at": "2026-11-08T00:16:21.583Z",
+            "stage": "RENAME_SAFE_DIRECTORY",
+            "code": "EPERM",
+            "errno": -4048,
+            "syscall": "rename",
+            "message": "EPERM: operation not permitted, rename 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-02-host\\data\\m161-historical\\toctou-M9tsdr\\root\\slot' -> 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-02-host\\data\\m161-historical\\toctou-M9tsdr\\root\\saved'"
+          },
+          {
+            "at": "2026-11-08T00:16:21.584Z",
+            "stage": "CONCURRENT_TOGGLE",
+            "code": "EPERM",
+            "errno": -4048,
+            "syscall": "rename",
+            "message": "EPERM: operation not permitted, rename 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-02-host\\data\\m161-historical\\toctou-M9tsdr\\root\\slot' -> 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-02-host\\data\\m161-historical\\toctou-M9tsdr\\root\\saved'"
+          },
+          {
+            "at": "2026-11-08T00:16:21.623Z",
+            "stage": "RENAME_SAFE_DIRECTORY",
+            "code": "EPERM",
+            "errno": -4048,
+            "syscall": "rename",
+            "message": "EPERM: operation not permitted, rename 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-02-host\\data\\m161-historical\\toctou-M9tsdr\\root\\slot' -> 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-02-host\\data\\m161-historical\\toctou-M9tsdr\\root\\saved'"
+          },
+          {
+            "at": "2026-11-08T00:16:21.623Z",
+            "stage": "CONCURRENT_TOGGLE",
+            "code": "EPERM",
+            "errno": -4048,
+            "syscall": "rename",
+            "message": "EPERM: operation not permitted, rename 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-02-host\\data\\m161-historical\\toctou-M9tsdr\\root\\slot' -> 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-02-host\\data\\m161-historical\\toctou-M9tsdr\\root\\saved'"
+          },
+          {
+            "at": "2026-11-08T00:16:21.634Z",
+            "stage": "RENAME_SAFE_DIRECTORY",
+            "code": "EPERM",
+            "errno": -4048,
+            "syscall": "rename",
+            "message": "EPERM: operation not permitted, rename 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-02-host\\data\\m161-historical\\toctou-M9tsdr\\root\\slot' -> 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-02-host\\data\\m161-historical\\toctou-M9tsdr\\root\\saved'"
+          },
+          {
+            "at": "2026-11-08T00:16:21.635Z",
+            "stage": "CONCURRENT_TOGGLE",
+            "code": "EPERM",
+            "errno": -4048,
+            "syscall": "rename",
+            "message": "EPERM: operation not permitted, rename 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-02-host\\data\\m161-historical\\toctou-M9tsdr\\root\\slot' -> 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-02-host\\data\\m161-historical\\toctou-M9tsdr\\root\\saved'"
+          },
+          {
+            "at": "2026-11-08T00:16:21.723Z",
+            "stage": "RENAME_SAFE_DIRECTORY",
+            "code": "EPERM",
+            "errno": -4048,
+            "syscall": "rename",
+            "message": "EPERM: operation not permitted, rename 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-02-host\\data\\m161-historical\\toctou-M9tsdr\\root\\slot' -> 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-02-host\\data\\m161-historical\\toctou-M9tsdr\\root\\saved'"
+          },
+          {
+            "at": "2026-11-08T00:16:21.723Z",
+            "stage": "CONCURRENT_TOGGLE",
+            "code": "EPERM",
+            "errno": -4048,
+            "syscall": "rename",
+            "message": "EPERM: operation not permitted, rename 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-02-host\\data\\m161-historical\\toctou-M9tsdr\\root\\slot' -> 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-02-host\\data\\m161-historical\\toctou-M9tsdr\\root\\saved'"
+          }
+        ]
+      }
+    },
+    "safe_reads": 29,
+    "denied_reads": 91,
+    "rejection_codes": {
+      "REPARSE_REJECTED": 64,
+      "WIN32_1921": 3,
+      "WIN32_2": 24
+    },
+    "outside_bytes_returned": false
+  },
+  "worker_termination_recovery": {
+    "kind": "ACTUAL_WORKER_THREAD_TERMINATION_AFTER_OS_JUNCTION_INSTALL",
+    "termination_code": 1,
+    "before_termination": {
+      "id": 6,
+      "ok": true,
+      "state": {
+        "slot_present": true,
+        "saved_present": true,
+        "junction": true,
+        "target": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-02-host\\data\\m161-historical\\toctou-M9tsdr\\outside",
+        "resolved_target": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-02-host\\data\\m161-historical\\toctou-M9tsdr\\outside"
+      },
+      "stats": {
+        "attempts": 106,
+        "swaps": 52,
+        "restores": 52,
+        "rollbacks": 5,
+        "faults_recovered": 1,
+        "errors": {
+          "RENAME_SAFE_DIRECTORY:INJECTED_AFTER_RENAME": 1,
+          "RENAME_SAFE_DIRECTORY:EPERM": 4,
+          "CONCURRENT_TOGGLE:EPERM": 4
+        },
+        "samples": [
+          {
+            "at": "2026-11-08T00:16:21.449Z",
+            "stage": "RENAME_SAFE_DIRECTORY",
+            "code": "INJECTED_AFTER_RENAME",
+            "errno": null,
+            "syscall": null,
+            "message": "Intentional fixture interruption after successful OS rename"
+          },
+          {
+            "at": "2026-11-08T00:16:21.583Z",
+            "stage": "RENAME_SAFE_DIRECTORY",
+            "code": "EPERM",
+            "errno": -4048,
+            "syscall": "rename",
+            "message": "EPERM: operation not permitted, rename 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-02-host\\data\\m161-historical\\toctou-M9tsdr\\root\\slot' -> 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-02-host\\data\\m161-historical\\toctou-M9tsdr\\root\\saved'"
+          },
+          {
+            "at": "2026-11-08T00:16:21.584Z",
+            "stage": "CONCURRENT_TOGGLE",
+            "code": "EPERM",
+            "errno": -4048,
+            "syscall": "rename",
+            "message": "EPERM: operation not permitted, rename 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-02-host\\data\\m161-historical\\toctou-M9tsdr\\root\\slot' -> 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-02-host\\data\\m161-historical\\toctou-M9tsdr\\root\\saved'"
+          },
+          {
+            "at": "2026-11-08T00:16:21.623Z",
+            "stage": "RENAME_SAFE_DIRECTORY",
+            "code": "EPERM",
+            "errno": -4048,
+            "syscall": "rename",
+            "message": "EPERM: operation not permitted, rename 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-02-host\\data\\m161-historical\\toctou-M9tsdr\\root\\slot' -> 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-02-host\\data\\m161-historical\\toctou-M9tsdr\\root\\saved'"
+          },
+          {
+            "at": "2026-11-08T00:16:21.623Z",
+            "stage": "CONCURRENT_TOGGLE",
+            "code": "EPERM",
+            "errno": -4048,
+            "syscall": "rename",
+            "message": "EPERM: operation not permitted, rename 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-02-host\\data\\m161-historical\\toctou-M9tsdr\\root\\slot' -> 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-02-host\\data\\m161-historical\\toctou-M9tsdr\\root\\saved'"
+          },
+          {
+            "at": "2026-11-08T00:16:21.634Z",
+            "stage": "RENAME_SAFE_DIRECTORY",
+            "code": "EPERM",
+            "errno": -4048,
+            "syscall": "rename",
+            "message": "EPERM: operation not permitted, rename 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-02-host\\data\\m161-historical\\toctou-M9tsdr\\root\\slot' -> 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-02-host\\data\\m161-historical\\toctou-M9tsdr\\root\\saved'"
+          },
+          {
+            "at": "2026-11-08T00:16:21.635Z",
+            "stage": "CONCURRENT_TOGGLE",
+            "code": "EPERM",
+            "errno": -4048,
+            "syscall": "rename",
+            "message": "EPERM: operation not permitted, rename 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-02-host\\data\\m161-historical\\toctou-M9tsdr\\root\\slot' -> 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-02-host\\data\\m161-historical\\toctou-M9tsdr\\root\\saved'"
+          },
+          {
+            "at": "2026-11-08T00:16:21.723Z",
+            "stage": "RENAME_SAFE_DIRECTORY",
+            "code": "EPERM",
+            "errno": -4048,
+            "syscall": "rename",
+            "message": "EPERM: operation not permitted, rename 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-02-host\\data\\m161-historical\\toctou-M9tsdr\\root\\slot' -> 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-02-host\\data\\m161-historical\\toctou-M9tsdr\\root\\saved'"
+          },
+          {
+            "at": "2026-11-08T00:16:21.723Z",
+            "stage": "CONCURRENT_TOGGLE",
+            "code": "EPERM",
+            "errno": -4048,
+            "syscall": "rename",
+            "message": "EPERM: operation not permitted, rename 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-02-host\\data\\m161-historical\\toctou-M9tsdr\\root\\slot' -> 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-02-host\\data\\m161-historical\\toctou-M9tsdr\\root\\saved'"
+          }
+        ]
+      }
+    },
+    "stranded": {
+      "target": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-02-host\\data\\m161-historical\\toctou-M9tsdr\\outside",
+      "resolved_target": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-02-host\\data\\m161-historical\\toctou-M9tsdr\\outside",
+      "saved_file": {
+        "path": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-02-host\\data\\m161-historical\\toctou-M9tsdr\\root\\saved\\value",
+        "dev": "2854786294",
+        "ino": "562949954729901",
+        "size": "4",
+        "birthtime_ns": "1794096980060753600",
+        "mtime_ns": "1794096980060753600",
+        "sha256": "8b3369944dd2a3fab39e32d1aeb1f763946a458ae3e6368a46432adc8f3a0860"
+      }
+    },
+    "restored": {
+      "operation": "FileRead",
+      "root": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-02-host\\data\\m161-historical\\toctou-M9tsdr\\root",
+      "relative_path": "slot\\value",
+      "final_path": "\\\\?\\I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-02-host\\data\\m161-historical\\toctou-M9tsdr\\root\\slot\\value",
+      "file_id": "aa2894f6:000200000013f7ad",
+      "link_count": 1,
+      "bytes": 4,
+      "sha256": "8b3369944dd2a3fab39e32d1aeb1f763946a458ae3e6368a46432adc8f3a0860",
+      "last_write_filetime": "134385705800607536",
+      "content_base64": "c2FmZQ==",
+      "ancestor_handles_pinned": true,
+      "ancestor_share_write": false,
+      "ancestor_share_delete": false,
+      "ancestor_versions": [
+        {
+          "file_id": "aa2894f6:0022000000129e50",
+          "handle_path": "\\\\?\\I:\\AI_AgentNexus"
+        },
+        {
+          "file_id": "aa2894f6:0003000000129ecb",
+          "handle_path": "\\\\?\\I:\\AI_AgentNexus\\.workflow-kit"
+        },
+        {
+          "file_id": "aa2894f6:0003000000129ed4",
+          "handle_path": "\\\\?\\I:\\AI_AgentNexus\\.workflow-kit\\runtime"
+        },
+        {
+          "file_id": "aa2894f6:0003000000133cd7",
+          "handle_path": "\\\\?\\I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1"
+        },
+        {
+          "file_id": "aa2894f6:000200000013f793",
+          "handle_path": "\\\\?\\I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures"
+        },
+        {
+          "file_id": "aa2894f6:000200000013f7a4",
+          "handle_path": "\\\\?\\I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-02-host"
+        },
+        {
+          "file_id": "aa2894f6:000200000013f7a7",
+          "handle_path": "\\\\?\\I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-02-host\\data"
+        },
+        {
+          "file_id": "aa2894f6:000200000013f7a8",
+          "handle_path": "\\\\?\\I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-02-host\\data\\m161-historical"
+        },
+        {
+          "file_id": "aa2894f6:000200000013f7a9",
+          "handle_path": "\\\\?\\I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-02-host\\data\\m161-historical\\toctou-M9tsdr"
+        },
+        {
+          "file_id": "aa2894f6:000200000013f7aa",
+          "handle_path": "\\\\?\\I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-02-host\\data\\m161-historical\\toctou-M9tsdr\\root"
+        },
+        {
+          "file_id": "aa2894f6:000200000013f7ab",
+          "handle_path": "\\\\?\\I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-02-host\\data\\m161-historical\\toctou-M9tsdr\\root\\slot"
+        }
+      ],
+      "exclusive_create": false,
+      "source": "REAL_WINDOWS_PRIMITIVE",
+      "release_authority": false
+    }
+  },
+  "after": {
+    "safe": {
+      "path": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-02-host\\data\\m161-historical\\toctou-M9tsdr\\root\\slot\\value",
+      "dev": "2854786294",
+      "ino": "562949954729901",
+      "size": "4",
+      "birthtime_ns": "1794096980060753600",
+      "mtime_ns": "1794096980060753600",
+      "sha256": "8b3369944dd2a3fab39e32d1aeb1f763946a458ae3e6368a46432adc8f3a0860"
+    },
+    "outside": {
+      "path": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-02-host\\data\\m161-historical\\toctou-M9tsdr\\outside\\value",
+      "dev": "2854786294",
+      "ino": "562949954729902",
+      "size": "14",
+      "birthtime_ns": "1794096980060753600",
+      "mtime_ns": "1794096980060753600",
+      "sha256": "169f1d3725c854c15cceeb4416c498a8c3bb439337c8d48d8142a5f173d26fd5"
+    }
+  },
+  "outside_bytes_returned": false,
+  "final_recovery_complete": true,
+  "finished_at": "2026-11-08T00:16:21.745Z",
+  "rpc_log": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-02-host\\data\\m161-historical\\toctou-M9tsdr\\native-rpc\\6356304f-45a5-45a5-a7c1-e5647a8029d4.jsonl"
+}

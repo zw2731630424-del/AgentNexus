@@ -1,0 +1,542 @@
+{
+  "schema": "agentnexus/m161/toctou-evidence/1",
+  "started_at": "2026-11-08T00:15:34.180Z",
+  "scope": "REAL_WINDOWS_SAME_ACCOUNT_PRIMITIVE",
+  "base": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL",
+  "system_configuration_changed": false,
+  "historical_tests_modified": false,
+  "status": "NOT_RUN",
+  "before": {
+    "safe": {
+      "path": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\root\\slot\\value",
+      "dev": "2854786294",
+      "ino": "562949954729885",
+      "size": "4",
+      "birthtime_ns": "1794096934180347100",
+      "mtime_ns": "1794096934180347100",
+      "sha256": "8b3369944dd2a3fab39e32d1aeb1f763946a458ae3e6368a46432adc8f3a0860"
+    },
+    "outside": {
+      "path": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\outside\\value",
+      "dev": "2854786294",
+      "ino": "562949954729886",
+      "size": "14",
+      "birthtime_ns": "1794096934180347100",
+      "mtime_ns": "1794096934180347100",
+      "sha256": "169f1d3725c854c15cceeb4416c498a8c3bb439337c8d48d8142a5f173d26fd5"
+    }
+  },
+  "native_before": {
+    "operation": "FileRead",
+    "root": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\root",
+    "relative_path": "slot\\value",
+    "final_path": "\\\\?\\I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\root\\slot\\value",
+    "file_id": "aa2894f6:000200000013f79d",
+    "link_count": 1,
+    "bytes": 4,
+    "sha256": "8b3369944dd2a3fab39e32d1aeb1f763946a458ae3e6368a46432adc8f3a0860",
+    "last_write_filetime": "134385705341803471",
+    "content_base64": "c2FmZQ==",
+    "ancestor_handles_pinned": true,
+    "ancestor_share_write": false,
+    "ancestor_share_delete": false,
+    "ancestor_versions": [
+      {
+        "file_id": "aa2894f6:0022000000129e50",
+        "handle_path": "\\\\?\\I:\\AI_AgentNexus"
+      },
+      {
+        "file_id": "aa2894f6:0003000000129ecb",
+        "handle_path": "\\\\?\\I:\\AI_AgentNexus\\.workflow-kit"
+      },
+      {
+        "file_id": "aa2894f6:0003000000129ed4",
+        "handle_path": "\\\\?\\I:\\AI_AgentNexus\\.workflow-kit\\runtime"
+      },
+      {
+        "file_id": "aa2894f6:0003000000133cd7",
+        "handle_path": "\\\\?\\I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1"
+      },
+      {
+        "file_id": "aa2894f6:000200000013f793",
+        "handle_path": "\\\\?\\I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures"
+      },
+      {
+        "file_id": "aa2894f6:000200000013f794",
+        "handle_path": "\\\\?\\I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01"
+      },
+      {
+        "file_id": "aa2894f6:000200000013f797",
+        "handle_path": "\\\\?\\I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data"
+      },
+      {
+        "file_id": "aa2894f6:000200000013f798",
+        "handle_path": "\\\\?\\I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical"
+      },
+      {
+        "file_id": "aa2894f6:000200000013f799",
+        "handle_path": "\\\\?\\I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL"
+      },
+      {
+        "file_id": "aa2894f6:000200000013f79a",
+        "handle_path": "\\\\?\\I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\root"
+      },
+      {
+        "file_id": "aa2894f6:000200000013f79b",
+        "handle_path": "\\\\?\\I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\root\\slot"
+      }
+    ],
+    "exclusive_create": false,
+    "source": "REAL_WINDOWS_PRIMITIVE",
+    "release_authority": false
+  },
+  "legacy_diagnostic": {
+    "diagnostic_only": true,
+    "original_requirement": "swaps > 0",
+    "original_attack_requirement_met": false,
+    "attempts": 53,
+    "swaps": 0,
+    "successes": 3,
+    "rejections": 37,
+    "errors": {
+      "CREATE_JUNCTION:EPERM": 53
+    },
+    "samples": [
+      {
+        "at": "2026-11-08T00:15:35.658Z",
+        "stage": "CREATE_JUNCTION",
+        "code": "EPERM",
+        "errno": -4048,
+        "syscall": "symlink",
+        "message": "EPERM: operation not permitted, symlink 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\outside' -> 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\root\\slot'"
+      },
+      {
+        "at": "2026-11-08T00:15:35.661Z",
+        "stage": "CREATE_JUNCTION",
+        "code": "EPERM",
+        "errno": -4048,
+        "syscall": "symlink",
+        "message": "EPERM: operation not permitted, symlink 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\outside' -> 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\root\\slot'"
+      },
+      {
+        "at": "2026-11-08T00:15:35.664Z",
+        "stage": "CREATE_JUNCTION",
+        "code": "EPERM",
+        "errno": -4048,
+        "syscall": "symlink",
+        "message": "EPERM: operation not permitted, symlink 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\outside' -> 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\root\\slot'"
+      },
+      {
+        "at": "2026-11-08T00:15:35.666Z",
+        "stage": "CREATE_JUNCTION",
+        "code": "EPERM",
+        "errno": -4048,
+        "syscall": "symlink",
+        "message": "EPERM: operation not permitted, symlink 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\outside' -> 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\root\\slot'"
+      },
+      {
+        "at": "2026-11-08T00:15:35.668Z",
+        "stage": "CREATE_JUNCTION",
+        "code": "EPERM",
+        "errno": -4048,
+        "syscall": "symlink",
+        "message": "EPERM: operation not permitted, symlink 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\outside' -> 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\root\\slot'"
+      },
+      {
+        "at": "2026-11-08T00:15:35.671Z",
+        "stage": "CREATE_JUNCTION",
+        "code": "EPERM",
+        "errno": -4048,
+        "syscall": "symlink",
+        "message": "EPERM: operation not permitted, symlink 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\outside' -> 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\root\\slot'"
+      },
+      {
+        "at": "2026-11-08T00:15:35.674Z",
+        "stage": "CREATE_JUNCTION",
+        "code": "EPERM",
+        "errno": -4048,
+        "syscall": "symlink",
+        "message": "EPERM: operation not permitted, symlink 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\outside' -> 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\root\\slot'"
+      },
+      {
+        "at": "2026-11-08T00:15:35.676Z",
+        "stage": "CREATE_JUNCTION",
+        "code": "EPERM",
+        "errno": -4048,
+        "syscall": "symlink",
+        "message": "EPERM: operation not permitted, symlink 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\outside' -> 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\root\\slot'"
+      },
+      {
+        "at": "2026-11-08T00:15:35.680Z",
+        "stage": "CREATE_JUNCTION",
+        "code": "EPERM",
+        "errno": -4048,
+        "syscall": "symlink",
+        "message": "EPERM: operation not permitted, symlink 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\outside' -> 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\root\\slot'"
+      },
+      {
+        "at": "2026-11-08T00:15:35.683Z",
+        "stage": "CREATE_JUNCTION",
+        "code": "EPERM",
+        "errno": -4048,
+        "syscall": "symlink",
+        "message": "EPERM: operation not permitted, symlink 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\outside' -> 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\root\\slot'"
+      },
+      {
+        "at": "2026-11-08T00:15:35.686Z",
+        "stage": "CREATE_JUNCTION",
+        "code": "EPERM",
+        "errno": -4048,
+        "syscall": "symlink",
+        "message": "EPERM: operation not permitted, symlink 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\outside' -> 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\root\\slot'"
+      },
+      {
+        "at": "2026-11-08T00:15:35.689Z",
+        "stage": "CREATE_JUNCTION",
+        "code": "EPERM",
+        "errno": -4048,
+        "syscall": "symlink",
+        "message": "EPERM: operation not permitted, symlink 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\outside' -> 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\root\\slot'"
+      },
+      {
+        "at": "2026-11-08T00:15:35.692Z",
+        "stage": "CREATE_JUNCTION",
+        "code": "EPERM",
+        "errno": -4048,
+        "syscall": "symlink",
+        "message": "EPERM: operation not permitted, symlink 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\outside' -> 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\root\\slot'"
+      },
+      {
+        "at": "2026-11-08T00:15:35.696Z",
+        "stage": "CREATE_JUNCTION",
+        "code": "EPERM",
+        "errno": -4048,
+        "syscall": "symlink",
+        "message": "EPERM: operation not permitted, symlink 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\outside' -> 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\root\\slot'"
+      },
+      {
+        "at": "2026-11-08T00:15:35.698Z",
+        "stage": "CREATE_JUNCTION",
+        "code": "EPERM",
+        "errno": -4048,
+        "syscall": "symlink",
+        "message": "EPERM: operation not permitted, symlink 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\outside' -> 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\root\\slot'"
+      },
+      {
+        "at": "2026-11-08T00:15:35.700Z",
+        "stage": "CREATE_JUNCTION",
+        "code": "EPERM",
+        "errno": -4048,
+        "syscall": "symlink",
+        "message": "EPERM: operation not permitted, symlink 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\outside' -> 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\root\\slot'"
+      },
+      {
+        "at": "2026-11-08T00:15:35.702Z",
+        "stage": "CREATE_JUNCTION",
+        "code": "EPERM",
+        "errno": -4048,
+        "syscall": "symlink",
+        "message": "EPERM: operation not permitted, symlink 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\outside' -> 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\root\\slot'"
+      },
+      {
+        "at": "2026-11-08T00:15:35.704Z",
+        "stage": "CREATE_JUNCTION",
+        "code": "EPERM",
+        "errno": -4048,
+        "syscall": "symlink",
+        "message": "EPERM: operation not permitted, symlink 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\outside' -> 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\root\\slot'"
+      },
+      {
+        "at": "2026-11-08T00:15:35.709Z",
+        "stage": "CREATE_JUNCTION",
+        "code": "EPERM",
+        "errno": -4048,
+        "syscall": "symlink",
+        "message": "EPERM: operation not permitted, symlink 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\outside' -> 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\root\\slot'"
+      },
+      {
+        "at": "2026-11-08T00:15:35.713Z",
+        "stage": "CREATE_JUNCTION",
+        "code": "EPERM",
+        "errno": -4048,
+        "syscall": "symlink",
+        "message": "EPERM: operation not permitted, symlink 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\outside' -> 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\root\\slot'"
+      },
+      {
+        "at": "2026-11-08T00:15:35.716Z",
+        "stage": "CREATE_JUNCTION",
+        "code": "EPERM",
+        "errno": -4048,
+        "syscall": "symlink",
+        "message": "EPERM: operation not permitted, symlink 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\outside' -> 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\root\\slot'"
+      },
+      {
+        "at": "2026-11-08T00:15:35.719Z",
+        "stage": "CREATE_JUNCTION",
+        "code": "EPERM",
+        "errno": -4048,
+        "syscall": "symlink",
+        "message": "EPERM: operation not permitted, symlink 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\outside' -> 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\root\\slot'"
+      },
+      {
+        "at": "2026-11-08T00:15:35.722Z",
+        "stage": "CREATE_JUNCTION",
+        "code": "EPERM",
+        "errno": -4048,
+        "syscall": "symlink",
+        "message": "EPERM: operation not permitted, symlink 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\outside' -> 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\root\\slot'"
+      },
+      {
+        "at": "2026-11-08T00:15:35.726Z",
+        "stage": "CREATE_JUNCTION",
+        "code": "EPERM",
+        "errno": -4048,
+        "syscall": "symlink",
+        "message": "EPERM: operation not permitted, symlink 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\outside' -> 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\root\\slot'"
+      },
+      {
+        "at": "2026-11-08T00:15:35.730Z",
+        "stage": "CREATE_JUNCTION",
+        "code": "EPERM",
+        "errno": -4048,
+        "syscall": "symlink",
+        "message": "EPERM: operation not permitted, symlink 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\outside' -> 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\root\\slot'"
+      },
+      {
+        "at": "2026-11-08T00:15:35.734Z",
+        "stage": "CREATE_JUNCTION",
+        "code": "EPERM",
+        "errno": -4048,
+        "syscall": "symlink",
+        "message": "EPERM: operation not permitted, symlink 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\outside' -> 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\root\\slot'"
+      },
+      {
+        "at": "2026-11-08T00:15:35.737Z",
+        "stage": "CREATE_JUNCTION",
+        "code": "EPERM",
+        "errno": -4048,
+        "syscall": "symlink",
+        "message": "EPERM: operation not permitted, symlink 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\outside' -> 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\root\\slot'"
+      },
+      {
+        "at": "2026-11-08T00:15:35.741Z",
+        "stage": "CREATE_JUNCTION",
+        "code": "EPERM",
+        "errno": -4048,
+        "syscall": "symlink",
+        "message": "EPERM: operation not permitted, symlink 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\outside' -> 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\root\\slot'"
+      },
+      {
+        "at": "2026-11-08T00:15:35.744Z",
+        "stage": "CREATE_JUNCTION",
+        "code": "EPERM",
+        "errno": -4048,
+        "syscall": "symlink",
+        "message": "EPERM: operation not permitted, symlink 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\outside' -> 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\root\\slot'"
+      },
+      {
+        "at": "2026-11-08T00:15:35.748Z",
+        "stage": "CREATE_JUNCTION",
+        "code": "EPERM",
+        "errno": -4048,
+        "syscall": "symlink",
+        "message": "EPERM: operation not permitted, symlink 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\outside' -> 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\root\\slot'"
+      },
+      {
+        "at": "2026-11-08T00:15:35.751Z",
+        "stage": "CREATE_JUNCTION",
+        "code": "EPERM",
+        "errno": -4048,
+        "syscall": "symlink",
+        "message": "EPERM: operation not permitted, symlink 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\outside' -> 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\root\\slot'"
+      },
+      {
+        "at": "2026-11-08T00:15:35.754Z",
+        "stage": "CREATE_JUNCTION",
+        "code": "EPERM",
+        "errno": -4048,
+        "syscall": "symlink",
+        "message": "EPERM: operation not permitted, symlink 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\outside' -> 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\root\\slot'"
+      },
+      {
+        "at": "2026-11-08T00:15:35.757Z",
+        "stage": "CREATE_JUNCTION",
+        "code": "EPERM",
+        "errno": -4048,
+        "syscall": "symlink",
+        "message": "EPERM: operation not permitted, symlink 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\outside' -> 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\root\\slot'"
+      },
+      {
+        "at": "2026-11-08T00:15:35.760Z",
+        "stage": "CREATE_JUNCTION",
+        "code": "EPERM",
+        "errno": -4048,
+        "syscall": "symlink",
+        "message": "EPERM: operation not permitted, symlink 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\outside' -> 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\root\\slot'"
+      },
+      {
+        "at": "2026-11-08T00:15:35.762Z",
+        "stage": "CREATE_JUNCTION",
+        "code": "EPERM",
+        "errno": -4048,
+        "syscall": "symlink",
+        "message": "EPERM: operation not permitted, symlink 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\outside' -> 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\root\\slot'"
+      },
+      {
+        "at": "2026-11-08T00:15:35.765Z",
+        "stage": "CREATE_JUNCTION",
+        "code": "EPERM",
+        "errno": -4048,
+        "syscall": "symlink",
+        "message": "EPERM: operation not permitted, symlink 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\outside' -> 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\root\\slot'"
+      },
+      {
+        "at": "2026-11-08T00:15:35.768Z",
+        "stage": "CREATE_JUNCTION",
+        "code": "EPERM",
+        "errno": -4048,
+        "syscall": "symlink",
+        "message": "EPERM: operation not permitted, symlink 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\outside' -> 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\root\\slot'"
+      },
+      {
+        "at": "2026-11-08T00:15:35.771Z",
+        "stage": "CREATE_JUNCTION",
+        "code": "EPERM",
+        "errno": -4048,
+        "syscall": "symlink",
+        "message": "EPERM: operation not permitted, symlink 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\outside' -> 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\root\\slot'"
+      },
+      {
+        "at": "2026-11-08T00:15:35.773Z",
+        "stage": "CREATE_JUNCTION",
+        "code": "EPERM",
+        "errno": -4048,
+        "syscall": "symlink",
+        "message": "EPERM: operation not permitted, symlink 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\outside' -> 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\root\\slot'"
+      },
+      {
+        "at": "2026-11-08T00:15:35.775Z",
+        "stage": "CREATE_JUNCTION",
+        "code": "EPERM",
+        "errno": -4048,
+        "syscall": "symlink",
+        "message": "EPERM: operation not permitted, symlink 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\outside' -> 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\root\\slot'"
+      },
+      {
+        "at": "2026-11-08T00:15:35.779Z",
+        "stage": "CREATE_JUNCTION",
+        "code": "EPERM",
+        "errno": -4048,
+        "syscall": "symlink",
+        "message": "EPERM: operation not permitted, symlink 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\outside' -> 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\root\\slot'"
+      },
+      {
+        "at": "2026-11-08T00:15:35.782Z",
+        "stage": "CREATE_JUNCTION",
+        "code": "EPERM",
+        "errno": -4048,
+        "syscall": "symlink",
+        "message": "EPERM: operation not permitted, symlink 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\outside' -> 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\root\\slot'"
+      },
+      {
+        "at": "2026-11-08T00:15:35.785Z",
+        "stage": "CREATE_JUNCTION",
+        "code": "EPERM",
+        "errno": -4048,
+        "syscall": "symlink",
+        "message": "EPERM: operation not permitted, symlink 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\outside' -> 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\root\\slot'"
+      },
+      {
+        "at": "2026-11-08T00:15:35.788Z",
+        "stage": "CREATE_JUNCTION",
+        "code": "EPERM",
+        "errno": -4048,
+        "syscall": "symlink",
+        "message": "EPERM: operation not permitted, symlink 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\outside' -> 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\root\\slot'"
+      },
+      {
+        "at": "2026-11-08T00:15:35.790Z",
+        "stage": "CREATE_JUNCTION",
+        "code": "EPERM",
+        "errno": -4048,
+        "syscall": "symlink",
+        "message": "EPERM: operation not permitted, symlink 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\outside' -> 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\root\\slot'"
+      },
+      {
+        "at": "2026-11-08T00:15:35.792Z",
+        "stage": "CREATE_JUNCTION",
+        "code": "EPERM",
+        "errno": -4048,
+        "syscall": "symlink",
+        "message": "EPERM: operation not permitted, symlink 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\outside' -> 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\root\\slot'"
+      },
+      {
+        "at": "2026-11-08T00:15:35.796Z",
+        "stage": "CREATE_JUNCTION",
+        "code": "EPERM",
+        "errno": -4048,
+        "syscall": "symlink",
+        "message": "EPERM: operation not permitted, symlink 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\outside' -> 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\root\\slot'"
+      },
+      {
+        "at": "2026-11-08T00:15:35.799Z",
+        "stage": "CREATE_JUNCTION",
+        "code": "EPERM",
+        "errno": -4048,
+        "syscall": "symlink",
+        "message": "EPERM: operation not permitted, symlink 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\outside' -> 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\root\\slot'"
+      },
+      {
+        "at": "2026-11-08T00:15:35.801Z",
+        "stage": "CREATE_JUNCTION",
+        "code": "EPERM",
+        "errno": -4048,
+        "syscall": "symlink",
+        "message": "EPERM: operation not permitted, symlink 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\outside' -> 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\root\\slot'"
+      },
+      {
+        "at": "2026-11-08T00:15:35.804Z",
+        "stage": "CREATE_JUNCTION",
+        "code": "EPERM",
+        "errno": -4048,
+        "syscall": "symlink",
+        "message": "EPERM: operation not permitted, symlink 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\outside' -> 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\root\\slot'"
+      },
+      {
+        "at": "2026-11-08T00:15:35.807Z",
+        "stage": "CREATE_JUNCTION",
+        "code": "EPERM",
+        "errno": -4048,
+        "syscall": "symlink",
+        "message": "EPERM: operation not permitted, symlink 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\outside' -> 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\root\\slot'"
+      },
+      {
+        "at": "2026-11-08T00:15:35.809Z",
+        "stage": "CREATE_JUNCTION",
+        "code": "EPERM",
+        "errno": -4048,
+        "syscall": "symlink",
+        "message": "EPERM: operation not permitted, symlink 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\outside' -> 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\root\\slot'"
+      },
+      {
+        "at": "2026-11-08T00:15:35.813Z",
+        "stage": "CREATE_JUNCTION",
+        "code": "EPERM",
+        "errno": -4048,
+        "syscall": "symlink",
+        "message": "EPERM: operation not permitted, symlink 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\outside' -> 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\root\\slot'"
+      }
+    ],
+    "explanation": "Errors are observed instead of swallowed; no result here replaces the original historical verdict."
+  },
+  "reason": {
+    "phase": "CREATE_JUNCTION",
+    "code": "EPERM",
+    "errno": -4048,
+    "syscall": "symlink",
+    "message": "EPERM: operation not permitted, symlink 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\outside' -> 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\root\\probe-junction'"
+  },
+  "final_recovery_complete": true,
+  "finished_at": "2026-11-08T00:15:35.816Z",
+  "rpc_log": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\historical-failures\\toctou-01\\data\\m161-historical\\toctou-rUTZYL\\native-rpc\\dd720d7f-5cb2-4b3e-9716-3a88cc254150.jsonl"
+}

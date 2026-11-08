@@ -1,0 +1,599 @@
+TAP version 13
+# Subtest: M161 ARTIFACT queued writers retain two active streams, sixteen waiters, and legacy reject-third semantics
+ok 1 - M161 ARTIFACT queued writers retain two active streams, sixteen waiters, and legacy reject-third semantics
+  ---
+  duration_ms: 106.2688
+  type: 'test'
+  ...
+# Subtest: M161 ARTIFACT aborting a queued producer never starts its iterator and leaves no queued capacity
+ok 2 - M161 ARTIFACT aborting a queued producer never starts its iterator and leaves no queued capacity
+  ---
+  duration_ms: 5.933
+  type: 'test'
+  ...
+# Subtest: M161 ARTIFACT close rejects queued work while awaiting the two actual producers
+ok 3 - M161 ARTIFACT close rejects queued work while awaiting the two actual producers
+  ---
+  duration_ms: 6.6865
+  type: 'test'
+  ...
+# Subtest: M161 CPU qualification: strict Windows profiles fail closed before certificate lookup
+ok 4 - M161 CPU qualification: strict Windows profiles fail closed before certificate lookup
+  ---
+  duration_ms: 1.6754
+  type: 'test'
+  ...
+# Subtest: M161 REAL_WINDOWS_PRIMITIVE: observed junction replacement is denied, concurrent swaps and interrupted fixture recover
+ok 5 - M161 REAL_WINDOWS_PRIMITIVE: observed junction replacement is denied, concurrent swaps and interrupted fixture recover
+  ---
+  duration_ms: 1948.7537
+  type: 'test'
+  ...
+# TOCTOU raw evidence: I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\stabilization-01\\verification\\2026-11-08T00-43-09-615Z-34852\\data\\m161-historical\\toctou-Qn8ggW\\report.json
+# Subtest: M161-CONTEXT-EXACT: every source category and version survives immutable input/manifest reconstruction
+ok 6 - M161-CONTEXT-EXACT: every source category and version survives immutable input/manifest reconstruction
+  ---
+  duration_ms: 306.5757
+  type: 'test'
+  ...
+# Subtest: M161-CONTEXT-VERSIONS: actual file/rule changes cannot silently replace a bound version
+ok 7 - M161-CONTEXT-VERSIONS: actual file/rule changes cannot silently replace a bound version
+  ---
+  duration_ms: 160.7012
+  type: 'test'
+  ...
+# Subtest: M161-CONTEXT-LARGE: 8MiB raw history remains chunked and exact ranges retain complete hash verification
+ok 8 - M161-CONTEXT-LARGE: 8MiB raw history remains chunked and exact ranges retain complete hash verification
+  ---
+  duration_ms: 91.2384
+  type: 'test'
+  ...
+# Subtest: M161-CONTEXT-BACKPRESSURE SIMULATED_SCHEDULING_BARRIER: shared read pool bounds concurrent readers and aborts queued reads
+ok 9 - M161-CONTEXT-BACKPRESSURE SIMULATED_SCHEDULING_BARRIER: shared read pool bounds concurrent readers and aborts queued reads
+  ---
+  duration_ms: 60.6871
+  type: 'test'
+  ...
+# Subtest: M161-CONTEXT-DERIVED: missing/corrupt derived references never replace original raw history and indexes can be regenerated
+ok 10 - M161-CONTEXT-DERIVED: missing/corrupt derived references never replace original raw history and indexes can be regenerated
+  ---
+  duration_ms: 105.9894
+  type: 'test'
+  ...
+# Subtest: M161-CONTEXT-CORRUPTION: damaged original history outside selected range rejects assembly and leaves prior exact input intact
+ok 11 - M161-CONTEXT-CORRUPTION: damaged original history outside selected range rejects assembly and leaves prior exact input intact
+  ---
+  duration_ms: 66.4749
+  type: 'test'
+  ...
+# Subtest: M161-CONTEXT-LEGACY SIMULATED_LEGACY_PROJECTION: old M1.6 views reconstruct without rewriting or upgrading raw records
+ok 12 - M161-CONTEXT-LEGACY SIMULATED_LEGACY_PROJECTION: old M1.6 views reconstruct without rewriting or upgrading raw records
+  ---
+  duration_ms: 49.8839
+  type: 'test'
+  ...
+# Subtest: M161-CONTEXT-CEILING: full 256KiB control-byte input is exact and does not overflow metadata serialization
+ok 13 - M161-CONTEXT-CEILING: full 256KiB control-byte input is exact and does not overflow metadata serialization
+  ---
+  duration_ms: 155.0714
+  type: 'test'
+  ...
+# Subtest: M161-CONTEXT-REQUEST-FAILURE SIMULATED_PROVIDER: known-not-sent and unknown requests preserve exact acknowledged input across reopen
+ok 14 - M161-CONTEXT-REQUEST-FAILURE SIMULATED_PROVIDER: known-not-sent and unknown requests preserve exact acknowledged input across reopen
+  ---
+  duration_ms: 164.6428
+  type: 'test'
+  ...
+# Subtest: M161-CONTEXT-REQUIRED: important rules never silently truncate and stale/missing references fail closed
+ok 15 - M161-CONTEXT-REQUIRED: important rules never silently truncate and stale/missing references fail closed
+  ---
+  duration_ms: 74.5154
+  type: 'test'
+  ...
+# Subtest: M161-CONTEXT-INDEX-CORRUPTION: damaged derived index is detected while original raw/input objects remain recoverable
+ok 16 - M161-CONTEXT-INDEX-CORRUPTION: damaged derived index is detected while original raw/input objects remain recoverable
+  ---
+  duration_ms: 76.1541
+  type: 'test'
+  ...
+# Subtest: M161-CONTEXT-CONCURRENT-WRITES SIMULATED_PRODUCER_BARRIER: four capture/assembly callers wait on two real Artifact writers
+ok 17 - M161-CONTEXT-CONCURRENT-WRITES SIMULATED_PRODUCER_BARRIER: four capture/assembly callers wait on two real Artifact writers
+  ---
+  duration_ms: 135.3105
+  type: 'test'
+  ...
+# Subtest: M161-GATE-FORGERY: caller status and a model PASS artifact never certify an unexecuted gate
+ok 18 - M161-GATE-FORGERY: caller status and a model PASS artifact never certify an unexecuted gate
+  ---
+  duration_ms: 124.5387
+  type: 'test'
+  ...
+# Subtest: M161-GATE-ADMISSION-INTEGRITY: engine validates admitted Task, frozen rules and actual Artifact bytes
+ok 19 - M161-GATE-ADMISSION-INTEGRITY: engine validates admitted Task, frozen rules and actual Artifact bytes
+  ---
+  duration_ms: 108.348
+  type: 'test'
+  ...
+# Subtest: M161-GATE-CHECKER: trusted checker runs actual bounded reads and engine captures code provenance
+ok 20 - M161-GATE-CHECKER: trusted checker runs actual bounded reads and engine captures code provenance
+  ---
+  duration_ms: 101.0648
+  type: 'test'
+  ...
+# Subtest: M161-GATE-STATUS: FAIL, NOT_RUN, BLOCKED, INCONCLUSIVE and SIMULATED remain distinct
+ok 21 - M161-GATE-STATUS: FAIL, NOT_RUN, BLOCKED, INCONCLUSIVE and SIMULATED remain distinct
+  ---
+  duration_ms: 472.0199
+  type: 'test'
+  ...
+# Subtest: M161-GATE-MOCK: simulated checkers and profiles cannot become real PASS
+ok 22 - M161-GATE-MOCK: simulated checkers and profiles cannot become real PASS
+  ---
+  duration_ms: 175.8658
+  type: 'test'
+  ...
+# Subtest: M161-GATE-MISSING: missing design, delivery and unknown checker are NOT_RUN
+ok 23 - M161-GATE-MISSING: missing design, delivery and unknown checker are NOT_RUN
+  ---
+  duration_ms: 108.768
+  type: 'test'
+  ...
+# Subtest: M161-GATE-INDEPENDENCE: G4 requires registered independent reviewer and exact candidate/author binding
+ok 24 - M161-GATE-INDEPENDENCE: G4 requires registered independent reviewer and exact candidate/author binding
+  ---
+  duration_ms: 206.1635
+  type: 'test'
+  ...
+# Subtest: M161-GATE-HUMAN: actual trusted approval record is required and bound to candidate/rules/profile
+ok 25 - M161-GATE-HUMAN: actual trusted approval record is required and bound to candidate/rules/profile
+  ---
+  duration_ms: 151.4614
+  type: 'test'
+  ...
+# Subtest: M161-GATE-OFF: OFF records BYPASSED, does not execute checker, and cannot authorize protected capability
+ok 26 - M161-GATE-OFF: OFF records BYPASSED, does not execute checker, and cannot authorize protected capability
+  ---
+  duration_ms: 100.6286
+  type: 'test'
+  ...
+# Subtest: M161-GATE-OFF-RACE: gate disabled while actual artifact stream awaits commits BYPASSED
+ok 27 - M161-GATE-OFF-RACE: gate disabled while actual artifact stream awaits commits BYPASSED
+  ---
+  duration_ms: 105.2063
+  type: 'test'
+  ...
+# Subtest: M161-GATE-EPOCH-RACE: unrelated control change during validation becomes INCONCLUSIVE
+ok 28 - M161-GATE-EPOCH-RACE: unrelated control change during validation becomes INCONCLUSIVE
+  ---
+  duration_ms: 93.0944
+  type: 'test'
+  ...
+# Subtest: M161-GATE-RULE-BINDING: changed Task binding is blocked while new registry alone preserves frozen Task
+ok 29 - M161-GATE-RULE-BINDING: changed Task binding is blocked while new registry alone preserves frozen Task
+  ---
+  duration_ms: 101.4489
+  type: 'test'
+  ...
+# Subtest: M161-GATE-FINAL: seven actual gates share candidate/baseline/profile/rules and old evidence cannot pass a new candidate
+ok 30 - M161-GATE-FINAL: seven actual gates share candidate/baseline/profile/rules and old evidence cannot pass a new candidate
+  ---
+  duration_ms: 236.4963
+  type: 'test'
+  ...
+# Subtest: M161-GATE-CORRUPT: actual corrupted Artifact freezes owner and leaves no PASS or protected authorization
+ok 31 - M161-GATE-CORRUPT: actual corrupted Artifact freezes owner and leaves no PASS or protected authorization
+  ---
+  duration_ms: 76.256
+  type: 'test'
+  ...
+# Subtest: M161-GATE-LIMITS: evidence, duplicate kinds and concurrent gate execution are bounded
+ok 32 - M161-GATE-LIMITS: evidence, duplicate kinds and concurrent gate execution are bounded
+  ---
+  duration_ms: 118.684
+  type: 'test'
+  ...
+# Subtest: M161-GATE-COMPILED-CONSTRAINT: frozen DSL predicates enforce artifact, checker, byte and human requirements
+ok 33 - M161-GATE-COMPILED-CONSTRAINT: frozen DSL predicates enforce artifact, checker, byte and human requirements
+  ---
+  duration_ms: 116.1821
+  type: 'test'
+  ...
+# Subtest: M161-GATE-CHECKER-PROVENANCE: an invalid checker report cannot forge engine-generated provenance
+ok 34 - M161-GATE-CHECKER-PROVENANCE: an invalid checker report cannot forge engine-generated provenance
+  ---
+  duration_ms: 92.3016
+  type: 'test'
+  ...
+# Subtest: M161-GATE-ENGINE-OFF: disabling the engine records BYPASSED and preserves core feature owners
+ok 35 - M161-GATE-ENGINE-OFF: disabling the engine records BYPASSED and preserves core feature owners
+  ---
+  duration_ms: 83.2198
+  type: 'test'
+  ...
+# Subtest: M161-GATE-STALE-PASS: OFF then ON cannot revive an earlier gate authorization epoch
+ok 36 - M161-GATE-STALE-PASS: OFF then ON cannot revive an earlier gate authorization epoch
+  ---
+  duration_ms: 129.6798
+  type: 'test'
+  ...
+# Subtest: M161-GATE-RECOVERY: interrupted intent is INCONCLUSIVE without rerunning trusted code
+ok 37 - M161-GATE-RECOVERY: interrupted intent is INCONCLUSIVE without rerunning trusted code
+  ---
+  duration_ms: 73.5217
+  type: 'test'
+  ...
+# Subtest: M161-GATE-ACTUAL-NODE-TEST: trusted runner executes a real bounded Node test and gate consumes its actual exit/result
+ok 38 - M161-GATE-ACTUAL-NODE-TEST: trusted runner executes a real bounded Node test and gate consumes its actual exit/result
+  ---
+  duration_ms: 316.0424
+  type: 'test'
+  ...
+# Subtest: M161-GATE-SCHEDULER: frozen requirements block dispatch until a trusted matching native gate is explicitly bound
+ok 39 - M161-GATE-SCHEDULER: frozen requirements block dispatch until a trusted matching native gate is explicitly bound
+  ---
+  duration_ms: 1055.9036
+  type: 'test'
+  ...
+# Subtest: M161 TASK stable ID rejects changed budget, input, and acceptance contracts
+ok 40 - M161 TASK stable ID rejects changed budget, input, and acceptance contracts
+  ---
+  duration_ms: 193.4691
+  type: 'test'
+  ...
+# Subtest: M161 TASK rules update freezes old tasks, new tasks take new version, explicit migration archives the original contract
+ok 41 - M161 TASK rules update freezes old tasks, new tasks take new version, explicit migration archives the original contract
+  ---
+  duration_ms: 828.2464
+  type: 'test'
+  ...
+# Subtest: M161 TASK handoff repeats the same frozen plan and preserves old rules after project update
+ok 42 - M161 TASK handoff repeats the same frozen plan and preserves old rules after project update
+  ---
+  duration_ms: 548.6686
+  type: 'test'
+  ...
+# Subtest: M161 GATE actual file candidate is bound from trusted PASS to the approved Storage input
+ok 43 - M161 GATE actual file candidate is bound from trusted PASS to the approved Storage input
+  ---
+  duration_ms: 492.6116
+  type: 'test'
+  ...
+# Subtest: M161 FIVE AGENTS durable messages, independent tasks, event wake, resource competition and coordinator status grants
+ok 44 - M161 FIVE AGENTS durable messages, independent tasks, event wake, resource competition and coordinator status grants
+  ---
+  duration_ms: 2614.5408
+  type: 'test'
+  ...
+# Subtest: M161 COORDINATOR notices cross only explicitly granted projects and preserve original identity
+not ok 45 - M161 COORDINATOR notices cross only explicitly granted projects and preserve original identity
+  ---
+  duration_ms: 648.3941
+  type: 'test'
+  location: 'I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\stabilization-01\\verification\\2026-11-08T00-43-09-615Z-34852\\workspace\\tests\\agentnexus\\m161-harness.test.ts:80:1'
+  failureType: 'testCodeFailure'
+  error: 'MESSAGE_PERMISSION_DENIED'
+  code: 'MESSAGE_PERMISSION_DENIED'
+  name: 'NexusError'
+  stack: |-
+    invariant (file:///I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.6.1/stabilization-01/verification/2026-11-08T00-43-09-615Z-34852/workspace/src/agentnexus/types.ts:44:18)
+    MessageBus.enqueueCoordinatorNotice (file:///I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.6.1/stabilization-01/verification/2026-11-08T00-43-09-615Z-34852/workspace/src/agentnexus/harness/messages.ts:123:5)
+    Object.notifyProject (file:///I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.6.1/stabilization-01/verification/2026-11-08T00-43-09-615Z-34852/workspace/src/agentnexus/harness/index.ts:215:29)
+    async TestContext.<anonymous> (file:///I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.6.1/stabilization-01/verification/2026-11-08T00-43-09-615Z-34852/workspace/tests/agentnexus/m161-harness.test.ts:84:48)
+    async Test.run (node:internal/test_runner/test:1208:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:831:7)
+  ...
+# Subtest: M161 SUBAGENTS use independent contexts and parallel sibling messages without repeated tasks
+ok 46 - M161 SUBAGENTS use independent contexts and parallel sibling messages without repeated tasks
+  ---
+  duration_ms: 2119.4166
+  type: 'test'
+  ...
+# Subtest: M161 PROJECT budgets compete atomically and resume a known undispatched waiter once
+ok 47 - M161 PROJECT budgets compete atomically and resume a known undispatched waiter once
+  ---
+  duration_ms: 1368.6064
+  type: 'test'
+  ...
+# Subtest: M161-MESSAGE-ACK: delivery and receiver ACK cannot claim task processed/completed
+ok 48 - M161-MESSAGE-ACK: delivery and receiver ACK cannot claim task processed/completed
+  ---
+  duration_ms: 87.598
+  type: 'test'
+  ...
+# Subtest: M161-MESSAGE-HANDOFF SIMULATED_TASK_OWNER: atomic adoption, ACK and actual result evidence are separate from completion
+ok 49 - M161-MESSAGE-HANDOFF SIMULATED_TASK_OWNER: atomic adoption, ACK and actual result evidence are separate from completion
+  ---
+  duration_ms: 109.1285
+  type: 'test'
+  ...
+# Subtest: M161-MESSAGE-ROLLBACK SIMULATED_TASK_OWNER: incomplete or throwing adoption rolls back task, receipt and ACK together
+ok 50 - M161-MESSAGE-ROLLBACK SIMULATED_TASK_OWNER: incomplete or throwing adoption rolls back task, receipt and ACK together
+  ---
+  duration_ms: 62.1851
+  type: 'test'
+  ...
+# Subtest: M161-MESSAGE-OPERATION-DEDUPE SIMULATED_TASK_OWNER: copied envelopes with one stable operation do not adopt twice
+ok 51 - M161-MESSAGE-OPERATION-DEDUPE SIMULATED_TASK_OWNER: copied envelopes with one stable operation do not adopt twice
+  ---
+  duration_ms: 89.6953
+  type: 'test'
+  ...
+# Subtest: M161-MESSAGE-OPERATION-CONFLICT SIMULATED_TASK_OWNER: changed payload/task/correlation cannot reuse adoption authority
+ok 52 - M161-MESSAGE-OPERATION-CONFLICT SIMULATED_TASK_OWNER: changed payload/task/correlation cannot reuse adoption authority
+  ---
+  duration_ms: 108.7611
+  type: 'test'
+  ...
+# Subtest: M161-MESSAGE-CONCURRENT: parallel consumers obtain disjoint leases and equal-priority delivery preserves durable enqueue order
+ok 53 - M161-MESSAGE-CONCURRENT: parallel consumers obtain disjoint leases and equal-priority delivery preserves durable enqueue order
+  ---
+  duration_ms: 189.3608
+  type: 'test'
+  ...
+# Subtest: M161-MESSAGE-PERMISSIONS: permission revocation and replacement receiver runtime fence ACK and trusted handoff
+ok 54 - M161-MESSAGE-PERMISSIONS: permission revocation and replacement receiver runtime fence ACK and trusted handoff
+  ---
+  duration_ms: 55.0874
+  type: 'test'
+  ...
+# Subtest: M161-MESSAGE-WAKE-OUTBOX SIMULATED_CALLBACK_FAILURE: durable message survives sender exit and pending notification is recovered
+ok 55 - M161-MESSAGE-WAKE-OUTBOX SIMULATED_CALLBACK_FAILURE: durable message survives sender exit and pending notification is recovered
+  ---
+  duration_ms: 61.9222
+  type: 'test'
+  ...
+# Subtest: M161-MESSAGE-EXPIRY-REVOKE: queued expiry/revocation terminate delivery and in-flight external uncertainty never retries
+ok 56 - M161-MESSAGE-EXPIRY-REVOKE: queued expiry/revocation terminate delivery and in-flight external uncertainty never retries
+  ---
+  duration_ms: 202.8311
+  type: 'test'
+  ...
+# Subtest: M161-MESSAGE-REAL-PROCESS-RESTART: killed host recovers internal delivery but quarantines leased external effects
+ok 57 - M161-MESSAGE-REAL-PROCESS-RESTART: killed host recovers internal delivery but quarantines leased external effects
+  ---
+  duration_ms: 452.3688
+  type: 'test'
+  ...
+# Subtest: M161-MESSAGE-REAL-ACK-LOSS SIMULATED_CRASH_BARRIER: process death after durable handoff before caller ACK never repeats task adoption
+ok 58 - M161-MESSAGE-REAL-ACK-LOSS SIMULATED_CRASH_BARRIER: process death after durable handoff before caller ACK never repeats task adoption
+  ---
+  duration_ms: 421.2012
+  type: 'test'
+  ...
+# Subtest: M161-MESSAGE-COMPLETION-EVIDENCE SIMULATED_TASK_OWNER: self-reported success or held/unknown task claims cannot become completed
+ok 59 - M161-MESSAGE-COMPLETION-EVIDENCE SIMULATED_TASK_OWNER: self-reported success or held/unknown task claims cannot become completed
+  ---
+  duration_ms: 83.7231
+  type: 'test'
+  ...
+# Subtest: M161-MESSAGE-RECOVERY-BOUND SIMULATED_BOOT_REPLACEMENT: mass lease recovery commits at most 32 audited transitions per call
+ok 60 - M161-MESSAGE-RECOVERY-BOUND SIMULATED_BOOT_REPLACEMENT: mass lease recovery commits at most 32 audited transitions per call
+  ---
+  duration_ms: 1254.4224
+  type: 'test'
+  ...
+# Subtest: M161-MESSAGE-EXPIRED-BATCH SIMULATED_WALL_ADVANCE: unswept expired queue records never leak into delivery
+ok 61 - M161-MESSAGE-EXPIRED-BATCH SIMULATED_WALL_ADVANCE: unswept expired queue records never leak into delivery
+  ---
+  duration_ms: 1885.9114
+  type: 'test'
+  ...
+# Subtest: M161-MESSAGE-COORDINATOR: fixed trusted notices reach two project tasks without cross-project raw access or generic send authority
+ok 62 - M161-MESSAGE-COORDINATOR: fixed trusted notices reach two project tasks without cross-project raw access or generic send authority
+  ---
+  duration_ms: 258.4648
+  type: 'test'
+  ...
+# Subtest: M161-MESSAGE-COORDINATOR-DENIAL: admin/type/runtime/target payload/permission fences and content dedup survive the advisory lane
+ok 63 - M161-MESSAGE-COORDINATOR-DENIAL: admin/type/runtime/target payload/permission fences and content dedup survive the advisory lane
+  ---
+  duration_ms: 245.03
+  type: 'test'
+  ...
+# Subtest: M161-RULES-TEXT: source text remains verbatim and never becomes an executable natural-language rule
+ok 64 - M161-RULES-TEXT: source text remains verbatim and never becomes an executable natural-language rule
+  ---
+  duration_ms: 88.3281
+  type: 'test'
+  ...
+# Subtest: M161-RULES-DSL: all five classes, finite constraints, dependencies, scope and enforcement bindings are explicit
+ok 65 - M161-RULES-DSL: all five classes, finite constraints, dependencies, scope and enforcement bindings are explicit
+  ---
+  duration_ms: 60.2379
+  type: 'test'
+  ...
+# Subtest: M161-RULES-UNKNOWN: unknown constraint, class, fields, feature and policy are rejected
+ok 66 - M161-RULES-UNKNOWN: unknown constraint, class, fields, feature and policy are rejected
+  ---
+  duration_ms: 66.0526
+  type: 'test'
+  ...
+# Subtest: M161-RULES-DEPENDENCIES: duplicates, unknown dependencies, cycles and narrowing dependencies fail closed
+ok 67 - M161-RULES-DEPENDENCIES: duplicates, unknown dependencies, cycles and narrowing dependencies fail closed
+  ---
+  duration_ms: 58.2593
+  type: 'test'
+  ...
+# Subtest: M161-RULES-NO-PROMPT-PEP: natural language cannot claim machine enforcement or a forged owner
+ok 68 - M161-RULES-NO-PROMPT-PEP: natural language cannot claim machine enforcement or a forged owner
+  ---
+  duration_ms: 50.9541
+  type: 'test'
+  ...
+# Subtest: M161-RULES-VERSIONS: new tasks capture the new version while existing task bindings remain frozen
+ok 69 - M161-RULES-VERSIONS: new tasks capture the new version while existing task bindings remain frozen
+  ---
+  duration_ms: 81.0194
+  type: 'test'
+  ...
+# Subtest: M161-RULES-MIGRATION: migration requires explicit trusted authorization and persists separately from Task state
+ok 70 - M161-RULES-MIGRATION: migration requires explicit trusted authorization and persists separately from Task state
+  ---
+  duration_ms: 75.9522
+  type: 'test'
+  ...
+# Subtest: M161-RULES-LIMITS: source count, source bytes, duplicate source and rule count are strictly bounded
+ok 71 - M161-RULES-LIMITS: source count, source bytes, duplicate source and rule count are strictly bounded
+  ---
+  duration_ms: 49.8766
+  type: 'test'
+  ...
+# Subtest: M161-RULES-CLOSE-FENCE: compiler OFF during streamed source validation prevents publishing a registry
+ok 72 - M161-RULES-CLOSE-FENCE: compiler OFF during streamed source validation prevents publishing a registry
+  ---
+  duration_ms: 71.765
+  type: 'test'
+  ...
+# Subtest: M161-RULES-REOPEN: immutable registry and task binding survive actual SQLite close/reopen
+ok 73 - M161-RULES-REOPEN: immutable registry and task binding survive actual SQLite close/reopen
+  ---
+  duration_ms: 73.3498
+  type: 'test'
+  ...
+# Subtest: M161-RULES-VERSION-FORMAT: compile rejects versions that downstream frozen context cannot identify
+ok 74 - M161-RULES-VERSION-FORMAT: compile rejects versions that downstream frozen context cannot identify
+  ---
+  duration_ms: 57.4182
+  type: 'test'
+  ...
+# Subtest: M161 STORAGE real atomic CREATE binds exact approval, content, Artifact/Audit and persistent budget ownership
+ok 75 - M161 STORAGE real atomic CREATE binds exact approval, content, Artifact/Audit and persistent budget ownership
+  ---
+  duration_ms: 570.0671
+  type: 'test'
+  ...
+# Subtest: M161 STORAGE unauthorized write is rejected before files and before owner intent
+ok 76 - M161 STORAGE unauthorized write is rejected before files and before owner intent
+  ---
+  duration_ms: 221.4187
+  type: 'test'
+  ...
+# Subtest: M161 STORAGE no-clobber CREATE preserves unowned history
+ok 77 - M161 STORAGE no-clobber CREATE preserves unowned history
+  ---
+  duration_ms: 277.8363
+  type: 'test'
+  ...
+# Subtest: M161 STORAGE REPLACE requires the exact owned version; original Artifact remains reconstructible
+ok 78 - M161 STORAGE REPLACE requires the exact owned version; original Artifact remains reconstructible
+  ---
+  duration_ms: 783.8064
+  type: 'test'
+  ...
+# Subtest: M161 STORAGE bounded streaming verifies 3 MiB without materializing the input in the request
+ok 79 - M161 STORAGE bounded streaming verifies 3 MiB without materializing the input in the request
+  ---
+  duration_ms: 534.2725
+  type: 'test'
+  ...
+# Subtest: M161 STORAGE injected ENOSPC before publication leaves no target and quarantines original operation
+ok 80 - M161 STORAGE injected ENOSPC before publication leaves no target and quarantines original operation
+  ---
+  duration_ms: 309.3593
+  type: 'test'
+  ...
+# Subtest: M161 STORAGE injected EACCES before publication leaves no target and quarantines original operation
+ok 81 - M161 STORAGE injected EACCES before publication leaves no target and quarantines original operation
+  ---
+  duration_ms: 411.2409
+  type: 'test'
+  ...
+# Subtest: M161 STORAGE publish-link gap is reconciled by identity/hash without republishing
+ok 82 - M161 STORAGE publish-link gap is reconciled by identity/hash without republishing
+  ---
+  duration_ms: 570.5284
+  type: 'test'
+  ...
+# Subtest: M161 STORAGE concurrent same-resource writers conflict before the second file effect
+ok 83 - M161 STORAGE concurrent same-resource writers conflict before the second file effect
+  ---
+  duration_ms: 1046.2614
+  type: 'test'
+  ...
+# Subtest: M161 STORAGE changed bytes between publication and ACK stay UNKNOWN and cannot be reconciled by pathname
+ok 84 - M161 STORAGE changed bytes between publication and ACK stay UNKNOWN and cannot be reconciled by pathname
+  ---
+  duration_ms: 528.3753
+  type: 'test'
+  ...
+# Subtest: M161 STORAGE persistent resource quota rejects a second allocation before a temporary object
+ok 85 - M161 STORAGE persistent resource quota rejects a second allocation before a temporary object
+  ---
+  duration_ms: 1180.1865
+  type: 'test'
+  ...
+# Subtest: M161 STORAGE REAL_PROCESS_CRASH at REQUESTED preserves evidence and never automatically retries
+ok 86 - M161 STORAGE REAL_PROCESS_CRASH at REQUESTED preserves evidence and never automatically retries
+  ---
+  duration_ms: 798.5524
+  type: 'test'
+  ...
+# Subtest: M161 STORAGE REAL_PROCESS_CRASH at AUTHORIZED preserves evidence and never automatically retries
+ok 87 - M161 STORAGE REAL_PROCESS_CRASH at AUTHORIZED preserves evidence and never automatically retries
+  ---
+  duration_ms: 871.5625
+  type: 'test'
+  ...
+# Subtest: M161 STORAGE REAL_PROCESS_CRASH at WRITE_INTENT preserves evidence and never automatically retries
+ok 88 - M161 STORAGE REAL_PROCESS_CRASH at WRITE_INTENT preserves evidence and never automatically retries
+  ---
+  duration_ms: 929.7037
+  type: 'test'
+  ...
+# Subtest: M161 STORAGE REAL_PROCESS_CRASH at TEMP_OBJECT_CREATED preserves evidence and never automatically retries
+ok 89 - M161 STORAGE REAL_PROCESS_CRASH at TEMP_OBJECT_CREATED preserves evidence and never automatically retries
+  ---
+  duration_ms: 859.3981
+  type: 'test'
+  ...
+# Subtest: M161 STORAGE REAL_PROCESS_CRASH at WRITE_CHUNK preserves evidence and never automatically retries
+ok 90 - M161 STORAGE REAL_PROCESS_CRASH at WRITE_CHUNK preserves evidence and never automatically retries
+  ---
+  duration_ms: 794.1512
+  type: 'test'
+  ...
+# Subtest: M161 STORAGE REAL_PROCESS_CRASH at CONTENT_WRITTEN preserves evidence and never automatically retries
+ok 91 - M161 STORAGE REAL_PROCESS_CRASH at CONTENT_WRITTEN preserves evidence and never automatically retries
+  ---
+  duration_ms: 806.9029
+  type: 'test'
+  ...
+# Subtest: M161 STORAGE REAL_PROCESS_CRASH at CONTENT_VERIFIED preserves evidence and never automatically retries
+ok 92 - M161 STORAGE REAL_PROCESS_CRASH at CONTENT_VERIFIED preserves evidence and never automatically retries
+  ---
+  duration_ms: 792.4378
+  type: 'test'
+  ...
+# Subtest: M161 STORAGE REAL_PROCESS_CRASH at PUBLISH_READY preserves evidence and never automatically retries
+ok 93 - M161 STORAGE REAL_PROCESS_CRASH at PUBLISH_READY preserves evidence and never automatically retries
+  ---
+  duration_ms: 782.0328
+  type: 'test'
+  ...
+# Subtest: M161 STORAGE REAL_PROCESS_CRASH at UNLINK_TEMP preserves evidence and never automatically retries
+ok 94 - M161 STORAGE REAL_PROCESS_CRASH at UNLINK_TEMP preserves evidence and never automatically retries
+  ---
+  duration_ms: 791.796
+  type: 'test'
+  ...
+# Subtest: M161 STORAGE REAL_PROCESS_CRASH at PUBLISHED preserves evidence and never automatically retries
+ok 95 - M161 STORAGE REAL_PROCESS_CRASH at PUBLISHED preserves evidence and never automatically retries
+  ---
+  duration_ms: 850.098
+  type: 'test'
+  ...
+# Subtest: M161 STORAGE REAL_PROCESS_CRASH at AUDIT_ACKNOWLEDGED preserves evidence and never automatically retries
+ok 96 - M161 STORAGE REAL_PROCESS_CRASH at AUDIT_ACKNOWLEDGED preserves evidence and never automatically retries
+  ---
+  duration_ms: 835.699
+  type: 'test'
+  ...
+1..96
+# tests 96
+# suites 0
+# pass 95
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 40057.1763

@@ -1,0 +1,226 @@
+{
+  "schema": "agentnexus/independent-review/source-checks/1",
+  "observed_at": "2026-11-08T01:02:44.908Z",
+  "source_set_sha256": "325793d0544e6a4bae0cad0cb2f4fb9956c97aad7ccf137118de84178bdd7ef2",
+  "manifest_sha256": "400ae80074edb060b8987e01f4dd8a1a0fd40616b4ebf75565a71f0f6cd6de72",
+  "manifest_file_count": 140,
+  "actual_file_count": 140,
+  "exact_source_membership": true,
+  "all_manifest_file_bytes_and_hashes_match": true,
+  "recomputed_set_sha256": "325793d0544e6a4bae0cad0cb2f4fb9956c97aad7ccf137118de84178bdd7ef2",
+  "set_algorithm": "SHA256(concat(sorted(path + NUL + file_sha256 + LF)))",
+  "reviewed_modules": [
+    {
+      "path": "src/agentnexus/harness/storage-owner.ts",
+      "bytes": 27069,
+      "sha256": "c49b503f361590c45c9791912163b351415f36ddd6ddb29758c737b9246b4516",
+      "matches_manifest": true,
+      "review_scope": "Complete new owner file: transaction states, identity/hash barriers, create/replace, explicit recovery, execution slots and quota",
+      "evidence_sequences": [
+        2,
+        4,
+        5,
+        7,
+        8,
+        26,
+        28
+      ]
+    },
+    {
+      "path": "src/agentnexus/harness/state.ts",
+      "bytes": 7782,
+      "sha256": "c254cbee8f24f5511267a449bb07e4e6dd90416bf8264694e2214094e2d3ccb6",
+      "matches_manifest": true,
+      "review_scope": "Transaction and archive-ACK semantics used by reviewed owners; no historical native OS module audit",
+      "evidence_sequences": [
+        2,
+        4,
+        7,
+        19,
+        20,
+        23,
+        24,
+        26
+      ]
+    },
+    {
+      "path": "src/agentnexus/harness/index.ts",
+      "bytes": 27938,
+      "sha256": "9bd4cd3f98db86f3a0ed027264e36cdc7e45a974b3d6910cf156b381795eb9b0",
+      "matches_manifest": true,
+      "review_scope": "New integration, bound facades, captureDraft, Coordinator grants/advisory lane and close/recovery wiring",
+      "evidence_sequences": [
+        11,
+        14,
+        16,
+        21,
+        22,
+        23,
+        24,
+        25,
+        28
+      ]
+    },
+    {
+      "path": "src/agentnexus/harness/scheduler.ts",
+      "bytes": 44020,
+      "sha256": "8808d36d03ec3570b6b763599f8f6dd5aaa734373c839acc057e5094606d7433",
+      "matches_manifest": true,
+      "review_scope": "Task contract/gate binding, storage effect bridge, resource closure, rule migration and durable handoff",
+      "evidence_sequences": [
+        10,
+        11,
+        14,
+        15,
+        16,
+        28
+      ]
+    },
+    {
+      "path": "src/agentnexus/resources/budget-manager.ts",
+      "bytes": 18270,
+      "sha256": "7ea22cc6c6b9facf741413be900fd1c9b0396f07d1d6472e4787f8a4014737b9",
+      "matches_manifest": true,
+      "review_scope": "Persistent storage adoption and surrounding Worker/Project/Platform capacity settlement",
+      "evidence_sequences": [
+        6
+      ]
+    },
+    {
+      "path": "src/agentnexus/harness/rules.ts",
+      "bytes": 17195,
+      "sha256": "deb0dc2d67c00ed5b82f31c7f30c839499d124399ec9a9f60f673ff3f9bd8032",
+      "matches_manifest": true,
+      "review_scope": "New finite compiler, source/version integrity, dependencies, frozen binding and migration",
+      "evidence_sequences": [
+        9,
+        12,
+        15
+      ]
+    },
+    {
+      "path": "src/agentnexus/harness/gates.ts",
+      "bytes": 29768,
+      "sha256": "f9688690a41898d93030ee45f9fbdfc4ebe8876a14d2e0becbfaebd310c88d66",
+      "matches_manifest": true,
+      "review_scope": "New engine, trusted checker execution, candidate/profile/rules/epoch binding and protected PASS consumption",
+      "evidence_sequences": [
+        11,
+        15
+      ]
+    },
+    {
+      "path": "src/agentnexus/harness/context.ts",
+      "bytes": 25433,
+      "sha256": "322c8f68c7d19181a973a9f9cbd7a7d39cbd348a8b8442904b32924b9c209f97",
+      "matches_manifest": true,
+      "review_scope": "Bounded shared reads, immutable input/manifest provenance, reconstruction and read/write pool composition",
+      "evidence_sequences": [
+        9,
+        12,
+        19,
+        20,
+        27
+      ]
+    },
+    {
+      "path": "src/agentnexus/harness/messages.ts",
+      "bytes": 29686,
+      "sha256": "fec7f184e3df60e4e09a762be1a3d83a62ba070b42fc63475b3e831eef04313f",
+      "matches_manifest": true,
+      "review_scope": "Message/lease/recovery/handoff/completion semantics and new Coordinator advisory enqueue",
+      "evidence_sequences": [
+        13,
+        18,
+        25,
+        27
+      ]
+    },
+    {
+      "path": "src/agentnexus/artifacts.ts",
+      "bytes": 18086,
+      "sha256": "506347b26285855c3f2ea60007ed77debe39a360130990a018e092069c2f0ab2",
+      "matches_manifest": true,
+      "review_scope": "New queued-put methods and put/read/close integration needed to establish their boundedness and cancellation behavior",
+      "evidence_sequences": [
+        17,
+        19,
+        20,
+        22,
+        24,
+        26,
+        28
+      ]
+    },
+    {
+      "path": "src/agentnexus/harness/agents.ts",
+      "bytes": 10389,
+      "sha256": "0f96a316c617956f85bb232d5f24d34067be1f906e45ba382dd71529569db9bd",
+      "matches_manifest": true,
+      "review_scope": "Coordinator read_projects grant and role/capability restriction portions only",
+      "evidence_sequences": [
+        25
+      ]
+    },
+    {
+      "path": "src/agentnexus/gateway.ts",
+      "bytes": 24460,
+      "sha256": "89324db842f7ce1cdac2c5dcaf73441ea84fff549b943953514b845b3b8670d3",
+      "matches_manifest": true,
+      "review_scope": "Changed queued-artifact admission/output call sites and Storage authorization relationship only; not a line-by-line historical Gateway audit",
+      "evidence_sequences": [
+        28
+      ]
+    },
+    {
+      "path": "src/agentnexus/harness/workflow.ts",
+      "bytes": 8054,
+      "sha256": "798d5dc7da43c460f063d83af2745e7d77b45cc45e1ccc381a9a313fe6b2e889",
+      "matches_manifest": true,
+      "review_scope": "Changed queued-artifact call site only; not a line-by-line historical Workflow runtime audit",
+      "evidence_sequences": []
+    }
+  ],
+  "supplementary_test_modules": [
+    {
+      "path": "tests/agentnexus/m161-messages.test.ts",
+      "bytes": 30503,
+      "sha256": "62b55dcb400eb82cac1f5c4d3c3c55d88efd2b79061d70de283b3e9b1c098723",
+      "matches_manifest": true
+    },
+    {
+      "path": "tests/agentnexus/m161-context.test.ts",
+      "bytes": 25065,
+      "sha256": "1d6b10f4b6718ddc0ac3b34853475b38d99250d37683597d60969083f5a0061d",
+      "matches_manifest": true
+    },
+    {
+      "path": "tests/agentnexus/m161-storage-fixture.ts",
+      "bytes": 2242,
+      "sha256": "1db55cb7ceadde6ba56cd00b0306886fbfe03f4ca25ce1b49c1112cf406e11e1",
+      "matches_manifest": true
+    }
+  ],
+  "reuse_notes": [
+    {
+      "evidence_sequences": [
+        6
+      ],
+      "basis": "BudgetManager storage-adoption module SHA256 is unchanged from the initial independently tested module (7ea22cc6c6b9facf741413be900fd1c9b0396f07d1d6472e4787f8a4014737b9); no new ledger behavior was inferred from unrelated code changes."
+    },
+    {
+      "evidence_sequences": [
+        7
+      ],
+      "basis": "Atomic-abort evidence reused after line-by-line check of the unchanged abort transaction. Later StorageOwner additions are the independent publication recheck and are retested against final bytes in sequences 26 and 28."
+    },
+    {
+      "evidence_sequences": [
+        27,
+        28
+      ],
+      "basis": "Selected component tests and public real-hardlink recovery were rerun on the final frozen source. Historical failed observations remain separate, not relabeled as final passes."
+    }
+  ],
+  "scope_boundary": "Byte verification covers all 140 snapshot files. Correctness review is limited to reviewed_modules and the explicitly named portions; no claim of line-by-line review of historical native/OS/provider/CPU code."
+}

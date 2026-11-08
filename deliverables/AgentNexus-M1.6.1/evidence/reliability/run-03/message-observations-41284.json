@@ -1,0 +1,262 @@
+{
+  "schema": "agentnexus/m161/message-tests/1",
+  "node": "v24.15.0",
+  "platform": "win32",
+  "assurance": "REAL_SQLITE_ZSTD_LOCAL_FILES; Task owner fixtures and crash barriers explicitly simulated; two child processes really killed; no OS reboot or external side effect qualification",
+  "observations": [
+    {
+      "name": "M161-MESSAGE-ACK: delivery and receiver ACK cannot claim task processed/completed",
+      "status": "PASS",
+      "detail": {
+        "delivery": "ACKNOWLEDGED",
+        "task_state": "QUEUED",
+        "task_adoptions": 0,
+        "operation_id": "operation-ack"
+      }
+    },
+    {
+      "name": "M161-MESSAGE-HANDOFF SIMULATED_TASK_OWNER: atomic adoption, ACK and actual result evidence are separate from completion",
+      "status": "PASS",
+      "detail": {
+        "receipt": {
+          "accepted_at": 1794097844514,
+          "accepted_turns": 0,
+          "correlation_id": "correlation-handoff",
+          "duplicate_of": null,
+          "message_id": "1e8102ba576853c9d3685a349cb8f251c1fabc2af83b51adc09603aa812e1cf8",
+          "operation_id": "operation-handoff",
+          "payload_record_hash": "ffe9af8f5271f750931db25c5fd9cdbf14ddf9959cf6a6866754d00632d355cf",
+          "project_id": "m161-messages",
+          "receiver_agent_id": "m161-receiver",
+          "result_ref": null,
+          "revision": 0,
+          "state": "ACCEPTED",
+          "task_id": "receiver-task",
+          "task_revision": 1
+        },
+        "completed": {
+          "accepted_at": 1794097844514,
+          "accepted_turns": 0,
+          "correlation_id": "correlation-handoff",
+          "duplicate_of": null,
+          "message_id": "1e8102ba576853c9d3685a349cb8f251c1fabc2af83b51adc09603aa812e1cf8",
+          "operation_id": "operation-handoff",
+          "payload_record_hash": "ffe9af8f5271f750931db25c5fd9cdbf14ddf9959cf6a6866754d00632d355cf",
+          "project_id": "m161-messages",
+          "receiver_agent_id": "m161-receiver",
+          "result_ref": {
+            "event_id": "f32eb9f1-1207-4e84-8f39-ff7cab853e18",
+            "kind": "RAW",
+            "length": 20,
+            "offset": 0,
+            "payload_ref": {
+              "artifact_id": "6602f586-b21b-4d15-805a-57a00b21e715",
+              "bytes": 20,
+              "codec": "zstd",
+              "media_type": "text/plain; charset=utf-8",
+              "sensitivity": "NORMAL",
+              "sha256": "933e11836e9ca6b18e02aec282a117295b34dcaf8427f2bee3af48efaa7dce71",
+              "stored_bytes": 33,
+              "stored_sha256": "46468eaeebf795d6eaeb636d9516b3b08a1b1e80e65f40710be955fb90b48601"
+            },
+            "project_id": "m161-messages",
+            "record_hash": "792479c9a90fd068ecd4602d0f03b6b6051c39437a73bb6a1732df3da9cf137d",
+            "task_id": "receiver-task"
+          },
+          "revision": 2,
+          "state": "COMPLETED",
+          "task_id": "receiver-task",
+          "task_revision": 3
+        },
+        "adoptions": 1
+      }
+    },
+    {
+      "name": "M161-MESSAGE-ROLLBACK SIMULATED_TASK_OWNER: incomplete or throwing adoption rolls back task, receipt and ACK together",
+      "status": "PASS",
+      "detail": {
+        "transaction_rollback": true,
+        "subsequent_single_adoption": true
+      }
+    },
+    {
+      "name": "M161-MESSAGE-OPERATION-DEDUPE SIMULATED_TASK_OWNER: copied envelopes with one stable operation do not adopt twice",
+      "status": "PASS",
+      "detail": {
+        "messages": 2,
+        "operation_receipts": 1,
+        "task_adoptions": 1,
+        "duplicate": {
+          "accepted_at": 1794097844707,
+          "accepted_turns": 0,
+          "correlation_id": "stable-correlation",
+          "duplicate_of": "e494d0cacbf48533dce28c9a8086ecd7cf44beb4134785a9beb7c6a577970483",
+          "message_id": "2b39d934d8cac75c4c5d0de7b629cee4a27379e7f413758b29b1f34b98561490",
+          "operation_id": "stable-operation",
+          "payload_record_hash": "5ceb420793283bee02e3ed8a6284750c53bce468edd3436f40a35ec4bf2f6a78",
+          "project_id": "m161-messages",
+          "receiver_agent_id": "m161-receiver",
+          "result_ref": null,
+          "revision": 0,
+          "state": "ACCEPTED",
+          "task_id": "receiver-task",
+          "task_revision": 1
+        }
+      }
+    },
+    {
+      "name": "M161-MESSAGE-OPERATION-CONFLICT SIMULATED_TASK_OWNER: changed payload/task/correlation cannot reuse adoption authority",
+      "status": "PASS",
+      "detail": {
+        "conflicting_message": "d373d3e47282861c0da235ad209905f23e33824e05e11cda6caf00725ed96961",
+        "adoptions": 1,
+        "conflict_retained": true
+      }
+    },
+    {
+      "name": "M161-MESSAGE-CONCURRENT: parallel consumers obtain disjoint leases and equal-priority delivery preserves durable enqueue order",
+      "status": "PASS",
+      "detail": {
+        "concurrent_sends": 8,
+        "stable_message_ids": 1,
+        "disjoint_leases": 8,
+        "sequences": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      }
+    },
+    {
+      "name": "M161-MESSAGE-PERMISSIONS: permission revocation and replacement receiver runtime fence ACK and trusted handoff",
+      "status": "PASS",
+      "detail": {
+        "permission_revocation_blocks_ack": true,
+        "old_runtime_fenced": true,
+        "task_adoptions": 0
+      }
+    },
+    {
+      "name": "M161-MESSAGE-WAKE-OUTBOX SIMULATED_CALLBACK_FAILURE: durable message survives sender exit and pending notification is recovered",
+      "status": "PASS",
+      "detail": {
+        "sender_exit": true,
+        "message_lost": false,
+        "wake_attempts": 2,
+        "recovered": {
+          "wakes": 1,
+          "pending": 0
+        }
+      }
+    },
+    {
+      "name": "M161-MESSAGE-EXPIRY-REVOKE: queued expiry/revocation terminate delivery and in-flight external uncertainty never retries",
+      "status": "PASS",
+      "detail": {
+        "expired": "7e1e6807bbab4f66f754b9538547df45acd7a927fab0e41e3980de3753cf8535",
+        "revoked": "850a843a805b32716e9805f96b2b5a87bc47bb9d8db4a61a0ffa6e75a51149d8",
+        "external_unknown": [
+          "3ab02746f366b513a01ed4b436e61527bb01bbc4d662380b3a2ba292d2d6cb93",
+          "c92a0cd9978c4d51fee4546b8cb5c071c745df3faeb3e3fda15be77e18422b29",
+          "5f09ece0cca9dae3f3de497748850b8a22d3d798e510a65c5043ec41b6a5d0c0"
+        ],
+        "automatic_replay": false
+      }
+    },
+    {
+      "name": "M161-MESSAGE-REAL-PROCESS-RESTART: killed host recovers internal delivery but quarantines leased external effects",
+      "status": "PASS",
+      "detail": {
+        "phase": "LEASES_DURABLE",
+        "process_exit": [
+          null,
+          "SIGKILL"
+        ],
+        "lock_recovery": {
+          "recovered": true,
+          "evidence_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\evidence\\reliability\\run-03\\test-data\\m161-messages\\case-KOVtGo\\recovery\\abandoned-lock-ca08e06a-cac4-454d-8675-99b4c26b074c-483755cf-6cc4-4f84-b1c0-07fe8a0d3395"
+        },
+        "redelivered_internal": "5d82e6f0852b429ee4d1706a300b4a6055c7f130bf109fd55d1295d8979780ba",
+        "external_state": "INDETERMINATE",
+        "real_process_kill": true,
+        "os_reboot": false
+      }
+    },
+    {
+      "name": "M161-MESSAGE-REAL-ACK-LOSS SIMULATED_CRASH_BARRIER: process death after durable handoff before caller ACK never repeats task adoption",
+      "status": "PASS",
+      "detail": {
+        "phase": "HANDOFF_DURABLE_BEFORE_CALLER_ACK",
+        "process_exit": [
+          null,
+          "SIGKILL"
+        ],
+        "lock_recovery": {
+          "recovered": true,
+          "evidence_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\evidence\\reliability\\run-03\\test-data\\m161-messages\\case-zeYEx8\\recovery\\abandoned-lock-11911263-bba1-4a33-a946-e6b980b9d542-d5bb66f5-1647-4c3b-9e39-653c0a3a1ebb"
+        },
+        "task_adoptions": 1,
+        "repeated_adoptions": 0,
+        "receipt": {
+          "accepted_at": 1794097846026,
+          "accepted_turns": 0,
+          "correlation_id": "child-correlation",
+          "duplicate_of": null,
+          "message_id": "5d82e6f0852b429ee4d1706a300b4a6055c7f130bf109fd55d1295d8979780ba",
+          "operation_id": "child-operation",
+          "payload_record_hash": "f269d25aca6cf0c9850857d5ac1d05d8ae228da6e1352342302a022bd1904e63",
+          "project_id": "m161-messages",
+          "receiver_agent_id": "m161-receiver",
+          "result_ref": null,
+          "revision": 0,
+          "state": "ACCEPTED",
+          "task_id": "receiver-task",
+          "task_revision": 1
+        },
+        "real_process_kill": true,
+        "barrier": "SIMULATED_WAIT_AFTER_REAL_FSYNC"
+      }
+    },
+    {
+      "name": "M161-MESSAGE-COMPLETION-EVIDENCE SIMULATED_TASK_OWNER: self-reported success or held/unknown task claims cannot become completed",
+      "status": "PASS",
+      "detail": {
+        "forged_completion_rejected": true,
+        "held_claim_rejected": true,
+        "unknown_retained": true
+      }
+    },
+    {
+      "name": "M161-MESSAGE-RECOVERY-BOUND SIMULATED_BOOT_REPLACEMENT: mass lease recovery commits at most 32 audited transitions per call",
+      "status": "PASS",
+      "detail": {
+        "messages": 80,
+        "queued_after_each_recovery": [
+          32,
+          64,
+          80
+        ],
+        "max_transitions_per_call": 32,
+        "synthetic_boot_change": true
+      }
+    },
+    {
+      "name": "M161-MESSAGE-EXPIRED-BATCH SIMULATED_WALL_ADVANCE: unswept expired queue records never leak into delivery",
+      "status": "PASS",
+      "detail": {
+        "expired_after_each_receive": [
+          32,
+          64,
+          80
+        ],
+        "delivered_expired_messages": 0,
+        "wall_advance": "SIMULATED"
+      }
+    }
+  ]
+}

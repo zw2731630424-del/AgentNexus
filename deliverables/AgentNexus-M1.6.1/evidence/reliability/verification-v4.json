@@ -1,0 +1,263 @@
+{
+  "schema": "agentnexus/m161/reliability-verification/1",
+  "observed_at": "2026-11-08T00:50:38.638Z",
+  "status": "PASS",
+  "scope": "Context Assembly / Message Bus / minimal model input provenance; parent owns Scheduler/Rules/Storage integration and full regression",
+  "final_added_tests": {
+    "context": 13,
+    "messages": 16,
+    "total": 29,
+    "pass": 29,
+    "fail": 0
+  },
+  "assurance": {
+    "sqlite_zstd": "REAL_LOCAL",
+    "local_file_change_and_corruption": "REAL_LOCAL",
+    "child_host_process_kill_and_lock_recovery": "REAL_LOCAL_TWO_SCENARIOS",
+    "task_owner_fixture": "SIMULATED_TRUSTED_STATE_TRANSITIONS",
+    "provider_and_metering": "SIMULATED",
+    "scheduling_and_crash_barriers": "SIMULATED_AT_ACTUAL_DURABLE_BOUNDARIES",
+    "os_reboot": "NOT_RUN",
+    "hard_power_loss": "NOT_RUN",
+    "external_provider_or_real_credentials": "NOT_RUN"
+  },
+  "final_typecheck": {
+    "status": "PASS",
+    "stdout": {
+      "path": "I:/AI_AgentNexus/deliverables/AgentNexus-M1.6.1/evidence/reliability/typecheck-final-v4.log",
+      "bytes": 98,
+      "sha256": "f2f1340877f8fa76f4dc290b51caf5580548734d7f3ec659d23ab77ec9396bca"
+    },
+    "stderr": {
+      "path": "I:/AI_AgentNexus/deliverables/AgentNexus-M1.6.1/evidence/reliability/typecheck-final-v4.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "node": "24.15.0",
+    "typescript": "5.9.3",
+    "node_types": "24.10.1",
+    "strict": true
+  },
+  "source": [
+    {
+      "path": "I:/AI_AgentNexus/deliverables/AgentNexus-M1.6.1/source/src/agentnexus/harness/context.ts",
+      "bytes": 25433,
+      "sha256": "322c8f68c7d19181a973a9f9cbd7a7d39cbd348a8b8442904b32924b9c209f97",
+      "basis": "AUTHORED_AND_TESTED"
+    },
+    {
+      "path": "I:/AI_AgentNexus/deliverables/AgentNexus-M1.6.1/source/src/agentnexus/harness/messages.ts",
+      "bytes": 29686,
+      "sha256": "fec7f184e3df60e4e09a762be1a3d83a62ba070b42fc63475b3e831eef04313f",
+      "basis": "AUTHORED_AND_TESTED"
+    },
+    {
+      "path": "I:/AI_AgentNexus/deliverables/AgentNexus-M1.6.1/source/src/agentnexus/harness/models.ts",
+      "bytes": 26730,
+      "sha256": "936dc75f92100053f931df7e2f19e4f17895288e0f3c1b5af5b46e4a654920d5",
+      "basis": "AUTHORED_AND_TESTED"
+    },
+    {
+      "path": "I:/AI_AgentNexus/deliverables/AgentNexus-M1.6.1/source/tests/agentnexus/m161-context.test.ts",
+      "bytes": 25065,
+      "sha256": "1d6b10f4b6718ddc0ac3b34853475b38d99250d37683597d60969083f5a0061d",
+      "basis": "AUTHORED_AND_TESTED"
+    },
+    {
+      "path": "I:/AI_AgentNexus/deliverables/AgentNexus-M1.6.1/source/tests/agentnexus/m161-messages.test.ts",
+      "bytes": 30503,
+      "sha256": "62b55dcb400eb82cac1f5c4d3c3c55d88efd2b79061d70de283b3e9b1c098723",
+      "basis": "AUTHORED_AND_TESTED"
+    }
+  ],
+  "runs": [
+    {
+      "name": "run-01",
+      "status": "FAIL",
+      "summary": {
+        "tests": 55,
+        "suites": 0,
+        "pass": 51,
+        "fail": 4,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "duration_ms": 8038.1608
+      },
+      "raw_tap": {
+        "path": "I:/AI_AgentNexus/deliverables/AgentNexus-M1.6.1/evidence/reliability/run-01/tests.tap",
+        "bytes": 20590,
+        "sha256": "e4560d862eeb6f7f8055c08a10be9a7e192d97c661fa905fe06541d307d87551"
+      }
+    },
+    {
+      "name": "run-02",
+      "status": "PASS",
+      "summary": {
+        "tests": 82,
+        "suites": 0,
+        "pass": 82,
+        "fail": 0,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "duration_ms": 25060.4463
+      },
+      "raw_tap": {
+        "path": "I:/AI_AgentNexus/deliverables/AgentNexus-M1.6.1/evidence/reliability/run-02/tests.tap",
+        "bytes": 22428,
+        "sha256": "2e3834a9eb78dff2a713910e7686962552ab13f178e4d3128af330c1ff89a738"
+      }
+    },
+    {
+      "name": "run-03",
+      "status": "PASS",
+      "summary": {
+        "tests": 58,
+        "suites": 0,
+        "pass": 58,
+        "fail": 0,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "duration_ms": 12912.3957
+      },
+      "raw_tap": {
+        "path": "I:/AI_AgentNexus/deliverables/AgentNexus-M1.6.1/evidence/reliability/run-03/tests.tap",
+        "bytes": 15899,
+        "sha256": "1d767bf138c6ff5d4edfd7a55e98ccc42a2d06b7fc48d2e5b7024b4c81848b09"
+      }
+    },
+    {
+      "name": "final",
+      "status": "PASS",
+      "summary": {
+        "tests": 25,
+        "suites": 0,
+        "pass": 25,
+        "fail": 0,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "duration_ms": 8779.4018
+      },
+      "raw_tap": {
+        "path": "I:/AI_AgentNexus/deliverables/AgentNexus-M1.6.1/evidence/reliability/final/tests.tap",
+        "bytes": 7644,
+        "sha256": "5be17f4ad227f46a5725040c665014d0b16ffea7e7a197c70b857e498d5f1bbc"
+      }
+    },
+    {
+      "name": "final-02",
+      "status": "PASS",
+      "summary": {
+        "tests": 27,
+        "suites": 0,
+        "pass": 27,
+        "fail": 0,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "duration_ms": 7335.8374
+      },
+      "raw_tap": {
+        "path": "I:/AI_AgentNexus/deliverables/AgentNexus-M1.6.1/evidence/reliability/final-02/tests.tap",
+        "bytes": 8296,
+        "sha256": "1030f92ca4d5f2e458152c4775608a80a345096398eae53ba4a8db8f6e076058"
+      }
+    },
+    {
+      "name": "final-03",
+      "status": "PASS",
+      "summary": {
+        "tests": 28,
+        "suites": 0,
+        "pass": 28,
+        "fail": 0,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "duration_ms": 7306.3383
+      },
+      "raw_tap": {
+        "path": "I:/AI_AgentNexus/deliverables/AgentNexus-M1.6.1/evidence/reliability/final-03/tests.tap",
+        "bytes": 8617,
+        "sha256": "97de1b622ec1e561c596ef7fecde9a459de34632c55df9f3b7667f285687909b"
+      }
+    },
+    {
+      "name": "review-deadlock-before",
+      "status": "FAIL",
+      "summary": {
+        "tests": 13,
+        "suites": 0,
+        "pass": 12,
+        "fail": 1,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "duration_ms": 4892.93
+      },
+      "raw_tap": {
+        "path": "I:/AI_AgentNexus/deliverables/AgentNexus-M1.6.1/evidence/reliability/review-deadlock-before/tests.tap",
+        "bytes": 4866,
+        "sha256": "3c3156522fbaf5ea3ae0165b6f8b6666c265ff79cd9c5f3a096e2af8cf80d828"
+      }
+    },
+    {
+      "name": "final-04",
+      "status": "PASS",
+      "summary": {
+        "tests": 54,
+        "suites": 0,
+        "pass": 54,
+        "fail": 0,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "duration_ms": 11906.88
+      },
+      "raw_tap": {
+        "path": "I:/AI_AgentNexus/deliverables/AgentNexus-M1.6.1/evidence/reliability/final-04/tests.tap",
+        "bytes": 15078,
+        "sha256": "13428f79327c51fe8a2bb9bc7ff626bc610c6d48ef622def199170e30ef6a2ba"
+      }
+    }
+  ],
+  "original_tests_preserved": true,
+  "source_binding": "Hashes captured immediately after the final focused run; no owned source edits occurred during that run. Final full candidate source binding is maintained by the parent executor.",
+  "inherited_limits": [
+    "CPU strict qualification remains BLOCKED; this component does not modify CPU or TOCTOU evidence.",
+    "A corrupted stored artifact freezes new writes; exact input/raw reads remain available where their independent objects validate. Explicit owner reconciliation is required before publishing replacements.",
+    "Current source labels are supplied by trusted Host callers; byte/version integrity does not authenticate an arbitrary live pathname or natural-language label.",
+    "The trusted local library is not malicious in-process or OS isolation."
+  ],
+  "independent_review_fix": {
+    "issue": "Two assemblies held read slots while queued input writes waited on two capture producers whose readRange calls needed those read slots.",
+    "before": {
+      "run": "review-deadlock-before",
+      "tests": 13,
+      "pass": 12,
+      "fail": 1,
+      "cancellation_deadline_ms": 3000,
+      "observed": {
+        "active_reads": 2,
+        "queued_reads": 2,
+        "active_writers": 2,
+        "queued_writers": 2
+      },
+      "normal_process_exit": true
+    },
+    "fix": "Release the idempotent read-slot callback immediately after source scans; retain finally cleanup. Input/manifest/provenance checks unchanged.",
+    "after": {
+      "run": "final-04",
+      "tests": 54,
+      "pass": 54,
+      "fail": 0,
+      "added_tests": 29,
+      "composed_case_completed_without_cancellation": true,
+      "peak_reads": 2,
+      "peak_writers": 2
+    }
+  }
+}

@@ -1,0 +1,172 @@
+TAP version 13
+# Subtest: M161-CONTEXT-EXACT: every source category and version survives immutable input/manifest reconstruction
+ok 1 - M161-CONTEXT-EXACT: every source category and version survives immutable input/manifest reconstruction
+  ---
+  duration_ms: 292.1722
+  type: 'test'
+  ...
+# Subtest: M161-CONTEXT-VERSIONS: actual file/rule changes cannot silently replace a bound version
+ok 2 - M161-CONTEXT-VERSIONS: actual file/rule changes cannot silently replace a bound version
+  ---
+  duration_ms: 102.42
+  type: 'test'
+  ...
+# Subtest: M161-CONTEXT-LARGE: 8MiB raw history remains chunked and exact ranges retain complete hash verification
+ok 3 - M161-CONTEXT-LARGE: 8MiB raw history remains chunked and exact ranges retain complete hash verification
+  ---
+  duration_ms: 95.3048
+  type: 'test'
+  ...
+# Subtest: M161-CONTEXT-BACKPRESSURE SIMULATED_SCHEDULING_BARRIER: shared read pool bounds concurrent readers and aborts queued reads
+ok 4 - M161-CONTEXT-BACKPRESSURE SIMULATED_SCHEDULING_BARRIER: shared read pool bounds concurrent readers and aborts queued reads
+  ---
+  duration_ms: 65.0549
+  type: 'test'
+  ...
+# Subtest: M161-CONTEXT-DERIVED: missing/corrupt derived references never replace original raw history and indexes can be regenerated
+ok 5 - M161-CONTEXT-DERIVED: missing/corrupt derived references never replace original raw history and indexes can be regenerated
+  ---
+  duration_ms: 108.4024
+  type: 'test'
+  ...
+# Subtest: M161-CONTEXT-CORRUPTION: damaged original history outside selected range rejects assembly and leaves prior exact input intact
+ok 6 - M161-CONTEXT-CORRUPTION: damaged original history outside selected range rejects assembly and leaves prior exact input intact
+  ---
+  duration_ms: 66.1312
+  type: 'test'
+  ...
+# Subtest: M161-CONTEXT-LEGACY SIMULATED_LEGACY_PROJECTION: old M1.6 views reconstruct without rewriting or upgrading raw records
+ok 7 - M161-CONTEXT-LEGACY SIMULATED_LEGACY_PROJECTION: old M1.6 views reconstruct without rewriting or upgrading raw records
+  ---
+  duration_ms: 52.4053
+  type: 'test'
+  ...
+# Subtest: M161-CONTEXT-CEILING: full 256KiB control-byte input is exact and does not overflow metadata serialization
+ok 8 - M161-CONTEXT-CEILING: full 256KiB control-byte input is exact and does not overflow metadata serialization
+  ---
+  duration_ms: 166.716
+  type: 'test'
+  ...
+# Subtest: M161-CONTEXT-REQUEST-FAILURE SIMULATED_PROVIDER: known-not-sent and unknown requests preserve exact acknowledged input across reopen
+ok 9 - M161-CONTEXT-REQUEST-FAILURE SIMULATED_PROVIDER: known-not-sent and unknown requests preserve exact acknowledged input across reopen
+  ---
+  duration_ms: 202.3689
+  type: 'test'
+  ...
+# Subtest: M161-CONTEXT-REQUIRED: important rules never silently truncate and stale/missing references fail closed
+ok 10 - M161-CONTEXT-REQUIRED: important rules never silently truncate and stale/missing references fail closed
+  ---
+  duration_ms: 82.4996
+  type: 'test'
+  ...
+# Subtest: M161-CONTEXT-INDEX-CORRUPTION: damaged derived index is detected while original raw/input objects remain recoverable
+ok 11 - M161-CONTEXT-INDEX-CORRUPTION: damaged derived index is detected while original raw/input objects remain recoverable
+  ---
+  duration_ms: 84.1869
+  type: 'test'
+  ...
+# Subtest: M161-MESSAGE-ACK: delivery and receiver ACK cannot claim task processed/completed
+ok 12 - M161-MESSAGE-ACK: delivery and receiver ACK cannot claim task processed/completed
+  ---
+  duration_ms: 91.4094
+  type: 'test'
+  ...
+# Subtest: M161-MESSAGE-HANDOFF SIMULATED_TASK_OWNER: atomic adoption, ACK and actual result evidence are separate from completion
+ok 13 - M161-MESSAGE-HANDOFF SIMULATED_TASK_OWNER: atomic adoption, ACK and actual result evidence are separate from completion
+  ---
+  duration_ms: 123.5551
+  type: 'test'
+  ...
+# Subtest: M161-MESSAGE-ROLLBACK SIMULATED_TASK_OWNER: incomplete or throwing adoption rolls back task, receipt and ACK together
+ok 14 - M161-MESSAGE-ROLLBACK SIMULATED_TASK_OWNER: incomplete or throwing adoption rolls back task, receipt and ACK together
+  ---
+  duration_ms: 70.1265
+  type: 'test'
+  ...
+# Subtest: M161-MESSAGE-OPERATION-DEDUPE SIMULATED_TASK_OWNER: copied envelopes with one stable operation do not adopt twice
+ok 15 - M161-MESSAGE-OPERATION-DEDUPE SIMULATED_TASK_OWNER: copied envelopes with one stable operation do not adopt twice
+  ---
+  duration_ms: 101.046
+  type: 'test'
+  ...
+# Subtest: M161-MESSAGE-OPERATION-CONFLICT SIMULATED_TASK_OWNER: changed payload/task/correlation cannot reuse adoption authority
+ok 16 - M161-MESSAGE-OPERATION-CONFLICT SIMULATED_TASK_OWNER: changed payload/task/correlation cannot reuse adoption authority
+  ---
+  duration_ms: 89.5912
+  type: 'test'
+  ...
+# Subtest: M161-MESSAGE-CONCURRENT: parallel consumers obtain disjoint leases and equal-priority delivery preserves durable enqueue order
+ok 17 - M161-MESSAGE-CONCURRENT: parallel consumers obtain disjoint leases and equal-priority delivery preserves durable enqueue order
+  ---
+  duration_ms: 200.1136
+  type: 'test'
+  ...
+# Subtest: M161-MESSAGE-PERMISSIONS: permission revocation and replacement receiver runtime fence ACK and trusted handoff
+ok 18 - M161-MESSAGE-PERMISSIONS: permission revocation and replacement receiver runtime fence ACK and trusted handoff
+  ---
+  duration_ms: 62.8945
+  type: 'test'
+  ...
+# Subtest: M161-MESSAGE-WAKE-OUTBOX SIMULATED_CALLBACK_FAILURE: durable message survives sender exit and pending notification is recovered
+ok 19 - M161-MESSAGE-WAKE-OUTBOX SIMULATED_CALLBACK_FAILURE: durable message survives sender exit and pending notification is recovered
+  ---
+  duration_ms: 67.3827
+  type: 'test'
+  ...
+# Subtest: M161-MESSAGE-EXPIRY-REVOKE: queued expiry/revocation terminate delivery and in-flight external uncertainty never retries
+ok 20 - M161-MESSAGE-EXPIRY-REVOKE: queued expiry/revocation terminate delivery and in-flight external uncertainty never retries
+  ---
+  duration_ms: 224.7103
+  type: 'test'
+  ...
+# Subtest: M161-MESSAGE-REAL-PROCESS-RESTART: killed host recovers internal delivery but quarantines leased external effects
+ok 21 - M161-MESSAGE-REAL-PROCESS-RESTART: killed host recovers internal delivery but quarantines leased external effects
+  ---
+  duration_ms: 365.9601
+  type: 'test'
+  ...
+# Subtest: M161-MESSAGE-REAL-ACK-LOSS SIMULATED_CRASH_BARRIER: process death after durable handoff before caller ACK never repeats task adoption
+ok 22 - M161-MESSAGE-REAL-ACK-LOSS SIMULATED_CRASH_BARRIER: process death after durable handoff before caller ACK never repeats task adoption
+  ---
+  duration_ms: 285.4661
+  type: 'test'
+  ...
+# Subtest: M161-MESSAGE-COMPLETION-EVIDENCE SIMULATED_TASK_OWNER: self-reported success or held/unknown task claims cannot become completed
+ok 23 - M161-MESSAGE-COMPLETION-EVIDENCE SIMULATED_TASK_OWNER: self-reported success or held/unknown task claims cannot become completed
+  ---
+  duration_ms: 93.1802
+  type: 'test'
+  ...
+# Subtest: M161-MESSAGE-RECOVERY-BOUND SIMULATED_BOOT_REPLACEMENT: mass lease recovery commits at most 32 audited transitions per call
+ok 24 - M161-MESSAGE-RECOVERY-BOUND SIMULATED_BOOT_REPLACEMENT: mass lease recovery commits at most 32 audited transitions per call
+  ---
+  duration_ms: 1281.6618
+  type: 'test'
+  ...
+# Subtest: M161-MESSAGE-EXPIRED-BATCH SIMULATED_WALL_ADVANCE: unswept expired queue records never leak into delivery
+ok 25 - M161-MESSAGE-EXPIRED-BATCH SIMULATED_WALL_ADVANCE: unswept expired queue records never leak into delivery
+  ---
+  duration_ms: 2051.3845
+  type: 'test'
+  ...
+# Subtest: M161-MESSAGE-COORDINATOR: fixed trusted notices reach two project tasks without cross-project raw access or generic send authority
+ok 26 - M161-MESSAGE-COORDINATOR: fixed trusted notices reach two project tasks without cross-project raw access or generic send authority
+  ---
+  duration_ms: 302.7877
+  type: 'test'
+  ...
+# Subtest: M161-MESSAGE-COORDINATOR-DENIAL: admin/type/runtime/target payload/permission fences and content dedup survive the advisory lane
+ok 27 - M161-MESSAGE-COORDINATOR-DENIAL: admin/type/runtime/target payload/permission fences and content dedup survive the advisory lane
+  ---
+  duration_ms: 246.1082
+  type: 'test'
+  ...
+1..27
+# tests 27
+# suites 0
+# pass 27
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 7335.8374

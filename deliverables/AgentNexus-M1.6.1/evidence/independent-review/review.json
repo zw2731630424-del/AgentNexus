@@ -1,0 +1,490 @@
+{
+  "schema": "agentnexus/independent-code-review/1",
+  "reviewed_at": "2026-11-08T01:10:53.881Z",
+  "reviewer": "storage_review independent agent",
+  "independence": {
+    "implementation_participation": false,
+    "product_source_edits": false,
+    "scope_expanded_by_main_executor": true,
+    "recursive_delegation": false
+  },
+  "status": "LOCAL_SCOPE_PASS_FULL_REGRESSION_FAIL",
+  "source_set_sha256": "d14401d7c39b069555f43c60360d5aab83e40bb32995008652cfcefb9862e9da",
+  "source_file_count": 140,
+  "source_checks": {
+    "path": "source-checks.json",
+    "sha256": "f90eaa2ca2e51590cacfb13305547e5b969b940814672cfceb3367738b78a626"
+  },
+  "observations": {
+    "path": "observations.jsonl",
+    "sha256": "be9bc0a0f046b59e528092de7258861d55f61f750d52094e6b9084c25412f47f",
+    "records": 30
+  },
+  "review_scope": [
+    {
+      "path": "src/agentnexus/harness/storage-owner.ts",
+      "sha256": "c49b503f361590c45c9791912163b351415f36ddd6ddb29758c737b9246b4516",
+      "review_scope": "Complete new owner file: transaction states, identity/hash barriers, create/replace, explicit recovery, execution slots and quota"
+    },
+    {
+      "path": "src/agentnexus/harness/state.ts",
+      "sha256": "c254cbee8f24f5511267a449bb07e4e6dd90416bf8264694e2214094e2d3ccb6",
+      "review_scope": "Transaction and archive-ACK semantics used by reviewed owners; no historical native OS module audit"
+    },
+    {
+      "path": "src/agentnexus/harness/index.ts",
+      "sha256": "8ffad0e7248abcf1fd9fa1ddd7d95ab240a92010d2892b37a4b8229864554dc5",
+      "review_scope": "New integration, bound facades, captureDraft, Coordinator grants/advisory lane and close/recovery wiring"
+    },
+    {
+      "path": "src/agentnexus/harness/scheduler.ts",
+      "sha256": "8808d36d03ec3570b6b763599f8f6dd5aaa734373c839acc057e5094606d7433",
+      "review_scope": "Task contract/gate binding, storage effect bridge, resource closure, rule migration and durable handoff"
+    },
+    {
+      "path": "src/agentnexus/resources/budget-manager.ts",
+      "sha256": "7ea22cc6c6b9facf741413be900fd1c9b0396f07d1d6472e4787f8a4014737b9",
+      "review_scope": "Persistent storage adoption and surrounding Worker/Project/Platform capacity settlement"
+    },
+    {
+      "path": "src/agentnexus/harness/rules.ts",
+      "sha256": "deb0dc2d67c00ed5b82f31c7f30c839499d124399ec9a9f60f673ff3f9bd8032",
+      "review_scope": "New finite compiler, source/version integrity, dependencies, frozen binding and migration"
+    },
+    {
+      "path": "src/agentnexus/harness/gates.ts",
+      "sha256": "f9688690a41898d93030ee45f9fbdfc4ebe8876a14d2e0becbfaebd310c88d66",
+      "review_scope": "New engine, trusted checker execution, candidate/profile/rules/epoch binding and protected PASS consumption"
+    },
+    {
+      "path": "src/agentnexus/harness/context.ts",
+      "sha256": "322c8f68c7d19181a973a9f9cbd7a7d39cbd348a8b8442904b32924b9c209f97",
+      "review_scope": "Bounded shared reads, immutable input/manifest provenance, reconstruction and read/write pool composition"
+    },
+    {
+      "path": "src/agentnexus/harness/messages.ts",
+      "sha256": "fec7f184e3df60e4e09a762be1a3d83a62ba070b42fc63475b3e831eef04313f",
+      "review_scope": "Message/lease/recovery/handoff/completion semantics and new Coordinator advisory enqueue"
+    },
+    {
+      "path": "src/agentnexus/artifacts.ts",
+      "sha256": "506347b26285855c3f2ea60007ed77debe39a360130990a018e092069c2f0ab2",
+      "review_scope": "New queued-put methods and put/read/close integration needed to establish their boundedness and cancellation behavior"
+    },
+    {
+      "path": "src/agentnexus/harness/agents.ts",
+      "sha256": "0f96a316c617956f85bb232d5f24d34067be1f906e45ba382dd71529569db9bd",
+      "review_scope": "Coordinator read_projects grant and role/capability restriction portions only"
+    },
+    {
+      "path": "src/agentnexus/gateway.ts",
+      "sha256": "89324db842f7ce1cdac2c5dcaf73441ea84fff549b943953514b845b3b8670d3",
+      "review_scope": "Changed queued-artifact admission/output call sites and Storage authorization relationship only; not a line-by-line historical Gateway audit"
+    },
+    {
+      "path": "src/agentnexus/harness/workflow.ts",
+      "sha256": "798d5dc7da43c460f063d83af2745e7d77b45cc45e1ccc381a9a313fe6b2e889",
+      "review_scope": "Changed queued-artifact call site only; not a line-by-line historical Workflow runtime audit"
+    }
+  ],
+  "closed_findings": [
+    {
+      "id": "R01",
+      "priority": "P1",
+      "title": "CREATE双链接发布窗口无法显式确认",
+      "discovery": "STATIC_PATH_REVIEW",
+      "original_location": {
+        "file": "source/src/agentnexus/harness/storage-owner.ts",
+        "line": 169
+      },
+      "problem": "link成功、unlink未完成时目标与临时名均nlink=2，原reconcile仅接受单链接文件，合法已发布对象无法确认。",
+      "resolution": "先验证target/temp身份相同、完整hash/bytes匹配且仅两链接，再删除已证明属于本操作的临时名并重新核验单链接目标。",
+      "fixed_at": [
+        {
+          "file": "source/src/agentnexus/harness/storage-owner.ts",
+          "line": 235
+        }
+      ],
+      "evidence_sequences": [
+        8,
+        28
+      ],
+      "status": "CLOSED_VERIFIED"
+    },
+    {
+      "id": "R02",
+      "priority": "P1",
+      "title": "确认未发布的崩溃没有安全裁定分支",
+      "discovery": "STATIC_PATH_REVIEW",
+      "original_location": {
+        "file": "source/src/agentnexus/harness/storage-owner.ts",
+        "line": 218
+      },
+      "problem": "重开把预发布操作置为INDETERMINATE，原reconcile只有目标已发布的成功分支；目标不存在时不能释放已证明可清理的临时对象和路径claim。",
+      "resolution": "保存recovery_from；仅对严格早于PUBLISH_READY的持久阶段，在原目标未变且临时身份可证明时显式裁定FAILED_BEFORE_PUBLISH；无身份孤儿继续保留未知。",
+      "fixed_at": [
+        {
+          "file": "source/src/agentnexus/harness/storage-owner.ts",
+          "line": 228
+        }
+      ],
+      "evidence_sequences": [
+        7
+      ],
+      "status": "CLOSED_VERIFIED"
+    },
+    {
+      "id": "R03",
+      "priority": "P1",
+      "title": "失败记录与路径claim解锁不是原子提交",
+      "discovery": "STATIC_PATH_REVIEW",
+      "original_location": {
+        "file": "source/src/agentnexus/harness/storage-owner.ts",
+        "line": 179
+      },
+      "problem": "先持久FAILED_BEFORE_PUBLISH再另一次提交ABORTED claim，两个ACK之间退出会留下终态FAILED加HELD claim；恢复与重试均跳过这一组合。",
+      "resolution": "统一#abort事务同时更新STORAGE_WRITE和STORAGE_CLAIM，重复显式reconcile返回失败终态且不增revision。",
+      "fixed_at": [
+        {
+          "file": "source/src/agentnexus/harness/storage-owner.ts",
+          "line": 184
+        }
+      ],
+      "evidence_sequences": [
+        2,
+        7
+      ],
+      "status": "CLOSED_VERIFIED"
+    },
+    {
+      "id": "R04",
+      "priority": "P1",
+      "title": "并发reconcile绕过限额并把成功终态回退",
+      "discovery": "INDEPENDENT_REPRODUCTION",
+      "original_location": {
+        "file": "source/src/agentnexus/harness/storage-owner.ts",
+        "line": 215
+      },
+      "problem": "同一PUBLISHED操作并行两次reconcile在maxConcurrent=1下进入两条artifact读，activeCount=0；结果为RECONCILED和STORAGE_ACK_STATE，持久终态回退INDETERMINATE、acknowledged=false。",
+      "resolution": "reconcile与write共用执行集合及并发限额，finally释放；同id执行拒绝，异id超限拒绝，close能够看到恢复操作。",
+      "fixed_at": [
+        {
+          "file": "source/src/agentnexus/harness/storage-owner.ts",
+          "line": 219
+        }
+      ],
+      "evidence_sequences": [
+        4,
+        5,
+        26
+      ],
+      "status": "CLOSED_VERIFIED"
+    },
+    {
+      "id": "R05",
+      "priority": "P2",
+      "title": "规则版本接受的格式无法进入Context",
+      "discovery": "INDEPENDENT_REPRODUCTION",
+      "original_location": {
+        "file": "source/src/agentnexus/harness/rules.ts",
+        "line": 100
+      },
+      "problem": "compile接受version=\"release candidate\"并成为current，captureBinding交给context.assemble后却NATIVE_INVALID_ID，成功编译出不能正常执行的任务规则。",
+      "resolution": "compile、captureBinding和assertBinding共用version标识符校验；合法版本仍可创建任务并精确重建。",
+      "fixed_at": [
+        {
+          "file": "source/src/agentnexus/harness/rules.ts",
+          "line": 36
+        }
+      ],
+      "evidence_sequences": [
+        9,
+        12
+      ],
+      "status": "CLOSED_VERIFIED"
+    },
+    {
+      "id": "R06",
+      "priority": "P1",
+      "title": "Gate候选哈希未绑定实际文件副作用",
+      "discovery": "STATIC_PATH_REVIEW",
+      "original_location": {
+        "file": "source/src/agentnexus/harness/scheduler.ts",
+        "line": 108
+      },
+      "problem": "原调度器只核Task合同声明的A候选Gate PASS，未核native.storage.write实际source是否为A，保护判定可能放行不同B内容。未把B真实发布作为修前实验。",
+      "resolution": "请求准入和LOCAL_WRITE执行前都比较实际source SHA256；有Gate的其他未绑定LOCAL_WRITE handler拒绝，原精确ToolGateway审批及完整内容屏障继续独立执行。",
+      "fixed_at": [
+        {
+          "file": "source/src/agentnexus/harness/scheduler.ts",
+          "line": 163
+        },
+        {
+          "file": "source/src/agentnexus/harness/scheduler.ts",
+          "line": 164
+        }
+      ],
+      "evidence_sequences": [
+        11
+      ],
+      "status": "CLOSED_VERIFIED"
+    },
+    {
+      "id": "R07",
+      "priority": "P2",
+      "title": "交接重试动态重算合同而冲突",
+      "discovery": "INDEPENDENT_REPRODUCTION",
+      "original_location": {
+        "file": "source/src/agentnexus/harness/scheduler.ts",
+        "line": 382
+      },
+      "problem": "handoff用deadline-Date.now动态构造wall_ms，第二次相同交接失败TASK_DUPLICATE_CONTRACT；目标创建后中断同样不能恢复原流程。",
+      "resolution": "持久冻结完整TASK_HANDOFF plan，再创建目标；来源等待标记、目标历史去重、绝对deadline和plan完成原子提交，重复调用直接返回既有目标。",
+      "fixed_at": [
+        {
+          "file": "source/src/agentnexus/harness/scheduler.ts",
+          "line": 382
+        }
+      ],
+      "evidence_sequences": [
+        10,
+        14,
+        16
+      ],
+      "status": "CLOSED_VERIFIED"
+    },
+    {
+      "id": "R08",
+      "priority": "P1",
+      "title": "重开覆盖交接pending标记而阻断完成",
+      "discovery": "STATIC_PATH_REVIEW",
+      "original_location": {
+        "file": "source/src/agentnexus/harness/scheduler.ts",
+        "line": 425
+      },
+      "problem": "新增交接plan后，原recover会把安全WAITING的HANDOFF_PENDING reason改成普通恢复reason，而完成事务要求原pending标记。修复在复现执行前已落入源码。",
+      "resolution": "recover从持久plan恢复HANDOFF_PENDING并保留已完成HANDOFF标记；PLANNED期间来源resume与目标dispatch均不能取得资源。",
+      "fixed_at": [
+        {
+          "file": "source/src/agentnexus/harness/scheduler.ts",
+          "line": 424
+        }
+      ],
+      "evidence_sequences": [
+        14,
+        16
+      ],
+      "status": "CLOSED_VERIFIED"
+    },
+    {
+      "id": "R09",
+      "priority": "P1",
+      "title": "读池与排队Artifact写入形成循环等待",
+      "discovery": "INDEPENDENT_REPRODUCTION",
+      "original_location": {
+        "file": "source/src/agentnexus/harness/context.ts",
+        "line": 226
+      },
+      "problem": "两个assemble持有全部read槽并等待写槽；两个capture占全部write槽，其正常producer等context.readRange。释放全部外部调度barrier后仍read active2/queued2、write active2/queued2，只能取消assemble解环。",
+      "resolution": "assemble完成完整来源读取后，在任何queued input/manifest写入前释放read permit；finally的幂等release仍保护失败路径。",
+      "fixed_at": [
+        {
+          "file": "source/src/agentnexus/harness/context.ts",
+          "line": 242
+        }
+      ],
+      "evidence_sequences": [
+        19,
+        20
+      ],
+      "status": "CLOSED_VERIFIED"
+    },
+    {
+      "id": "R10",
+      "priority": "P1",
+      "title": "sendText持久草稿在重开后永久在途",
+      "discovery": "INDEPENDENT_REPRODUCTION",
+      "original_location": {
+        "file": "source/src/agentnexus/harness/index.ts",
+        "line": 218
+      },
+      "problem": "MESSAGE_TEXT_ADMITTED持久ACK后中断，draft source=null而MESSAGE不存在；重开用完全相同输入重发仍MESSAGE_CAPTURE_INFLIGHT，消息不能交付。",
+      "resolution": "共享captureDraft使用boot_id和owner nonce；旧boot的精确输入可重夺内部capture，当前boot的真实在途调用仍拒绝，已有source直接复用。",
+      "fixed_at": [
+        {
+          "file": "source/src/agentnexus/harness/index.ts",
+          "line": 115
+        }
+      ],
+      "evidence_sequences": [
+        21,
+        23,
+        25
+      ],
+      "status": "CLOSED_VERIFIED"
+    },
+    {
+      "id": "R11",
+      "priority": "P2",
+      "title": "瞬时队列拒绝留下同boot不可重试草稿",
+      "discovery": "INDEPENDENT_REPRODUCTION",
+      "original_location": {
+        "file": "source/src/agentnexus/harness/index.ts",
+        "line": 223
+      },
+      "problem": "active2+queued16时sendText capture被ARTIFACT_QUEUE_BACKPRESSURE拒绝；排空队列、store健康后同一输入仍MESSAGE_CAPTURE_INFLIGHT，未创建任何MESSAGE。",
+      "resolution": "capture终结失败且state未faulted时，仅在owner仍匹配/source为空的条件下标RETRYABLE；精确重发生成一条消息，改输入同key仍冲突。",
+      "fixed_at": [
+        {
+          "file": "source/src/agentnexus/harness/index.ts",
+          "line": 132
+        }
+      ],
+      "evidence_sequences": [
+        22,
+        24
+      ],
+      "status": "CLOSED_VERIFIED"
+    }
+  ],
+  "unresolved_blocking_findings": [],
+  "positive_checks": [
+    {
+      "area": "Persistent capacity transfer",
+      "evidence_sequences": [
+        6
+      ],
+      "result": "Unsettled Gateway is rejected without partial claim; 16-byte transfer once; repeat zero; release leaves Worker held disk 0, Project/Platform 16, all workers 0."
+    },
+    {
+      "area": "Message delivery versus task completion",
+      "evidence_sequences": [
+        27
+      ],
+      "result": "Selected 5 existing component tests pass: ACK alone does not complete a Task; atomic handoff, rollback, operation dedupe and completion evidence are separate."
+    },
+    {
+      "area": "Context integrity",
+      "evidence_sequences": [
+        12,
+        20,
+        27
+      ],
+      "result": "Exact immutable input/manifest reconstruction, frozen versions and 256KiB serialization ceiling pass; pool-composition regression completes without cancellation."
+    },
+    {
+      "area": "Coordinator scope and deduplication",
+      "evidence_sequences": [
+        25
+      ],
+      "result": "Advisory notification reuses original payload source; only explicit read_projects summaries, no admin methods or raw foreign reads; ordinary cross-project sendText and non-Coordinator notice are denied."
+    },
+    {
+      "area": "Publication barrier and reconciliation",
+      "evidence_sequences": [
+        26,
+        28
+      ],
+      "result": "Final ACK rechecks actual target; concurrent reconciliation is bounded; real hardlink gap reconciles to one name; owner recovery does not release Task/Gateway UNKNOWN claims."
+    }
+  ],
+  "assurance_limits": [
+    "Local trusted-library correctness only. No hostile-worker OS sandbox, strict CPU/resource or production qualification is established.",
+    "Windows directory fsync remains unsupported by the portable helper; ordinary file sync/link/rename and process-level evidence are not hard-power-loss or OS reboot evidence.",
+    "This reviewer used real local files, SQLite and Zstd with explicitly named scheduling/fault injections. Several state-machine probes seed isolated trusted projections. A closed/reopened Host plus injected ACK interruption is not an actual process kill.",
+    "Queue capacity is 2 active writers plus 16 waiting jobs. Waiting time and retained caller producer memory are not bounded by this queue; callers must provide cancellation/deadlines and terminating sources.",
+    "Logical raw-content disk capacity is conservatively retained for historical writes/Artifacts; this is not a measurement of filesystem allocation or a garbage-collection release protocol.",
+    "Owner FAILED_BEFORE_PUBLISH or RECONCILED does not automatically adjudicate Gateway/resource UNKNOWN or release quarantined Task claims.",
+    "Full-source byte matching is not semantic review of all 140 files. Historical native OS, provider, credentials and CPU modules were not line-by-line audited or executed by this reviewer."
+  ],
+  "validation": {
+    "independent_targeted_probes": "PASS; per-sequence assurance in observations.jsonl",
+    "selected_existing_component_tests": {
+      "message": 5,
+      "context": 3,
+      "passed": 8,
+      "failed": 0,
+      "final_source_observation": 27
+    },
+    "main_final_complete_regression": {
+      "status": "FAIL",
+      "execution_owner": "main executor",
+      "reviewer_action": "Read aggregate, failed identifiers and source binding; hash raw result only; no OS/CPU rerun or diagnosis.",
+      "source_set_sha256": "d14401d7c39b069555f43c60360d5aab83e40bb32995008652cfcefb9862e9da",
+      "summary": {
+        "tests": 479,
+        "failed": 2,
+        "passed": 469,
+        "cancelled": 0,
+        "skipped": 8,
+        "todo": 0,
+        "topLevel": 427,
+        "suites": 0
+      },
+      "exit_code": 1,
+      "timedOut": false,
+      "tsc": "PASS",
+      "syntax_pass": true,
+      "m161_subset": {
+        "name_prefix": "M161",
+        "tests": 99,
+        "passed": 99,
+        "failed": 0
+      },
+      "failed_tests": [
+        "M1.4 REAL_WINDOWS_PRIMITIVE: cumulative Job CPU time kills a busy fixture before wall deadline",
+        "M151 REAL_WINDOWS_PRIMITIVE: concurrent directory replacement never returns junction target bytes"
+      ],
+      "raw_runtime_reference": ".workflow-kit/runtime/AgentNexus-M1.6.1/final-v4/verification/2026-11-08T01-03-48-062Z-36472/results.json",
+      "raw_results_sha256": "6f6b1fe4b2e00ec22423857a0892899b5c98af61368ca6280f0c2e9a91854c8b",
+      "raw_tap_reference": ".workflow-kit/runtime/AgentNexus-M1.6.1/final-v4/verification/2026-11-08T01-03-48-062Z-36472/all-tests.tap",
+      "deliverable_reference": "evidence/runs/final-v4-2026-11-08T01-03-48-062Z-36472/results.json",
+      "planned_deliverable_reference": "evidence/runs/final-v4-2026-11-08T01-03-48-062Z-36472/results.json"
+    },
+    "governance": {
+      "status": "PASS_REPORTED_AND_RAW_TEXT_READ",
+      "reference": ".workflow-kit/runtime/AgentNexus-M1.6.1/governance-01.txt",
+      "observed_text": "Governance check: PASS",
+      "execution_owner": "main executor",
+      "note": "Reviewer independent workspace scan was cancelled before completion; no PASS is attributed to that cancelled scan. Final added-path classification remains the main executors delivery check."
+    }
+  },
+  "intermediate_bindings": [
+    {
+      "source_set_sha256": "1ad1ad90baf284948d441ec3850ddc7c2b606c5eccb779d68f9822283657960c",
+      "purpose": "Read/write pool deadlock negative observation 19 retained."
+    },
+    {
+      "source_set_sha256": "79045ae918156e0ef76cad5924b57412a9e6cf46c917906c6b717939484c27a1",
+      "purpose": "Intermediate module checkpoint retained in runtime; not final source binding."
+    },
+    {
+      "source_set_sha256": "325793d0544e6a4bae0cad0cb2f4fb9956c97aad7ccf137118de84178bdd7ef2",
+      "purpose": "Verified 140-file intermediate binding, retained as source-checks-325793d0.json; sole final index resolver delta independently proven and explained in final source-checks.json."
+    }
+  ],
+  "local_review_status": "PASS_WITH_DECLARED_SCOPE",
+  "full_regression_status": "FAIL",
+  "unresolved_blocking_findings_scope": "The empty local-review finding list does not waive broader original regression failures; those remain listed below.",
+  "remaining_risks": [
+    {
+      "type": "ORIGINAL_FULL_REGRESSION_FAILURE",
+      "status": "FAIL_RETAINED",
+      "test_name": "M1.4 REAL_WINDOWS_PRIMITIVE: cumulative Job CPU time kills a busy fixture before wall deadline",
+      "local_review_adjudication": "OUTSIDE_DECLARED_SEMANTIC_REVIEW; not relabeled as an environment-only failure or PASS"
+    },
+    {
+      "type": "ORIGINAL_FULL_REGRESSION_FAILURE",
+      "status": "FAIL_RETAINED",
+      "test_name": "M151 REAL_WINDOWS_PRIMITIVE: concurrent directory replacement never returns junction target bytes",
+      "local_review_adjudication": "OUTSIDE_DECLARED_SEMANTIC_REVIEW; not relabeled as an environment-only failure or PASS"
+    }
+  ],
+  "qualifications": {
+    "cpu": "BLOCKED",
+    "production": "BLOCKED",
+    "hostile_worker_os_sandbox": "NOT_QUALIFIED",
+    "os_reboot": "NOT_RUN",
+    "hard_power_loss": "NOT_RUN"
+  }
+}
