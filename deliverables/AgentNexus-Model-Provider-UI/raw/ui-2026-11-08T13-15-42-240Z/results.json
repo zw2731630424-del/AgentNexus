@@ -1,0 +1,311 @@
+{
+  "config": {
+    "configFile": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-Model-Provider-UI\\source\\tests\\desktop\\playwright.config.mjs",
+    "rootDir": "I:/AI_AgentNexus/deliverables/AgentNexus-Model-Provider-UI/source/tests/desktop",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "I:/AI_AgentNexus/deliverables/AgentNexus-Model-Provider-UI/raw/ui-2026-11-08T13-15-42-240Z/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "I:/AI_AgentNexus/deliverables/AgentNexus-Model-Provider-UI/source/tests/desktop",
+        "testIgnore": [],
+        "testMatch": [
+          "desktop.spec.mjs"
+        ],
+        "timeout": 120000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-Model-Provider-UI\\raw\\ui-2026-11-08T13-15-42-240Z\\/results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.60.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "desktop.spec.mjs",
+      "file": "desktop.spec.mjs",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "SIMULATED native Desktop full visual configuration, Vault, routing, usage and restart",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 44825,
+                  "error": {
+                    "message": "Error: electron.launch: Process failed to launch!\nCall log:\n\u001b[2m  - <launching> \"I:\\AI_AgentNexus\\deliverables\\AgentNexus-Model-Provider-UI\\source\\node_modules\\electron\\dist\\electron.exe\" \"-r\" \"I:\\AI_AgentNexus\\deliverables\\AgentNexus-Model-Provider-UI\\source\\node_modules\\playwright-core\\lib\\server\\electron\\loader.js\" \"--inspect=0\" \"--remote-debugging-port=0\" \"I:\\AI_AgentNexus\\deliverables\\AgentNexus-Model-Provider-UI\\source\\\"\u001b[22m\n\u001b[2m  - <launched> pid=45928\u001b[22m\n\u001b[2m  - [pid=45928][out]\u001b[22m\n\u001b[2m  - [pid=45928][err] Debugger listening on ws://127.0.0.1:7879/2948b294-e913-4eee-9f7c-1316fa2de896\u001b[22m\n\u001b[2m  - [pid=45928][err] For help, see: https://nodejs.org/learn/getting-started/debugging\u001b[22m\n\u001b[2m  - <ws connecting> ws://127.0.0.1:7879/2948b294-e913-4eee-9f7c-1316fa2de896\u001b[22m\n\u001b[2m  - <ws connected> ws://127.0.0.1:7879/2948b294-e913-4eee-9f7c-1316fa2de896\u001b[22m\n\u001b[2m  - [pid=45928][err] Debugger attached.\u001b[22m\n\u001b[2m  - [pid=45928][err] (node:44384) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.\u001b[22m\n\u001b[2m  - [pid=45928][err] (Use `electron --trace-warnings ...` to show where the warning was created)\u001b[22m\n\u001b[2m  - <ws disconnected> ws://127.0.0.1:7879/2948b294-e913-4eee-9f7c-1316fa2de896 code=1006 reason=\u001b[22m\n\u001b[2m  - [pid=45928] <kill>\u001b[22m\n\u001b[2m  - [pid=45928] <will force kill>\u001b[22m\n\u001b[2m  - [pid=45928] taskkill stderr: ERROR: The process \"45928\" not found.\u001b[22m\n\u001b[2m  - [pid=45928] <process did exit: exitCode=1, signal=null>\u001b[22m\n\u001b[2m  - [pid=45928] starting temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=45928] finished temporary directories cleanup\u001b[22m\n",
+                    "stack": "Error: electron.launch: Process failed to launch!\nCall log:\n\u001b[2m  - <launching> \"I:\\AI_AgentNexus\\deliverables\\AgentNexus-Model-Provider-UI\\source\\node_modules\\electron\\dist\\electron.exe\" \"-r\" \"I:\\AI_AgentNexus\\deliverables\\AgentNexus-Model-Provider-UI\\source\\node_modules\\playwright-core\\lib\\server\\electron\\loader.js\" \"--inspect=0\" \"--remote-debugging-port=0\" \"I:\\AI_AgentNexus\\deliverables\\AgentNexus-Model-Provider-UI\\source\\\"\u001b[22m\n\u001b[2m  - <launched> pid=45928\u001b[22m\n\u001b[2m  - [pid=45928][out]\u001b[22m\n\u001b[2m  - [pid=45928][err] Debugger listening on ws://127.0.0.1:7879/2948b294-e913-4eee-9f7c-1316fa2de896\u001b[22m\n\u001b[2m  - [pid=45928][err] For help, see: https://nodejs.org/learn/getting-started/debugging\u001b[22m\n\u001b[2m  - <ws connecting> ws://127.0.0.1:7879/2948b294-e913-4eee-9f7c-1316fa2de896\u001b[22m\n\u001b[2m  - <ws connected> ws://127.0.0.1:7879/2948b294-e913-4eee-9f7c-1316fa2de896\u001b[22m\n\u001b[2m  - [pid=45928][err] Debugger attached.\u001b[22m\n\u001b[2m  - [pid=45928][err] (node:44384) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.\u001b[22m\n\u001b[2m  - [pid=45928][err] (Use `electron --trace-warnings ...` to show where the warning was created)\u001b[22m\n\u001b[2m  - <ws disconnected> ws://127.0.0.1:7879/2948b294-e913-4eee-9f7c-1316fa2de896 code=1006 reason=\u001b[22m\n\u001b[2m  - [pid=45928] <kill>\u001b[22m\n\u001b[2m  - [pid=45928] <will force kill>\u001b[22m\n\u001b[2m  - [pid=45928] taskkill stderr: ERROR: The process \"45928\" not found.\u001b[22m\n\u001b[2m  - [pid=45928] <process did exit: exitCode=1, signal=null>\u001b[22m\n\u001b[2m  - [pid=45928] starting temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=45928] finished temporary directories cleanup\u001b[22m\n\n    at launch (I:\\AI_AgentNexus\\deliverables\\AgentNexus-Model-Provider-UI\\source\\tests\\desktop\\desktop.spec.mjs:10:15)\n    at I:\\AI_AgentNexus\\deliverables\\AgentNexus-Model-Provider-UI\\source\\tests\\desktop\\desktop.spec.mjs:22:23",
+                    "location": {
+                      "file": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-Model-Provider-UI\\source\\tests\\desktop\\desktop.spec.mjs",
+                      "column": 15,
+                      "line": 10
+                    },
+                    "snippet": "   8 | async function launch(root) {\n   9 |   const env = { ...process.env, AGENTNEXUS_DESKTOP_E2E: '1', AGENTNEXUS_DESKTOP_TEST_ROOT: root }; delete env.ELECTRON_RUN_AS_NODE;\n> 10 |   const app = await electron.launch({ args: [source], env });\n     |               ^\n  11 |   const page = await app.firstWindow(); await expect(page.getByRole('heading', { name: 'Model Providers', exact: true })).toBeVisible(); return { app, page };\n  12 | }\n  13 | async function screenshot(page, name) { await mkdir(evidence, { recursive: true }); await page.screenshot({ path: join(evidence, name + '.png'), fullPage: true }); }"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-Model-Provider-UI\\source\\tests\\desktop\\desktop.spec.mjs",
+                        "column": 15,
+                        "line": 10
+                      },
+                      "message": "Error: electron.launch: Process failed to launch!\nCall log:\n\u001b[2m  - <launching> \"I:\\AI_AgentNexus\\deliverables\\AgentNexus-Model-Provider-UI\\source\\node_modules\\electron\\dist\\electron.exe\" \"-r\" \"I:\\AI_AgentNexus\\deliverables\\AgentNexus-Model-Provider-UI\\source\\node_modules\\playwright-core\\lib\\server\\electron\\loader.js\" \"--inspect=0\" \"--remote-debugging-port=0\" \"I:\\AI_AgentNexus\\deliverables\\AgentNexus-Model-Provider-UI\\source\\\"\u001b[22m\n\u001b[2m  - <launched> pid=45928\u001b[22m\n\u001b[2m  - [pid=45928][out]\u001b[22m\n\u001b[2m  - [pid=45928][err] Debugger listening on ws://127.0.0.1:7879/2948b294-e913-4eee-9f7c-1316fa2de896\u001b[22m\n\u001b[2m  - [pid=45928][err] For help, see: https://nodejs.org/learn/getting-started/debugging\u001b[22m\n\u001b[2m  - <ws connecting> ws://127.0.0.1:7879/2948b294-e913-4eee-9f7c-1316fa2de896\u001b[22m\n\u001b[2m  - <ws connected> ws://127.0.0.1:7879/2948b294-e913-4eee-9f7c-1316fa2de896\u001b[22m\n\u001b[2m  - [pid=45928][err] Debugger attached.\u001b[22m\n\u001b[2m  - [pid=45928][err] (node:44384) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.\u001b[22m\n\u001b[2m  - [pid=45928][err] (Use `electron --trace-warnings ...` to show where the warning was created)\u001b[22m\n\u001b[2m  - <ws disconnected> ws://127.0.0.1:7879/2948b294-e913-4eee-9f7c-1316fa2de896 code=1006 reason=\u001b[22m\n\u001b[2m  - [pid=45928] <kill>\u001b[22m\n\u001b[2m  - [pid=45928] <will force kill>\u001b[22m\n\u001b[2m  - [pid=45928] taskkill stderr: ERROR: The process \"45928\" not found.\u001b[22m\n\u001b[2m  - [pid=45928] <process did exit: exitCode=1, signal=null>\u001b[22m\n\u001b[2m  - [pid=45928] starting temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=45928] finished temporary directories cleanup\u001b[22m\n\n\n   8 | async function launch(root) {\n   9 |   const env = { ...process.env, AGENTNEXUS_DESKTOP_E2E: '1', AGENTNEXUS_DESKTOP_TEST_ROOT: root }; delete env.ELECTRON_RUN_AS_NODE;\n> 10 |   const app = await electron.launch({ args: [source], env });\n     |               ^\n  11 |   const page = await app.firstWindow(); await expect(page.getByRole('heading', { name: 'Model Providers', exact: true })).toBeVisible(); return { app, page };\n  12 | }\n  13 | async function screenshot(page, name) { await mkdir(evidence, { recursive: true }); await page.screenshot({ path: join(evidence, name + '.png'), fullPage: true }); }\n    at launch (I:\\AI_AgentNexus\\deliverables\\AgentNexus-Model-Provider-UI\\source\\tests\\desktop\\desktop.spec.mjs:10:15)\n    at I:\\AI_AgentNexus\\deliverables\\AgentNexus-Model-Provider-UI\\source\\tests\\desktop\\desktop.spec.mjs:22:23"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [
+                    {
+                      "text": "  \u001b[30;1mpw:browser \u001b[0m<launching> \"I:\\AI_AgentNexus\\deliverables\\AgentNexus-Model-Provider-UI\\source\\node_modules\\electron\\dist\\electron.exe\" \"-r\" \"I:\\AI_AgentNexus\\deliverables\\AgentNexus-Model-Provider-UI\\source\\node_modules\\playwright-core\\lib\\server\\electron\\loader.js\" \"--inspect=0\" \"--remote-debugging-port=0\" \"I:\\AI_AgentNexus\\deliverables\\AgentNexus-Model-Provider-UI\\source\\\"  \u001b[30m+0ms\u001b[0m\n"
+                    },
+                    {
+                      "text": "  \u001b[30;1mpw:browser \u001b[0m<launched> pid=45928 \u001b[30m+10ms\u001b[0m\n"
+                    },
+                    {
+                      "text": "  \u001b[30;1mpw:browser \u001b[0m[pid=45928][out]  \u001b[30m+74ms\u001b[0m\n"
+                    },
+                    {
+                      "text": "  \u001b[30;1mpw:browser \u001b[0m[pid=45928][err] Debugger listening on ws://127.0.0.1:7879/2948b294-e913-4eee-9f7c-1316fa2de896 \u001b[30m+29ms\u001b[0m\n"
+                    },
+                    {
+                      "text": "  \u001b[30;1mpw:browser \u001b[0m[pid=45928][err] For help, see: https://nodejs.org/learn/getting-started/debugging \u001b[30m+0ms\u001b[0m\n"
+                    },
+                    {
+                      "text": "  \u001b[30;1mpw:browser \u001b[0m<ws connecting> ws://127.0.0.1:7879/2948b294-e913-4eee-9f7c-1316fa2de896 \u001b[30m+1ms\u001b[0m\n"
+                    },
+                    {
+                      "text": "  \u001b[30;1mpw:browser \u001b[0m<ws connected> ws://127.0.0.1:7879/2948b294-e913-4eee-9f7c-1316fa2de896 \u001b[30m+5ms\u001b[0m\n"
+                    },
+                    {
+                      "text": "  \u001b[30;1mpw:browser \u001b[0m[pid=45928][err] Debugger attached. \u001b[30m+1ms\u001b[0m\n"
+                    },
+                    {
+                      "text": "  \u001b[30;1mpw:browser \u001b[0m[pid=45928][err] (node:44384) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set. \u001b[30m+8ms\u001b[0m\n"
+                    },
+                    {
+                      "text": "  \u001b[30;1mpw:browser \u001b[0m[pid=45928][err] (Use `electron --trace-warnings ...` to show where the warning was created) \u001b[30m+0ms\u001b[0m\n"
+                    },
+                    {
+                      "text": "  \u001b[30;1mpw:browser \u001b[0m<ws disconnected> ws://127.0.0.1:7879/2948b294-e913-4eee-9f7c-1316fa2de896 code=1006 reason= \u001b[30m+44s\u001b[0m\n"
+                    },
+                    {
+                      "text": "  \u001b[30;1mpw:browser \u001b[0m[pid=45928] <kill> \u001b[30m+9ms\u001b[0m\n"
+                    },
+                    {
+                      "text": "  \u001b[30;1mpw:browser \u001b[0m[pid=45928] <will force kill> \u001b[30m+0ms\u001b[0m\n"
+                    },
+                    {
+                      "text": "  \u001b[30;1mpw:browser \u001b[0m[pid=45928] taskkill stderr: ERROR: The process \"45928\" not found.\r\n  \u001b[30;1mpw:browser \u001b[0m \u001b[30m+702ms\u001b[0m\n"
+                    },
+                    {
+                      "text": "  \u001b[30;1mpw:browser \u001b[0m[pid=45928] <process did exit: exitCode=1, signal=null> \u001b[30m+1ms\u001b[0m\n"
+                    },
+                    {
+                      "text": "  \u001b[30;1mpw:browser \u001b[0m[pid=45928] starting temporary directories cleanup \u001b[30m+0ms\u001b[0m\n"
+                    },
+                    {
+                      "text": "  \u001b[30;1mpw:browser \u001b[0m[pid=45928] finished temporary directories cleanup \u001b[30m+1ms\u001b[0m\n"
+                    }
+                  ],
+                  "retry": 0,
+                  "startTime": "2026-11-08T13:15:42.776Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-Model-Provider-UI\\raw\\ui-2026-11-08T13-15-42-240Z\\artifacts\\desktop-SIMULATED-native-D-87b29-t-routing-usage-and-restart\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-Model-Provider-UI\\source\\tests\\desktop\\desktop.spec.mjs",
+                    "column": 15,
+                    "line": 10
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "a3fe6ad9487e9424eaff-4a67e132e5c82eaf7b7c",
+          "file": "desktop.spec.mjs",
+          "line": 20,
+          "column": 1
+        },
+        {
+          "title": "native IPC source spoofing and renderer claimed identity are denied",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 29509,
+                  "error": {
+                    "message": "Error: electron.launch: Process failed to launch!\nCall log:\n\u001b[2m  - <launching> \"I:\\AI_AgentNexus\\deliverables\\AgentNexus-Model-Provider-UI\\source\\node_modules\\electron\\dist\\electron.exe\" \"-r\" \"I:\\AI_AgentNexus\\deliverables\\AgentNexus-Model-Provider-UI\\source\\node_modules\\playwright-core\\lib\\server\\electron\\loader.js\" \"--inspect=0\" \"--remote-debugging-port=0\" \"I:\\AI_AgentNexus\\deliverables\\AgentNexus-Model-Provider-UI\\source\\\"\u001b[22m\n\u001b[2m  - <launched> pid=48748\u001b[22m\n\u001b[2m  - [pid=48748][out]\u001b[22m\n\u001b[2m  - [pid=48748][err] Debugger listening on ws://127.0.0.1:3780/e0332feb-4111-47fa-970b-57a9bf2802c2\u001b[22m\n\u001b[2m  - [pid=48748][err] For help, see: https://nodejs.org/learn/getting-started/debugging\u001b[22m\n\u001b[2m  - <ws connecting> ws://127.0.0.1:3780/e0332feb-4111-47fa-970b-57a9bf2802c2\u001b[22m\n\u001b[2m  - <ws connected> ws://127.0.0.1:3780/e0332feb-4111-47fa-970b-57a9bf2802c2\u001b[22m\n\u001b[2m  - [pid=48748][err] Debugger attached.\u001b[22m\n\u001b[2m  - [pid=48748][err] (node:37144) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.\u001b[22m\n\u001b[2m  - [pid=48748][err] (Use `electron --trace-warnings ...` to show where the warning was created)\u001b[22m\n\u001b[2m  - <ws disconnected> ws://127.0.0.1:3780/e0332feb-4111-47fa-970b-57a9bf2802c2 code=1006 reason=\u001b[22m\n\u001b[2m  - [pid=48748] <kill>\u001b[22m\n\u001b[2m  - [pid=48748] <will force kill>\u001b[22m\n\u001b[2m  - [pid=48748] taskkill stderr: ERROR: The process \"48748\" not found.\u001b[22m\n\u001b[2m  - [pid=48748] <process did exit: exitCode=1, signal=null>\u001b[22m\n\u001b[2m  - [pid=48748] starting temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=48748] finished temporary directories cleanup\u001b[22m\n",
+                    "stack": "Error: electron.launch: Process failed to launch!\nCall log:\n\u001b[2m  - <launching> \"I:\\AI_AgentNexus\\deliverables\\AgentNexus-Model-Provider-UI\\source\\node_modules\\electron\\dist\\electron.exe\" \"-r\" \"I:\\AI_AgentNexus\\deliverables\\AgentNexus-Model-Provider-UI\\source\\node_modules\\playwright-core\\lib\\server\\electron\\loader.js\" \"--inspect=0\" \"--remote-debugging-port=0\" \"I:\\AI_AgentNexus\\deliverables\\AgentNexus-Model-Provider-UI\\source\\\"\u001b[22m\n\u001b[2m  - <launched> pid=48748\u001b[22m\n\u001b[2m  - [pid=48748][out]\u001b[22m\n\u001b[2m  - [pid=48748][err] Debugger listening on ws://127.0.0.1:3780/e0332feb-4111-47fa-970b-57a9bf2802c2\u001b[22m\n\u001b[2m  - [pid=48748][err] For help, see: https://nodejs.org/learn/getting-started/debugging\u001b[22m\n\u001b[2m  - <ws connecting> ws://127.0.0.1:3780/e0332feb-4111-47fa-970b-57a9bf2802c2\u001b[22m\n\u001b[2m  - <ws connected> ws://127.0.0.1:3780/e0332feb-4111-47fa-970b-57a9bf2802c2\u001b[22m\n\u001b[2m  - [pid=48748][err] Debugger attached.\u001b[22m\n\u001b[2m  - [pid=48748][err] (node:37144) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.\u001b[22m\n\u001b[2m  - [pid=48748][err] (Use `electron --trace-warnings ...` to show where the warning was created)\u001b[22m\n\u001b[2m  - <ws disconnected> ws://127.0.0.1:3780/e0332feb-4111-47fa-970b-57a9bf2802c2 code=1006 reason=\u001b[22m\n\u001b[2m  - [pid=48748] <kill>\u001b[22m\n\u001b[2m  - [pid=48748] <will force kill>\u001b[22m\n\u001b[2m  - [pid=48748] taskkill stderr: ERROR: The process \"48748\" not found.\u001b[22m\n\u001b[2m  - [pid=48748] <process did exit: exitCode=1, signal=null>\u001b[22m\n\u001b[2m  - [pid=48748] starting temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=48748] finished temporary directories cleanup\u001b[22m\n\n    at launch (I:\\AI_AgentNexus\\deliverables\\AgentNexus-Model-Provider-UI\\source\\tests\\desktop\\desktop.spec.mjs:10:15)\n    at I:\\AI_AgentNexus\\deliverables\\AgentNexus-Model-Provider-UI\\source\\tests\\desktop\\desktop.spec.mjs:61:119",
+                    "location": {
+                      "file": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-Model-Provider-UI\\source\\tests\\desktop\\desktop.spec.mjs",
+                      "column": 15,
+                      "line": 10
+                    },
+                    "snippet": "   8 | async function launch(root) {\n   9 |   const env = { ...process.env, AGENTNEXUS_DESKTOP_E2E: '1', AGENTNEXUS_DESKTOP_TEST_ROOT: root }; delete env.ELECTRON_RUN_AS_NODE;\n> 10 |   const app = await electron.launch({ args: [source], env });\n     |               ^\n  11 |   const page = await app.firstWindow(); await expect(page.getByRole('heading', { name: 'Model Providers', exact: true })).toBeVisible(); return { app, page };\n  12 | }\n  13 | async function screenshot(page, name) { await mkdir(evidence, { recursive: true }); await page.screenshot({ path: join(evidence, name + '.png'), fullPage: true }); }"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-Model-Provider-UI\\source\\tests\\desktop\\desktop.spec.mjs",
+                        "column": 15,
+                        "line": 10
+                      },
+                      "message": "Error: electron.launch: Process failed to launch!\nCall log:\n\u001b[2m  - <launching> \"I:\\AI_AgentNexus\\deliverables\\AgentNexus-Model-Provider-UI\\source\\node_modules\\electron\\dist\\electron.exe\" \"-r\" \"I:\\AI_AgentNexus\\deliverables\\AgentNexus-Model-Provider-UI\\source\\node_modules\\playwright-core\\lib\\server\\electron\\loader.js\" \"--inspect=0\" \"--remote-debugging-port=0\" \"I:\\AI_AgentNexus\\deliverables\\AgentNexus-Model-Provider-UI\\source\\\"\u001b[22m\n\u001b[2m  - <launched> pid=48748\u001b[22m\n\u001b[2m  - [pid=48748][out]\u001b[22m\n\u001b[2m  - [pid=48748][err] Debugger listening on ws://127.0.0.1:3780/e0332feb-4111-47fa-970b-57a9bf2802c2\u001b[22m\n\u001b[2m  - [pid=48748][err] For help, see: https://nodejs.org/learn/getting-started/debugging\u001b[22m\n\u001b[2m  - <ws connecting> ws://127.0.0.1:3780/e0332feb-4111-47fa-970b-57a9bf2802c2\u001b[22m\n\u001b[2m  - <ws connected> ws://127.0.0.1:3780/e0332feb-4111-47fa-970b-57a9bf2802c2\u001b[22m\n\u001b[2m  - [pid=48748][err] Debugger attached.\u001b[22m\n\u001b[2m  - [pid=48748][err] (node:37144) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.\u001b[22m\n\u001b[2m  - [pid=48748][err] (Use `electron --trace-warnings ...` to show where the warning was created)\u001b[22m\n\u001b[2m  - <ws disconnected> ws://127.0.0.1:3780/e0332feb-4111-47fa-970b-57a9bf2802c2 code=1006 reason=\u001b[22m\n\u001b[2m  - [pid=48748] <kill>\u001b[22m\n\u001b[2m  - [pid=48748] <will force kill>\u001b[22m\n\u001b[2m  - [pid=48748] taskkill stderr: ERROR: The process \"48748\" not found.\u001b[22m\n\u001b[2m  - [pid=48748] <process did exit: exitCode=1, signal=null>\u001b[22m\n\u001b[2m  - [pid=48748] starting temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=48748] finished temporary directories cleanup\u001b[22m\n\n\n   8 | async function launch(root) {\n   9 |   const env = { ...process.env, AGENTNEXUS_DESKTOP_E2E: '1', AGENTNEXUS_DESKTOP_TEST_ROOT: root }; delete env.ELECTRON_RUN_AS_NODE;\n> 10 |   const app = await electron.launch({ args: [source], env });\n     |               ^\n  11 |   const page = await app.firstWindow(); await expect(page.getByRole('heading', { name: 'Model Providers', exact: true })).toBeVisible(); return { app, page };\n  12 | }\n  13 | async function screenshot(page, name) { await mkdir(evidence, { recursive: true }); await page.screenshot({ path: join(evidence, name + '.png'), fullPage: true }); }\n    at launch (I:\\AI_AgentNexus\\deliverables\\AgentNexus-Model-Provider-UI\\source\\tests\\desktop\\desktop.spec.mjs:10:15)\n    at I:\\AI_AgentNexus\\deliverables\\AgentNexus-Model-Provider-UI\\source\\tests\\desktop\\desktop.spec.mjs:61:119"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [
+                    {
+                      "text": "  \u001b[30;1mpw:browser \u001b[0m<launching> \"I:\\AI_AgentNexus\\deliverables\\AgentNexus-Model-Provider-UI\\source\\node_modules\\electron\\dist\\electron.exe\" \"-r\" \"I:\\AI_AgentNexus\\deliverables\\AgentNexus-Model-Provider-UI\\source\\node_modules\\playwright-core\\lib\\server\\electron\\loader.js\" \"--inspect=0\" \"--remote-debugging-port=0\" \"I:\\AI_AgentNexus\\deliverables\\AgentNexus-Model-Provider-UI\\source\\\"  \u001b[30m+0ms\u001b[0m\n"
+                    },
+                    {
+                      "text": "  \u001b[30;1mpw:browser \u001b[0m<launched> pid=48748 \u001b[30m+90ms\u001b[0m\n"
+                    },
+                    {
+                      "text": "  \u001b[30;1mpw:browser \u001b[0m[pid=48748][out]  \u001b[30m+60ms\u001b[0m\n"
+                    },
+                    {
+                      "text": "  \u001b[30;1mpw:browser \u001b[0m[pid=48748][err] Debugger listening on ws://127.0.0.1:3780/e0332feb-4111-47fa-970b-57a9bf2802c2 \u001b[30m+29ms\u001b[0m\n"
+                    },
+                    {
+                      "text": "  \u001b[30;1mpw:browser \u001b[0m[pid=48748][err] For help, see: https://nodejs.org/learn/getting-started/debugging \u001b[30m+0ms\u001b[0m\n"
+                    },
+                    {
+                      "text": "  \u001b[30;1mpw:browser \u001b[0m<ws connecting> ws://127.0.0.1:3780/e0332feb-4111-47fa-970b-57a9bf2802c2 \u001b[30m+0ms\u001b[0m\n"
+                    },
+                    {
+                      "text": "  \u001b[30;1mpw:browser \u001b[0m<ws connected> ws://127.0.0.1:3780/e0332feb-4111-47fa-970b-57a9bf2802c2 \u001b[30m+6ms\u001b[0m\n"
+                    },
+                    {
+                      "text": "  \u001b[30;1mpw:browser \u001b[0m[pid=48748][err] Debugger attached. \u001b[30m+0ms\u001b[0m\n"
+                    },
+                    {
+                      "text": "  \u001b[30;1mpw:browser \u001b[0m[pid=48748][err] (node:37144) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set. \u001b[30m+6ms\u001b[0m\n"
+                    },
+                    {
+                      "text": "  \u001b[30;1mpw:browser \u001b[0m[pid=48748][err] (Use `electron --trace-warnings ...` to show where the warning was created) \u001b[30m+1ms\u001b[0m\n"
+                    },
+                    {
+                      "text": "  \u001b[30;1mpw:browser \u001b[0m<ws disconnected> ws://127.0.0.1:3780/e0332feb-4111-47fa-970b-57a9bf2802c2 code=1006 reason= \u001b[30m+29s\u001b[0m\n"
+                    },
+                    {
+                      "text": "  \u001b[30;1mpw:browser \u001b[0m[pid=48748] <kill> \u001b[30m+11ms\u001b[0m\n"
+                    },
+                    {
+                      "text": "  \u001b[30;1mpw:browser \u001b[0m[pid=48748] <will force kill> \u001b[30m+0ms\u001b[0m\n"
+                    },
+                    {
+                      "text": "  \u001b[30;1mpw:browser \u001b[0m[pid=48748] taskkill stderr: ERROR: The process \"48748\" not found.\r\n  \u001b[30;1mpw:browser \u001b[0m \u001b[30m+723ms\u001b[0m\n"
+                    },
+                    {
+                      "text": "  \u001b[30;1mpw:browser \u001b[0m[pid=48748] <process did exit: exitCode=1, signal=null> \u001b[30m+0ms\u001b[0m\n"
+                    },
+                    {
+                      "text": "  \u001b[30;1mpw:browser \u001b[0m[pid=48748] starting temporary directories cleanup \u001b[30m+1ms\u001b[0m\n"
+                    },
+                    {
+                      "text": "  \u001b[30;1mpw:browser \u001b[0m[pid=48748] finished temporary directories cleanup \u001b[30m+0ms\u001b[0m\n"
+                    }
+                  ],
+                  "retry": 0,
+                  "startTime": "2026-11-08T13:16:28.093Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-Model-Provider-UI\\raw\\ui-2026-11-08T13-15-42-240Z\\artifacts\\desktop-native-IPC-source--072f5-claimed-identity-are-denied\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-Model-Provider-UI\\source\\tests\\desktop\\desktop.spec.mjs",
+                    "column": 15,
+                    "line": 10
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "a3fe6ad9487e9424eaff-7366abefc6f07dd63f1c",
+          "file": "desktop.spec.mjs",
+          "line": 60,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-08T13:15:42.247Z",
+    "duration": 75384.742,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 2,
+    "flaky": 0
+  }
+}

@@ -1,0 +1,322 @@
+{
+  "schema": "agentnexus/m17/event-tests/1",
+  "node": "v24.15.0",
+  "platform": "win32",
+  "assurance": "REAL_LOCAL_SQLITE_ZSTD_AND_EXISTING_HARNESS_DISPATCH; MOCK_PROVIDER_SIMULATED; NAMED_SCHEDULING_BARRIERS_SIMULATED; SHORT_TESTS_NOT_TWO_HOUR_OR_OS_REBOOT_QUALIFICATION",
+  "observations": [
+    {
+      "name": "M17 EVENT durable admission, exact dedup, bounded queue/history and zero idle model calls",
+      "status": "PASS",
+      "detail": {
+        "requests": 2,
+        "events": [
+          {
+            "attempts": 1,
+            "created_at": "2026-11-08T13:31:01.749Z",
+            "dispatch_boot": "3125053b-24f1-4743-bc0f-3af2c8f90585",
+            "finished_at": "2026-11-08T13:31:01.930Z",
+            "id": "1e1a8e212c0e94f05bdbd3eec2220c98101bff0261ab8ed6d189d6dd7cb5e88b",
+            "input": {
+              "dedup_key": "second",
+              "effect": "INTERNAL",
+              "kind": "TASK_READY",
+              "payload_sha256": "8320fc185ef45fd28a6e935621060103ce458d4e963d2eba6de1e9a5447da7e9",
+              "priority": 0,
+              "target": {
+                "agent_id": "two",
+                "agent_type": "RESIDENT",
+                "model_binding": "mock",
+                "policy_scope": "p",
+                "project_id": "p",
+                "resource_budget_id": "worker.5569852b-b814-4bc4-96f5-87dba069d0b2",
+                "runtime_instance_id": "5569852b-b814-4bc4-96f5-87dba069d0b2",
+                "session_id": "ea0da431-2e09-4970-94b7-ea7745fb6ee6",
+                "task_id": "two"
+              }
+            },
+            "reason": "DISPATCH_RETURNED_SUCCEEDED_NOT_GATE_ACCEPTANCE",
+            "request_hash": "79dca086f404edb3213f93ff97d838ec45b683648e7f25bac6bddfa9b7f5b208",
+            "revision": 2,
+            "sequence": 2,
+            "state": "SETTLED",
+            "task_state": "SUCCEEDED",
+            "wait_boot": null,
+            "wait_signal": -1
+          },
+          {
+            "attempts": 1,
+            "created_at": "2026-11-08T13:31:01.532Z",
+            "dispatch_boot": "3125053b-24f1-4743-bc0f-3af2c8f90585",
+            "finished_at": "2026-11-08T13:31:01.744Z",
+            "id": "c1e7f30ecdc8a8533affa6f053adba43fbbb6bdba159753d895930fa3fa9b929",
+            "input": {
+              "dedup_key": "first",
+              "effect": "INTERNAL",
+              "kind": "TASK_READY",
+              "payload_sha256": "f63869bb382c6876ce6c951330d96667bf1bb48f4a1aecdfadcbc5038645b719",
+              "priority": 0,
+              "target": {
+                "agent_id": "one",
+                "agent_type": "RESIDENT",
+                "model_binding": "mock",
+                "policy_scope": "p",
+                "project_id": "p",
+                "resource_budget_id": "worker.fd6a03f6-aae1-4993-8550-69be30a51778",
+                "runtime_instance_id": "fd6a03f6-aae1-4993-8550-69be30a51778",
+                "session_id": "ff6e1c76-7031-4c15-85cd-40a222faaa13",
+                "task_id": "one"
+              }
+            },
+            "reason": "DISPATCH_RETURNED_SUCCEEDED_NOT_GATE_ACCEPTANCE",
+            "request_hash": "f914c369d2c715ab485000558861f61c2c324ac8dcfd8deff590104b524c52a5",
+            "revision": 2,
+            "sequence": 1,
+            "state": "SETTLED",
+            "task_state": "SUCCEEDED",
+            "wait_boot": null,
+            "wait_signal": -1
+          }
+        ],
+        "status": {
+          "running": true,
+          "active": 0,
+          "pending": 0,
+          "records": 2,
+          "peak_active": 1,
+          "faulted": false
+        }
+      }
+    },
+    {
+      "name": "M17 EVENT three real concurrent Harness tasks obey priority, dependencies and one execution per task",
+      "status": "PASS",
+      "detail": {
+        "calls": [
+          "high",
+          "middle",
+          "low",
+          "dependent",
+          "fourth"
+        ],
+        "peak": 3,
+        "status": {
+          "running": true,
+          "active": 0,
+          "pending": 0,
+          "records": 5,
+          "peak_active": 3,
+          "faulted": false
+        }
+      }
+    },
+    {
+      "name": "M17 EVENT real durable message wakes WAIT, atomically adopts payload and does not model while idle",
+      "status": "PASS",
+      "detail": {
+        "message_id": "5acf765fb420009d7f1068e173dcb91345faed836f99b22f643e084e8f6be7d5",
+        "task_state": "SUCCEEDED",
+        "requests": 2,
+        "received": [
+          "5acf765fb420009d7f1068e173dcb91345faed836f99b22f643e084e8f6be7d5"
+        ]
+      }
+    },
+    {
+      "name": "M17 EVENT message admitted during a real active dispatch survives until the subsequent WAIT turn",
+      "status": "PASS",
+      "detail": {
+        "message_id": "05af1f3741bcffd024f8e6530af0cee307736fb31a90527320afc6b5dc64870e",
+        "adoption_count": 1,
+        "requests": 2
+      }
+    },
+    {
+      "name": "M17 EVENT resource wait is not busy retried and known completion releases the next task once",
+      "status": "PASS",
+      "detail": {
+        "scheduler_reservations": 1,
+        "event_attempts": 2
+      }
+    },
+    {
+      "name": "M17 EVENT capacity completion arriving before the waiting dispatch returns is retained",
+      "status": "PASS",
+      "detail": {
+        "event_attempts": 2,
+        "resource_reservations": 1,
+        "completion_signal_retained": true
+      }
+    },
+    {
+      "name": "M17 EVENT stop waits for known active work and leaves later events durable for explicit restart",
+      "status": "PASS",
+      "detail": {
+        "stopped_after_active_settled": true,
+        "pending_preserved": 1,
+        "requests_after_explicit_restart": 2
+      }
+    },
+    {
+      "name": "M17 EVENT resident role OFF during durable intent blocks dispatch until an explicit enabled restart",
+      "status": "PASS",
+      "detail": {
+        "close_during_intent": true,
+        "requests_before_reenable": 0,
+        "requests_after_explicit_restart": 1
+      }
+    },
+    {
+      "name": "M17 EVENT approvals stay waiting and role OFF fences new dispatch while stop/recover remain usable",
+      "status": "PASS",
+      "detail": {
+        "approval": "APPROVAL_REQUIRED",
+        "requests": 0,
+        "status": {
+          "running": false,
+          "active": 0,
+          "pending": 1,
+          "records": 1,
+          "peak_active": 0,
+          "faulted": false
+        }
+      }
+    },
+    {
+      "name": "M17 EVENT cancelled and UNKNOWN Tasks are not replayed or automatically released",
+      "status": "PASS",
+      "detail": {
+        "requests": 1,
+        "unknown_reservation_retained": "38115bf6-37ff-47ee-b17e-f2622bb56acc",
+        "events": [
+          {
+            "attempts": 0,
+            "created_at": "2026-11-08T13:31:18.414Z",
+            "dispatch_boot": null,
+            "finished_at": "2026-11-08T13:31:18.435Z",
+            "id": "2e50d68f4e7a3878922cd01d7b753f18ea4ccbe4faf777a27dbd1d16d8a954bc",
+            "input": {
+              "dedup_key": "cancelled",
+              "effect": "INTERNAL",
+              "kind": "TASK_READY",
+              "payload_sha256": "a23d843d37b88e9dbf8c0f06a71c7e7d15ae302d9b2d7a6b1adabc7f0f8f0137",
+              "priority": 0,
+              "target": {
+                "agent_id": "cancelled",
+                "agent_type": "RESIDENT",
+                "model_binding": "mock",
+                "policy_scope": "p",
+                "project_id": "p",
+                "resource_budget_id": "worker.1ac42f67-91b4-46f6-b805-388a69a2ac85",
+                "runtime_instance_id": "1ac42f67-91b4-46f6-b805-388a69a2ac85",
+                "session_id": "37234195-94b9-4650-8b1b-049ba2975624",
+                "task_id": "cancelled"
+              }
+            },
+            "reason": "TASK_TERMINAL_EVENT_NOT_ADOPTED",
+            "request_hash": "4e52533d4db672d93f2ee560f678f80e45a6e9003bdf3e77eb7599d0d2e748d7",
+            "revision": 1,
+            "sequence": 1,
+            "state": "CANCELLED",
+            "task_state": "CANCELLED",
+            "wait_boot": null,
+            "wait_signal": -1
+          },
+          {
+            "attempts": 0,
+            "created_at": "2026-11-08T13:31:18.992Z",
+            "dispatch_boot": null,
+            "finished_at": "2026-11-08T13:31:19.003Z",
+            "id": "5b3c7ac6d641be5f2f57439e706d1dc5aa3e74cb3b23bfef840dc286d96d7c64",
+            "input": {
+              "dedup_key": "no-replay",
+              "effect": "INTERNAL",
+              "kind": "TASK_READY",
+              "payload_sha256": "9160a62c51f6149aab1532092412eda5e8b75ec3c4938fb7dceecc166647fede",
+              "priority": 0,
+              "target": {
+                "agent_id": "unknown",
+                "agent_type": "RESIDENT",
+                "model_binding": "mock",
+                "policy_scope": "p",
+                "project_id": "p",
+                "resource_budget_id": "worker.1b4f7ccd-453a-4a1f-b520-85aba945d384",
+                "runtime_instance_id": "1b4f7ccd-453a-4a1f-b520-85aba945d384",
+                "session_id": "c41cf31e-0adc-42fc-be48-0ee484df7095",
+                "task_id": "unknown"
+              }
+            },
+            "reason": "TASK_UNKNOWN_NO_AUTOMATIC_REPLAY",
+            "request_hash": "2a40e945f9c8c2869c13b2a12b32a73f39f10863bbc21c52b881efcdf46d6d82",
+            "revision": 1,
+            "sequence": 3,
+            "state": "INDETERMINATE",
+            "task_state": "UNKNOWN_QUARANTINED",
+            "wait_boot": null,
+            "wait_signal": -1
+          },
+          {
+            "attempts": 1,
+            "created_at": "2026-11-08T13:31:18.427Z",
+            "dispatch_boot": "f4a89786-a62d-456f-997b-4ebd9b8ae7f3",
+            "finished_at": "2026-11-08T13:31:18.977Z",
+            "id": "ae3d581a88dc2f21650bfc9eb0dad10a9071443db8de589b71a34e99b5b3eea8",
+            "input": {
+              "dedup_key": "first",
+              "effect": "INTERNAL",
+              "kind": "TASK_READY",
+              "payload_sha256": "d7c144c90dd5ffe3c6de16a26bcf9c8d628f74fd4ead2fc5e13248edfb1766af",
+              "priority": 0,
+              "target": {
+                "agent_id": "unknown",
+                "agent_type": "RESIDENT",
+                "model_binding": "mock",
+                "policy_scope": "p",
+                "project_id": "p",
+                "resource_budget_id": "worker.1b4f7ccd-453a-4a1f-b520-85aba945d384",
+                "runtime_instance_id": "1b4f7ccd-453a-4a1f-b520-85aba945d384",
+                "session_id": "c41cf31e-0adc-42fc-be48-0ee484df7095",
+                "task_id": "unknown"
+              }
+            },
+            "reason": "DISPATCH_RESULT_UNKNOWN_NO_AUTOMATIC_REPLAY",
+            "request_hash": "61a9da52f613663b6785b16ba3881b88118d802ee0ca35ebf03ee931b4a07fca",
+            "revision": 2,
+            "sequence": 2,
+            "state": "INDETERMINATE",
+            "task_state": "UNKNOWN_QUARANTINED",
+            "wait_boot": null,
+            "wait_signal": -1
+          }
+        ]
+      }
+    },
+    {
+      "name": "M17 EVENT real close/reopen retains PENDING and requires explicit event start",
+      "status": "PASS",
+      "detail": {
+        "event_id": "7b407206fbaace52fa3329d5978bb180ff8b17f7d00cb393fb085dffe1c9a0b5",
+        "real_close_reopen": true,
+        "explicit_start": true,
+        "os_reboot": false
+      }
+    },
+    {
+      "name": "M17 EVENT REAL_PROCESS_KILL durable DISPATCHING intent recovers INDETERMINATE without replay",
+      "status": "PASS",
+      "detail": {
+        "marker": {
+          "phase": "REAL_DURABLE_EVENT_INTENT",
+          "requests": 0
+        },
+        "exit": [
+          null,
+          "SIGKILL"
+        ],
+        "real_process_kill": true,
+        "barrier": "SIMULATED_WAIT_AFTER_REAL_DURABLE_INTENT",
+        "replayed_requests": 0,
+        "os_reboot": false
+      }
+    }
+  ]
+}

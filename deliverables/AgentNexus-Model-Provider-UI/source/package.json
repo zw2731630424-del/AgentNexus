@@ -1,0 +1,35 @@
+{
+  "name": "agentnexus",
+  "version": "0.4.0-provider-ui",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": "24.15.0"
+  },
+  "scripts": {
+    "test": "node tools/agentnexus/run-tests.mjs",
+    "demo": "node src/agentnexus/cli.ts demo",
+    "verify:m14": "node tools/agentnexus/verify-m14.mjs",
+    "typecheck": "node tools/agentnexus/typecheck-m15.mjs",
+    "demo:m16": "node tools/agentnexus/demo-m16.ts",
+    "verify:m16": "node tools/agentnexus/verify-m16.mjs",
+    "verify:m161": "node tools/agentnexus/verify-m161.mjs",
+    "verify:m17": "node tools/agentnexus/verify-m17.mjs",
+    "pilot:m17": "node tools/agentnexus/pilot-m17.ts",
+    "soak:m17": "node tools/agentnexus/soak-m17.ts",
+    "verify:m18": "node tools/agentnexus/verify-m18.mjs",
+    "verify:m181": "node tools/agentnexus/verify-m181.mjs",
+    "verify:m182": "node tools/agentnexus/verify-m182.mjs",
+    "desktop": "npm run build:desktop && node tools/agentnexus/launch-desktop.mjs",
+    "build:desktop": "node tools/agentnexus/build-desktop.mjs",
+    "test:desktop": "node --test tests/desktop/service.test.ts",
+    "test:ui": "playwright test --config tests/desktop/playwright.config.mjs"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.65.0",
+    "@types/node": "24.10.1",
+    "electron": "45.2.3",
+    "typescript": "5.9.3"
+  },
+  "main": "desktop/main.mjs"
+}

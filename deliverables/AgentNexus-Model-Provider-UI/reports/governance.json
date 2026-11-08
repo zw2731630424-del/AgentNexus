@@ -1,0 +1,20 @@
+{
+  "full_root": {
+    "command": "python -X utf8 ai-workflow-kit-v4/tools/govern.py check --target \\\\?\\I:\\AI_AgentNexus",
+    "observed_exit_code": 0,
+    "transcribed_stdout": "Governance check: PASS",
+    "scope": "full root inventory; existing historical runtime included; extended Windows path prefix used"
+  },
+  "final_incremental": {
+    "status": "PASS",
+    "classifier": "actual govern.classify + govern.path_at, unchanged policy/baseline/protected-rule hashes",
+    "files": 353
+  },
+  "policy_sha256": "ea91359de90e74cbb554f93ac2dae82509f93f5bcc05c65bf22384aba4dd4d83",
+  "protected_rules": {
+    "AGENTS.md": "a868b01052ea5613300e6973fd1c65917ba2f10b01eea025214b513432cd4694"
+  },
+  "rules_modified": false,
+  "history_modified": false,
+  "initial_attempts": "Existing overlength historical runtime path caused WinError 3; duplicate slow invocations stopped, not counted as PASS."
+}

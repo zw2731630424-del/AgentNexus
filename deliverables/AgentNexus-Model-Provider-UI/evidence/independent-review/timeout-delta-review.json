@@ -1,0 +1,27 @@
+{
+  "kind": "TIMEOUT_FINAL_DELTA_REVIEW",
+  "service_sha256": "aea196b41972083d03adc39ab7ce210ceab4836b15aeeb5a3ddc088826689637",
+  "main_sha256": "4491a6d363d5a4202ff7a67819526afdde1d95cef5d7c8fc00f5585b97b388c8",
+  "test_sha256": "d009f27f0817b04081db73f0e3cf11528a7a0608f47c8b0be31d50225c8fd8a9",
+  "reconstructed_prior_service_sha256": "6fb14b1803bbb4817731fe9ca6fa238e46ce24541281b4a4e96a32c362ab2b72",
+  "expected_prior_service_sha256": "6fb14b1803bbb4817731fe9ca6fa238e46ce24541281b4a4e96a32c362ab2b72",
+  "service_delta_only": true,
+  "targeted_test": {
+    "command": "node --test --test-name-pattern 'deadline is displayed as TIMEOUT' tests/desktop/service.test.ts",
+    "pass": 1,
+    "fail": 0,
+    "skip": 0,
+    "node": "v24.15.0"
+  },
+  "checks": {
+    "timeout_option": "TRUSTED_HOST_ONLY_DEFAULT_10000MS_BOUNDED_10_TO_120000_NO_RENDERER_FIELD",
+    "timeout_metadata": "HOST_TIMER_AND_SENT_OUTCOME_UNKNOWN_AND_NO_CALLER_ABORT",
+    "unknown": "RETAINS_HOLD_SINGLE_SEND_NO_PROVEN_NOT_SENT_RETRY"
+  },
+  "full_suite": "NOT_RERUN_BY_INDEPENDENT_REVIEWER_FOR_THIS_DELTA",
+  "production": {
+    "same_sid_isolation": "HISTORICAL_FAIL_UNCHANGED",
+    "credential_service": "BLOCKED",
+    "live": "BLOCKED"
+  }
+}

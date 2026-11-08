@@ -1,0 +1,94 @@
+TAP version 13
+# Subtest: DESKTOP provider CRUD, strict revision, unsupported protocols and model wire IDs
+ok 1 - DESKTOP provider CRUD, strict revision, unsupported protocols and model wire IDs
+  ---
+  duration_ms: 443.8599
+  type: 'test'
+  ...
+# Subtest: DESKTOP credential add, zeroization, no read API, rotation, disable, revoke and audit safety
+ok 2 - DESKTOP credential add, zeroization, no read API, rotation, disable, revoke and audit safety
+  ---
+  duration_ms: 531.8441
+  type: 'test'
+  ...
+# Subtest: DESKTOP credential protector failure never reports success and clears submitted bytes
+ok 3 - DESKTOP credential protector failure never reports success and clears submitted bytes
+  ---
+  duration_ms: 409.0537
+  type: 'test'
+  ...
+# Subtest: DESKTOP synthetic connection uses Gateway and ledger but never marks CONNECTED; LIVE never sends
+ok 4 - DESKTOP synthetic connection uses Gateway and ledger but never marks CONNECTED; LIVE never sends
+  ---
+  duration_ms: 713.3501
+  type: 'test'
+  ...
+# Subtest: DESKTOP Agent bindings, task override, reset, favorites/defaults and pre-send failover execute Model Router
+ok 5 - DESKTOP Agent bindings, task override, reset, favorites/defaults and pre-send failover execute Model Router
+  ---
+  duration_ms: 1216.392
+  type: 'test'
+  ...
+# Subtest: DESKTOP all Keys and Providers share platform usage; per-Agent budget cannot be expanded by adding Keys
+ok 6 - DESKTOP all Keys and Providers share platform usage; per-Agent budget cannot be expanded by adding Keys
+  ---
+  duration_ms: 945.6155
+  type: 'test'
+  ...
+# Subtest: DESKTOP UNKNOWN holds survive rotation and Host reopen and never auto-replay
+ok 7 - DESKTOP UNKNOWN holds survive rotation and Host reopen and never auto-replay
+  ---
+  duration_ms: 826.992
+  type: 'test'
+  ...
+# Subtest: DESKTOP multiple scoped Agent requests occupy separate pool Keys concurrently
+ok 8 - DESKTOP multiple scoped Agent requests occupy separate pool Keys concurrently
+  ---
+  duration_ms: 756.9768
+  type: 'test'
+  ...
+# Subtest: DESKTOP IPC contract denies claimed roles, unknown fields, revoked sessions, real Transport and secret metadata
+ok 9 - DESKTOP IPC contract denies claimed roles, unknown fields, revoked sessions, real Transport and secret metadata
+  ---
+  duration_ms: 486.0454
+  type: 'test'
+  ...
+# Subtest: DESKTOP connection error taxonomy does not infer success from configuration
+ok 10 - DESKTOP connection error taxonomy does not infer success from configuration
+  ---
+  duration_ms: 0.221
+  type: 'test'
+  ...
+# Subtest: DESKTOP provider permission denial remains UNAUTHORIZED through actual Gateway path
+ok 11 - DESKTOP provider permission denial remains UNAUTHORIZED through actual Gateway path
+  ---
+  duration_ms: 507.4292
+  type: 'test'
+  ...
+# Subtest: DESKTOP runtime shares four slots across all facades and close cannot partially close an active Vault
+ok 12 - DESKTOP runtime shares four slots across all facades and close cannot partially close an active Vault
+  ---
+  duration_ms: 1269.0334
+  type: 'test'
+  ...
+# Subtest: DESKTOP acknowledged not-sent primary RPM failure uses fallback without replaying a sent request
+ok 13 - DESKTOP acknowledged not-sent primary RPM failure uses fallback without replaying a sent request
+  ---
+  duration_ms: 742.8908
+  type: 'test'
+  ...
+# Subtest: DESKTOP deadline is displayed as TIMEOUT while retaining unknown usage and no replay
+ok 14 - DESKTOP deadline is displayed as TIMEOUT while retaining unknown usage and no replay
+  ---
+  duration_ms: 608.8467
+  type: 'test'
+  ...
+1..14
+# tests 14
+# suites 0
+# pass 14
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 9739.2033

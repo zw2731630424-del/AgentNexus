@@ -1,0 +1,264 @@
+{
+  "config": {
+    "argv": [
+      "D:\\Nodejs\\node.exe",
+      "I:\\AI_AgentNexus\\deliverables\\AgentNexus-Model-Provider-UI\\source\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--config",
+      "tests/desktop/playwright.config.mjs"
+    ],
+    "configFile": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-Model-Provider-UI\\source\\tests\\desktop\\playwright.config.mjs",
+    "rootDir": "I:/AI_AgentNexus/deliverables/AgentNexus-Model-Provider-UI/source/tests/desktop",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "I:/AI_AgentNexus/deliverables/AgentNexus-Model-Provider-UI/raw/ui-2026-11-08T13-40-40-612Z/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "I:/AI_AgentNexus/deliverables/AgentNexus-Model-Provider-UI/source/tests/desktop",
+        "testIgnore": [],
+        "testMatch": [
+          "desktop.spec.mjs"
+        ],
+        "timeout": 120000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-Model-Provider-UI\\raw\\ui-2026-11-08T13-40-40-612Z\\artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "",
+        "testDir": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-Model-Provider-UI\\source\\tests\\desktop",
+        "snapshotDir": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-Model-Provider-UI\\source\\tests\\desktop",
+        "testIgnore": [],
+        "testMatch": "desktop.spec.mjs",
+        "timeout": 120000,
+        "use": {
+          "trace": "off",
+          "video": "off",
+          "screenshot": "off"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": ""
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-Model-Provider-UI\\raw\\ui-2026-11-08T13-40-40-612Z\\/results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.65.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "desktop.spec.mjs",
+      "file": "desktop.spec.mjs",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "SIMULATED native Desktop full visual configuration, Vault, routing, usage and restart",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 72353,
+                  "error": {
+                    "message": "TypeError: Cannot read properties of undefined (reading '_object')",
+                    "stack": "TypeError: Cannot read properties of undefined (reading '_object')\n    at close (I:\\AI_AgentNexus\\deliverables\\AgentNexus-Model-Provider-UI\\source\\tests\\desktop\\desktop.spec.mjs:29:11)\n    at I:\\AI_AgentNexus\\deliverables\\AgentNexus-Model-Provider-UI\\source\\tests\\desktop\\desktop.spec.mjs:74:109",
+                    "location": {
+                      "file": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-Model-Provider-UI\\source\\tests\\desktop\\desktop.spec.mjs",
+                      "column": 11,
+                      "line": 29
+                    },
+                    "snippet": " \u001b[90m 27 |\u001b[39m   \u001b[90m// The execution host can keep a proxy process alive after Electron exits.\u001b[39m\n \u001b[90m 28 |\u001b[39m   \u001b[90m// Terminate only that test-owned proxy, after actual Host exit is observed.\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 29 |\u001b[39m   \u001b[36mif\u001b[39m (app\u001b[33m.\u001b[39mprocess()\u001b[33m.\u001b[39mpid \u001b[33m!==\u001b[39m pid) app\u001b[33m.\u001b[39mprocess()\u001b[33m.\u001b[39mkill()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m           \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 30 |\u001b[39m   \u001b[36mawait\u001b[39m \u001b[33mPromise\u001b[39m\u001b[33m.\u001b[39mrace([app\u001b[33m.\u001b[39mclose()\u001b[33m.\u001b[39mcatch(() \u001b[33m=>\u001b[39m {})\u001b[33m,\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mPromise\u001b[39m(resolve \u001b[33m=>\u001b[39m setTimeout(resolve\u001b[33m,\u001b[39m \u001b[35m1000\u001b[39m))])\u001b[33m;\u001b[39m\n \u001b[90m 31 |\u001b[39m   console\u001b[33m.\u001b[39mlog(\u001b[32m'UI: native Host exit observed'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 32 |\u001b[39m }"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-Model-Provider-UI\\source\\tests\\desktop\\desktop.spec.mjs",
+                        "column": 11,
+                        "line": 29
+                      },
+                      "message": "TypeError: Cannot read properties of undefined (reading '_object')\n\n  27 |   // The execution host can keep a proxy process alive after Electron exits.\n  28 |   // Terminate only that test-owned proxy, after actual Host exit is observed.\n> 29 |   if (app.process().pid !== pid) app.process().kill();\n     |           ^\n  30 |   await Promise.race([app.close().catch(() => {}), new Promise(resolve => setTimeout(resolve, 1000))]);\n  31 |   console.log('UI: native Host exit observed');\n  32 | }\n    at close (I:\\AI_AgentNexus\\deliverables\\AgentNexus-Model-Provider-UI\\source\\tests\\desktop\\desktop.spec.mjs:29:11)\n    at I:\\AI_AgentNexus\\deliverables\\AgentNexus-Model-Provider-UI\\source\\tests\\desktop\\desktop.spec.mjs:74:109"
+                    }
+                  ],
+                  "stdout": [
+                    {
+                      "text": "UI: Host and renderer ready\n"
+                    },
+                    {
+                      "text": "UI: starting provider form\n"
+                    },
+                    {
+                      "text": "UI: provider created\n"
+                    },
+                    {
+                      "text": "UI: Vault stored two synthetic credentials\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-08T13:40:41.263Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-Model-Provider-UI\\raw\\ui-2026-11-08T13-40-40-612Z\\artifacts\\desktop-SIMULATED-native-D-87b29-t-routing-usage-and-restart\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-Model-Provider-UI\\source\\tests\\desktop\\desktop.spec.mjs",
+                    "column": 11,
+                    "line": 29
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "a3fe6ad9487e9424eaff-4a67e132e5c82eaf7b7c",
+          "file": "desktop.spec.mjs",
+          "line": 40,
+          "column": 1
+        },
+        {
+          "title": "native IPC source spoofing and renderer claimed identity are denied",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 1053,
+                  "error": {
+                    "message": "Error: electronApplication.evaluate: Error: Script failed to execute, this normally means an error was thrown. Check the renderer console for the error.",
+                    "stack": "Error: electronApplication.evaluate: Error: Script failed to execute, this normally means an error was thrown. Check the renderer console for the error.\n    at I:\\AI_AgentNexus\\deliverables\\AgentNexus-Model-Provider-UI\\source\\tests\\desktop\\desktop.spec.mjs:84:29",
+                    "location": {
+                      "file": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-Model-Provider-UI\\source\\tests\\desktop\\desktop.spec.mjs",
+                      "column": 29,
+                      "line": 84
+                    },
+                    "snippet": " \u001b[90m 82 |\u001b[39m   \u001b[36mtry\u001b[39m {\n \u001b[90m 83 |\u001b[39m     \u001b[36mconst\u001b[39m forged \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mevaluate(() \u001b[33m=>\u001b[39m window\u001b[33m.\u001b[39magentnexus\u001b[33m.\u001b[39minvoke(\u001b[32m'snapshot'\u001b[39m\u001b[33m,\u001b[39m { role\u001b[33m:\u001b[39m \u001b[32m'admin'\u001b[39m\u001b[33m,\u001b[39m identity\u001b[33m:\u001b[39m \u001b[32m'operator'\u001b[39m }))\u001b[33m;\u001b[39m expect(forged)\u001b[33m.\u001b[39mtoEqual({ ok\u001b[33m:\u001b[39m \u001b[36mfalse\u001b[39m\u001b[33m,\u001b[39m error\u001b[33m:\u001b[39m \u001b[32m'INVALID_INPUT'\u001b[39m })\u001b[33m;\u001b[39m console\u001b[33m.\u001b[39mlog(\u001b[32m'UI: claimed operator identity denied'\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 84 |\u001b[39m     \u001b[36mconst\u001b[39m rogue \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m app\u001b[33m.\u001b[39mevaluate(\u001b[36masync\u001b[39m ({ \u001b[33mBrowserWindow\u001b[39m }) \u001b[33m=>\u001b[39m {\n \u001b[90m    |\u001b[39m                             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 85 |\u001b[39m       \u001b[36mconst\u001b[39m original \u001b[33m=\u001b[39m \u001b[33mBrowserWindow\u001b[39m\u001b[33m.\u001b[39mgetAllWindows()[\u001b[35m0\u001b[39m]\u001b[33m;\u001b[39m\n \u001b[90m 86 |\u001b[39m       \u001b[36mconst\u001b[39m other \u001b[33m=\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mBrowserWindow\u001b[39m({ show\u001b[33m:\u001b[39m \u001b[36mfalse\u001b[39m\u001b[33m,\u001b[39m webPreferences\u001b[33m:\u001b[39m { preload\u001b[33m:\u001b[39m original\u001b[33m.\u001b[39mwebContents\u001b[33m.\u001b[39mgetLastWebPreferences()\u001b[33m.\u001b[39mpreload\u001b[33m,\u001b[39m nodeIntegration\u001b[33m:\u001b[39m \u001b[36mfalse\u001b[39m\u001b[33m,\u001b[39m sandbox\u001b[33m:\u001b[39m \u001b[36mtrue\u001b[39m\u001b[33m,\u001b[39m contextIsolation\u001b[33m:\u001b[39m \u001b[36mtrue\u001b[39m } })\u001b[33m;\u001b[39m\n \u001b[90m 87 |\u001b[39m       \u001b[36mtry\u001b[39m { \u001b[36mawait\u001b[39m other\u001b[33m.\u001b[39mloadURL(\u001b[32m'agentnexus://desktop/index.html'\u001b[39m)\u001b[33m;\u001b[39m \u001b[36mreturn\u001b[39m \u001b[36mawait\u001b[39m other\u001b[33m.\u001b[39mwebContents\u001b[33m.\u001b[39mexecuteJavaScript(\u001b[32m'window.agentnexus.invoke(\"snapshot\", {})'\u001b[39m)\u001b[33m;\u001b[39m } \u001b[36mfinally\u001b[39m { other\u001b[33m.\u001b[39mdestroy()\u001b[33m;\u001b[39m }"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-Model-Provider-UI\\source\\tests\\desktop\\desktop.spec.mjs",
+                        "column": 29,
+                        "line": 84
+                      },
+                      "message": "Error: electronApplication.evaluate: Error: Script failed to execute, this normally means an error was thrown. Check the renderer console for the error.\n\n  82 |   try {\n  83 |     const forged = await page.evaluate(() => window.agentnexus.invoke('snapshot', { role: 'admin', identity: 'operator' })); expect(forged).toEqual({ ok: false, error: 'INVALID_INPUT' }); console.log('UI: claimed operator identity denied');\n> 84 |     const rogue = await app.evaluate(async ({ BrowserWindow }) => {\n     |                             ^\n  85 |       const original = BrowserWindow.getAllWindows()[0];\n  86 |       const other = new BrowserWindow({ show: false, webPreferences: { preload: original.webContents.getLastWebPreferences().preload, nodeIntegration: false, sandbox: true, contextIsolation: true } });\n  87 |       try { await other.loadURL('agentnexus://desktop/index.html'); return await other.webContents.executeJavaScript('window.agentnexus.invoke(\"snapshot\", {})'); } finally { other.destroy(); }\n    at I:\\AI_AgentNexus\\deliverables\\AgentNexus-Model-Provider-UI\\source\\tests\\desktop\\desktop.spec.mjs:84:29"
+                    }
+                  ],
+                  "stdout": [
+                    {
+                      "text": "UI: Host and renderer ready\n"
+                    },
+                    {
+                      "text": "UI: claimed operator identity denied\n"
+                    },
+                    {
+                      "text": "UI: native Host exit observed\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-08T13:41:54.030Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-Model-Provider-UI\\raw\\ui-2026-11-08T13-40-40-612Z\\artifacts\\desktop-native-IPC-source--072f5-claimed-identity-are-denied\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-Model-Provider-UI\\source\\tests\\desktop\\desktop.spec.mjs",
+                    "column": 29,
+                    "line": 84
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "a3fe6ad9487e9424eaff-7366abefc6f07dd63f1c",
+          "file": "desktop.spec.mjs",
+          "line": 80,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-08T13:40:40.617Z",
+    "duration": 74525.019,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 2,
+    "flaky": 0
+  }
+}

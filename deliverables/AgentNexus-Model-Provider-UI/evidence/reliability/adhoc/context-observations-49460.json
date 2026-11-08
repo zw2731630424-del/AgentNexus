@@ -1,0 +1,558 @@
+{
+  "schema": "agentnexus/m161/context-tests/1",
+  "node": "v24.15.0",
+  "platform": "win32",
+  "observations": [
+    {
+      "name": "M161-CONTEXT-EXACT: every source category and version survives immutable input/manifest reconstruction",
+      "status": "PASS",
+      "assurance": "REAL_SQLITE_ZSTD_LOCAL_FILES; PROVIDER_OR_SCHEDULING_FAULTS_WHERE_NAMED_ARE_SIMULATED",
+      "detail": {
+        "view_id": "949f3ba6-9b25-4478-be94-b9479c727329",
+        "input_sha256": "63723011811b822ea380df5d8fe855ed5a2700a6b88f018690ed356717d34d12",
+        "input_ref": {
+          "artifact_id": "63851a6a-2d8c-4215-810f-4ff4ef28d36f",
+          "bytes": 337,
+          "codec": "zstd",
+          "media_type": "text/plain; charset=utf-8",
+          "sensitivity": "NORMAL",
+          "sha256": "63723011811b822ea380df5d8fe855ed5a2700a6b88f018690ed356717d34d12",
+          "stored_bytes": 166,
+          "stored_sha256": "32351c4ac7f579656b844ff343a06a7caab2d7b8f58ca32b910768eb77a5caba"
+        },
+        "manifest_ref": {
+          "artifact_id": "bad7542b-4777-4dde-93c4-571abaaf8ccc",
+          "bytes": 9240,
+          "codec": "zstd",
+          "media_type": "application/json",
+          "sensitivity": "NORMAL",
+          "sha256": "6f73be5b42a9ba977fde83808cae6c8ad2d5f6e9af63b15e0272b8e8adb7566d",
+          "stored_bytes": 2702,
+          "stored_sha256": "a5b16f0634e740244474ca2ba0321fc657e93a895221c5797bb70d504b700647"
+        },
+        "provenance_sha256": "4a151e3d3c21783546d6a339a1e91977251423f725c89bb4255d15056e61db62",
+        "sources": [
+          {
+            "section": "PROJECT_RULES",
+            "source": {
+              "event_id": "d9183cc4-e841-4c88-87e5-64f4e6d0c1d6",
+              "kind": "RAW",
+              "length": 34,
+              "offset": 0,
+              "payload_ref": {
+                "artifact_id": "e90078dd-92ce-49ab-a53c-866c977f494c",
+                "bytes": 34,
+                "codec": "zstd",
+                "media_type": "text/plain; charset=utf-8",
+                "sensitivity": "NORMAL",
+                "sha256": "c95d1245987f106ebe35246306d13878f571c115f40f04887aa00d038e8966e1",
+                "stored_bytes": 47,
+                "stored_sha256": "73ebea698867d53a11d3c14654df3f23ddb7b424e2c17fa0ce6a7fb6272d76f7"
+              },
+              "project_id": "m161-project",
+              "record_hash": "df184eab8c5dacb69a31207fbfdd668dffaca50d98c738057167cf51e196043a",
+              "task_id": "m161-task"
+            },
+            "binding": {
+              "reference": "project_rules:original-0",
+              "sha256": "c95d1245987f106ebe35246306d13878f571c115f40f04887aa00d038e8966e1",
+              "version": "v0"
+            }
+          },
+          {
+            "section": "AGENT_CONTRACT",
+            "source": {
+              "event_id": "bb1a2707-2a9f-4cc9-8d68-072402e51c15",
+              "kind": "RAW",
+              "length": 35,
+              "offset": 0,
+              "payload_ref": {
+                "artifact_id": "96a91802-193c-46ff-8fe4-d53c74653520",
+                "bytes": 35,
+                "codec": "zstd",
+                "media_type": "text/plain; charset=utf-8",
+                "sensitivity": "NORMAL",
+                "sha256": "56eb76c4b94abb62dfa1d7880a6b1953b498e9e8edff6b6fb1113dd112709404",
+                "stored_bytes": 48,
+                "stored_sha256": "0646e64f38ae6d9f649f575f238c888d723d6405904bf53b19a131b6ae077f2b"
+              },
+              "project_id": "m161-project",
+              "record_hash": "fe3e6f8aa08b3b56848fcc0eac050d325d7f2eb4b20f82dbc3b56c998a6f211f",
+              "task_id": "m161-task"
+            },
+            "binding": {
+              "reference": "agent_contract:original-1",
+              "sha256": "56eb76c4b94abb62dfa1d7880a6b1953b498e9e8edff6b6fb1113dd112709404",
+              "version": "v1"
+            }
+          },
+          {
+            "section": "TASK_CONTRACT",
+            "source": {
+              "event_id": "bb1638e4-8778-4722-b8e5-bd27c49bde15",
+              "kind": "RAW",
+              "length": 34,
+              "offset": 0,
+              "payload_ref": {
+                "artifact_id": "faa7cb17-859f-4487-ba8b-68e1ce8298a0",
+                "bytes": 34,
+                "codec": "zstd",
+                "media_type": "text/plain; charset=utf-8",
+                "sensitivity": "NORMAL",
+                "sha256": "d11b917c7fae02012b41786af9fe08fd053a00565eabc8c2c618b6aa404e5946",
+                "stored_bytes": 47,
+                "stored_sha256": "cb4cc4e668771f4eeb5e9817cfb3ae58cd6e05af9db7f5a8077ebc235cff745e"
+              },
+              "project_id": "m161-project",
+              "record_hash": "8fa4e63f02a2d1295bb05a2c71a52356863f11e6463111bb2816058248a00f70",
+              "task_id": "m161-task"
+            },
+            "binding": {
+              "reference": "task_contract:original-2",
+              "sha256": "d11b917c7fae02012b41786af9fe08fd053a00565eabc8c2c618b6aa404e5946",
+              "version": "v2"
+            }
+          },
+          {
+            "section": "HISTORY",
+            "source": {
+              "event_id": "8c211921-e888-4b7f-84d4-a8643efc9acd",
+              "kind": "RAW",
+              "length": 28,
+              "offset": 0,
+              "payload_ref": {
+                "artifact_id": "645ec012-2860-419a-89c6-ace5df2add71",
+                "bytes": 28,
+                "codec": "zstd",
+                "media_type": "text/plain; charset=utf-8",
+                "sensitivity": "NORMAL",
+                "sha256": "f1a28646bc33623e5c5afd3e1fd8f13d016885f7f847a45082548450bb59cae1",
+                "stored_bytes": 41,
+                "stored_sha256": "c2f5d5a3cb988e1f30ddc90c7e9fb6e92701bc1851039889af219758aefb77e1"
+              },
+              "project_id": "m161-project",
+              "record_hash": "bd03ac1ddd64dd911f09694423b9b43335dc6426aa34abb2371bbbec2cb2925f",
+              "task_id": "m161-task"
+            },
+            "binding": {
+              "reference": "history:original-3",
+              "sha256": "f1a28646bc33623e5c5afd3e1fd8f13d016885f7f847a45082548450bb59cae1",
+              "version": "v3"
+            }
+          },
+          {
+            "section": "FILE_CONTENT",
+            "source": {
+              "event_id": "5dab1766-0afb-4322-bb53-7482c7932779",
+              "kind": "RAW",
+              "length": 33,
+              "offset": 0,
+              "payload_ref": {
+                "artifact_id": "34386aa9-d377-4536-be8f-9040a582a8aa",
+                "bytes": 33,
+                "codec": "zstd",
+                "media_type": "text/plain; charset=utf-8",
+                "sensitivity": "NORMAL",
+                "sha256": "6f1b8da9c48da9499cdfce81f0d9d71f739c2fe6d08d6b870de611310cdeb7d8",
+                "stored_bytes": 46,
+                "stored_sha256": "8b66af31c7cccbfd72514231783805e5e8ed7cb4e655abd0e1ba3732abf153d1"
+              },
+              "project_id": "m161-project",
+              "record_hash": "c9daba6d6748b6eed1f4b902e30ae4d201c317a6f14f87ec7cd40272ae6c8ee7",
+              "task_id": "m161-task"
+            },
+            "binding": {
+              "reference": "file_content:original-4",
+              "sha256": "6f1b8da9c48da9499cdfce81f0d9d71f739c2fe6d08d6b870de611310cdeb7d8",
+              "version": "v4"
+            }
+          },
+          {
+            "section": "DECISION",
+            "source": {
+              "event_id": "2718f3c2-9c22-4568-a0b1-0dbe4cd77668",
+              "kind": "RAW",
+              "length": 29,
+              "offset": 0,
+              "payload_ref": {
+                "artifact_id": "ceb71dcf-d741-49bb-82d3-8bed4d8a5d06",
+                "bytes": 29,
+                "codec": "zstd",
+                "media_type": "text/plain; charset=utf-8",
+                "sensitivity": "NORMAL",
+                "sha256": "fa99fe33bca6fac0780d7953114108bcb6828d9a4ab692c1408dbbf6d217f6e4",
+                "stored_bytes": 42,
+                "stored_sha256": "5fbc3c746b1a8a10238796ed6d7a27f648ca54f2ea67a4e6e317c6fda005a6da"
+              },
+              "project_id": "m161-project",
+              "record_hash": "cb78d503d53b66e6676684fd6cb622f22bfd9ef4b33e75d325a801e5daee973b",
+              "task_id": "m161-task"
+            },
+            "binding": {
+              "reference": "decision:original-5",
+              "sha256": "fa99fe33bca6fac0780d7953114108bcb6828d9a4ab692c1408dbbf6d217f6e4",
+              "version": "v5"
+            }
+          },
+          {
+            "section": "AGENT_MESSAGE",
+            "source": {
+              "event_id": "436dde3f-23b8-4c62-b410-45409779295a",
+              "kind": "RAW",
+              "length": 34,
+              "offset": 0,
+              "payload_ref": {
+                "artifact_id": "7e127489-d898-4799-9d18-19c4eac750f4",
+                "bytes": 34,
+                "codec": "zstd",
+                "media_type": "text/plain; charset=utf-8",
+                "sensitivity": "NORMAL",
+                "sha256": "eedf82fda88d69fa948673ff31e67c1e60304738a57e41f58c25c797e9a90d6a",
+                "stored_bytes": 47,
+                "stored_sha256": "a7086704aefeb057dfe6306fc98a5742cc0116c5c92b1a66583eb4860c6e2d6b"
+              },
+              "project_id": "m161-project",
+              "record_hash": "5486c9fb0720ec665c7d711a8a18fdb4fd8bcf6b1ad4737a71d01ff99f1dd65a",
+              "task_id": "m161-task"
+            },
+            "binding": {
+              "reference": "agent_message:original-6",
+              "sha256": "eedf82fda88d69fa948673ff31e67c1e60304738a57e41f58c25c797e9a90d6a",
+              "version": "v6"
+            }
+          },
+          {
+            "section": "TOOL_RESULT",
+            "source": {
+              "event_id": "13849d76-ac8a-4fcd-bc6d-75bbb8cec739",
+              "kind": "RAW",
+              "length": 32,
+              "offset": 0,
+              "payload_ref": {
+                "artifact_id": "fa821954-a6b2-434b-9108-4350771c6736",
+                "bytes": 32,
+                "codec": "zstd",
+                "media_type": "text/plain; charset=utf-8",
+                "sensitivity": "NORMAL",
+                "sha256": "6ee993955b359eaff0ee06f81c1ee4cd8a1ba78418d490614badf32f1c376f04",
+                "stored_bytes": 45,
+                "stored_sha256": "f5932ef56b923047eedcf91b4077d6b5f1dc6dffe4594309af18d146ae87c7aa"
+              },
+              "project_id": "m161-project",
+              "record_hash": "ef1614a431151785286dc2ec03d368779e0eef6145b21934e73eaba56238d283",
+              "task_id": "m161-task"
+            },
+            "binding": {
+              "reference": "tool_result:original-7",
+              "sha256": "6ee993955b359eaff0ee06f81c1ee4cd8a1ba78418d490614badf32f1c376f04",
+              "version": "v7"
+            }
+          },
+          {
+            "section": "ARTIFACT",
+            "source": {
+              "event_id": "512361a4-2191-424a-bbb9-48f34e3caef9",
+              "kind": "RAW",
+              "length": 29,
+              "offset": 0,
+              "payload_ref": {
+                "artifact_id": "1cd7a71d-fcb5-4c6f-b227-46be75e859dd",
+                "bytes": 29,
+                "codec": "zstd",
+                "media_type": "text/plain; charset=utf-8",
+                "sensitivity": "NORMAL",
+                "sha256": "a33ef24e500e4f5ca508755c68ecc7dea4388bd3c2ba86050eaf8ae82c2b2fe4",
+                "stored_bytes": 42,
+                "stored_sha256": "5e9550f011133e200abc5c38d372e5c70c0a09eccf59baa458f141e1eecc0770"
+              },
+              "project_id": "m161-project",
+              "record_hash": "2082eb724f998a57d73afe3af4dc8d4c1263013d08b7c36a2382e8702b7a7ab8",
+              "task_id": "m161-task"
+            },
+            "binding": {
+              "reference": "artifact:original-8",
+              "sha256": "a33ef24e500e4f5ca508755c68ecc7dea4388bd3c2ba86050eaf8ae82c2b2fe4",
+              "version": "v8"
+            }
+          },
+          {
+            "section": "WORK_STATE",
+            "source": {
+              "event_id": "1a74e2d2-9a37-4793-9e12-54279f8fc1a3",
+              "kind": "RAW",
+              "length": 31,
+              "offset": 0,
+              "payload_ref": {
+                "artifact_id": "95e1226b-c1c6-4b9d-8a8d-3dab6ff23dee",
+                "bytes": 31,
+                "codec": "zstd",
+                "media_type": "text/plain; charset=utf-8",
+                "sensitivity": "NORMAL",
+                "sha256": "d6c4eb9386ac32752968c23429b4d72dcdfa9edeeb5591aed6fc32437fe1a7ab",
+                "stored_bytes": 44,
+                "stored_sha256": "53374483485754f9b489ca743c0c104f70ce2ab1c46a00bdcf2e85649aeff804"
+              },
+              "project_id": "m161-project",
+              "record_hash": "58d0b0c91057530b7e9453d0416f51d9d6c0ce5783f91c943f334ef60360eba3",
+              "task_id": "m161-task"
+            },
+            "binding": {
+              "reference": "work_state:original-9",
+              "sha256": "d6c4eb9386ac32752968c23429b4d72dcdfa9edeeb5591aed6fc32437fe1a7ab",
+              "version": "v9"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "M161-CONTEXT-VERSIONS: actual file/rule changes cannot silently replace a bound version",
+      "status": "PASS",
+      "assurance": "REAL_SQLITE_ZSTD_LOCAL_FILES; PROVIDER_OR_SCHEDULING_FAULTS_WHERE_NAMED_ARE_SIMULATED",
+      "detail": {
+        "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-Model-Provider-UI\\regression\\m161-context\\case-ilqzCC\\AGENTS.fixture.md",
+        "old_sha256": "62275ed465398743f9b70a309e04bf1546ef60cc382e419b0932233ead2ffcbd",
+        "new_sha256": "683a78dfba9e3a7d8e0f0fe89ebc639276b0dedb1d46a46e9fbb9199823d912d",
+        "views": [
+          "9c01c41c-e954-4c5c-a051-73ac52c6124c",
+          "37ac94a0-78ef-4661-bd41-f1a6c87f471d"
+        ]
+      }
+    },
+    {
+      "name": "M161-CONTEXT-LARGE: 8MiB raw history remains chunked and exact ranges retain complete hash verification",
+      "status": "PASS",
+      "assurance": "REAL_SQLITE_ZSTD_LOCAL_FILES; PROVIDER_OR_SCHEDULING_FAULTS_WHERE_NAMED_ARE_SIMULATED",
+      "detail": {
+        "raw_bytes": 8388608,
+        "range_bytes": 20,
+        "max_input_chunk": 65536,
+        "read_stats": {
+          "active": 0,
+          "queued": 0,
+          "peak": 1,
+          "peakQueued": 0
+        }
+      }
+    },
+    {
+      "name": "M161-CONTEXT-BACKPRESSURE SIMULATED_SCHEDULING_BARRIER: shared read pool bounds concurrent readers and aborts queued reads",
+      "status": "PASS",
+      "assurance": "REAL_SQLITE_ZSTD_LOCAL_FILES; PROVIDER_OR_SCHEDULING_FAULTS_WHERE_NAMED_ARE_SIMULATED",
+      "detail": {
+        "read_stats": {
+          "active": 0,
+          "queued": 0,
+          "peak": 2,
+          "peakQueued": 8
+        },
+        "actual_complete_scans": 9
+      }
+    },
+    {
+      "name": "M161-CONTEXT-DERIVED: missing/corrupt derived references never replace original raw history and indexes can be regenerated",
+      "status": "PASS",
+      "assurance": "REAL_SQLITE_ZSTD_LOCAL_FILES; PROVIDER_OR_SCHEDULING_FAULTS_WHERE_NAMED_ARE_SIMULATED",
+      "detail": {
+        "raw": {
+          "event_id": "171023b9-e93e-45a3-82f0-dee0819c1926",
+          "kind": "RAW",
+          "length": 26,
+          "offset": 0,
+          "payload_ref": {
+            "artifact_id": "3cbf9050-e53d-4ce2-936e-ae0b6d130b14",
+            "bytes": 26,
+            "codec": "zstd",
+            "media_type": "text/plain; charset=utf-8",
+            "sensitivity": "NORMAL",
+            "sha256": "0e8eac82d27401e729ea58e9b5a3ad290a23320a4fc14fcb782ba15753a4170f",
+            "stored_bytes": 39,
+            "stored_sha256": "4d17ec85cca4116cb67253b84c714f54fa2f3f894d915f21c2e483f5cb109803"
+          },
+          "project_id": "m161-project",
+          "record_hash": "0b95d610497d234d95491d29d5d2f23448251adb206729aadf44f299d939abde",
+          "task_id": "m161-task"
+        },
+        "summary": {
+          "event_id": "523f0e24-c8a4-49b9-87b2-9d35d27b448f",
+          "kind": "SUMMARY",
+          "length": 10,
+          "offset": 0,
+          "payload_ref": {
+            "artifact_id": "3792a3ab-fa89-4781-91d0-249b633921c3",
+            "bytes": 10,
+            "codec": "zstd",
+            "media_type": "text/plain; charset=utf-8",
+            "sensitivity": "NORMAL",
+            "sha256": "285ed01dd3be3cff3ca3c853210acbaade91b583e3a1bf4377c74f444c850eef",
+            "stored_bytes": 23,
+            "stored_sha256": "290390b590fcc62e5206d9da990c1c3638cf5abbeb2a166ee77a6879d41c1a90"
+          },
+          "project_id": "m161-project",
+          "record_hash": "4ba426fd923ebe50aff1eefcf1ab0484b918f4953cdd0270c4cd7ab6c48d8344",
+          "task_id": "m161-task"
+        },
+        "index": {
+          "event_id": "833761b1-4bea-41e6-9e58-3a315ef2725a",
+          "kind": "DERIVED_INDEX",
+          "length": 8,
+          "offset": 0,
+          "payload_ref": {
+            "artifact_id": "e2cdbe93-3846-4012-aec3-3fdc1267c915",
+            "bytes": 8,
+            "codec": "zstd",
+            "media_type": "text/plain; charset=utf-8",
+            "sensitivity": "NORMAL",
+            "sha256": "29f23f4ae61026753dd77b302696a489b1ba6496337de1d393d7bc900dd2d788",
+            "stored_bytes": 21,
+            "stored_sha256": "caebed179ee4917ae6a4748a81dc8321ff21562c1da0287880bcf3bf2073e0b9"
+          },
+          "project_id": "m161-project",
+          "record_hash": "368a7f1d93447ce3e04c921f17d339e01408aef7a30dcff3adffacf029a84033",
+          "task_id": "m161-task"
+        },
+        "replacement": {
+          "event_id": "912f94cc-d41b-468a-9923-9f20b8344bc8",
+          "kind": "DERIVED_INDEX",
+          "length": 54,
+          "offset": 0,
+          "payload_ref": {
+            "artifact_id": "e71ca432-d476-4c51-9071-9184b53fb549",
+            "bytes": 54,
+            "codec": "zstd",
+            "media_type": "text/plain; charset=utf-8",
+            "sensitivity": "NORMAL",
+            "sha256": "19f65137582b48abb145758a4cc376b19065a5ddb0018c96964529996b6ada54",
+            "stored_bytes": 67,
+            "stored_sha256": "5a97c1026aabb36ebaac5eada6000789c452dea970aaeaf708a16f1a59f70ce1"
+          },
+          "project_id": "m161-project",
+          "record_hash": "46f3a518e0bbf531aaac177f8b60f534fe7331a1559d0d7e530a2f2b70e2b9cb",
+          "task_id": "m161-task"
+        },
+        "raw_context_records": 4
+      }
+    },
+    {
+      "name": "M161-CONTEXT-CORRUPTION: damaged original history outside selected range rejects assembly and leaves prior exact input intact",
+      "status": "PASS",
+      "assurance": "REAL_SQLITE_ZSTD_LOCAL_FILES; PROVIDER_OR_SCHEDULING_FAULTS_WHERE_NAMED_ARE_SIMULATED",
+      "detail": {
+        "damaged_source": "1ef2497a-db03-48f4-87e7-84856db88819",
+        "source_sha256": "dd3dde87623d9a6b354c68c943d189c89c63652d945e7bbdf0986cae91a49521",
+        "retained_input_sha256": "1f3ce40415a2081fa3eee75fc39fff8e56c22270d1a978a7249b592dcebd20b4",
+        "store_faulted": true
+      }
+    },
+    {
+      "name": "M161-CONTEXT-LEGACY SIMULATED_LEGACY_PROJECTION: old M1.6 views reconstruct without rewriting or upgrading raw records",
+      "status": "PASS",
+      "assurance": "REAL_SQLITE_ZSTD_LOCAL_FILES; PROVIDER_OR_SCHEDULING_FAULTS_WHERE_NAMED_ARE_SIMULATED",
+      "detail": {
+        "legacy_view": "035621d2-fb2b-4e99-8443-a2d566f9fd79",
+        "raw_hashes_unchanged": [
+          "6f7825c04c98d00646a93eb5021a1c0cc9aa37bb9b1a7556b24cab2cf11b27ff"
+        ]
+      }
+    },
+    {
+      "name": "M161-CONTEXT-CEILING: full 256KiB control-byte input is exact and does not overflow metadata serialization",
+      "status": "PASS",
+      "assurance": "REAL_SQLITE_ZSTD_LOCAL_FILES; PROVIDER_OR_SCHEDULING_FAULTS_WHERE_NAMED_ARE_SIMULATED",
+      "detail": {
+        "input_bytes": 262144,
+        "input_sha256": "8a39d2abd3999ab73c34db2476849cddf303ce389b35826850f9a700589b4a90",
+        "model_outcome": "SUCCEEDED",
+        "provider": "SIMULATED"
+      }
+    },
+    {
+      "name": "M161-CONTEXT-REQUEST-FAILURE SIMULATED_PROVIDER: known-not-sent and unknown requests preserve exact acknowledged input across reopen",
+      "status": "PASS",
+      "assurance": "REAL_SQLITE_ZSTD_LOCAL_FILES; PROVIDER_OR_SCHEDULING_FAULTS_WHERE_NAMED_ARE_SIMULATED",
+      "detail": {
+        "known": "FAILED",
+        "unknown": "INDETERMINATE",
+        "view_id": "27b1efa4-3624-405d-bbc0-68ade43162dd",
+        "input_ref": {
+          "artifact_id": "ef777771-d758-4f67-a35b-fb3a6762079f",
+          "bytes": 28,
+          "codec": "zstd",
+          "media_type": "text/plain; charset=utf-8",
+          "sensitivity": "NORMAL",
+          "sha256": "31de9a8da63e0911e32f8c5fa7e8edcca9abc5cc9d9388d5d41a31ae1af9253f",
+          "stored_bytes": 41,
+          "stored_sha256": "229ed10c727453d0ded68c88bfc115bf2e0af8a957c919de02cbd1bb8b76c9f4"
+        },
+        "metering": {
+          "reserved": 2,
+          "settled": 1,
+          "retained": 1
+        },
+        "provider": "SIMULATED",
+        "restart": "REAL_SQLITE_CLOSE_REOPEN; NO_OS_RESTART_CLAIM"
+      }
+    },
+    {
+      "name": "M161-CONTEXT-REQUIRED: important rules never silently truncate and stale/missing references fail closed",
+      "status": "PASS",
+      "assurance": "REAL_SQLITE_ZSTD_LOCAL_FILES; PROVIDER_OR_SCHEDULING_FAULTS_WHERE_NAMED_ARE_SIMULATED",
+      "detail": {
+        "truncated": true,
+        "omitted": 1,
+        "required_rule_sha256": "0b5278e6fa1a21d0fdc7d61575c0ed3013349f9bbc29fc60707d376b53674a3d"
+      }
+    },
+    {
+      "name": "M161-CONTEXT-INDEX-CORRUPTION: damaged derived index is detected while original raw/input objects remain recoverable",
+      "status": "PASS",
+      "assurance": "REAL_SQLITE_ZSTD_LOCAL_FILES; PROVIDER_OR_SCHEDULING_FAULTS_WHERE_NAMED_ARE_SIMULATED",
+      "detail": {
+        "damaged_index": "1afbeb59-11da-47e1-abf7-497c76dcaea5",
+        "raw_event": "d0b04c18-bbc7-475b-b4ab-a46d30e2192b",
+        "raw_sha256": "ac070081620bb6d8d83b94b6d3832201b49bfa8334a4b3dd4d40487d2f28d656",
+        "input_sha256": "ac070081620bb6d8d83b94b6d3832201b49bfa8334a4b3dd4d40487d2f28d656",
+        "storage_fault_requires_explicit_owner_reconciliation": true
+      }
+    },
+    {
+      "name": "M161-CONTEXT-CONCURRENT-WRITES SIMULATED_PRODUCER_BARRIER: four capture/assembly callers wait on two real Artifact writers",
+      "status": "PASS",
+      "assurance": "REAL_SQLITE_ZSTD_LOCAL_FILES; PROVIDER_OR_SCHEDULING_FAULTS_WHERE_NAMED_ARE_SIMULATED",
+      "detail": {
+        "callers": 4,
+        "captures": 4,
+        "views": 4,
+        "max_active_writers": 2,
+        "read_stats": {
+          "active": 0,
+          "queued": 0,
+          "peak": 2,
+          "peakQueued": 2
+        },
+        "producer_barrier": "SIMULATED",
+        "sqlite_zstd_writes": "REAL_LOCAL"
+      }
+    },
+    {
+      "name": "M161-CONTEXT-COMPOSED-POOLS SIMULATED_SCAN_BARRIER: two assemblies release read slots before waiting on producers that read context",
+      "status": "PASS",
+      "assurance": "REAL_SQLITE_ZSTD_LOCAL_FILES; PROVIDER_OR_SCHEDULING_FAULTS_WHERE_NAMED_ARE_SIMULATED",
+      "detail": {
+        "assemblies": 2,
+        "dependent_capture_producers": 2,
+        "completion": "ALL_FULFILLED_WITHOUT_CANCELLATION",
+        "read_stats": {
+          "active": 0,
+          "queued": 0,
+          "peak": 2,
+          "peakQueued": 2
+        },
+        "max_active_writers": 2,
+        "at_deadline": null,
+        "scan_barrier": "SIMULATED",
+        "sqlite_zstd_streams": "REAL_LOCAL"
+      }
+    }
+  ]
+}

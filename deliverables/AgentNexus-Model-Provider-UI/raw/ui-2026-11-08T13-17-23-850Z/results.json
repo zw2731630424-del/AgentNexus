@@ -1,0 +1,158 @@
+{
+  "config": {
+    "configFile": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-Model-Provider-UI\\source\\tests\\desktop\\playwright.config.mjs",
+    "rootDir": "I:/AI_AgentNexus/deliverables/AgentNexus-Model-Provider-UI/source/tests/desktop",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "I:/AI_AgentNexus/deliverables/AgentNexus-Model-Provider-UI/raw/ui-2026-11-08T13-17-23-850Z/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "I:/AI_AgentNexus/deliverables/AgentNexus-Model-Provider-UI/source/tests/desktop",
+        "testIgnore": [],
+        "testMatch": [
+          "desktop.spec.mjs"
+        ],
+        "timeout": 120000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-Model-Provider-UI\\raw\\ui-2026-11-08T13-17-23-850Z\\/results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.60.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "desktop.spec.mjs",
+      "file": "desktop.spec.mjs",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "native IPC source spoofing and renderer claimed identity are denied",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "timedOut",
+                  "duration": 120009,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 120000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 120000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 120000ms exceeded.\u001b[39m"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [
+                    {
+                      "text": "  \u001b[30;1mpw:browser \u001b[0m<launching> \"I:\\AI_AgentNexus\\deliverables\\AgentNexus-Model-Provider-UI\\source\\node_modules\\electron\\dist\\electron.exe\" \"-r\" \"I:\\AI_AgentNexus\\deliverables\\AgentNexus-Model-Provider-UI\\source\\node_modules\\playwright-core\\lib\\server\\electron\\loader.js\" \"--inspect=0\" \"--remote-debugging-port=0\" \"I:\\AI_AgentNexus\\deliverables\\AgentNexus-Model-Provider-UI\\source\"  \u001b[30m+0ms\u001b[0m\n"
+                    },
+                    {
+                      "text": "  \u001b[30;1mpw:browser \u001b[0m<launched> pid=45772 \u001b[30m+10ms\u001b[0m\n"
+                    },
+                    {
+                      "text": "  \u001b[30;1mpw:browser \u001b[0m[pid=45772][out]  \u001b[30m+65ms\u001b[0m\n"
+                    },
+                    {
+                      "text": "  \u001b[30;1mpw:browser \u001b[0m[pid=45772][err] Debugger listening on ws://127.0.0.1:6016/e621833a-5d5a-461d-9cfe-52d1f56b83d5 \u001b[30m+33ms\u001b[0m\n"
+                    },
+                    {
+                      "text": "  \u001b[30;1mpw:browser \u001b[0m[pid=45772][err] For help, see: https://nodejs.org/learn/getting-started/debugging \u001b[30m+0ms\u001b[0m\n"
+                    },
+                    {
+                      "text": "  \u001b[30;1mpw:browser \u001b[0m<ws connecting> ws://127.0.0.1:6016/e621833a-5d5a-461d-9cfe-52d1f56b83d5 \u001b[30m+0ms\u001b[0m\n"
+                    },
+                    {
+                      "text": "  \u001b[30;1mpw:browser \u001b[0m<ws connected> ws://127.0.0.1:6016/e621833a-5d5a-461d-9cfe-52d1f56b83d5 \u001b[30m+6ms\u001b[0m\n"
+                    },
+                    {
+                      "text": "  \u001b[30;1mpw:browser \u001b[0m[pid=45772][err] Debugger attached. \u001b[30m+0ms\u001b[0m\n"
+                    },
+                    {
+                      "text": "  \u001b[30;1mpw:browser \u001b[0m[pid=45772][err] (node:25924) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set. \u001b[30m+6ms\u001b[0m\n"
+                    },
+                    {
+                      "text": "  \u001b[30;1mpw:browser \u001b[0m[pid=45772][err] (Use `electron --trace-warnings ...` to show where the warning was created) \u001b[30m+1ms\u001b[0m\n"
+                    }
+                  ],
+                  "retry": 0,
+                  "startTime": "2026-11-08T13:17:24.494Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-Model-Provider-UI\\raw\\ui-2026-11-08T13-17-23-850Z\\artifacts\\desktop-native-IPC-source--072f5-claimed-identity-are-denied\\error-context.md"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "a3fe6ad9487e9424eaff-7366abefc6f07dd63f1c",
+          "file": "desktop.spec.mjs",
+          "line": 60,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-08T13:17:23.863Z",
+    "duration": 121387.59199999999,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

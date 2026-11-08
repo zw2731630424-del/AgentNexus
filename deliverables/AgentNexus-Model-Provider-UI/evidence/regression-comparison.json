@@ -1,0 +1,73 @@
+{
+  "status": "FULL_REGRESSION_FAIL_PRESERVED",
+  "candidate": {
+    "tests": 695,
+    "pass": 647,
+    "skip": 33,
+    "fail": 15,
+    "evidence": "raw/2026-11-08T13-37-05-687Z/"
+  },
+  "baseline": {
+    "tests": 695,
+    "pass": 648,
+    "skip": 33,
+    "fail": 14,
+    "evidence": "raw/2026-11-08T13-42-33-720Z/"
+  },
+  "shared_failures": [
+    "M1.4 REAL_WINDOWS_PRIMITIVE: cumulative Job CPU time kills a busy fixture before wall deadline",
+    "M151 REAL_WINDOWS_PRIMITIVE: CREATE_BREAKAWAY_FROM_JOB is denied by the private Job",
+    "M151 REAL_WINDOWS_PRIMITIVE: concurrent directory replacement never returns junction target bytes",
+    "M161 GATE actual file candidate is bound from trusted PASS to the approved Storage input",
+    "M161 STORAGE REAL_PROCESS_CRASH at AUDIT_ACKNOWLEDGED preserves evidence and never automatically retries",
+    "M161 STORAGE REAL_PROCESS_CRASH at PUBLISHED preserves evidence and never automatically retries",
+    "M161 STORAGE REAL_PROCESS_CRASH at UNLINK_TEMP preserves evidence and never automatically retries",
+    "M161 STORAGE REPLACE requires the exact owned version; original Artifact remains reconstructible",
+    "M161 STORAGE bounded streaming verifies 3 MiB without materializing the input in the request",
+    "M161 STORAGE changed bytes between publication and ACK stay UNKNOWN and cannot be reconciled by pathname",
+    "M161 STORAGE concurrent same-resource writers conflict before the second file effect",
+    "M161 STORAGE persistent resource quota rejects a second allocation before a temporary object",
+    "M161 STORAGE publish-link gap is reconciled by identity/hash without republishing",
+    "M161 STORAGE real atomic CREATE binds exact approval, content, Artifact/Audit and persistent budget ownership"
+  ],
+  "candidate_only_observation": [
+    "M14-BROKER REAL_OS_PROCESS / SIMULATED_SECURITY: independent consume ledger and streamed fixed Worker"
+  ],
+  "targeted_candidate": {
+    "suite": "broker",
+    "source": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-Model-Provider-UI\\source\\",
+    "code": 0,
+    "signal": null,
+    "close_observed": true,
+    "summary": [
+      "# tests 1",
+      "# pass 1",
+      "# fail 0",
+      "# cancelled 0",
+      "# skipped 0",
+      "# duration_ms 834.6593"
+    ],
+    "failures": [],
+    "assurance": "SIMULATED",
+    "real_requests": 0
+  },
+  "targeted_baseline": {
+    "suite": "broker",
+    "source": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.2\\source",
+    "code": 0,
+    "signal": null,
+    "close_observed": true,
+    "summary": [
+      "# tests 1",
+      "# pass 1",
+      "# fail 0",
+      "# cancelled 0",
+      "# skipped 0",
+      "# duration_ms 827.3504"
+    ],
+    "failures": [],
+    "assurance": "SIMULATED",
+    "real_requests": 0
+  },
+  "conclusion": "One additional full-run Broker failure did not reproduce in either targeted run. Full failed results remain failed; no historical gate is waived."
+}

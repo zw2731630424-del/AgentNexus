@@ -1,0 +1,38 @@
+{
+  "provenance": "Recorded from independent inline node tool outputs before the parent implementation changed; this is not a rerun against repaired source.",
+  "service_sha256": "1bb781bf46732958ea71473b8f0348a475b3224da2729626b630189fdd6e9e7d",
+  "vault_sha256": "31512f836e6f813313e1b356b7f37b103bae5b0e8f740b5650016fc4d8dd8e4c",
+  "node": "v24.15.0",
+  "observations": [
+    {
+      "probe": "pre-send-fallback-rpm",
+      "first": { "outcome": "SUCCEEDED", "provider": "primary" },
+      "second": { "outcome": "FAILED", "reason": "MODEL18_NOT_SENT", "provider": "primary" },
+      "send_calls": 1,
+      "keys": [{ "provider_id": "backup", "state": "ACTIVE" }, { "provider_id": "primary", "state": "ACTIVE" }],
+      "root": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-Model-Provider-UI/independent-review/probe-noN4He"
+    },
+    {
+      "probe": "shared-gateway-concurrency",
+      "in_flight": 6,
+      "expected_gateway_default": 4,
+      "results": ["SUCCEEDED", "SUCCEEDED", "SUCCEEDED", "SUCCEEDED", "SUCCEEDED", "SUCCEEDED"],
+      "root": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-Model-Provider-UI/independent-review/probe-bt5PpT"
+    },
+    {
+      "probe": "close-inflight-agent",
+      "close_error": "VAULT_OPERATIONS_IN_FLIGHT",
+      "completion_error": "ERR_INVALID_STATE",
+      "retry_close_resolved": true,
+      "root": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-Model-Provider-UI/independent-review/probe-z5hwiF"
+    },
+    {
+      "probe": "connection-http-403",
+      "expected": "UNAUTHORIZED",
+      "actual": "INVALID_KEY",
+      "reason": "MODEL18_AUTH",
+      "root": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-Model-Provider-UI/independent-review/status-4404Sb"
+    }
+  ],
+  "boundary": "SYNTHETIC_ONLY_NO_REAL_KEY_NO_NETWORK_PROVIDER_REQUEST_NO_OS_QUALIFICATION"
+}

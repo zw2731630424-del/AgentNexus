@@ -1,0 +1,123 @@
+{
+  "timestamp": "2026-11-08T13-27-50-027Z",
+  "node": "v24.15.0",
+  "source_hashes": {
+    "src/agentnexus/desktop/service.ts": "908267705cafb35f1f8d1073e4b3df97b7d7f793817b7127422ee26494ac8cea",
+    "src/agentnexus/desktop/contracts.ts": "28c0a2827ab748d70a7734cef4380fde0af7ba5dfbc79c479c6e732cc271d07a",
+    "src/agentnexus/model-runtime/vault.ts": "31512f836e6f813313e1b356b7f37b103bae5b0e8f740b5650016fc4d8dd8e4c",
+    "desktop/main.mjs": "104e543056a9684372056731c539614a8aab48f7f5c1048ed9f26bdb739048ad",
+    "desktop/sender.mjs": "b6169254d2dd8ff6a9e57baa45c224c3c917a2001fd95b4ed24408e3c1333e73",
+    "desktop/preload.cjs": "c75fc2410a6e9a2aac91a211a648b624435652427dce14ac64a0ab85d4b0eaff",
+    "desktop/renderer/app.js": "179cb169f2d2e7a6ab1a557cfd1ce02c539769403fa63655492f539e7a66a21e"
+  },
+  "observations": [
+    {
+      "probe": "pre-send-fallback-rpm",
+      "first": {
+        "outcome": "SUCCEEDED",
+        "provider": "primary"
+      },
+      "second": {
+        "outcome": "SUCCEEDED",
+        "reason": "MODEL18_COMPLETE",
+        "provider": "backup"
+      },
+      "send_calls": 2,
+      "keys": [
+        {
+          "provider_id": "primary",
+          "state": "ACTIVE"
+        },
+        {
+          "provider_id": "backup",
+          "state": "ACTIVE"
+        }
+      ],
+      "root": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-Model-Provider-UI\\independent-review\\probe-InTCtv"
+    },
+    {
+      "probe": "shared-gateway-concurrency",
+      "in_flight": 4,
+      "expected_gateway_default": 4,
+      "root": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-Model-Provider-UI\\independent-review\\probe-K3lpP6"
+    },
+    {
+      "probe": "shared-gateway-concurrency-results",
+      "results": [
+        {
+          "outcome": "SUCCEEDED"
+        },
+        {
+          "outcome": "SUCCEEDED"
+        },
+        {
+          "outcome": "SUCCEEDED"
+        },
+        {
+          "outcome": "SUCCEEDED"
+        },
+        {
+          "error": "HOST_BUSY"
+        },
+        {
+          "error": "HOST_BUSY"
+        }
+      ]
+    },
+    {
+      "probe": "close-inflight-agent",
+      "close_error": "HOST_BUSY",
+      "completion": {
+        "outcome": "SUCCEEDED"
+      },
+      "retry_close": {
+        "resolved": true
+      },
+      "root": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-Model-Provider-UI\\independent-review\\probe-l2egCY"
+    },
+    {
+      "probe": "connection-http-403",
+      "expected": "UNAUTHORIZED",
+      "actual": {
+        "status": "UNAUTHORIZED",
+        "reason": "MODEL18_AUTH",
+        "request_id": "11a922e1-f6df-4a7e-aa70-d9bc707d09ea",
+        "simulation_passed": false,
+        "live": "BLOCKED"
+      },
+      "root": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-Model-Provider-UI\\independent-review\\probe-4j270q"
+    },
+    {
+      "probe": "unknown-no-failover-reopen",
+      "outcome": "INDETERMINATE",
+      "provider": "unknown-primary",
+      "send_calls_after_reopen": 1,
+      "held_tokens": 4528,
+      "unknown_records": 1,
+      "key_in_flight": [
+        1
+      ],
+      "root": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-Model-Provider-UI\\independent-review\\probe-XBlc5X"
+    },
+    {
+      "probe": "ipc-source-predicate",
+      "legitimate": true,
+      "rogue_contents": false,
+      "subframe": false,
+      "wrong_url": false,
+      "scope": "PURE_PREDICATE_NOT_ACTUAL_ELECTRON_PROCESS_OR_OS_AUTH"
+    },
+    {
+      "probe": "vault-setModels",
+      "forged_admin": "VAULT_ADMIN_REQUIRED",
+      "invalid_scope": "VAULT_INVALID_SPEC",
+      "old_scope": "VAULT_NO_ELIGIBLE_KEY",
+      "new_scope": "ACCEPTED",
+      "metadata_scope": [
+        "new-model"
+      ],
+      "root": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-Model-Provider-UI\\independent-review\\scope-sjcaDv"
+    }
+  ],
+  "boundary": "SYNTHETIC_ONLY_NO_REAL_KEY_NO_NETWORK_PROVIDER_REQUEST_NO_OS_QUALIFICATION"
+}

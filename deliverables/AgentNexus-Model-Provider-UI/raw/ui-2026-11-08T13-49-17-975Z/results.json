@@ -1,0 +1,213 @@
+{
+  "config": {
+    "argv": [
+      "D:\\Nodejs\\node.exe",
+      "I:\\AI_AgentNexus\\deliverables\\AgentNexus-Model-Provider-UI\\source\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--config",
+      "tests/desktop/playwright.config.mjs"
+    ],
+    "configFile": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-Model-Provider-UI\\source\\tests\\desktop\\playwright.config.mjs",
+    "rootDir": "I:/AI_AgentNexus/deliverables/AgentNexus-Model-Provider-UI/source/tests/desktop",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "I:/AI_AgentNexus/deliverables/AgentNexus-Model-Provider-UI/raw/ui-2026-11-08T13-49-17-975Z/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "I:/AI_AgentNexus/deliverables/AgentNexus-Model-Provider-UI/source/tests/desktop",
+        "testIgnore": [],
+        "testMatch": [
+          "desktop.spec.mjs"
+        ],
+        "timeout": 120000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-Model-Provider-UI\\raw\\ui-2026-11-08T13-49-17-975Z\\artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "",
+        "testDir": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-Model-Provider-UI\\source\\tests\\desktop",
+        "snapshotDir": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-Model-Provider-UI\\source\\tests\\desktop",
+        "testIgnore": [],
+        "testMatch": "desktop.spec.mjs",
+        "timeout": 120000,
+        "use": {
+          "trace": "off",
+          "video": "off",
+          "screenshot": "off"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": ""
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-Model-Provider-UI\\raw\\ui-2026-11-08T13-49-17-975Z\\/results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.65.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "desktop.spec.mjs",
+      "file": "desktop.spec.mjs",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "SIMULATED native Desktop full visual configuration, Vault, routing, usage and restart",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 72463,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "UI: Host and renderer ready\n"
+                    },
+                    {
+                      "text": "UI: starting provider form\n"
+                    },
+                    {
+                      "text": "UI: provider created\n"
+                    },
+                    {
+                      "text": "UI: Vault stored two synthetic credentials\n"
+                    },
+                    {
+                      "text": "UI: native Host exit observed\n"
+                    },
+                    {
+                      "text": "UI: Host and renderer ready\n"
+                    },
+                    {
+                      "text": "UI: native Host exit observed\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-08T13:49:18.371Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a3fe6ad9487e9424eaff-4a67e132e5c82eaf7b7c",
+          "file": "desktop.spec.mjs",
+          "line": 37,
+          "column": 1
+        },
+        {
+          "title": "native IPC source spoofing and renderer claimed identity are denied",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1039,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "UI: Host and renderer ready\n"
+                    },
+                    {
+                      "text": "UI: claimed operator identity denied\n"
+                    },
+                    {
+                      "text": "UI: native Host exit observed\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-08T13:50:30.865Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a3fe6ad9487e9424eaff-7366abefc6f07dd63f1c",
+          "file": "desktop.spec.mjs",
+          "line": 77,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-08T13:49:17.978Z",
+    "duration": 73963.953,
+    "expected": 2,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

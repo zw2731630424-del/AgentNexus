@@ -1,0 +1,46 @@
+{
+  "schema": "agentnexus/model-provider-ui/acceptance/1",
+  "date": "2026-11-08",
+  "authorized_engineering_scope": "PASS_SYNTHETIC_DESKTOP_UI",
+  "complete_production_goal": "BLOCKED",
+  "live": "BLOCKED",
+  "credential_service": "BLOCKED",
+  "same_sid_counterexample": "HISTORICAL_FAIL_PRESERVED",
+  "real_keys_imported": 0,
+  "real_provider_requests": 0,
+  "real_provider_tokens": 0,
+  "actual_provider_cost": null,
+  "global_authorized_input_output_tokens": 100000000,
+  "new_service_tests": {
+    "pass": 14,
+    "fail": 0,
+    "skip": 0,
+    "evidence": "raw/2026-11-08T13-48-03-693Z/"
+  },
+  "native_desktop_tests": {
+    "pass": 2,
+    "fail": 0,
+    "evidence": "raw/ui-2026-11-08T13-49-17-975Z/"
+  },
+  "normal_launcher_smoke": "PASS_ACTUAL_WINDOWS_WINDOW",
+  "static_checks": {
+    "pass": 8,
+    "fail": 0,
+    "evidence": "raw/static-2026-11-08T14-02-23-332Z/"
+  },
+  "independent_review": "FOUR_FINDINGS_FIXED_VERIFIED",
+  "full_regression": "FAIL_PRESERVED_SEE_COMPARISON",
+  "governance": "FULL_ROOT_PASS_PLUS_FINAL_DELIVERY_INCREMENTAL_VALIDATION",
+  "source_set_sha256": "cf3d10884218c0d875bf6d7bd3c9cb1eae9c78063892ce7c21600b23acc6b6e7",
+  "unsupported_protocols": [
+    "anthropic-compatible",
+    "google-native"
+  ],
+  "not_run": [
+    "production cross-identity Host/Worker/Subagent/Reviewer denial",
+    "live model account entitlement and real API connections",
+    "real provider billing reconciliation",
+    "production singleton ledger qualification",
+    "24-hour Resident qualification"
+  ]
+}

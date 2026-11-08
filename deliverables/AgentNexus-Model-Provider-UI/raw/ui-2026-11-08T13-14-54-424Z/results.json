@@ -1,0 +1,152 @@
+{
+  "config": {
+    "configFile": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-Model-Provider-UI\\source\\tests\\desktop\\playwright.config.mjs",
+    "rootDir": "I:/AI_AgentNexus/deliverables/AgentNexus-Model-Provider-UI/source/tests/desktop",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "I:/AI_AgentNexus/deliverables/AgentNexus-Model-Provider-UI/raw/ui-2026-11-08T13-14-54-424Z/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "I:/AI_AgentNexus/deliverables/AgentNexus-Model-Provider-UI/source/tests/desktop",
+        "testIgnore": [],
+        "testMatch": [
+          "desktop.spec.mjs"
+        ],
+        "timeout": 120000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-Model-Provider-UI\\raw\\ui-2026-11-08T13-14-54-424Z\\/results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.60.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "desktop.spec.mjs",
+      "file": "desktop.spec.mjs",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "native IPC source spoofing and renderer claimed identity are denied",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 745,
+                  "error": {
+                    "message": "Error: Process failed to launch!",
+                    "stack": "Error: Process failed to launch!"
+                  },
+                  "errors": [
+                    {
+                      "message": "Error: Process failed to launch!"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [
+                    {
+                      "text": "  \u001b[30;1mpw:browser \u001b[0m<launching> \"I:\\AI_AgentNexus\\deliverables\\AgentNexus-Model-Provider-UI\\source\\node_modules\\electron\\dist\\electron.exe\" \"-r\" \"I:\\AI_AgentNexus\\deliverables\\AgentNexus-Model-Provider-UI\\source\\node_modules\\playwright-core\\lib\\server\\electron\\loader.js\" \"--inspect=0\" \"--remote-debugging-port=0\" \"I:\\AI_AgentNexus\\deliverables\\AgentNexus-Model-Provider-UI\\source\\\"  \u001b[30m+0ms\u001b[0m\n"
+                    },
+                    {
+                      "text": "  \u001b[30;1mpw:browser \u001b[0m<launched> pid=49052 \u001b[30m+9ms\u001b[0m\n"
+                    },
+                    {
+                      "text": "  \u001b[30;1mpw:browser \u001b[0m[pid=49052][err] I:\\AI_AgentNexus\\deliverables\\AgentNexus-Model-Provider-UI\\source\\node_modules\\electron\\dist\\electron.exe: bad option: --remote-debugging-port=0 \u001b[30m+56ms\u001b[0m\n"
+                    },
+                    {
+                      "text": "  \u001b[30;1mpw:browser \u001b[0m[pid=49052] <kill> \u001b[30m+8ms\u001b[0m\n"
+                    },
+                    {
+                      "text": "  \u001b[30;1mpw:browser \u001b[0m[pid=49052] <will force kill> \u001b[30m+0ms\u001b[0m\n"
+                    },
+                    {
+                      "text": "  \u001b[30;1mpw:browser \u001b[0m[pid=49052] taskkill stderr: ERROR: The process \"49052\" not found.\r\n  \u001b[30;1mpw:browser \u001b[0m \u001b[30m+664ms\u001b[0m\n"
+                    },
+                    {
+                      "text": "  \u001b[30;1mpw:browser \u001b[0m[pid=49052] <process did exit: exitCode=9, signal=null> \u001b[30m+5ms\u001b[0m\n"
+                    },
+                    {
+                      "text": "  \u001b[30;1mpw:browser \u001b[0m[pid=49052] starting temporary directories cleanup \u001b[30m+0ms\u001b[0m\n"
+                    }
+                  ],
+                  "retry": 0,
+                  "startTime": "2026-11-08T13:14:54.903Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-Model-Provider-UI\\raw\\ui-2026-11-08T13-14-54-866Z\\artifacts\\desktop-native-IPC-source--072f5-claimed-identity-are-denied\\error-context.md"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "a3fe6ad9487e9424eaff-7366abefc6f07dd63f1c",
+          "file": "desktop.spec.mjs",
+          "line": 59,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-08T13:14:54.429Z",
+    "duration": 1255.352,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

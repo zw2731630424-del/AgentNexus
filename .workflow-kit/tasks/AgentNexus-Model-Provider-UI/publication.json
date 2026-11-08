@@ -1,0 +1,41 @@
+{
+  "schema": "agentnexus/model-provider-ui/publication/1",
+  "authorization": "用户明确要求：全部保存提交推送",
+  "authorized_at_utc": "2026-11-08T15:05:06.384345+00:00",
+  "target": "https://github.com/zw2731630424-del/AgentNexus.git",
+  "branch": "main",
+  "base_head": "7c3c8f6c9d5fb3819eadfc147ea16aaa0771103a",
+  "source_set_sha256": "cf3d10884218c0d875bf6d7bd3c9cb1eae9c78063892ce7c21600b23acc6b6e7",
+  "scope": "完整桌面交付、206文件源码、源码ZIP、测试和原始失败记录、截图、独立审查、构建与校验工具、任务发布记录；一并保留基线复测新增两份可靠性JSON",
+  "explicit_archive": {
+    "path": "deliverables/AgentNexus-Model-Provider-UI/AgentNexus-Model-Provider-UI-source.zip",
+    "sha256": "f9f60ef9d4b1b040a29ccd1083bc12358f6cec42c65287381afa152eed8fc4c6",
+    "basis": "用户全部提交授权包含本轮自有源码包，精确force-add此文件，不扩大到其他被忽略归档"
+  },
+  "local_only": [
+    ".workflow-kit/runtime/",
+    "node_modules/",
+    "source/dist/",
+    "运行数据库与浏览器profile、依赖缓存、历史大型归档"
+  ],
+  "preserved_original_delivery": {
+    "manifest": "evidence/SHA256SUMS.before-publication.txt",
+    "manifest_sha256": "7afa5899a0441d5295203dbd93de94795c73853c4891f890557de21855eaac5c",
+    "readme": "evidence/README.before-publication.txt",
+    "readme_sha256": "19b8f31cd05fcca73b94445dc42dc6a66142b1efaf4506f7e70ee5e5517f193c"
+  },
+  "validation": {
+    "service_tests": "14/14 PASS",
+    "native_desktop_tests": "2/2 PASS",
+    "static_checks": "8/8 PASS",
+    "full_regression": "647 PASS / 33 SKIP / 15 FAIL; original failures preserved",
+    "baseline": "648 PASS / 33 SKIP / 14 FAIL; extra Broker observation passed in both targeted reruns",
+    "root_governance": "PASS retained from completed engineering verification",
+    "publication_validation": "SHA256, frozen source/archive members, original governance classifier/path checks, exact staged blob bytes"
+  },
+  "implementation_history": "未提交/推送为实施阶段事实；本次明确授权为后续Git发布，不解除生产凭证或LIVE门禁",
+  "live": "BLOCKED",
+  "real_key_imports": 0,
+  "real_provider_requests": 0,
+  "commit_binding": "由Git内容地址和实际推送回执绑定，不写自引用提交号"
+}

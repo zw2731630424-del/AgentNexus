@@ -1,0 +1,98 @@
+{
+  "status": "PASS",
+  "node": "v24.15.0",
+  "checks": [
+    {
+      "id": "strict-typescript",
+      "args": [
+        "node_modules/typescript/lib/tsc.js",
+        "--project",
+        "tsconfig.json",
+        "--pretty",
+        "false"
+      ],
+      "code": 0,
+      "stdout": "",
+      "stderr": "",
+      "error": null
+    },
+    {
+      "id": "syntax:desktop/main.mjs",
+      "args": [
+        "--check",
+        "desktop/main.mjs"
+      ],
+      "code": 0,
+      "stdout": "",
+      "stderr": "",
+      "error": null
+    },
+    {
+      "id": "syntax:desktop/sender.mjs",
+      "args": [
+        "--check",
+        "desktop/sender.mjs"
+      ],
+      "code": 0,
+      "stdout": "",
+      "stderr": "",
+      "error": null
+    },
+    {
+      "id": "syntax:desktop/preload.cjs",
+      "args": [
+        "--check",
+        "desktop/preload.cjs"
+      ],
+      "code": 0,
+      "stdout": "",
+      "stderr": "",
+      "error": null
+    },
+    {
+      "id": "syntax:desktop/renderer/app.js",
+      "args": [
+        "--check",
+        "desktop/renderer/app.js"
+      ],
+      "code": 0,
+      "stdout": "",
+      "stderr": "",
+      "error": null
+    },
+    {
+      "id": "syntax:tools/agentnexus/launch-desktop.mjs",
+      "args": [
+        "--check",
+        "tools/agentnexus/launch-desktop.mjs"
+      ],
+      "code": 0,
+      "stdout": "",
+      "stderr": "",
+      "error": null
+    },
+    {
+      "id": "syntax:tools/agentnexus/build-desktop.mjs",
+      "args": [
+        "--check",
+        "tools/agentnexus/build-desktop.mjs"
+      ],
+      "code": 0,
+      "stdout": "",
+      "stderr": "",
+      "error": null
+    },
+    {
+      "id": "syntax:tests/desktop/desktop.spec.mjs",
+      "args": [
+        "--check",
+        "tests/desktop/desktop.spec.mjs"
+      ],
+      "code": 0,
+      "stdout": "",
+      "stderr": "",
+      "error": null
+    }
+  ],
+  "source_set_sha256": "cf3d10884218c0d875bf6d7bd3c9cb1eae9c78063892ce7c21600b23acc6b6e7"
+}

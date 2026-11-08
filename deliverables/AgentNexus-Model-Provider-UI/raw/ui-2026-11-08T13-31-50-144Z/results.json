@@ -1,0 +1,258 @@
+{
+  "config": {
+    "argv": [
+      "D:\\Nodejs\\node.exe",
+      "I:\\AI_AgentNexus\\deliverables\\AgentNexus-Model-Provider-UI\\source\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--config",
+      "tests/desktop/playwright.config.mjs"
+    ],
+    "configFile": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-Model-Provider-UI\\source\\tests\\desktop\\playwright.config.mjs",
+    "rootDir": "I:/AI_AgentNexus/deliverables/AgentNexus-Model-Provider-UI/source/tests/desktop",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "I:/AI_AgentNexus/deliverables/AgentNexus-Model-Provider-UI/raw/ui-2026-11-08T13-31-50-144Z/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "I:/AI_AgentNexus/deliverables/AgentNexus-Model-Provider-UI/source/tests/desktop",
+        "testIgnore": [],
+        "testMatch": [
+          "desktop.spec.mjs"
+        ],
+        "timeout": 120000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-Model-Provider-UI\\raw\\ui-2026-11-08T13-31-50-144Z\\artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "",
+        "testDir": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-Model-Provider-UI\\source\\tests\\desktop",
+        "snapshotDir": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-Model-Provider-UI\\source\\tests\\desktop",
+        "testIgnore": [],
+        "testMatch": "desktop.spec.mjs",
+        "timeout": 120000,
+        "use": {
+          "trace": "off",
+          "video": "off",
+          "screenshot": "off"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": ""
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-Model-Provider-UI\\raw\\ui-2026-11-08T13-31-50-144Z\\/results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.65.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "desktop.spec.mjs",
+      "file": "desktop.spec.mjs",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "SIMULATED native Desktop full visual configuration, Vault, routing, usage and restart",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 34463,
+                  "error": {
+                    "message": "Error: DESKTOP_CLOSE_TIMEOUT",
+                    "stack": "Error: DESKTOP_CLOSE_TIMEOUT\n    at Timeout._onTimeout (I:\\AI_AgentNexus\\deliverables\\AgentNexus-Model-Provider-UI\\source\\tests\\desktop\\desktop.spec.mjs:13:113)",
+                    "location": {
+                      "file": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-Model-Provider-UI\\source\\tests\\desktop\\desktop.spec.mjs",
+                      "column": 113,
+                      "line": 13
+                    },
+                    "snippet": " \u001b[90m 11 |\u001b[39m   \u001b[36mconst\u001b[39m page \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m app\u001b[33m.\u001b[39mfirstWindow()\u001b[33m;\u001b[39m page\u001b[33m.\u001b[39msetDefaultTimeout(\u001b[35m10000\u001b[39m)\u001b[33m;\u001b[39m \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByRole(\u001b[32m'heading'\u001b[39m\u001b[33m,\u001b[39m { name\u001b[33m:\u001b[39m \u001b[32m'Model Providers'\u001b[39m\u001b[33m,\u001b[39m exact\u001b[33m:\u001b[39m \u001b[36mtrue\u001b[39m }))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m console\u001b[33m.\u001b[39mlog(\u001b[32m'UI: Host and renderer ready'\u001b[39m)\u001b[33m;\u001b[39m \u001b[36mreturn\u001b[39m { app\u001b[33m,\u001b[39m page }\u001b[33m;\u001b[39m\n \u001b[90m 12 |\u001b[39m }\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 13 |\u001b[39m \u001b[36masync\u001b[39m \u001b[36mfunction\u001b[39m close(app) { \u001b[36mawait\u001b[39m \u001b[33mPromise\u001b[39m\u001b[33m.\u001b[39mrace([app\u001b[33m.\u001b[39mclose()\u001b[33m,\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mPromise\u001b[39m((_\u001b[33m,\u001b[39m reject) \u001b[33m=>\u001b[39m setTimeout(() \u001b[33m=>\u001b[39m reject(\u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m'DESKTOP_CLOSE_TIMEOUT'\u001b[39m))\u001b[33m,\u001b[39m \u001b[35m10000\u001b[39m))])\u001b[33m;\u001b[39m }\n \u001b[90m    |\u001b[39m                                                                                                                 \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 14 |\u001b[39m \u001b[36masync\u001b[39m \u001b[36mfunction\u001b[39m screenshot(page\u001b[33m,\u001b[39m name) { \u001b[36mawait\u001b[39m mkdir(evidence\u001b[33m,\u001b[39m { recursive\u001b[33m:\u001b[39m \u001b[36mtrue\u001b[39m })\u001b[33m;\u001b[39m \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mscreenshot({ path\u001b[33m:\u001b[39m join(evidence\u001b[33m,\u001b[39m name \u001b[33m+\u001b[39m \u001b[32m'.png'\u001b[39m)\u001b[33m,\u001b[39m fullPage\u001b[33m:\u001b[39m \u001b[36mtrue\u001b[39m })\u001b[33m;\u001b[39m }\n \u001b[90m 15 |\u001b[39m \u001b[36masync\u001b[39m \u001b[36mfunction\u001b[39m nav(page\u001b[33m,\u001b[39m name) { \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgetByRole(\u001b[32m'button'\u001b[39m\u001b[33m,\u001b[39m { name\u001b[33m,\u001b[39m exact\u001b[33m:\u001b[39m \u001b[36mfalse\u001b[39m })\u001b[33m.\u001b[39mfilter({ has\u001b[33m:\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'.nav-icon'\u001b[39m) })\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m }\n \u001b[90m 16 |\u001b[39m \u001b[36masync\u001b[39m \u001b[36mfunction\u001b[39m addKey(page\u001b[33m,\u001b[39m name\u001b[33m,\u001b[39m secret) {"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-Model-Provider-UI\\source\\tests\\desktop\\desktop.spec.mjs",
+                        "column": 113,
+                        "line": 13
+                      },
+                      "message": "Error: DESKTOP_CLOSE_TIMEOUT\n\n  11 |   const page = await app.firstWindow(); page.setDefaultTimeout(10000); await expect(page.getByRole('heading', { name: 'Model Providers', exact: true })).toBeVisible(); console.log('UI: Host and renderer ready'); return { app, page };\n  12 | }\n> 13 | async function close(app) { await Promise.race([app.close(), new Promise((_, reject) => setTimeout(() => reject(new Error('DESKTOP_CLOSE_TIMEOUT')), 10000))]); }\n     |                                                                                                                 ^\n  14 | async function screenshot(page, name) { await mkdir(evidence, { recursive: true }); await page.screenshot({ path: join(evidence, name + '.png'), fullPage: true }); }\n  15 | async function nav(page, name) { await page.getByRole('button', { name, exact: false }).filter({ has: page.locator('.nav-icon') }).click(); }\n  16 | async function addKey(page, name, secret) {\n    at Timeout._onTimeout (I:\\AI_AgentNexus\\deliverables\\AgentNexus-Model-Provider-UI\\source\\tests\\desktop\\desktop.spec.mjs:13:113)"
+                    }
+                  ],
+                  "stdout": [
+                    {
+                      "text": "UI: Host and renderer ready\n"
+                    },
+                    {
+                      "text": "UI: starting provider form\n"
+                    },
+                    {
+                      "text": "UI: provider created\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-08T13:31:50.568Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-Model-Provider-UI\\raw\\ui-2026-11-08T13-31-50-144Z\\artifacts\\desktop-SIMULATED-native-D-87b29-t-routing-usage-and-restart\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-Model-Provider-UI\\source\\tests\\desktop\\desktop.spec.mjs",
+                    "column": 113,
+                    "line": 13
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "a3fe6ad9487e9424eaff-4a67e132e5c82eaf7b7c",
+          "file": "desktop.spec.mjs",
+          "line": 21,
+          "column": 1
+        },
+        {
+          "title": "native IPC source spoofing and renderer claimed identity are denied",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 10931,
+                  "error": {
+                    "message": "Error: DESKTOP_CLOSE_TIMEOUT",
+                    "stack": "Error: DESKTOP_CLOSE_TIMEOUT\n    at Timeout._onTimeout (I:\\AI_AgentNexus\\deliverables\\AgentNexus-Model-Provider-UI\\source\\tests\\desktop\\desktop.spec.mjs:13:113)",
+                    "location": {
+                      "file": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-Model-Provider-UI\\source\\tests\\desktop\\desktop.spec.mjs",
+                      "column": 113,
+                      "line": 13
+                    },
+                    "snippet": " \u001b[90m 11 |\u001b[39m   \u001b[36mconst\u001b[39m page \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m app\u001b[33m.\u001b[39mfirstWindow()\u001b[33m;\u001b[39m page\u001b[33m.\u001b[39msetDefaultTimeout(\u001b[35m10000\u001b[39m)\u001b[33m;\u001b[39m \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByRole(\u001b[32m'heading'\u001b[39m\u001b[33m,\u001b[39m { name\u001b[33m:\u001b[39m \u001b[32m'Model Providers'\u001b[39m\u001b[33m,\u001b[39m exact\u001b[33m:\u001b[39m \u001b[36mtrue\u001b[39m }))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m console\u001b[33m.\u001b[39mlog(\u001b[32m'UI: Host and renderer ready'\u001b[39m)\u001b[33m;\u001b[39m \u001b[36mreturn\u001b[39m { app\u001b[33m,\u001b[39m page }\u001b[33m;\u001b[39m\n \u001b[90m 12 |\u001b[39m }\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 13 |\u001b[39m \u001b[36masync\u001b[39m \u001b[36mfunction\u001b[39m close(app) { \u001b[36mawait\u001b[39m \u001b[33mPromise\u001b[39m\u001b[33m.\u001b[39mrace([app\u001b[33m.\u001b[39mclose()\u001b[33m,\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mPromise\u001b[39m((_\u001b[33m,\u001b[39m reject) \u001b[33m=>\u001b[39m setTimeout(() \u001b[33m=>\u001b[39m reject(\u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m'DESKTOP_CLOSE_TIMEOUT'\u001b[39m))\u001b[33m,\u001b[39m \u001b[35m10000\u001b[39m))])\u001b[33m;\u001b[39m }\n \u001b[90m    |\u001b[39m                                                                                                                 \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 14 |\u001b[39m \u001b[36masync\u001b[39m \u001b[36mfunction\u001b[39m screenshot(page\u001b[33m,\u001b[39m name) { \u001b[36mawait\u001b[39m mkdir(evidence\u001b[33m,\u001b[39m { recursive\u001b[33m:\u001b[39m \u001b[36mtrue\u001b[39m })\u001b[33m;\u001b[39m \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mscreenshot({ path\u001b[33m:\u001b[39m join(evidence\u001b[33m,\u001b[39m name \u001b[33m+\u001b[39m \u001b[32m'.png'\u001b[39m)\u001b[33m,\u001b[39m fullPage\u001b[33m:\u001b[39m \u001b[36mtrue\u001b[39m })\u001b[33m;\u001b[39m }\n \u001b[90m 15 |\u001b[39m \u001b[36masync\u001b[39m \u001b[36mfunction\u001b[39m nav(page\u001b[33m,\u001b[39m name) { \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgetByRole(\u001b[32m'button'\u001b[39m\u001b[33m,\u001b[39m { name\u001b[33m,\u001b[39m exact\u001b[33m:\u001b[39m \u001b[36mfalse\u001b[39m })\u001b[33m.\u001b[39mfilter({ has\u001b[33m:\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'.nav-icon'\u001b[39m) })\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m }\n \u001b[90m 16 |\u001b[39m \u001b[36masync\u001b[39m \u001b[36mfunction\u001b[39m addKey(page\u001b[33m,\u001b[39m name\u001b[33m,\u001b[39m secret) {"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-Model-Provider-UI\\source\\tests\\desktop\\desktop.spec.mjs",
+                        "column": 113,
+                        "line": 13
+                      },
+                      "message": "Error: DESKTOP_CLOSE_TIMEOUT\n\n  11 |   const page = await app.firstWindow(); page.setDefaultTimeout(10000); await expect(page.getByRole('heading', { name: 'Model Providers', exact: true })).toBeVisible(); console.log('UI: Host and renderer ready'); return { app, page };\n  12 | }\n> 13 | async function close(app) { await Promise.race([app.close(), new Promise((_, reject) => setTimeout(() => reject(new Error('DESKTOP_CLOSE_TIMEOUT')), 10000))]); }\n     |                                                                                                                 ^\n  14 | async function screenshot(page, name) { await mkdir(evidence, { recursive: true }); await page.screenshot({ path: join(evidence, name + '.png'), fullPage: true }); }\n  15 | async function nav(page, name) { await page.getByRole('button', { name, exact: false }).filter({ has: page.locator('.nav-icon') }).click(); }\n  16 | async function addKey(page, name, secret) {\n    at Timeout._onTimeout (I:\\AI_AgentNexus\\deliverables\\AgentNexus-Model-Provider-UI\\source\\tests\\desktop\\desktop.spec.mjs:13:113)"
+                    }
+                  ],
+                  "stdout": [
+                    {
+                      "text": "UI: Host and renderer ready\n"
+                    },
+                    {
+                      "text": "UI: claimed operator identity denied\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-08T13:33:55.872Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-Model-Provider-UI\\raw\\ui-2026-11-08T13-31-50-144Z\\artifacts\\desktop-native-IPC-source--072f5-claimed-identity-are-denied\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-Model-Provider-UI\\source\\tests\\desktop\\desktop.spec.mjs",
+                    "column": 113,
+                    "line": 13
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "a3fe6ad9487e9424eaff-7366abefc6f07dd63f1c",
+          "file": "desktop.spec.mjs",
+          "line": 61,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-08T13:31:50.148Z",
+    "duration": 172344.595,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 2,
+    "flaky": 0
+  }
+}
