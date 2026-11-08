@@ -1,0 +1,506 @@
+{
+  "schema": "agentnexus/m17-baseline-read/1",
+  "phase": "M1.7 Phase0",
+  "author": "Codex engineering baseline reviewer /root/baseline_storage_models",
+  "scope": "Read-only M1.6.1 storage, resources and simulated model baseline; not a Pilot Agent execution",
+  "workspace": "I:/AI_AgentNexus",
+  "source_root": "deliverables/AgentNexus-M1.6.1",
+  "requested_scope_file_count": 25,
+  "total_complete_read_file_count": 28,
+  "coverage_method": "Explicit path inventory, numbered UTF-8 line chunks without truncation, raw-file SHA256 at each target chunk and final stability verification. Resources directory inventory and requested test globs were fully covered.",
+  "project_rules_index": {
+    "path": "project-rules/README.md",
+    "exists": false
+  },
+  "registered_rules_count": 0,
+  "boundaries": {
+    "historical_files_modified": false,
+    "implementation_modified": false,
+    "keys_read": false,
+    "network_used": false,
+    "os_configuration_changed": false,
+    "qualification_relaxed": false
+  },
+  "files": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "a868b01052ea5613300e6973fd1c65917ba2f10b01eea025214b513432cd4694",
+      "lines": 28,
+      "bytes": 2587,
+      "complete": true,
+      "sha256_stable_across_chunks": false,
+      "coverage": [
+        {
+          "start_line": 1,
+          "end_line": 28,
+          "method": "complete UTF-8 raw read"
+        }
+      ]
+    },
+    {
+      "path": "ai-workflow-kit-v4/project-workflows/README.md",
+      "sha256": "1f12071a31eca68714381c3f543ff46ba81b20acd5c951e2eb68aee0f6bc9b21",
+      "lines": 12,
+      "bytes": 1027,
+      "complete": true,
+      "sha256_stable_across_chunks": false,
+      "coverage": [
+        {
+          "start_line": 1,
+          "end_line": 12,
+          "method": "complete UTF-8 raw read"
+        }
+      ]
+    },
+    {
+      "path": ".workflow-kit/governance/policy.json",
+      "sha256": "ea91359de90e74cbb554f93ac2dae82509f93f5bcc05c65bf22384aba4dd4d83",
+      "lines": 483,
+      "bytes": 7919,
+      "complete": true,
+      "sha256_stable_across_chunks": false,
+      "coverage": [
+        {
+          "start_line": 1,
+          "end_line": 483,
+          "method": "complete UTF-8 raw read"
+        }
+      ]
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/README.md",
+      "sha256": "d1b97c3cc6e97fa01f570450d23f89546a2b223932f6876a99b973ddcf7df4d3",
+      "lines": 24,
+      "bytes": 2042,
+      "complete": true,
+      "sha256_stable_across_chunks": true,
+      "coverage": [
+        {
+          "start_line": 1,
+          "end_line": 24,
+          "method": "complete numbered UTF-8 line read"
+        }
+      ]
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/acceptance-report.md",
+      "sha256": "9774b7692a971a8da1ba747daadacf4e5bc16147b226ebdf668e50db11c76493",
+      "lines": 21,
+      "bytes": 2388,
+      "complete": true,
+      "sha256_stable_across_chunks": true,
+      "coverage": [
+        {
+          "start_line": 1,
+          "end_line": 21,
+          "method": "complete numbered UTF-8 line read"
+        }
+      ]
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/storage-owner.md",
+      "sha256": "89975933e77f749ce1a717e96a3efdeba82fa7f96e89f5694e2dc21f50d5acdc",
+      "lines": 36,
+      "bytes": 3627,
+      "complete": true,
+      "sha256_stable_across_chunks": true,
+      "coverage": [
+        {
+          "start_line": 1,
+          "end_line": 36,
+          "method": "complete numbered UTF-8 line read"
+        }
+      ]
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/storage-recovery-report.md",
+      "sha256": "39b3320db3fa6fc31e96a65b33f79130f17434d75c32b6cd65288e589dac17b9",
+      "lines": 20,
+      "bytes": 2351,
+      "complete": true,
+      "sha256_stable_across_chunks": true,
+      "coverage": [
+        {
+          "start_line": 1,
+          "end_line": 20,
+          "method": "complete numbered UTF-8 line read"
+        }
+      ]
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/src/agentnexus/resources/contracts.ts",
+      "sha256": "537d73a7c108bd986df2445ed9949363ee043ad82a53ae7bf6946c75b076221d",
+      "lines": 31,
+      "bytes": 3328,
+      "complete": true,
+      "sha256_stable_across_chunks": true,
+      "coverage": [
+        {
+          "start_line": 1,
+          "end_line": 31,
+          "method": "complete numbered UTF-8 line read"
+        }
+      ]
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/src/agentnexus/resources/budget-manager.ts",
+      "sha256": "7ea22cc6c6b9facf741413be900fd1c9b0396f07d1d6472e4787f8a4014737b9",
+      "lines": 146,
+      "bytes": 18270,
+      "complete": true,
+      "sha256_stable_across_chunks": true,
+      "coverage": [
+        {
+          "start_line": 1,
+          "end_line": 146,
+          "method": "complete numbered UTF-8 line read"
+        }
+      ]
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/src/agentnexus/resources/registry.ts",
+      "sha256": "ca34e7885011e9ffdc9f5588cf3201d2361baa5a6cefb86a9eaea9f9629f9661",
+      "lines": 16,
+      "bytes": 2892,
+      "complete": true,
+      "sha256_stable_across_chunks": true,
+      "coverage": [
+        {
+          "start_line": 1,
+          "end_line": 16,
+          "method": "complete numbered UTF-8 line read"
+        }
+      ]
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/src/agentnexus/resources/index.ts",
+      "sha256": "382ed3c1750941feb1642edc4fa1462760c7eb4176ffd95fc7167d5af87bf042",
+      "lines": 3,
+      "bytes": 166,
+      "complete": true,
+      "sha256_stable_across_chunks": true,
+      "coverage": [
+        {
+          "start_line": 1,
+          "end_line": 3,
+          "method": "complete numbered UTF-8 line read"
+        }
+      ]
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/src/agentnexus/harness/models.ts",
+      "sha256": "936dc75f92100053f931df7e2f19e4f17895288e0f3c1b5af5b46e4a654920d5",
+      "lines": 300,
+      "bytes": 26730,
+      "complete": true,
+      "sha256_stable_across_chunks": true,
+      "coverage": [
+        {
+          "start_line": 1,
+          "end_line": 160,
+          "method": "numbered UTF-8 line chunk"
+        },
+        {
+          "start_line": 161,
+          "end_line": 300,
+          "method": "numbered UTF-8 line chunk"
+        }
+      ]
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/src/agentnexus/harness/storage-owner.ts",
+      "sha256": "c49b503f361590c45c9791912163b351415f36ddd6ddb29758c737b9246b4516",
+      "lines": 247,
+      "bytes": 27069,
+      "complete": true,
+      "sha256_stable_across_chunks": true,
+      "coverage": [
+        {
+          "start_line": 1,
+          "end_line": 125,
+          "method": "numbered UTF-8 line chunk"
+        },
+        {
+          "start_line": 126,
+          "end_line": 247,
+          "method": "numbered UTF-8 line chunk"
+        }
+      ]
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/src/agentnexus/artifacts.ts",
+      "sha256": "506347b26285855c3f2ea60007ed77debe39a360130990a018e092069c2f0ab2",
+      "lines": 283,
+      "bytes": 18086,
+      "complete": true,
+      "sha256_stable_across_chunks": true,
+      "coverage": [
+        {
+          "start_line": 1,
+          "end_line": 160,
+          "method": "numbered UTF-8 line chunk"
+        },
+        {
+          "start_line": 161,
+          "end_line": 283,
+          "method": "numbered UTF-8 line chunk"
+        }
+      ]
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/src/agentnexus/storage.ts",
+      "sha256": "a693dde21a10e501c1e7172d1cf24a3dd99317b9bbfcfe2c235631926a33bff0",
+      "lines": 474,
+      "bytes": 33038,
+      "complete": true,
+      "sha256_stable_across_chunks": true,
+      "coverage": [
+        {
+          "start_line": 1,
+          "end_line": 160,
+          "method": "numbered UTF-8 line chunk"
+        },
+        {
+          "start_line": 161,
+          "end_line": 320,
+          "method": "numbered UTF-8 line chunk"
+        },
+        {
+          "start_line": 321,
+          "end_line": 474,
+          "method": "numbered UTF-8 line chunk"
+        }
+      ]
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/src/agentnexus/records.ts",
+      "sha256": "393e0a70a20a4dae21287169d1313bae949842cf0f712bacb3ebf432a5ed7800",
+      "lines": 99,
+      "bytes": 6510,
+      "complete": true,
+      "sha256_stable_across_chunks": true,
+      "coverage": [
+        {
+          "start_line": 1,
+          "end_line": 99,
+          "method": "complete numbered UTF-8 line read"
+        }
+      ]
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/src/agentnexus/integrity.ts",
+      "sha256": "172a40c429c9e8a99f8cc1fcee2ef500adb4e7d378f0f6188fbbe7f792edfe66",
+      "lines": 341,
+      "bytes": 18691,
+      "complete": true,
+      "sha256_stable_across_chunks": true,
+      "coverage": [
+        {
+          "start_line": 1,
+          "end_line": 180,
+          "method": "numbered UTF-8 line chunk"
+        },
+        {
+          "start_line": 181,
+          "end_line": 341,
+          "method": "numbered UTF-8 line chunk"
+        }
+      ]
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/src/agentnexus/host.ts",
+      "sha256": "4d27e744f60b646715417fa8a6db5cb33b5e92e4e8b2082be54628e4898645c9",
+      "lines": 236,
+      "bytes": 18913,
+      "complete": true,
+      "sha256_stable_across_chunks": true,
+      "coverage": [
+        {
+          "start_line": 1,
+          "end_line": 125,
+          "method": "numbered UTF-8 line chunk"
+        },
+        {
+          "start_line": 126,
+          "end_line": 236,
+          "method": "numbered UTF-8 line chunk"
+        }
+      ]
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/src/agentnexus/types.ts",
+      "sha256": "7bd207b6d34d63d5d443eedae516abc292942562b6b58ecf2f3ffccd566fdb25",
+      "lines": 127,
+      "bytes": 6839,
+      "complete": true,
+      "sha256_stable_across_chunks": true,
+      "coverage": [
+        {
+          "start_line": 1,
+          "end_line": 127,
+          "method": "complete numbered UTF-8 line read"
+        }
+      ]
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/tests/agentnexus/m16-models.test.ts",
+      "sha256": "20c6f6cc380b407b325a92ff249dbc65cc1fe87fd87b24ceba037dc24d81994b",
+      "lines": 207,
+      "bytes": 21333,
+      "complete": true,
+      "sha256_stable_across_chunks": true,
+      "coverage": [
+        {
+          "start_line": 1,
+          "end_line": 110,
+          "method": "numbered UTF-8 line chunk"
+        },
+        {
+          "start_line": 111,
+          "end_line": 207,
+          "method": "numbered UTF-8 line chunk"
+        }
+      ]
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/tests/agentnexus/m16-resources.test.ts",
+      "sha256": "9a0c8a28be31f766864843759053edbd4abe2c460a66846ebdea5ff6faae25de",
+      "lines": 156,
+      "bytes": 16618,
+      "complete": true,
+      "sha256_stable_across_chunks": true,
+      "coverage": [
+        {
+          "start_line": 1,
+          "end_line": 85,
+          "method": "numbered UTF-8 line chunk"
+        },
+        {
+          "start_line": 86,
+          "end_line": 156,
+          "method": "numbered UTF-8 line chunk"
+        }
+      ]
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/tests/agentnexus/m161-storage.test.ts",
+      "sha256": "30456915c8e93a77a21b21352b2dfec4edcff21656324814c96bc37ddcfbe645",
+      "lines": 114,
+      "bytes": 13125,
+      "complete": true,
+      "sha256_stable_across_chunks": true,
+      "coverage": [
+        {
+          "start_line": 1,
+          "end_line": 60,
+          "method": "numbered UTF-8 line chunk"
+        },
+        {
+          "start_line": 61,
+          "end_line": 114,
+          "method": "numbered UTF-8 line chunk"
+        }
+      ]
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/tests/agentnexus/m161-storage-fixture.ts",
+      "sha256": "1db55cb7ceadde6ba56cd00b0306886fbfe03f4ca25ce1b49c1112cf406e11e1",
+      "lines": 22,
+      "bytes": 2242,
+      "complete": true,
+      "sha256_stable_across_chunks": true,
+      "coverage": [
+        {
+          "start_line": 1,
+          "end_line": 22,
+          "method": "complete numbered UTF-8 line read"
+        }
+      ]
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/tests/agentnexus/m161-storage-child.mjs",
+      "sha256": "d9305e7a456dbe9e9edce60228ae308741fa934b30c2a74409747e66d88a4970",
+      "lines": 9,
+      "bytes": 612,
+      "complete": true,
+      "sha256_stable_across_chunks": true,
+      "coverage": [
+        {
+          "start_line": 1,
+          "end_line": 9,
+          "method": "complete numbered UTF-8 line read"
+        }
+      ]
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/tests/agentnexus/m161-artifacts.test.ts",
+      "sha256": "af7b58f0f28be552b31ef7bfb1f6497958a15695e4e2174e1cb93a4568b0d65b",
+      "lines": 26,
+      "bytes": 3058,
+      "complete": true,
+      "sha256_stable_across_chunks": true,
+      "coverage": [
+        {
+          "start_line": 1,
+          "end_line": 26,
+          "method": "complete numbered UTF-8 line read"
+        }
+      ]
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/tests/agentnexus/storage.test.ts",
+      "sha256": "7fe63fae9c892983a20cff6363daea390b95f9535d9aab8b231a79509bf722ea",
+      "lines": 368,
+      "bytes": 28922,
+      "complete": true,
+      "sha256_stable_across_chunks": true,
+      "coverage": [
+        {
+          "start_line": 1,
+          "end_line": 190,
+          "method": "numbered UTF-8 line chunk"
+        },
+        {
+          "start_line": 191,
+          "end_line": 368,
+          "method": "numbered UTF-8 line chunk"
+        }
+      ]
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/tests/agentnexus/integrity.test.ts",
+      "sha256": "2d4f1212dc62716a8281e83eb2ef9e579213c707e6ff97fb5b13c32d39806e80",
+      "lines": 415,
+      "bytes": 21629,
+      "complete": true,
+      "sha256_stable_across_chunks": true,
+      "coverage": [
+        {
+          "start_line": 1,
+          "end_line": 210,
+          "method": "numbered UTF-8 line chunk"
+        },
+        {
+          "start_line": 211,
+          "end_line": 415,
+          "method": "numbered UTF-8 line chunk"
+        }
+      ]
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/tests/agentnexus/owned-storage-child.mjs",
+      "sha256": "7a469bfa662d98f39f06b4483eaa1f49809e490817679cce5f7f1fa366133139",
+      "lines": 37,
+      "bytes": 1885,
+      "complete": true,
+      "sha256_stable_across_chunks": true,
+      "coverage": [
+        {
+          "start_line": 1,
+          "end_line": 37,
+          "method": "complete numbered UTF-8 line read"
+        }
+      ]
+    }
+  ]
+}

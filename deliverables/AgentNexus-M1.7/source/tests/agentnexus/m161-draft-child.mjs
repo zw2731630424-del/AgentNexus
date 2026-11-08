@@ -1,0 +1,10 @@
+import { openHarness } from '../../src/agentnexus/harness/index.ts';
+import { limits } from './m161-storage-fixture.ts';
+import { join } from 'node:path';
+const [root]=process.argv.slice(2),h=await openHarness(join(root,'host'));
+await h.administration.createProject({id:'p',rules:['Synthetic draft recovery'],budget:limits});
+for(const id of ['sender','receiver'])await h.administration.createAgent({id,project_id:'p',task_id:id,type:'DEVELOPMENT',budget:{...limits,workers:1},read_tasks:id==='receiver'?['sender']:[]});
+await h.administration.createTask({id:'receiver',agent_id:'receiver',goal:'Accept one durable message'});
+const flush=h.store.flush.bind(h.store);
+h.store.flush=async()=>{await flush();const last=h.store.db.prepare("SELECT json_extract(body,'$.phase') AS phase FROM anx_records WHERE domain='audit' ORDER BY seq DESC LIMIT 1").get();if(last?.phase==='MESSAGE_TEXT_ADMITTED'){process.send?.({ready:true});setInterval(()=>{},1000);await new Promise(()=>{});}};
+await h.bindAgent('sender').sendText({receiver_agent_id:'receiver',message_type:'INPUT',text:'Same exact immutable message',dedup_key:'stable-draft'});

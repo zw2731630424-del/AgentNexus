@@ -1,0 +1,140 @@
+{
+  "schema": "agentnexus/m161/acceptance/1",
+  "observed_at": "2026-11-08T01:11:29.189956+00:00",
+  "scope": "LOCAL_TRUSTED_LIBRARY_NATIVE_STABILIZATION",
+  "source_files": 140,
+  "source_set_sha256": "d14401d7c39b069555f43c60360d5aab83e40bb32995008652cfcefb9862e9da",
+  "git_branch": "main",
+  "git_head": "3e2890bafe505ff7d02886c8e2b800ff685083ce",
+  "commit_push_performed": false,
+  "local_stabilization": "PASS",
+  "production": "BLOCKED",
+  "provider": "SIMULATED",
+  "strict_cpu": "BLOCKED",
+  "all_tests": {
+    "tests": 479,
+    "failed": 2,
+    "passed": 469,
+    "cancelled": 0,
+    "skipped": 8,
+    "todo": 0,
+    "topLevel": 427,
+    "suites": 0
+  },
+  "new_tests": {
+    "total": 99,
+    "PASS": 99
+  },
+  "regression": "FAIL",
+  "strict_typescript": "PASS",
+  "node_syntax": "PASS",
+  "legacy_cpu_case": "FAIL",
+  "legacy_cpu_pass_is_not_qualification": true,
+  "cpu_historical_m151": "56 FAIL / 2 PASS, unchanged; matrix not rerun",
+  "breakaway_case": "PASS",
+  "failures": [
+    {
+      "type": "test:fail",
+      "name": "M1.4 REAL_WINDOWS_PRIMITIVE: cumulative Job CPU time kills a busy fixture before wall deadline",
+      "nesting": 0,
+      "testNumber": 101,
+      "details": {
+        "duration_ms": 4066.7098,
+        "type": "test",
+        "error": {
+          "message": "CPU_TIME FAIL/BLOCKED: infinite busy fixture accumulated 29062500 ticks and required helper termination (DEADLINE); configuring JOB_TIME is not enforcement evidence\n+ actual - expected\n\n+ '2026-11-08T01:04:31.8541220Z'\n- null\n",
+          "code": "ERR_TEST_FAILURE",
+          "stack": "Error [ERR_TEST_FAILURE]: CPU_TIME FAIL/BLOCKED: infinite busy fixture accumulated 29062500 ticks and required helper termination (DEADLINE); configuring JOB_TIME is not enforcement evidence\n+ actual - expected\n\n+ '2026-11-08T01:04:31.8541220Z'\n- null\n",
+          "cause": "CPU_TIME FAIL/BLOCKED: infinite busy fixture accumulated 29062500 ticks and required helper termination (DEADLINE); configuring JOB_TIME is not enforcement evidence\n+ actual - expected\n\n+ '2026-11-08T01:04:31.8541220Z'\n- null\n"
+        }
+      },
+      "line": 150,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m14-native.test.ts",
+      "status": "FAIL"
+    },
+    {
+      "type": "test:fail",
+      "name": "M151 REAL_WINDOWS_PRIMITIVE: concurrent directory replacement never returns junction target bytes",
+      "nesting": 0,
+      "testNumber": 175,
+      "details": {
+        "duration_ms": 1158.7927,
+        "type": "test",
+        "error": {
+          "message": "{\"ok\":false,\"id\":\"m151-34\",\"error\":{\"message\":\"NtCreateFile component\",\"code\":\"WIN32_1921\"}}",
+          "code": "ERR_TEST_FAILURE",
+          "stack": "Error [ERR_TEST_FAILURE]: {\"ok\":false,\"id\":\"m151-34\",\"error\":{\"message\":\"NtCreateFile component\",\"code\":\"WIN32_1921\"}}",
+          "cause": "{\"ok\":false,\"id\":\"m151-34\",\"error\":{\"message\":\"NtCreateFile component\",\"code\":\"WIN32_1921\"}}"
+        }
+      },
+      "line": 34,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.6.1\\final-v4\\verification\\2026-11-08T01-03-48-062Z-36472\\workspace\\tests\\agentnexus\\m151-boundaries.test.ts",
+      "status": "FAIL"
+    }
+  ],
+  "raw_run": "evidence/runs/final-v4-2026-11-08T01-03-48-062Z-36472",
+  "preservation": {
+    "status": "PASS",
+    "protected_files": 8539,
+    "changed": [],
+    "original_test_and_fixture_files": 34,
+    "changed_original_tests": []
+  },
+  "governance": "PASS",
+  "independent_review": "LOCAL_SCOPE_PASS_FULL_REGRESSION_FAIL",
+  "remaining_limits": [
+    {
+      "id": "L-LEGACY-TOCTOU",
+      "status": "FAIL",
+      "detail": "Untouched legacy TOCTOU oracle rejects WIN32_1921 during concurrent replacement; new observed real-attack fixture PASS is reported separately, not substituted."
+    },
+    {
+      "id": "L-CPU",
+      "status": "BLOCKED",
+      "detail": "Strict cumulative CPU contract unqualified; original budgets/tolerances/history unchanged, CPU_RATE/deadline cannot replace it."
+    },
+    {
+      "id": "L-OS",
+      "status": "BLOCKED",
+      "detail": "Trusted local library is not a hostile-process sandbox or qualified production deployment."
+    },
+    {
+      "id": "L-POWER",
+      "status": "NOT_RUN",
+      "detail": "Real Node process termination/reopen tested; Windows reboot, power loss and directory durability not qualified."
+    },
+    {
+      "id": "L-PROVIDER",
+      "status": "SIMULATED",
+      "detail": "No real Provider/credential/key/cost; all mock usage explicitly simulated."
+    },
+    {
+      "id": "L-UNKNOWN",
+      "status": "BLOCKED",
+      "detail": "Explicit file reconciliation does not itself release old Gateway/Worker/unknown resources; no automatic replay."
+    },
+    {
+      "id": "L-GC",
+      "status": "NOT_RUN",
+      "detail": "No automatic version/Artifact GC, deletion proof, or disk ownership destruction; capacity retained conservatively."
+    },
+    {
+      "id": "L-LONG-RUN",
+      "status": "NOT_RUN",
+      "detail": "No long-term resident service, autonomous priority coordinator, Git watcher or full M1.7 autonomy qualification."
+    },
+    {
+      "id": "L-MULTI-FILE",
+      "status": "NOT_RUN",
+      "detail": "Gate-to-write bridge binds one file Artifact hash; no distributed or multi-file transaction claim."
+    }
+  ],
+  "toctou": {
+    "legacy_test": "FAIL",
+    "legacy_reason": "WIN32_1921 not included in untouched legacy oracle; no assertion changed",
+    "new_observed_real_attack": "PASS",
+    "raw_report": "evidence/toctou/final-v4-report.json"
+  }
+}

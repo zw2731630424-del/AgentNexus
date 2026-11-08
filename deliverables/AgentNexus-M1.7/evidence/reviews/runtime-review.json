@@ -1,0 +1,3521 @@
+{
+  "schema": "agentnexus/m17/independent-engineering/runtime-review/1",
+  "observed_at": "2026-11-08T03:47:58.609549+00:00",
+  "review_kind": "CODEX_ENGINEERING_REVIEW_NOT_NATIVE_REVIEWER_EXECUTION",
+  "status": "PASS_WITH_DECLARED_SCOPE_LIMITS",
+  "reviewer_independence": {
+    "reviewer": "Codex baseline-context-gates subagent",
+    "prior_authorship": "event-loop.ts and m17-events.test.ts",
+    "excluded_from_independent_review": [
+      "event-loop.ts implementation",
+      "m17-events.test.ts implementation"
+    ],
+    "reviewed_authors_work": "Pilot/development and Host integration authored by other agents; own event-loop code is not rubber-stamped as independent evidence."
+  },
+  "review_actions": {
+    "read_only": true,
+    "new_tests_or_pilot_executed": false,
+    "pilot_code_generated": false,
+    "implementation_or_old_evidence_modified": false,
+    "recursive_delegation": false,
+    "network_or_real_keys": false,
+    "only_written_path": ".workflow-kit/runtime/AgentNexus-M1.7/independent-engineering/runtime-review.json",
+    "methods": [
+      "Bounded source reads and M1.6.1 diffs",
+      "Existing JSON/TAP evidence inspection",
+      "SQLite mode=ro queries",
+      "SHA256 over existing source/artifact/report/output bytes",
+      "Read-only native Node fs/zlib/crypto/sqlite primitives decoded existing Zstd evidence; no workspace module was imported or executed."
+    ]
+  },
+  "source_set_sha256": "8167ce3e78c602f43bee2b3a4d792a5054f76d7121a6a7730b14cc37eb5c4c6c",
+  "reviewed_files": [
+    {
+      "path": ".workflow-kit/runtime/AgentNexus-M1.7/v/r-bfa1fa2f0549/workspace/src/agentnexus/harness/pilot-run.ts",
+      "sha256": "c975ea14a165065664346c0106af6234a93f6b1b74f60ae99d4d861b32ec63d8",
+      "bytes": 44341,
+      "coverage": "FULL_CONTENT_AND_UPDATED_HUNKS",
+      "semantic_path": "deliverables/AgentNexus-M1.7/source/src/agentnexus/harness/pilot-run.ts"
+    },
+    {
+      "path": ".workflow-kit/runtime/AgentNexus-M1.7/v/r-bfa1fa2f0549/workspace/src/agentnexus/harness/pilot-fixtures.ts",
+      "sha256": "daf925823b8db4694419e88b9a6c505efa6c0c1c603b4ce8b9b9b3d1f2c635c8",
+      "bytes": 25651,
+      "coverage": "FULL_CONTENT_AND_UPDATED_HUNKS",
+      "semantic_path": "deliverables/AgentNexus-M1.7/source/src/agentnexus/harness/pilot-fixtures.ts"
+    },
+    {
+      "path": ".workflow-kit/runtime/AgentNexus-M1.7/v/r-bfa1fa2f0549/workspace/src/agentnexus/harness/development.ts",
+      "sha256": "6800a83aed43912ba94f7d2f6fb35e3c3d9a3732a6119ce6687c179d2b29c919",
+      "bytes": 8530,
+      "coverage": "FULL_CONTENT",
+      "semantic_path": "deliverables/AgentNexus-M1.7/source/src/agentnexus/harness/development.ts"
+    },
+    {
+      "path": ".workflow-kit/runtime/AgentNexus-M1.7/v/r-bfa1fa2f0549/workspace/src/agentnexus/harness/index.ts",
+      "sha256": "334058f42477db9f2d18f9d978ae22a1d003651b8f1da4c4f0c5b7e71fc57ec5",
+      "bytes": 33037,
+      "coverage": "ALL_M17_CHANGED_HUNKS_PLUS_ADJACENT_DISPATCH_AND_ADMIN_BOUNDARIES",
+      "semantic_path": "deliverables/AgentNexus-M1.7/source/src/agentnexus/harness/index.ts"
+    },
+    {
+      "path": ".workflow-kit/runtime/AgentNexus-M1.7/v/r-bfa1fa2f0549/workspace/src/agentnexus/harness/scheduler.ts",
+      "sha256": "08c42f9f62fb01ab1494badde0266ea9173768f8c8e1c9f321d3d5b701e2deee",
+      "bytes": 46861,
+      "coverage": "ALL_M17_CHANGED_HUNKS_PLUS_CONTEXT_AND_MODEL_DISPATCH_BOUNDARIES",
+      "semantic_path": "deliverables/AgentNexus-M1.7/source/src/agentnexus/harness/scheduler.ts"
+    },
+    {
+      "path": ".workflow-kit/runtime/AgentNexus-M1.7/v/r-bfa1fa2f0549/workspace/src/agentnexus/harness/models.ts",
+      "sha256": "9a46e5534f0a7d38eb337e0f009b0b14456202f95cb97780a6e4a2f92d57507c",
+      "bytes": 30988,
+      "coverage": "M17_CHANGED_HUNKS; INHERITED_CORE_NOT_FULLY_REAUDITED",
+      "semantic_path": "deliverables/AgentNexus-M1.7/source/src/agentnexus/harness/models.ts"
+    },
+    {
+      "path": ".workflow-kit/runtime/AgentNexus-M1.7/v/r-bfa1fa2f0549/workspace/src/agentnexus/harness/pilot-checker.ts",
+      "sha256": "44890743ef03cdf44550f7c00b7171dc9c9c9c9d12a42dbe284d4f4a6e6b196a",
+      "bytes": 23573,
+      "coverage": "FULL_CONTENT",
+      "semantic_path": "deliverables/AgentNexus-M1.7/source/src/agentnexus/harness/pilot-checker.ts"
+    },
+    {
+      "path": ".workflow-kit/runtime/AgentNexus-M1.7/v/r-bfa1fa2f0549/workspace/tests/agentnexus/m17-development.test.ts",
+      "sha256": "55880c9a8a33302cf4b534461632e345f5d1374cf959c946c7e7a5995185dcf1",
+      "bytes": 5661,
+      "coverage": "FULL_CONTENT_READ_NOT_EXECUTED",
+      "semantic_path": "deliverables/AgentNexus-M1.7/source/tests/agentnexus/m17-development.test.ts"
+    },
+    {
+      "path": ".workflow-kit/runtime/AgentNexus-M1.7/v/r-bfa1fa2f0549/workspace/tools/agentnexus/pilot-m17.ts",
+      "sha256": "1916906685b55f7d37135034b9bd3d35909ea297da3520b87194c4e96bef21f9",
+      "bytes": 942,
+      "coverage": "FULL_CONTENT_READ_NOT_EXECUTED",
+      "semantic_path": "deliverables/AgentNexus-M1.7/source/tools/agentnexus/pilot-m17.ts"
+    },
+    {
+      "path": ".workflow-kit/runtime/AgentNexus-M1.7/v/r-bfa1fa2f0549/workspace/tools/agentnexus/output-root.ts",
+      "sha256": "3b82ee59ce3b31c896611406a7b6a1cdd88b2b3aedc1a94c779f0e5408114f3e",
+      "bytes": 955,
+      "coverage": "FULL_CONTENT_READ_NOT_EXECUTED",
+      "semantic_path": "deliverables/AgentNexus-M1.7/source/tools/agentnexus/output-root.ts"
+    },
+    {
+      "path": ".workflow-kit/runtime/AgentNexus-M1.7/v/r-bfa1fa2f0549/workspace/tests/agentnexus/m17-checker.test.ts",
+      "sha256": "aaafdd688b21cd56b9c6676927ec8c4fdc6a0abb4bede654287cd873afafea77",
+      "bytes": 14367,
+      "coverage": "FULL_CONTENT_READ_NOT_EXECUTED"
+    },
+    {
+      "path": ".workflow-kit/runtime/AgentNexus-M1.7/v/r-bfa1fa2f0549/workspace/tests/agentnexus/m17-pilot.test.ts",
+      "sha256": "2eda5d4da5c454d01831fd59ba3626f56c49779655d80565b8526d6f52f89644",
+      "bytes": 4020,
+      "coverage": "FULL_CONTENT_READ_NOT_EXECUTED"
+    },
+    {
+      "path": ".workflow-kit/runtime/AgentNexus-M1.7/v/r-bfa1fa2f0549/workspace/tests/agentnexus/m17-history.test.ts",
+      "sha256": "f36dff832cc1177da0f457100e9a8179bf35119e04401b1609e0e0a3a7d0fe23",
+      "bytes": 7138,
+      "coverage": "FULL_CONTENT_READ_NOT_EXECUTED"
+    }
+  ],
+  "findings": [
+    {
+      "id": "ENG-01",
+      "priority": 1,
+      "status": "CLOSED_WITH_HISTORICAL_RUNTIME_EVIDENCE_AND_STATIC_FIX",
+      "title": "Repeated logical ANSWER was keyed by turn and replayed after receiver completion",
+      "initial_source_sha256": "a8146b52cec363aba9005435cbfa4953ab8847a351f15a5519b8a7a4994e65ae",
+      "initial_location": {
+        "file": "deliverables/AgentNexus-M1.7/source/src/agentnexus/harness/pilot-run.ts",
+        "start": 100,
+        "end": 108
+      },
+      "evidence": "First real Native Pilot report is FAIL with AGENT_UNAVAILABLE at the ANSWER branch after code-cli already SUCCEEDED. This is an observed existing run, not a reviewer-created reproduction.",
+      "fix_location": {
+        "file": "deliverables/AgentNexus-M1.7/source/src/agentnexus/harness/pilot-run.ts",
+        "start": 101,
+        "end": 108
+      },
+      "fix": "Business correlation key uses actor/action/logical question plus a proposal hash; repeated identical content is skipped and conflicting reuse rejects. Second real run completed without replay failure.",
+      "runtime_binding": "Second run predates the subsequent actor/ownership/context hardening and is not used as fresh runtime evidence for those patches.",
+      "frozen_fix_location": {
+        "path": ".workflow-kit/runtime/AgentNexus-M1.7/v/r-bfa1fa2f0549/workspace/src/agentnexus/harness/pilot-run.ts",
+        "sha256": "c975ea14a165065664346c0106af6234a93f6b1b74f60ae99d4d861b32ec63d8",
+        "start": 114,
+        "end": 121
+      },
+      "final_fresh_pilot_status": "PASS",
+      "final_source_set_sha256": "8167ce3e78c602f43bee2b3a4d792a5054f76d7121a6a7730b14cc37eb5c4c6c"
+    },
+    {
+      "id": "ENG-02",
+      "priority": 1,
+      "status": "CLOSED_BY_EXACT_STATIC_GUARD",
+      "title": "Host control proposals could switch sender identity based only on action text",
+      "initial_location": {
+        "file": "deliverables/AgentNexus-M1.7/source/src/agentnexus/harness/pilot-run.ts",
+        "start": 100,
+        "end": 106
+      },
+      "static_counterexample": "A WAIT proposal from code-cli containing action ANSWER previously entered a branch that sent as lead, bypassing the original proposer identity at the Host layer. The fixed fixture did not exercise the malformed branch.",
+      "fix_location": {
+        "file": "deliverables/AgentNexus-M1.7/source/src/agentnexus/harness/pilot-run.ts",
+        "start": 104,
+        "end": 106
+      },
+      "fix": "QUESTION requires code-cli/resident, FORWARD_QUESTION requires resident/lead/reply_to code-cli, ANSWER requires lead/code-cli; all sends use the inspected current actor id.",
+      "negative_runtime_reproduction": "NOT_RUN by this reviewer; no Pilot code was generated or executed.",
+      "frozen_fix_location": {
+        "path": ".workflow-kit/runtime/AgentNexus-M1.7/v/r-bfa1fa2f0549/workspace/src/agentnexus/harness/pilot-run.ts",
+        "sha256": "c975ea14a165065664346c0106af6234a93f6b1b74f60ae99d4d861b32ec63d8",
+        "start": 117,
+        "end": 119
+      },
+      "final_fresh_pilot_status": "PASS",
+      "final_source_set_sha256": "8167ce3e78c602f43bee2b3a4d792a5054f76d7121a6a7730b14cc37eb5c4c6c"
+    },
+    {
+      "id": "ENG-03",
+      "priority": 2,
+      "status": "CLOSED_BY_EXACT_STATIC_GUARD",
+      "title": "Actual writer grants were not bound to admitted output ownership",
+      "initial_location": {
+        "file": "deliverables/AgentNexus-M1.7/source/src/agentnexus/harness/pilot-run.ts",
+        "start": 139,
+        "end": 144
+      },
+      "static_counterexample": "The validator could admit an empty code-model outputs list with its intended file assigned to another writable task, while the driver still granted code-model the fixed ROLE_PATHS. That made the persisted ownership plan descriptive rather than enforced.",
+      "fix_location": {
+        "file": "deliverables/AgentNexus-M1.7/source/src/agentnexus/harness/pilot-run.ts",
+        "start": 140,
+        "end": 147
+      },
+      "fix": "Before createAgent/createTask, actual resource-prefixed paths must exactly equal work.outputs and all admitted.owners must match the task. Real planned goal, model strategy, dependencies, acceptance, disk and turn budgets are now passed to native Task creation.",
+      "negative_runtime_reproduction": "NOT_RUN by this reviewer; static branches are fail-closed and final fixed-entry Pilot is pending.",
+      "frozen_fix_location": {
+        "path": ".workflow-kit/runtime/AgentNexus-M1.7/v/r-bfa1fa2f0549/workspace/src/agentnexus/harness/pilot-run.ts",
+        "sha256": "c975ea14a165065664346c0106af6234a93f6b1b74f60ae99d4d861b32ec63d8",
+        "start": 165,
+        "end": 172
+      },
+      "final_fresh_pilot_status": "PASS",
+      "final_source_set_sha256": "8167ce3e78c602f43bee2b3a4d792a5054f76d7121a6a7730b14cc37eb5c4c6c"
+    },
+    {
+      "id": "ENG-04",
+      "priority": 2,
+      "status": "CLOSED_BY_STATIC_FIX_AND_ROOT_EXECUTED_TEST_EVIDENCE",
+      "title": "Frozen handoff plan omitted the original history policy",
+      "initial_source_sha256": "2629fe5c65f18e53029d0c88bea264ca72abc5bc453ee6b735b1f608043e98db",
+      "initial_location": {
+        "file": "deliverables/AgentNexus-M1.7/source/src/agentnexus/harness/scheduler.ts",
+        "start": 399,
+        "end": 408
+      },
+      "static_counterexample": "Create source under historyWindow A, reopen Host with B, handoff (or recover a pending handoff): destination create formerly read the current Host default rather than the original task policy.",
+      "fix_location": {
+        "file": "deliverables/AgentNexus-M1.7/source/src/agentnexus/harness/scheduler.ts",
+        "start": 393,
+        "end": 409
+      },
+      "fix": "TaskInput accepts validated explicit history_window; new handoff input always freezes original.history_window===true, and destination creation_hash includes that input. Pending legacy plans without a frozen boolean reject explicitly.",
+      "verification": "Root-run m17-history test 3 passes for both enabled->Host disabled and disabled->Host enabled, preserved native contract text, persisted handoff input and repeated same creation_hash. Reviewer read TAP and source only.",
+      "frozen_fix_location": {
+        "path": ".workflow-kit/runtime/AgentNexus-M1.7/v/r-bfa1fa2f0549/workspace/src/agentnexus/harness/scheduler.ts",
+        "sha256": "08c42f9f62fb01ab1494badde0266ea9173768f8c8e1c9f321d3d5b701e2deee",
+        "start": 393,
+        "end": 409
+      },
+      "final_fresh_pilot_status": "PASS",
+      "final_source_set_sha256": "8167ce3e78c602f43bee2b3a4d792a5054f76d7121a6a7730b14cc37eb5c4c6c"
+    },
+    {
+      "id": "ENG-05",
+      "priority": 2,
+      "status": "CLOSED_BY_STATIC_FIX_AND_ROOT_EXECUTED_TEST_EVIDENCE",
+      "title": "Final handoff append bypassed the opt-in rolling history helper",
+      "initial_location": {
+        "file": "deliverables/AgentNexus-M1.7/source/src/agentnexus/harness/scheduler.ts",
+        "start": 413,
+        "end": 414
+      },
+      "static_counterexample": "A valid target can receive 32 real messages while a durable handoff is pending; the original direct contract append would fail at 33 references even with the window enabled.",
+      "fix_location": {
+        "file": "deliverables/AgentNexus-M1.7/source/src/agentnexus/harness/scheduler.ts",
+        "start": 411,
+        "end": 418
+      },
+      "fix": "Handoff now calls #history, stores the drop count and adds the exact dropped ContextSource to TASK_HISTORY_WINDOW_ADVANCED in the same existing state/audit transaction.",
+      "verification": "Root-run test 4 creates the pending handoff barrier, atomically adopts 32 messages with no model turn, completes handoff, observes 32 refs and drop counts, then reads every original payload and verifies the store. TAP 4/4 PASS; no reviewer execution.",
+      "frozen_fix_location": {
+        "path": ".workflow-kit/runtime/AgentNexus-M1.7/v/r-bfa1fa2f0549/workspace/src/agentnexus/harness/scheduler.ts",
+        "sha256": "08c42f9f62fb01ab1494badde0266ea9173768f8c8e1c9f321d3d5b701e2deee",
+        "start": 411,
+        "end": 418
+      },
+      "final_fresh_pilot_status": "PASS",
+      "final_source_set_sha256": "8167ce3e78c602f43bee2b3a4d792a5054f76d7121a6a7730b14cc37eb5c4c6c"
+    }
+  ],
+  "open_blocking_findings": [],
+  "static_assessment": [
+    {
+      "topic": "Host admission and model/requirements provenance",
+      "evidence": [
+        "development.ts:59-79",
+        "index.ts:198-218",
+        "models.ts:56-111,249-307"
+      ],
+      "assessment": "Admission requires trusted admin, a DEVELOPMENT actor, actual SUCCEEDED MODEL_REQUEST result with exact owner and Task history, reconstruction of the acknowledged model input, exact original requirements source and content hash, finite schema/DAG/path/resource checks. Agent facades do not expose management callbacks or admin tokens."
+    },
+    {
+      "topic": "Native production of code and versioned writes",
+      "evidence": [
+        "pilot-run.ts:76-85",
+        "pilot-run.ts:111-119",
+        "pilot-fixtures.ts:146-168",
+        "pilot-run.ts:159-165"
+      ],
+      "assessment": "Pilot product files are published by real model-result/tool/immutable-source/approval/Storage Owner paths. Host bootstraps directories and evidence; known fixture content is explicit SIMULATED input. Each write is checked against actual scope, path and bytes; repair requires exact old version/hash; final candidate rehashes actual files and acknowledged Storage versions."
+    },
+    {
+      "topic": "Native gates and actual quality evidence",
+      "evidence": [
+        "pilot-run.ts:173-217",
+        "pilot-checker.ts:73-155",
+        "pilot-checker.ts:158-251"
+      ],
+      "assessment": "G3/G4 failures before repair are preserved; final G0-G6 share candidate/baseline/profile/frozen rules and current epochs. Candidate checks use immutable captured copies, pinned local Node/TypeScript, sanitized environment, fixed argv, output/deadline bounds and process-close observations. G5 stores final test/review/diff evidence. No Agent PROCESS permission is introduced."
+    },
+    {
+      "topic": "Reviewer and Debug original source context",
+      "evidence": [
+        "pilot-run.ts:173-178",
+        "pilot-run.ts:188-194",
+        "pilot-fixtures.ts:158"
+      ],
+      "assessment": "Updated Reviewer receives exact diff bytes and candidate manifest RAW with original file source_refs. Debug receives the original Reviewer message source plus original analytics source, and its simulated responder rejects missing original bytes. Reviewer file_scope is empty with PURE echo only and separate native runtime identity. This is logical independent checker execution, not a real independent LLM review."
+    },
+    {
+      "topic": "ResourceGov and UNKNOWN",
+      "evidence": [
+        "index.ts:204-217",
+        "scheduler.ts:45,54,226-236",
+        "models.ts:277-348"
+      ],
+      "assessment": "Fixed quality checks reserve worker/project/platform budgets; only blocked-no-invocation or known completed invocation with confirmed close may release. Inconclusive/unknown retains resource authority. Model responder failures after SENT are preserved as unknown, not rolled back into unsent. Added context/output options are bounded and do not change original defaults. Strict CPU, descendant exit, production OS isolation remain BLOCKED."
+    }
+  ],
+  "runtime_evidence": [
+    {
+      "report": {
+        "path": ".workflow-kit/runtime/AgentNexus-M1.7/pilot/2026-11-08T02-42-52-761Z-42660/report.json",
+        "sha256": "b0c34f266704c10fcb767b39668c3dc513fdcc6c6008f344041227d90a40defd",
+        "bytes": 5213,
+        "lines": 124
+      },
+      "status": "FAIL",
+      "started_at": "2026-11-08T02:42:52.763Z",
+      "ended_at": "2026-11-08T02:43:10.325Z",
+      "error": "NexusError: AGENT_UNAVAILABLE\n    at invariant (file:///I:/AI_AgentNexus/deliverables/AgentNexus-M1.7/source/src/agentnexus/types.ts:44:18)\n    at AgentRuntime.current (file:///I:/AI_AgentNexus/deliverables/AgentNexus-M1.7/source/src/agentnexus/harness/agents.ts:30:5)\n    at Object.sendText (file:///I:/AI_AgentNexus/deliverables/AgentNexus-M1.7/source/src/agentnexus/harness/index.ts:286:20)\n    at send (file:///I:/AI_AgentNexus/deliverables/AgentNexus-M1.7/source/src/agentnexus/harness/pilot-run.ts:102:107)\n    at control (file:///I:/AI_AgentNexus/deliverables/AgentNexus-M1.7/source/src/agentnexus/harness/pilot-run.ts:105:50)\n    at drive (file:///I:/AI_AgentNexus/deliverables/AgentNexus-M1.7/source/src/agentnexus/harness/pilot-run.ts:121:57)\n    at async runPilot (file:///I:/AI_AgentNexus/deliverables/AgentNexus-M1.7/source/src/agentnexus/harness/pilot-run.ts:147:190)\n    at async file:///I:/AI_AgentNexus/deliverables/AgentNexus-M1.7/source/tools/agentnexus/pilot-m17.ts:6:14",
+      "candidate_sha256": null,
+      "model_autonomy": "SIMULATED",
+      "real_provider": "SIMULATED",
+      "initial_checks": "NOT_RUN",
+      "final_checks": "NOT_RUN",
+      "gate_summary": [],
+      "pre_repair_gates": [],
+      "fixture_source_sha256": null
+    },
+    {
+      "report": {
+        "path": ".workflow-kit/runtime/AgentNexus-M1.7/pilot/2026-11-08T02-45-30-971Z-38976/report.json",
+        "sha256": "5eddb90be1bc66074b14cef752c616030c8ce66b6bab13d08547658819fcaa27",
+        "bytes": 131636,
+        "lines": 3276
+      },
+      "status": "PASS",
+      "started_at": "2026-11-08T02:45:30.973Z",
+      "ended_at": "2026-11-08T02:46:50.448Z",
+      "error": null,
+      "candidate_sha256": "161d84946cd14516a098d7c60795d7e1039e28de79f7363cef84a04638a9259a",
+      "model_autonomy": "SIMULATED",
+      "real_provider": "SIMULATED",
+      "initial_checks": "FAIL",
+      "final_checks": "PASS",
+      "gate_summary": [
+        {
+          "gate": "g0",
+          "status": "PASS",
+          "candidate_hash": "161d84946cd14516a098d7c60795d7e1039e28de79f7363cef84a04638a9259a",
+          "allows_protected": true
+        },
+        {
+          "gate": "g1",
+          "status": "PASS",
+          "candidate_hash": "161d84946cd14516a098d7c60795d7e1039e28de79f7363cef84a04638a9259a",
+          "allows_protected": true
+        },
+        {
+          "gate": "g2",
+          "status": "PASS",
+          "candidate_hash": "161d84946cd14516a098d7c60795d7e1039e28de79f7363cef84a04638a9259a",
+          "allows_protected": true
+        },
+        {
+          "gate": "g3",
+          "status": "PASS",
+          "candidate_hash": "161d84946cd14516a098d7c60795d7e1039e28de79f7363cef84a04638a9259a",
+          "allows_protected": true
+        },
+        {
+          "gate": "g4",
+          "status": "PASS",
+          "candidate_hash": "161d84946cd14516a098d7c60795d7e1039e28de79f7363cef84a04638a9259a",
+          "allows_protected": true
+        },
+        {
+          "gate": "g5",
+          "status": "PASS",
+          "candidate_hash": "161d84946cd14516a098d7c60795d7e1039e28de79f7363cef84a04638a9259a",
+          "allows_protected": true
+        },
+        {
+          "gate": "g6",
+          "status": "PASS",
+          "candidate_hash": "161d84946cd14516a098d7c60795d7e1039e28de79f7363cef84a04638a9259a",
+          "allows_protected": true
+        }
+      ],
+      "pre_repair_gates": [
+        {
+          "gate": "g3",
+          "status": "FAIL",
+          "candidate_hash": "0b1c59b79db8e69373bc5969ecc8a513f94373664c10ad870c134752538ade80"
+        },
+        {
+          "gate": "g4",
+          "status": "FAIL",
+          "candidate_hash": "0b1c59b79db8e69373bc5969ecc8a513f94373664c10ad870c134752538ade80"
+        }
+      ],
+      "fixture_source_sha256": "ef1fbb524bf6e2d633385b0b3454b2353d452c7af0dadcea43a88b64feeb8b03"
+    }
+  ],
+  "independently_checked_second_run": {
+    "root": ".workflow-kit/runtime/AgentNexus-M1.7/pilot/2026-11-08T02-45-30-971Z-38976",
+    "candidate_artifact_sha256_computed": "161d84946cd14516a098d7c60795d7e1039e28de79f7363cef84a04638a9259a",
+    "candidate_artifact_sha256_reported": "161d84946cd14516a098d7c60795d7e1039e28de79f7363cef84a04638a9259a",
+    "tree_sha256_computed": "94f8b0138a38d99d02d6ece8fba3f4936fcd81fbbd4cc69f49aa73491a2c6de5",
+    "actual_files": [
+      {
+        "path": "README.md",
+        "actual_sha256": "7fc71b0494e63494b7d3856054a38ed025cd7c78959ec8d273e38d020ad815b4",
+        "actual_bytes": 1374,
+        "matches_report_and_source_and_storage": true,
+        "storage_version": 1,
+        "operation_id": "4c710678-e9fc-4a0c-8ce8-1cd3f345621e",
+        "storage_state": "AUDIT_ACKNOWLEDGED",
+        "source_task": "docs"
+      },
+      {
+        "path": "package.json",
+        "actual_sha256": "1d2fe1bd8dc1f028dd03c50f4cdfabdf523e32f4528d94aea757c828b4ef71f0",
+        "actual_bytes": 252,
+        "matches_report_and_source_and_storage": true,
+        "storage_version": 1,
+        "operation_id": "e196f148-a9c2-4678-8c62-631c22bc799c",
+        "storage_state": "AUDIT_ACKNOWLEDGED",
+        "source_task": "docs"
+      },
+      {
+        "path": "src/analytics.ts",
+        "actual_sha256": "1891389bbf37412873ec54514081f4506cd33a379c459f82d497e58a6fb6cf85",
+        "actual_bytes": 849,
+        "matches_report_and_source_and_storage": true,
+        "storage_version": 2,
+        "operation_id": "70a03532-7c7f-496f-8a30-b873f4c57e0d",
+        "storage_state": "AUDIT_ACKNOWLEDGED",
+        "source_task": "debug"
+      },
+      {
+        "path": "src/cli.ts",
+        "actual_sha256": "4b5ba92131e38eea102d97a21d837e61bc2001f711cd5ee7f700e30d9f3b1482",
+        "actual_bytes": 1462,
+        "matches_report_and_source_and_storage": true,
+        "storage_version": 1,
+        "operation_id": "8e8ff1da-5d49-497b-8855-ba61fb5d3e2f",
+        "storage_state": "AUDIT_ACKNOWLEDGED",
+        "source_task": "code-cli"
+      },
+      {
+        "path": "src/entry.ts",
+        "actual_sha256": "a124f7beb1bef3195eb34d16538981ec9ec65668e0d8a3a6a83e8fd1d0698ab0",
+        "actual_bytes": 1161,
+        "matches_report_and_source_and_storage": true,
+        "storage_version": 1,
+        "operation_id": "c05c10bc-083a-463f-af29-7e9a9211cab2",
+        "storage_state": "AUDIT_ACKNOWLEDGED",
+        "source_task": "code-cli"
+      },
+      {
+        "path": "src/model.ts",
+        "actual_sha256": "e9e93e658f71217c8469f86c53bfd43d1886f1b57e3fa1f9b6517c2dd2aa4ffa",
+        "actual_bytes": 2797,
+        "matches_report_and_source_and_storage": true,
+        "storage_version": 1,
+        "operation_id": "8f7c80f1-16ed-4a66-b682-48884fd107dc",
+        "storage_state": "AUDIT_ACKNOWLEDGED",
+        "source_task": "code-model"
+      },
+      {
+        "path": "tests/analytics.test.ts",
+        "actual_sha256": "682ee814243a59ec725bfb961e4d6b7244af5dd06e4f14b2568d61f2fd347373",
+        "actual_bytes": 1054,
+        "matches_report_and_source_and_storage": true,
+        "storage_version": 1,
+        "operation_id": "3f6e023f-e688-458a-b764-42531303be09",
+        "storage_state": "AUDIT_ACKNOWLEDGED",
+        "source_task": "test"
+      },
+      {
+        "path": "tests/cli.test.ts",
+        "actual_sha256": "853167fb0e1fa5322e66fd07de22d6f82094efaeef4907b330249112c5f3c123",
+        "actual_bytes": 1829,
+        "matches_report_and_source_and_storage": true,
+        "storage_version": 1,
+        "operation_id": "d72e36ff-303b-4735-9f5e-23cbc44a95b4",
+        "storage_state": "AUDIT_ACKNOWLEDGED",
+        "source_task": "test"
+      },
+      {
+        "path": "tests/model.test.ts",
+        "actual_sha256": "97b5cd469423b55aef918bce852bf869e921c16324e0eb8dc8317fd32cd32025",
+        "actual_bytes": 1898,
+        "matches_report_and_source_and_storage": true,
+        "storage_version": 1,
+        "operation_id": "f9a3cfdb-e149-40e0-a50e-868a044cfe59",
+        "storage_state": "AUDIT_ACKNOWLEDGED",
+        "source_task": "test"
+      },
+      {
+        "path": "tsconfig.json",
+        "actual_sha256": "1c9c694e19805f2b8bdedb0de9d33385fdfed110767bb2c6bcec524506d27cd5",
+        "actual_bytes": 290,
+        "matches_report_and_source_and_storage": true,
+        "storage_version": 1,
+        "operation_id": "5b8c6e3a-a275-4937-b4f4-e5903db9460e",
+        "storage_state": "AUDIT_ACKNOWLEDGED",
+        "source_task": "docs"
+      }
+    ],
+    "checker_reports": [
+      {
+        "report": {
+          "path": ".workflow-kit/runtime/AgentNexus-M1.7/pilot/2026-11-08T02-45-30-971Z-38976/checker-evidence-403c4a9d-decb-46fb-8a38-3f544df172f4/report.json",
+          "sha256": "a92d662a43fa9f1c238cd535a4fc688a583a6572e758934347f0756a9db7f8c5",
+          "bytes": 26898,
+          "lines": 519
+        },
+        "status": "FAIL",
+        "candidate_hash": "8071f8e3f56501aa108351173ab0a08a6834c396c275dc3145229b08ddbd288c",
+        "phases": {
+          "syntax": {
+            "status": "PASS",
+            "commands": 7
+          },
+          "types": {
+            "status": "PASS",
+            "commands": 1
+          },
+          "tests": {
+            "status": "FAIL",
+            "commands": 1
+          }
+        },
+        "finding_count": 1,
+        "outputs": [
+          {
+            "command_id": "syntax-25fe5415-f1f6-401c-a1a0-d012c706930d",
+            "stdout_hash_matches": true,
+            "stderr_hash_matches": true,
+            "close_observed": true,
+            "exit_code": 0
+          },
+          {
+            "command_id": "syntax-056d04dc-c774-4156-9a61-c19bcc98bf79",
+            "stdout_hash_matches": true,
+            "stderr_hash_matches": true,
+            "close_observed": true,
+            "exit_code": 0
+          },
+          {
+            "command_id": "syntax-d465605f-23f1-48d0-ba6d-cdd7776386b7",
+            "stdout_hash_matches": true,
+            "stderr_hash_matches": true,
+            "close_observed": true,
+            "exit_code": 0
+          },
+          {
+            "command_id": "syntax-30ba4373-8b52-478f-a54a-0ff0c0abaefe",
+            "stdout_hash_matches": true,
+            "stderr_hash_matches": true,
+            "close_observed": true,
+            "exit_code": 0
+          },
+          {
+            "command_id": "syntax-387bdfb9-4ec3-4cc0-bd5d-16f96086396d",
+            "stdout_hash_matches": true,
+            "stderr_hash_matches": true,
+            "close_observed": true,
+            "exit_code": 0
+          },
+          {
+            "command_id": "syntax-0ff8ab13-517d-4875-be16-a1c2e3311606",
+            "stdout_hash_matches": true,
+            "stderr_hash_matches": true,
+            "close_observed": true,
+            "exit_code": 0
+          },
+          {
+            "command_id": "syntax-ef017059-3c03-436e-b6e9-60ccc6a3178d",
+            "stdout_hash_matches": true,
+            "stderr_hash_matches": true,
+            "close_observed": true,
+            "exit_code": 0
+          },
+          {
+            "command_id": "types-e4384471-7b98-461f-8f8b-24a9c122d895",
+            "stdout_hash_matches": true,
+            "stderr_hash_matches": true,
+            "close_observed": true,
+            "exit_code": 0
+          },
+          {
+            "command_id": "tests-31ceb7e9-4bb5-4b25-b049-fcbf418b904e",
+            "stdout_hash_matches": true,
+            "stderr_hash_matches": true,
+            "close_observed": true,
+            "exit_code": 1
+          }
+        ]
+      },
+      {
+        "report": {
+          "path": ".workflow-kit/runtime/AgentNexus-M1.7/pilot/2026-11-08T02-45-30-971Z-38976/checker-evidence-a3a9fa57-868e-4ce3-b96b-bb195c68c88e/report.json",
+          "sha256": "0b8d890c79a21257df54650766ad1e93dacb2ffea0b18874e1be6cc554309d4f",
+          "bytes": 26899,
+          "lines": 519
+        },
+        "status": "FAIL",
+        "candidate_hash": "8071f8e3f56501aa108351173ab0a08a6834c396c275dc3145229b08ddbd288c",
+        "phases": {
+          "syntax": {
+            "status": "PASS",
+            "commands": 7
+          },
+          "types": {
+            "status": "PASS",
+            "commands": 1
+          },
+          "tests": {
+            "status": "FAIL",
+            "commands": 1
+          }
+        },
+        "finding_count": 1,
+        "outputs": [
+          {
+            "command_id": "syntax-e0481cee-3d0d-42d4-8198-7b06276b8de9",
+            "stdout_hash_matches": true,
+            "stderr_hash_matches": true,
+            "close_observed": true,
+            "exit_code": 0
+          },
+          {
+            "command_id": "syntax-c52c5991-7faa-4224-84c0-7b3f32966061",
+            "stdout_hash_matches": true,
+            "stderr_hash_matches": true,
+            "close_observed": true,
+            "exit_code": 0
+          },
+          {
+            "command_id": "syntax-19b53d4d-8a51-49ad-b534-d4b2ac2f58fb",
+            "stdout_hash_matches": true,
+            "stderr_hash_matches": true,
+            "close_observed": true,
+            "exit_code": 0
+          },
+          {
+            "command_id": "syntax-4569fc91-5add-4656-b129-492972ab1cde",
+            "stdout_hash_matches": true,
+            "stderr_hash_matches": true,
+            "close_observed": true,
+            "exit_code": 0
+          },
+          {
+            "command_id": "syntax-9a5c694e-c692-4825-8de1-d8fe07133430",
+            "stdout_hash_matches": true,
+            "stderr_hash_matches": true,
+            "close_observed": true,
+            "exit_code": 0
+          },
+          {
+            "command_id": "syntax-48fe51a8-b9b5-4a12-8e78-776b47486851",
+            "stdout_hash_matches": true,
+            "stderr_hash_matches": true,
+            "close_observed": true,
+            "exit_code": 0
+          },
+          {
+            "command_id": "syntax-d37e89a6-c83e-4732-83df-e94f4cbc614f",
+            "stdout_hash_matches": true,
+            "stderr_hash_matches": true,
+            "close_observed": true,
+            "exit_code": 0
+          },
+          {
+            "command_id": "types-4fb1c172-eae8-4f9e-bef7-372c233f8ce8",
+            "stdout_hash_matches": true,
+            "stderr_hash_matches": true,
+            "close_observed": true,
+            "exit_code": 0
+          },
+          {
+            "command_id": "tests-c6a6dc96-c870-417d-9a52-bcc04ee401b4",
+            "stdout_hash_matches": true,
+            "stderr_hash_matches": true,
+            "close_observed": true,
+            "exit_code": 1
+          }
+        ]
+      },
+      {
+        "report": {
+          "path": ".workflow-kit/runtime/AgentNexus-M1.7/pilot/2026-11-08T02-45-30-971Z-38976/checker-evidence-bdcc1069-a66a-4b6c-9d14-053d350e1347/report.json",
+          "sha256": "8c420bf9da56f3b75ff2fc2b2fe8c59604a04195f3ec226580b77dd283e8982e",
+          "bytes": 24251,
+          "lines": 506
+        },
+        "status": "PASS",
+        "candidate_hash": "94f8b0138a38d99d02d6ece8fba3f4936fcd81fbbd4cc69f49aa73491a2c6de5",
+        "phases": {
+          "syntax": {
+            "status": "PASS",
+            "commands": 7
+          },
+          "types": {
+            "status": "PASS",
+            "commands": 1
+          },
+          "tests": {
+            "status": "PASS",
+            "commands": 1
+          }
+        },
+        "finding_count": 0,
+        "outputs": [
+          {
+            "command_id": "syntax-a2f02258-481d-4a86-9087-a185d3ebe38b",
+            "stdout_hash_matches": true,
+            "stderr_hash_matches": true,
+            "close_observed": true,
+            "exit_code": 0
+          },
+          {
+            "command_id": "syntax-2a16ab92-92d2-44dc-9d34-8de891cf8376",
+            "stdout_hash_matches": true,
+            "stderr_hash_matches": true,
+            "close_observed": true,
+            "exit_code": 0
+          },
+          {
+            "command_id": "syntax-4fbe2a45-95a4-450b-9c6a-4cbaef02fc41",
+            "stdout_hash_matches": true,
+            "stderr_hash_matches": true,
+            "close_observed": true,
+            "exit_code": 0
+          },
+          {
+            "command_id": "syntax-3e098e9d-773a-4ae9-9399-e36b8e5f2096",
+            "stdout_hash_matches": true,
+            "stderr_hash_matches": true,
+            "close_observed": true,
+            "exit_code": 0
+          },
+          {
+            "command_id": "syntax-f2dc6cc3-f0b0-4b49-9806-af393acc352d",
+            "stdout_hash_matches": true,
+            "stderr_hash_matches": true,
+            "close_observed": true,
+            "exit_code": 0
+          },
+          {
+            "command_id": "syntax-d7d8cbd5-4512-4b66-b010-f4a59dff785f",
+            "stdout_hash_matches": true,
+            "stderr_hash_matches": true,
+            "close_observed": true,
+            "exit_code": 0
+          },
+          {
+            "command_id": "syntax-670b188e-0da9-41e6-9628-9f581f30f4a8",
+            "stdout_hash_matches": true,
+            "stderr_hash_matches": true,
+            "close_observed": true,
+            "exit_code": 0
+          },
+          {
+            "command_id": "types-4e4f27e2-cd29-4b5a-b088-9aa2c540edd0",
+            "stdout_hash_matches": true,
+            "stderr_hash_matches": true,
+            "close_observed": true,
+            "exit_code": 0
+          },
+          {
+            "command_id": "tests-345aeef1-72ae-424e-b2ad-c4ec4a7dc35f",
+            "stdout_hash_matches": true,
+            "stderr_hash_matches": true,
+            "close_observed": true,
+            "exit_code": 0
+          }
+        ]
+      },
+      {
+        "report": {
+          "path": ".workflow-kit/runtime/AgentNexus-M1.7/pilot/2026-11-08T02-45-30-971Z-38976/checker-evidence-ea2837fe-387d-4273-b06c-e1f71eb9271f/report.json",
+          "sha256": "249e2901041078762c44fa6f6dc545a1dd63c569deab7e36efd9026fa249bce7",
+          "bytes": 24251,
+          "lines": 506
+        },
+        "status": "PASS",
+        "candidate_hash": "94f8b0138a38d99d02d6ece8fba3f4936fcd81fbbd4cc69f49aa73491a2c6de5",
+        "phases": {
+          "syntax": {
+            "status": "PASS",
+            "commands": 7
+          },
+          "types": {
+            "status": "PASS",
+            "commands": 1
+          },
+          "tests": {
+            "status": "PASS",
+            "commands": 1
+          }
+        },
+        "finding_count": 0,
+        "outputs": [
+          {
+            "command_id": "syntax-a7522cef-38b7-4878-a2dc-e5729524075a",
+            "stdout_hash_matches": true,
+            "stderr_hash_matches": true,
+            "close_observed": true,
+            "exit_code": 0
+          },
+          {
+            "command_id": "syntax-18ab0f10-5e0a-42bd-aae3-5e33ee52010c",
+            "stdout_hash_matches": true,
+            "stderr_hash_matches": true,
+            "close_observed": true,
+            "exit_code": 0
+          },
+          {
+            "command_id": "syntax-928299f5-7ee7-4352-82a3-a9ad3be6d8f3",
+            "stdout_hash_matches": true,
+            "stderr_hash_matches": true,
+            "close_observed": true,
+            "exit_code": 0
+          },
+          {
+            "command_id": "syntax-eba2aa89-1f01-465a-9c61-3089e27de03c",
+            "stdout_hash_matches": true,
+            "stderr_hash_matches": true,
+            "close_observed": true,
+            "exit_code": 0
+          },
+          {
+            "command_id": "syntax-364dd81a-6372-4038-b485-2114502b5fa7",
+            "stdout_hash_matches": true,
+            "stderr_hash_matches": true,
+            "close_observed": true,
+            "exit_code": 0
+          },
+          {
+            "command_id": "syntax-6cd850d7-27c5-421c-8ceb-08d6033d8d78",
+            "stdout_hash_matches": true,
+            "stderr_hash_matches": true,
+            "close_observed": true,
+            "exit_code": 0
+          },
+          {
+            "command_id": "syntax-a283aae8-f925-4a54-b197-54a3883eb7a7",
+            "stdout_hash_matches": true,
+            "stderr_hash_matches": true,
+            "close_observed": true,
+            "exit_code": 0
+          },
+          {
+            "command_id": "types-f2c7bd45-0ea6-4505-b22d-8fe6b5f71875",
+            "stdout_hash_matches": true,
+            "stderr_hash_matches": true,
+            "close_observed": true,
+            "exit_code": 0
+          },
+          {
+            "command_id": "tests-e75f2202-48a9-4f18-b13e-2552fd6f5a04",
+            "stdout_hash_matches": true,
+            "stderr_hash_matches": true,
+            "close_observed": true,
+            "exit_code": 0
+          }
+        ]
+      }
+    ],
+    "plan_provenance": {
+      "plan_id": "2da155ed0b8b9b5c290a85d9822387d1a64d4a07ae97b2b2a48db6f8c3d7419e",
+      "proposer_request_id": "lead.turn.1",
+      "plan_source_matches_model_result": true,
+      "exact_requirements_source_in_model_entries": true,
+      "request_view_input_ref_matches": true,
+      "request_view_manifest_ref_matches": true,
+      "responder": {
+        "id": "pilot-context-fixtures",
+        "source_sha256": "ef1fbb524bf6e2d633385b0b3454b2353d452c7af0dadcea43a88b64feeb8b03",
+        "version": "1.7"
+      },
+      "exported_ack_phases": [
+        "CONTEXT_INPUT_COMMITTED",
+        "CONTEXT_ASSEMBLED"
+      ],
+      "physical_compressed_objects": [
+        {
+          "label": "plan_reply",
+          "matches_stored_sha256": true,
+          "raw_sha256": "1a2201876adeda4a465f5a529a4337fd31051c03382516bcd498013ad0326bb5"
+        },
+        {
+          "label": "requirements",
+          "matches_stored_sha256": true,
+          "raw_sha256": "4b8c42e089fd4043b7d60844a0972c52d26ba687dddb67fd046dbf94b9e9ee2b"
+        },
+        {
+          "label": "model_input",
+          "matches_stored_sha256": true,
+          "raw_sha256": "cacdaa74942fa6c8195d5b59b1d642ef271c7ef9075979fa9e3c14a2073f525a"
+        },
+        {
+          "label": "model_manifest",
+          "matches_stored_sha256": true,
+          "raw_sha256": "5956f9c8f1d7d4f8eb95f54619dde6e54a59c509a8f84b7ee31fab78ecebf998"
+        }
+      ]
+    },
+    "state_counts": [
+      {
+        "kind": "MESSAGE_HANDOFF",
+        "state": "COMPLETED",
+        "count": 27
+      },
+      {
+        "kind": "MESSAGE_HANDOFF",
+        "state": "PROCESSED",
+        "count": 3
+      },
+      {
+        "kind": "MODEL_REQUEST",
+        "state": "SUCCEEDED",
+        "count": 68
+      },
+      {
+        "kind": "NATIVE_GATE",
+        "state": "FAIL",
+        "count": 2
+      },
+      {
+        "kind": "NATIVE_GATE",
+        "state": "PASS",
+        "count": 28
+      },
+      {
+        "kind": "PILOT_QUALITY_CHECK",
+        "state": "FAIL",
+        "count": 2
+      },
+      {
+        "kind": "PILOT_QUALITY_CHECK",
+        "state": "PASS",
+        "count": 2
+      },
+      {
+        "kind": "STORAGE_WRITE",
+        "state": "AUDIT_ACKNOWLEDGED",
+        "count": 21
+      },
+      {
+        "kind": "resource_reservation",
+        "state": "RELEASED",
+        "count": 126
+      }
+    ],
+    "read_only_agents": [
+      {
+        "id": "coordinator",
+        "type": "COORDINATOR",
+        "tools": [
+          {
+            "capability": "PURE",
+            "resources": [],
+            "tool_id": "native.echo",
+            "version": "1"
+          }
+        ],
+        "file_scope": [],
+        "work_role": "SCOUT"
+      },
+      {
+        "id": "resident",
+        "type": "RESIDENT",
+        "tools": [
+          {
+            "capability": "PURE",
+            "resources": [],
+            "tool_id": "native.echo",
+            "version": "1"
+          }
+        ],
+        "file_scope": [],
+        "work_role": "SCOUT"
+      },
+      {
+        "id": "review-before",
+        "type": "BACKGROUND_REVIEWER",
+        "tools": [
+          {
+            "capability": "PURE",
+            "resources": [],
+            "tool_id": "native.echo",
+            "version": "1"
+          }
+        ],
+        "file_scope": [],
+        "work_role": "REVIEWER"
+      },
+      {
+        "id": "review-final",
+        "type": "BACKGROUND_REVIEWER",
+        "tools": [
+          {
+            "capability": "PURE",
+            "resources": [],
+            "tool_id": "native.echo",
+            "version": "1"
+          }
+        ],
+        "file_scope": [],
+        "work_role": "REVIEWER"
+      }
+    ],
+    "review_tasks": [
+      {
+        "id": "review-before",
+        "subject": {
+          "agent_id": "review-before",
+          "agent_type": "BACKGROUND_REVIEWER",
+          "model_binding": "review",
+          "policy_scope": "pilot",
+          "project_id": "pilot",
+          "resource_budget_id": "worker.e32b9516-7b99-48d9-9582-654f28df3088",
+          "runtime_instance_id": "e32b9516-7b99-48d9-9582-654f28df3088",
+          "session_id": "0e915045-c5b1-4b44-985c-c1f15bc60855",
+          "task_id": "review-before"
+        },
+        "state": "WAITING",
+        "review_binding": {
+          "author_agent_id": "lead",
+          "candidate_sha256": "0b1c59b79db8e69373bc5969ecc8a513f94373664c10ad870c134752538ade80",
+          "commit": "78a9d54b96417c262321be35ee44e86e300ca46d",
+          "diff_sha256": "1953c11063d0bd15bf3bec3db07cdd121833cc4c1d8eb4d1d1373cc347a2e653"
+        },
+        "rules_binding": {
+          "feature_epoch": 1,
+          "policy_epoch": 0,
+          "project_rules_version": "1",
+          "registry_id": "500e1728d1639bc3fa8e6f75cae1c61028d71162b503ad2188ece263ec847833",
+          "rule_hash": "e3e230623721db85095cca854815b587a1627493d084613989ec0de6016f041c",
+          "workflow_version": "1.6.1"
+        }
+      },
+      {
+        "id": "review-final",
+        "subject": {
+          "agent_id": "review-final",
+          "agent_type": "BACKGROUND_REVIEWER",
+          "model_binding": "review",
+          "policy_scope": "pilot",
+          "project_id": "pilot",
+          "resource_budget_id": "worker.286e7759-ef19-46ee-b8f5-0d7c11ae6861",
+          "runtime_instance_id": "286e7759-ef19-46ee-b8f5-0d7c11ae6861",
+          "session_id": "d782c764-64b7-4dd7-8718-1e07f7b20c63",
+          "task_id": "review-final"
+        },
+        "state": "WAITING",
+        "review_binding": {
+          "author_agent_id": "delivery",
+          "candidate_sha256": "161d84946cd14516a098d7c60795d7e1039e28de79f7363cef84a04638a9259a",
+          "commit": "78a9d54b96417c262321be35ee44e86e300ca46d",
+          "diff_sha256": "10d18b5c156bd0b5423242e061d81320c465dc0237bf8df6d3be2966b68bac93"
+        },
+        "rules_binding": {
+          "feature_epoch": 1,
+          "policy_epoch": 0,
+          "project_rules_version": "1",
+          "registry_id": "500e1728d1639bc3fa8e6f75cae1c61028d71162b503ad2188ece263ec847833",
+          "rule_hash": "e3e230623721db85095cca854815b587a1627493d084613989ec0de6016f041c",
+          "workflow_version": "1.6.1"
+        }
+      }
+    ],
+    "coding_peak": 3,
+    "event_peak": 3,
+    "unknown_reservations": 0,
+    "persistent_claim_bytes": 26749,
+    "platform_held": {
+      "cpu_kernel_us": 0,
+      "cpu_user_us": 0,
+      "disk_bytes": 26749,
+      "io_read_bytes": 0,
+      "io_write_bytes": 0,
+      "log_bytes": 0,
+      "memory_bytes": 0,
+      "model_cost_micros": 0,
+      "model_requests": 0,
+      "model_tokens": 0,
+      "network_bytes": 0,
+      "network_connections": 0,
+      "processes": 0,
+      "wall_ms": 0,
+      "workers": 0
+    }
+  },
+  "remaining_runtime_validation": "None for the frozen functional candidate and full inherited regression within this independent engineering review scope. Separate long Resident soak, OS/CPU qualification, deployment and human acceptance remain separately bounded.",
+  "uncovered_or_limited": [
+    "Reviewer did not execute or generate Pilot code or run tests; only existing source/evidence, SQLite read-only queries, byte hashes and bounded Zstd decoding were used.",
+    "Own event-loop.ts and m17-events.test.ts remain excluded from independent implementation review; their test evidence is not a self-authored independent sign-off.",
+    "The 53-case new suite contains 52 PASS and 1 explicit NOT_RUN because Windows refused the temporary file symlink fixture. This is not 53/53 PASS.",
+    "General model autonomy and real Provider remain SIMULATED. The code strings are explicit Codex-authored fixtures; real behavior here is Native Harness orchestration, Gateway/Storage publication and local fixed checking.",
+    "Native G4 independence is a separate read-only logical Reviewer identity and independently run trusted fixed checker, not a real independent LLM code review or malicious-process security boundary.",
+    "The original Task close/reopen and raw reconstruction are real controlled Host lifecycle checks, not OS reboot, hard power-loss or complete arbitrary-effect crash recovery qualification.",
+    "Strict cumulative CPU, descendant-tree exit, production Windows isolation, real Provider and Linux qualification remain BLOCKED/NOT_RUN as declared.",
+    "Old incomplete handoff plans lacking an explicit frozen history policy require migration/reconciliation; unconditional continuation of that legacy pending state is not claimed.",
+    "Malformed action/actor and admitted ownership mismatches were independently checked statically; positive frozen Pilot and existing native tests validate the actual path, not every possible malformed plan/action input.",
+    "The separate Resident two-hour soak remains owned by the root coordinator and is outside this completed functional review. Its unfinished duration is not promoted to PASS."
+  ],
+  "review_revisions": [
+    {
+      "observed_at": "2026-11-08T03:11:10.614603+00:00",
+      "previous_review_sha256": "65a8973740c755770646f2cd0e54942bb1b5d2ecd2061b3d43c521cd1ee86091",
+      "scope": "Independent read-only review of opt-in bounded Task history and handoff; no implementation or test execution by reviewer."
+    },
+    {
+      "observed_at": "2026-11-08T03:45:51.748393+00:00",
+      "previous_review_sha256": "20b563a1efeac81f4f1375db1ac5f92617634a4fdd6e84e91bbec4142a35b1e3",
+      "scope": "Final frozen-source verification, immutable Native Pilot checker evidence, controlled original Task restore, and latest checker stream/error handling.",
+      "previous_reviewed_files": [
+        {
+          "path": "deliverables/AgentNexus-M1.7/source/src/agentnexus/harness/pilot-run.ts",
+          "sha256": "bde8770bb52879f458c0b6a816318fd65d9726c64716cea1b805204e2ae95e43",
+          "bytes": 41335,
+          "lines": 243,
+          "coverage": "FULL_CONTENT_AND_UPDATED_HUNKS"
+        },
+        {
+          "path": "deliverables/AgentNexus-M1.7/source/src/agentnexus/harness/pilot-fixtures.ts",
+          "sha256": "afd18f9ce602749651e849669be56dcb941a68c8c6eea11ef7156f862a880802",
+          "bytes": 24591,
+          "lines": 172,
+          "coverage": "FULL_CONTENT_AND_UPDATED_HUNKS"
+        },
+        {
+          "path": "deliverables/AgentNexus-M1.7/source/src/agentnexus/harness/development.ts",
+          "sha256": "6800a83aed43912ba94f7d2f6fb35e3c3d9a3732a6119ce6687c179d2b29c919",
+          "bytes": 8530,
+          "lines": 81,
+          "coverage": "FULL_CONTENT"
+        },
+        {
+          "path": "deliverables/AgentNexus-M1.7/source/src/agentnexus/harness/index.ts",
+          "sha256": "0d8e6db48ddb9441601a6ba9365a55415aaa5a3c1fbeb0d8dde1826a1299a2bc",
+          "bytes": 32803,
+          "lines": 303,
+          "coverage": "ALL_M17_CHANGED_HUNKS_PLUS_ADJACENT_DISPATCH_AND_ADMIN_BOUNDARIES"
+        },
+        {
+          "path": "deliverables/AgentNexus-M1.7/source/src/agentnexus/harness/scheduler.ts",
+          "sha256": "3055506dcb077da90e107e2c69986feefefa7b0d5e33c07fa211b279e7d68af0",
+          "bytes": 44526,
+          "lines": 432,
+          "coverage": "ALL_M17_CHANGED_HUNKS_PLUS_CONTEXT_AND_MODEL_DISPATCH_BOUNDARIES"
+        },
+        {
+          "path": "deliverables/AgentNexus-M1.7/source/src/agentnexus/harness/models.ts",
+          "sha256": "9a46e5534f0a7d38eb337e0f009b0b14456202f95cb97780a6e4a2f92d57507c",
+          "bytes": 30988,
+          "lines": 348,
+          "coverage": "M17_CHANGED_HUNKS; INHERITED_CORE_NOT_FULLY_REAUDITED"
+        },
+        {
+          "path": "deliverables/AgentNexus-M1.7/source/src/agentnexus/harness/pilot-checker.ts",
+          "sha256": "0980c8cbe58be2042e3cde99e0484e2ead409107dff38dfd4883231a9c933967",
+          "bytes": 22667,
+          "lines": 253,
+          "coverage": "FULL_CONTENT"
+        },
+        {
+          "path": "deliverables/AgentNexus-M1.7/source/tests/agentnexus/m17-development.test.ts",
+          "sha256": "55880c9a8a33302cf4b534461632e345f5d1374cf959c946c7e7a5995185dcf1",
+          "bytes": 5661,
+          "lines": 50,
+          "coverage": "FULL_CONTENT_READ_NOT_EXECUTED"
+        },
+        {
+          "path": "deliverables/AgentNexus-M1.7/source/tools/agentnexus/pilot-m17.ts",
+          "sha256": "1916906685b55f7d37135034b9bd3d35909ea297da3520b87194c4e96bef21f9",
+          "bytes": 942,
+          "lines": 7,
+          "coverage": "FULL_CONTENT_READ_NOT_EXECUTED"
+        },
+        {
+          "path": "deliverables/AgentNexus-M1.7/source/tools/agentnexus/output-root.ts",
+          "sha256": "3b82ee59ce3b31c896611406a7b6a1cdd88b2b3aedc1a94c779f0e5408114f3e",
+          "bytes": 955,
+          "lines": 15,
+          "coverage": "FULL_CONTENT_READ_NOT_EXECUTED"
+        }
+      ],
+      "previous_source_set_sha256": "d9cc9612fc171aa368d8912e731e598c473c48a703779f7190f2087a8e1b39aa"
+    },
+    {
+      "observed_at": "2026-11-08T03:47:58.609549+00:00",
+      "previous_review_sha256": "4e70624cbd97920ce3090730265d55cdc30fe13328244e64a0651aa420e587da",
+      "scope": "Read-only final full inherited regression and separate fresh Native Pilot, same frozen functional source set; no source changes or execution by reviewer."
+    }
+  ],
+  "history_window_review": {
+    "observed_at": "2026-11-08T03:11:10.614603+00:00",
+    "component_files": [
+      {
+        "path": "deliverables/AgentNexus-M1.7/source/src/agentnexus/harness/scheduler.ts",
+        "sha256": "08c42f9f62fb01ab1494badde0266ea9173768f8c8e1c9f321d3d5b701e2deee",
+        "bytes": 46861,
+        "lines": 444,
+        "coverage": "WINDOW/CREATE/REMEMBER/MESSAGE_ADOPTION/HANDOFF/RECOVERY_CONTENT_AND_M17_DIFF_READ"
+      },
+      {
+        "path": "deliverables/AgentNexus-M1.7/source/src/agentnexus/harness/index.ts",
+        "sha256": "334058f42477db9f2d18f9d978ae22a1d003651b8f1da4c4f0c5b7e71fc57ec5",
+        "bytes": 33037,
+        "lines": 304,
+        "coverage": "HISTORY_OPTION_WIRING_AND_CURRENT_ADMIN_INTEGRATION_DIFF_READ"
+      },
+      {
+        "path": "deliverables/AgentNexus-M1.7/source/tests/agentnexus/m17-history.test.ts",
+        "sha256": "f36dff832cc1177da0f457100e9a8179bf35119e04401b1609e0e0a3a7d0fe23",
+        "bytes": 7138,
+        "lines": 48,
+        "coverage": "FULL_CONTENT_READ_NOT_EXECUTED"
+      }
+    ],
+    "component_set_sha256": "5147eb95f0630c0ba8833855b61d66499bf970515fcb9ad222488c5882fd515b",
+    "scope_note": "Only the history-window patch and adjacent handoff paths are added to this review revision. The initial full review source-set hash remains historical; final frozen full-source binding is still pending.",
+    "assessment": [
+      {
+        "topic": "Default compatibility",
+        "evidence": [
+          "scheduler.ts:77,93-96",
+          "scheduler.ts:161-165"
+        ],
+        "result": "History rolling is optional and frozen per created Task; absence retains the inherited 32-reference failure contract. The original 32 max_turns and 32 received_message_ids limits remain. Reopened original Tasks use their stored boolean, not the current Host default."
+      },
+      {
+        "topic": "Raw preservation",
+        "evidence": [
+          "scheduler.ts:156-165",
+          "scheduler.ts:364-371",
+          "scheduler.ts:411-418"
+        ],
+        "result": "Only the bounded Task.history projection is sliced. Exact evicted ContextSource references are appended to audit, and counters are retained. No deletion or update of original anx_records, model input snapshots or Artifact objects is introduced."
+      },
+      {
+        "topic": "Transaction and message consistency",
+        "evidence": [
+          "index.ts:225-227",
+          "scheduler.ts:364-371",
+          "messages.ts:153-183"
+        ],
+        "result": "Message payload adoption, new history, receipt and ACK remain in the original synchronous transaction. The newly adopted payload stays in the window; eviction affects older references and preserves their immutable source records. Repeated operation handling and message-id caps are unchanged."
+      },
+      {
+        "topic": "Frozen handoff policy",
+        "evidence": [
+          "scheduler.ts:393-418"
+        ],
+        "result": "Both enabled and disabled policy are explicit in the persisted new handoff input, hash-bound and inherited by the destination even across opposite Host defaults; the final contract append obeys the same window and audit behavior."
+      }
+    ],
+    "root_test_evidence": {
+      "tap": {
+        "path": ".workflow-kit/runtime/AgentNexus-M1.7/history-tests/run-03.tap",
+        "sha256": "2020b02c2eb688600fa137ecfd6e11d45da46b6cabdb162874beb1df3d99b577",
+        "bytes": 1199,
+        "lines": 34
+      },
+      "counts": {
+        "tests": 4,
+        "pass": 4,
+        "fail": 0,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0
+      },
+      "outcomes": [
+        {
+          "status": "PASS",
+          "name": "M17 bounded task history continues beyond 32 references, preserves raw inputs and reopens the original task"
+        },
+        {
+          "status": "PASS",
+          "name": "M17 default task history retains the inherited hard reference limit unless explicitly enabled"
+        },
+        {
+          "status": "PASS",
+          "name": "M17 handoff freezes both enabled and disabled history policies across opposite Host defaults"
+        },
+        {
+          "status": "PASS",
+          "name": "M17 message adoption and a pending handoff roll only the bounded index and preserve all original payloads"
+        }
+      ],
+      "read_only_sqlite_observations": [
+        {
+          "root": ".workflow-kit/runtime/AgentNexus-M1.7/history-tests/run-03-data/history-1upCLr",
+          "task": "child",
+          "state": "QUEUED",
+          "turns": 0,
+          "history_length": 1,
+          "dropped": null,
+          "window": null,
+          "message_ids": 0,
+          "rollover_audits": 0
+        },
+        {
+          "root": ".workflow-kit/runtime/AgentNexus-M1.7/history-tests/run-03-data/history-1upCLr",
+          "task": "task",
+          "state": "WAITING",
+          "turns": 0,
+          "history_length": 0,
+          "dropped": null,
+          "window": null,
+          "message_ids": 0,
+          "rollover_audits": 0
+        },
+        {
+          "root": ".workflow-kit/runtime/AgentNexus-M1.7/history-tests/run-03-data/history-JkYLeo",
+          "task": "task",
+          "state": "SUCCEEDED",
+          "turns": 26,
+          "history_length": 32,
+          "dropped": 18,
+          "window": true,
+          "message_ids": 0,
+          "rollover_audits": 18
+        },
+        {
+          "root": ".workflow-kit/runtime/AgentNexus-M1.7/history-tests/run-03-data/history-TzvQLK",
+          "task": "child",
+          "state": "SUCCEEDED",
+          "turns": 1,
+          "history_length": 32,
+          "dropped": 2,
+          "window": true,
+          "message_ids": 32,
+          "rollover_audits": 2
+        },
+        {
+          "root": ".workflow-kit/runtime/AgentNexus-M1.7/history-tests/run-03-data/history-TzvQLK",
+          "task": "task",
+          "state": "QUEUED",
+          "turns": 0,
+          "history_length": 0,
+          "dropped": 0,
+          "window": true,
+          "message_ids": 0,
+          "rollover_audits": 0
+        },
+        {
+          "root": ".workflow-kit/runtime/AgentNexus-M1.7/history-tests/run-03-data/history-uCyxzc",
+          "task": "child",
+          "state": "QUEUED",
+          "turns": 0,
+          "history_length": 1,
+          "dropped": 0,
+          "window": true,
+          "message_ids": 0,
+          "rollover_audits": 0
+        },
+        {
+          "root": ".workflow-kit/runtime/AgentNexus-M1.7/history-tests/run-03-data/history-uCyxzc",
+          "task": "task",
+          "state": "WAITING",
+          "turns": 0,
+          "history_length": 0,
+          "dropped": 0,
+          "window": true,
+          "message_ids": 0,
+          "rollover_audits": 0
+        },
+        {
+          "root": ".workflow-kit/runtime/AgentNexus-M1.7/history-tests/run-03-data/history-uz4X4i",
+          "task": "task",
+          "state": "FAILED",
+          "turns": 17,
+          "history_length": 32,
+          "dropped": null,
+          "window": null,
+          "message_ids": 0,
+          "rollover_audits": 0
+        }
+      ],
+      "reviewer_ran_tests": false,
+      "earlier_2_test_tap": {
+        "path": ".workflow-kit/runtime/AgentNexus-M1.7/history-tests/run-02.tap",
+        "sha256": "8ef7fe7646e8d3fb5180da1f121bbb4f6754d8d618508a08f957cc905713ae06",
+        "bytes": 663,
+        "lines": 22
+      },
+      "preserved_query_correction_fixture": {
+        "path": ".workflow-kit/runtime/AgentNexus-M1.7/history-tests/m17-history-before-audit-query.test.ts",
+        "sha256": "bf464e6b6421ae4922c2f03a0d578e90524b67231a44fb8aa349417504a25567",
+        "bytes": 3894,
+        "lines": 27
+      }
+    },
+    "third_pilot_failure": {
+      "report": {
+        "path": ".workflow-kit/runtime/AgentNexus-M1.7/pilot/2026-11-08T02-55-40-606Z-40472/report.json",
+        "sha256": "5fccde5acb444a7fd1abc1b61010e43a248cb5fbd93d67b25297c418ac4dcb58",
+        "bytes": 55110,
+        "lines": 1338
+      },
+      "status": "FAIL",
+      "error": "NexusError: PILOT_FINAL_HANDOFF\n    at invariant (file:///I:/AI_AgentNexus/deliverables/AgentNexus-M1.7/source/src/agentnexus/types.ts:44:18)\n    at runPilot (file:///I:/AI_AgentNexus/deliverables/AgentNexus-M1.7/source/src/agentnexus/harness/pilot-run.ts:244:41)\n    at async file:///I:/AI_AgentNexus/deliverables/AgentNexus-M1.7/source/tools/agentnexus/pilot-m17.ts:6:14",
+      "gates": [
+        {
+          "gate": "g0",
+          "status": "PASS"
+        },
+        {
+          "gate": "g1",
+          "status": "PASS"
+        },
+        {
+          "gate": "g2",
+          "status": "PASS"
+        },
+        {
+          "gate": "g3",
+          "status": "PASS"
+        },
+        {
+          "gate": "g4",
+          "status": "PASS"
+        },
+        {
+          "gate": "g5",
+          "status": "PASS"
+        },
+        {
+          "gate": "g6",
+          "status": "PASS"
+        }
+      ],
+      "tasks": [
+        {
+          "id": "delivery",
+          "state": "SUCCEEDED",
+          "reason": "SIMULATED_MODEL_COMPLETE",
+          "turns": 1,
+          "history_length": 1,
+          "message_ids": 0,
+          "history_window": null,
+          "reservation_id": null
+        },
+        {
+          "id": "lead",
+          "state": "FAILED",
+          "reason": "TASK_HISTORY_REFERENCE_LIMIT",
+          "turns": 16,
+          "history_length": 32,
+          "message_ids": 17,
+          "history_window": null,
+          "reservation_id": null
+        },
+        {
+          "id": "test-runner",
+          "state": "SUCCEEDED",
+          "reason": "SIMULATED_MODEL_COMPLETE",
+          "turns": 2,
+          "history_length": 3,
+          "message_ids": 1,
+          "history_window": null,
+          "reservation_id": null
+        }
+      ],
+      "source_manifest": {
+        "path": ".workflow-kit/runtime/AgentNexus-M1.7/pilot/2026-11-08T02-55-40-606Z-40472/source-manifest.json",
+        "sha256": "956bf71e7f7f5a47b2ba3e47d43f1e5499041b42342269db0d7c57e754c7cde9",
+        "bytes": 25991,
+        "lines": 766
+      },
+      "frozen_source_set_sha256": "5d356579437f8930d6e45643c5ddfb22716c18eb923ee6df1bf6330b5506f63f",
+      "selected_frozen_sources": [
+        {
+          "path": "src/agentnexus/harness/index.ts",
+          "bytes": 32976,
+          "sha256": "2e3070a53f51b05c6bb4735a53ccc758840e8ce5327bcb6e3cbb3ac3c82270f5",
+          "preserved_snapshot_sha_matches": true
+        },
+        {
+          "path": "src/agentnexus/harness/pilot-fixtures.ts",
+          "bytes": 24591,
+          "sha256": "afd18f9ce602749651e849669be56dcb941a68c8c6eea11ef7156f862a880802",
+          "preserved_snapshot_sha_matches": true
+        },
+        {
+          "path": "src/agentnexus/harness/pilot-run.ts",
+          "bytes": 44316,
+          "sha256": "cb4b4e3db84e6ad4521141eb332a5d2f5b397008a44f7b10389c640068f0f24a",
+          "preserved_snapshot_sha_matches": true
+        },
+        {
+          "path": "src/agentnexus/harness/scheduler.ts",
+          "bytes": 44526,
+          "sha256": "3055506dcb077da90e107e2c69986feefefa7b0d5e33c07fa211b279e7d68af0",
+          "preserved_snapshot_sha_matches": true
+        }
+      ],
+      "interpretation": "G0-G6 PASS did not mean overall task completion; overall report correctly stayed FAIL when lead reached inherited history reference capacity. Original snapshot and failed report remain unchanged."
+    },
+    "limits": [
+      "Reviewer did not execute tests or Pilot.",
+      "Old pending handoff plans without an explicit frozen policy now require explicit migration/reconciliation; unconditional legacy pending-handoff continuation is not claimed.",
+      "No global history or Artifact cleanup is added; only a bounded live projection changes.",
+      "The raw preservation test checks actual old model input reconstruction across real Host close/reopen; it is not OS reboot or power-loss qualification.",
+      "Final Pilot must be run from the newly frozen candidate; no older PASS is promoted to cover these changes."
+    ]
+  },
+  "verdict": "No unresolved blocking engineering finding in the reviewed Pilot/admission/Host integration/history/checker scope. Final fresh Native Pilot and immutable evidence match the exact frozen functional source set. All five reported findings are closed; excluded self-authored event-loop implementation is not independently signed off by its author.",
+  "final_source_binding": {
+    "expected_source_set_sha256": "8167ce3e78c602f43bee2b3a4d792a5054f76d7121a6a7730b14cc37eb5c4c6c",
+    "encoding": "UTF8(path + NUL + lowercase_sha256 + LF)",
+    "ordering": "UNICODE_CODEPOINT_PATH",
+    "independently_recomputed_sha256": "8167ce3e78c602f43bee2b3a4d792a5054f76d7121a6a7730b14cc37eb5c4c6c",
+    "outer_source_manifest": {
+      "path": ".workflow-kit/runtime/AgentNexus-M1.7/v/r-bfa1fa2f0549/source-manifest.json",
+      "sha256": "eb1e96dfb74da95b8808bb12ea8a7d7215f44a8c0c7d95cff7eaa2f118701023",
+      "bytes": 26601
+    },
+    "pilot_source_manifest": {
+      "path": ".workflow-kit/runtime/AgentNexus-M1.7/v/r-bfa1fa2f0549/data/native-pilot/2026-11-08T03-29-23-862Z-31916/source-manifest.json",
+      "sha256": "7f9dff1724ca97c254a793bb2cf63726e6aea4ac7f691d04499b87744d8ec340",
+      "bytes": 26498
+    },
+    "frozen_workspace": {
+      "files": 155,
+      "mismatches": []
+    },
+    "pilot_engine_source_snapshot": {
+      "files": 155,
+      "mismatches": []
+    },
+    "both_file_manifests_identical": true,
+    "semantic_scope_note": "All 155 frozen files were byte/hash checked; semantic review remains the specifically listed components. Own event-loop implementation remains excluded from independent code sign-off."
+  },
+  "final_verification": {
+    "results": {
+      "path": ".workflow-kit/runtime/AgentNexus-M1.7/v/r-bfa1fa2f0549/results.json",
+      "sha256": "b3e7abe43dd3dd47d024b42764034c19d90f2748005f2a256df5e36e9a00a8cc",
+      "bytes": 30053
+    },
+    "status": "PASS",
+    "source_snapshot_stable": true,
+    "source_snapshot_before": "8167ce3e78c602f43bee2b3a4d792a5054f76d7121a6a7730b14cc37eb5c4c6c",
+    "source_snapshot_after": "8167ce3e78c602f43bee2b3a4d792a5054f76d7121a6a7730b14cc37eb5c4c6c",
+    "counts": {
+      "tests": 53,
+      "failed": 0,
+      "passed": 52,
+      "cancelled": 0,
+      "skipped": 1,
+      "todo": 0,
+      "topLevel": 46,
+      "suites": 0
+    },
+    "explicit_not_run": [
+      {
+        "type": "test:pass",
+        "name": "M17 CHECKER ADMISSION: symlink candidate file is rejected without following its target",
+        "nesting": 0,
+        "testNumber": 5,
+        "details": {
+          "duration_ms": 9.9884,
+          "type": "test"
+        },
+        "line": 86,
+        "column": 1,
+        "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-bfa1fa2f0549\\workspace\\tests\\agentnexus\\m17-checker.test.ts",
+        "skip": "NOT_RUN: OS refused the temporary symlink fixture; no privilege changes",
+        "status": "NOT_RUN"
+      }
+    ],
+    "syntax": {
+      "evidence": {
+        "path": ".workflow-kit/runtime/AgentNexus-M1.7/v/r-bfa1fa2f0549/syntax.json",
+        "sha256": "2a79d8d3263fd8d14223168b499f1ffc0300278ca4b0ea4dc6dd5c277f340c01",
+        "bytes": 164001
+      },
+      "checks": 134,
+      "all_pass_with_observed_close": true,
+      "all_saved_output_hashes_match": true
+    },
+    "strict_types": {
+      "evidence": {
+        "path": ".workflow-kit/runtime/AgentNexus-M1.7/v/r-bfa1fa2f0549/typecheck.json",
+        "sha256": "c141ce5152d6d0b5b031b94ed96ef5fce9dc3a10d0c583de3e4d8b26aa8339ed",
+        "bytes": 1808
+      },
+      "status": "PASS",
+      "close_observed": true,
+      "exit_code": 0,
+      "outputs_match": true
+    },
+    "test_process": {
+      "status": "PASS",
+      "close_observed": true,
+      "exit_code": 0,
+      "outputs_match": true
+    },
+    "checker_injected_fault_case": [
+      {
+        "type": "test:pass",
+        "name": "M17 CHECKER INJECTED_IO_FAILURE: failed-spawn pipes are observed; started output loss is INCONCLUSIVE",
+        "nesting": 0,
+        "testNumber": 12,
+        "details": {
+          "duration_ms": 570.2706,
+          "type": "test"
+        },
+        "line": 129,
+        "column": 1,
+        "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-bfa1fa2f0549\\workspace\\tests\\agentnexus\\m17-checker.test.ts",
+        "status": "PASS"
+      }
+    ],
+    "reviewer_executed_tests": false,
+    "full_inherited_suite_note": "Now independently verified by full_inherited_regression: 532 tests = 523 PASS + 9 NOT_RUN + 0 FAIL, strict types and syntax PASS, same frozen source set."
+  },
+  "final_native_pilot": {
+    "report": {
+      "path": ".workflow-kit/runtime/AgentNexus-M1.7/v/r-bfa1fa2f0549/data/native-pilot/2026-11-08T03-29-23-862Z-31916/report.json",
+      "sha256": "c138344eeaf4f58491580bc71a5aa0b37a3214a4b6ad4e65aca111989dbacf9b",
+      "bytes": 140587
+    },
+    "source_set_sha256": "8167ce3e78c602f43bee2b3a4d792a5054f76d7121a6a7730b14cc37eb5c4c6c",
+    "status": "PASS",
+    "candidate_artifact_sha256": "18b342c6bee3b24288b46494af2dcd927f25db9a88f9cafceddb3aec9770beaf",
+    "candidate_manifest_hash_recomputed": "18b342c6bee3b24288b46494af2dcd927f25db9a88f9cafceddb3aec9770beaf",
+    "candidate_tree_sha256_recomputed": "0fe9d5c6ac0fd67b6cd5226a048db51dfc2c71dc9cc9b503522818b4fe57eadc",
+    "recovery": {
+      "status": "PASS",
+      "kind": "CONTROLLED_HOST_CLOSE_REOPEN_WITH_ORIGINAL_PILOT_TASK",
+      "original_task_id": "lead",
+      "old_runtime_instance_id": "147b4d81-40f5-4520-963b-d5b6d6d3feb4",
+      "new_runtime_instance_id": "825a74bc-b869-40a9-983c-e14e0ee2c66f",
+      "original_contract_ref": {
+        "event_id": "f1338e80-f339-4e84-aa83-d266315a9ca4",
+        "kind": "RAW",
+        "length": 1300,
+        "offset": 0,
+        "payload_ref": {
+          "artifact_id": "46cdfa16-8d73-4318-ac78-c4e05058c471",
+          "bytes": 1300,
+          "codec": "zstd",
+          "media_type": "text/plain; charset=utf-8",
+          "sensitivity": "NORMAL",
+          "sha256": "40d87a65f7a2f247174684682667882587968a4629872f04db9b5d0d497fa507",
+          "stored_bytes": 848,
+          "stored_sha256": "5bed775f54fd0801b4ebf0421a8be51ad23c56cd794e8941aa4df90017f62e5b"
+        },
+        "project_id": "pilot",
+        "record_hash": "fa2d3e987a932cf69664592a31e5d2f5c3d70787527a28fb8673b6b83ad8dd5c",
+        "task_id": "lead"
+      },
+      "rules_binding": {
+        "feature_epoch": 1,
+        "policy_epoch": 0,
+        "project_rules_version": "1",
+        "registry_id": "500e1728d1639bc3fa8e6f75cae1c61028d71162b503ad2188ece263ec847833",
+        "rule_hash": "298adca08351b403aadb5871a1a6171facfdd447d88968a8fc0ad2631106edd8",
+        "workflow_version": "1.6.1"
+      },
+      "requirements": {
+        "event_id": "0d73dd85-52db-4db1-90c6-c9c18b28ed04",
+        "kind": "RAW",
+        "length": 852,
+        "offset": 0,
+        "payload_ref": {
+          "artifact_id": "51215c33-b15f-4baf-95aa-0378d3c42eac",
+          "bytes": 852,
+          "codec": "zstd",
+          "media_type": "text/plain; charset=utf-8",
+          "sensitivity": "NORMAL",
+          "sha256": "4b8c42e089fd4043b7d60844a0972c52d26ba687dddb67fd046dbf94b9e9ee2b",
+          "stored_bytes": 548,
+          "stored_sha256": "83ebc70082e2d28912e3fb068bafec098e3251ecad4456f1e9d1fdd55cb2e60e"
+        },
+        "project_id": "pilot",
+        "record_hash": "a365acb8f0e11bd4cd4eb8fad9e6222f7dfcbb31e5c496a72a2725149a179697",
+        "task_id": "lead"
+      },
+      "admitted_plan_id": "2da155ed0b8b9b5c290a85d9822387d1a64d4a07ae97b2b2a48db6f8c3d7419e",
+      "automatic_model_calls_on_reopen": 0,
+      "stale_facade_rejected": true,
+      "message_id": "6cd37202e5b8dd5b3b11e9d6c43999498602d4fd4bea69515fea9c5946f4637b",
+      "abrupt_process_crash": "SEPARATE_RUNTIME_TESTS",
+      "os_reboot": "NOT_RUN",
+      "unknown_effects_replayed": false
+    },
+    "recovery_and_raw_invariants": {
+      "original_contract_ref_unchanged": true,
+      "original_rules_binding_unchanged": true,
+      "plan_model_response_sha_matches": true,
+      "original_requirements_exact_ref_in_acknowledged_model_input": true,
+      "original_model_request_succeeded": true,
+      "model_input_request_view_refs_equal": true,
+      "evicted_original_plan_ref_still_in_archive": true,
+      "window_audit_count": 1,
+      "window_dropped_source_ids": [
+        [
+          "5e78df5d-d727-4150-8552-f0f913183710"
+        ]
+      ],
+      "original_plan_source_id": "5e78df5d-d727-4150-8552-f0f913183710"
+    },
+    "native_gate_summary": [
+      {
+        "id": "g0",
+        "status": "PASS",
+        "allows_protected": true,
+        "candidate_hash": "18b342c6bee3b24288b46494af2dcd927f25db9a88f9cafceddb3aec9770beaf",
+        "baseline_hash": "b62c450dc1d061f12615ac2e7bf2be434338ed808490e47d864f5e0dec992a0b",
+        "test_profile_hash": "cffe00463791dd56dac4c420086c6f1412f7949b9fd2d4ff5f7534dbeb4a9fda",
+        "feature_epoch": 1,
+        "policy_epoch": 0
+      },
+      {
+        "id": "g1",
+        "status": "PASS",
+        "allows_protected": true,
+        "candidate_hash": "18b342c6bee3b24288b46494af2dcd927f25db9a88f9cafceddb3aec9770beaf",
+        "baseline_hash": "b62c450dc1d061f12615ac2e7bf2be434338ed808490e47d864f5e0dec992a0b",
+        "test_profile_hash": "cffe00463791dd56dac4c420086c6f1412f7949b9fd2d4ff5f7534dbeb4a9fda",
+        "feature_epoch": 1,
+        "policy_epoch": 0
+      },
+      {
+        "id": "g2",
+        "status": "PASS",
+        "allows_protected": true,
+        "candidate_hash": "18b342c6bee3b24288b46494af2dcd927f25db9a88f9cafceddb3aec9770beaf",
+        "baseline_hash": "b62c450dc1d061f12615ac2e7bf2be434338ed808490e47d864f5e0dec992a0b",
+        "test_profile_hash": "cffe00463791dd56dac4c420086c6f1412f7949b9fd2d4ff5f7534dbeb4a9fda",
+        "feature_epoch": 1,
+        "policy_epoch": 0
+      },
+      {
+        "id": "g3",
+        "status": "PASS",
+        "allows_protected": true,
+        "candidate_hash": "18b342c6bee3b24288b46494af2dcd927f25db9a88f9cafceddb3aec9770beaf",
+        "baseline_hash": "b62c450dc1d061f12615ac2e7bf2be434338ed808490e47d864f5e0dec992a0b",
+        "test_profile_hash": "cffe00463791dd56dac4c420086c6f1412f7949b9fd2d4ff5f7534dbeb4a9fda",
+        "feature_epoch": 1,
+        "policy_epoch": 0
+      },
+      {
+        "id": "g4",
+        "status": "PASS",
+        "allows_protected": true,
+        "candidate_hash": "18b342c6bee3b24288b46494af2dcd927f25db9a88f9cafceddb3aec9770beaf",
+        "baseline_hash": "b62c450dc1d061f12615ac2e7bf2be434338ed808490e47d864f5e0dec992a0b",
+        "test_profile_hash": "cffe00463791dd56dac4c420086c6f1412f7949b9fd2d4ff5f7534dbeb4a9fda",
+        "feature_epoch": 1,
+        "policy_epoch": 0
+      },
+      {
+        "id": "g5",
+        "status": "PASS",
+        "allows_protected": true,
+        "candidate_hash": "18b342c6bee3b24288b46494af2dcd927f25db9a88f9cafceddb3aec9770beaf",
+        "baseline_hash": "b62c450dc1d061f12615ac2e7bf2be434338ed808490e47d864f5e0dec992a0b",
+        "test_profile_hash": "cffe00463791dd56dac4c420086c6f1412f7949b9fd2d4ff5f7534dbeb4a9fda",
+        "feature_epoch": 1,
+        "policy_epoch": 0
+      },
+      {
+        "id": "g6",
+        "status": "PASS",
+        "allows_protected": true,
+        "candidate_hash": "18b342c6bee3b24288b46494af2dcd927f25db9a88f9cafceddb3aec9770beaf",
+        "baseline_hash": "b62c450dc1d061f12615ac2e7bf2be434338ed808490e47d864f5e0dec992a0b",
+        "test_profile_hash": "cffe00463791dd56dac4c420086c6f1412f7949b9fd2d4ff5f7534dbeb4a9fda",
+        "feature_epoch": 1,
+        "policy_epoch": 0
+      }
+    ],
+    "pre_repair_gates": [
+      {
+        "id": "g3",
+        "status": "FAIL",
+        "allows_protected": false,
+        "candidate_hash": "9d1adc6b676951bb10eb7124f59b9bbcf3436ece748710fe805e10da1468064b"
+      },
+      {
+        "id": "g4",
+        "status": "FAIL",
+        "allows_protected": false,
+        "candidate_hash": "9d1adc6b676951bb10eb7124f59b9bbcf3436ece748710fe805e10da1468064b"
+      }
+    ],
+    "checker_evidence_refs": [
+      {
+        "gate_id": "g3",
+        "gate_status": "FAIL",
+        "checker_id": "pilot-tests-before",
+        "ref": {
+          "artifact_id": "70a0680f-f1ae-4467-a5df-10fd70dad8f1",
+          "bytes": 23465,
+          "codec": "zstd",
+          "media_type": "application/json",
+          "sensitivity": "NORMAL",
+          "sha256": "bb5ab6273a053e42a48aad128db6b11aa52a460d788750fed19e1c11a0535c75",
+          "stored_bytes": 3884,
+          "stored_sha256": "1a1fcb49a59e17061a0720336c3eb6c0e30e0f1f777147ae42d5cba114f01213"
+        },
+        "compressed_sha_and_bytes_match": true
+      },
+      {
+        "gate_id": "g4",
+        "gate_status": "FAIL",
+        "checker_id": "pilot-review-before",
+        "ref": {
+          "artifact_id": "8a84c3f4-fc5d-4090-a759-74b87f18bfc8",
+          "bytes": 23466,
+          "codec": "zstd",
+          "media_type": "application/json",
+          "sensitivity": "NORMAL",
+          "sha256": "1559cab2700f4c019ca23ec13f925c207d9af599cfc5f3d0133026c576dc7c52",
+          "stored_bytes": 3882,
+          "stored_sha256": "0adb02baa189c513da9fd42fcf778554a25aff2827b22b1b9b68ba687d421119"
+        },
+        "compressed_sha_and_bytes_match": true
+      },
+      {
+        "gate_id": "g0",
+        "gate_status": "PASS",
+        "checker_id": "pilot-manifest",
+        "ref": {
+          "artifact_id": "edb97e41-6067-40e2-9844-fe2d7b555dfd",
+          "bytes": 7798,
+          "codec": "zstd",
+          "media_type": "application/json",
+          "sensitivity": "NORMAL",
+          "sha256": "18b342c6bee3b24288b46494af2dcd927f25db9a88f9cafceddb3aec9770beaf",
+          "stored_bytes": 2515,
+          "stored_sha256": "29e066143cfbc96a24c94c2a44b9ffa7be718ab0331ef50d60afaaf63df39e69"
+        },
+        "compressed_sha_and_bytes_match": true
+      },
+      {
+        "gate_id": "g1",
+        "gate_status": "PASS",
+        "checker_id": "pilot-manifest",
+        "ref": {
+          "artifact_id": "d34d333f-4fed-4782-a85c-ccc87b17d60f",
+          "bytes": 7798,
+          "codec": "zstd",
+          "media_type": "application/json",
+          "sensitivity": "NORMAL",
+          "sha256": "18b342c6bee3b24288b46494af2dcd927f25db9a88f9cafceddb3aec9770beaf",
+          "stored_bytes": 2515,
+          "stored_sha256": "29e066143cfbc96a24c94c2a44b9ffa7be718ab0331ef50d60afaaf63df39e69"
+        },
+        "compressed_sha_and_bytes_match": true
+      },
+      {
+        "gate_id": "g2",
+        "gate_status": "PASS",
+        "checker_id": "pilot-manifest",
+        "ref": {
+          "artifact_id": "01b83446-ee61-4f01-a129-78dccaca3aef",
+          "bytes": 7798,
+          "codec": "zstd",
+          "media_type": "application/json",
+          "sensitivity": "NORMAL",
+          "sha256": "18b342c6bee3b24288b46494af2dcd927f25db9a88f9cafceddb3aec9770beaf",
+          "stored_bytes": 2515,
+          "stored_sha256": "29e066143cfbc96a24c94c2a44b9ffa7be718ab0331ef50d60afaaf63df39e69"
+        },
+        "compressed_sha_and_bytes_match": true
+      },
+      {
+        "gate_id": "g3",
+        "gate_status": "PASS",
+        "checker_id": "pilot-tests-final",
+        "ref": {
+          "artifact_id": "4093e6ea-db93-4f87-9a5b-5b2891299f17",
+          "bytes": 20760,
+          "codec": "zstd",
+          "media_type": "application/json",
+          "sensitivity": "NORMAL",
+          "sha256": "03c4afafe4f48c182cf37fe3f42abfc3cc96636f027ab2a11f05d1c9416e0d5e",
+          "stored_bytes": 3221,
+          "stored_sha256": "d5e6a4540d9f101f438ad92aa56a50aa2c456afae03daf94920fc3e1386486c4"
+        },
+        "compressed_sha_and_bytes_match": true
+      },
+      {
+        "gate_id": "g4",
+        "gate_status": "PASS",
+        "checker_id": "pilot-review-final",
+        "ref": {
+          "artifact_id": "56ef6a4c-17c3-4458-8c5a-6910bc5cc0d1",
+          "bytes": 20758,
+          "codec": "zstd",
+          "media_type": "application/json",
+          "sensitivity": "NORMAL",
+          "sha256": "43e2b38c391607f4f43a4e6e77221538ea43615ae7ce55a2fef6cc39b35e7a2e",
+          "stored_bytes": 3212,
+          "stored_sha256": "962164300cbeab94c715795c46c7c7cdf08e16dcc8c2d0b31c78da82885393db"
+        },
+        "compressed_sha_and_bytes_match": true
+      },
+      {
+        "gate_id": "g5",
+        "gate_status": "PASS",
+        "checker_id": "pilot-manifest",
+        "ref": {
+          "artifact_id": "990bf69c-fb7a-40d1-9123-fd4825e7776c",
+          "bytes": 7798,
+          "codec": "zstd",
+          "media_type": "application/json",
+          "sensitivity": "NORMAL",
+          "sha256": "18b342c6bee3b24288b46494af2dcd927f25db9a88f9cafceddb3aec9770beaf",
+          "stored_bytes": 2515,
+          "stored_sha256": "29e066143cfbc96a24c94c2a44b9ffa7be718ab0331ef50d60afaaf63df39e69"
+        },
+        "compressed_sha_and_bytes_match": true
+      },
+      {
+        "gate_id": "g6",
+        "gate_status": "PASS",
+        "checker_id": "pilot-manifest",
+        "ref": {
+          "artifact_id": "0be3c7d3-29a2-4dc3-bd25-198322421b8a",
+          "bytes": 7798,
+          "codec": "zstd",
+          "media_type": "application/json",
+          "sensitivity": "NORMAL",
+          "sha256": "18b342c6bee3b24288b46494af2dcd927f25db9a88f9cafceddb3aec9770beaf",
+          "stored_bytes": 2515,
+          "stored_sha256": "29e066143cfbc96a24c94c2a44b9ffa7be718ab0331ef50d60afaaf63df39e69"
+        },
+        "compressed_sha_and_bytes_match": true
+      }
+    ],
+    "checker_reports": [
+      {
+        "report": {
+          "path": ".workflow-kit/runtime/AgentNexus-M1.7/v/r-bfa1fa2f0549/data/native-pilot/2026-11-08T03-29-23-862Z-31916/checker-evidence-132c8d59-7e9a-43e8-ac65-b8c0630cf4fe/report.json",
+          "sha256": "88863cd76047ef8f177b015c462efd7bdbdd40d44883f02060568e0732d5f0df",
+          "bytes": 25534
+        },
+        "immutable_ref": {
+          "artifact_id": "4093e6ea-db93-4f87-9a5b-5b2891299f17",
+          "bytes": 20760,
+          "codec": "zstd",
+          "media_type": "application/json",
+          "sensitivity": "NORMAL",
+          "sha256": "03c4afafe4f48c182cf37fe3f42abfc3cc96636f027ab2a11f05d1c9416e0d5e",
+          "stored_bytes": 3221,
+          "stored_sha256": "d5e6a4540d9f101f438ad92aa56a50aa2c456afae03daf94920fc3e1386486c4"
+        },
+        "canonical_report_matches_ref_sha256": true,
+        "physical_compressed_object_matches": true,
+        "status": "PASS",
+        "candidate_tree_sha256": "0fe9d5c6ac0fd67b6cd5226a048db51dfc2c71dc9cc9b503522818b4fe57eadc",
+        "phases": {
+          "syntax": {
+            "status": "PASS",
+            "commands": 7
+          },
+          "types": {
+            "status": "PASS",
+            "commands": 1
+          },
+          "tests": {
+            "status": "PASS",
+            "commands": 1
+          }
+        },
+        "all_processes_closed": true,
+        "all_stdout_stderr_files_match": true,
+        "all_executable_hashes_match": true,
+        "all_type_tool_hashes_match": true,
+        "io_errors": 0,
+        "commands": [
+          {
+            "id": "syntax-4771ac5d-5b48-41c8-bfd3-53942e0b528c",
+            "status": "PASS",
+            "exit_code": 0,
+            "close_observed": true,
+            "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "id": "syntax-0d5a1c21-2ad3-4162-b97d-8f97cc5bfeb3",
+            "status": "PASS",
+            "exit_code": 0,
+            "close_observed": true,
+            "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "id": "syntax-ecc7ce4a-27d1-49ee-83bd-3ee8105d0b06",
+            "status": "PASS",
+            "exit_code": 0,
+            "close_observed": true,
+            "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "id": "syntax-2b95e158-122e-43e8-8786-6aebb1260623",
+            "status": "PASS",
+            "exit_code": 0,
+            "close_observed": true,
+            "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "id": "syntax-632a21aa-e15f-4e4a-946a-bea65be7b368",
+            "status": "PASS",
+            "exit_code": 0,
+            "close_observed": true,
+            "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "id": "syntax-2b5f162a-c6e3-41bc-b15d-ffdb08037b56",
+            "status": "PASS",
+            "exit_code": 0,
+            "close_observed": true,
+            "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "id": "syntax-e7ce2827-c224-4af6-b882-5fdbd7e4011f",
+            "status": "PASS",
+            "exit_code": 0,
+            "close_observed": true,
+            "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "id": "types-bb9399a8-1c21-4ac1-80d9-48dfebdaa5ab",
+            "status": "PASS",
+            "exit_code": 0,
+            "close_observed": true,
+            "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "id": "tests-7e06914b-82c8-47e4-97cc-896b03ad261b",
+            "status": "PASS",
+            "exit_code": 0,
+            "close_observed": true,
+            "stdout_sha256": "1a16ce73a672df31757aaab3ed16458fb3d2c7492845eda027ff0b6e5264e86e",
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          }
+        ]
+      },
+      {
+        "report": {
+          "path": ".workflow-kit/runtime/AgentNexus-M1.7/v/r-bfa1fa2f0549/data/native-pilot/2026-11-08T03-29-23-862Z-31916/checker-evidence-33e141e0-71eb-436d-b73e-59020b5b69c2/report.json",
+          "sha256": "0d2debcb10f7b5aec66a6caa4a8c361509fee3c01f59a70c37c8e914ca20546a",
+          "bytes": 28339
+        },
+        "immutable_ref": {
+          "artifact_id": "70a0680f-f1ae-4467-a5df-10fd70dad8f1",
+          "bytes": 23465,
+          "codec": "zstd",
+          "media_type": "application/json",
+          "sensitivity": "NORMAL",
+          "sha256": "bb5ab6273a053e42a48aad128db6b11aa52a460d788750fed19e1c11a0535c75",
+          "stored_bytes": 3884,
+          "stored_sha256": "1a1fcb49a59e17061a0720336c3eb6c0e30e0f1f777147ae42d5cba114f01213"
+        },
+        "canonical_report_matches_ref_sha256": true,
+        "physical_compressed_object_matches": true,
+        "status": "FAIL",
+        "candidate_tree_sha256": "5f2338193230afca5ae7048709eb6f90e397ad6c595d53985742c6212b0c6516",
+        "phases": {
+          "syntax": {
+            "status": "PASS",
+            "commands": 7
+          },
+          "types": {
+            "status": "PASS",
+            "commands": 1
+          },
+          "tests": {
+            "status": "FAIL",
+            "commands": 1
+          }
+        },
+        "all_processes_closed": true,
+        "all_stdout_stderr_files_match": true,
+        "all_executable_hashes_match": true,
+        "all_type_tool_hashes_match": true,
+        "io_errors": 0,
+        "commands": [
+          {
+            "id": "syntax-a633d214-a6cb-435c-b502-9d9418f6b0dc",
+            "status": "PASS",
+            "exit_code": 0,
+            "close_observed": true,
+            "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "id": "syntax-c5e59649-d423-4ff5-bb58-52022c0f667a",
+            "status": "PASS",
+            "exit_code": 0,
+            "close_observed": true,
+            "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "id": "syntax-d6ff7b86-94e3-40e3-ad55-408147c27a4f",
+            "status": "PASS",
+            "exit_code": 0,
+            "close_observed": true,
+            "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "id": "syntax-ddb98a69-acf6-4890-9c8f-632618c2f84d",
+            "status": "PASS",
+            "exit_code": 0,
+            "close_observed": true,
+            "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "id": "syntax-514ca72b-f048-4faa-8c45-77296700336a",
+            "status": "PASS",
+            "exit_code": 0,
+            "close_observed": true,
+            "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "id": "syntax-7923306e-b03a-4d28-be51-196423ee999e",
+            "status": "PASS",
+            "exit_code": 0,
+            "close_observed": true,
+            "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "id": "syntax-7506f059-9b33-461e-97f3-a80b7a4ac191",
+            "status": "PASS",
+            "exit_code": 0,
+            "close_observed": true,
+            "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "id": "types-474c40da-e8f2-402f-9936-1c7c95a6f019",
+            "status": "PASS",
+            "exit_code": 0,
+            "close_observed": true,
+            "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "id": "tests-54250d1e-947e-4257-b928-4862bfaeaae3",
+            "status": "FAIL",
+            "exit_code": 1,
+            "close_observed": true,
+            "stdout_sha256": "d0384affc0441ae331ded4774925ad243e246eb269840bf536109a9692ff433b",
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          }
+        ]
+      },
+      {
+        "report": {
+          "path": ".workflow-kit/runtime/AgentNexus-M1.7/v/r-bfa1fa2f0549/data/native-pilot/2026-11-08T03-29-23-862Z-31916/checker-evidence-7783f951-b95f-45fb-88e2-a9cd60d6ac0b/report.json",
+          "sha256": "3d5e59814417f5aed6c1919165c676e7535f66c7af73b0f738241f8ca3589ad8",
+          "bytes": 28340
+        },
+        "immutable_ref": {
+          "artifact_id": "8a84c3f4-fc5d-4090-a759-74b87f18bfc8",
+          "bytes": 23466,
+          "codec": "zstd",
+          "media_type": "application/json",
+          "sensitivity": "NORMAL",
+          "sha256": "1559cab2700f4c019ca23ec13f925c207d9af599cfc5f3d0133026c576dc7c52",
+          "stored_bytes": 3882,
+          "stored_sha256": "0adb02baa189c513da9fd42fcf778554a25aff2827b22b1b9b68ba687d421119"
+        },
+        "canonical_report_matches_ref_sha256": true,
+        "physical_compressed_object_matches": true,
+        "status": "FAIL",
+        "candidate_tree_sha256": "5f2338193230afca5ae7048709eb6f90e397ad6c595d53985742c6212b0c6516",
+        "phases": {
+          "syntax": {
+            "status": "PASS",
+            "commands": 7
+          },
+          "types": {
+            "status": "PASS",
+            "commands": 1
+          },
+          "tests": {
+            "status": "FAIL",
+            "commands": 1
+          }
+        },
+        "all_processes_closed": true,
+        "all_stdout_stderr_files_match": true,
+        "all_executable_hashes_match": true,
+        "all_type_tool_hashes_match": true,
+        "io_errors": 0,
+        "commands": [
+          {
+            "id": "syntax-c6418d5e-e2ca-4404-ab4e-1681581c9343",
+            "status": "PASS",
+            "exit_code": 0,
+            "close_observed": true,
+            "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "id": "syntax-4bea6b6b-4ec4-437b-88ee-3ab14780db1a",
+            "status": "PASS",
+            "exit_code": 0,
+            "close_observed": true,
+            "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "id": "syntax-cc2ef452-74c7-4ee0-a968-1333ddb7dbba",
+            "status": "PASS",
+            "exit_code": 0,
+            "close_observed": true,
+            "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "id": "syntax-89121a79-f784-4316-afe0-0a183541050f",
+            "status": "PASS",
+            "exit_code": 0,
+            "close_observed": true,
+            "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "id": "syntax-313ac68e-c7d7-48ec-8250-03ce667dc446",
+            "status": "PASS",
+            "exit_code": 0,
+            "close_observed": true,
+            "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "id": "syntax-5437fc66-eaf6-4397-bbc5-d5cebb445831",
+            "status": "PASS",
+            "exit_code": 0,
+            "close_observed": true,
+            "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "id": "syntax-f84a1d15-890d-435a-8559-77d0ef9be0cf",
+            "status": "PASS",
+            "exit_code": 0,
+            "close_observed": true,
+            "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "id": "types-79898e50-8f6b-4fbe-bd91-b6ef8416b59c",
+            "status": "PASS",
+            "exit_code": 0,
+            "close_observed": true,
+            "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "id": "tests-d1d0c04c-708e-46d5-b962-8b6d5b10539d",
+            "status": "FAIL",
+            "exit_code": 1,
+            "close_observed": true,
+            "stdout_sha256": "31a162324734d1eeaed2ad74cdd54c44e12d8b8b728a01441e6211bb3e4fd417",
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          }
+        ]
+      },
+      {
+        "report": {
+          "path": ".workflow-kit/runtime/AgentNexus-M1.7/v/r-bfa1fa2f0549/data/native-pilot/2026-11-08T03-29-23-862Z-31916/checker-evidence-d48b0f70-5148-4c4c-814b-502ca8ae5918/report.json",
+          "sha256": "9135b60ab1c79fb7d27411396f5896481d829c6f452f813ab9bee62179ca4b07",
+          "bytes": 25532
+        },
+        "immutable_ref": {
+          "artifact_id": "56ef6a4c-17c3-4458-8c5a-6910bc5cc0d1",
+          "bytes": 20758,
+          "codec": "zstd",
+          "media_type": "application/json",
+          "sensitivity": "NORMAL",
+          "sha256": "43e2b38c391607f4f43a4e6e77221538ea43615ae7ce55a2fef6cc39b35e7a2e",
+          "stored_bytes": 3212,
+          "stored_sha256": "962164300cbeab94c715795c46c7c7cdf08e16dcc8c2d0b31c78da82885393db"
+        },
+        "canonical_report_matches_ref_sha256": true,
+        "physical_compressed_object_matches": true,
+        "status": "PASS",
+        "candidate_tree_sha256": "0fe9d5c6ac0fd67b6cd5226a048db51dfc2c71dc9cc9b503522818b4fe57eadc",
+        "phases": {
+          "syntax": {
+            "status": "PASS",
+            "commands": 7
+          },
+          "types": {
+            "status": "PASS",
+            "commands": 1
+          },
+          "tests": {
+            "status": "PASS",
+            "commands": 1
+          }
+        },
+        "all_processes_closed": true,
+        "all_stdout_stderr_files_match": true,
+        "all_executable_hashes_match": true,
+        "all_type_tool_hashes_match": true,
+        "io_errors": 0,
+        "commands": [
+          {
+            "id": "syntax-32f00976-c360-496d-8ac3-c3bbf905b526",
+            "status": "PASS",
+            "exit_code": 0,
+            "close_observed": true,
+            "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "id": "syntax-8ca0ede1-9523-4334-8ba1-91eff1070706",
+            "status": "PASS",
+            "exit_code": 0,
+            "close_observed": true,
+            "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "id": "syntax-6ca55a7e-eae3-4a00-9b85-4f9deeadccc2",
+            "status": "PASS",
+            "exit_code": 0,
+            "close_observed": true,
+            "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "id": "syntax-b31bc7a5-13f0-41d7-a7f0-988af99bfc83",
+            "status": "PASS",
+            "exit_code": 0,
+            "close_observed": true,
+            "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "id": "syntax-bb9258b1-89d2-4b4b-87e3-812712177126",
+            "status": "PASS",
+            "exit_code": 0,
+            "close_observed": true,
+            "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "id": "syntax-c2522cc0-62b5-42c6-8cc9-5284f9b4a314",
+            "status": "PASS",
+            "exit_code": 0,
+            "close_observed": true,
+            "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "id": "syntax-e48e3c83-4725-46a8-ae94-1deaa900591b",
+            "status": "PASS",
+            "exit_code": 0,
+            "close_observed": true,
+            "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "id": "types-9f5b7812-01f1-4bc5-b812-98db6370f00c",
+            "status": "PASS",
+            "exit_code": 0,
+            "close_observed": true,
+            "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "id": "tests-e8649644-e76d-4b71-bcf0-4712d46a34ba",
+            "status": "PASS",
+            "exit_code": 0,
+            "close_observed": true,
+            "stdout_sha256": "167fca8d4b2d57cbe71645f24cc9165692166414c6a3828aef8642318080230d",
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          }
+        ]
+      }
+    ],
+    "primitive_decompression_audit": {
+      "workspace_code_loaded": false,
+      "native_pilot_executed": false,
+      "primitive_modules_only": [
+        "node:fs",
+        "node:path",
+        "node:crypto",
+        "node:zlib",
+        "node:sqlite"
+      ],
+      "bounded_raw_output_max_bytes": 262144,
+      "artifacts_checked": 21,
+      "all_raw_and_compressed_sha256_and_lengths_match": true,
+      "all_gate_evidence_candidate_and_status_bindings_match": true,
+      "original_model_result_exact": true,
+      "original_input_manifest_exact": true
+    },
+    "native_write_operations": [
+      {
+        "operation_id": "54c49d55-a9ca-47fe-a2cf-20d4bd18ed95",
+        "state": "SUCCEEDED",
+        "executor_state": "SETTLED",
+        "permit_consumed": 1,
+        "approval_consumed": 1
+      },
+      {
+        "operation_id": "f1d7f9ef-4773-4fd9-8981-65da33f4845d",
+        "state": "SUCCEEDED",
+        "executor_state": "SETTLED",
+        "permit_consumed": 1,
+        "approval_consumed": 1
+      },
+      {
+        "operation_id": "d858ac05-ef93-4189-9137-eee53452b829",
+        "state": "SUCCEEDED",
+        "executor_state": "SETTLED",
+        "permit_consumed": 1,
+        "approval_consumed": 1
+      },
+      {
+        "operation_id": "3bc24851-9bc1-4647-ae24-e986fc3a88c9",
+        "state": "SUCCEEDED",
+        "executor_state": "SETTLED",
+        "permit_consumed": 1,
+        "approval_consumed": 1
+      },
+      {
+        "operation_id": "8403bd96-6b1f-4a02-80f1-eb8d62aa971c",
+        "state": "SUCCEEDED",
+        "executor_state": "SETTLED",
+        "permit_consumed": 1,
+        "approval_consumed": 1
+      },
+      {
+        "operation_id": "ecc91e9b-1bcd-4c49-80c7-a78707c7cdcd",
+        "state": "SUCCEEDED",
+        "executor_state": "SETTLED",
+        "permit_consumed": 1,
+        "approval_consumed": 1
+      },
+      {
+        "operation_id": "266eed58-2e7b-4108-a302-2fc8b571a40c",
+        "state": "SUCCEEDED",
+        "executor_state": "SETTLED",
+        "permit_consumed": 1,
+        "approval_consumed": 1
+      },
+      {
+        "operation_id": "aab393eb-f8e3-459c-8503-13411e36cc77",
+        "state": "SUCCEEDED",
+        "executor_state": "SETTLED",
+        "permit_consumed": 1,
+        "approval_consumed": 1
+      },
+      {
+        "operation_id": "82dd4c82-bfd0-4252-8689-3a07a1f0e341",
+        "state": "SUCCEEDED",
+        "executor_state": "SETTLED",
+        "permit_consumed": 1,
+        "approval_consumed": 1
+      },
+      {
+        "operation_id": "1d8b4be7-7a28-4f7e-91db-caaef6d39348",
+        "state": "SUCCEEDED",
+        "executor_state": "SETTLED",
+        "permit_consumed": 1,
+        "approval_consumed": 1
+      },
+      {
+        "operation_id": "c9904fbd-0049-49c8-8c03-555f558872b1",
+        "state": "SUCCEEDED",
+        "executor_state": "SETTLED",
+        "permit_consumed": 1,
+        "approval_consumed": 1
+      },
+      {
+        "operation_id": "fb59b354-5439-4977-a867-5df53d511f6a",
+        "state": "SUCCEEDED",
+        "executor_state": "SETTLED",
+        "permit_consumed": 1,
+        "approval_consumed": 1
+      },
+      {
+        "operation_id": "3f5145de-5f46-4b63-b227-c7375874629c",
+        "state": "SUCCEEDED",
+        "executor_state": "SETTLED",
+        "permit_consumed": 1,
+        "approval_consumed": 1
+      },
+      {
+        "operation_id": "bb216425-1113-4436-b23a-71e96adf9619",
+        "state": "SUCCEEDED",
+        "executor_state": "SETTLED",
+        "permit_consumed": 1,
+        "approval_consumed": 1
+      },
+      {
+        "operation_id": "d80a0fac-8747-4764-9fa1-34249dd48733",
+        "state": "SUCCEEDED",
+        "executor_state": "SETTLED",
+        "permit_consumed": 1,
+        "approval_consumed": 1
+      },
+      {
+        "operation_id": "493da591-c0ba-4082-956c-3827caae1d5b",
+        "state": "SUCCEEDED",
+        "executor_state": "SETTLED",
+        "permit_consumed": 1,
+        "approval_consumed": 1
+      },
+      {
+        "operation_id": "332d3800-b0cc-460a-b456-0c5d5618cd05",
+        "state": "SUCCEEDED",
+        "executor_state": "SETTLED",
+        "permit_consumed": 1,
+        "approval_consumed": 1
+      },
+      {
+        "operation_id": "620d4b0a-d3dc-4a64-848a-93e6fb9697be",
+        "state": "SUCCEEDED",
+        "executor_state": "SETTLED",
+        "permit_consumed": 1,
+        "approval_consumed": 1
+      },
+      {
+        "operation_id": "7c4382ef-9cbb-4412-be9d-e855886e0a0a",
+        "state": "SUCCEEDED",
+        "executor_state": "SETTLED",
+        "permit_consumed": 1,
+        "approval_consumed": 1
+      },
+      {
+        "operation_id": "95e281a5-1dad-4a3d-bb86-eaba9e219e40",
+        "state": "SUCCEEDED",
+        "executor_state": "SETTLED",
+        "permit_consumed": 1,
+        "approval_consumed": 1
+      },
+      {
+        "operation_id": "e2cefd7c-b347-44d0-a8ef-f6a7e1ce9de7",
+        "state": "SUCCEEDED",
+        "executor_state": "SETTLED",
+        "permit_consumed": 1,
+        "approval_consumed": 1
+      }
+    ],
+    "actual_delivery_versions": [
+      {
+        "path": "README.md",
+        "version": 1,
+        "actual_sha256": "a30c88540f6033f1ea29337faaf9f8c0aef17540e83295d9012298d89805baf0",
+        "matches_current_version_and_storage_source": true,
+        "storage_state": "AUDIT_ACKNOWLEDGED",
+        "operation_id": "95e281a5-1dad-4a3d-bb86-eaba9e219e40",
+        "source_task": "docs"
+      },
+      {
+        "path": "package.json",
+        "version": 1,
+        "actual_sha256": "1d2fe1bd8dc1f028dd03c50f4cdfabdf523e32f4528d94aea757c828b4ef71f0",
+        "matches_current_version_and_storage_source": true,
+        "storage_state": "AUDIT_ACKNOWLEDGED",
+        "operation_id": "620d4b0a-d3dc-4a64-848a-93e6fb9697be",
+        "source_task": "docs"
+      },
+      {
+        "path": "src/analytics.ts",
+        "version": 2,
+        "actual_sha256": "1891389bbf37412873ec54514081f4506cd33a379c459f82d497e58a6fb6cf85",
+        "matches_current_version_and_storage_source": true,
+        "storage_state": "AUDIT_ACKNOWLEDGED",
+        "operation_id": "e2cefd7c-b347-44d0-a8ef-f6a7e1ce9de7",
+        "source_task": "debug"
+      },
+      {
+        "path": "src/cli.ts",
+        "version": 1,
+        "actual_sha256": "4b5ba92131e38eea102d97a21d837e61bc2001f711cd5ee7f700e30d9f3b1482",
+        "matches_current_version_and_storage_source": true,
+        "storage_state": "AUDIT_ACKNOWLEDGED",
+        "operation_id": "3f5145de-5f46-4b63-b227-c7375874629c",
+        "source_task": "code-cli"
+      },
+      {
+        "path": "src/entry.ts",
+        "version": 1,
+        "actual_sha256": "a8b2a785e2c607334c3874cf5f1c5513b98fec195bc0453c64dcdaae56b9ec6b",
+        "matches_current_version_and_storage_source": true,
+        "storage_state": "AUDIT_ACKNOWLEDGED",
+        "operation_id": "bb216425-1113-4436-b23a-71e96adf9619",
+        "source_task": "code-cli"
+      },
+      {
+        "path": "src/model.ts",
+        "version": 1,
+        "actual_sha256": "e0c52d2a329fe1316e30852c52ec8e77dc275642de410e04cc23af46f4ab7ec6",
+        "matches_current_version_and_storage_source": true,
+        "storage_state": "AUDIT_ACKNOWLEDGED",
+        "operation_id": "c9904fbd-0049-49c8-8c03-555f558872b1",
+        "source_task": "code-model"
+      },
+      {
+        "path": "tests/analytics.test.ts",
+        "version": 1,
+        "actual_sha256": "682ee814243a59ec725bfb961e4d6b7244af5dd06e4f14b2568d61f2fd347373",
+        "matches_current_version_and_storage_source": true,
+        "storage_state": "AUDIT_ACKNOWLEDGED",
+        "operation_id": "493da591-c0ba-4082-956c-3827caae1d5b",
+        "source_task": "test"
+      },
+      {
+        "path": "tests/cli.test.ts",
+        "version": 1,
+        "actual_sha256": "853167fb0e1fa5322e66fd07de22d6f82094efaeef4907b330249112c5f3c123",
+        "matches_current_version_and_storage_source": true,
+        "storage_state": "AUDIT_ACKNOWLEDGED",
+        "operation_id": "332d3800-b0cc-460a-b456-0c5d5618cd05",
+        "source_task": "test"
+      },
+      {
+        "path": "tests/model.test.ts",
+        "version": 1,
+        "actual_sha256": "f2a5d93dc8635248b20951aa10b09e18d50cf41af26df3a09a63e5cc024a3331",
+        "matches_current_version_and_storage_source": true,
+        "storage_state": "AUDIT_ACKNOWLEDGED",
+        "operation_id": "d80a0fac-8747-4764-9fa1-34249dd48733",
+        "source_task": "test"
+      },
+      {
+        "path": "tsconfig.json",
+        "version": 1,
+        "actual_sha256": "1c9c694e19805f2b8bdedb0de9d33385fdfed110767bb2c6bcec524506d27cd5",
+        "matches_current_version_and_storage_source": true,
+        "storage_state": "AUDIT_ACKNOWLEDGED",
+        "operation_id": "7c4382ef-9cbb-4412-be9d-e855886e0a0a",
+        "source_task": "docs"
+      }
+    ],
+    "task_states": [
+      {
+        "id": "debug",
+        "state": "SUCCEEDED",
+        "reason": "SIMULATED_MODEL_COMPLETE",
+        "turns": 3,
+        "history_length": 6,
+        "history_window": true,
+        "history_dropped": 0,
+        "message_ids": 1,
+        "review_binding": null,
+        "runtime_instance_id": "7e4da76a-3468-4ae5-a70b-3b641b82d7ff"
+      },
+      {
+        "id": "delivery",
+        "state": "SUCCEEDED",
+        "reason": "SIMULATED_MODEL_COMPLETE",
+        "turns": 1,
+        "history_length": 1,
+        "history_window": true,
+        "history_dropped": 0,
+        "message_ids": 0,
+        "review_binding": null,
+        "runtime_instance_id": "9c0a9073-91bc-4782-90f0-6919b73fbdcf"
+      },
+      {
+        "id": "lead",
+        "state": "SUCCEEDED",
+        "reason": "SIMULATED_MODEL_COMPLETE",
+        "turns": 16,
+        "history_length": 32,
+        "history_window": true,
+        "history_dropped": 1,
+        "message_ids": 17,
+        "review_binding": null,
+        "runtime_instance_id": "825a74bc-b869-40a9-983c-e14e0ee2c66f"
+      },
+      {
+        "id": "review-before",
+        "state": "WAITING",
+        "reason": "WAIT",
+        "turns": 1,
+        "history_length": 2,
+        "history_window": true,
+        "history_dropped": 0,
+        "message_ids": 1,
+        "review_binding": {
+          "author_agent_id": "lead",
+          "candidate_sha256": "9d1adc6b676951bb10eb7124f59b9bbcf3436ece748710fe805e10da1468064b",
+          "commit": "78a9d54b96417c262321be35ee44e86e300ca46d",
+          "diff_sha256": "79261e5ff19385390460632982adf797109198fc6999009a75d4f41993eeeb6f"
+        },
+        "runtime_instance_id": "2c4e5a50-8549-422a-8c8e-254fb990e16d"
+      },
+      {
+        "id": "review-final",
+        "state": "WAITING",
+        "reason": "WAIT",
+        "turns": 1,
+        "history_length": 2,
+        "history_window": true,
+        "history_dropped": 0,
+        "message_ids": 1,
+        "review_binding": {
+          "author_agent_id": "delivery",
+          "candidate_sha256": "18b342c6bee3b24288b46494af2dcd927f25db9a88f9cafceddb3aec9770beaf",
+          "commit": "78a9d54b96417c262321be35ee44e86e300ca46d",
+          "diff_sha256": "3e3911a7927ee602fd13177dd0282db48bfa327e277324f41d644f91c34a5215"
+        },
+        "runtime_instance_id": "858e98ef-166a-4421-bc98-bc04be48cfe6"
+      },
+      {
+        "id": "test-runner",
+        "state": "SUCCEEDED",
+        "reason": "SIMULATED_MODEL_COMPLETE",
+        "turns": 2,
+        "history_length": 3,
+        "history_window": true,
+        "history_dropped": 0,
+        "message_ids": 1,
+        "review_binding": null,
+        "runtime_instance_id": "16750643-8549-4858-b6c6-7264843ea79b"
+      }
+    ],
+    "read_only_native_agents": [
+      {
+        "id": "review-before",
+        "type": "BACKGROUND_REVIEWER",
+        "tools": [
+          {
+            "capability": "PURE",
+            "resources": [],
+            "tool_id": "native.echo",
+            "version": "1"
+          }
+        ],
+        "file_scope": []
+      },
+      {
+        "id": "review-final",
+        "type": "BACKGROUND_REVIEWER",
+        "tools": [
+          {
+            "capability": "PURE",
+            "resources": [],
+            "tool_id": "native.echo",
+            "version": "1"
+          }
+        ],
+        "file_scope": []
+      },
+      {
+        "id": "resident",
+        "type": "RESIDENT",
+        "tools": [
+          {
+            "capability": "PURE",
+            "resources": [],
+            "tool_id": "native.echo",
+            "version": "1"
+          }
+        ],
+        "file_scope": []
+      },
+      {
+        "id": "coordinator",
+        "type": "COORDINATOR",
+        "tools": [
+          {
+            "capability": "PURE",
+            "resources": [],
+            "tool_id": "native.echo",
+            "version": "1"
+          }
+        ],
+        "file_scope": []
+      }
+    ],
+    "native_state_counts": [
+      {
+        "kind": "MESSAGE_HANDOFF",
+        "state": "COMPLETED",
+        "count": 28
+      },
+      {
+        "kind": "MESSAGE_HANDOFF",
+        "state": "PROCESSED",
+        "count": 3
+      },
+      {
+        "kind": "MODEL_REQUEST",
+        "state": "SUCCEEDED",
+        "count": 71
+      },
+      {
+        "kind": "PILOT_QUALITY_CHECK",
+        "state": "FAIL",
+        "count": 2
+      },
+      {
+        "kind": "PILOT_QUALITY_CHECK",
+        "state": "PASS",
+        "count": 2
+      },
+      {
+        "kind": "STORAGE_WRITE",
+        "state": "AUDIT_ACKNOWLEDGED",
+        "count": 21
+      },
+      {
+        "kind": "resource_reservation",
+        "state": "RELEASED",
+        "count": 132
+      }
+    ],
+    "unknown_reservations": 0,
+    "concurrency": {
+      "coding_peak": 3,
+      "event_peak": 3,
+      "coding_intervals": [
+        {
+          "id": "code-cli",
+          "start": 787,
+          "end": 995
+        },
+        {
+          "id": "code-model",
+          "start": 785,
+          "end": 1116
+        },
+        {
+          "id": "code-analytics",
+          "start": 786,
+          "end": 1139
+        },
+        {
+          "id": "code-model",
+          "start": 1293,
+          "end": 1479
+        },
+        {
+          "id": "code-analytics",
+          "start": 1326,
+          "end": 1502
+        },
+        {
+          "id": "code-cli",
+          "start": 1844,
+          "end": 2044
+        },
+        {
+          "id": "code-cli",
+          "start": 2121,
+          "end": 2216
+        },
+        {
+          "id": "code-cli",
+          "start": 2238,
+          "end": 2293
+        }
+      ]
+    },
+    "reviewer_executed_pilot": false
+  },
+  "latest_checker_review": {
+    "source": {
+      "path": ".workflow-kit/runtime/AgentNexus-M1.7/v/r-bfa1fa2f0549/workspace/src/agentnexus/harness/pilot-checker.ts",
+      "sha256": "44890743ef03cdf44550f7c00b7171dc9c9c9c9d12a42dbe284d4f4a6e6b196a",
+      "bytes": 23573,
+      "coverage": "FULL_CONTENT_READ"
+    },
+    "fault_test": {
+      "path": ".workflow-kit/runtime/AgentNexus-M1.7/v/r-bfa1fa2f0549/workspace/tests/agentnexus/m17-checker.test.ts",
+      "sha256": "aaafdd688b21cd56b9c6676927ec8c4fdc6a0abb4bede654287cd873afafea77",
+      "bytes": 14367,
+      "coverage": "FULL_CONTENT_READ_NOT_EXECUTED"
+    },
+    "stream_hash_location": {
+      "file": "src/agentnexus/harness/pilot-checker.ts",
+      "start": 55,
+      "end": 55
+    },
+    "stream_hash_assessment": "Node executable and trusted type-tool fingerprints use 64KiB createReadStream chunks at admission and before every command, preserving the same SHA256 contract without a whole-executable Buffer.",
+    "io_error_locations": [
+      {
+        "file": "src/agentnexus/harness/pilot-checker.ts",
+        "start": 182,
+        "end": 198
+      },
+      {
+        "file": "tests/agentnexus/m17-checker.test.ts",
+        "start": 129,
+        "end": 136
+      }
+    ],
+    "io_error_assessment": "Both stdout/stderr error events are consumed locally. Failed spawn with no PID and a confirmed error is BLOCKED; any started-process output loss is INCONCLUSIVE even with observed exit 0. Remaining phases are NOT_RUN, there is no automatic retry, and I/O errors are not converted into candidate code findings. Missing close remains uncertain.",
+    "new_blocking_findings": []
+  },
+  "full_inherited_regression": {
+    "results": {
+      "path": ".workflow-kit/runtime/AgentNexus-M1.7/v/r-cc1c68b6fcfb/results.json",
+      "sha256": "062523237e0044b30316b4912b197ba67ee6284818c330730cc11fc27643d4ef",
+      "bytes": 261115
+    },
+    "status": "PASS",
+    "counts": {
+      "tests": 532,
+      "failed": 0,
+      "passed": 523,
+      "cancelled": 0,
+      "skipped": 9,
+      "todo": 0,
+      "topLevel": 473,
+      "suites": 0
+    },
+    "source_set_sha256": "8167ce3e78c602f43bee2b3a4d792a5054f76d7121a6a7730b14cc37eb5c4c6c",
+    "independently_recomputed_sha256": "8167ce3e78c602f43bee2b3a4d792a5054f76d7121a6a7730b14cc37eb5c4c6c",
+    "source_snapshot_stable": true,
+    "source_before": "8167ce3e78c602f43bee2b3a4d792a5054f76d7121a6a7730b14cc37eb5c4c6c",
+    "source_after": "8167ce3e78c602f43bee2b3a4d792a5054f76d7121a6a7730b14cc37eb5c4c6c",
+    "frozen_workspace_files_checked": 155,
+    "frozen_workspace_mismatches": [],
+    "explicit_not_run": [
+      {
+        "type": "test:pass",
+        "name": "real OS file symlink is rejected without following its target",
+        "nesting": 0,
+        "testNumber": 84,
+        "details": {
+          "duration_ms": 4.2874,
+          "type": "test"
+        },
+        "line": 381,
+        "column": 1,
+        "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\integrity.test.ts",
+        "skip": "NOT_RUN: real OS link fixture unavailable (EPERM); no simulated OS PASS",
+        "status": "NOT_RUN"
+      },
+      {
+        "type": "test:pass",
+        "name": "real OS dir link is rejected",
+        "nesting": 0,
+        "testNumber": 85,
+        "details": {
+          "duration_ms": 4.668,
+          "type": "test"
+        },
+        "line": 392,
+        "column": 3,
+        "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\integrity.test.ts",
+        "skip": "NOT_RUN: real OS link fixture unavailable (EPERM); no simulated OS PASS",
+        "status": "NOT_RUN"
+      },
+      {
+        "type": "test:pass",
+        "name": "M1.4 production combination and independent pre-pinned bootstrap/Grant bridge",
+        "nesting": 0,
+        "testNumber": 105,
+        "details": {
+          "duration_ms": 0.0964,
+          "type": "test"
+        },
+        "line": 183,
+        "column": 1,
+        "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m14-native.test.ts",
+        "skip": "NOT_RUN / BLOCKED: independent approved accounts/profile and deployment bootstrap wiring are unavailable",
+        "status": "NOT_RUN"
+      },
+      {
+        "type": "test:pass",
+        "name": "positive protected-pin attestation",
+        "nesting": 1,
+        "testNumber": 1,
+        "details": {
+          "duration_ms": 0.1421,
+          "type": "test"
+        },
+        "line": 251,
+        "column": 13,
+        "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m15-pipe.test.ts",
+        "skip": "NOT_RUN: existing Node image has an unprotected inherited DACL; no ACL was modified. The actual unprotected DACL was rejected.",
+        "status": "NOT_RUN"
+      },
+      {
+        "type": "test:pass",
+        "name": "M15-PIPE production cross-account protected bootstrap and effective client-instance denial",
+        "nesting": 0,
+        "testNumber": 169,
+        "details": {
+          "duration_ms": 0.0697,
+          "type": "test"
+        },
+        "line": 286,
+        "column": 1,
+        "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m15-pipe.test.ts",
+        "skip": "NOT_RUN / BLOCKED: approved distinct standard accounts, exact deployment ACL/profile and startup objects are absent; same-account primitives grant no qualification",
+        "status": "NOT_RUN"
+      },
+      {
+        "type": "test:pass",
+        "name": "M151 REAL_WINDOWS_PRIMITIVE: actual file link cannot escape the directory handle boundary",
+        "nesting": 0,
+        "testNumber": 170,
+        "details": {
+          "duration_ms": 1053.5172,
+          "type": "test"
+        },
+        "line": 15,
+        "column": 61,
+        "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m151-boundaries.test.ts",
+        "skip": "BLOCKED: OS refused file fixture (EPERM); no privilege or policy changed",
+        "status": "NOT_RUN"
+      },
+      {
+        "type": "test:pass",
+        "name": "M151 REAL_WINDOWS_PRIMITIVE: actual dir link cannot escape the directory handle boundary",
+        "nesting": 0,
+        "testNumber": 171,
+        "details": {
+          "duration_ms": 1047.8625,
+          "type": "test"
+        },
+        "line": 15,
+        "column": 61,
+        "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m151-boundaries.test.ts",
+        "skip": "BLOCKED: OS refused dir fixture (EPERM); no privilege or policy changed",
+        "status": "NOT_RUN"
+      },
+      {
+        "type": "test:pass",
+        "name": "M17 CHECKER ADMISSION: symlink candidate file is rejected without following its target",
+        "nesting": 0,
+        "testNumber": 360,
+        "details": {
+          "duration_ms": 9.0921,
+          "type": "test"
+        },
+        "line": 86,
+        "column": 1,
+        "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m17-checker.test.ts",
+        "skip": "NOT_RUN: OS refused the temporary symlink fixture; no privilege changes",
+        "status": "NOT_RUN"
+      },
+      {
+        "type": "test:pass",
+        "name": "job-orphan",
+        "nesting": 1,
+        "testNumber": 3,
+        "details": {
+          "duration_ms": 0.0956,
+          "type": "test"
+        },
+        "line": 21,
+        "column": 39,
+        "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\windows-native.test.ts",
+        "skip": "Parent-exited/child-alive window not observed in this managed environment",
+        "status": "NOT_RUN"
+      }
+    ],
+    "syntax": {
+      "evidence": {
+        "path": ".workflow-kit/runtime/AgentNexus-M1.7/v/r-cc1c68b6fcfb/syntax.json",
+        "sha256": "8a855d6ec21ed6349c113cd868f688fc64ed283642db494cbcc06ebd36b24c80",
+        "bytes": 163990
+      },
+      "checks": 134,
+      "all_pass_and_closed": true,
+      "saved_output_hashes_match": true
+    },
+    "strict_types": {
+      "evidence": {
+        "path": ".workflow-kit/runtime/AgentNexus-M1.7/v/r-cc1c68b6fcfb/typecheck.json",
+        "sha256": "9a1abd3f6e3b684beac375a7daf8c1a1ba6b9c2d58f29019d33d26473f115b37",
+        "bytes": 1808
+      },
+      "status": "PASS",
+      "close_observed": true,
+      "exit_code": 0,
+      "saved_output_hashes_match": true
+    },
+    "test_process": {
+      "status": "PASS",
+      "exit_code": 0,
+      "close_observed": true,
+      "timed_out": false,
+      "saved_output_hashes_match": true
+    },
+    "errors": [],
+    "native_pilots": [
+      {
+        "report": {
+          "path": ".workflow-kit/runtime/AgentNexus-M1.7/v/r-cc1c68b6fcfb/data/native-pilot/2026-11-08T03-36-35-394Z-2120/report.json",
+          "sha256": "61b7f2897c75bf0d6dafd0770d19b2c119e3ca4e54361b8ac7ac0586192285f8",
+          "bytes": 140581
+        },
+        "status": "PASS",
+        "source_set_sha256": "8167ce3e78c602f43bee2b3a4d792a5054f76d7121a6a7730b14cc37eb5c4c6c",
+        "candidate_sha256": "4efb37521e7ff918500ad30bb8f211c82f99b36792e305ad637e330d5b098a7e",
+        "gates": [
+          {
+            "gate": "g0",
+            "status": "PASS",
+            "allows_protected": true,
+            "candidate_hash": "4efb37521e7ff918500ad30bb8f211c82f99b36792e305ad637e330d5b098a7e"
+          },
+          {
+            "gate": "g1",
+            "status": "PASS",
+            "allows_protected": true,
+            "candidate_hash": "4efb37521e7ff918500ad30bb8f211c82f99b36792e305ad637e330d5b098a7e"
+          },
+          {
+            "gate": "g2",
+            "status": "PASS",
+            "allows_protected": true,
+            "candidate_hash": "4efb37521e7ff918500ad30bb8f211c82f99b36792e305ad637e330d5b098a7e"
+          },
+          {
+            "gate": "g3",
+            "status": "PASS",
+            "allows_protected": true,
+            "candidate_hash": "4efb37521e7ff918500ad30bb8f211c82f99b36792e305ad637e330d5b098a7e"
+          },
+          {
+            "gate": "g4",
+            "status": "PASS",
+            "allows_protected": true,
+            "candidate_hash": "4efb37521e7ff918500ad30bb8f211c82f99b36792e305ad637e330d5b098a7e"
+          },
+          {
+            "gate": "g5",
+            "status": "PASS",
+            "allows_protected": true,
+            "candidate_hash": "4efb37521e7ff918500ad30bb8f211c82f99b36792e305ad637e330d5b098a7e"
+          },
+          {
+            "gate": "g6",
+            "status": "PASS",
+            "allows_protected": true,
+            "candidate_hash": "4efb37521e7ff918500ad30bb8f211c82f99b36792e305ad637e330d5b098a7e"
+          }
+        ],
+        "pre_repair_gates": [
+          {
+            "gate": "g3",
+            "status": "FAIL"
+          },
+          {
+            "gate": "g4",
+            "status": "FAIL"
+          }
+        ],
+        "controlled_recovery": {
+          "status": "PASS",
+          "kind": "CONTROLLED_HOST_CLOSE_REOPEN_WITH_ORIGINAL_PILOT_TASK",
+          "original_task_id": "lead",
+          "old_runtime_instance_id": "6a85bddf-5cac-4f1d-9b1e-292dee92ee53",
+          "new_runtime_instance_id": "c4118e59-792c-4e06-bd58-6f771f6fef7a",
+          "original_contract_ref": {
+            "event_id": "c010f717-8b97-48f6-90d1-ff007c25587d",
+            "kind": "RAW",
+            "length": 1300,
+            "offset": 0,
+            "payload_ref": {
+              "artifact_id": "36cd9216-1938-49c2-b2d1-a54ccdeb7c09",
+              "bytes": 1300,
+              "codec": "zstd",
+              "media_type": "text/plain; charset=utf-8",
+              "sensitivity": "NORMAL",
+              "sha256": "a0ba0806a6db5b77d755e0813f270541df45fd3978cad0a177890d7d965939b2",
+              "stored_bytes": 850,
+              "stored_sha256": "ff31cf830e752678ad86d824b28c56db24e8e441ee9103afbed44000979940df"
+            },
+            "project_id": "pilot",
+            "record_hash": "36f532e8257969ff2c2a064eda70304ec981eeb4ea44e20613818860e380974c",
+            "task_id": "lead"
+          },
+          "rules_binding": {
+            "feature_epoch": 1,
+            "policy_epoch": 0,
+            "project_rules_version": "1",
+            "registry_id": "500e1728d1639bc3fa8e6f75cae1c61028d71162b503ad2188ece263ec847833",
+            "rule_hash": "d0856eaa0167276331b0b83fd04b647cab623fb4f685338c1e1f345f767669b3",
+            "workflow_version": "1.6.1"
+          },
+          "requirements": {
+            "event_id": "8d8b04cc-344b-4997-8542-e1cc51071418",
+            "kind": "RAW",
+            "length": 852,
+            "offset": 0,
+            "payload_ref": {
+              "artifact_id": "29b44cec-13f2-4e44-a1a9-1d163b2b6dad",
+              "bytes": 852,
+              "codec": "zstd",
+              "media_type": "text/plain; charset=utf-8",
+              "sensitivity": "NORMAL",
+              "sha256": "4b8c42e089fd4043b7d60844a0972c52d26ba687dddb67fd046dbf94b9e9ee2b",
+              "stored_bytes": 548,
+              "stored_sha256": "83ebc70082e2d28912e3fb068bafec098e3251ecad4456f1e9d1fdd55cb2e60e"
+            },
+            "project_id": "pilot",
+            "record_hash": "5bafa735fa2be8aaecf5b83b9d95b3c310603339230257ad5fb460d9f5ca0145",
+            "task_id": "lead"
+          },
+          "admitted_plan_id": "2da155ed0b8b9b5c290a85d9822387d1a64d4a07ae97b2b2a48db6f8c3d7419e",
+          "automatic_model_calls_on_reopen": 0,
+          "stale_facade_rejected": true,
+          "message_id": "6cd37202e5b8dd5b3b11e9d6c43999498602d4fd4bea69515fea9c5946f4637b",
+          "abrupt_process_crash": "SEPARATE_RUNTIME_TESTS",
+          "os_reboot": "NOT_RUN",
+          "unknown_effects_replayed": false
+        },
+        "coding_peak": 3,
+        "event_peak": 3,
+        "operations": [
+          {
+            "operation_id": "b6485b05-c4a7-4f23-9617-61bdc2368d23",
+            "state": "SUCCEEDED",
+            "executor_state": "SETTLED",
+            "permit_consumed": 1,
+            "approval_consumed": 1
+          },
+          {
+            "operation_id": "52108c87-b01b-46df-aea6-51a882067cac",
+            "state": "SUCCEEDED",
+            "executor_state": "SETTLED",
+            "permit_consumed": 1,
+            "approval_consumed": 1
+          },
+          {
+            "operation_id": "c417d3e0-24bb-4f20-846b-ddf5f6fa9a3e",
+            "state": "SUCCEEDED",
+            "executor_state": "SETTLED",
+            "permit_consumed": 1,
+            "approval_consumed": 1
+          },
+          {
+            "operation_id": "f75b6bf6-1fbe-43db-bc5f-21f21257f7b8",
+            "state": "SUCCEEDED",
+            "executor_state": "SETTLED",
+            "permit_consumed": 1,
+            "approval_consumed": 1
+          },
+          {
+            "operation_id": "301c8d6b-0e21-48ca-9d33-64f8c2e1df50",
+            "state": "SUCCEEDED",
+            "executor_state": "SETTLED",
+            "permit_consumed": 1,
+            "approval_consumed": 1
+          },
+          {
+            "operation_id": "7aa0b3d9-668b-4006-9783-e167204ba525",
+            "state": "SUCCEEDED",
+            "executor_state": "SETTLED",
+            "permit_consumed": 1,
+            "approval_consumed": 1
+          },
+          {
+            "operation_id": "a24e4ae0-b9ff-49ad-acfc-136380734bac",
+            "state": "SUCCEEDED",
+            "executor_state": "SETTLED",
+            "permit_consumed": 1,
+            "approval_consumed": 1
+          },
+          {
+            "operation_id": "4d61ce39-07b7-46a1-b53c-1da164ff1b27",
+            "state": "SUCCEEDED",
+            "executor_state": "SETTLED",
+            "permit_consumed": 1,
+            "approval_consumed": 1
+          },
+          {
+            "operation_id": "07948cb3-849d-423c-8d6f-4c616ad7f2db",
+            "state": "SUCCEEDED",
+            "executor_state": "SETTLED",
+            "permit_consumed": 1,
+            "approval_consumed": 1
+          },
+          {
+            "operation_id": "cbd70d44-5266-4b05-9ee2-50d9ef91c89c",
+            "state": "SUCCEEDED",
+            "executor_state": "SETTLED",
+            "permit_consumed": 1,
+            "approval_consumed": 1
+          },
+          {
+            "operation_id": "4c023b89-4ac2-4032-8428-e60a9c6b9fb6",
+            "state": "SUCCEEDED",
+            "executor_state": "SETTLED",
+            "permit_consumed": 1,
+            "approval_consumed": 1
+          },
+          {
+            "operation_id": "9e564432-f4d8-48a0-bf6d-210486e7827c",
+            "state": "SUCCEEDED",
+            "executor_state": "SETTLED",
+            "permit_consumed": 1,
+            "approval_consumed": 1
+          },
+          {
+            "operation_id": "1cfbf715-51e5-47cc-aac3-c729b4da1e73",
+            "state": "SUCCEEDED",
+            "executor_state": "SETTLED",
+            "permit_consumed": 1,
+            "approval_consumed": 1
+          },
+          {
+            "operation_id": "4536b355-2c21-44f7-b757-d41c7627b808",
+            "state": "SUCCEEDED",
+            "executor_state": "SETTLED",
+            "permit_consumed": 1,
+            "approval_consumed": 1
+          },
+          {
+            "operation_id": "164f122b-78d7-4087-8a9a-b7a68105b779",
+            "state": "SUCCEEDED",
+            "executor_state": "SETTLED",
+            "permit_consumed": 1,
+            "approval_consumed": 1
+          },
+          {
+            "operation_id": "bdf81e7d-10b9-44c6-a5d7-b07f797023e3",
+            "state": "SUCCEEDED",
+            "executor_state": "SETTLED",
+            "permit_consumed": 1,
+            "approval_consumed": 1
+          },
+          {
+            "operation_id": "baea6c47-8c9a-40af-bcf0-3f51091c655b",
+            "state": "SUCCEEDED",
+            "executor_state": "SETTLED",
+            "permit_consumed": 1,
+            "approval_consumed": 1
+          },
+          {
+            "operation_id": "1e82050e-dadc-4b04-acb0-005554f4f7c1",
+            "state": "SUCCEEDED",
+            "executor_state": "SETTLED",
+            "permit_consumed": 1,
+            "approval_consumed": 1
+          },
+          {
+            "operation_id": "4fbc782e-30dd-4504-a4dd-8dda11fa2901",
+            "state": "SUCCEEDED",
+            "executor_state": "SETTLED",
+            "permit_consumed": 1,
+            "approval_consumed": 1
+          },
+          {
+            "operation_id": "2926160a-5e7d-420d-abc3-35a2f1e8ad16",
+            "state": "SUCCEEDED",
+            "executor_state": "SETTLED",
+            "permit_consumed": 1,
+            "approval_consumed": 1
+          },
+          {
+            "operation_id": "9e9867a2-efea-477d-97a2-6418335ac183",
+            "state": "SUCCEEDED",
+            "executor_state": "SETTLED",
+            "permit_consumed": 1,
+            "approval_consumed": 1
+          }
+        ],
+        "delivery_versions": [
+          {
+            "path": "README.md",
+            "version": 1,
+            "actual_sha256_matches": true
+          },
+          {
+            "path": "package.json",
+            "version": 1,
+            "actual_sha256_matches": true
+          },
+          {
+            "path": "src/analytics.ts",
+            "version": 2,
+            "actual_sha256_matches": true
+          },
+          {
+            "path": "src/cli.ts",
+            "version": 1,
+            "actual_sha256_matches": true
+          },
+          {
+            "path": "src/entry.ts",
+            "version": 1,
+            "actual_sha256_matches": true
+          },
+          {
+            "path": "src/model.ts",
+            "version": 1,
+            "actual_sha256_matches": true
+          },
+          {
+            "path": "tests/analytics.test.ts",
+            "version": 1,
+            "actual_sha256_matches": true
+          },
+          {
+            "path": "tests/cli.test.ts",
+            "version": 1,
+            "actual_sha256_matches": true
+          },
+          {
+            "path": "tests/model.test.ts",
+            "version": 1,
+            "actual_sha256_matches": true
+          },
+          {
+            "path": "tsconfig.json",
+            "version": 1,
+            "actual_sha256_matches": true
+          }
+        ],
+        "unknown_reservations": 0,
+        "lead": {
+          "state": "SUCCEEDED",
+          "turns": 16,
+          "history_length": 32,
+          "history_dropped": 1,
+          "history_window": true
+        },
+        "physical_checker_refs": [
+          {
+            "gate": "g3",
+            "gate_status": "FAIL",
+            "checker": "pilot-tests-before",
+            "raw_sha256": "9a2497f445297f4c623cecb643be2b24e76fd6bd2c100839b2c94aba631d79ee",
+            "physical_compressed_matches": true
+          },
+          {
+            "gate": "g4",
+            "gate_status": "FAIL",
+            "checker": "pilot-review-before",
+            "raw_sha256": "cd4020cd12597ce37e4a6f955428152d33ec24de06139d4c15ec10b084deddf9",
+            "physical_compressed_matches": true
+          },
+          {
+            "gate": "g0",
+            "gate_status": "PASS",
+            "checker": "pilot-manifest",
+            "raw_sha256": "4efb37521e7ff918500ad30bb8f211c82f99b36792e305ad637e330d5b098a7e",
+            "physical_compressed_matches": true
+          },
+          {
+            "gate": "g1",
+            "gate_status": "PASS",
+            "checker": "pilot-manifest",
+            "raw_sha256": "4efb37521e7ff918500ad30bb8f211c82f99b36792e305ad637e330d5b098a7e",
+            "physical_compressed_matches": true
+          },
+          {
+            "gate": "g2",
+            "gate_status": "PASS",
+            "checker": "pilot-manifest",
+            "raw_sha256": "4efb37521e7ff918500ad30bb8f211c82f99b36792e305ad637e330d5b098a7e",
+            "physical_compressed_matches": true
+          },
+          {
+            "gate": "g3",
+            "gate_status": "PASS",
+            "checker": "pilot-tests-final",
+            "raw_sha256": "abbf52e6357c5df05458191e45a8e9e77b8b282fefe6a78b0ee7f153cf8ab48a",
+            "physical_compressed_matches": true
+          },
+          {
+            "gate": "g4",
+            "gate_status": "PASS",
+            "checker": "pilot-review-final",
+            "raw_sha256": "3eaa888412006b5a6a7e1b8a93a1e9cff4f3bfcc6e3805224509a71be3d904cc",
+            "physical_compressed_matches": true
+          },
+          {
+            "gate": "g5",
+            "gate_status": "PASS",
+            "checker": "pilot-manifest",
+            "raw_sha256": "4efb37521e7ff918500ad30bb8f211c82f99b36792e305ad637e330d5b098a7e",
+            "physical_compressed_matches": true
+          },
+          {
+            "gate": "g6",
+            "gate_status": "PASS",
+            "checker": "pilot-manifest",
+            "raw_sha256": "4efb37521e7ff918500ad30bb8f211c82f99b36792e305ad637e330d5b098a7e",
+            "physical_compressed_matches": true
+          }
+        ],
+        "qualification": {
+          "real_provider": "SIMULATED",
+          "strict_cpu": "BLOCKED",
+          "production_os": "BLOCKED"
+        },
+        "audit_reuse_note": "Prior independent bounded decompression and raw checker/hash audit already covers this identical frozen source candidate; this separate full-suite fresh Pilot was checked via report/source/gates, real SQLite operations, current physical versions and compressed evidence refs without rerunning or generating code."
+      }
+    ],
+    "reviewer_ran_tests_or_pilot": false,
+    "interpretation": "523 actual PASS, 9 explicit NOT_RUN, 0 FAIL; not 532/532 PASS. CPU and production isolation remain blocked. Historical failed attempts remain separate unchanged evidence."
+  }
+}

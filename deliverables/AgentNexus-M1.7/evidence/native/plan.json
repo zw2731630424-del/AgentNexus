@@ -1,0 +1,261 @@
+{
+  "assurance": "SIMULATED_MODEL_NATIVE_EXECUTION",
+  "batches": [
+    [
+      "research"
+    ],
+    [
+      "architecture"
+    ],
+    [
+      "code-analytics",
+      "code-cli",
+      "code-model",
+      "docs"
+    ],
+    [
+      "test"
+    ],
+    [
+      "integration"
+    ]
+  ],
+  "id": "2da155ed0b8b9b5c290a85d9822387d1a64d4a07ae97b2b2a48db6f8c3d7419e",
+  "owners": {
+    "agentnexus-pilot-project/package.json": "integration",
+    "agentnexus-pilot-project/readme.md": "integration",
+    "agentnexus-pilot-project/src/analytics.ts": "integration",
+    "agentnexus-pilot-project/src/cli.ts": "integration",
+    "agentnexus-pilot-project/src/entry.ts": "integration",
+    "agentnexus-pilot-project/src/model.ts": "integration",
+    "agentnexus-pilot-project/tests/analytics.test.ts": "integration",
+    "agentnexus-pilot-project/tests/cli.test.ts": "integration",
+    "agentnexus-pilot-project/tests/model.test.ts": "integration",
+    "agentnexus-pilot-project/tsconfig.json": "integration",
+    "code-analytics/src/analytics.ts": "code-analytics",
+    "code-cli/src/cli.ts": "code-cli",
+    "code-cli/src/entry.ts": "code-cli",
+    "code-model/src/model.ts": "code-model",
+    "docs/package.json": "docs",
+    "docs/readme.md": "docs",
+    "docs/tsconfig.json": "docs",
+    "test/tests/analytics.test.ts": "test",
+    "test/tests/cli.test.ts": "test",
+    "test/tests/model.test.ts": "test"
+  },
+  "plan": {
+    "goal": "Build an offline task-management and weighted progress analysis CLI with persistent JSON data.",
+    "project_id": "pilot",
+    "requirements_sha256": "4b8c42e089fd4043b7d60844a0972c52d26ba687dddb67fd046dbf94b9e9ee2b",
+    "schema": "agentnexus/development-plan/1",
+    "tasks": [
+      {
+        "acceptance": [
+          "Provide original source references and verifiable artifacts."
+        ],
+        "dependencies": [],
+        "disk_bytes": 65536,
+        "estimated_requests": 24,
+        "goal": "Implement research for the original task CLI requirements.",
+        "id": "research",
+        "model_strategy": "LOW_COST",
+        "outputs": [],
+        "priority": 9,
+        "role": "RESEARCH"
+      },
+      {
+        "acceptance": [
+          "Provide original source references and verifiable artifacts."
+        ],
+        "dependencies": [
+          "research"
+        ],
+        "disk_bytes": 65536,
+        "estimated_requests": 24,
+        "goal": "Implement architecture for the original task CLI requirements.",
+        "id": "architecture",
+        "model_strategy": "DESIGN",
+        "outputs": [],
+        "priority": 9,
+        "role": "ARCHITECTURE"
+      },
+      {
+        "acceptance": [
+          "Provide original source references and verifiable artifacts."
+        ],
+        "dependencies": [
+          "architecture"
+        ],
+        "disk_bytes": 65536,
+        "estimated_requests": 24,
+        "goal": "Implement code-model for the original task CLI requirements.",
+        "id": "code-model",
+        "model_strategy": "LOW_COST",
+        "outputs": [
+          "code-model/src/model.ts"
+        ],
+        "priority": 8,
+        "role": "CODING"
+      },
+      {
+        "acceptance": [
+          "Provide original source references and verifiable artifacts."
+        ],
+        "dependencies": [
+          "architecture"
+        ],
+        "disk_bytes": 65536,
+        "estimated_requests": 24,
+        "goal": "Implement code-analytics for the original task CLI requirements.",
+        "id": "code-analytics",
+        "model_strategy": "LOW_COST",
+        "outputs": [
+          "code-analytics/src/analytics.ts"
+        ],
+        "priority": 8,
+        "role": "CODING"
+      },
+      {
+        "acceptance": [
+          "Provide original source references and verifiable artifacts."
+        ],
+        "dependencies": [
+          "architecture"
+        ],
+        "disk_bytes": 65536,
+        "estimated_requests": 24,
+        "goal": "Implement code-cli for the original task CLI requirements.",
+        "id": "code-cli",
+        "model_strategy": "LOW_COST",
+        "outputs": [
+          "code-cli/src/cli.ts",
+          "code-cli/src/entry.ts"
+        ],
+        "priority": 8,
+        "role": "CODING"
+      },
+      {
+        "acceptance": [
+          "Provide original source references and verifiable artifacts."
+        ],
+        "dependencies": [
+          "code-model",
+          "code-analytics",
+          "code-cli"
+        ],
+        "disk_bytes": 65536,
+        "estimated_requests": 24,
+        "goal": "Implement test for the original task CLI requirements.",
+        "id": "test",
+        "model_strategy": "LOW_COST",
+        "outputs": [
+          "test/tests/model.test.ts",
+          "test/tests/analytics.test.ts",
+          "test/tests/cli.test.ts"
+        ],
+        "priority": 5,
+        "role": "TEST"
+      },
+      {
+        "acceptance": [
+          "Provide original source references and verifiable artifacts."
+        ],
+        "dependencies": [
+          "architecture"
+        ],
+        "disk_bytes": 65536,
+        "estimated_requests": 24,
+        "goal": "Implement docs for the original task CLI requirements.",
+        "id": "docs",
+        "model_strategy": "LOW_COST",
+        "outputs": [
+          "docs/README.md",
+          "docs/package.json",
+          "docs/tsconfig.json"
+        ],
+        "priority": 5,
+        "role": "DOCUMENTATION"
+      },
+      {
+        "acceptance": [
+          "Provide original source references and verifiable artifacts."
+        ],
+        "dependencies": [
+          "test",
+          "docs"
+        ],
+        "disk_bytes": 65536,
+        "estimated_requests": 24,
+        "goal": "Implement integration for the original task CLI requirements.",
+        "id": "integration",
+        "model_strategy": "LOW_COST",
+        "outputs": [
+          "AgentNexus-Pilot-Project/src/model.ts",
+          "AgentNexus-Pilot-Project/src/analytics.ts",
+          "AgentNexus-Pilot-Project/src/cli.ts",
+          "AgentNexus-Pilot-Project/src/entry.ts",
+          "AgentNexus-Pilot-Project/tests/model.test.ts",
+          "AgentNexus-Pilot-Project/tests/analytics.test.ts",
+          "AgentNexus-Pilot-Project/tests/cli.test.ts",
+          "AgentNexus-Pilot-Project/package.json",
+          "AgentNexus-Pilot-Project/tsconfig.json",
+          "AgentNexus-Pilot-Project/README.md"
+        ],
+        "priority": 5,
+        "role": "INTEGRATION"
+      }
+    ]
+  },
+  "plan_sha256": "c9c2243ed5a2ac1e1517aecd16152e24cf7bf2fa80fde80aafde8b9964eda9ac",
+  "proposer_request_id": "lead.turn.1",
+  "requirements": {
+    "event_id": "8d8b04cc-344b-4997-8542-e1cc51071418",
+    "kind": "RAW",
+    "length": 852,
+    "offset": 0,
+    "payload_ref": {
+      "artifact_id": "29b44cec-13f2-4e44-a1a9-1d163b2b6dad",
+      "bytes": 852,
+      "codec": "zstd",
+      "media_type": "text/plain; charset=utf-8",
+      "sensitivity": "NORMAL",
+      "sha256": "4b8c42e089fd4043b7d60844a0972c52d26ba687dddb67fd046dbf94b9e9ee2b",
+      "stored_bytes": 548,
+      "stored_sha256": "83ebc70082e2d28912e3fb068bafec098e3251ecad4456f1e9d1fdd55cb2e60e"
+    },
+    "project_id": "pilot",
+    "record_hash": "5bafa735fa2be8aaecf5b83b9d95b3c310603339230257ad5fb460d9f5ca0145",
+    "task_id": "lead"
+  },
+  "revision": 0,
+  "source": {
+    "event_id": "7380bc8e-ad7a-41f6-a19e-27cad1b2e9cc",
+    "kind": "RAW",
+    "length": 4675,
+    "offset": 0,
+    "payload_ref": {
+      "artifact_id": "56c2f32f-6912-4f5f-89b1-cbeb9a67905f",
+      "bytes": 4675,
+      "codec": "zstd",
+      "media_type": "text/plain; charset=utf-8",
+      "sensitivity": "NORMAL",
+      "sha256": "0927d50677115e28ec4ec5259cd1e329c131ef027e8a7b4026bb52c71ac12c7f",
+      "stored_bytes": 1358,
+      "stored_sha256": "7c04e3118a45230447d6962882258fac44f7c5778064c274b6b1c3b41fceb8e4"
+    },
+    "project_id": "pilot",
+    "record_hash": "5c8d9eb7b3b51723c62c4da85d190f41f8a6517931ed23fc48ae0dff0b5dc8f0",
+    "task_id": "lead"
+  },
+  "subject": {
+    "agent_id": "lead",
+    "agent_type": "DEVELOPMENT",
+    "model_binding": "lead",
+    "policy_scope": "pilot",
+    "project_id": "pilot",
+    "resource_budget_id": "worker.6a85bddf-5cac-4f1d-9b1e-292dee92ee53",
+    "runtime_instance_id": "6a85bddf-5cac-4f1d-9b1e-292dee92ee53",
+    "session_id": "ba8a50f6-b793-42f8-bd9f-184c40432dc4",
+    "task_id": "lead"
+  }
+}

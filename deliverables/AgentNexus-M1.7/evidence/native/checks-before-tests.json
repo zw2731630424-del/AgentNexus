@@ -1,0 +1,528 @@
+{
+  "schema": "agentnexus/m17/pilot-check/1",
+  "status": "FAIL",
+  "scope": "LOCAL_TRUSTED_FIXED_RUNNER",
+  "production_os_qualified": false,
+  "automatic_retry": false,
+  "candidate_hash": "5f2338193230afca5ae7048709eb6f90e397ad6c595d53985742c6212b0c6516",
+  "candidate_files": [
+    {
+      "bytes": 1566,
+      "path": "README.md",
+      "sha256": "a30c88540f6033f1ea29337faaf9f8c0aef17540e83295d9012298d89805baf0"
+    },
+    {
+      "bytes": 252,
+      "path": "package.json",
+      "sha256": "1d2fe1bd8dc1f028dd03c50f4cdfabdf523e32f4528d94aea757c828b4ef71f0"
+    },
+    {
+      "bytes": 833,
+      "path": "src/analytics.ts",
+      "sha256": "5e1c577ea707d9074937bdd62b558a77915a3c0df6fa4ec86a46c2a3d7499e38"
+    },
+    {
+      "bytes": 1462,
+      "path": "src/cli.ts",
+      "sha256": "4b5ba92131e38eea102d97a21d837e61bc2001f711cd5ee7f700e30d9f3b1482"
+    },
+    {
+      "bytes": 1825,
+      "path": "src/entry.ts",
+      "sha256": "a8b2a785e2c607334c3874cf5f1c5513b98fec195bc0453c64dcdaae56b9ec6b"
+    },
+    {
+      "bytes": 2863,
+      "path": "src/model.ts",
+      "sha256": "e0c52d2a329fe1316e30852c52ec8e77dc275642de410e04cc23af46f4ab7ec6"
+    },
+    {
+      "bytes": 1054,
+      "path": "tests/analytics.test.ts",
+      "sha256": "682ee814243a59ec725bfb961e4d6b7244af5dd06e4f14b2568d61f2fd347373"
+    },
+    {
+      "bytes": 1829,
+      "path": "tests/cli.test.ts",
+      "sha256": "853167fb0e1fa5322e66fd07de22d6f82094efaeef4907b330249112c5f3c123"
+    },
+    {
+      "bytes": 2036,
+      "path": "tests/model.test.ts",
+      "sha256": "f2a5d93dc8635248b20951aa10b09e18d50cf41af26df3a09a63e5cc024a3331"
+    },
+    {
+      "bytes": 290,
+      "path": "tsconfig.json",
+      "sha256": "1c9c694e19805f2b8bdedb0de9d33385fdfed110767bb2c6bcec524506d27cd5"
+    }
+  ],
+  "root": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\data\\native-pilot\\2026-11-08T03-36-35-394Z-2120\\AgentNexus-Pilot-Project",
+  "evidence_directory": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\data\\native-pilot\\2026-11-08T03-36-35-394Z-2120\\checker-evidence-c9714485-cd69-4170-9bc3-d2729b77c0bb",
+  "snapshot_root": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\data\\native-pilot\\2026-11-08T03-36-35-394Z-2120\\checker-evidence-c9714485-cd69-4170-9bc3-d2729b77c0bb\\candidate",
+  "scratch_directory": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\data\\native-pilot\\2026-11-08T03-36-35-394Z-2120\\checker-evidence-c9714485-cd69-4170-9bc3-d2729b77c0bb\\scratch",
+  "execution_started": true,
+  "syntax": {
+    "status": "PASS",
+    "commands": [
+      {
+        "id": "syntax-7c4bff8a-c381-43aa-be72-358dbf5409b3",
+        "kind": "syntax",
+        "executable": "D:\\Nodejs\\node.exe",
+        "executable_sha256": "3331e1ffe19874215472217c5e94f5a0c6d8e18c4ac7111d3937aa0ad5e9b4a5",
+        "argv": [
+          "--check",
+          "src/model.ts"
+        ],
+        "cwd": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\data\\native-pilot\\2026-11-08T03-36-35-394Z-2120\\checker-evidence-c9714485-cd69-4170-9bc3-d2729b77c0bb\\candidate",
+        "environment_keys": [
+          "AGENTNEXUS_PILOT_SCRATCH",
+          "NODE_OPTIONS",
+          "NODE_PATH",
+          "SystemRoot",
+          "TEMP",
+          "TMP",
+          "WINDIR"
+        ],
+        "status": "PASS",
+        "started_at": "2026-11-08T03:37:24.346Z",
+        "ended_at": "2026-11-08T03:37:24.428Z",
+        "exit_code": 0,
+        "signal": null,
+        "close_observed": true,
+        "timed_out": false,
+        "output_limit": false,
+        "termination_requested": false,
+        "spawn_error": null,
+        "io_errors": [],
+        "stdout": "",
+        "stderr": "",
+        "stdout_bytes": 0,
+        "stderr_bytes": 0,
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "observed_stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "observed_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "output_truncated": false,
+        "stdout_path": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\data\\native-pilot\\2026-11-08T03-36-35-394Z-2120\\checker-evidence-c9714485-cd69-4170-9bc3-d2729b77c0bb\\syntax-7c4bff8a-c381-43aa-be72-358dbf5409b3.stdout.txt",
+        "stderr_path": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\data\\native-pilot\\2026-11-08T03-36-35-394Z-2120\\checker-evidence-c9714485-cd69-4170-9bc3-d2729b77c0bb\\syntax-7c4bff8a-c381-43aa-be72-358dbf5409b3.stderr.txt"
+      },
+      {
+        "id": "syntax-9d5afcbb-a133-4681-a5f4-70c133cd78cc",
+        "kind": "syntax",
+        "executable": "D:\\Nodejs\\node.exe",
+        "executable_sha256": "3331e1ffe19874215472217c5e94f5a0c6d8e18c4ac7111d3937aa0ad5e9b4a5",
+        "argv": [
+          "--check",
+          "src/analytics.ts"
+        ],
+        "cwd": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\data\\native-pilot\\2026-11-08T03-36-35-394Z-2120\\checker-evidence-c9714485-cd69-4170-9bc3-d2729b77c0bb\\candidate",
+        "environment_keys": [
+          "AGENTNEXUS_PILOT_SCRATCH",
+          "NODE_OPTIONS",
+          "NODE_PATH",
+          "SystemRoot",
+          "TEMP",
+          "TMP",
+          "WINDIR"
+        ],
+        "status": "PASS",
+        "started_at": "2026-11-08T03:37:24.557Z",
+        "ended_at": "2026-11-08T03:37:24.639Z",
+        "exit_code": 0,
+        "signal": null,
+        "close_observed": true,
+        "timed_out": false,
+        "output_limit": false,
+        "termination_requested": false,
+        "spawn_error": null,
+        "io_errors": [],
+        "stdout": "",
+        "stderr": "",
+        "stdout_bytes": 0,
+        "stderr_bytes": 0,
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "observed_stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "observed_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "output_truncated": false,
+        "stdout_path": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\data\\native-pilot\\2026-11-08T03-36-35-394Z-2120\\checker-evidence-c9714485-cd69-4170-9bc3-d2729b77c0bb\\syntax-9d5afcbb-a133-4681-a5f4-70c133cd78cc.stdout.txt",
+        "stderr_path": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\data\\native-pilot\\2026-11-08T03-36-35-394Z-2120\\checker-evidence-c9714485-cd69-4170-9bc3-d2729b77c0bb\\syntax-9d5afcbb-a133-4681-a5f4-70c133cd78cc.stderr.txt"
+      },
+      {
+        "id": "syntax-56c39ec5-939d-4d66-b3a5-0298ac50452f",
+        "kind": "syntax",
+        "executable": "D:\\Nodejs\\node.exe",
+        "executable_sha256": "3331e1ffe19874215472217c5e94f5a0c6d8e18c4ac7111d3937aa0ad5e9b4a5",
+        "argv": [
+          "--check",
+          "src/cli.ts"
+        ],
+        "cwd": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\data\\native-pilot\\2026-11-08T03-36-35-394Z-2120\\checker-evidence-c9714485-cd69-4170-9bc3-d2729b77c0bb\\candidate",
+        "environment_keys": [
+          "AGENTNEXUS_PILOT_SCRATCH",
+          "NODE_OPTIONS",
+          "NODE_PATH",
+          "SystemRoot",
+          "TEMP",
+          "TMP",
+          "WINDIR"
+        ],
+        "status": "PASS",
+        "started_at": "2026-11-08T03:37:24.760Z",
+        "ended_at": "2026-11-08T03:37:24.917Z",
+        "exit_code": 0,
+        "signal": null,
+        "close_observed": true,
+        "timed_out": false,
+        "output_limit": false,
+        "termination_requested": false,
+        "spawn_error": null,
+        "io_errors": [],
+        "stdout": "",
+        "stderr": "",
+        "stdout_bytes": 0,
+        "stderr_bytes": 0,
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "observed_stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "observed_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "output_truncated": false,
+        "stdout_path": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\data\\native-pilot\\2026-11-08T03-36-35-394Z-2120\\checker-evidence-c9714485-cd69-4170-9bc3-d2729b77c0bb\\syntax-56c39ec5-939d-4d66-b3a5-0298ac50452f.stdout.txt",
+        "stderr_path": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\data\\native-pilot\\2026-11-08T03-36-35-394Z-2120\\checker-evidence-c9714485-cd69-4170-9bc3-d2729b77c0bb\\syntax-56c39ec5-939d-4d66-b3a5-0298ac50452f.stderr.txt"
+      },
+      {
+        "id": "syntax-5af526be-985c-4b4e-9e95-96ab6100a851",
+        "kind": "syntax",
+        "executable": "D:\\Nodejs\\node.exe",
+        "executable_sha256": "3331e1ffe19874215472217c5e94f5a0c6d8e18c4ac7111d3937aa0ad5e9b4a5",
+        "argv": [
+          "--check",
+          "src/entry.ts"
+        ],
+        "cwd": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\data\\native-pilot\\2026-11-08T03-36-35-394Z-2120\\checker-evidence-c9714485-cd69-4170-9bc3-d2729b77c0bb\\candidate",
+        "environment_keys": [
+          "AGENTNEXUS_PILOT_SCRATCH",
+          "NODE_OPTIONS",
+          "NODE_PATH",
+          "SystemRoot",
+          "TEMP",
+          "TMP",
+          "WINDIR"
+        ],
+        "status": "PASS",
+        "started_at": "2026-11-08T03:37:25.045Z",
+        "ended_at": "2026-11-08T03:37:25.125Z",
+        "exit_code": 0,
+        "signal": null,
+        "close_observed": true,
+        "timed_out": false,
+        "output_limit": false,
+        "termination_requested": false,
+        "spawn_error": null,
+        "io_errors": [],
+        "stdout": "",
+        "stderr": "",
+        "stdout_bytes": 0,
+        "stderr_bytes": 0,
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "observed_stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "observed_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "output_truncated": false,
+        "stdout_path": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\data\\native-pilot\\2026-11-08T03-36-35-394Z-2120\\checker-evidence-c9714485-cd69-4170-9bc3-d2729b77c0bb\\syntax-5af526be-985c-4b4e-9e95-96ab6100a851.stdout.txt",
+        "stderr_path": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\data\\native-pilot\\2026-11-08T03-36-35-394Z-2120\\checker-evidence-c9714485-cd69-4170-9bc3-d2729b77c0bb\\syntax-5af526be-985c-4b4e-9e95-96ab6100a851.stderr.txt"
+      },
+      {
+        "id": "syntax-02250210-b004-4891-b875-f2a33d8b6975",
+        "kind": "syntax",
+        "executable": "D:\\Nodejs\\node.exe",
+        "executable_sha256": "3331e1ffe19874215472217c5e94f5a0c6d8e18c4ac7111d3937aa0ad5e9b4a5",
+        "argv": [
+          "--check",
+          "tests/model.test.ts"
+        ],
+        "cwd": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\data\\native-pilot\\2026-11-08T03-36-35-394Z-2120\\checker-evidence-c9714485-cd69-4170-9bc3-d2729b77c0bb\\candidate",
+        "environment_keys": [
+          "AGENTNEXUS_PILOT_SCRATCH",
+          "NODE_OPTIONS",
+          "NODE_PATH",
+          "SystemRoot",
+          "TEMP",
+          "TMP",
+          "WINDIR"
+        ],
+        "status": "PASS",
+        "started_at": "2026-11-08T03:37:25.244Z",
+        "ended_at": "2026-11-08T03:37:25.325Z",
+        "exit_code": 0,
+        "signal": null,
+        "close_observed": true,
+        "timed_out": false,
+        "output_limit": false,
+        "termination_requested": false,
+        "spawn_error": null,
+        "io_errors": [],
+        "stdout": "",
+        "stderr": "",
+        "stdout_bytes": 0,
+        "stderr_bytes": 0,
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "observed_stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "observed_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "output_truncated": false,
+        "stdout_path": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\data\\native-pilot\\2026-11-08T03-36-35-394Z-2120\\checker-evidence-c9714485-cd69-4170-9bc3-d2729b77c0bb\\syntax-02250210-b004-4891-b875-f2a33d8b6975.stdout.txt",
+        "stderr_path": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\data\\native-pilot\\2026-11-08T03-36-35-394Z-2120\\checker-evidence-c9714485-cd69-4170-9bc3-d2729b77c0bb\\syntax-02250210-b004-4891-b875-f2a33d8b6975.stderr.txt"
+      },
+      {
+        "id": "syntax-5b411df7-bebe-4416-bab4-b924421d2313",
+        "kind": "syntax",
+        "executable": "D:\\Nodejs\\node.exe",
+        "executable_sha256": "3331e1ffe19874215472217c5e94f5a0c6d8e18c4ac7111d3937aa0ad5e9b4a5",
+        "argv": [
+          "--check",
+          "tests/analytics.test.ts"
+        ],
+        "cwd": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\data\\native-pilot\\2026-11-08T03-36-35-394Z-2120\\checker-evidence-c9714485-cd69-4170-9bc3-d2729b77c0bb\\candidate",
+        "environment_keys": [
+          "AGENTNEXUS_PILOT_SCRATCH",
+          "NODE_OPTIONS",
+          "NODE_PATH",
+          "SystemRoot",
+          "TEMP",
+          "TMP",
+          "WINDIR"
+        ],
+        "status": "PASS",
+        "started_at": "2026-11-08T03:37:25.459Z",
+        "ended_at": "2026-11-08T03:37:25.543Z",
+        "exit_code": 0,
+        "signal": null,
+        "close_observed": true,
+        "timed_out": false,
+        "output_limit": false,
+        "termination_requested": false,
+        "spawn_error": null,
+        "io_errors": [],
+        "stdout": "",
+        "stderr": "",
+        "stdout_bytes": 0,
+        "stderr_bytes": 0,
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "observed_stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "observed_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "output_truncated": false,
+        "stdout_path": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\data\\native-pilot\\2026-11-08T03-36-35-394Z-2120\\checker-evidence-c9714485-cd69-4170-9bc3-d2729b77c0bb\\syntax-5b411df7-bebe-4416-bab4-b924421d2313.stdout.txt",
+        "stderr_path": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\data\\native-pilot\\2026-11-08T03-36-35-394Z-2120\\checker-evidence-c9714485-cd69-4170-9bc3-d2729b77c0bb\\syntax-5b411df7-bebe-4416-bab4-b924421d2313.stderr.txt"
+      },
+      {
+        "id": "syntax-7776d8e9-73ea-4966-a6c4-54b5ac8fd950",
+        "kind": "syntax",
+        "executable": "D:\\Nodejs\\node.exe",
+        "executable_sha256": "3331e1ffe19874215472217c5e94f5a0c6d8e18c4ac7111d3937aa0ad5e9b4a5",
+        "argv": [
+          "--check",
+          "tests/cli.test.ts"
+        ],
+        "cwd": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\data\\native-pilot\\2026-11-08T03-36-35-394Z-2120\\checker-evidence-c9714485-cd69-4170-9bc3-d2729b77c0bb\\candidate",
+        "environment_keys": [
+          "AGENTNEXUS_PILOT_SCRATCH",
+          "NODE_OPTIONS",
+          "NODE_PATH",
+          "SystemRoot",
+          "TEMP",
+          "TMP",
+          "WINDIR"
+        ],
+        "status": "PASS",
+        "started_at": "2026-11-08T03:37:25.671Z",
+        "ended_at": "2026-11-08T03:37:25.759Z",
+        "exit_code": 0,
+        "signal": null,
+        "close_observed": true,
+        "timed_out": false,
+        "output_limit": false,
+        "termination_requested": false,
+        "spawn_error": null,
+        "io_errors": [],
+        "stdout": "",
+        "stderr": "",
+        "stdout_bytes": 0,
+        "stderr_bytes": 0,
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "observed_stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "observed_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "output_truncated": false,
+        "stdout_path": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\data\\native-pilot\\2026-11-08T03-36-35-394Z-2120\\checker-evidence-c9714485-cd69-4170-9bc3-d2729b77c0bb\\syntax-7776d8e9-73ea-4966-a6c4-54b5ac8fd950.stdout.txt",
+        "stderr_path": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\data\\native-pilot\\2026-11-08T03-36-35-394Z-2120\\checker-evidence-c9714485-cd69-4170-9bc3-d2729b77c0bb\\syntax-7776d8e9-73ea-4966-a6c4-54b5ac8fd950.stderr.txt"
+      }
+    ]
+  },
+  "types": {
+    "status": "PASS",
+    "commands": [
+      {
+        "id": "types-feb1a639-7df0-455e-8f6f-e82aec9f3e88",
+        "kind": "types",
+        "executable": "D:\\Nodejs\\node.exe",
+        "executable_sha256": "3331e1ffe19874215472217c5e94f5a0c6d8e18c4ac7111d3937aa0ad5e9b4a5",
+        "argv": [
+          "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.5\\type-tools\\node_modules\\typescript\\lib\\tsc.js",
+          "--noEmit",
+          "--strict",
+          "--target",
+          "ES2024",
+          "--lib",
+          "ES2024",
+          "--module",
+          "NodeNext",
+          "--moduleResolution",
+          "NodeNext",
+          "--allowImportingTsExtensions",
+          "--skipLibCheck",
+          "false",
+          "--forceConsistentCasingInFileNames",
+          "true",
+          "--types",
+          "node",
+          "--typeRoots",
+          "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.5\\type-tools\\node_modules\\@types",
+          "--pretty",
+          "false",
+          "src/model.ts",
+          "src/analytics.ts",
+          "src/cli.ts",
+          "src/entry.ts",
+          "tests/model.test.ts",
+          "tests/analytics.test.ts",
+          "tests/cli.test.ts"
+        ],
+        "cwd": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\data\\native-pilot\\2026-11-08T03-36-35-394Z-2120\\checker-evidence-c9714485-cd69-4170-9bc3-d2729b77c0bb\\candidate",
+        "environment_keys": [
+          "AGENTNEXUS_PILOT_SCRATCH",
+          "NODE_OPTIONS",
+          "NODE_PATH",
+          "SystemRoot",
+          "TEMP",
+          "TMP",
+          "WINDIR"
+        ],
+        "status": "PASS",
+        "started_at": "2026-11-08T03:37:25.888Z",
+        "ended_at": "2026-11-08T03:37:26.900Z",
+        "exit_code": 0,
+        "signal": null,
+        "close_observed": true,
+        "timed_out": false,
+        "output_limit": false,
+        "termination_requested": false,
+        "spawn_error": null,
+        "io_errors": [],
+        "stdout": "",
+        "stderr": "",
+        "stdout_bytes": 0,
+        "stderr_bytes": 0,
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "observed_stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "observed_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "output_truncated": false,
+        "stdout_path": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\data\\native-pilot\\2026-11-08T03-36-35-394Z-2120\\checker-evidence-c9714485-cd69-4170-9bc3-d2729b77c0bb\\types-feb1a639-7df0-455e-8f6f-e82aec9f3e88.stdout.txt",
+        "stderr_path": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\data\\native-pilot\\2026-11-08T03-36-35-394Z-2120\\checker-evidence-c9714485-cd69-4170-9bc3-d2729b77c0bb\\types-feb1a639-7df0-455e-8f6f-e82aec9f3e88.stderr.txt"
+      }
+    ]
+  },
+  "tests": {
+    "status": "FAIL",
+    "commands": [
+      {
+        "id": "tests-2e2f6d0c-52a9-4277-95b0-200afa7b4c4b",
+        "kind": "tests",
+        "executable": "D:\\Nodejs\\node.exe",
+        "executable_sha256": "3331e1ffe19874215472217c5e94f5a0c6d8e18c4ac7111d3937aa0ad5e9b4a5",
+        "argv": [
+          "--test",
+          "--test-concurrency=1",
+          "tests/model.test.ts",
+          "tests/analytics.test.ts",
+          "tests/cli.test.ts"
+        ],
+        "cwd": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\data\\native-pilot\\2026-11-08T03-36-35-394Z-2120\\checker-evidence-c9714485-cd69-4170-9bc3-d2729b77c0bb\\candidate",
+        "environment_keys": [
+          "AGENTNEXUS_PILOT_SCRATCH",
+          "NODE_OPTIONS",
+          "NODE_PATH",
+          "SystemRoot",
+          "TEMP",
+          "TMP",
+          "WINDIR"
+        ],
+        "status": "FAIL",
+        "started_at": "2026-11-08T03:37:27.018Z",
+        "ended_at": "2026-11-08T03:37:28.243Z",
+        "exit_code": 1,
+        "signal": null,
+        "close_observed": true,
+        "timed_out": false,
+        "output_limit": false,
+        "termination_requested": false,
+        "spawn_error": null,
+        "io_errors": [],
+        "stdout": "✔ analytics uses estimate weights rather than task counts (0.7063ms)\n✖ empty and zero weight analytics are finite zero (0.6128ms)\n✔ analytics rejects duplicates, negative values and overflow (0.3678ms)\n✔ CLI roundtrip and bad command preserve previous valid state (0.9323ms)\n{\"error\":\"EEXIST\"}\n✔ real CLI persists, rejects conflicts, corruption and a held lock (722.0855ms)\n✔ model CRUD, version fence and transitions (1.0562ms)\n✔ model rejects duplicates, malformed data and unsafe integers (0.3121ms)\n✔ read snapshots cannot mutate stored data (0.083ms)\n✔ capacity rejection preserves parseable data (42.2736ms)\n✔ oversized JSON input is rejected before parsing (7.5667ms)\nℹ tests 10\nℹ suites 0\nℹ pass 9\nℹ fail 1\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 1132.2132\n\n✖ failing tests:\n\ntest at tests\\analytics.test.ts:4:1\n✖ empty and zero weight analytics are finite zero (0.6128ms)\n  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n  \n  NaN !== 0\n  \n      at TestContext.<anonymous> (file:///I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.7/v/r-cc1c68b6fcfb/data/native-pilot/2026-11-08T03-36-35-394Z-2120/checker-evidence-c9714485-cd69-4170-9bc3-d2729b77c0bb/candidate/tests/analytics.test.ts:4:68)\n      at Test.runInAsyncScope (node:async_hooks:227:14)\n      at Test.run (node:internal/test_runner/test:1201:25)\n      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)\n      at Test.postRun (node:internal/test_runner/test:1330:19)\n      at Test.run (node:internal/test_runner/test:1258:12)\n      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:385:3) {\n    generatedMessage: true,\n    code: 'ERR_ASSERTION',\n    actual: NaN,\n    expected: 0,\n    operator: 'strictEqual',\n    diff: 'simple'\n  }\n",
+        "stderr": "",
+        "stdout_bytes": 1817,
+        "stderr_bytes": 0,
+        "stdout_sha256": "527d3917b0aa4398539e612d8287ff5ebd6f98926ab7f64d112d6fbdeb60f709",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "observed_stdout_sha256": "527d3917b0aa4398539e612d8287ff5ebd6f98926ab7f64d112d6fbdeb60f709",
+        "observed_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "output_truncated": false,
+        "stdout_path": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\data\\native-pilot\\2026-11-08T03-36-35-394Z-2120\\checker-evidence-c9714485-cd69-4170-9bc3-d2729b77c0bb\\tests-2e2f6d0c-52a9-4277-95b0-200afa7b4c4b.stdout.txt",
+        "stderr_path": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\data\\native-pilot\\2026-11-08T03-36-35-394Z-2120\\checker-evidence-c9714485-cd69-4170-9bc3-d2729b77c0bb\\tests-2e2f6d0c-52a9-4277-95b0-200afa7b4c4b.stderr.txt"
+      }
+    ]
+  },
+  "findings": [
+    {
+      "path": "tests/analytics.test.ts",
+      "line": 4,
+      "description": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:",
+      "reproduction": "{\"argv\":[\"--test\",\"--test-concurrency=1\",\"tests/model.test.ts\",\"tests/analytics.test.ts\",\"tests/cli.test.ts\"],\"cwd\":\"I:\\\\AI_AgentNexus\\\\.workflow-kit\\\\runtime\\\\AgentNexus-M1.7\\\\v\\\\r-cc1c68b6fcfb\\\\data\\\\native-pilot\\\\2026-11-08T03-36-35-394Z-2120\\\\checker-evidence-c9714485-cd69-4170-9bc3-d2729b77c0bb\\\\candidate\",\"executable\":\"D:\\\\Nodejs\\\\node.exe\"}",
+      "evidence": {
+        "command_id": "tests-2e2f6d0c-52a9-4277-95b0-200afa7b4c4b",
+        "excerpt": "✖ failing tests:\n\ntest at tests/analytics.test.ts:4:1\n✖ empty and zero weight analytics are finite zero (0.6128ms)\n  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n  \n  NaN !== 0\n  \n      at TestContext.<anonymous> (file:///I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M1.7/v/r-cc1c68b6fcfb/data/native-pilot/2026-11-08T03-36-35-394Z-2120/checker-evidence-c9714485-cd69-4170-9bc3-d2729b77c0bb/candidate/tests/analytics.test.ts:4:68)",
+        "stdout_path": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\data\\native-pilot\\2026-11-08T03-36-35-394Z-2120\\checker-evidence-c9714485-cd69-4170-9bc3-d2729b77c0bb\\tests-2e2f6d0c-52a9-4277-95b0-200afa7b4c4b.stdout.txt",
+        "stderr_path": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\data\\native-pilot\\2026-11-08T03-36-35-394Z-2120\\checker-evidence-c9714485-cd69-4170-9bc3-d2729b77c0bb\\tests-2e2f6d0c-52a9-4277-95b0-200afa7b4c4b.stderr.txt"
+      }
+    }
+  ],
+  "reason": "CHECK_COMMAND_FAILED: tests-2e2f6d0c-52a9-4277-95b0-200afa7b4c4b",
+  "toolchain": {
+    "node_version": "v24.15.0",
+    "node_sha256": "3331e1ffe19874215472217c5e94f5a0c6d8e18c4ac7111d3937aa0ad5e9b4a5",
+    "typescript_version": "5.9.3",
+    "node_types_version": "24.10.1",
+    "files": [
+      {
+        "path": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.5\\type-tools\\node_modules\\typescript\\package.json",
+        "sha256": "822ef7ca6452205657b6288b066481ecf508bfbf43455d715cf7d3ec457561e6"
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.5\\type-tools\\node_modules\\typescript\\lib\\tsc.js",
+        "sha256": "2cffde0b8c6760dfb0b5b0382bbb7e00ba6a8b2d981b9205b256a700a481d983"
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.5\\type-tools\\node_modules\\typescript\\lib\\_tsc.js",
+        "sha256": "e8f349eabd48486bdb2bf9dc1a00c89d58297270c54b745838879e2859194419"
+      },
+      {
+        "path": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.5\\type-tools\\node_modules\\@types\\node\\package.json",
+        "sha256": "2135b9ba75cf7d7075206d20b8a3fd7a6b05f9680b38b62a86d1882296b8297a"
+      }
+    ]
+  },
+  "limitation": "Host-approved code runs in a trusted local Node process. Node --check is recorded independently and does not replace mandatory strict TypeScript checking. No hostile-process sandbox, cumulative CPU qualification, descendant-tree exit or Agent PROCESS capability is claimed."
+}

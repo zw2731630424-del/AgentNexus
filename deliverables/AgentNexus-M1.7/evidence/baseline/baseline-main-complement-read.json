@@ -1,0 +1,1240 @@
+{
+  "schema": "agentnexus/m17/baseline-main-complement-read/1",
+  "generated_at": "2026-11-08 03:58:36 UTC",
+  "reviewer": "Codex engineering subagent /root/baseline_execution",
+  "phase": "M1.7_PHASE0_BASELINE_READ_COVERAGE_COMPLEMENT",
+  "evidence_class": "ENGINEERING_SOURCE_READING_RECORD",
+  "not_pilot_agent_runtime_evidence": true,
+  "baseline_source_root": "deliverables/AgentNexus-M1.6.1/source",
+  "only_output_path": ".workflow-kit/runtime/AgentNexus-M1.7/baseline-main-complement-read.json",
+  "source_or_history_modified": false,
+  "tests_executed": false,
+  "provider_connected": false,
+  "real_credentials_read": false,
+  "operating_system_qualification_run": false,
+  "operating_system_settings_changed": false,
+  "requested_scope_file_count": 26,
+  "additional_file_count": 2,
+  "total_complete_read_file_count": 28,
+  "total_complete_read_bytes": 935911,
+  "scope_resolution": {
+    "method": "Exact original 140-file source manifest minus prior records, then distinguish TARGETED from FULL before union.",
+    "path_corrections": [
+      {
+        "request": "config/features.json",
+        "actual": "config/agentnexus/features.json"
+      },
+      {
+        "request": "config/policies.json",
+        "actual": "config/agentnexus/policies.json"
+      },
+      {
+        "request": "tests/agentnexus/m161-toctou-worker.ts",
+        "actual": "tests/agentnexus/m161-toctou-worker.mjs"
+      }
+    ],
+    "additional_authorization": "Parent confirmed full read of index.ts and scheduler.ts after targeted-only prior coverage was reported; no prior ledger was edited.",
+    "targeted_records_not_counted_as_full": [
+      {
+        "path": "deliverables/AgentNexus-M1.6.1/source/src/agentnexus/harness/index.ts",
+        "record": {
+          "path": "deliverables/AgentNexus-M1.6.1/source/src/agentnexus/harness/index.ts",
+          "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\src\\agentnexus\\harness\\index.ts",
+          "sha256": "8ffad0e7248abcf1fd9fa1ddd7d95ab240a92010d2892b37a4b8229864554dc5",
+          "bytes": 27950,
+          "lines": 267,
+          "coverage": "TARGETED_CONTENT_READ",
+          "read_ranges_1_based": [
+            [
+              80,
+              120
+            ],
+            [
+              180,
+              212
+            ]
+          ],
+          "kind": "integration or governance follow-up"
+        }
+      },
+      {
+        "path": "deliverables/AgentNexus-M1.6.1/source/src/agentnexus/harness/scheduler.ts",
+        "record": {
+          "path": "deliverables/AgentNexus-M1.6.1/source/src/agentnexus/harness/scheduler.ts",
+          "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\src\\agentnexus\\harness\\scheduler.ts",
+          "sha256": "8808d36d03ec3570b6b763599f8f6dd5aaa734373c839acc057e5094606d7433",
+          "bytes": 44020,
+          "lines": 432,
+          "coverage": "TARGETED_CONTENT_READ",
+          "read_ranges_1_based": [
+            [
+              66,
+              152
+            ],
+            [
+              301,
+              397
+            ],
+            [
+              409,
+              431
+            ]
+          ],
+          "kind": "integration or governance follow-up"
+        }
+      }
+    ]
+  },
+  "read_method": {
+    "original_text": "26 files, including the two added Harness files, were emitted as complete original UTF-8 text in contiguous bounded character chunks; no truncation accepted.",
+    "json_catalogs": "Both complete UTF-8 catalogs were parsed, then every key/value and ordered array element was read in a reversible view: common fields present in every object record plus every record override, with repeated values referenced only through a fully displayed literal dictionary. Whitespace/object formatting was not rendered byte-for-byte; no field, record or value was omitted.",
+    "json_round_trip": "Reference restoration equals the common-field view; adding every ordered record override to its shared fields equals the original parsed JSON node-for-node. Strict final parse rejects duplicate keys and non-finite constants. Source-byte SHA256 is separate from rendered-view SHA256.",
+    "coverage_validation": "Contiguous displayed ranges cover the full original text or full lossless JSON view. Whole original byte/character/line ranges are recorded separately; full catalog semantics are not mislabeled as a complete verbatim whitespace transcript.",
+    "json_view_generation_python": "from pathlib import Path\nimport json,hashlib,collections,sys\nsys.stdout.reconfigure(encoding='utf-8',newline='')\ndef view_for(name):\n p=Path('deliverables/AgentNexus-M1.6.1/source/config/agentnexus/'+name+'.json')\n b=p.read_bytes();body=b.decode('utf-8-sig');original=json.loads(body);view={};decoded={}\n for key,value in original.items():\n  if isinstance(value,list) and value and all(isinstance(row,dict) for row in value):\n   keys=[k for k in value[0] if all(k in row for row in value)]\n   base={}\n   for k in keys:\n    modes=collections.Counter(json.dumps(row[k],ensure_ascii=False,sort_keys=True,separators=(',',':')) for row in value)\n    common,count=modes.most_common(1)[0]\n    if count>len(value)//2:base[k]=json.loads(common)\n   rows=[{k:v for k,v in row.items() if k not in base or v!=base[k]} for row in value]\n   view[key]={'COMMON_FIELDS_IN_EVERY_RECORD':base,'ORDERED_RECORD_OVERRIDES':rows}\n   decoded[key]=[{**base,**row} for row in rows]\n  else:view[key]=value;decoded[key]=value\n assert decoded==original\n counts=collections.Counter()\n def token(node):return json.dumps(node,ensure_ascii=False,sort_keys=True,separators=(',',':'))\n def count_values(node):\n  key=token(node)\n  if len(key)>64:counts[key]+=1\n  if isinstance(node,dict):\n   assert 'REPEATED_VALUE_REF' not in node\n   for child in node.values():count_values(child)\n  elif isinstance(node,list):\n   for child in node:count_values(child)\n count_values(view);references=[];index={}\n def encode(node):\n  key=token(node)\n  if len(key)>64 and counts[key]>1:\n   if key not in index:index[key]=len(references);references.append(node)\n   return {'REPEATED_VALUE_REF':index[key]}\n  if isinstance(node,dict):return {k:encode(v) for k,v in node.items()}\n  if isinstance(node,list):return [encode(v) for v in node]\n  return node\n encoded=encode(view)\n def restore(node):\n  if isinstance(node,dict):\n   if list(node)==['REPEATED_VALUE_REF']:return references[node['REPEATED_VALUE_REF']]\n   return {k:restore(v) for k,v in node.items()}\n  if isinstance(node,list):return [restore(v) for v in node]\n  return node\n assert restore(encoded)==view\n text=json.dumps({'FORMAT':'LOSSLESS_COMMON_FIELDS_AND_LITERAL_REPEATED_VALUES','REFERENCES':references,'CONTENT':encoded},ensure_ascii=False,separators=(',',':'))\n return text,{'path':p.as_posix(),'source_bytes':len(b),'source_sha256':hashlib.sha256(b).hexdigest(),'source_characters':len(body),'source_lines':len(body.splitlines()),'view_characters':len(text),'method':'LOSSLESS_JSON_COMMON_FIELDS_PLUS_EVERY_ORDERED_RECORD_OVERRIDE','round_trip_all_nodes_equal':True}\ndef show(name,start,end):\n text,meta=view_for(name);meta.update({'view_range_half_open':[start,min(end,len(text))]});print(json.dumps(meta,ensure_ascii=True));sys.stdout.write(text[start:end]);sys.stdout.write('\\n')\n",
+    "no_rereview": "This supplements reading provenance and does not replace or rerun prior implementation/security reviews or tests."
+  },
+  "baseline_manifest": {
+    "path": ".workflow-kit/runtime/AgentNexus-M1.7/baseline-correct-tools/verification/2026-11-08T02-09-52-246Z-44752/source-manifest.json",
+    "sha256": "bf7dbbc1e8825ed6e750e5e9f2cba11cb861f76fc5a32f3f6b8421232dcc46c1",
+    "source_files": 140,
+    "source_set_sha256": "d14401d7c39b069555f43c60360d5aab83e40bb32995008652cfcefb9862e9da",
+    "source_set_encoding": "UTF8(codepoint-sorted relative_path + NUL + sha256 + LF)"
+  },
+  "prior_read_reports": [
+    {
+      "path": ".workflow-kit/runtime/AgentNexus-M1.7/baseline-context-gates-read.json",
+      "source_rows": 17,
+      "sha256": "db46f25a54ed2c85a11f640cda5b67412b55f063426c20416eebb1a0545ab469"
+    },
+    {
+      "path": ".workflow-kit/runtime/AgentNexus-M1.7/baseline-execution-read.json",
+      "source_rows": 77,
+      "sha256": "08f81a17fa1ec261afa1d947adde69a0d2f0911e8152358a608450d49b7ec10a"
+    },
+    {
+      "path": ".workflow-kit/runtime/AgentNexus-M1.7/baseline-storage-models-read.json",
+      "source_rows": 21,
+      "sha256": "a8b2a26fee20e274b1359231373d18afb223a7f8937e8ac3da28f6ba98987d39"
+    }
+  ],
+  "combined_coverage": {
+    "prior_any_content_source_files": 114,
+    "prior_full_content_unique_source_files": 112,
+    "prior_targeted_only_source_files": 2,
+    "current_complete_files": 28,
+    "requested_new_unrecorded_paths": 26,
+    "additional_targeted_paths_now_full": 2,
+    "combined_full_content_source_files": 140,
+    "manifest_source_files": 140,
+    "missing_full_content_paths": [],
+    "extra_source_paths": [],
+    "current_source_matches_manifest": true,
+    "prior_record_source_hashes_match_current": true,
+    "source_set_sha256": "d14401d7c39b069555f43c60360d5aab83e40bb32995008652cfcefb9862e9da",
+    "method": "FULL coverage union only. Existing TARGETED declarations remain unchanged and are fulfilled by this report; non-source acceptance/governance materials are excluded from the 140-file source count.",
+    "status": "COMPLETE_SOURCE_READ_COVERAGE"
+  },
+  "files": [
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/config/agentnexus/features.json",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\config\\agentnexus\\features.json",
+      "relative_path": "config/agentnexus/features.json",
+      "bytes": 471007,
+      "sha256": "dea4b5ae566ae8ee3ec2cd90ac041a09f66e5d703028a4375d4e3cb3358844e0",
+      "utf8_characters": 425191,
+      "lines": 14286,
+      "requested_scope": true,
+      "additional_to_complete_targeted_record": false,
+      "complete": true,
+      "content_read": "FULL",
+      "read_method": "FULL_JSON_CONTENT_IN_LOSSLESS_COMMON_FIELDS_AND_LITERAL_REFERENCE_VIEW",
+      "read_ranges_1_based": [
+        [
+          1,
+          14286
+        ]
+      ],
+      "source_text_range_half_open": [
+        0,
+        425191
+      ],
+      "original_text_rendered_verbatim_in_full": false,
+      "displayed_representation": {
+        "kind": "LOSSLESS_JSON_SEMANTIC_VIEW",
+        "characters": 174455,
+        "char_ranges_half_open": [
+          [
+            0,
+            18000
+          ],
+          [
+            18000,
+            36000
+          ],
+          [
+            36000,
+            54000
+          ],
+          [
+            54000,
+            72000
+          ],
+          [
+            72000,
+            90000
+          ],
+          [
+            90000,
+            108000
+          ],
+          [
+            108000,
+            126000
+          ],
+          [
+            126000,
+            144000
+          ],
+          [
+            144000,
+            162000
+          ],
+          [
+            162000,
+            174455
+          ]
+        ],
+        "sha256": "250f3f976bf2dd88c298f205d4f1cf8e01f12fd361bbd19830b3e2c19316a54e",
+        "round_trip_all_nodes_equal": true,
+        "source_duplicate_json_keys": false,
+        "record_counts": {
+          "features": 193,
+          "change_log": 142,
+          "m16_implemented_features": 43,
+          "m16_blocked_features": 8,
+          "m161_implemented_features": 3
+        }
+      },
+      "sha256_stable_across_read_chunks": true
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/config/agentnexus/policies.json",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\config\\agentnexus\\policies.json",
+      "relative_path": "config/agentnexus/policies.json",
+      "bytes": 110363,
+      "sha256": "8a10276d65e5a62b248fe6987fe15331e9e7b7ca709914262797ee0c3a7ee552",
+      "utf8_characters": 91625,
+      "lines": 2693,
+      "requested_scope": true,
+      "additional_to_complete_targeted_record": false,
+      "complete": true,
+      "content_read": "FULL",
+      "read_method": "FULL_JSON_CONTENT_IN_LOSSLESS_COMMON_FIELDS_AND_LITERAL_REFERENCE_VIEW",
+      "read_ranges_1_based": [
+        [
+          1,
+          2693
+        ]
+      ],
+      "source_text_range_half_open": [
+        0,
+        91625
+      ],
+      "original_text_rendered_verbatim_in_full": false,
+      "displayed_representation": {
+        "kind": "LOSSLESS_JSON_SEMANTIC_VIEW",
+        "characters": 48138,
+        "char_ranges_half_open": [
+          [
+            0,
+            18000
+          ],
+          [
+            18000,
+            36000
+          ],
+          [
+            36000,
+            48138
+          ]
+        ],
+        "sha256": "058cefb70e902d79c55e0d0f2289b3ac474d486009041c1db4c3ff9685fbd352",
+        "round_trip_all_nodes_equal": true,
+        "source_duplicate_json_keys": false,
+        "record_counts": {
+          "policies": 52,
+          "change_log": 34
+        }
+      },
+      "sha256_stable_across_read_chunks": true
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/package-lock.json",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\package-lock.json",
+      "relative_path": "package-lock.json",
+      "bytes": 1546,
+      "sha256": "ec595791e0598ec45351799ef5ae7a3d591a09dcb30f7a557097a3339542558f",
+      "utf8_characters": 1546,
+      "lines": 50,
+      "requested_scope": true,
+      "additional_to_complete_targeted_record": false,
+      "complete": true,
+      "content_read": "FULL",
+      "read_method": "FULL_ORIGINAL_UTF8_TEXT_CHUNK_READ",
+      "read_ranges_1_based": [
+        [
+          1,
+          50
+        ]
+      ],
+      "source_text_range_half_open": [
+        0,
+        1546
+      ],
+      "original_text_rendered_verbatim_in_full": true,
+      "displayed_representation": {
+        "kind": "ORIGINAL_UTF8_TEXT",
+        "characters": 1546,
+        "char_ranges_half_open": [
+          [
+            0,
+            1546
+          ]
+        ]
+      },
+      "sha256_stable_across_read_chunks": true
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/package.json",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\package.json",
+      "relative_path": "package.json",
+      "bytes": 672,
+      "sha256": "97c5419e043ca2478833c47f25b060757c232cc9a0b6a57e1724bdb74dd6c6ad",
+      "utf8_characters": 672,
+      "lines": 23,
+      "requested_scope": true,
+      "additional_to_complete_targeted_record": false,
+      "complete": true,
+      "content_read": "FULL",
+      "read_method": "FULL_ORIGINAL_UTF8_TEXT_CHUNK_READ",
+      "read_ranges_1_based": [
+        [
+          1,
+          23
+        ]
+      ],
+      "source_text_range_half_open": [
+        0,
+        672
+      ],
+      "original_text_rendered_verbatim_in_full": true,
+      "displayed_representation": {
+        "kind": "ORIGINAL_UTF8_TEXT",
+        "characters": 672,
+        "char_ranges_half_open": [
+          [
+            0,
+            672
+          ]
+        ]
+      },
+      "sha256_stable_across_read_chunks": true
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/src/agentnexus/checkers/powershell_ast.ps1",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\src\\agentnexus\\checkers\\powershell_ast.ps1",
+      "relative_path": "src/agentnexus/checkers/powershell_ast.ps1",
+      "bytes": 3780,
+      "sha256": "90079d41e2083df61ee87456cbe81a4d1863b2f4053df0ab9e78b668e3789ae8",
+      "utf8_characters": 3780,
+      "lines": 87,
+      "requested_scope": true,
+      "additional_to_complete_targeted_record": false,
+      "complete": true,
+      "content_read": "FULL",
+      "read_method": "FULL_ORIGINAL_UTF8_TEXT_CHUNK_READ",
+      "read_ranges_1_based": [
+        [
+          1,
+          87
+        ]
+      ],
+      "source_text_range_half_open": [
+        0,
+        3780
+      ],
+      "original_text_rendered_verbatim_in_full": true,
+      "displayed_representation": {
+        "kind": "ORIGINAL_UTF8_TEXT",
+        "characters": 3780,
+        "char_ranges_half_open": [
+          [
+            0,
+            3780
+          ]
+        ]
+      },
+      "sha256_stable_across_read_chunks": true
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/src/agentnexus/checkers/python_ast.py",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\src\\agentnexus\\checkers\\python_ast.py",
+      "relative_path": "src/agentnexus/checkers/python_ast.py",
+      "bytes": 2998,
+      "sha256": "a9595eca900b49c4ec88e82599c28569b01e543ed8ecb52908ae0772b104fc6e",
+      "utf8_characters": 2998,
+      "lines": 73,
+      "requested_scope": true,
+      "additional_to_complete_targeted_record": false,
+      "complete": true,
+      "content_read": "FULL",
+      "read_method": "FULL_ORIGINAL_UTF8_TEXT_CHUNK_READ",
+      "read_ranges_1_based": [
+        [
+          1,
+          73
+        ]
+      ],
+      "source_text_range_half_open": [
+        0,
+        2998
+      ],
+      "original_text_rendered_verbatim_in_full": true,
+      "displayed_representation": {
+        "kind": "ORIGINAL_UTF8_TEXT",
+        "characters": 2998,
+        "char_ranges_half_open": [
+          [
+            0,
+            2998
+          ]
+        ]
+      },
+      "sha256_stable_across_read_chunks": true
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/src/agentnexus/cli.ts",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\src\\agentnexus\\cli.ts",
+      "relative_path": "src/agentnexus/cli.ts",
+      "bytes": 1927,
+      "sha256": "21b22392926ebe706f3d2a382205a7ed0afcf9477b619707df250dd2089334bb",
+      "utf8_characters": 1927,
+      "lines": 28,
+      "requested_scope": true,
+      "additional_to_complete_targeted_record": false,
+      "complete": true,
+      "content_read": "FULL",
+      "read_method": "FULL_ORIGINAL_UTF8_TEXT_CHUNK_READ",
+      "read_ranges_1_based": [
+        [
+          1,
+          28
+        ]
+      ],
+      "source_text_range_half_open": [
+        0,
+        1927
+      ],
+      "original_text_rendered_verbatim_in_full": true,
+      "displayed_representation": {
+        "kind": "ORIGINAL_UTF8_TEXT",
+        "characters": 1927,
+        "char_ranges_half_open": [
+          [
+            0,
+            1927
+          ]
+        ]
+      },
+      "sha256_stable_across_read_chunks": true
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/src/agentnexus/control.ts",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\src\\agentnexus\\control.ts",
+      "relative_path": "src/agentnexus/control.ts",
+      "bytes": 8234,
+      "sha256": "3a549eb7bf5548b2b0453711899c0b7bfb1ea4d346dfad0bca11d4c166bf46d4",
+      "utf8_characters": 8234,
+      "lines": 106,
+      "requested_scope": true,
+      "additional_to_complete_targeted_record": false,
+      "complete": true,
+      "content_read": "FULL",
+      "read_method": "FULL_ORIGINAL_UTF8_TEXT_CHUNK_READ",
+      "read_ranges_1_based": [
+        [
+          1,
+          106
+        ]
+      ],
+      "source_text_range_half_open": [
+        0,
+        8234
+      ],
+      "original_text_rendered_verbatim_in_full": true,
+      "displayed_representation": {
+        "kind": "ORIGINAL_UTF8_TEXT",
+        "characters": 8234,
+        "char_ranges_half_open": [
+          [
+            0,
+            8234
+          ]
+        ]
+      },
+      "sha256_stable_across_read_chunks": true
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/src/agentnexus/diagnostics.ts",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\src\\agentnexus\\diagnostics.ts",
+      "relative_path": "src/agentnexus/diagnostics.ts",
+      "bytes": 31299,
+      "sha256": "d869a291068564eb942b05623f2b8e3f0f8348c40647215e1b85d86eef27d86d",
+      "utf8_characters": 31299,
+      "lines": 468,
+      "requested_scope": true,
+      "additional_to_complete_targeted_record": false,
+      "complete": true,
+      "content_read": "FULL",
+      "read_method": "FULL_ORIGINAL_UTF8_TEXT_CHUNK_READ",
+      "read_ranges_1_based": [
+        [
+          1,
+          468
+        ]
+      ],
+      "source_text_range_half_open": [
+        0,
+        31299
+      ],
+      "original_text_rendered_verbatim_in_full": true,
+      "displayed_representation": {
+        "kind": "ORIGINAL_UTF8_TEXT",
+        "characters": 31299,
+        "char_ranges_half_open": [
+          [
+            0,
+            16000
+          ],
+          [
+            16000,
+            31299
+          ]
+        ]
+      },
+      "sha256_stable_across_read_chunks": true
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/src/agentnexus/features.ts",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\src\\agentnexus\\features.ts",
+      "relative_path": "src/agentnexus/features.ts",
+      "bytes": 12008,
+      "sha256": "d6aafeafd88f6fd5660afa6b4f29b68625d70ffc8f8138f90db657b6acacda5e",
+      "utf8_characters": 12008,
+      "lines": 162,
+      "requested_scope": true,
+      "additional_to_complete_targeted_record": false,
+      "complete": true,
+      "content_read": "FULL",
+      "read_method": "FULL_ORIGINAL_UTF8_TEXT_CHUNK_READ",
+      "read_ranges_1_based": [
+        [
+          1,
+          162
+        ]
+      ],
+      "source_text_range_half_open": [
+        0,
+        12008
+      ],
+      "original_text_rendered_verbatim_in_full": true,
+      "displayed_representation": {
+        "kind": "ORIGINAL_UTF8_TEXT",
+        "characters": 12008,
+        "char_ranges_half_open": [
+          [
+            0,
+            12008
+          ]
+        ]
+      },
+      "sha256_stable_across_read_chunks": true
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/src/agentnexus/gateway.ts",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\src\\agentnexus\\gateway.ts",
+      "relative_path": "src/agentnexus/gateway.ts",
+      "bytes": 24460,
+      "sha256": "89324db842f7ce1cdac2c5dcaf73441ea84fff549b943953514b845b3b8670d3",
+      "utf8_characters": 24460,
+      "lines": 271,
+      "requested_scope": true,
+      "additional_to_complete_targeted_record": false,
+      "complete": true,
+      "content_read": "FULL",
+      "read_method": "FULL_ORIGINAL_UTF8_TEXT_CHUNK_READ",
+      "read_ranges_1_based": [
+        [
+          1,
+          271
+        ]
+      ],
+      "source_text_range_half_open": [
+        0,
+        24460
+      ],
+      "original_text_rendered_verbatim_in_full": true,
+      "displayed_representation": {
+        "kind": "ORIGINAL_UTF8_TEXT",
+        "characters": 24460,
+        "char_ranges_half_open": [
+          [
+            0,
+            14000
+          ],
+          [
+            14000,
+            24460
+          ]
+        ]
+      },
+      "sha256_stable_across_read_chunks": true
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/src/agentnexus/harness/agents.ts",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\src\\agentnexus\\harness\\agents.ts",
+      "relative_path": "src/agentnexus/harness/agents.ts",
+      "bytes": 10389,
+      "sha256": "0f96a316c617956f85bb232d5f24d34067be1f906e45ba382dd71529569db9bd",
+      "utf8_characters": 10389,
+      "lines": 108,
+      "requested_scope": true,
+      "additional_to_complete_targeted_record": false,
+      "complete": true,
+      "content_read": "FULL",
+      "read_method": "FULL_ORIGINAL_UTF8_TEXT_CHUNK_READ",
+      "read_ranges_1_based": [
+        [
+          1,
+          108
+        ]
+      ],
+      "source_text_range_half_open": [
+        0,
+        10389
+      ],
+      "original_text_rendered_verbatim_in_full": true,
+      "displayed_representation": {
+        "kind": "ORIGINAL_UTF8_TEXT",
+        "characters": 10389,
+        "char_ranges_half_open": [
+          [
+            0,
+            10389
+          ]
+        ]
+      },
+      "sha256_stable_across_read_chunks": true
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/src/agentnexus/harness/index.ts",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\src\\agentnexus\\harness\\index.ts",
+      "relative_path": "src/agentnexus/harness/index.ts",
+      "bytes": 27950,
+      "sha256": "8ffad0e7248abcf1fd9fa1ddd7d95ab240a92010d2892b37a4b8229864554dc5",
+      "utf8_characters": 27950,
+      "lines": 267,
+      "requested_scope": false,
+      "additional_to_complete_targeted_record": true,
+      "complete": true,
+      "content_read": "FULL",
+      "read_method": "FULL_ORIGINAL_UTF8_TEXT_CHUNK_READ",
+      "read_ranges_1_based": [
+        [
+          1,
+          267
+        ]
+      ],
+      "source_text_range_half_open": [
+        0,
+        27950
+      ],
+      "original_text_rendered_verbatim_in_full": true,
+      "displayed_representation": {
+        "kind": "ORIGINAL_UTF8_TEXT",
+        "characters": 27950,
+        "char_ranges_half_open": [
+          [
+            0,
+            15000
+          ],
+          [
+            15000,
+            27950
+          ]
+        ]
+      },
+      "sha256_stable_across_read_chunks": true
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/src/agentnexus/harness/scheduler.ts",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\src\\agentnexus\\harness\\scheduler.ts",
+      "relative_path": "src/agentnexus/harness/scheduler.ts",
+      "bytes": 44020,
+      "sha256": "8808d36d03ec3570b6b763599f8f6dd5aaa734373c839acc057e5094606d7433",
+      "utf8_characters": 44020,
+      "lines": 432,
+      "requested_scope": false,
+      "additional_to_complete_targeted_record": true,
+      "complete": true,
+      "content_read": "FULL",
+      "read_method": "FULL_ORIGINAL_UTF8_TEXT_CHUNK_READ",
+      "read_ranges_1_based": [
+        [
+          1,
+          432
+        ]
+      ],
+      "source_text_range_half_open": [
+        0,
+        44020
+      ],
+      "original_text_rendered_verbatim_in_full": true,
+      "displayed_representation": {
+        "kind": "ORIGINAL_UTF8_TEXT",
+        "characters": 44020,
+        "char_ranges_half_open": [
+          [
+            0,
+            15000
+          ],
+          [
+            15000,
+            30000
+          ],
+          [
+            30000,
+            44020
+          ]
+        ]
+      },
+      "sha256_stable_across_read_chunks": true
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/src/agentnexus/harness/tools.ts",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\src\\agentnexus\\harness\\tools.ts",
+      "relative_path": "src/agentnexus/harness/tools.ts",
+      "bytes": 2368,
+      "sha256": "4e8e9cdb707d3227176c412f95aa3accf0ed3bf743f21ae9bb3fdf134ed900d6",
+      "utf8_characters": 2368,
+      "lines": 28,
+      "requested_scope": true,
+      "additional_to_complete_targeted_record": false,
+      "complete": true,
+      "content_read": "FULL",
+      "read_method": "FULL_ORIGINAL_UTF8_TEXT_CHUNK_READ",
+      "read_ranges_1_based": [
+        [
+          1,
+          28
+        ]
+      ],
+      "source_text_range_half_open": [
+        0,
+        2368
+      ],
+      "original_text_rendered_verbatim_in_full": true,
+      "displayed_representation": {
+        "kind": "ORIGINAL_UTF8_TEXT",
+        "characters": 2368,
+        "char_ranges_half_open": [
+          [
+            0,
+            2368
+          ]
+        ]
+      },
+      "sha256_stable_across_read_chunks": true
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/src/agentnexus/harness/workflow.ts",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\src\\agentnexus\\harness\\workflow.ts",
+      "relative_path": "src/agentnexus/harness/workflow.ts",
+      "bytes": 8054,
+      "sha256": "798d5dc7da43c460f063d83af2745e7d77b45cc45e1ccc381a9a313fe6b2e889",
+      "utf8_characters": 8026,
+      "lines": 91,
+      "requested_scope": true,
+      "additional_to_complete_targeted_record": false,
+      "complete": true,
+      "content_read": "FULL",
+      "read_method": "FULL_ORIGINAL_UTF8_TEXT_CHUNK_READ",
+      "read_ranges_1_based": [
+        [
+          1,
+          91
+        ]
+      ],
+      "source_text_range_half_open": [
+        0,
+        8026
+      ],
+      "original_text_rendered_verbatim_in_full": true,
+      "displayed_representation": {
+        "kind": "ORIGINAL_UTF8_TEXT",
+        "characters": 8026,
+        "char_ranges_half_open": [
+          [
+            0,
+            8026
+          ]
+        ]
+      },
+      "sha256_stable_across_read_chunks": true
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/src/agentnexus/policy-contracts.ts",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\src\\agentnexus\\policy-contracts.ts",
+      "relative_path": "src/agentnexus/policy-contracts.ts",
+      "bytes": 4635,
+      "sha256": "e8610d492624c29fac7ad557c0363c6b704f6ba8ab01c110517e7d0299286511",
+      "utf8_characters": 4635,
+      "lines": 192,
+      "requested_scope": true,
+      "additional_to_complete_targeted_record": false,
+      "complete": true,
+      "content_read": "FULL",
+      "read_method": "FULL_ORIGINAL_UTF8_TEXT_CHUNK_READ",
+      "read_ranges_1_based": [
+        [
+          1,
+          192
+        ]
+      ],
+      "source_text_range_half_open": [
+        0,
+        4635
+      ],
+      "original_text_rendered_verbatim_in_full": true,
+      "displayed_representation": {
+        "kind": "ORIGINAL_UTF8_TEXT",
+        "characters": 4635,
+        "char_ranges_half_open": [
+          [
+            0,
+            4635
+          ]
+        ]
+      },
+      "sha256_stable_across_read_chunks": true
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/src/agentnexus/policy.ts",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\src\\agentnexus\\policy.ts",
+      "relative_path": "src/agentnexus/policy.ts",
+      "bytes": 18232,
+      "sha256": "31a6f1250ab2c5e9271181b23cc347b72fd502d7b2bfa229716dd976ee040f49",
+      "utf8_characters": 18232,
+      "lines": 224,
+      "requested_scope": true,
+      "additional_to_complete_targeted_record": false,
+      "complete": true,
+      "content_read": "FULL",
+      "read_method": "FULL_ORIGINAL_UTF8_TEXT_CHUNK_READ",
+      "read_ranges_1_based": [
+        [
+          1,
+          224
+        ]
+      ],
+      "source_text_range_half_open": [
+        0,
+        18232
+      ],
+      "original_text_rendered_verbatim_in_full": true,
+      "displayed_representation": {
+        "kind": "ORIGINAL_UTF8_TEXT",
+        "characters": 18232,
+        "char_ranges_half_open": [
+          [
+            0,
+            18232
+          ]
+        ]
+      },
+      "sha256_stable_across_read_chunks": true
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/src/agentnexus/reconciliation.ts",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\src\\agentnexus\\reconciliation.ts",
+      "relative_path": "src/agentnexus/reconciliation.ts",
+      "bytes": 14568,
+      "sha256": "9f65ae9b5b0e4f049efabfadc1cb5ad263ce0b5ea7703a15bb8789f27d3f1906",
+      "utf8_characters": 14568,
+      "lines": 170,
+      "requested_scope": true,
+      "additional_to_complete_targeted_record": false,
+      "complete": true,
+      "content_read": "FULL",
+      "read_method": "FULL_ORIGINAL_UTF8_TEXT_CHUNK_READ",
+      "read_ranges_1_based": [
+        [
+          1,
+          170
+        ]
+      ],
+      "source_text_range_half_open": [
+        0,
+        14568
+      ],
+      "original_text_rendered_verbatim_in_full": true,
+      "displayed_representation": {
+        "kind": "ORIGINAL_UTF8_TEXT",
+        "characters": 14568,
+        "char_ranges_half_open": [
+          [
+            0,
+            14568
+          ]
+        ]
+      },
+      "sha256_stable_across_read_chunks": true
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/tests/agentnexus/control.test.ts",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\tests\\agentnexus\\control.test.ts",
+      "relative_path": "tests/agentnexus/control.test.ts",
+      "bytes": 17191,
+      "sha256": "5434e80937f050429198eb81d73045b291aed433285dc28fdcfa7d4cdb215ef1",
+      "utf8_characters": 17191,
+      "lines": 211,
+      "requested_scope": true,
+      "additional_to_complete_targeted_record": false,
+      "complete": true,
+      "content_read": "FULL",
+      "read_method": "FULL_ORIGINAL_UTF8_TEXT_CHUNK_READ",
+      "read_ranges_1_based": [
+        [
+          1,
+          211
+        ]
+      ],
+      "source_text_range_half_open": [
+        0,
+        17191
+      ],
+      "original_text_rendered_verbatim_in_full": true,
+      "displayed_representation": {
+        "kind": "ORIGINAL_UTF8_TEXT",
+        "characters": 17191,
+        "char_ranges_half_open": [
+          [
+            0,
+            17191
+          ]
+        ]
+      },
+      "sha256_stable_across_read_chunks": true
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/tests/agentnexus/diagnostics.test.ts",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\tests\\agentnexus\\diagnostics.test.ts",
+      "relative_path": "tests/agentnexus/diagnostics.test.ts",
+      "bytes": 19171,
+      "sha256": "a3b4a33ceed558659f67af248c6a94f1a9abc6571814a5ba33e22c0c196e9b8f",
+      "utf8_characters": 19142,
+      "lines": 318,
+      "requested_scope": true,
+      "additional_to_complete_targeted_record": false,
+      "complete": true,
+      "content_read": "FULL",
+      "read_method": "FULL_ORIGINAL_UTF8_TEXT_CHUNK_READ",
+      "read_ranges_1_based": [
+        [
+          1,
+          318
+        ]
+      ],
+      "source_text_range_half_open": [
+        0,
+        19142
+      ],
+      "original_text_rendered_verbatim_in_full": true,
+      "displayed_representation": {
+        "kind": "ORIGINAL_UTF8_TEXT",
+        "characters": 19142,
+        "char_ranges_half_open": [
+          [
+            0,
+            19142
+          ]
+        ]
+      },
+      "sha256_stable_across_read_chunks": true
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/tests/agentnexus/gateway.test.ts",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\tests\\agentnexus\\gateway.test.ts",
+      "relative_path": "tests/agentnexus/gateway.test.ts",
+      "bytes": 18503,
+      "sha256": "b9bb3d122ab0e56a4b3cea17cb9a99c41bcebe7ce47b30aea600be6943a9b8ba",
+      "utf8_characters": 18499,
+      "lines": 204,
+      "requested_scope": true,
+      "additional_to_complete_targeted_record": false,
+      "complete": true,
+      "content_read": "FULL",
+      "read_method": "FULL_ORIGINAL_UTF8_TEXT_CHUNK_READ",
+      "read_ranges_1_based": [
+        [
+          1,
+          204
+        ]
+      ],
+      "source_text_range_half_open": [
+        0,
+        18499
+      ],
+      "original_text_rendered_verbatim_in_full": true,
+      "displayed_representation": {
+        "kind": "ORIGINAL_UTF8_TEXT",
+        "characters": 18499,
+        "char_ranges_half_open": [
+          [
+            0,
+            18499
+          ]
+        ]
+      },
+      "sha256_stable_across_read_chunks": true
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/tests/agentnexus/m16-harness.test.ts",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\tests\\agentnexus\\m16-harness.test.ts",
+      "relative_path": "tests/agentnexus/m16-harness.test.ts",
+      "bytes": 31850,
+      "sha256": "dd1c215930fc15b1986694d138cacb62e5428aebf9485d60376f76da71c80773",
+      "utf8_characters": 31850,
+      "lines": 300,
+      "requested_scope": true,
+      "additional_to_complete_targeted_record": false,
+      "complete": true,
+      "content_read": "FULL",
+      "read_method": "FULL_ORIGINAL_UTF8_TEXT_CHUNK_READ",
+      "read_ranges_1_based": [
+        [
+          1,
+          300
+        ]
+      ],
+      "source_text_range_half_open": [
+        0,
+        31850
+      ],
+      "original_text_rendered_verbatim_in_full": true,
+      "displayed_representation": {
+        "kind": "ORIGINAL_UTF8_TEXT",
+        "characters": 31850,
+        "char_ranges_half_open": [
+          [
+            0,
+            16000
+          ],
+          [
+            16000,
+            31850
+          ]
+        ]
+      },
+      "sha256_stable_across_read_chunks": true
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/tests/agentnexus/m161-boundaries.test.ts",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\tests\\agentnexus\\m161-boundaries.test.ts",
+      "relative_path": "tests/agentnexus/m161-boundaries.test.ts",
+      "bytes": 14123,
+      "sha256": "b0a66d3f09dc62d7395329b09654795258885c5f6581c3d55ddc4783fedfaf49",
+      "utf8_characters": 14123,
+      "lines": 131,
+      "requested_scope": true,
+      "additional_to_complete_targeted_record": false,
+      "complete": true,
+      "content_read": "FULL",
+      "read_method": "FULL_ORIGINAL_UTF8_TEXT_CHUNK_READ",
+      "read_ranges_1_based": [
+        [
+          1,
+          131
+        ]
+      ],
+      "source_text_range_half_open": [
+        0,
+        14123
+      ],
+      "original_text_rendered_verbatim_in_full": true,
+      "displayed_representation": {
+        "kind": "ORIGINAL_UTF8_TEXT",
+        "characters": 14123,
+        "char_ranges_half_open": [
+          [
+            0,
+            14123
+          ]
+        ]
+      },
+      "sha256_stable_across_read_chunks": true
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/tests/agentnexus/m161-harness.test.ts",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\tests\\agentnexus\\m161-harness.test.ts",
+      "relative_path": "tests/agentnexus/m161-harness.test.ts",
+      "bytes": 16317,
+      "sha256": "dd9f883123e8e3109f0eec86f11b4f3567ef2056fb57e9bb28da5a7f0054fd28",
+      "utf8_characters": 16317,
+      "lines": 112,
+      "requested_scope": true,
+      "additional_to_complete_targeted_record": false,
+      "complete": true,
+      "content_read": "FULL",
+      "read_method": "FULL_ORIGINAL_UTF8_TEXT_CHUNK_READ",
+      "read_ranges_1_based": [
+        [
+          1,
+          112
+        ]
+      ],
+      "source_text_range_half_open": [
+        0,
+        16317
+      ],
+      "original_text_rendered_verbatim_in_full": true,
+      "displayed_representation": {
+        "kind": "ORIGINAL_UTF8_TEXT",
+        "characters": 16317,
+        "char_ranges_half_open": [
+          [
+            0,
+            16317
+          ]
+        ]
+      },
+      "sha256_stable_across_read_chunks": true
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/tests/agentnexus/m161-toctou-worker.mjs",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\tests\\agentnexus\\m161-toctou-worker.mjs",
+      "relative_path": "tests/agentnexus/m161-toctou-worker.mjs",
+      "bytes": 4158,
+      "sha256": "8e2595887f03563b472ba4b373a3e1926eef25d50f2e341f1de8cd96583b682e",
+      "utf8_characters": 4158,
+      "lines": 79,
+      "requested_scope": true,
+      "additional_to_complete_targeted_record": false,
+      "complete": true,
+      "content_read": "FULL",
+      "read_method": "FULL_ORIGINAL_UTF8_TEXT_CHUNK_READ",
+      "read_ranges_1_based": [
+        [
+          1,
+          79
+        ]
+      ],
+      "source_text_range_half_open": [
+        0,
+        4158
+      ],
+      "original_text_rendered_verbatim_in_full": true,
+      "displayed_representation": {
+        "kind": "ORIGINAL_UTF8_TEXT",
+        "characters": 4158,
+        "char_ranges_half_open": [
+          [
+            0,
+            4158
+          ]
+        ]
+      },
+      "sha256_stable_across_read_chunks": true
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/tests/agentnexus/security.test.ts",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\tests\\agentnexus\\security.test.ts",
+      "relative_path": "tests/agentnexus/security.test.ts",
+      "bytes": 15678,
+      "sha256": "25d4ca4c4d943ac995b1965149a913b25933a84a68c234eef9670a27b55a10b3",
+      "utf8_characters": 15678,
+      "lines": 163,
+      "requested_scope": true,
+      "additional_to_complete_targeted_record": false,
+      "complete": true,
+      "content_read": "FULL",
+      "read_method": "FULL_ORIGINAL_UTF8_TEXT_CHUNK_READ",
+      "read_ranges_1_based": [
+        [
+          1,
+          163
+        ]
+      ],
+      "source_text_range_half_open": [
+        0,
+        15678
+      ],
+      "original_text_rendered_verbatim_in_full": true,
+      "displayed_representation": {
+        "kind": "ORIGINAL_UTF8_TEXT",
+        "characters": 15678,
+        "char_ranges_half_open": [
+          [
+            0,
+            15678
+          ]
+        ]
+      },
+      "sha256_stable_across_read_chunks": true
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/tsconfig.json",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\tsconfig.json",
+      "relative_path": "tsconfig.json",
+      "bytes": 410,
+      "sha256": "9720fe208fe591637285aeae1ce62f012b0b5f3fcb8152a90a8d23dc85a1d50b",
+      "utf8_characters": 410,
+      "lines": 16,
+      "requested_scope": true,
+      "additional_to_complete_targeted_record": false,
+      "complete": true,
+      "content_read": "FULL",
+      "read_method": "FULL_ORIGINAL_UTF8_TEXT_CHUNK_READ",
+      "read_ranges_1_based": [
+        [
+          1,
+          16
+        ]
+      ],
+      "source_text_range_half_open": [
+        0,
+        410
+      ],
+      "original_text_rendered_verbatim_in_full": true,
+      "displayed_representation": {
+        "kind": "ORIGINAL_UTF8_TEXT",
+        "characters": 410,
+        "char_ranges_half_open": [
+          [
+            0,
+            410
+          ]
+        ]
+      },
+      "sha256_stable_across_read_chunks": true
+    }
+  ],
+  "facts_and_limits": [
+    "Reading is engineering evidence about the exact M1.6.1 source bytes, not an AgentNexus Pilot Agent execution, test success, Gate approval or OS qualification.",
+    "The 112 prior complete paths rely on the three existing per-file reading ledgers; this pass independently checked their current hashes but did not reread every prior path.",
+    "This report newly covers the 26 requested remaining files and the two files that earlier records explicitly marked TARGETED. It does not upgrade those old records in place.",
+    "The large JSON views are lossless semantic representations with transparent literal references, not hashes-only summaries or sampled catalog records.",
+    "All historical source/tests, historical results, FAIL/NOT_RUN/SIMULATED/BLOCKED distinctions and prior manifests remain unchanged. No tests, Provider, credentials or OS configuration were exercised.",
+    "The parent-reported frozen M1.7 source and final regression are outside this baseline read task and are not asserted as newly reverified here."
+  ]
+}

@@ -1,0 +1,2879 @@
+{
+  "schema": "agentnexus/m17/area-test-matrix/1",
+  "source_set_sha256": "8167ce3e78c602f43bee2b3a4d792a5054f76d7121a6a7730b14cc37eb5c4c6c",
+  "qualification": "LOCAL_EXECUTION_AND_NEGATIVE_ASSERTIONS_ONLY",
+  "model_semantics": "SIMULATED",
+  "areas": [
+    {
+      "area": "A",
+      "name": "单 Agent",
+      "status": "PASS",
+      "scope": "创建、Loop、原Context、Gateway工具、Task状态、受控恢复；未知副作用不自动重放。",
+      "limitation": "模型语义SIMULATED；OS独立进程/生产隔离不在本地PASS内。",
+      "supporting_test_files": [
+        "m16-harness.test.ts",
+        "m161-harness.test.ts",
+        "m17-models.test.ts"
+      ],
+      "supporting_cases_overlap_other_areas": true,
+      "supporting_case_counts": {
+        "PASS": 51
+      },
+      "case_references": [
+        {
+          "name": "M16-HARNESS-LOOP: executable loop routes a mock tool call through original Policy/Permit/Archive/Audit",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-harness.test.ts",
+          "line": 36,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16-HARNESS-TYPES: five type contracts, independent subagent context and read-only boundaries",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-harness.test.ts",
+          "line": 48,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16-HARNESS-MESSAGES: durable bidirectional messages, dedupe, wake and source-bound model context",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-harness.test.ts",
+          "line": 64,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16-HARNESS-WRITE: exact LOCAL_WRITE approval executes once and retains unverified persistent storage ownership",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-harness.test.ts",
+          "line": 80,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16-HARNESS-CANCEL-ACTIVE: cancellation while handler runs retains claims until outcome/outputs are reconciled",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-harness.test.ts",
+          "line": 94,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16-HARNESS-BUDGET: concurrent budget shortage creates one persisted waiter and resumes after release",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-harness.test.ts",
+          "line": 108,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16-HARNESS-UNKNOWN: model unknown outcome retains all reservations and cannot resume or retry",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-harness.test.ts",
+          "line": 120,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16-HARNESS-RECOVERY: safe WAITING checkpoint survives reopen, old facade fails and no automatic model call occurs",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-harness.test.ts",
+          "line": 128,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16-HARNESS-SCOPE: cross-project context/messages, capability escalation and malformed parameters fail before effect",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-harness.test.ts",
+          "line": 138,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16-HARNESS-WORKFLOW: disabled gate is BYPASSED, self review is rejected, versions/evidence bind review",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-harness.test.ts",
+          "line": 147,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16-HARNESS-CANCEL-FENCE: acknowledged cancellation prevents an approved pending write from starting",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-harness.test.ts",
+          "line": 157,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16-HARNESS-MODEL-CANCEL: cancellation at a model reservation ACK consumes zero sequence/tokens",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-harness.test.ts",
+          "line": 169,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16-HARNESS-PROJECT-FENCE: project pause closes admission before draining an existing turn",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-harness.test.ts",
+          "line": 178,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16-HARNESS-FEATURE: role/type-registry OFF blocks existing dispatch and new registration at project scope",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-harness.test.ts",
+          "line": 187,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16-HARNESS-HANDOFF: explicit handoff preserves independent task/context and delivers a structured completion",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-harness.test.ts",
+          "line": 195,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16-HARNESS-DEADLINE: queued deadlines and dependencies do not create workers or model requests",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-harness.test.ts",
+          "line": 203,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16-HARNESS-WORKFLOW-FENCE: a gate disabled during evidence verification commits BYPASSED",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-harness.test.ts",
+          "line": 211,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16-HARNESS-DIAGNOSTICS: read-only tool uses the original bound Host session and native parser",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-harness.test.ts",
+          "line": 220,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16-HARNESS-RECOVER-OFF: disabled resource module permits control-plane recovery and later explicit preflight",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-harness.test.ts",
+          "line": 227,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16-HARNESS-APPROVAL-RECOVER: old approval is revoked, reapproval is possible and real disk claim stays held",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-harness.test.ts",
+          "line": 236,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16-HARNESS-MESSAGE-RECOVER: logical text dedup survives replacement sender and receiver runtimes",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-harness.test.ts",
+          "line": 246,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16-HARNESS-AUDIT: a failed native intent barrier freezes admission and causes zero model/tool effects",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-harness.test.ts",
+          "line": 253,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16-HARNESS-POLICY-OWNER: every new L0 owner rejects application DISABLED mode",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-harness.test.ts",
+          "line": 261,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16-HARNESS-DISK-RESULT: a large successful gateway result cannot free a real persistent disk claim",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-harness.test.ts",
+          "line": 268,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16-HARNESS-WORKFLOW-CONTRACT: typed task inputs, role restrictions and evidence checklists use native state",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-harness.test.ts",
+          "line": 278,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16-HARNESS-OUTPUT-ROOT: existing Windows case aliases cannot write verification/demo output inside source",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-harness.test.ts",
+          "line": 290,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16-HARNESS-REQUEST-ACCOUNTING: actual zero-token fixture dispatch still consumes a request and cannot request zero workers",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-harness.test.ts",
+          "line": 295,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161 TASK stable ID rejects changed budget, input, and acceptance contracts",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-harness.test.ts",
+          "line": 16,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161 TASK rules update freezes old tasks, new tasks take new version, explicit migration archives the original contract",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-harness.test.ts",
+          "line": 25,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161 TASK handoff repeats the same frozen plan and preserves old rules after project update",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-harness.test.ts",
+          "line": 39,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161 GATE actual file candidate is bound from trusted PASS to the approved Storage input",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-harness.test.ts",
+          "line": 47,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161 FIVE AGENTS durable messages, independent tasks, event wake, resource competition and coordinator status grants",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-harness.test.ts",
+          "line": 58,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161 COORDINATOR notices cross only explicitly granted projects and preserve original identity",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-harness.test.ts",
+          "line": 80,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161 SUBAGENTS use independent contexts and parallel sibling messages without repeated tasks",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-harness.test.ts",
+          "line": 95,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161 PROJECT budgets compete atomically and resume a known undispatched waiter once",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-harness.test.ts",
+          "line": 105,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M17 MODEL context responder computes different tool proposals from exact reconstructed sources and observed tool results",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m17-models.test.ts",
+          "line": 58,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M17 MODEL responder input is deeply frozen, excludes privileged handles, and returns are copied before asynchronous work",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m17-models.test.ts",
+          "line": 89,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M17 MODEL responder accepts the existing escaped context envelope without narrowing context limits",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m17-models.test.ts",
+          "line": 107,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M17 MODEL responder provenance is durable data and terminal request dedup never reruns programmable code",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m17-models.test.ts",
+          "line": 117,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M17 MODEL invalid registration/accessors and legacy adapter options reject before callback execution",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m17-models.test.ts",
+          "line": 139,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "throw",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m17-models.test.ts",
+          "line": 162,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "promise",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m17-models.test.ts",
+          "line": 162,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "reply-authority",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m17-models.test.ts",
+          "line": 162,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "reply-accessor",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m17-models.test.ts",
+          "line": 162,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "oversized",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m17-models.test.ts",
+          "line": 162,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "usage-over-budget",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m17-models.test.ts",
+          "line": 162,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "explicit-unknown",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m17-models.test.ts",
+          "line": 162,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M17 MODEL synchronous failures, promise results and invalid replies retain SENT quota without fallback or replay",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m17-models.test.ts",
+          "line": 152,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M17 MODEL only explicit proven-not-sent simulation may call responder on the fallback model",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m17-models.test.ts",
+          "line": 175,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M17 MODEL budget rejection and pre-send cancellation invoke no responder and consume no fixture sequence",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m17-models.test.ts",
+          "line": 186,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M17 MODEL cancellation during synchronous simulation retains unknown budget and key occupancy",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m17-models.test.ts",
+          "line": 203,
+          "status": "PASS",
+          "skip": null
+        }
+      ]
+    },
+    {
+      "area": "B",
+      "name": "Multi-Agent",
+      "status": "PASS",
+      "scope": "三个逻辑Native编码任务并行、双向/同级消息、交接、所有权冲突、资源竞争、取消及恢复。",
+      "limitation": "物理多CPU并行/真实Provider NOT_RUN；开发策略SIMULATED。",
+      "supporting_test_files": [
+        "m16-harness.test.ts",
+        "m161-harness.test.ts",
+        "m16-resources.test.ts",
+        "m161-storage.test.ts",
+        "m17-pilot.test.ts"
+      ],
+      "supporting_cases_overlap_other_areas": true,
+      "supporting_case_counts": {
+        "PASS": 73
+      },
+      "case_references": [
+        {
+          "name": "M16-HARNESS-LOOP: executable loop routes a mock tool call through original Policy/Permit/Archive/Audit",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-harness.test.ts",
+          "line": 36,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16-HARNESS-TYPES: five type contracts, independent subagent context and read-only boundaries",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-harness.test.ts",
+          "line": 48,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16-HARNESS-MESSAGES: durable bidirectional messages, dedupe, wake and source-bound model context",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-harness.test.ts",
+          "line": 64,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16-HARNESS-WRITE: exact LOCAL_WRITE approval executes once and retains unverified persistent storage ownership",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-harness.test.ts",
+          "line": 80,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16-HARNESS-CANCEL-ACTIVE: cancellation while handler runs retains claims until outcome/outputs are reconciled",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-harness.test.ts",
+          "line": 94,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16-HARNESS-BUDGET: concurrent budget shortage creates one persisted waiter and resumes after release",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-harness.test.ts",
+          "line": 108,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16-HARNESS-UNKNOWN: model unknown outcome retains all reservations and cannot resume or retry",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-harness.test.ts",
+          "line": 120,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16-HARNESS-RECOVERY: safe WAITING checkpoint survives reopen, old facade fails and no automatic model call occurs",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-harness.test.ts",
+          "line": 128,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16-HARNESS-SCOPE: cross-project context/messages, capability escalation and malformed parameters fail before effect",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-harness.test.ts",
+          "line": 138,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16-HARNESS-WORKFLOW: disabled gate is BYPASSED, self review is rejected, versions/evidence bind review",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-harness.test.ts",
+          "line": 147,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16-HARNESS-CANCEL-FENCE: acknowledged cancellation prevents an approved pending write from starting",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-harness.test.ts",
+          "line": 157,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16-HARNESS-MODEL-CANCEL: cancellation at a model reservation ACK consumes zero sequence/tokens",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-harness.test.ts",
+          "line": 169,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16-HARNESS-PROJECT-FENCE: project pause closes admission before draining an existing turn",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-harness.test.ts",
+          "line": 178,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16-HARNESS-FEATURE: role/type-registry OFF blocks existing dispatch and new registration at project scope",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-harness.test.ts",
+          "line": 187,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16-HARNESS-HANDOFF: explicit handoff preserves independent task/context and delivers a structured completion",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-harness.test.ts",
+          "line": 195,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16-HARNESS-DEADLINE: queued deadlines and dependencies do not create workers or model requests",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-harness.test.ts",
+          "line": 203,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16-HARNESS-WORKFLOW-FENCE: a gate disabled during evidence verification commits BYPASSED",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-harness.test.ts",
+          "line": 211,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16-HARNESS-DIAGNOSTICS: read-only tool uses the original bound Host session and native parser",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-harness.test.ts",
+          "line": 220,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16-HARNESS-RECOVER-OFF: disabled resource module permits control-plane recovery and later explicit preflight",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-harness.test.ts",
+          "line": 227,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16-HARNESS-APPROVAL-RECOVER: old approval is revoked, reapproval is possible and real disk claim stays held",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-harness.test.ts",
+          "line": 236,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16-HARNESS-MESSAGE-RECOVER: logical text dedup survives replacement sender and receiver runtimes",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-harness.test.ts",
+          "line": 246,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16-HARNESS-AUDIT: a failed native intent barrier freezes admission and causes zero model/tool effects",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-harness.test.ts",
+          "line": 253,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16-HARNESS-POLICY-OWNER: every new L0 owner rejects application DISABLED mode",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-harness.test.ts",
+          "line": 261,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16-HARNESS-DISK-RESULT: a large successful gateway result cannot free a real persistent disk claim",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-harness.test.ts",
+          "line": 268,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16-HARNESS-WORKFLOW-CONTRACT: typed task inputs, role restrictions and evidence checklists use native state",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-harness.test.ts",
+          "line": 278,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16-HARNESS-OUTPUT-ROOT: existing Windows case aliases cannot write verification/demo output inside source",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-harness.test.ts",
+          "line": 290,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16-HARNESS-REQUEST-ACCOUNTING: actual zero-token fixture dispatch still consumes a request and cannot request zero workers",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-harness.test.ts",
+          "line": 295,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16 RESOURCES SIMULATED: strict CPU remains BLOCKED independent of a registry description",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-resources.test.ts",
+          "line": 33,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16 RESOURCES SQLITE: competing reservations atomically obey all three budgets",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-resources.test.ts",
+          "line": 41,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16 RESOURCES SIMULATED: admin and exact subject/project/worker scope cannot be forged",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-resources.test.ts",
+          "line": 51,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16 RESOURCES SQLITE: cumulative consumption settles once while capacity stays held until owner closure",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-resources.test.ts",
+          "line": 61,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16 RESOURCES SIMULATED: fabricated, serialized, wrong-reservation and stale closure objects fail",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-resources.test.ts",
+          "line": 74,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16 RESOURCES SIMULATED: UNKNOWN, expiration and production-looking JSON never free capacity",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-resources.test.ts",
+          "line": 83,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16 RESOURCES SQLITE: bounded persistent wait resumes only after a verified unused reservation closes",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-resources.test.ts",
+          "line": 91,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16 RESOURCES SIMULATED: waiting state has a hard count bound; no unbounded in-memory queue",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-resources.test.ts",
+          "line": 98,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16 RESOURCES SQLITE: cancelled waiting requests cannot later acquire capacity or cancel active claims",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-resources.test.ts",
+          "line": 104,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16 RESOURCES SQLITE: old boot recovery preserves holds and consumed counters, rejects old wait and closure",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-resources.test.ts",
+          "line": 112,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16 RESOURCES FEATURE: OFF blocks reserve/start and permits evidence-based cleanup without reopening execution",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-resources.test.ts",
+          "line": 126,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16 RESOURCES AUDIT: failed durable reservation barrier produces zero starts and retains the committed hold",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-resources.test.ts",
+          "line": 132,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16 RESOURCES ACCOUNTING: observed overspend is recorded in all scopes and quarantines further admission",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-resources.test.ts",
+          "line": 139,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16 RESOURCES VALIDATION: invalid amounts, expired requests and strict mode cannot mutate holds",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-resources.test.ts",
+          "line": 146,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16 RESOURCES SIMULATED: application bookkeeping never accepts a simulated completion as real OS proof",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-resources.test.ts",
+          "line": 151,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161 TASK stable ID rejects changed budget, input, and acceptance contracts",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-harness.test.ts",
+          "line": 16,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161 TASK rules update freezes old tasks, new tasks take new version, explicit migration archives the original contract",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-harness.test.ts",
+          "line": 25,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161 TASK handoff repeats the same frozen plan and preserves old rules after project update",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-harness.test.ts",
+          "line": 39,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161 GATE actual file candidate is bound from trusted PASS to the approved Storage input",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-harness.test.ts",
+          "line": 47,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161 FIVE AGENTS durable messages, independent tasks, event wake, resource competition and coordinator status grants",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-harness.test.ts",
+          "line": 58,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161 COORDINATOR notices cross only explicitly granted projects and preserve original identity",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-harness.test.ts",
+          "line": 80,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161 SUBAGENTS use independent contexts and parallel sibling messages without repeated tasks",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-harness.test.ts",
+          "line": 95,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161 PROJECT budgets compete atomically and resume a known undispatched waiter once",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-harness.test.ts",
+          "line": 105,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161 STORAGE real atomic CREATE binds exact approval, content, Artifact/Audit and persistent budget ownership",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+          "line": 18,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161 STORAGE unauthorized write is rejected before files and before owner intent",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+          "line": 30,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161 STORAGE no-clobber CREATE preserves unowned history",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+          "line": 38,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161 STORAGE REPLACE requires the exact owned version; original Artifact remains reconstructible",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+          "line": 45,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161 STORAGE bounded streaming verifies 3 MiB without materializing the input in the request",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+          "line": 55,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161 STORAGE injected ENOSPC before publication leaves no target and quarantines original operation",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+          "line": 62,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161 STORAGE injected EACCES before publication leaves no target and quarantines original operation",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+          "line": 62,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161 STORAGE publish-link gap is reconciled by identity/hash without republishing",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+          "line": 68,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161 STORAGE concurrent same-resource writers conflict before the second file effect",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+          "line": 76,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161 STORAGE changed bytes between publication and ACK stay UNKNOWN and cannot be reconciled by pathname",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+          "line": 85,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161 STORAGE persistent resource quota rejects a second allocation before a temporary object",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+          "line": 92,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161 STORAGE REAL_PROCESS_CRASH at REQUESTED preserves evidence and never automatically retries",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+          "line": 101,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161 STORAGE REAL_PROCESS_CRASH at AUTHORIZED preserves evidence and never automatically retries",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+          "line": 101,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161 STORAGE REAL_PROCESS_CRASH at WRITE_INTENT preserves evidence and never automatically retries",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+          "line": 101,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161 STORAGE REAL_PROCESS_CRASH at TEMP_OBJECT_CREATED preserves evidence and never automatically retries",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+          "line": 101,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161 STORAGE REAL_PROCESS_CRASH at WRITE_CHUNK preserves evidence and never automatically retries",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+          "line": 101,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161 STORAGE REAL_PROCESS_CRASH at CONTENT_WRITTEN preserves evidence and never automatically retries",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+          "line": 101,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161 STORAGE REAL_PROCESS_CRASH at CONTENT_VERIFIED preserves evidence and never automatically retries",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+          "line": 101,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161 STORAGE REAL_PROCESS_CRASH at PUBLISH_READY preserves evidence and never automatically retries",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+          "line": 101,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161 STORAGE REAL_PROCESS_CRASH at UNLINK_TEMP preserves evidence and never automatically retries",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+          "line": 101,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161 STORAGE REAL_PROCESS_CRASH at PUBLISHED preserves evidence and never automatically retries",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+          "line": 101,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161 STORAGE REAL_PROCESS_CRASH at AUDIT_ACKNOWLEDGED preserves evidence and never automatically retries",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+          "line": 101,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M17 Native Pilot actually publishes, reviews, repairs, restores and gates a complete CLI through a SIMULATED provider",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m17-pilot.test.ts",
+          "line": 10,
+          "status": "PASS",
+          "skip": null
+        }
+      ]
+    },
+    {
+      "area": "C",
+      "name": "Resident",
+      "status": "PASS",
+      "scope": "持久接收/去重/过期/离线、唤醒、恢复、积压边界、真实受控Host重开；另读独立2小时报告。",
+      "limitation": "OS reboot/断电NOT_RUN；2小时全源码启动快照NOT_CAPTURED。",
+      "supporting_test_files": [
+        "m16-messages.test.ts",
+        "m161-messages.test.ts",
+        "m161-message-drafts.test.ts",
+        "m17-events.test.ts"
+      ],
+      "supporting_cases_overlap_other_areas": true,
+      "supporting_case_counts": {
+        "PASS": 38
+      },
+      "case_references": [
+        {
+          "name": "M16-MESSAGE-DURABLE: host-bound sender, exactly matching dedup and bidirectional ACK survive durable storage",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-messages.test.ts",
+          "line": 31,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16-MESSAGE-AUTH: spoofed fields, foreign project, stale runtime and changed permissions fail closed",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-messages.test.ts",
+          "line": 46,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16-MESSAGE-RETRY: bounded retries, expired leases, expiry/revocation and unknown effects never auto-replay",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-messages.test.ts",
+          "line": 58,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16-MESSAGE-CAPACITY: byte/record backpressure remains bounded and priority does not discard low priority",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-messages.test.ts",
+          "line": 78,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16-MESSAGE-ACK-FAILURE: audit failure suppresses wake; callback failure retains acknowledged queue",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-messages.test.ts",
+          "line": 89,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16-MESSAGE-RECOVERY: real close/reopen fences old leases and quarantines external uncertainty",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-messages.test.ts",
+          "line": 101,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16-MESSAGE-CLOCK: rollback cannot revive expired or leased deliveries",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-messages.test.ts",
+          "line": 117,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16-MESSAGE-LOGICAL-DEDUPE: sender runtime replacement does not reset a task business dedup key",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-messages.test.ts",
+          "line": 124,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161 DRAFT REAL_PROCESS_CRASH after durable admission resumes exact internal capture without a lost message",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-message-drafts.test.ts",
+          "line": 14,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161 DRAFT transient shared write backpressure releases capture ownership for a same-boot exact retry",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-message-drafts.test.ts",
+          "line": 21,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161-MESSAGE-ACK: delivery and receiver ACK cannot claim task processed/completed",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-messages.test.ts",
+          "line": 63,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161-MESSAGE-HANDOFF SIMULATED_TASK_OWNER: atomic adoption, ACK and actual result evidence are separate from completion",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-messages.test.ts",
+          "line": 63,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161-MESSAGE-ROLLBACK SIMULATED_TASK_OWNER: incomplete or throwing adoption rolls back task, receipt and ACK together",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-messages.test.ts",
+          "line": 63,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161-MESSAGE-OPERATION-DEDUPE SIMULATED_TASK_OWNER: copied envelopes with one stable operation do not adopt twice",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-messages.test.ts",
+          "line": 63,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161-MESSAGE-OPERATION-CONFLICT SIMULATED_TASK_OWNER: changed payload/task/correlation cannot reuse adoption authority",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-messages.test.ts",
+          "line": 63,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161-MESSAGE-CONCURRENT: parallel consumers obtain disjoint leases and equal-priority delivery preserves durable enqueue order",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-messages.test.ts",
+          "line": 63,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161-MESSAGE-PERMISSIONS: permission revocation and replacement receiver runtime fence ACK and trusted handoff",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-messages.test.ts",
+          "line": 63,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161-MESSAGE-WAKE-OUTBOX SIMULATED_CALLBACK_FAILURE: durable message survives sender exit and pending notification is recovered",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-messages.test.ts",
+          "line": 63,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161-MESSAGE-EXPIRY-REVOKE: queued expiry/revocation terminate delivery and in-flight external uncertainty never retries",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-messages.test.ts",
+          "line": 63,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161-MESSAGE-REAL-PROCESS-RESTART: killed host recovers internal delivery but quarantines leased external effects",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-messages.test.ts",
+          "line": 63,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161-MESSAGE-REAL-ACK-LOSS SIMULATED_CRASH_BARRIER: process death after durable handoff before caller ACK never repeats task adoption",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-messages.test.ts",
+          "line": 63,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161-MESSAGE-COMPLETION-EVIDENCE SIMULATED_TASK_OWNER: self-reported success or held/unknown task claims cannot become completed",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-messages.test.ts",
+          "line": 63,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161-MESSAGE-RECOVERY-BOUND SIMULATED_BOOT_REPLACEMENT: mass lease recovery commits at most 32 audited transitions per call",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-messages.test.ts",
+          "line": 63,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161-MESSAGE-EXPIRED-BATCH SIMULATED_WALL_ADVANCE: unswept expired queue records never leak into delivery",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-messages.test.ts",
+          "line": 63,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161-MESSAGE-COORDINATOR: fixed trusted notices reach two project tasks without cross-project raw access or generic send authority",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-messages.test.ts",
+          "line": 63,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161-MESSAGE-COORDINATOR-DENIAL: admin/type/runtime/target payload/permission fences and content dedup survive the advisory lane",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-messages.test.ts",
+          "line": 63,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M17 EVENT durable admission, exact dedup, bounded queue/history and zero idle model calls",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m17-events.test.ts",
+          "line": 42,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M17 EVENT three real concurrent Harness tasks obey priority, dependencies and one execution per task",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m17-events.test.ts",
+          "line": 42,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M17 EVENT real durable message wakes WAIT, atomically adopts payload and does not model while idle",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m17-events.test.ts",
+          "line": 42,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M17 EVENT message admitted during a real active dispatch survives until the subsequent WAIT turn",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m17-events.test.ts",
+          "line": 42,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M17 EVENT resource wait is not busy retried and known completion releases the next task once",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m17-events.test.ts",
+          "line": 42,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M17 EVENT capacity completion arriving before the waiting dispatch returns is retained",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m17-events.test.ts",
+          "line": 42,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M17 EVENT stop waits for known active work and leaves later events durable for explicit restart",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m17-events.test.ts",
+          "line": 42,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M17 EVENT resident role OFF during durable intent blocks dispatch until an explicit enabled restart",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m17-events.test.ts",
+          "line": 42,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M17 EVENT approvals stay waiting and role OFF fences new dispatch while stop/recover remain usable",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m17-events.test.ts",
+          "line": 42,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M17 EVENT cancelled and UNKNOWN Tasks are not replayed or automatically released",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m17-events.test.ts",
+          "line": 42,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M17 EVENT real close/reopen retains PENDING and requires explicit event start",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m17-events.test.ts",
+          "line": 42,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M17 EVENT REAL_PROCESS_KILL durable DISPATCHING intent recovers INDETERMINATE without replay",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m17-events.test.ts",
+          "line": 42,
+          "status": "PASS",
+          "skip": null
+        }
+      ]
+    },
+    {
+      "area": "D",
+      "name": "Reviewer",
+      "status": "PASS",
+      "scope": "真实Git工作树Diff、只读权限、数值NaN复现、类型/语法/测试、通知和修复后复验。",
+      "limitation": "有意植入缺陷；Review推理SIMULATED；Git commit/push Watcher NOT_RUN。",
+      "supporting_test_files": [
+        "m17-checker.test.ts",
+        "m17-pilot.test.ts",
+        "m161-gates.test.ts"
+      ],
+      "supporting_cases_overlap_other_areas": true,
+      "supporting_case_counts": {
+        "PASS": 34,
+        "NOT_RUN": 1
+      },
+      "case_references": [
+        {
+          "name": "M161-GATE-FORGERY: caller status and a model PASS artifact never certify an unexecuted gate",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-gates.test.ts",
+          "line": 39,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161-GATE-ADMISSION-INTEGRITY: engine validates admitted Task, frozen rules and actual Artifact bytes",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-gates.test.ts",
+          "line": 45,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161-GATE-CHECKER: trusted checker runs actual bounded reads and engine captures code provenance",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-gates.test.ts",
+          "line": 51,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161-GATE-STATUS: FAIL, NOT_RUN, BLOCKED, INCONCLUSIVE and SIMULATED remain distinct",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-gates.test.ts",
+          "line": 57,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161-GATE-MOCK: simulated checkers and profiles cannot become real PASS",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-gates.test.ts",
+          "line": 60,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161-GATE-MISSING: missing design, delivery and unknown checker are NOT_RUN",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-gates.test.ts",
+          "line": 64,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161-GATE-INDEPENDENCE: G4 requires registered independent reviewer and exact candidate/author binding",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-gates.test.ts",
+          "line": 67,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161-GATE-HUMAN: actual trusted approval record is required and bound to candidate/rules/profile",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-gates.test.ts",
+          "line": 71,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161-GATE-OFF: OFF records BYPASSED, does not execute checker, and cannot authorize protected capability",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-gates.test.ts",
+          "line": 80,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161-GATE-OFF-RACE: gate disabled while actual artifact stream awaits commits BYPASSED",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-gates.test.ts",
+          "line": 83,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161-GATE-EPOCH-RACE: unrelated control change during validation becomes INCONCLUSIVE",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-gates.test.ts",
+          "line": 87,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161-GATE-RULE-BINDING: changed Task binding is blocked while new registry alone preserves frozen Task",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-gates.test.ts",
+          "line": 91,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161-GATE-FINAL: seven actual gates share candidate/baseline/profile/rules and old evidence cannot pass a new candidate",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-gates.test.ts",
+          "line": 96,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161-GATE-CORRUPT: actual corrupted Artifact freezes owner and leaves no PASS or protected authorization",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-gates.test.ts",
+          "line": 105,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161-GATE-LIMITS: evidence, duplicate kinds and concurrent gate execution are bounded",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-gates.test.ts",
+          "line": 108,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161-GATE-COMPILED-CONSTRAINT: frozen DSL predicates enforce artifact, checker, byte and human requirements",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-gates.test.ts",
+          "line": 113,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161-GATE-CHECKER-PROVENANCE: an invalid checker report cannot forge engine-generated provenance",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-gates.test.ts",
+          "line": 124,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161-GATE-ENGINE-OFF: disabling the engine records BYPASSED and preserves core feature owners",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-gates.test.ts",
+          "line": 127,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161-GATE-STALE-PASS: OFF then ON cannot revive an earlier gate authorization epoch",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-gates.test.ts",
+          "line": 130,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161-GATE-RECOVERY: interrupted intent is INCONCLUSIVE without rerunning trusted code",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-gates.test.ts",
+          "line": 133,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161-GATE-ACTUAL-NODE-TEST: trusted runner executes a real bounded Node test and gate consumes its actual exit/result",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-gates.test.ts",
+          "line": 138,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161-GATE-SCHEDULER: frozen requirements block dispatch until a trusted matching native gate is explicitly bound",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-gates.test.ts",
+          "line": 152,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M17 CHECKER REAL_LOCAL: exact trusted snapshot runs fixed syntax/types/tests and retains hash-bound evidence",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m17-checker.test.ts",
+          "line": 38,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M17 CHECKER ADMISSION: exact manifest and Host tools root cannot be expanded by candidate metadata",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m17-checker.test.ts",
+          "line": 58,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M17 CHECKER ADMISSION: unapproved hash, changed bytes and extra files never start a command",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m17-checker.test.ts",
+          "line": 69,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M17 CHECKER ADMISSION: approved malicious config still cannot select plugins, extends or emit",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m17-checker.test.ts",
+          "line": 79,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M17 CHECKER ADMISSION: symlink candidate file is rejected without following its target",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m17-checker.test.ts",
+          "line": 86,
+          "status": "NOT_RUN",
+          "skip": "NOT_RUN: OS refused the temporary symlink fixture; no privilege changes"
+        },
+        {
+          "name": "M17 CHECKER ADMISSION: junction or symlink root alias is rejected",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m17-checker.test.ts",
+          "line": 93,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M17 CHECKER REAL_LOCAL: TypeScript diagnostic gives actual file, line and fixed reproduction",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m17-checker.test.ts",
+          "line": 100,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M17 CHECKER REAL_LOCAL: syntax failure retains a real source line before type or test execution",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m17-checker.test.ts",
+          "line": 106,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M17 CHECKER REAL_LOCAL: tests catch a type-correct wrong implementation",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m17-checker.test.ts",
+          "line": 112,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M17 CHECKER REAL_LOCAL: output budget stops the fixed test process and observes close",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m17-checker.test.ts",
+          "line": 118,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M17 CHECKER REAL_LOCAL: deadline termination waits for actual child close and does not retry",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m17-checker.test.ts",
+          "line": 124,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M17 CHECKER INJECTED_IO_FAILURE: failed-spawn pipes are observed; started output loss is INCONCLUSIVE",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m17-checker.test.ts",
+          "line": 129,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M17 Native Pilot actually publishes, reviews, repairs, restores and gates a complete CLI through a SIMULATED provider",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m17-pilot.test.ts",
+          "line": 10,
+          "status": "PASS",
+          "skip": null
+        }
+      ]
+    },
+    {
+      "area": "E",
+      "name": "Coordinator",
+      "status": "PASS",
+      "scope": "同store获准项目状态、共享预算、资源竞争、项目隔离、越权拒绝；事件priority独立测试。",
+      "limitation": "Pilot计划priority尚未映射入队（NOT_RUN/未实现）；跨Host全局预算NOT_RUN。",
+      "supporting_test_files": [
+        "m16-harness.test.ts",
+        "m16-resources.test.ts",
+        "m17-events.test.ts",
+        "m17-development.test.ts"
+      ],
+      "supporting_cases_overlap_other_areas": true,
+      "supporting_case_counts": {
+        "PASS": 59
+      },
+      "case_references": [
+        {
+          "name": "M16-HARNESS-LOOP: executable loop routes a mock tool call through original Policy/Permit/Archive/Audit",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-harness.test.ts",
+          "line": 36,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16-HARNESS-TYPES: five type contracts, independent subagent context and read-only boundaries",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-harness.test.ts",
+          "line": 48,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16-HARNESS-MESSAGES: durable bidirectional messages, dedupe, wake and source-bound model context",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-harness.test.ts",
+          "line": 64,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16-HARNESS-WRITE: exact LOCAL_WRITE approval executes once and retains unverified persistent storage ownership",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-harness.test.ts",
+          "line": 80,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16-HARNESS-CANCEL-ACTIVE: cancellation while handler runs retains claims until outcome/outputs are reconciled",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-harness.test.ts",
+          "line": 94,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16-HARNESS-BUDGET: concurrent budget shortage creates one persisted waiter and resumes after release",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-harness.test.ts",
+          "line": 108,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16-HARNESS-UNKNOWN: model unknown outcome retains all reservations and cannot resume or retry",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-harness.test.ts",
+          "line": 120,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16-HARNESS-RECOVERY: safe WAITING checkpoint survives reopen, old facade fails and no automatic model call occurs",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-harness.test.ts",
+          "line": 128,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16-HARNESS-SCOPE: cross-project context/messages, capability escalation and malformed parameters fail before effect",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-harness.test.ts",
+          "line": 138,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16-HARNESS-WORKFLOW: disabled gate is BYPASSED, self review is rejected, versions/evidence bind review",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-harness.test.ts",
+          "line": 147,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16-HARNESS-CANCEL-FENCE: acknowledged cancellation prevents an approved pending write from starting",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-harness.test.ts",
+          "line": 157,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16-HARNESS-MODEL-CANCEL: cancellation at a model reservation ACK consumes zero sequence/tokens",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-harness.test.ts",
+          "line": 169,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16-HARNESS-PROJECT-FENCE: project pause closes admission before draining an existing turn",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-harness.test.ts",
+          "line": 178,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16-HARNESS-FEATURE: role/type-registry OFF blocks existing dispatch and new registration at project scope",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-harness.test.ts",
+          "line": 187,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16-HARNESS-HANDOFF: explicit handoff preserves independent task/context and delivers a structured completion",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-harness.test.ts",
+          "line": 195,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16-HARNESS-DEADLINE: queued deadlines and dependencies do not create workers or model requests",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-harness.test.ts",
+          "line": 203,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16-HARNESS-WORKFLOW-FENCE: a gate disabled during evidence verification commits BYPASSED",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-harness.test.ts",
+          "line": 211,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16-HARNESS-DIAGNOSTICS: read-only tool uses the original bound Host session and native parser",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-harness.test.ts",
+          "line": 220,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16-HARNESS-RECOVER-OFF: disabled resource module permits control-plane recovery and later explicit preflight",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-harness.test.ts",
+          "line": 227,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16-HARNESS-APPROVAL-RECOVER: old approval is revoked, reapproval is possible and real disk claim stays held",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-harness.test.ts",
+          "line": 236,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16-HARNESS-MESSAGE-RECOVER: logical text dedup survives replacement sender and receiver runtimes",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-harness.test.ts",
+          "line": 246,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16-HARNESS-AUDIT: a failed native intent barrier freezes admission and causes zero model/tool effects",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-harness.test.ts",
+          "line": 253,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16-HARNESS-POLICY-OWNER: every new L0 owner rejects application DISABLED mode",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-harness.test.ts",
+          "line": 261,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16-HARNESS-DISK-RESULT: a large successful gateway result cannot free a real persistent disk claim",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-harness.test.ts",
+          "line": 268,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16-HARNESS-WORKFLOW-CONTRACT: typed task inputs, role restrictions and evidence checklists use native state",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-harness.test.ts",
+          "line": 278,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16-HARNESS-OUTPUT-ROOT: existing Windows case aliases cannot write verification/demo output inside source",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-harness.test.ts",
+          "line": 290,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16-HARNESS-REQUEST-ACCOUNTING: actual zero-token fixture dispatch still consumes a request and cannot request zero workers",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-harness.test.ts",
+          "line": 295,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16 RESOURCES SIMULATED: strict CPU remains BLOCKED independent of a registry description",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-resources.test.ts",
+          "line": 33,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16 RESOURCES SQLITE: competing reservations atomically obey all three budgets",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-resources.test.ts",
+          "line": 41,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16 RESOURCES SIMULATED: admin and exact subject/project/worker scope cannot be forged",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-resources.test.ts",
+          "line": 51,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16 RESOURCES SQLITE: cumulative consumption settles once while capacity stays held until owner closure",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-resources.test.ts",
+          "line": 61,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16 RESOURCES SIMULATED: fabricated, serialized, wrong-reservation and stale closure objects fail",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-resources.test.ts",
+          "line": 74,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16 RESOURCES SIMULATED: UNKNOWN, expiration and production-looking JSON never free capacity",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-resources.test.ts",
+          "line": 83,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16 RESOURCES SQLITE: bounded persistent wait resumes only after a verified unused reservation closes",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-resources.test.ts",
+          "line": 91,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16 RESOURCES SIMULATED: waiting state has a hard count bound; no unbounded in-memory queue",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-resources.test.ts",
+          "line": 98,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16 RESOURCES SQLITE: cancelled waiting requests cannot later acquire capacity or cancel active claims",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-resources.test.ts",
+          "line": 104,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16 RESOURCES SQLITE: old boot recovery preserves holds and consumed counters, rejects old wait and closure",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-resources.test.ts",
+          "line": 112,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16 RESOURCES FEATURE: OFF blocks reserve/start and permits evidence-based cleanup without reopening execution",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-resources.test.ts",
+          "line": 126,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16 RESOURCES AUDIT: failed durable reservation barrier produces zero starts and retains the committed hold",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-resources.test.ts",
+          "line": 132,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16 RESOURCES ACCOUNTING: observed overspend is recorded in all scopes and quarantines further admission",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-resources.test.ts",
+          "line": 139,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16 RESOURCES VALIDATION: invalid amounts, expired requests and strict mode cannot mutate holds",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-resources.test.ts",
+          "line": 146,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16 RESOURCES SIMULATED: application bookkeeping never accepts a simulated completion as real OS proof",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-resources.test.ts",
+          "line": 151,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M17 Development plan exposes three independent jobs without broadening model permissions",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m17-development.test.ts",
+          "line": 12,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M17 Development admission rejects scope escalation, cycles, file aliases, and budget abuse",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m17-development.test.ts",
+          "line": 16,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M17 Development output paths reject Windows devices, alternate streams, and normalization aliases",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m17-development.test.ts",
+          "line": 26,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M17 Development ownership treats prototype names and directory prefix conflicts as real files",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m17-development.test.ts",
+          "line": 30,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M17 Development plan must actually consume the exact original requirement source in its verified model input",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m17-development.test.ts",
+          "line": 36,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M17 EVENT durable admission, exact dedup, bounded queue/history and zero idle model calls",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m17-events.test.ts",
+          "line": 42,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M17 EVENT three real concurrent Harness tasks obey priority, dependencies and one execution per task",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m17-events.test.ts",
+          "line": 42,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M17 EVENT real durable message wakes WAIT, atomically adopts payload and does not model while idle",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m17-events.test.ts",
+          "line": 42,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M17 EVENT message admitted during a real active dispatch survives until the subsequent WAIT turn",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m17-events.test.ts",
+          "line": 42,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M17 EVENT resource wait is not busy retried and known completion releases the next task once",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m17-events.test.ts",
+          "line": 42,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M17 EVENT capacity completion arriving before the waiting dispatch returns is retained",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m17-events.test.ts",
+          "line": 42,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M17 EVENT stop waits for known active work and leaves later events durable for explicit restart",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m17-events.test.ts",
+          "line": 42,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M17 EVENT resident role OFF during durable intent blocks dispatch until an explicit enabled restart",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m17-events.test.ts",
+          "line": 42,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M17 EVENT approvals stay waiting and role OFF fences new dispatch while stop/recover remain usable",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m17-events.test.ts",
+          "line": 42,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M17 EVENT cancelled and UNKNOWN Tasks are not replayed or automatically released",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m17-events.test.ts",
+          "line": 42,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M17 EVENT real close/reopen retains PENDING and requires explicit event start",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m17-events.test.ts",
+          "line": 42,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M17 EVENT REAL_PROCESS_KILL durable DISPATCHING intent recovers INDETERMINATE without replay",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m17-events.test.ts",
+          "line": 42,
+          "status": "PASS",
+          "skip": null
+        }
+      ]
+    },
+    {
+      "area": "F",
+      "name": "Context",
+      "status": "PASS",
+      "scope": "原历史/来源重建、明确缺失/不匹配拒绝、上下文上限、原规则绑定、跨Host窗口策略和恢复。",
+      "limitation": "热索引32且原Archive不覆盖；无限历史/向量检索未实现，不作长期智能记忆PASS。",
+      "supporting_test_files": [
+        "m16-context.test.ts",
+        "m161-context.test.ts",
+        "m161-rules.test.ts",
+        "m17-history.test.ts",
+        "m17-models.test.ts"
+      ],
+      "supporting_cases_overlap_other_areas": true,
+      "supporting_case_counts": {
+        "PASS": 51
+      },
+      "case_references": [
+        {
+          "name": "M16-CONTEXT-RAW: separate summary/index views preserve original bytes and source hashes",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-context.test.ts",
+          "line": 26,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16-CONTEXT-STREAM: bounded range scans a multi-chunk lossless object and restores after reopen",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-context.test.ts",
+          "line": 41,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16-CONTEXT-BOUNDS: required rules never truncate and optional omissions are explicit",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-context.test.ts",
+          "line": 57,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16-CONTEXT-SCOPE: project/task authority and exact immutable reference are checked independently",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-context.test.ts",
+          "line": 71,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16-CONTEXT-HASH: corruption outside the selected range fails the complete verification barrier",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-context.test.ts",
+          "line": 85,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16-CONTEXT-ACK: failed archive ACK cannot become an acknowledged model context",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-context.test.ts",
+          "line": 93,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16-CONTEXT-EGRESS: asynchronous scans recheck task authorization and support the exact model byte ceiling",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-context.test.ts",
+          "line": 103,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161-CONTEXT-EXACT: every source category and version survives immutable input/manifest reconstruction",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-context.test.ts",
+          "line": 22,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161-CONTEXT-VERSIONS: actual file/rule changes cannot silently replace a bound version",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-context.test.ts",
+          "line": 22,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161-CONTEXT-LARGE: 8MiB raw history remains chunked and exact ranges retain complete hash verification",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-context.test.ts",
+          "line": 22,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161-CONTEXT-BACKPRESSURE SIMULATED_SCHEDULING_BARRIER: shared read pool bounds concurrent readers and aborts queued reads",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-context.test.ts",
+          "line": 22,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161-CONTEXT-DERIVED: missing/corrupt derived references never replace original raw history and indexes can be regenerated",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-context.test.ts",
+          "line": 22,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161-CONTEXT-CORRUPTION: damaged original history outside selected range rejects assembly and leaves prior exact input intact",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-context.test.ts",
+          "line": 22,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161-CONTEXT-LEGACY SIMULATED_LEGACY_PROJECTION: old M1.6 views reconstruct without rewriting or upgrading raw records",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-context.test.ts",
+          "line": 22,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161-CONTEXT-CEILING: full 256KiB control-byte input is exact and does not overflow metadata serialization",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-context.test.ts",
+          "line": 22,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161-CONTEXT-REQUEST-FAILURE SIMULATED_PROVIDER: known-not-sent and unknown requests preserve exact acknowledged input across reopen",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-context.test.ts",
+          "line": 22,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161-CONTEXT-REQUIRED: important rules never silently truncate and stale/missing references fail closed",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-context.test.ts",
+          "line": 22,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161-CONTEXT-INDEX-CORRUPTION: damaged derived index is detected while original raw/input objects remain recoverable",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-context.test.ts",
+          "line": 22,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161-CONTEXT-CONCURRENT-WRITES SIMULATED_PRODUCER_BARRIER: four capture/assembly callers wait on two real Artifact writers",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-context.test.ts",
+          "line": 22,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161-CONTEXT-COMPOSED-POOLS SIMULATED_SCAN_BARRIER: two assemblies release read slots before waiting on producers that read context",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-context.test.ts",
+          "line": 22,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161-RULES-TEXT: source text remains verbatim and never becomes an executable natural-language rule",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-rules.test.ts",
+          "line": 31,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161-RULES-DSL: all five classes, finite constraints, dependencies, scope and enforcement bindings are explicit",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-rules.test.ts",
+          "line": 38,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161-RULES-UNKNOWN: unknown constraint, class, fields, feature and policy are rejected",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-rules.test.ts",
+          "line": 48,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161-RULES-DEPENDENCIES: duplicates, unknown dependencies, cycles and narrowing dependencies fail closed",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-rules.test.ts",
+          "line": 53,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161-RULES-NO-PROMPT-PEP: natural language cannot claim machine enforcement or a forged owner",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-rules.test.ts",
+          "line": 58,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161-RULES-VERSIONS: new tasks capture the new version while existing task bindings remain frozen",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-rules.test.ts",
+          "line": 65,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161-RULES-MIGRATION: migration requires explicit trusted authorization and persists separately from Task state",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-rules.test.ts",
+          "line": 72,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161-RULES-LIMITS: source count, source bytes, duplicate source and rule count are strictly bounded",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-rules.test.ts",
+          "line": 78,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161-RULES-CLOSE-FENCE: compiler OFF during streamed source validation prevents publishing a registry",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-rules.test.ts",
+          "line": 84,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161-RULES-REOPEN: immutable registry and task binding survive actual SQLite close/reopen",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-rules.test.ts",
+          "line": 89,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161-RULES-VERSION-FORMAT: compile rejects versions that downstream frozen context cannot identify",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-rules.test.ts",
+          "line": 94,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M17 bounded task history continues beyond 32 references, preserves raw inputs and reopens the original task",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m17-history.test.ts",
+          "line": 12,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M17 default task history retains the inherited hard reference limit unless explicitly enabled",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m17-history.test.ts",
+          "line": 25,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M17 handoff freezes both enabled and disabled history policies across opposite Host defaults",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m17-history.test.ts",
+          "line": 28,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M17 message adoption and a pending handoff roll only the bounded index and preserve all original payloads",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m17-history.test.ts",
+          "line": 37,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M17 MODEL context responder computes different tool proposals from exact reconstructed sources and observed tool results",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m17-models.test.ts",
+          "line": 58,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M17 MODEL responder input is deeply frozen, excludes privileged handles, and returns are copied before asynchronous work",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m17-models.test.ts",
+          "line": 89,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M17 MODEL responder accepts the existing escaped context envelope without narrowing context limits",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m17-models.test.ts",
+          "line": 107,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M17 MODEL responder provenance is durable data and terminal request dedup never reruns programmable code",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m17-models.test.ts",
+          "line": 117,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M17 MODEL invalid registration/accessors and legacy adapter options reject before callback execution",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m17-models.test.ts",
+          "line": 139,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "throw",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m17-models.test.ts",
+          "line": 162,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "promise",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m17-models.test.ts",
+          "line": 162,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "reply-authority",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m17-models.test.ts",
+          "line": 162,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "reply-accessor",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m17-models.test.ts",
+          "line": 162,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "oversized",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m17-models.test.ts",
+          "line": 162,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "usage-over-budget",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m17-models.test.ts",
+          "line": 162,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "explicit-unknown",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m17-models.test.ts",
+          "line": 162,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M17 MODEL synchronous failures, promise results and invalid replies retain SENT quota without fallback or replay",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m17-models.test.ts",
+          "line": 152,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M17 MODEL only explicit proven-not-sent simulation may call responder on the fallback model",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m17-models.test.ts",
+          "line": 175,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M17 MODEL budget rejection and pre-send cancellation invoke no responder and consume no fixture sequence",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m17-models.test.ts",
+          "line": 186,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M17 MODEL cancellation during synchronous simulation retains unknown budget and key occupancy",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m17-models.test.ts",
+          "line": 203,
+          "status": "PASS",
+          "skip": null
+        }
+      ]
+    },
+    {
+      "area": "G",
+      "name": "Workflow",
+      "status": "PASS",
+      "scope": "G0–G6、证据缺失/伪造/失效、BYPASSED不授权、人工门负例、规则版本与迁移。",
+      "limitation": "本轮profile无需人工门；人工实际签署NOT_RUN。模型建议不能授权。",
+      "supporting_test_files": [
+        "m161-gates.test.ts",
+        "m161-rules.test.ts",
+        "m17-development.test.ts",
+        "m17-pilot.test.ts"
+      ],
+      "supporting_cases_overlap_other_areas": true,
+      "supporting_case_counts": {
+        "PASS": 39
+      },
+      "case_references": [
+        {
+          "name": "M161-GATE-FORGERY: caller status and a model PASS artifact never certify an unexecuted gate",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-gates.test.ts",
+          "line": 39,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161-GATE-ADMISSION-INTEGRITY: engine validates admitted Task, frozen rules and actual Artifact bytes",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-gates.test.ts",
+          "line": 45,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161-GATE-CHECKER: trusted checker runs actual bounded reads and engine captures code provenance",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-gates.test.ts",
+          "line": 51,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161-GATE-STATUS: FAIL, NOT_RUN, BLOCKED, INCONCLUSIVE and SIMULATED remain distinct",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-gates.test.ts",
+          "line": 57,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161-GATE-MOCK: simulated checkers and profiles cannot become real PASS",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-gates.test.ts",
+          "line": 60,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161-GATE-MISSING: missing design, delivery and unknown checker are NOT_RUN",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-gates.test.ts",
+          "line": 64,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161-GATE-INDEPENDENCE: G4 requires registered independent reviewer and exact candidate/author binding",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-gates.test.ts",
+          "line": 67,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161-GATE-HUMAN: actual trusted approval record is required and bound to candidate/rules/profile",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-gates.test.ts",
+          "line": 71,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161-GATE-OFF: OFF records BYPASSED, does not execute checker, and cannot authorize protected capability",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-gates.test.ts",
+          "line": 80,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161-GATE-OFF-RACE: gate disabled while actual artifact stream awaits commits BYPASSED",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-gates.test.ts",
+          "line": 83,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161-GATE-EPOCH-RACE: unrelated control change during validation becomes INCONCLUSIVE",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-gates.test.ts",
+          "line": 87,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161-GATE-RULE-BINDING: changed Task binding is blocked while new registry alone preserves frozen Task",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-gates.test.ts",
+          "line": 91,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161-GATE-FINAL: seven actual gates share candidate/baseline/profile/rules and old evidence cannot pass a new candidate",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-gates.test.ts",
+          "line": 96,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161-GATE-CORRUPT: actual corrupted Artifact freezes owner and leaves no PASS or protected authorization",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-gates.test.ts",
+          "line": 105,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161-GATE-LIMITS: evidence, duplicate kinds and concurrent gate execution are bounded",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-gates.test.ts",
+          "line": 108,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161-GATE-COMPILED-CONSTRAINT: frozen DSL predicates enforce artifact, checker, byte and human requirements",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-gates.test.ts",
+          "line": 113,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161-GATE-CHECKER-PROVENANCE: an invalid checker report cannot forge engine-generated provenance",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-gates.test.ts",
+          "line": 124,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161-GATE-ENGINE-OFF: disabling the engine records BYPASSED and preserves core feature owners",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-gates.test.ts",
+          "line": 127,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161-GATE-STALE-PASS: OFF then ON cannot revive an earlier gate authorization epoch",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-gates.test.ts",
+          "line": 130,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161-GATE-RECOVERY: interrupted intent is INCONCLUSIVE without rerunning trusted code",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-gates.test.ts",
+          "line": 133,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161-GATE-ACTUAL-NODE-TEST: trusted runner executes a real bounded Node test and gate consumes its actual exit/result",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-gates.test.ts",
+          "line": 138,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161-GATE-SCHEDULER: frozen requirements block dispatch until a trusted matching native gate is explicitly bound",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-gates.test.ts",
+          "line": 152,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161-RULES-TEXT: source text remains verbatim and never becomes an executable natural-language rule",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-rules.test.ts",
+          "line": 31,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161-RULES-DSL: all five classes, finite constraints, dependencies, scope and enforcement bindings are explicit",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-rules.test.ts",
+          "line": 38,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161-RULES-UNKNOWN: unknown constraint, class, fields, feature and policy are rejected",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-rules.test.ts",
+          "line": 48,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161-RULES-DEPENDENCIES: duplicates, unknown dependencies, cycles and narrowing dependencies fail closed",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-rules.test.ts",
+          "line": 53,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161-RULES-NO-PROMPT-PEP: natural language cannot claim machine enforcement or a forged owner",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-rules.test.ts",
+          "line": 58,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161-RULES-VERSIONS: new tasks capture the new version while existing task bindings remain frozen",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-rules.test.ts",
+          "line": 65,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161-RULES-MIGRATION: migration requires explicit trusted authorization and persists separately from Task state",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-rules.test.ts",
+          "line": 72,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161-RULES-LIMITS: source count, source bytes, duplicate source and rule count are strictly bounded",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-rules.test.ts",
+          "line": 78,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161-RULES-CLOSE-FENCE: compiler OFF during streamed source validation prevents publishing a registry",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-rules.test.ts",
+          "line": 84,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161-RULES-REOPEN: immutable registry and task binding survive actual SQLite close/reopen",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-rules.test.ts",
+          "line": 89,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161-RULES-VERSION-FORMAT: compile rejects versions that downstream frozen context cannot identify",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-rules.test.ts",
+          "line": 94,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M17 Development plan exposes three independent jobs without broadening model permissions",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m17-development.test.ts",
+          "line": 12,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M17 Development admission rejects scope escalation, cycles, file aliases, and budget abuse",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m17-development.test.ts",
+          "line": 16,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M17 Development output paths reject Windows devices, alternate streams, and normalization aliases",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m17-development.test.ts",
+          "line": 26,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M17 Development ownership treats prototype names and directory prefix conflicts as real files",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m17-development.test.ts",
+          "line": 30,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M17 Development plan must actually consume the exact original requirement source in its verified model input",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m17-development.test.ts",
+          "line": 36,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M17 Native Pilot actually publishes, reviews, repairs, restores and gates a complete CLI through a SIMULATED provider",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m17-pilot.test.ts",
+          "line": 10,
+          "status": "PASS",
+          "skip": null
+        }
+      ]
+    },
+    {
+      "area": "H",
+      "name": "Resource Governance",
+      "status": "PASS",
+      "scope": "Worker/Project/Platform逻辑超额、并发预留、已知关闭释放、持久disk owner与UNKNOWN隔离。",
+      "limitation": "严格累计CPU、生产OS硬限制、普通PROCESS/EXTERNAL_EFFECT全部BLOCKED。",
+      "supporting_test_files": [
+        "m16-resources.test.ts",
+        "m151-resources.test.ts",
+        "m161-storage.test.ts",
+        "m17-quality-budget.test.ts"
+      ],
+      "supporting_cases_overlap_other_areas": true,
+      "supporting_case_counts": {
+        "PASS": 42
+      },
+      "case_references": [
+        {
+          "name": "M151 RESOURCE CONTRACT SIMULATED: valid signed full-check Windows certificate cannot enable a known failed CPU capability",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m151-resources.test.ts",
+          "line": 13,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M151 RESOURCE CONTRACT: no runtime flag or unsupported assurance opens production",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m151-resources.test.ts",
+          "line": 28,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16 RESOURCES SIMULATED: strict CPU remains BLOCKED independent of a registry description",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-resources.test.ts",
+          "line": 33,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16 RESOURCES SQLITE: competing reservations atomically obey all three budgets",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-resources.test.ts",
+          "line": 41,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16 RESOURCES SIMULATED: admin and exact subject/project/worker scope cannot be forged",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-resources.test.ts",
+          "line": 51,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16 RESOURCES SQLITE: cumulative consumption settles once while capacity stays held until owner closure",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-resources.test.ts",
+          "line": 61,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16 RESOURCES SIMULATED: fabricated, serialized, wrong-reservation and stale closure objects fail",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-resources.test.ts",
+          "line": 74,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16 RESOURCES SIMULATED: UNKNOWN, expiration and production-looking JSON never free capacity",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-resources.test.ts",
+          "line": 83,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16 RESOURCES SQLITE: bounded persistent wait resumes only after a verified unused reservation closes",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-resources.test.ts",
+          "line": 91,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16 RESOURCES SIMULATED: waiting state has a hard count bound; no unbounded in-memory queue",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-resources.test.ts",
+          "line": 98,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16 RESOURCES SQLITE: cancelled waiting requests cannot later acquire capacity or cancel active claims",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-resources.test.ts",
+          "line": 104,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16 RESOURCES SQLITE: old boot recovery preserves holds and consumed counters, rejects old wait and closure",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-resources.test.ts",
+          "line": 112,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16 RESOURCES FEATURE: OFF blocks reserve/start and permits evidence-based cleanup without reopening execution",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-resources.test.ts",
+          "line": 126,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16 RESOURCES AUDIT: failed durable reservation barrier produces zero starts and retains the committed hold",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-resources.test.ts",
+          "line": 132,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16 RESOURCES ACCOUNTING: observed overspend is recorded in all scopes and quarantines further admission",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-resources.test.ts",
+          "line": 139,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16 RESOURCES VALIDATION: invalid amounts, expired requests and strict mode cannot mutate holds",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-resources.test.ts",
+          "line": 146,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M16 RESOURCES SIMULATED: application bookkeeping never accepts a simulated completion as real OS proof",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m16-resources.test.ts",
+          "line": 151,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161 STORAGE real atomic CREATE binds exact approval, content, Artifact/Audit and persistent budget ownership",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+          "line": 18,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161 STORAGE unauthorized write is rejected before files and before owner intent",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+          "line": 30,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161 STORAGE no-clobber CREATE preserves unowned history",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+          "line": 38,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161 STORAGE REPLACE requires the exact owned version; original Artifact remains reconstructible",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+          "line": 45,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161 STORAGE bounded streaming verifies 3 MiB without materializing the input in the request",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+          "line": 55,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161 STORAGE injected ENOSPC before publication leaves no target and quarantines original operation",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+          "line": 62,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161 STORAGE injected EACCES before publication leaves no target and quarantines original operation",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+          "line": 62,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161 STORAGE publish-link gap is reconciled by identity/hash without republishing",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+          "line": 68,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161 STORAGE concurrent same-resource writers conflict before the second file effect",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+          "line": 76,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161 STORAGE changed bytes between publication and ACK stay UNKNOWN and cannot be reconciled by pathname",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+          "line": 85,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161 STORAGE persistent resource quota rejects a second allocation before a temporary object",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+          "line": 92,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161 STORAGE REAL_PROCESS_CRASH at REQUESTED preserves evidence and never automatically retries",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+          "line": 101,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161 STORAGE REAL_PROCESS_CRASH at AUTHORIZED preserves evidence and never automatically retries",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+          "line": 101,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161 STORAGE REAL_PROCESS_CRASH at WRITE_INTENT preserves evidence and never automatically retries",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+          "line": 101,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161 STORAGE REAL_PROCESS_CRASH at TEMP_OBJECT_CREATED preserves evidence and never automatically retries",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+          "line": 101,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161 STORAGE REAL_PROCESS_CRASH at WRITE_CHUNK preserves evidence and never automatically retries",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+          "line": 101,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161 STORAGE REAL_PROCESS_CRASH at CONTENT_WRITTEN preserves evidence and never automatically retries",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+          "line": 101,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161 STORAGE REAL_PROCESS_CRASH at CONTENT_VERIFIED preserves evidence and never automatically retries",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+          "line": 101,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161 STORAGE REAL_PROCESS_CRASH at PUBLISH_READY preserves evidence and never automatically retries",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+          "line": 101,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161 STORAGE REAL_PROCESS_CRASH at UNLINK_TEMP preserves evidence and never automatically retries",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+          "line": 101,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161 STORAGE REAL_PROCESS_CRASH at PUBLISHED preserves evidence and never automatically retries",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+          "line": 101,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M161 STORAGE REAL_PROCESS_CRASH at AUDIT_ACKNOWLEDGED preserves evidence and never automatically retries",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m161-storage.test.ts",
+          "line": 101,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M17 started checker without command/exit evidence retains UNKNOWN and cannot be silently retried",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m17-quality-budget.test.ts",
+          "line": 11,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M17 known checker admission rejection has zero invocation and releases only its own logical reservation",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m17-quality-budget.test.ts",
+          "line": 16,
+          "status": "PASS",
+          "skip": null
+        },
+        {
+          "name": "M17 thrown checker result retains UNKNOWN rather than manufacturing a completion receipt",
+          "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m17-quality-budget.test.ts",
+          "line": 19,
+          "status": "PASS",
+          "skip": null
+        }
+      ]
+    }
+  ],
+  "resident_two_hour_status": "PASS",
+  "counting_note": "Supporting file sets overlap areas; do not add their case counts. Authoritative full total is532=523PASS/9NOT_RUN/0FAIL. A negative assertion PASS is evidence of refusal, not capability qualification."
+}

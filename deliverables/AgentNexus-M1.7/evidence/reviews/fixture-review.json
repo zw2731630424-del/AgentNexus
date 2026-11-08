@@ -1,0 +1,336 @@
+{
+  "schema": "agentnexus/m17-independent-engineering-fixture-review/1",
+  "reviewer": "Codex engineering subagent /root/baseline_storage_models",
+  "scope": "Independent read-only engineering review of development.ts, pilot-fixtures.ts, and M1.7 index.ts/scheduler.ts differences against M1.6.1. The reviewer authored models.ts earlier and did not review that file here.",
+  "provenance": "Codex engineering inputs and authored simulation fixtures; not NativePilot Agent execution.",
+  "status": "NO_OPEN_FINDINGS_IN_REVIEWED_SCOPE_AFTER_STATIC_RECHECK",
+  "snapshot_note": "The author applied fixes during the initial review and before this bounded static recheck. Original findings and the prior archived report remain preserved. The latest fixture SHA is explicitly recorded; no Pilot or template program was generated or executed.",
+  "final_snapshots": [
+    {
+      "path": "deliverables/AgentNexus-M1.7/source/src/agentnexus/harness/development.ts",
+      "sha256": "6800a83aed43912ba94f7d2f6fb35e3c3d9a3732a6119ce6687c179d2b29c919",
+      "lines": 81,
+      "bytes": 8530
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.7/source/src/agentnexus/harness/pilot-fixtures.ts",
+      "sha256": "1060d048e9f232565c48bd311baca485df47c46faa876d788f0c8d0f40c5ec65",
+      "lines": 169,
+      "bytes": 23982
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.7/source/src/agentnexus/harness/index.ts",
+      "sha256": "a16db6144031755dd1f93749baf8d3c1cd480b95eb6a4c3e8aecd2e189caefc6",
+      "lines": 286,
+      "bytes": 29928
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.7/source/src/agentnexus/harness/scheduler.ts",
+      "sha256": "955d87de3eec53e5c82360ba208040e3a65847e659df89a1364e45716f36ac14",
+      "lines": 432,
+      "bytes": 44273
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/src/agentnexus/harness/index.ts",
+      "sha256": "8ffad0e7248abcf1fd9fa1ddd7d95ab240a92010d2892b37a4b8229864554dc5",
+      "lines": 267,
+      "bytes": 27950
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/src/agentnexus/harness/scheduler.ts",
+      "sha256": "8808d36d03ec3570b6b763599f8f6dd5aaa734373c839acc057e5094606d7433",
+      "lines": 432,
+      "bytes": 44020
+    }
+  ],
+  "coverage": [
+    {
+      "path": "deliverables/AgentNexus-M1.7/source/src/agentnexus/harness/development.ts",
+      "method": "Full final numbered UTF-8 read, lines 1-81; SHA256 stable at final inventory"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.7/source/src/agentnexus/harness/pilot-fixtures.ts",
+      "method": "Complete prior 99ac048c117f34430310acf02a6422efcc40bcc3f8fefbe47b3ce39489b6b1c9 snapshot read; latest targeted recheck of numbered lines 116-169, including all direct-source and ANSWER guards. No pilot-run.ts read."
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.7/source/src/agentnexus/harness/index.ts",
+      "method": "Complete unified diff against M1.6.1 plus numbered context lines 36-140 and 193-286"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.7/source/src/agentnexus/harness/scheduler.ts",
+      "method": "Complete unified diff against M1.6.1 plus numbered context lines 1-110 and 150-275; supporting message-acceptance methods read"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.7/source/src/agentnexus/harness/context.ts",
+      "method": "Supporting source validation, full Artifact read barrier, range limits, and reconstruction methods"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.7/source/src/agentnexus/harness/messages.ts",
+      "method": "Supporting authenticated handoff, task reconciliation, durable wake notification methods"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.7/source/tests/agentnexus/m17-development.test.ts",
+      "method": "Complete initial 24-line test read; no tests executed"
+    }
+  ],
+  "findings": [
+    {
+      "id": "FIXTURE-006",
+      "priority": 2,
+      "status": "CLOSED_STATICALLY_VERIFIED",
+      "path": "I:/AI_AgentNexus/deliverables/AgentNexus-M1.7/source/src/agentnexus/harness/pilot-fixtures.ts",
+      "line": 146,
+      "end_line": 158,
+      "title": "Reject incomplete direct-source manifests before changing turn indexing",
+      "evidence": "sources is considered present solely by JavaScript truthiness. An empty array switches line 151 to files[turn-1], but absent matching direct source still falls back to native.pilot.stage at line 158. A stage consumes one turn without publishing, while the next turn already advances to another file or FINAL.",
+      "static_reproduction": [
+        "Use a valid TASK_CONTRACT with pilot_role='integration', files=['src/model.ts'], sources=[] and otherwise normal fixture inputs.",
+        "At request suffix .1, sources is truthy, path is files[0], no direct source exists, so only native.pilot.stage is proposed.",
+        "At suffix .2, path is files[1] (undefined), so line 152 returns FINAL even though no native.storage.write was proposed for src/model.ts."
+      ],
+      "impact": "A malformed or partial manifest can produce a successful Task result with missing publications. The final external checker may catch missing files, but the fixture should fail closed rather than declare its work complete.",
+      "recommendation": "Validate that a supplied direct manifest has exactly one complete authorized source per requested path before using direct-source indexing, or persist per-path stage/publication progress. Do not compare repaired analytics to the initial deliberately buggy template hash; bind the expected source to the trusted acknowledged version manifest.",
+      "executed": false,
+      "original_snapshot_sha256": "99ac048c117f34430310acf02a6422efcc40bcc3f8fefbe47b3ce39489b6b1c9",
+      "original_evidence_preserved": true,
+      "closure": {
+        "observed_at": "2026-11-08T02:38:55.688743+00:00",
+        "source_sha256": "1060d048e9f232565c48bd311baca485df47c46faa876d788f0c8d0f40c5ec65",
+        "path": "deliverables/AgentNexus-M1.7/source/src/agentnexus/harness/pilot-fixtures.ts",
+        "line": 148,
+        "end_line": 148,
+        "evidence": "A supplied sources array must have files.length entries, the same number of unique paths, every path in files, offset=0, length=payload_ref.bytes, and payload_ref.sha256 equal to the corresponding initial PILOT_FILES bytes. Empty or partial sources for nonempty files throw PILOT_SOURCE_MANIFEST_INCOMPLETE_OR_MISMATCH before turn selection or any stage/write proposal.",
+        "verification_kind": "Read-only static source verification; no responder/Pilot execution",
+        "scope_note": "The guard binds initial fixture-template versions. Repaired analytics must remain bound to its actual acknowledged REPLACE version in final Host evidence; this guard does not accept arbitrary repaired direct-manifest bytes."
+      }
+    },
+    {
+      "id": "FIXTURE-007",
+      "priority": 2,
+      "status": "CLOSED_STATICALLY_VERIFIED",
+      "path": "I:/AI_AgentNexus/deliverables/AgentNexus-M1.7/source/src/agentnexus/harness/pilot-fixtures.ts",
+      "line": 148,
+      "end_line": 149,
+      "title": "Consume the clarification answer before resuming code generation",
+      "evidence": "The code-cli role emits QUESTION at turn 1, then simply subtracts one from every later turn and continues staging/writing. This branch never finds or verifies the forwarded ANSWER text, answer source, or requirements_sha256.",
+      "static_reproduction": [
+        "Run only the branch logic conceptually with code-cli turn suffix .1: it returns WAIT/QUESTION.",
+        "Resume at suffix .2 with no answer entry in context: turn is decremented to 1 and the normal file path/staging branch proceeds unchanged."
+      ],
+      "impact": "The current fixture can demonstrate Host-driven message delivery/resume, but cannot substantiate a claim that the coding role made its next decision from the clarification answer.",
+      "recommendation": "Require a provenance-bound ANSWER from the authorized resident/lead flow, validate its requirements hash against the original requirement source, and retain WAIT when absent or mismatched. Alternatively limit the acceptance wording to deterministic Host-controlled resumption.",
+      "executed": false,
+      "original_snapshot_sha256": "99ac048c117f34430310acf02a6422efcc40bcc3f8fefbe47b3ce39489b6b1c9",
+      "original_evidence_preserved": true,
+      "closure": {
+        "observed_at": "2026-11-08T02:38:55.688743+00:00",
+        "source_sha256": "1060d048e9f232565c48bd311baca485df47c46faa876d788f0c8d0f40c5ec65",
+        "path": "deliverables/AgentNexus-M1.7/source/src/agentnexus/harness/pilot-fixtures.ts",
+        "line": 151,
+        "end_line": 154,
+        "evidence": "After the initial QUESTION turn, code-cli searches actual context entries whose source.task_id is lead. It requires pilot_signal=ANSWER, requirements_sha256 equal to sha256(canonical(the original requirements object)), string text containing zero, and otherwise throws PILOT_ANSWER_NOT_IN_CONTEXT before proceeding to file selection/staging/writing.",
+        "verification_kind": "Read-only static source verification; no responder/Pilot execution",
+        "scope_note": "ContextSource authenticity and original archived bytes are supplied by the previously reviewed reconstruction boundary; this is a deterministic fixture comprehension guard, not general LLM reasoning qualification."
+      }
+    }
+  ],
+  "resolved_during_review": [
+    {
+      "id": "FIXTURE-001",
+      "priority": 1,
+      "path": "I:/AI_AgentNexus/deliverables/AgentNexus-M1.7/source/src/agentnexus/harness/development.ts",
+      "original_line": 33,
+      "original_end_line": 43,
+      "original_sha256": "ddc87a34eb5e4386f092b6779839e3f5d4457c95f2fcdd491149607a29ed0061",
+      "title": "Prototype-key output ownership bypass",
+      "original_static_evidence": "owners={} and owners['__proto__']=task.id do not create an own data property, so duplicate '__proto__' output ownership could be admitted.",
+      "resolution": "Current lines 33 and 43 use Map ownership; line 53 exports with Object.fromEntries.",
+      "verification": "Read-only synthetic review-only project validator probe rejected duplicate __proto__ with DEVELOPMENT_FILE_CONFLICT. No Pilot files or execution."
+    },
+    {
+      "id": "FIXTURE-002",
+      "priority": 2,
+      "path": "I:/AI_AgentNexus/deliverables/AgentNexus-M1.7/source/src/agentnexus/harness/development.ts",
+      "original_line": 43,
+      "title": "File/directory ancestor output conflict",
+      "original_static_evidence": "Exact full-path equality alone admitted data and data/entry.ts as distinct outputs, despite an impossible file/directory namespace overlap.",
+      "resolution": "Current line 43 checks equality and both slash-delimited ancestor directions.",
+      "verification": "Read-only synthetic review-only project validator probe rejected data plus data/entry.ts with DEVELOPMENT_FILE_CONFLICT."
+    },
+    {
+      "id": "FIXTURE-003",
+      "priority": 2,
+      "path": "I:/AI_AgentNexus/deliverables/AgentNexus-M1.7/source/src/agentnexus/harness/pilot-fixtures.ts",
+      "original_line": 30,
+      "original_end_line": 31,
+      "title": "TaskBook could persist data that its parser rejects",
+      "original_static_evidence": "parse rejected more than 10000 tasks while add had no capacity guard; adding to a valid 10000-task book could serialize 10001 tasks and make the next CLI invocation fail INVALID_DATA.",
+      "resolution": "Current lines 29 and 31 guard constructor/add capacity; line 87 adds a template capacity/preserved-serialization regression case.",
+      "verification": "Static re-read only. No Pilot source extraction, generation, compilation or runtime was performed."
+    },
+    {
+      "id": "FIXTURE-004",
+      "priority": 1,
+      "path": "I:/AI_AgentNexus/deliverables/AgentNexus-M1.7/source/src/agentnexus/harness/development.ts",
+      "original_line": 65,
+      "original_end_line": 69,
+      "title": "Requirements claim was not bound to actual proposer context",
+      "original_static_evidence": "The old code matched MODEL_REQUEST.result and a reply-supplied requirements hash, but did not prove the declared requirement source entered the proposer request.",
+      "resolution": "Current lines 65-70 compare the entire owner subject, require response source in Task history, reconstruct the proposer context, and match the exact requirements source/text.",
+      "verification": "Static re-read of current implementation and supporting ContextAssembly reconstruction/hash barriers. Operational admission tests were not run by this reviewer."
+    }
+  ],
+  "hardening_observed": [
+    {
+      "path": "I:/AI_AgentNexus/deliverables/AgentNexus-M1.7/source/src/agentnexus/harness/pilot-fixtures.ts",
+      "line": 131,
+      "end_line": 135,
+      "description": "The author narrowed control signals to resident/review task sources and requires a resident ACCEPTED signal to claim NATIVE_GATE_ENGINE plus a gate_record_id. This closes arbitrary unrelated-context top-level pilot_signal selection observed in the earlier 68c8da... revision. Gate existence/candidate correctness still belongs to the trusted Host acceptance path."
+    }
+  ],
+  "host_integration_obligations": [
+    {
+      "path": "I:/AI_AgentNexus/deliverables/AgentNexus-M1.7/source/src/agentnexus/harness/pilot-fixtures.ts",
+      "line": 134,
+      "end_line": 135,
+      "requirement": "Before publishing acceptance, resolve gate_record_id to a real successful NativeGateEngine record bound to the exact final candidate, baseline, checker profile, and original source chain. A string authority label, lead FINAL, or Task SUCCEEDED is not independent software acceptance.",
+      "review_limit": "pilot-run.ts was still being authored and is intentionally outside this review."
+    },
+    {
+      "path": "I:/AI_AgentNexus/deliverables/AgentNexus-M1.7/source/src/agentnexus/harness/pilot-fixtures.ts",
+      "line": 147,
+      "end_line": 165,
+      "requirement": "The trusted integration manifest must bind each target path to a real acknowledged StorageWrite operation, author task/role, resource/path, version, ArtifactRef and full ContextSource. The current line-148 fixture guard additionally enforces complete initial-template hashes; final repair evidence must separately bind the actual acknowledged REPLACE version rather than claim the initial manifest already contains repaired analytics."
+    },
+    {
+      "path": "I:/AI_AgentNexus/deliverables/AgentNexus-M1.7/source/src/agentnexus/harness/pilot-fixtures.ts",
+      "line": 40,
+      "end_line": 51,
+      "requirement": "Preserve the initial zero-estimate analytics failure and the later repaired candidate/checker evidence separately. ANALYTICS_BUGGY is an explicit injected fixture defect, not an unnoticed final software success."
+    }
+  ],
+  "review_checks": [
+    {
+      "area": "Admission and authority",
+      "result": "Current exact-field plan schemas, DAG/cycle checks, read-only role output restrictions, explicit allowed-output envelope, all-scope native budget ownership, and admin-only admission remain in place. Model plans do not mint tool approval or resource permission."
+    },
+    {
+      "area": "Model and history bounds",
+      "result": "Scheduler output cap remains a validated integer 1..4096. Existing max context 32768 bytes, max sources 32, recent history selection at most 12, total history refs 32, and turns at most 32 remain unchanged. Complete direct-source integration of 10 files needs 11 model turns and 21 model/tool history refs before extra messages; this is below the current limits."
+    },
+    {
+      "area": "Template sizes",
+      "result": "Static existing-literal analysis found the largest stage reply is MODEL_SOURCE, 2834 JSON bytes / approximately 709 simulated output tokens, below the default 1024 cap. This is not an executed model/Pilot measurement.",
+      "details": {
+        "kind": "static existing literal size analysis only; no Pilot source generation or execution",
+        "source_sha256": "f79be385bea0797ed7de6c15ac919a1e12c07707bee91cab4661f361a012aa9d",
+        "literals": [
+          {
+            "literal": "MODEL_SOURCE",
+            "bytes": 2690,
+            "stage_reply_bytes": 2834,
+            "stage_reply_output_tokens_estimate": 709
+          },
+          {
+            "literal": "ANALYTICS_BUGGY",
+            "bytes": 833,
+            "stage_reply_bytes": 968,
+            "stage_reply_output_tokens_estimate": 242
+          },
+          {
+            "literal": "CLI_SOURCE",
+            "bytes": 1462,
+            "stage_reply_bytes": 1597,
+            "stage_reply_output_tokens_estimate": 400
+          },
+          {
+            "literal": "ENTRY_SOURCE",
+            "bytes": 1161,
+            "stage_reply_bytes": 1295,
+            "stage_reply_output_tokens_estimate": 324
+          },
+          {
+            "literal": "MODEL_TESTS",
+            "bytes": 1522,
+            "stage_reply_bytes": 1654,
+            "stage_reply_output_tokens_estimate": 414
+          },
+          {
+            "literal": "ANALYTICS_TESTS",
+            "bytes": 1054,
+            "stage_reply_bytes": 1191,
+            "stage_reply_output_tokens_estimate": 298
+          },
+          {
+            "literal": "CLI_TESTS",
+            "bytes": 1829,
+            "stage_reply_bytes": 1958,
+            "stage_reply_output_tokens_estimate": 490
+          },
+          {
+            "literal": "README",
+            "bytes": 1374,
+            "stage_reply_bytes": 1507,
+            "stage_reply_output_tokens_estimate": 377
+          }
+        ]
+      }
+    },
+    {
+      "area": "Software templates",
+      "result": "Static review checked safe integer task fields, duplicate IDs, version conflicts, transitions, defensive copies, weighted analytics and explicit zero guard repair, JSON parse preservation, wx lock admission, file sync and rename publication. No final runnable software correctness or OS durability qualification is claimed from this read."
+    },
+    {
+      "area": "Index and scheduler integration",
+      "result": "Responder is passed as the third ModelGateway argument; the existing ModelBudget reserve/settle/retain path is preserved. New event/development administration remains outside the Agent facade. Scheduler uses the configured bounded output cap without expanding ModelReply kinds or strict OS qualification."
+    },
+    {
+      "area": "Provenance labeling",
+      "result": "Fixtures and generated README explicitly label Codex-authored SIMULATED computation, local orchestration, and unverified general-LLM/real-provider capabilities."
+    }
+  ],
+  "validator_probe": {
+    "kind": "read-only synthetic pure-function probes; no Pilot generation or execution",
+    "exit_code": 0,
+    "output": "{\"probe\":\"prototype-key\",\"status\":\"REJECTED\",\"reason\":\"DEVELOPMENT_FILE_CONFLICT\"}\n{\"probe\":\"file-directory-prefix\",\"status\":\"REJECTED\",\"reason\":\"DEVELOPMENT_FILE_CONFLICT\"}\n"
+  },
+  "actions": {
+    "reviewed_implementation_edited": false,
+    "models_reviewed": false,
+    "pilot_sources_generated": false,
+    "pilot_executed": false,
+    "template_programs_executed": false,
+    "network_used": false,
+    "keys_read": false,
+    "os_configuration_changed": false,
+    "recursive_delegation": false
+  },
+  "output_only": ".workflow-kit/runtime/AgentNexus-M1.7/independent-engineering/fixture-review.json",
+  "recheck": {
+    "observed_at": "2026-11-08T02:38:55.688743+00:00",
+    "scope": "Only FIXTURE-006 and FIXTURE-007 in the latest pilot-fixtures.ts; no pilot-run.ts review",
+    "prior_report_sha256": "acef4ffc15377058016d3162797ef112de77608d0d05e7c23a8d9b8ce167575f",
+    "prior_report_archive": ".workflow-kit/runtime/AgentNexus-M1.7/independent-engineering/fixture-review-before-recheck-acef4ffc15377058016d3162797ef112de77608d0d05e7c23a8d9b8ce167575f.json",
+    "prior_report_archive_sha256": "acef4ffc15377058016d3162797ef112de77608d0d05e7c23a8d9b8ce167575f",
+    "fixture_sha256": "1060d048e9f232565c48bd311baca485df47c46faa876d788f0c8d0f40c5ec65",
+    "fixture_lines": 169,
+    "fixture_bytes": 23982,
+    "read_ranges": [
+      [
+        116,
+        169
+      ]
+    ],
+    "closed_findings": [
+      "FIXTURE-006",
+      "FIXTURE-007"
+    ],
+    "open_findings": 0,
+    "operational_acceptance": "NOT_RUN",
+    "source_modified": false,
+    "pilot_sources_generated": false,
+    "pilot_executed": false,
+    "template_programs_executed": false,
+    "only_modified_path": ".workflow-kit/runtime/AgentNexus-M1.7/independent-engineering/fixture-review.json"
+  }
+}

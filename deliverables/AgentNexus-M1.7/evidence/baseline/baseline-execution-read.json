@@ -1,0 +1,2107 @@
+{
+  "schema": "agentnexus/m17/phase0/baseline-execution-read/1",
+  "generated_at": "2026-11-08T02:10:48.037929+00:00",
+  "actor": "Codex engineering baseline review subagent /root/baseline_execution",
+  "evidence_class": "ENGINEERING_READ_ONLY_BASELINE_REVIEW",
+  "not_pilot_agent_runtime_evidence": true,
+  "baseline_release": "AgentNexus-M1.6.1",
+  "scope": {
+    "source_modules": [
+      "source/src/agentnexus/bootstrap/**",
+      "source/src/agentnexus/production/**",
+      "source/src/agentnexus/runtime/**"
+    ],
+    "tests": [
+      "source/tests/agentnexus/m14*",
+      "source/tests/agentnexus/m15*",
+      "source/tests/agentnexus/m151*",
+      "source/tests/agentnexus/windows-native*",
+      "source/tests/agentnexus/runtime*",
+      "source/tests/agentnexus/reconciliation*",
+      "source/tests/agentnexus/M151LifecycleProbe.cs"
+    ],
+    "tools": "source/tools/**",
+    "reports": [
+      "acceptance-report.md",
+      "independent-code-review.md",
+      "resource-qualification.json",
+      "issue-ledger.json"
+    ]
+  },
+  "coverage_summary": {
+    "files": 81,
+    "source_module_files": 35,
+    "test_and_fixture_files": 22,
+    "tool_files": 20,
+    "baseline_report_files": 4,
+    "bytes": 665301,
+    "utf8_characters": 664063,
+    "all_content_read": true,
+    "unread_in_assigned_scope": [],
+    "inventory_set_sha256": "5e051047038e7688119e4e26a933c426d6f814388e7f1eb95ddd0651bef1506c",
+    "set_hash_format": "SHA256 of sorted workspace-relative path + NUL + lowercase SHA256 + LF, UTF-8"
+  },
+  "reading_method": {
+    "content": "Complete UTF-8 contents emitted into review context; large C# and m14-production file split into contiguous half-open character ranges",
+    "truncation_resolution": [
+      "Initial combined runtime.test.ts / reconciliation.test.ts output was truncated; both files were reread separately in full without truncation",
+      "Initial Chinese report output had console encoding replacement; acceptance-report.md and independent-code-review.md were reread with Python UTF-8 output"
+    ],
+    "hash_basis": "SHA256 of exact current file bytes; independent parent preservation snapshot owns whole-history before/after verification"
+  },
+  "actions": {
+    "historical_files_modified": false,
+    "implementation_modified": false,
+    "tests_executed": false,
+    "os_qualification_executed": false,
+    "os_accounts_acl_policy_modified": false,
+    "provider_connected": false,
+    "keys_or_credentials_read": false,
+    "only_written_file": ".workflow-kit/runtime/AgentNexus-M1.7/baseline-execution-read.json",
+    "creation_method": "Direct runtime-category single-file write; govern new was inspected but would refresh shared indexes outside this agent single-writer assignment"
+  },
+  "inherited_status": {
+    "full_regression": "FAIL",
+    "tests": 479,
+    "pass": 469,
+    "not_run": 8,
+    "fail": 2,
+    "m161_added_tests": 99,
+    "m161_added_pass": 99,
+    "strict_cpu": "BLOCKED",
+    "windows_production": "BLOCKED",
+    "provider": "SIMULATED",
+    "legacy_toctou": "FAIL: WIN32_1921 outside untouched old oracle allow-list",
+    "inherited_cpu_weak_assertion": "FAIL; M1.5.1 56 FAIL/2 PASS and M1.6 29062500 ticks/DEADLINE remain historical evidence",
+    "history_policy": "Preserve all original assertions, failure evidence and source bytes; new observations cannot substitute for old failures"
+  },
+  "safety_boundaries": [
+    {
+      "paths": [
+        "source/src/agentnexus/production/resources.ts",
+        "source/src/agentnexus/production/qualification.ts",
+        "source/src/agentnexus/bootstrap/runtime.ts"
+      ],
+      "finding": "REAL_WINDOWS execution is hard-blocked by assertResourceExecutionQualified before native prepare and in QualificationGate. Only SIMULATED is admitted; certificate, Feature, Policy, config, timeout or CPU_RATE cannot override failed cumulative CPU capability."
+    },
+    {
+      "paths": [
+        "source/src/agentnexus/runtime/broker.ts",
+        "source/src/agentnexus/runtime/control.ts"
+      ],
+      "finding": "Legacy ExecutionBroker always rejects arbitrary dispatch. RuntimeControl admits only PURE/READ_ONLY contract consumption and returns execution BLOCKED; release always rejects without full OS profile."
+    },
+    {
+      "paths": [
+        "source/src/agentnexus/bootstrap/config.ts",
+        "source/src/agentnexus/bootstrap/permissions.ts",
+        "source/src/agentnexus/bootstrap/launcher-proof.ts",
+        "source/src/agentnexus/production/windows/BootstrapNative.cs"
+      ],
+      "finding": "Trusted bootstrap requires distinct standard Host/Worker/Operator identities, exact external config and source/executable hashes, protected owner/group/DACL pins and native peer tuple/image/token rechecks. Test primitive IDs cannot become production IDs."
+    },
+    {
+      "paths": [
+        "source/src/agentnexus/production/authority.ts",
+        "source/src/agentnexus/production/broker.ts",
+        "source/src/agentnexus/production/transport.ts",
+        "source/src/agentnexus/bootstrap/reservations.ts"
+      ],
+      "finding": "Grant/approval/resource consumption is durable before start; final fences recheck identity, epochs, peer, feature and audit state. Disconnect, consumed uncertainty and restart quarantine resources and prohibit automatic replay."
+    },
+    {
+      "paths": [
+        "source/src/agentnexus/production/exit.ts",
+        "source/src/agentnexus/bootstrap/exit-closure.ts",
+        "source/src/agentnexus/production/windows-supervisor.ts"
+      ],
+      "finding": "Root exit or terminate request is insufficient. Exit release needs complete rooted member history, tree empty, producer EOF, artifact verification, native sandbox observations, independent adjudication, owner closure and version-bound acknowledgement. WindowsSupervisor conservatively leaves network/filesystem/limits unverified."
+    },
+    {
+      "paths": [
+        "source/src/agentnexus/production/file-broker.ts",
+        "source/src/agentnexus/production/windows/NativeRuntime.cs"
+      ],
+      "finding": "File paths are constrained and native opens retain directory handles, reject reparse/hardlinks and bind content/file versions. Operations are bounded and create-only; this is not a general hostile-process filesystem sandbox or disk quota."
+    },
+    {
+      "paths": [
+        "source/src/agentnexus/bootstrap/ubuntu.ts",
+        "source/src/agentnexus/bootstrap/ubuntu/peer_probe.c"
+      ],
+      "finding": "Ubuntu is preparation-only and explicitly BLOCKED; SO_PEERCRED alone grants no runtime or execution authority."
+    }
+  ],
+  "fixed_runner_reuse_recommendations": [
+    "Use an explicit immutable allow-list of runner IDs, exact executable/code hashes, fixed argv construction and a trusted fixed working directory. Agent input must not select shell, executable, script, cwd or arbitrary module loading.",
+    "Reuse exact input/resource/task/operation binding, canonical snapshots, consumed-before-start ledgers, audit barriers and one-operation lifetimes; label execution LOCAL_TRUSTED_LIBRARY / FIXED_RUNNER without upgrading OS qualification.",
+    "Sanitize environment with an explicit allow-list. Historical verify runners spread process.env; their test harness behavior is not an approved credential boundary for a new runner.",
+    "Keep output outside candidate source using realpath/case-aware existing-ancestor resolution as in output-root.ts. That validation is useful for engineering outputs but does not establish hostile-process containment or eliminate path races.",
+    "Pin Node v24.15.0 / TypeScript 5.9.3 / @types-node 24.10.1 and explicitly locate existing tools. WindowsApps PowerShell path behavior can differ; keep executable hash and tool-path observations separate from OS account/ACL qualification.",
+    "Do not invoke verify-m161 --suite all during read-only Phase0: dynamic .test.ts discovery includes native Job, CPU and TOCTOU fixtures. A later approved fixed runner needs an explicit profile and separately reported inherited FAILs.",
+    "Do not run catalog-m16.py or package-m12.py to prepare M1.7: they mutate old config/source or release paths. Create append-only M1.7 manifests, packages and evidence, preserving every old file and failure.",
+    "Do not release old Gateway/Worker/UNKNOWN reservations because a local file was reconciled. New runner cancellation/deadline/owner death must retain uncertainty until its actual trusted owner proves settlement."
+  ],
+  "supporting_context": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "a868b01052ea5613300e6973fd1c65917ba2f10b01eea025214b513432cd4694",
+      "bytes": 2587,
+      "lines": 28,
+      "content_read": "FULL",
+      "coverage": {
+        "line_ranges_inclusive": [
+          [
+            1,
+            28
+          ]
+        ],
+        "complete": true
+      },
+      "purpose": "Required project routing/governance context"
+    },
+    {
+      "path": "ai-workflow-kit-v4/project-workflows/README.md",
+      "sha256": "1f12071a31eca68714381c3f543ff46ba81b20acd5c951e2eb68aee0f6bc9b21",
+      "bytes": 1027,
+      "lines": 12,
+      "content_read": "FULL",
+      "coverage": {
+        "line_ranges_inclusive": [
+          [
+            1,
+            12
+          ]
+        ],
+        "complete": true
+      },
+      "purpose": "Required project routing/governance context"
+    },
+    {
+      "path": ".workflow-kit/governance/policy.json",
+      "sha256": "ea91359de90e74cbb554f93ac2dae82509f93f5bcc05c65bf22384aba4dd4d83",
+      "bytes": 7919,
+      "lines": 483,
+      "content_read": "FULL",
+      "coverage": {
+        "line_ranges_inclusive": [
+          [
+            1,
+            483
+          ]
+        ],
+        "complete": true
+      },
+      "purpose": "Required project routing/governance context"
+    },
+    {
+      "path": "ai-workflow-kit-v4/tools/govern.py",
+      "sha256": "ef1d398ba503333bf04e269ba97788252d95c84f667acab460d5e90dc64edfc1",
+      "bytes": 47383,
+      "lines": 827,
+      "content_read": "PARTIAL",
+      "coverage": {
+        "line_ranges_inclusive": [
+          [
+            746,
+            810
+          ]
+        ],
+        "complete": false
+      },
+      "purpose": "Inspect new command side effects to avoid shared governance-index writes"
+    }
+  ],
+  "absent_optional_context": [
+    "project-rules/README.md"
+  ],
+  "files": [
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/acceptance-report.md",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\acceptance-report.md",
+      "sha256": "9774b7692a971a8da1ba747daadacf4e5bc16147b226ebdf668e50db11c76493",
+      "bytes": 2388,
+      "utf8_characters": 1380,
+      "lines": 21,
+      "content_read": "FULL",
+      "coverage": {
+        "encoding": "UTF-8-sig",
+        "char_ranges_half_open": [
+          [
+            0,
+            1380
+          ]
+        ],
+        "line_range_inclusive": [
+          1,
+          21
+        ],
+        "complete": true
+      }
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/independent-code-review.md",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\independent-code-review.md",
+      "sha256": "fb18118d4842cdc9064bc2ebe902bf07ef62298b24e590c921ee941ea14b5a7c",
+      "bytes": 804,
+      "utf8_characters": 574,
+      "lines": 10,
+      "content_read": "FULL",
+      "coverage": {
+        "encoding": "UTF-8-sig",
+        "char_ranges_half_open": [
+          [
+            0,
+            574
+          ]
+        ],
+        "line_range_inclusive": [
+          1,
+          10
+        ],
+        "complete": true
+      }
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/issue-ledger.json",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\issue-ledger.json",
+      "sha256": "26e2624bf48f8ba6cfb6f9e844efba0b2a56f1e14985b720df18a58a82648aca",
+      "bytes": 1992,
+      "utf8_characters": 1992,
+      "lines": 53,
+      "content_read": "FULL",
+      "coverage": {
+        "encoding": "UTF-8-sig",
+        "char_ranges_half_open": [
+          [
+            0,
+            1992
+          ]
+        ],
+        "line_range_inclusive": [
+          1,
+          53
+        ],
+        "complete": true
+      }
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/resource-qualification.json",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\resource-qualification.json",
+      "sha256": "a9d3f7a42a5879e83182d004fa2e14c4b3aecfc92607009f5ef8f32a711be085",
+      "bytes": 332,
+      "utf8_characters": 332,
+      "lines": 11,
+      "content_read": "FULL",
+      "coverage": {
+        "encoding": "UTF-8-sig",
+        "char_ranges_half_open": [
+          [
+            0,
+            332
+          ]
+        ],
+        "line_range_inclusive": [
+          1,
+          11
+        ],
+        "complete": true
+      }
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/src/agentnexus/bootstrap/config.ts",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\src\\agentnexus\\bootstrap\\config.ts",
+      "sha256": "281e683c0f4fac5a0618deff0976da09ccaca860935cf1c044541f5cf7e5aea0",
+      "bytes": 12928,
+      "utf8_characters": 12928,
+      "lines": 80,
+      "content_read": "FULL",
+      "coverage": {
+        "encoding": "UTF-8-sig",
+        "char_ranges_half_open": [
+          [
+            0,
+            12928
+          ]
+        ],
+        "line_range_inclusive": [
+          1,
+          80
+        ],
+        "complete": true
+      }
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/src/agentnexus/bootstrap/entry.ts",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\src\\agentnexus\\bootstrap\\entry.ts",
+      "sha256": "fda08b8be8ffe4d232f3803955e335e8e1f27fdb2eb31738e390cce380ce7fb7",
+      "bytes": 7082,
+      "utf8_characters": 7082,
+      "lines": 60,
+      "content_read": "FULL",
+      "coverage": {
+        "encoding": "UTF-8-sig",
+        "char_ranges_half_open": [
+          [
+            0,
+            7082
+          ]
+        ],
+        "line_range_inclusive": [
+          1,
+          60
+        ],
+        "complete": true
+      }
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/src/agentnexus/bootstrap/exit-closure.ts",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\src\\agentnexus\\bootstrap\\exit-closure.ts",
+      "sha256": "c2aacb31be493bd47f697f0397bfae11d37d5f79639596bd3f884f5a65d82dcf",
+      "bytes": 4432,
+      "utf8_characters": 4432,
+      "lines": 34,
+      "content_read": "FULL",
+      "coverage": {
+        "encoding": "UTF-8-sig",
+        "char_ranges_half_open": [
+          [
+            0,
+            4432
+          ]
+        ],
+        "line_range_inclusive": [
+          1,
+          34
+        ],
+        "complete": true
+      }
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/src/agentnexus/bootstrap/launcher-proof.ts",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\src\\agentnexus\\bootstrap\\launcher-proof.ts",
+      "sha256": "a05e7450e54618e5cde093f283211ab1e0dfc5630e1cd5b365103b2d2a9e0ed2",
+      "bytes": 3221,
+      "utf8_characters": 3221,
+      "lines": 25,
+      "content_read": "FULL",
+      "coverage": {
+        "encoding": "UTF-8-sig",
+        "char_ranges_half_open": [
+          [
+            0,
+            3221
+          ]
+        ],
+        "line_range_inclusive": [
+          1,
+          25
+        ],
+        "complete": true
+      }
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/src/agentnexus/bootstrap/permissions.ts",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\src\\agentnexus\\bootstrap\\permissions.ts",
+      "sha256": "4019e1c2ee1a663eec62a9e68d4ccb5dd774e88ecb571e532c81c10e39d6b2b7",
+      "bytes": 2307,
+      "utf8_characters": 2307,
+      "lines": 18,
+      "content_read": "FULL",
+      "coverage": {
+        "encoding": "UTF-8-sig",
+        "char_ranges_half_open": [
+          [
+            0,
+            2307
+          ]
+        ],
+        "line_range_inclusive": [
+          1,
+          18
+        ],
+        "complete": true
+      }
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/src/agentnexus/bootstrap/reservations.ts",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\src\\agentnexus\\bootstrap\\reservations.ts",
+      "sha256": "b62f7dec432c201fd549aa276d303af756c8a8d90fe974be42603097077adc93",
+      "bytes": 6251,
+      "utf8_characters": 6251,
+      "lines": 41,
+      "content_read": "FULL",
+      "coverage": {
+        "encoding": "UTF-8-sig",
+        "char_ranges_half_open": [
+          [
+            0,
+            6251
+          ]
+        ],
+        "line_range_inclusive": [
+          1,
+          41
+        ],
+        "complete": true
+      }
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/src/agentnexus/bootstrap/runtime.ts",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\src\\agentnexus\\bootstrap\\runtime.ts",
+      "sha256": "f56ee410d95bded16f3af51010f7143cc836f84e4121df0340c7d85d5274b431",
+      "bytes": 19795,
+      "utf8_characters": 19795,
+      "lines": 131,
+      "content_read": "FULL",
+      "coverage": {
+        "encoding": "UTF-8-sig",
+        "char_ranges_half_open": [
+          [
+            0,
+            19795
+          ]
+        ],
+        "line_range_inclusive": [
+          1,
+          131
+        ],
+        "complete": true
+      }
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/src/agentnexus/bootstrap/session.ts",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\src\\agentnexus\\bootstrap\\session.ts",
+      "sha256": "97b0e9435f9468fd9b46f56792f0335ab1d20ec915b832f98b836334662daec5",
+      "bytes": 9978,
+      "utf8_characters": 9978,
+      "lines": 103,
+      "content_read": "FULL",
+      "coverage": {
+        "encoding": "UTF-8-sig",
+        "char_ranges_half_open": [
+          [
+            0,
+            9978
+          ]
+        ],
+        "line_range_inclusive": [
+          1,
+          103
+        ],
+        "complete": true
+      }
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/src/agentnexus/bootstrap/supervisor.ts",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\src\\agentnexus\\bootstrap\\supervisor.ts",
+      "sha256": "58a926b240429ddc4f45595b16566069294541839a549443483ccdeecccea77e",
+      "bytes": 12489,
+      "utf8_characters": 12489,
+      "lines": 103,
+      "content_read": "FULL",
+      "coverage": {
+        "encoding": "UTF-8-sig",
+        "char_ranges_half_open": [
+          [
+            0,
+            12489
+          ]
+        ],
+        "line_range_inclusive": [
+          1,
+          103
+        ],
+        "complete": true
+      }
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/src/agentnexus/bootstrap/ubuntu/peer_probe.c",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\src\\agentnexus\\bootstrap\\ubuntu\\peer_probe.c",
+      "sha256": "db6938c1978ae79c2c371ac473fab68619077ca093e6a93b0d6dcbe79581dfba",
+      "bytes": 867,
+      "utf8_characters": 867,
+      "lines": 19,
+      "content_read": "FULL",
+      "coverage": {
+        "encoding": "UTF-8-sig",
+        "char_ranges_half_open": [
+          [
+            0,
+            867
+          ]
+        ],
+        "line_range_inclusive": [
+          1,
+          19
+        ],
+        "complete": true
+      }
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/src/agentnexus/bootstrap/ubuntu.ts",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\src\\agentnexus\\bootstrap\\ubuntu.ts",
+      "sha256": "42685813efcc56eebfede5097d81d56bb0445cd8fa32a1d0c70e793a9db5a3f3",
+      "bytes": 3650,
+      "utf8_characters": 3650,
+      "lines": 25,
+      "content_read": "FULL",
+      "coverage": {
+        "encoding": "UTF-8-sig",
+        "char_ranges_half_open": [
+          [
+            0,
+            3650
+          ]
+        ],
+        "line_range_inclusive": [
+          1,
+          25
+        ],
+        "complete": true
+      }
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/src/agentnexus/bootstrap/worker.ts",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\src\\agentnexus\\bootstrap\\worker.ts",
+      "sha256": "39ee6763699b1db18466e30dab7538499d4f3315a80faaf674d853f620814158",
+      "bytes": 5184,
+      "utf8_characters": 5184,
+      "lines": 40,
+      "content_read": "FULL",
+      "coverage": {
+        "encoding": "UTF-8-sig",
+        "char_ranges_half_open": [
+          [
+            0,
+            5184
+          ]
+        ],
+        "line_range_inclusive": [
+          1,
+          40
+        ],
+        "complete": true
+      }
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/src/agentnexus/production/audit.ts",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\src\\agentnexus\\production\\audit.ts",
+      "sha256": "51ede7c82086d72707cc965891a673e2addf4cfd6efdf836b534988823c485f8",
+      "bytes": 1494,
+      "utf8_characters": 1494,
+      "lines": 21,
+      "content_read": "FULL",
+      "coverage": {
+        "encoding": "UTF-8-sig",
+        "char_ranges_half_open": [
+          [
+            0,
+            1494
+          ]
+        ],
+        "line_range_inclusive": [
+          1,
+          21
+        ],
+        "complete": true
+      }
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/src/agentnexus/production/authority.ts",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\src\\agentnexus\\production\\authority.ts",
+      "sha256": "47546dbe8f131e27a1ae2ddfafec3f1227c06deee0dc395100e9dc60ee623e05",
+      "bytes": 12620,
+      "utf8_characters": 12620,
+      "lines": 129,
+      "content_read": "FULL",
+      "coverage": {
+        "encoding": "UTF-8-sig",
+        "char_ranges_half_open": [
+          [
+            0,
+            12620
+          ]
+        ],
+        "line_range_inclusive": [
+          1,
+          129
+        ],
+        "complete": true
+      }
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/src/agentnexus/production/broker.ts",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\src\\agentnexus\\production\\broker.ts",
+      "sha256": "dc7a7f7294d9035e97f41058d60b802f804fe8b18e7c232a29906f5de8ee1e3c",
+      "bytes": 17841,
+      "utf8_characters": 17841,
+      "lines": 163,
+      "content_read": "FULL",
+      "coverage": {
+        "encoding": "UTF-8-sig",
+        "char_ranges_half_open": [
+          [
+            0,
+            17841
+          ]
+        ],
+        "line_range_inclusive": [
+          1,
+          163
+        ],
+        "complete": true
+      }
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/src/agentnexus/production/contracts.ts",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\src\\agentnexus\\production\\contracts.ts",
+      "sha256": "368e611e224288350ca5a9eeeb883ccdc2b5d02129fbcbd5718cdf1e88f65620",
+      "bytes": 7169,
+      "utf8_characters": 7169,
+      "lines": 93,
+      "content_read": "FULL",
+      "coverage": {
+        "encoding": "UTF-8-sig",
+        "char_ranges_half_open": [
+          [
+            0,
+            7169
+          ]
+        ],
+        "line_range_inclusive": [
+          1,
+          93
+        ],
+        "complete": true
+      }
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/src/agentnexus/production/exit.ts",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\src\\agentnexus\\production\\exit.ts",
+      "sha256": "fce46daa7544c1f6de2544cd4def6856e99c285717d47caed1fbe6362ec9101d",
+      "bytes": 11644,
+      "utf8_characters": 11644,
+      "lines": 107,
+      "content_read": "FULL",
+      "coverage": {
+        "encoding": "UTF-8-sig",
+        "char_ranges_half_open": [
+          [
+            0,
+            11644
+          ]
+        ],
+        "line_range_inclusive": [
+          1,
+          107
+        ],
+        "complete": true
+      }
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/src/agentnexus/production/file-broker.ts",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\src\\agentnexus\\production\\file-broker.ts",
+      "sha256": "1fdbdf438e2ab5591b56d90a69786cbcf27bacc0290e200e09bc6c4e771f1a51",
+      "bytes": 10339,
+      "utf8_characters": 10339,
+      "lines": 102,
+      "content_read": "FULL",
+      "coverage": {
+        "encoding": "UTF-8-sig",
+        "char_ranges_half_open": [
+          [
+            0,
+            10339
+          ]
+        ],
+        "line_range_inclusive": [
+          1,
+          102
+        ],
+        "complete": true
+      }
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/src/agentnexus/production/host.ts",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\src\\agentnexus\\production\\host.ts",
+      "sha256": "c849b9d28e583937449b63f863f147dcc51e683ee378edac44fc77245ab5c3ff",
+      "bytes": 5540,
+      "utf8_characters": 5540,
+      "lines": 62,
+      "content_read": "FULL",
+      "coverage": {
+        "encoding": "UTF-8-sig",
+        "char_ranges_half_open": [
+          [
+            0,
+            5540
+          ]
+        ],
+        "line_range_inclusive": [
+          1,
+          62
+        ],
+        "complete": true
+      }
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/src/agentnexus/production/identity.ts",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\src\\agentnexus\\production\\identity.ts",
+      "sha256": "157d276bd002b5b624d40675e41b67d1beab86a1db478ba50b8a64324e24bba1",
+      "bytes": 6805,
+      "utf8_characters": 6805,
+      "lines": 91,
+      "content_read": "FULL",
+      "coverage": {
+        "encoding": "UTF-8-sig",
+        "char_ranges_half_open": [
+          [
+            0,
+            6805
+          ]
+        ],
+        "line_range_inclusive": [
+          1,
+          91
+        ],
+        "complete": true
+      }
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/src/agentnexus/production/native-client.ts",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\src\\agentnexus\\production\\native-client.ts",
+      "sha256": "f378c1bf5938ae5821fc1130d60d920874891bdf76fb1a911dc0a9310e9f05e8",
+      "bytes": 7037,
+      "utf8_characters": 7037,
+      "lines": 85,
+      "content_read": "FULL",
+      "coverage": {
+        "encoding": "UTF-8-sig",
+        "char_ranges_half_open": [
+          [
+            0,
+            7037
+          ]
+        ],
+        "line_range_inclusive": [
+          1,
+          85
+        ],
+        "complete": true
+      }
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/src/agentnexus/production/qualification.ts",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\src\\agentnexus\\production\\qualification.ts",
+      "sha256": "151529013bfab546831927c4f7f42d3961e268577ab27b5bd7c6de065e187e7f",
+      "bytes": 2691,
+      "utf8_characters": 2691,
+      "lines": 31,
+      "content_read": "FULL",
+      "coverage": {
+        "encoding": "UTF-8-sig",
+        "char_ranges_half_open": [
+          [
+            0,
+            2691
+          ]
+        ],
+        "line_range_inclusive": [
+          1,
+          31
+        ],
+        "complete": true
+      }
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/src/agentnexus/production/resources.ts",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\src\\agentnexus\\production\\resources.ts",
+      "sha256": "949e0713c1ebeca78a1b8c9598aef8414a5166f6371cb4d1f106f311e6a67b2c",
+      "bytes": 2621,
+      "utf8_characters": 2621,
+      "lines": 35,
+      "content_read": "FULL",
+      "coverage": {
+        "encoding": "UTF-8-sig",
+        "char_ranges_half_open": [
+          [
+            0,
+            2621
+          ]
+        ],
+        "line_range_inclusive": [
+          1,
+          35
+        ],
+        "complete": true
+      }
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/src/agentnexus/production/service.ts",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\src\\agentnexus\\production\\service.ts",
+      "sha256": "4954b7cc8e005d961ee6408dd161046c8337c44dfe3b3439d1a2b289fdc2150d",
+      "bytes": 1626,
+      "utf8_characters": 1626,
+      "lines": 26,
+      "content_read": "FULL",
+      "coverage": {
+        "encoding": "UTF-8-sig",
+        "char_ranges_half_open": [
+          [
+            0,
+            1626
+          ]
+        ],
+        "line_range_inclusive": [
+          1,
+          26
+        ],
+        "complete": true
+      }
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/src/agentnexus/production/transport.ts",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\src\\agentnexus\\production\\transport.ts",
+      "sha256": "1d4d6ca1d680be24aef8e40ee703f66d11ec25e5514cb53c74f2f470a09d120d",
+      "bytes": 6280,
+      "utf8_characters": 6280,
+      "lines": 66,
+      "content_read": "FULL",
+      "coverage": {
+        "encoding": "UTF-8-sig",
+        "char_ranges_half_open": [
+          [
+            0,
+            6280
+          ]
+        ],
+        "line_range_inclusive": [
+          1,
+          66
+        ],
+        "complete": true
+      }
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/src/agentnexus/production/windows/BootstrapNative.cs",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\src\\agentnexus\\production\\windows\\BootstrapNative.cs",
+      "sha256": "f44ee579f9c3a78419acab4e2a3dc85aab9cca0acc6ceb4e44f40f1a86923e80",
+      "bytes": 55713,
+      "utf8_characters": 55713,
+      "lines": 686,
+      "content_read": "FULL",
+      "coverage": {
+        "encoding": "UTF-8-sig",
+        "char_ranges_half_open": [
+          [
+            0,
+            20000
+          ],
+          [
+            20000,
+            40000
+          ],
+          [
+            40000,
+            55713
+          ]
+        ],
+        "line_range_inclusive": [
+          1,
+          686
+        ],
+        "complete": true
+      }
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/src/agentnexus/production/windows/NativeRuntime.cs",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\src\\agentnexus\\production\\windows\\NativeRuntime.cs",
+      "sha256": "2c5cf6a60c33b91604763a12d7d5ac970c68a0b87a41510f5d09c5fa540398ca",
+      "bytes": 67315,
+      "utf8_characters": 67315,
+      "lines": 281,
+      "content_read": "FULL",
+      "coverage": {
+        "encoding": "UTF-8-sig",
+        "char_ranges_half_open": [
+          [
+            0,
+            20000
+          ],
+          [
+            20000,
+            40000
+          ],
+          [
+            40000,
+            60000
+          ],
+          [
+            60000,
+            67315
+          ]
+        ],
+        "line_range_inclusive": [
+          1,
+          281
+        ],
+        "complete": true
+      }
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/src/agentnexus/production/windows/runtime.ps1",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\src\\agentnexus\\production\\windows\\runtime.ps1",
+      "sha256": "7ea9a3fc50965611e21103469c28d47bdeb4893728c193d60074faf9ff2741cd",
+      "bytes": 8978,
+      "utf8_characters": 8978,
+      "lines": 113,
+      "content_read": "FULL",
+      "coverage": {
+        "encoding": "UTF-8-sig",
+        "char_ranges_half_open": [
+          [
+            0,
+            8978
+          ]
+        ],
+        "line_range_inclusive": [
+          1,
+          113
+        ],
+        "complete": true
+      }
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/src/agentnexus/production/windows-supervisor.ts",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\src\\agentnexus\\production\\windows-supervisor.ts",
+      "sha256": "7006732045e8e96f66dba6f68c4367ecf947a353f61a63f0b4992ad86746f724",
+      "bytes": 9261,
+      "utf8_characters": 9261,
+      "lines": 78,
+      "content_read": "FULL",
+      "coverage": {
+        "encoding": "UTF-8-sig",
+        "char_ranges_half_open": [
+          [
+            0,
+            9261
+          ]
+        ],
+        "line_range_inclusive": [
+          1,
+          78
+        ],
+        "complete": true
+      }
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/src/agentnexus/runtime/audit.ts",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\src\\agentnexus\\runtime\\audit.ts",
+      "sha256": "14f06526c6a48473aca95e5a47077e69b63db646ca1d605af0df8272207584c4",
+      "bytes": 2003,
+      "utf8_characters": 2003,
+      "lines": 27,
+      "content_read": "FULL",
+      "coverage": {
+        "encoding": "UTF-8-sig",
+        "char_ranges_half_open": [
+          [
+            0,
+            2003
+          ]
+        ],
+        "line_range_inclusive": [
+          1,
+          27
+        ],
+        "complete": true
+      }
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/src/agentnexus/runtime/broker.ts",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\src\\agentnexus\\runtime\\broker.ts",
+      "sha256": "611056760e82606bae893c2ed78831adb0e3b8ac102a4206b8af6cafc021efc2",
+      "bytes": 884,
+      "utf8_characters": 884,
+      "lines": 13,
+      "content_read": "FULL",
+      "coverage": {
+        "encoding": "UTF-8-sig",
+        "char_ranges_half_open": [
+          [
+            0,
+            884
+          ]
+        ],
+        "line_range_inclusive": [
+          1,
+          13
+        ],
+        "complete": true
+      }
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/src/agentnexus/runtime/contracts.ts",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\src\\agentnexus\\runtime\\contracts.ts",
+      "sha256": "308378e645233f6317de44399d59eb0a15bbaf4b0f506a2083917a999651b725",
+      "bytes": 7187,
+      "utf8_characters": 7187,
+      "lines": 84,
+      "content_read": "FULL",
+      "coverage": {
+        "encoding": "UTF-8-sig",
+        "char_ranges_half_open": [
+          [
+            0,
+            7187
+          ]
+        ],
+        "line_range_inclusive": [
+          1,
+          84
+        ],
+        "complete": true
+      }
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/src/agentnexus/runtime/control.ts",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\src\\agentnexus\\runtime\\control.ts",
+      "sha256": "4b78fdfdbab38bc1d07dafea5fa323c72e1d02eeefbc7071b13f515ef6cec502",
+      "bytes": 27386,
+      "utf8_characters": 27386,
+      "lines": 299,
+      "content_read": "FULL",
+      "coverage": {
+        "encoding": "UTF-8-sig",
+        "char_ranges_half_open": [
+          [
+            0,
+            27386
+          ]
+        ],
+        "line_range_inclusive": [
+          1,
+          299
+        ],
+        "complete": true
+      }
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/src/agentnexus/runtime/ipc.ts",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\src\\agentnexus\\runtime\\ipc.ts",
+      "sha256": "9b8d5c096ffc4b529a5919047d84cff16dfdef495b148f1af7748f49380130a5",
+      "bytes": 2759,
+      "utf8_characters": 2759,
+      "lines": 42,
+      "content_read": "FULL",
+      "coverage": {
+        "encoding": "UTF-8-sig",
+        "char_ranges_half_open": [
+          [
+            0,
+            2759
+          ]
+        ],
+        "line_range_inclusive": [
+          1,
+          42
+        ],
+        "complete": true
+      }
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/src/agentnexus/runtime/windows/NativeProbe.cs",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\src\\agentnexus\\runtime\\windows\\NativeProbe.cs",
+      "sha256": "3a96b192e46bca3f5774c8096ca598e4ce723776993062cd363e6a8cfe7e202f",
+      "bytes": 15171,
+      "utf8_characters": 15171,
+      "lines": 148,
+      "content_read": "FULL",
+      "coverage": {
+        "encoding": "UTF-8-sig",
+        "char_ranges_half_open": [
+          [
+            0,
+            15171
+          ]
+        ],
+        "line_range_inclusive": [
+          1,
+          148
+        ],
+        "complete": true
+      }
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/tests/agentnexus/m14-adapter.test.ts",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\tests\\agentnexus\\m14-adapter.test.ts",
+      "sha256": "e40821919ac3eb487768baf155284d4458834c3b95638f50f2ded8581163ee85",
+      "bytes": 2160,
+      "utf8_characters": 2160,
+      "lines": 21,
+      "content_read": "FULL",
+      "coverage": {
+        "encoding": "UTF-8-sig",
+        "char_ranges_half_open": [
+          [
+            0,
+            2160
+          ]
+        ],
+        "line_range_inclusive": [
+          1,
+          21
+        ],
+        "complete": true
+      }
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/tests/agentnexus/m14-broker-child.mjs",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\tests\\agentnexus\\m14-broker-child.mjs",
+      "sha256": "bc6800f9f0219114babbe61ffb022302c9892117228947f7eecd633fa77ec58c",
+      "bytes": 4995,
+      "utf8_characters": 4995,
+      "lines": 52,
+      "content_read": "FULL",
+      "coverage": {
+        "encoding": "UTF-8-sig",
+        "char_ranges_half_open": [
+          [
+            0,
+            4995
+          ]
+        ],
+        "line_range_inclusive": [
+          1,
+          52
+        ],
+        "complete": true
+      }
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/tests/agentnexus/m14-native-worker.mjs",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\tests\\agentnexus\\m14-native-worker.mjs",
+      "sha256": "501e013660d7f11119f79455cc17669aa47e0bbe7c2c4491071e058e7edd66a5",
+      "bytes": 1382,
+      "utf8_characters": 1382,
+      "lines": 33,
+      "content_read": "FULL",
+      "coverage": {
+        "encoding": "UTF-8-sig",
+        "char_ranges_half_open": [
+          [
+            0,
+            1382
+          ]
+        ],
+        "line_range_inclusive": [
+          1,
+          33
+        ],
+        "complete": true
+      }
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/tests/agentnexus/m14-native.test.ts",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\tests\\agentnexus\\m14-native.test.ts",
+      "sha256": "4a9994d283d2e5280ab5cefbab701edfb92f12de688ae8474c7280de102681af",
+      "bytes": 20352,
+      "utf8_characters": 20352,
+      "lines": 183,
+      "content_read": "FULL",
+      "coverage": {
+        "encoding": "UTF-8-sig",
+        "char_ranges_half_open": [
+          [
+            0,
+            20352
+          ]
+        ],
+        "line_range_inclusive": [
+          1,
+          183
+        ],
+        "complete": true
+      }
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/tests/agentnexus/m14-production.test.ts",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\tests\\agentnexus\\m14-production.test.ts",
+      "sha256": "f51c8794d705cefef7caa73b3234791b7dfffb256c92f3f227da0c7eba235d03",
+      "bytes": 37918,
+      "utf8_characters": 37918,
+      "lines": 302,
+      "content_read": "FULL",
+      "coverage": {
+        "encoding": "UTF-8-sig",
+        "char_ranges_half_open": [
+          [
+            0,
+            20000
+          ],
+          [
+            20000,
+            37918
+          ]
+        ],
+        "line_range_inclusive": [
+          1,
+          302
+        ],
+        "complete": true
+      }
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/tests/agentnexus/m15-bootstrap.test.ts",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\tests\\agentnexus\\m15-bootstrap.test.ts",
+      "sha256": "bca5a8e6103eabe9b1768e57055f45967238ae479253b2dcd8e16733260c807f",
+      "bytes": 26114,
+      "utf8_characters": 26114,
+      "lines": 155,
+      "content_read": "FULL",
+      "coverage": {
+        "encoding": "UTF-8-sig",
+        "char_ranges_half_open": [
+          [
+            0,
+            26114
+          ]
+        ],
+        "line_range_inclusive": [
+          1,
+          155
+        ],
+        "complete": true
+      }
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/tests/agentnexus/m15-cpu-worker.mjs",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\tests\\agentnexus\\m15-cpu-worker.mjs",
+      "sha256": "f59b524a7d2e4b8bd0792be3a166f379776c0089f4ac7b44e886c678659570fa",
+      "bytes": 516,
+      "utf8_characters": 516,
+      "lines": 9,
+      "content_read": "FULL",
+      "coverage": {
+        "encoding": "UTF-8-sig",
+        "char_ranges_half_open": [
+          [
+            0,
+            516
+          ]
+        ],
+        "line_range_inclusive": [
+          1,
+          9
+        ],
+        "complete": true
+      }
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/tests/agentnexus/m15-pipe-owner-child.mjs",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\tests\\agentnexus\\m15-pipe-owner-child.mjs",
+      "sha256": "590f71d73e3ef6c95ebe9b796f3ccec5d01a010921850b423ea566469605e665",
+      "bytes": 2689,
+      "utf8_characters": 2689,
+      "lines": 25,
+      "content_read": "FULL",
+      "coverage": {
+        "encoding": "UTF-8-sig",
+        "char_ranges_half_open": [
+          [
+            0,
+            2689
+          ]
+        ],
+        "line_range_inclusive": [
+          1,
+          25
+        ],
+        "complete": true
+      }
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/tests/agentnexus/m15-pipe.test.ts",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\tests\\agentnexus\\m15-pipe.test.ts",
+      "sha256": "ef7dc6676067679a5cacab19db06fca204653632fc3c8e30c6eb0a2a00c1c54f",
+      "bytes": 23037,
+      "utf8_characters": 23037,
+      "lines": 286,
+      "content_read": "FULL",
+      "coverage": {
+        "encoding": "UTF-8-sig",
+        "char_ranges_half_open": [
+          [
+            0,
+            23037
+          ]
+        ],
+        "line_range_inclusive": [
+          1,
+          286
+        ],
+        "complete": true
+      }
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/tests/agentnexus/m151-boundaries.test.ts",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\tests\\agentnexus\\m151-boundaries.test.ts",
+      "sha256": "c9f6878769708d0d58f1f71e1edc3ca2d7d0b51444de3765870c7495149a09d6",
+      "bytes": 7084,
+      "utf8_characters": 7084,
+      "lines": 52,
+      "content_read": "FULL",
+      "coverage": {
+        "encoding": "UTF-8-sig",
+        "char_ranges_half_open": [
+          [
+            0,
+            7084
+          ]
+        ],
+        "line_range_inclusive": [
+          1,
+          52
+        ],
+        "complete": true
+      }
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/tests/agentnexus/m151-lifecycle-probe.ps1",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\tests\\agentnexus\\m151-lifecycle-probe.ps1",
+      "sha256": "73c2deb04b67bf5fc7219f16b83d980b6cf0a5c4119f01e5bc1a81102f551774",
+      "bytes": 1447,
+      "utf8_characters": 1447,
+      "lines": 19,
+      "content_read": "FULL",
+      "coverage": {
+        "encoding": "UTF-8-sig",
+        "char_ranges_half_open": [
+          [
+            0,
+            1447
+          ]
+        ],
+        "line_range_inclusive": [
+          1,
+          19
+        ],
+        "complete": true
+      }
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/tests/agentnexus/m151-lifecycle.test.ts",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\tests\\agentnexus\\m151-lifecycle.test.ts",
+      "sha256": "2da7c48040cf0419d872bcfbca5b9dc9e9d9c18407e03ad73ae9a8bb5b324abd",
+      "bytes": 6082,
+      "utf8_characters": 6082,
+      "lines": 51,
+      "content_read": "FULL",
+      "coverage": {
+        "encoding": "UTF-8-sig",
+        "char_ranges_half_open": [
+          [
+            0,
+            6082
+          ]
+        ],
+        "line_range_inclusive": [
+          1,
+          51
+        ],
+        "complete": true
+      }
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/tests/agentnexus/m151-resources.test.ts",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\tests\\agentnexus\\m151-resources.test.ts",
+      "sha256": "038fe2069fd1fe21fb1978606026f54800f2ea9b33b5835b847ec9d692bc90d5",
+      "bytes": 3497,
+      "utf8_characters": 3497,
+      "lines": 34,
+      "content_read": "FULL",
+      "coverage": {
+        "encoding": "UTF-8-sig",
+        "char_ranges_half_open": [
+          [
+            0,
+            3497
+          ]
+        ],
+        "line_range_inclusive": [
+          1,
+          34
+        ],
+        "complete": true
+      }
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/tests/agentnexus/m151-rpc.ts",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\tests\\agentnexus\\m151-rpc.ts",
+      "sha256": "c66a286325beb733e765683b722a00d2eb604ebf82662fbbdb5dc282633d4ddc",
+      "bytes": 3612,
+      "utf8_characters": 3612,
+      "lines": 38,
+      "content_read": "FULL",
+      "coverage": {
+        "encoding": "UTF-8-sig",
+        "char_ranges_half_open": [
+          [
+            0,
+            3612
+          ]
+        ],
+        "line_range_inclusive": [
+          1,
+          38
+        ],
+        "complete": true
+      }
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/tests/agentnexus/m151-tree-worker.mjs",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\tests\\agentnexus\\m151-tree-worker.mjs",
+      "sha256": "c396fc0ce003cf3b03bd5e23a1c3a305821710dca0cdd24b610042a518e61d52",
+      "bytes": 884,
+      "utf8_characters": 884,
+      "lines": 14,
+      "content_read": "FULL",
+      "coverage": {
+        "encoding": "UTF-8-sig",
+        "char_ranges_half_open": [
+          [
+            0,
+            884
+          ]
+        ],
+        "line_range_inclusive": [
+          1,
+          14
+        ],
+        "complete": true
+      }
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/tests/agentnexus/M151LifecycleProbe.cs",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\tests\\agentnexus\\M151LifecycleProbe.cs",
+      "sha256": "02b4e22b1b19fc75cfffd591c4cbad64da6a832fe7f0f04c160800c95ea55ce8",
+      "bytes": 3073,
+      "utf8_characters": 3073,
+      "lines": 32,
+      "content_read": "FULL",
+      "coverage": {
+        "encoding": "UTF-8-sig",
+        "char_ranges_half_open": [
+          [
+            0,
+            3073
+          ]
+        ],
+        "line_range_inclusive": [
+          1,
+          32
+        ],
+        "complete": true
+      }
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/tests/agentnexus/reconciliation-child.mjs",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\tests\\agentnexus\\reconciliation-child.mjs",
+      "sha256": "17067655828b662d7393ea55805d5438ff8ed0110610f13fc394d82d61a4a521",
+      "bytes": 2373,
+      "utf8_characters": 2373,
+      "lines": 33,
+      "content_read": "FULL",
+      "coverage": {
+        "encoding": "UTF-8-sig",
+        "char_ranges_half_open": [
+          [
+            0,
+            2373
+          ]
+        ],
+        "line_range_inclusive": [
+          1,
+          33
+        ],
+        "complete": true
+      }
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/tests/agentnexus/reconciliation.test.ts",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\tests\\agentnexus\\reconciliation.test.ts",
+      "sha256": "3ddf54e2ec6e741fb7b4003124338bbb41f5e271bd12632e4e4152fae2f61e80",
+      "bytes": 19989,
+      "utf8_characters": 19989,
+      "lines": 190,
+      "content_read": "FULL",
+      "coverage": {
+        "encoding": "UTF-8-sig",
+        "char_ranges_half_open": [
+          [
+            0,
+            19989
+          ]
+        ],
+        "line_range_inclusive": [
+          1,
+          190
+        ],
+        "complete": true
+      }
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/tests/agentnexus/runtime-crash-child.mjs",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\tests\\agentnexus\\runtime-crash-child.mjs",
+      "sha256": "79cfb0f2b443604ddcffd5da414eccb01aee7b724943b52e6789930078a7f562",
+      "bytes": 2474,
+      "utf8_characters": 2474,
+      "lines": 20,
+      "content_read": "FULL",
+      "coverage": {
+        "encoding": "UTF-8-sig",
+        "char_ranges_half_open": [
+          [
+            0,
+            2474
+          ]
+        ],
+        "line_range_inclusive": [
+          1,
+          20
+        ],
+        "complete": true
+      }
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/tests/agentnexus/runtime-worker.mjs",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\tests\\agentnexus\\runtime-worker.mjs",
+      "sha256": "a77ff4f6f333967e4df0c5c60bf8aa67843263639679180f5de8b6d6e1dd6b65",
+      "bytes": 1097,
+      "utf8_characters": 1097,
+      "lines": 17,
+      "content_read": "FULL",
+      "coverage": {
+        "encoding": "UTF-8-sig",
+        "char_ranges_half_open": [
+          [
+            0,
+            1097
+          ]
+        ],
+        "line_range_inclusive": [
+          1,
+          17
+        ],
+        "complete": true
+      }
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/tests/agentnexus/runtime.test.ts",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\tests\\agentnexus\\runtime.test.ts",
+      "sha256": "f71d9405adca5c4490def3cf8ee847d230d82162fa57a423f37195404c787d37",
+      "bytes": 23844,
+      "utf8_characters": 23844,
+      "lines": 215,
+      "content_read": "FULL",
+      "coverage": {
+        "encoding": "UTF-8-sig",
+        "char_ranges_half_open": [
+          [
+            0,
+            23844
+          ]
+        ],
+        "line_range_inclusive": [
+          1,
+          215
+        ],
+        "complete": true
+      }
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/tests/agentnexus/windows-native.test.ts",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\tests\\agentnexus\\windows-native.test.ts",
+      "sha256": "358299b2b7f059273a47c5d79acf97c3f71cc35d2339d090f98f5fec47bef506",
+      "bytes": 3164,
+      "utf8_characters": 3164,
+      "lines": 32,
+      "content_read": "FULL",
+      "coverage": {
+        "encoding": "UTF-8-sig",
+        "char_ranges_half_open": [
+          [
+            0,
+            3164
+          ]
+        ],
+        "line_range_inclusive": [
+          1,
+          32
+        ],
+        "complete": true
+      }
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/tools/agentnexus/catalog-m16.py",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\tools\\agentnexus\\catalog-m16.py",
+      "sha256": "ec1eeb74e0a8fbe2ab53878d17deebc401d34e169141b7ac0156ebfa61ba36af",
+      "bytes": 9401,
+      "utf8_characters": 9401,
+      "lines": 104,
+      "content_read": "FULL",
+      "coverage": {
+        "encoding": "UTF-8-sig",
+        "char_ranges_half_open": [
+          [
+            0,
+            9401
+          ]
+        ],
+        "line_range_inclusive": [
+          1,
+          104
+        ],
+        "complete": true
+      }
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/tools/agentnexus/cpu-qualify-m15.d.mts",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\tools\\agentnexus\\cpu-qualify-m15.d.mts",
+      "sha256": "0127ae8099ad691162c65a2c023eb6a9d8b813782bd04d737391ff2b9ac93265",
+      "bytes": 732,
+      "utf8_characters": 732,
+      "lines": 4,
+      "content_read": "FULL",
+      "coverage": {
+        "encoding": "UTF-8-sig",
+        "char_ranges_half_open": [
+          [
+            0,
+            732
+          ]
+        ],
+        "line_range_inclusive": [
+          1,
+          4
+        ],
+        "complete": true
+      }
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/tools/agentnexus/cpu-qualify-m15.mjs",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\tools\\agentnexus\\cpu-qualify-m15.mjs",
+      "sha256": "2f1eab71b9434a838ab551b883a66bfe4937c0f9bd34652a03c6caaf70eb430e",
+      "bytes": 5947,
+      "utf8_characters": 5947,
+      "lines": 40,
+      "content_read": "FULL",
+      "coverage": {
+        "encoding": "UTF-8-sig",
+        "char_ranges_half_open": [
+          [
+            0,
+            5947
+          ]
+        ],
+        "line_range_inclusive": [
+          1,
+          40
+        ],
+        "complete": true
+      }
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/tools/agentnexus/cpu-qualify-m151.ts",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\tools\\agentnexus\\cpu-qualify-m151.ts",
+      "sha256": "25a978fa1160bf81c310ee6644e60804e45251090a22ba2885d7b580a4dc735a",
+      "bytes": 8294,
+      "utf8_characters": 8294,
+      "lines": 80,
+      "content_read": "FULL",
+      "coverage": {
+        "encoding": "UTF-8-sig",
+        "char_ranges_half_open": [
+          [
+            0,
+            8294
+          ]
+        ],
+        "line_range_inclusive": [
+          1,
+          80
+        ],
+        "complete": true
+      }
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/tools/agentnexus/demo-m16.ts",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\tools\\agentnexus\\demo-m16.ts",
+      "sha256": "fbe46dc21b443d5d7a576404c6dcc395334dc2a761a51178fb6da51333cc3f57",
+      "bytes": 5654,
+      "utf8_characters": 5654,
+      "lines": 48,
+      "content_read": "FULL",
+      "coverage": {
+        "encoding": "UTF-8-sig",
+        "char_ranges_half_open": [
+          [
+            0,
+            5654
+          ]
+        ],
+        "line_range_inclusive": [
+          1,
+          48
+        ],
+        "complete": true
+      }
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/tools/agentnexus/freeze-m13.py",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\tools\\agentnexus\\freeze-m13.py",
+      "sha256": "d8285825d51142563da27520752caa232a1426fc5667ee35aa8bf6945a200458",
+      "bytes": 2368,
+      "utf8_characters": 2368,
+      "lines": 29,
+      "content_read": "FULL",
+      "coverage": {
+        "encoding": "UTF-8-sig",
+        "char_ranges_half_open": [
+          [
+            0,
+            2368
+          ]
+        ],
+        "line_range_inclusive": [
+          1,
+          29
+        ],
+        "complete": true
+      }
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/tools/agentnexus/json-reporter.mjs",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\tools\\agentnexus\\json-reporter.mjs",
+      "sha256": "777650bb69740cddc6124b6608d120b2450210bc169d4a0af5f00c81c588c016",
+      "bytes": 660,
+      "utf8_characters": 660,
+      "lines": 8,
+      "content_read": "FULL",
+      "coverage": {
+        "encoding": "UTF-8-sig",
+        "char_ranges_half_open": [
+          [
+            0,
+            660
+          ]
+        ],
+        "line_range_inclusive": [
+          1,
+          8
+        ],
+        "complete": true
+      }
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/tools/agentnexus/output-root.ts",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\tools\\agentnexus\\output-root.ts",
+      "sha256": "3b82ee59ce3b31c896611406a7b6a1cdd88b2b3aedc1a94c779f0e5408114f3e",
+      "bytes": 955,
+      "utf8_characters": 955,
+      "lines": 15,
+      "content_read": "FULL",
+      "coverage": {
+        "encoding": "UTF-8-sig",
+        "char_ranges_half_open": [
+          [
+            0,
+            955
+          ]
+        ],
+        "line_range_inclusive": [
+          1,
+          15
+        ],
+        "complete": true
+      }
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/tools/agentnexus/package-m12.py",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\tools\\agentnexus\\package-m12.py",
+      "sha256": "61dcb1c2f319dc6d299e9a8e58f35e6d6f43a585d8b6552c1731b56e1fda7f86",
+      "bytes": 9850,
+      "utf8_characters": 9850,
+      "lines": 155,
+      "content_read": "FULL",
+      "coverage": {
+        "encoding": "UTF-8-sig",
+        "char_ranges_half_open": [
+          [
+            0,
+            9850
+          ]
+        ],
+        "line_range_inclusive": [
+          1,
+          155
+        ],
+        "complete": true
+      }
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/tools/agentnexus/preflight-m14.ps1",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\tools\\agentnexus\\preflight-m14.ps1",
+      "sha256": "19f7e4b735569a699013e7b11f3616b346ff6c3588d9983db2340d9f37353d80",
+      "bytes": 2139,
+      "utf8_characters": 2139,
+      "lines": 20,
+      "content_read": "FULL",
+      "coverage": {
+        "encoding": "UTF-8-sig",
+        "char_ranges_half_open": [
+          [
+            0,
+            2139
+          ]
+        ],
+        "line_range_inclusive": [
+          1,
+          20
+        ],
+        "complete": true
+      }
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/tools/agentnexus/preflight-m15.ps1",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\tools\\agentnexus\\preflight-m15.ps1",
+      "sha256": "40b87eec7f0d713ad9b7d8fee44573e3c7805321554ac88a9ca47ef8bd35d68a",
+      "bytes": 3658,
+      "utf8_characters": 3658,
+      "lines": 31,
+      "content_read": "FULL",
+      "coverage": {
+        "encoding": "UTF-8-sig",
+        "char_ranges_half_open": [
+          [
+            0,
+            3658
+          ]
+        ],
+        "line_range_inclusive": [
+          1,
+          31
+        ],
+        "complete": true
+      }
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/tools/agentnexus/run-tests.mjs",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\tools\\agentnexus\\run-tests.mjs",
+      "sha256": "7b1b45b072e55e4c2e079e90aa963d94584a871496945ed88b737cb42dd4c0b7",
+      "bytes": 667,
+      "utf8_characters": 667,
+      "lines": 10,
+      "content_read": "FULL",
+      "coverage": {
+        "encoding": "UTF-8-sig",
+        "char_ranges_half_open": [
+          [
+            0,
+            667
+          ]
+        ],
+        "line_range_inclusive": [
+          1,
+          10
+        ],
+        "complete": true
+      }
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/tools/agentnexus/typecheck-m15.mjs",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\tools\\agentnexus\\typecheck-m15.mjs",
+      "sha256": "89d962973e40e56991d1eb50c7b964db98ff957e682dd6df896817c563e6b77a",
+      "bytes": 2297,
+      "utf8_characters": 2297,
+      "lines": 32,
+      "content_read": "FULL",
+      "coverage": {
+        "encoding": "UTF-8-sig",
+        "char_ranges_half_open": [
+          [
+            0,
+            2297
+          ]
+        ],
+        "line_range_inclusive": [
+          1,
+          32
+        ],
+        "complete": true
+      }
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/tools/agentnexus/verify-m12.mjs",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\tools\\agentnexus\\verify-m12.mjs",
+      "sha256": "4874dd19f2ff2d9c522bf9d546aa2ef2bc5ccd3175aeffb518d8657f14450d5f",
+      "bytes": 3523,
+      "utf8_characters": 3523,
+      "lines": 35,
+      "content_read": "FULL",
+      "coverage": {
+        "encoding": "UTF-8-sig",
+        "char_ranges_half_open": [
+          [
+            0,
+            3523
+          ]
+        ],
+        "line_range_inclusive": [
+          1,
+          35
+        ],
+        "complete": true
+      }
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/tools/agentnexus/verify-m13.mjs",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\tools\\agentnexus\\verify-m13.mjs",
+      "sha256": "e4ee594fa0d5fec08e28ee1eace3986716c1c9b9de24156e3151699e711dad2d",
+      "bytes": 3953,
+      "utf8_characters": 3953,
+      "lines": 32,
+      "content_read": "FULL",
+      "coverage": {
+        "encoding": "UTF-8-sig",
+        "char_ranges_half_open": [
+          [
+            0,
+            3953
+          ]
+        ],
+        "line_range_inclusive": [
+          1,
+          32
+        ],
+        "complete": true
+      }
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/tools/agentnexus/verify-m14.mjs",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\tools\\agentnexus\\verify-m14.mjs",
+      "sha256": "a19fdee34e0f5b13f53d5471ff30a4d305d88e7f9ed2b36565c02ebee6d7b745",
+      "bytes": 4722,
+      "utf8_characters": 4722,
+      "lines": 33,
+      "content_read": "FULL",
+      "coverage": {
+        "encoding": "UTF-8-sig",
+        "char_ranges_half_open": [
+          [
+            0,
+            4722
+          ]
+        ],
+        "line_range_inclusive": [
+          1,
+          33
+        ],
+        "complete": true
+      }
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/tools/agentnexus/verify-m15.mjs",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\tools\\agentnexus\\verify-m15.mjs",
+      "sha256": "a05e7a2bb0bbf16324bf5aa8a9319cfa9928cbfca3381f6e41a364960faaff2a",
+      "bytes": 5477,
+      "utf8_characters": 5477,
+      "lines": 26,
+      "content_read": "FULL",
+      "coverage": {
+        "encoding": "UTF-8-sig",
+        "char_ranges_half_open": [
+          [
+            0,
+            5477
+          ]
+        ],
+        "line_range_inclusive": [
+          1,
+          26
+        ],
+        "complete": true
+      }
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/tools/agentnexus/verify-m16.mjs",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\tools\\agentnexus\\verify-m16.mjs",
+      "sha256": "668a931e9b3c117eccf9acf58379ca7977e9e51bc04244eece21e4568a517d8b",
+      "bytes": 5557,
+      "utf8_characters": 5557,
+      "lines": 27,
+      "content_read": "FULL",
+      "coverage": {
+        "encoding": "UTF-8-sig",
+        "char_ranges_half_open": [
+          [
+            0,
+            5557
+          ]
+        ],
+        "line_range_inclusive": [
+          1,
+          27
+        ],
+        "complete": true
+      }
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/tools/agentnexus/verify-m161.mjs",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\tools\\agentnexus\\verify-m161.mjs",
+      "sha256": "5cc487e7d0b55b0eafbbe1605bc29c20d63fecc7fe89713e43ed3ad456d3af56",
+      "bytes": 5888,
+      "utf8_characters": 5888,
+      "lines": 27,
+      "content_read": "FULL",
+      "coverage": {
+        "encoding": "UTF-8-sig",
+        "char_ranges_half_open": [
+          [
+            0,
+            5888
+          ]
+        ],
+        "line_range_inclusive": [
+          1,
+          27
+        ],
+        "complete": true
+      }
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/tools/agentnexus/windows-probes.ps1",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\tools\\agentnexus\\windows-probes.ps1",
+      "sha256": "989b5a0990a0f175340b3a25b04e1d0fa661e6263f16ef1edefccc613be0917a",
+      "bytes": 1712,
+      "utf8_characters": 1712,
+      "lines": 20,
+      "content_read": "FULL",
+      "coverage": {
+        "encoding": "UTF-8-sig",
+        "char_ranges_half_open": [
+          [
+            0,
+            1712
+          ]
+        ],
+        "line_range_inclusive": [
+          1,
+          20
+        ],
+        "complete": true
+      }
+    }
+  ]
+}

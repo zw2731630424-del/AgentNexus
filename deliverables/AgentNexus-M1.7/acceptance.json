@@ -1,0 +1,3806 @@
+{
+  "schema": "agentnexus/m17/acceptance/1",
+  "generated_at": "2026-11-08T04:22:15.230009+00:00",
+  "delivery_status": "COMPLETE_WITH_DECLARED_LIMITS",
+  "source_set_sha256": "8167ce3e78c602f43bee2b3a4d792a5054f76d7121a6a7730b14cc37eb5c4c6c",
+  "native_local_execution": "PASS",
+  "mock_provider_pilot": "PASS",
+  "real_autonomous_development": "SIMULATED",
+  "real_provider": "SIMULATED",
+  "real_provider_calls": 0,
+  "real_model_cost": 0,
+  "strict_cumulative_cpu": "BLOCKED",
+  "production_os_execution": "BLOCKED",
+  "ordinary_agent_process": "BLOCKED",
+  "external_effect": "BLOCKED",
+  "full_regression": {
+    "status": "PASS",
+    "counts": {
+      "tests": 532,
+      "failed": 0,
+      "passed": 523,
+      "cancelled": 0,
+      "skipped": 9,
+      "todo": 0,
+      "topLevel": 473,
+      "suites": 0
+    },
+    "syntax": "PASS",
+    "strict_types": "PASS",
+    "attempt": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb"
+  },
+  "new_tests": {
+    "tests": 53,
+    "counts": {
+      "PASS": 52,
+      "NOT_RUN": 1
+    }
+  },
+  "not_run_cases": [
+    {
+      "type": "test:pass",
+      "name": "real OS file symlink is rejected without following its target",
+      "nesting": 0,
+      "testNumber": 84,
+      "details": {
+        "duration_ms": 4.2874,
+        "type": "test"
+      },
+      "line": 381,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "skip": "NOT_RUN: real OS link fixture unavailable (EPERM); no simulated OS PASS",
+      "status": "NOT_RUN"
+    },
+    {
+      "type": "test:pass",
+      "name": "real OS dir link is rejected",
+      "nesting": 0,
+      "testNumber": 85,
+      "details": {
+        "duration_ms": 4.668,
+        "type": "test"
+      },
+      "line": 392,
+      "column": 3,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\integrity.test.ts",
+      "skip": "NOT_RUN: real OS link fixture unavailable (EPERM); no simulated OS PASS",
+      "status": "NOT_RUN"
+    },
+    {
+      "type": "test:pass",
+      "name": "M1.4 production combination and independent pre-pinned bootstrap/Grant bridge",
+      "nesting": 0,
+      "testNumber": 105,
+      "details": {
+        "duration_ms": 0.0964,
+        "type": "test"
+      },
+      "line": 183,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m14-native.test.ts",
+      "skip": "NOT_RUN / BLOCKED: independent approved accounts/profile and deployment bootstrap wiring are unavailable",
+      "status": "NOT_RUN"
+    },
+    {
+      "type": "test:pass",
+      "name": "positive protected-pin attestation",
+      "nesting": 1,
+      "testNumber": 1,
+      "details": {
+        "duration_ms": 0.1421,
+        "type": "test"
+      },
+      "line": 251,
+      "column": 13,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m15-pipe.test.ts",
+      "skip": "NOT_RUN: existing Node image has an unprotected inherited DACL; no ACL was modified. The actual unprotected DACL was rejected.",
+      "status": "NOT_RUN"
+    },
+    {
+      "type": "test:pass",
+      "name": "M15-PIPE production cross-account protected bootstrap and effective client-instance denial",
+      "nesting": 0,
+      "testNumber": 169,
+      "details": {
+        "duration_ms": 0.0697,
+        "type": "test"
+      },
+      "line": 286,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m15-pipe.test.ts",
+      "skip": "NOT_RUN / BLOCKED: approved distinct standard accounts, exact deployment ACL/profile and startup objects are absent; same-account primitives grant no qualification",
+      "status": "NOT_RUN"
+    },
+    {
+      "type": "test:pass",
+      "name": "M151 REAL_WINDOWS_PRIMITIVE: actual file link cannot escape the directory handle boundary",
+      "nesting": 0,
+      "testNumber": 170,
+      "details": {
+        "duration_ms": 1053.5172,
+        "type": "test"
+      },
+      "line": 15,
+      "column": 61,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m151-boundaries.test.ts",
+      "skip": "BLOCKED: OS refused file fixture (EPERM); no privilege or policy changed",
+      "status": "NOT_RUN"
+    },
+    {
+      "type": "test:pass",
+      "name": "M151 REAL_WINDOWS_PRIMITIVE: actual dir link cannot escape the directory handle boundary",
+      "nesting": 0,
+      "testNumber": 171,
+      "details": {
+        "duration_ms": 1047.8625,
+        "type": "test"
+      },
+      "line": 15,
+      "column": 61,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m151-boundaries.test.ts",
+      "skip": "BLOCKED: OS refused dir fixture (EPERM); no privilege or policy changed",
+      "status": "NOT_RUN"
+    },
+    {
+      "type": "test:pass",
+      "name": "M17 CHECKER ADMISSION: symlink candidate file is rejected without following its target",
+      "nesting": 0,
+      "testNumber": 360,
+      "details": {
+        "duration_ms": 9.0921,
+        "type": "test"
+      },
+      "line": 86,
+      "column": 1,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\m17-checker.test.ts",
+      "skip": "NOT_RUN: OS refused the temporary symlink fixture; no privilege changes",
+      "status": "NOT_RUN"
+    },
+    {
+      "type": "test:pass",
+      "name": "job-orphan",
+      "nesting": 1,
+      "testNumber": 3,
+      "details": {
+        "duration_ms": 0.0956,
+        "type": "test"
+      },
+      "line": 21,
+      "column": 39,
+      "file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\workspace\\tests\\agentnexus\\windows-native.test.ts",
+      "skip": "Parent-exited/child-alive window not observed in this managed environment",
+      "status": "NOT_RUN"
+    }
+  ],
+  "native_pilot": {
+    "path": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.7\\v\\r-cc1c68b6fcfb\\data\\native-pilot\\2026-11-08T03-36-35-394Z-2120",
+    "report_sha256": "61b7f2897c75bf0d6dafd0770d19b2c119e3ca4e54361b8ac7ac0586192285f8",
+    "coding_concurrency_peak": 3,
+    "writes": 21,
+    "final_files": 10,
+    "unit_integration_tests": {
+      "passed": 10,
+      "failed": 0
+    },
+    "model_requests": 71,
+    "verified_context_views": 71,
+    "gate_records": [
+      {
+        "gate": "g0",
+        "status": "PASS",
+        "id": "043e8260-c7d4-4112-b5fa-3c36c669a984",
+        "candidate": "4efb37521e7ff918500ad30bb8f211c82f99b36792e305ad637e330d5b098a7e"
+      },
+      {
+        "gate": "g1",
+        "status": "PASS",
+        "id": "8d860474-1632-4bb5-abb1-33baf0ec75c1",
+        "candidate": "4efb37521e7ff918500ad30bb8f211c82f99b36792e305ad637e330d5b098a7e"
+      },
+      {
+        "gate": "g2",
+        "status": "PASS",
+        "id": "1f4e8081-02f3-4cec-9469-1eb85ec156d4",
+        "candidate": "4efb37521e7ff918500ad30bb8f211c82f99b36792e305ad637e330d5b098a7e"
+      },
+      {
+        "gate": "g3",
+        "status": "PASS",
+        "id": "5a21573a-7d6d-422b-955d-1b673e898051",
+        "candidate": "4efb37521e7ff918500ad30bb8f211c82f99b36792e305ad637e330d5b098a7e"
+      },
+      {
+        "gate": "g4",
+        "status": "PASS",
+        "id": "157d700a-0024-4441-b7c5-4e170786edb5",
+        "candidate": "4efb37521e7ff918500ad30bb8f211c82f99b36792e305ad637e330d5b098a7e"
+      },
+      {
+        "gate": "g5",
+        "status": "PASS",
+        "id": "7a10abb6-fe72-4b9c-9ab9-659d86c3333d",
+        "candidate": "4efb37521e7ff918500ad30bb8f211c82f99b36792e305ad637e330d5b098a7e"
+      },
+      {
+        "gate": "g6",
+        "status": "PASS",
+        "id": "943ada59-f229-4cc4-8543-f12989f8cc8d",
+        "candidate": "4efb37521e7ff918500ad30bb8f211c82f99b36792e305ad637e330d5b098a7e"
+      }
+    ],
+    "pre_repair_gate_states": [
+      {
+        "gate": "g3",
+        "status": "FAIL"
+      },
+      {
+        "gate": "g4",
+        "status": "FAIL"
+      }
+    ],
+    "recovery": {
+      "status": "PASS",
+      "kind": "CONTROLLED_HOST_CLOSE_REOPEN_WITH_ORIGINAL_PILOT_TASK",
+      "original_task_id": "lead",
+      "old_runtime_instance_id": "6a85bddf-5cac-4f1d-9b1e-292dee92ee53",
+      "new_runtime_instance_id": "c4118e59-792c-4e06-bd58-6f771f6fef7a",
+      "original_contract_ref": {
+        "event_id": "c010f717-8b97-48f6-90d1-ff007c25587d",
+        "kind": "RAW",
+        "length": 1300,
+        "offset": 0,
+        "payload_ref": {
+          "artifact_id": "36cd9216-1938-49c2-b2d1-a54ccdeb7c09",
+          "bytes": 1300,
+          "codec": "zstd",
+          "media_type": "text/plain; charset=utf-8",
+          "sensitivity": "NORMAL",
+          "sha256": "a0ba0806a6db5b77d755e0813f270541df45fd3978cad0a177890d7d965939b2",
+          "stored_bytes": 850,
+          "stored_sha256": "ff31cf830e752678ad86d824b28c56db24e8e441ee9103afbed44000979940df"
+        },
+        "project_id": "pilot",
+        "record_hash": "36f532e8257969ff2c2a064eda70304ec981eeb4ea44e20613818860e380974c",
+        "task_id": "lead"
+      },
+      "rules_binding": {
+        "feature_epoch": 1,
+        "policy_epoch": 0,
+        "project_rules_version": "1",
+        "registry_id": "500e1728d1639bc3fa8e6f75cae1c61028d71162b503ad2188ece263ec847833",
+        "rule_hash": "d0856eaa0167276331b0b83fd04b647cab623fb4f685338c1e1f345f767669b3",
+        "workflow_version": "1.6.1"
+      },
+      "requirements": {
+        "event_id": "8d8b04cc-344b-4997-8542-e1cc51071418",
+        "kind": "RAW",
+        "length": 852,
+        "offset": 0,
+        "payload_ref": {
+          "artifact_id": "29b44cec-13f2-4e44-a1a9-1d163b2b6dad",
+          "bytes": 852,
+          "codec": "zstd",
+          "media_type": "text/plain; charset=utf-8",
+          "sensitivity": "NORMAL",
+          "sha256": "4b8c42e089fd4043b7d60844a0972c52d26ba687dddb67fd046dbf94b9e9ee2b",
+          "stored_bytes": 548,
+          "stored_sha256": "83ebc70082e2d28912e3fb068bafec098e3251ecad4456f1e9d1fdd55cb2e60e"
+        },
+        "project_id": "pilot",
+        "record_hash": "5bafa735fa2be8aaecf5b83b9d95b3c310603339230257ad5fb460d9f5ca0145",
+        "task_id": "lead"
+      },
+      "admitted_plan_id": "2da155ed0b8b9b5c290a85d9822387d1a64d4a07ae97b2b2a48db6f8c3d7419e",
+      "automatic_model_calls_on_reopen": 0,
+      "stale_facade_rejected": true,
+      "message_id": "6cd37202e5b8dd5b3b11e9d6c43999498602d4fd4bea69515fea9c5946f4637b",
+      "abrupt_process_crash": "SEPARATE_RUNTIME_TESTS",
+      "os_reboot": "NOT_RUN",
+      "unknown_effects_replayed": false
+    }
+  },
+  "resident_two_hour": {
+    "status": "PASS",
+    "scope": "ACTUAL_LOCAL_EVENT_DRIVEN_MODULE_OBSERVATION",
+    "full_source_snapshot_at_start": "NOT_CAPTURED",
+    "runner_sha256": "f7ea4c592f63ec4a5288d9a98aad7a980674a5c757d0550714f673045008ae3f",
+    "event_loop_sha256": "315cdb564506578c4e167dded5aa34725661d0e259ff1580687bd434a79c927f",
+    "observations": {
+      "schema": "agentnexus/m17/resident-soak/1",
+      "status": "PASS",
+      "short_run_status": "PASS",
+      "scope": "EVENT_DRIVEN_LOCAL_TRUSTED_LIBRARY",
+      "provider": "SIMULATED",
+      "strict_cpu": "BLOCKED",
+      "production_os": "BLOCKED",
+      "os_reboot": "NOT_RUN",
+      "hard_power_loss": "NOT_RUN",
+      "started_at": "2026-11-08T02:21:28.033Z",
+      "ended_at": "2026-11-08T04:21:40.561Z",
+      "duration_requested_ms": 7200000,
+      "duration_observed_ms": 7212422.0097,
+      "events": 117,
+      "store_reopens": 3,
+      "failure": null,
+      "samples": [
+        {
+          "at": "2026-11-08T02:21:28.390Z",
+          "elapsed_ms": 357,
+          "kind": "EVENT_SETTLED",
+          "count": 1,
+          "reopens": 0,
+          "rss": 92356608,
+          "heap_used": 20612184,
+          "cpu_user_us": 281000,
+          "cpu_system_us": 94000,
+          "sqlite_bytes": 425984,
+          "disk": {
+            "files": 29,
+            "bytes": 4757592
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 1,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 1,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T02:22:28.749Z",
+          "elapsed_ms": 60717,
+          "kind": "EVENT_SETTLED",
+          "count": 2,
+          "reopens": 0,
+          "rss": 80785408,
+          "heap_used": 15132392,
+          "cpu_user_us": 515000,
+          "cpu_system_us": 188000,
+          "sqlite_bytes": 630784,
+          "disk": {
+            "files": 47,
+            "bytes": 5080241
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 2,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 2,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T02:23:29.018Z",
+          "elapsed_ms": 120984,
+          "kind": "EVENT_SETTLED",
+          "count": 3,
+          "reopens": 0,
+          "rss": 82538496,
+          "heap_used": 16900072,
+          "cpu_user_us": 593000,
+          "cpu_system_us": 328000,
+          "sqlite_bytes": 630784,
+          "disk": {
+            "files": 65,
+            "bytes": 5198088
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 3,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 3,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T02:24:29.354Z",
+          "elapsed_ms": 181319,
+          "kind": "EVENT_SETTLED",
+          "count": 4,
+          "reopens": 0,
+          "rss": 82714624,
+          "heap_used": 15298848,
+          "cpu_user_us": 812000,
+          "cpu_system_us": 406000,
+          "sqlite_bytes": 860160,
+          "disk": {
+            "files": 83,
+            "bytes": 5549431
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 4,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 4,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T02:25:29.624Z",
+          "elapsed_ms": 241588,
+          "kind": "EVENT_SETTLED",
+          "count": 5,
+          "reopens": 0,
+          "rss": 84049920,
+          "heap_used": 17141344,
+          "cpu_user_us": 875000,
+          "cpu_system_us": 531000,
+          "sqlite_bytes": 1081344,
+          "disk": {
+            "files": 101,
+            "bytes": 5888466
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 5,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 5,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T02:26:29.892Z",
+          "elapsed_ms": 301856,
+          "kind": "EVENT_SETTLED",
+          "count": 6,
+          "reopens": 0,
+          "rss": 86061056,
+          "heap_used": 17869432,
+          "cpu_user_us": 984000,
+          "cpu_system_us": 641000,
+          "sqlite_bytes": 1282048,
+          "disk": {
+            "files": 119,
+            "bytes": 6207016
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 6,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 6,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T02:27:30.190Z",
+          "elapsed_ms": 362155,
+          "kind": "EVENT_SETTLED",
+          "count": 7,
+          "reopens": 0,
+          "rss": 87912448,
+          "heap_used": 18524408,
+          "cpu_user_us": 1218000,
+          "cpu_system_us": 672000,
+          "sqlite_bytes": 1466368,
+          "disk": {
+            "files": 137,
+            "bytes": 6509177
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 7,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 7,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T02:28:30.475Z",
+          "elapsed_ms": 422436,
+          "kind": "EVENT_SETTLED",
+          "count": 8,
+          "reopens": 0,
+          "rss": 82481152,
+          "heap_used": 12633424,
+          "cpu_user_us": 1312000,
+          "cpu_system_us": 781000,
+          "sqlite_bytes": 1662976,
+          "disk": {
+            "files": 155,
+            "bytes": 6823638
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 8,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 8,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T02:29:30.741Z",
+          "elapsed_ms": 482701,
+          "kind": "EVENT_SETTLED",
+          "count": 9,
+          "reopens": 0,
+          "rss": 83689472,
+          "heap_used": 13607568,
+          "cpu_user_us": 1468000,
+          "cpu_system_us": 813000,
+          "sqlite_bytes": 1851392,
+          "disk": {
+            "files": 173,
+            "bytes": 7158748
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 9,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 9,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T02:30:31.014Z",
+          "elapsed_ms": 542974,
+          "kind": "EVENT_SETTLED",
+          "count": 10,
+          "reopens": 0,
+          "rss": 84848640,
+          "heap_used": 14401760,
+          "cpu_user_us": 1562000,
+          "cpu_system_us": 891000,
+          "sqlite_bytes": 2048000,
+          "disk": {
+            "files": 191,
+            "bytes": 7473213
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 10,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 10,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T02:31:31.289Z",
+          "elapsed_ms": 603248,
+          "kind": "EVENT_SETTLED",
+          "count": 11,
+          "reopens": 0,
+          "rss": 83587072,
+          "heap_used": 13016600,
+          "cpu_user_us": 1703000,
+          "cpu_system_us": 1000000,
+          "sqlite_bytes": 2240512,
+          "disk": {
+            "files": 209,
+            "bytes": 7783578
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 11,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 11,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T02:32:31.561Z",
+          "elapsed_ms": 663518,
+          "kind": "EVENT_SETTLED",
+          "count": 12,
+          "reopens": 0,
+          "rss": 83931136,
+          "heap_used": 13138640,
+          "cpu_user_us": 1812000,
+          "cpu_system_us": 1110000,
+          "sqlite_bytes": 2424832,
+          "disk": {
+            "files": 227,
+            "bytes": 8085756
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 12,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 12,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T02:33:31.838Z",
+          "elapsed_ms": 723796,
+          "kind": "EVENT_SETTLED",
+          "count": 13,
+          "reopens": 0,
+          "rss": 82399232,
+          "heap_used": 12019040,
+          "cpu_user_us": 1968000,
+          "cpu_system_us": 1203000,
+          "sqlite_bytes": 2621440,
+          "disk": {
+            "files": 245,
+            "bytes": 8408456
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 13,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 13,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T02:34:32.125Z",
+          "elapsed_ms": 784081,
+          "kind": "EVENT_SETTLED",
+          "count": 14,
+          "reopens": 0,
+          "rss": 83791872,
+          "heap_used": 13724720,
+          "cpu_user_us": 2140000,
+          "cpu_system_us": 1281000,
+          "sqlite_bytes": 2801664,
+          "disk": {
+            "files": 263,
+            "bytes": 8706548
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 14,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 14,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T02:35:32.457Z",
+          "elapsed_ms": 844412,
+          "kind": "EVENT_SETTLED",
+          "count": 15,
+          "reopens": 0,
+          "rss": 84922368,
+          "heap_used": 14375280,
+          "cpu_user_us": 2312000,
+          "cpu_system_us": 1344000,
+          "sqlite_bytes": 2990080,
+          "disk": {
+            "files": 281,
+            "bytes": 9012849
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 15,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 15,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T02:36:32.909Z",
+          "elapsed_ms": 904864,
+          "kind": "EVENT_SETTLED",
+          "count": 16,
+          "reopens": 0,
+          "rss": 82210816,
+          "heap_used": 12074904,
+          "cpu_user_us": 2515000,
+          "cpu_system_us": 1578000,
+          "sqlite_bytes": 3182592,
+          "disk": {
+            "files": 299,
+            "bytes": 9323284
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 16,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 16,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T02:37:33.446Z",
+          "elapsed_ms": 965399,
+          "kind": "EVENT_SETTLED",
+          "count": 17,
+          "reopens": 0,
+          "rss": 83599360,
+          "heap_used": 13800448,
+          "cpu_user_us": 2734000,
+          "cpu_system_us": 1797000,
+          "sqlite_bytes": 3371008,
+          "disk": {
+            "files": 317,
+            "bytes": 9629622
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 17,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 17,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T02:38:33.991Z",
+          "elapsed_ms": 1025943,
+          "kind": "EVENT_SETTLED",
+          "count": 18,
+          "reopens": 0,
+          "rss": 84680704,
+          "heap_used": 12475360,
+          "cpu_user_us": 2953000,
+          "cpu_system_us": 2110000,
+          "sqlite_bytes": 3563520,
+          "disk": {
+            "files": 335,
+            "bytes": 9940063
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 18,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 18,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T02:39:34.545Z",
+          "elapsed_ms": 1086497,
+          "kind": "EVENT_SETTLED",
+          "count": 19,
+          "reopens": 0,
+          "rss": 85520384,
+          "heap_used": 14558824,
+          "cpu_user_us": 3140000,
+          "cpu_system_us": 2406000,
+          "sqlite_bytes": 3751936,
+          "disk": {
+            "files": 353,
+            "bytes": 10246391
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 19,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 19,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T02:40:35.130Z",
+          "elapsed_ms": 1147081,
+          "kind": "EVENT_SETTLED",
+          "count": 20,
+          "reopens": 0,
+          "rss": 83537920,
+          "heap_used": 11714616,
+          "cpu_user_us": 3328000,
+          "cpu_system_us": 2797000,
+          "sqlite_bytes": 3932160,
+          "disk": {
+            "files": 371,
+            "bytes": 10544537
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 20,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 20,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T02:41:35.718Z",
+          "elapsed_ms": 1207668,
+          "kind": "EVENT_SETTLED",
+          "count": 21,
+          "reopens": 0,
+          "rss": 84570112,
+          "heap_used": 12381088,
+          "cpu_user_us": 3406000,
+          "cpu_system_us": 3250000,
+          "sqlite_bytes": 4120576,
+          "disk": {
+            "files": 389,
+            "bytes": 10850875
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 21,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 21,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T02:42:36.328Z",
+          "elapsed_ms": 1268277,
+          "kind": "EVENT_SETTLED",
+          "count": 22,
+          "reopens": 0,
+          "rss": 85561344,
+          "heap_used": 13041032,
+          "cpu_user_us": 3531000,
+          "cpu_system_us": 3688000,
+          "sqlite_bytes": 4296704,
+          "disk": {
+            "files": 407,
+            "bytes": 11144922
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 22,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 22,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T02:43:36.967Z",
+          "elapsed_ms": 1328915,
+          "kind": "EVENT_SETTLED",
+          "count": 23,
+          "reopens": 0,
+          "rss": 83378176,
+          "heap_used": 11530080,
+          "cpu_user_us": 3703000,
+          "cpu_system_us": 4078000,
+          "sqlite_bytes": 4485120,
+          "disk": {
+            "files": 425,
+            "bytes": 11451264
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 23,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 23,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T02:44:37.656Z",
+          "elapsed_ms": 1389604,
+          "kind": "EVENT_SETTLED",
+          "count": 24,
+          "reopens": 0,
+          "rss": 83730432,
+          "heap_used": 13598536,
+          "cpu_user_us": 3937000,
+          "cpu_system_us": 4531000,
+          "sqlite_bytes": 4677632,
+          "disk": {
+            "files": 443,
+            "bytes": 11761693
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 24,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 24,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T02:45:38.495Z",
+          "elapsed_ms": 1450441,
+          "kind": "EVENT_SETTLED",
+          "count": 25,
+          "reopens": 0,
+          "rss": 84766720,
+          "heap_used": 12968040,
+          "cpu_user_us": 4140000,
+          "cpu_system_us": 5031000,
+          "sqlite_bytes": 4857856,
+          "disk": {
+            "files": 461,
+            "bytes": 12059826
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 25,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 25,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T02:46:39.444Z",
+          "elapsed_ms": 1511392,
+          "kind": "EVENT_SETTLED",
+          "count": 26,
+          "reopens": 0,
+          "rss": 82866176,
+          "heap_used": 12669248,
+          "cpu_user_us": 4390000,
+          "cpu_system_us": 5641000,
+          "sqlite_bytes": 5042176,
+          "disk": {
+            "files": 479,
+            "bytes": 12362068
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 26,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 26,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T02:47:40.130Z",
+          "elapsed_ms": 1572074,
+          "kind": "EVENT_SETTLED",
+          "count": 27,
+          "reopens": 0,
+          "rss": 84049920,
+          "heap_used": 12415480,
+          "cpu_user_us": 4625000,
+          "cpu_system_us": 6078000,
+          "sqlite_bytes": 5230592,
+          "disk": {
+            "files": 497,
+            "bytes": 12668407
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 27,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 27,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T02:48:40.848Z",
+          "elapsed_ms": 1632791,
+          "kind": "EVENT_SETTLED",
+          "count": 28,
+          "reopens": 0,
+          "rss": 85041152,
+          "heap_used": 13148272,
+          "cpu_user_us": 4734000,
+          "cpu_system_us": 6610000,
+          "sqlite_bytes": 5406720,
+          "disk": {
+            "files": 515,
+            "bytes": 12962455
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 28,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 28,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T02:49:41.584Z",
+          "elapsed_ms": 1693527,
+          "kind": "EVENT_SETTLED",
+          "count": 29,
+          "reopens": 0,
+          "rss": 86044672,
+          "heap_used": 13938656,
+          "cpu_user_us": 4890000,
+          "cpu_system_us": 7125000,
+          "sqlite_bytes": 5595136,
+          "disk": {
+            "files": 533,
+            "bytes": 13268793
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 29,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 29,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T02:50:42.449Z",
+          "elapsed_ms": 1754391,
+          "kind": "EVENT_SETTLED",
+          "count": 30,
+          "reopens": 0,
+          "rss": 84115456,
+          "heap_used": 12241104,
+          "cpu_user_us": 5062000,
+          "cpu_system_us": 7781000,
+          "sqlite_bytes": 5783552,
+          "disk": {
+            "files": 551,
+            "bytes": 13575127
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 30,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 30,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T02:50:44.695Z",
+          "elapsed_ms": 1756636,
+          "kind": "HOST_STORE_REOPEN",
+          "count": 30,
+          "reopens": 1,
+          "rss": 104652800,
+          "heap_used": 20725600,
+          "cpu_user_us": 6953000,
+          "cpu_system_us": 8360000,
+          "sqlite_bytes": 5877760,
+          "disk": {
+            "files": 554,
+            "bytes": 10007178
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 30,
+            "peak_active": 0,
+            "faulted": false
+          },
+          "requests": 30,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T02:51:45.457Z",
+          "elapsed_ms": 1817398,
+          "kind": "EVENT_SETTLED",
+          "count": 31,
+          "reopens": 1,
+          "rss": 111673344,
+          "heap_used": 18237648,
+          "cpu_user_us": 7171000,
+          "cpu_system_us": 8875000,
+          "sqlite_bytes": 6057984,
+          "disk": {
+            "files": 572,
+            "bytes": 14268772
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 31,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 31,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T02:52:46.243Z",
+          "elapsed_ms": 1878183,
+          "kind": "EVENT_SETTLED",
+          "count": 32,
+          "reopens": 1,
+          "rss": 112766976,
+          "heap_used": 19048016,
+          "cpu_user_us": 7406000,
+          "cpu_system_us": 9344000,
+          "sqlite_bytes": 6238208,
+          "disk": {
+            "files": 590,
+            "bytes": 14566925
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 32,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 32,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T02:53:47.012Z",
+          "elapsed_ms": 1938953,
+          "kind": "EVENT_SETTLED",
+          "count": 33,
+          "reopens": 1,
+          "rss": 113864704,
+          "heap_used": 19837312,
+          "cpu_user_us": 7562000,
+          "cpu_system_us": 9922000,
+          "sqlite_bytes": 6410240,
+          "disk": {
+            "files": 608,
+            "bytes": 14856880
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 33,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 33,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T02:54:47.840Z",
+          "elapsed_ms": 1999781,
+          "kind": "EVENT_SETTLED",
+          "count": 34,
+          "reopens": 1,
+          "rss": 111988736,
+          "heap_used": 13545784,
+          "cpu_user_us": 7718000,
+          "cpu_system_us": 10531000,
+          "sqlite_bytes": 6590464,
+          "disk": {
+            "files": 626,
+            "bytes": 15155026
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 34,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 34,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T02:55:48.931Z",
+          "elapsed_ms": 2060868,
+          "kind": "EVENT_SETTLED",
+          "count": 35,
+          "reopens": 1,
+          "rss": 112979968,
+          "heap_used": 13624376,
+          "cpu_user_us": 8015000,
+          "cpu_system_us": 11219000,
+          "sqlite_bytes": 6770688,
+          "disk": {
+            "files": 644,
+            "bytes": 15453172
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 35,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 35,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T02:56:49.975Z",
+          "elapsed_ms": 2121911,
+          "kind": "EVENT_SETTLED",
+          "count": 36,
+          "reopens": 1,
+          "rss": 111849472,
+          "heap_used": 15348008,
+          "cpu_user_us": 8281000,
+          "cpu_system_us": 11969000,
+          "sqlite_bytes": 6955008,
+          "disk": {
+            "files": 662,
+            "bytes": 15755417
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 36,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 36,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T02:57:50.815Z",
+          "elapsed_ms": 2182750,
+          "kind": "EVENT_SETTLED",
+          "count": 37,
+          "reopens": 1,
+          "rss": 112746496,
+          "heap_used": 13139760,
+          "cpu_user_us": 8531000,
+          "cpu_system_us": 12563000,
+          "sqlite_bytes": 7131136,
+          "disk": {
+            "files": 680,
+            "bytes": 16049475
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 37,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 37,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T02:58:51.684Z",
+          "elapsed_ms": 2243619,
+          "kind": "EVENT_SETTLED",
+          "count": 38,
+          "reopens": 1,
+          "rss": 113664000,
+          "heap_used": 14702216,
+          "cpu_user_us": 8687000,
+          "cpu_system_us": 13203000,
+          "sqlite_bytes": 7307264,
+          "disk": {
+            "files": 698,
+            "bytes": 16343521
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 38,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 38,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T02:59:52.800Z",
+          "elapsed_ms": 2304734,
+          "kind": "EVENT_SETTLED",
+          "count": 39,
+          "reopens": 1,
+          "rss": 111714304,
+          "heap_used": 14767960,
+          "cpu_user_us": 8906000,
+          "cpu_system_us": 13985000,
+          "sqlite_bytes": 7491584,
+          "disk": {
+            "files": 716,
+            "bytes": 16645766
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 39,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 39,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T03:00:53.700Z",
+          "elapsed_ms": 2365634,
+          "kind": "EVENT_SETTLED",
+          "count": 40,
+          "reopens": 1,
+          "rss": 112771072,
+          "heap_used": 14178336,
+          "cpu_user_us": 9093000,
+          "cpu_system_us": 14719000,
+          "sqlite_bytes": 7671808,
+          "disk": {
+            "files": 734,
+            "bytes": 16943910
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 40,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 40,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T03:01:54.626Z",
+          "elapsed_ms": 2426558,
+          "kind": "EVENT_SETTLED",
+          "count": 41,
+          "reopens": 1,
+          "rss": 113807360,
+          "heap_used": 14788456,
+          "cpu_user_us": 9312000,
+          "cpu_system_us": 15360000,
+          "sqlite_bytes": 7864320,
+          "disk": {
+            "files": 752,
+            "bytes": 17254341
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 41,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 41,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T03:02:55.622Z",
+          "elapsed_ms": 2487553,
+          "kind": "EVENT_SETTLED",
+          "count": 42,
+          "reopens": 1,
+          "rss": 111771648,
+          "heap_used": 15565544,
+          "cpu_user_us": 9453000,
+          "cpu_system_us": 16125000,
+          "sqlite_bytes": 8036352,
+          "disk": {
+            "files": 770,
+            "bytes": 17544290
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 42,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 42,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T03:03:56.581Z",
+          "elapsed_ms": 2548511,
+          "kind": "EVENT_SETTLED",
+          "count": 43,
+          "reopens": 1,
+          "rss": 112287744,
+          "heap_used": 13897480,
+          "cpu_user_us": 9656000,
+          "cpu_system_us": 16844000,
+          "sqlite_bytes": 8204288,
+          "disk": {
+            "files": 788,
+            "bytes": 17830148
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 43,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 43,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T03:04:57.701Z",
+          "elapsed_ms": 2609630,
+          "kind": "EVENT_SETTLED",
+          "count": 44,
+          "reopens": 1,
+          "rss": 112222208,
+          "heap_used": 12361648,
+          "cpu_user_us": 9875000,
+          "cpu_system_us": 17672000,
+          "sqlite_bytes": 8376320,
+          "disk": {
+            "files": 806,
+            "bytes": 18120103
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 44,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 44,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T03:05:58.996Z",
+          "elapsed_ms": 2670923,
+          "kind": "EVENT_SETTLED",
+          "count": 45,
+          "reopens": 1,
+          "rss": 112713728,
+          "heap_used": 16943072,
+          "cpu_user_us": 10125000,
+          "cpu_system_us": 18672000,
+          "sqlite_bytes": 8556544,
+          "disk": {
+            "files": 824,
+            "bytes": 18418254
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 45,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 45,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T03:07:00.290Z",
+          "elapsed_ms": 2732217,
+          "kind": "EVENT_SETTLED",
+          "count": 46,
+          "reopens": 1,
+          "rss": 113967104,
+          "heap_used": 15494496,
+          "cpu_user_us": 10390000,
+          "cpu_system_us": 19641000,
+          "sqlite_bytes": 8736768,
+          "disk": {
+            "files": 842,
+            "bytes": 18716396
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 46,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 46,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T03:08:01.650Z",
+          "elapsed_ms": 2793577,
+          "kind": "EVENT_SETTLED",
+          "count": 47,
+          "reopens": 1,
+          "rss": 112025600,
+          "heap_used": 13752288,
+          "cpu_user_us": 10593000,
+          "cpu_system_us": 20735000,
+          "sqlite_bytes": 8912896,
+          "disk": {
+            "files": 860,
+            "bytes": 19010457
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 47,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 47,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T03:09:02.982Z",
+          "elapsed_ms": 2854908,
+          "kind": "EVENT_SETTLED",
+          "count": 48,
+          "reopens": 1,
+          "rss": 110686208,
+          "heap_used": 15017672,
+          "cpu_user_us": 10781000,
+          "cpu_system_us": 21828000,
+          "sqlite_bytes": 9084928,
+          "disk": {
+            "files": 878,
+            "bytes": 19300410
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 48,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 48,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T03:10:04.191Z",
+          "elapsed_ms": 2916116,
+          "kind": "EVENT_SETTLED",
+          "count": 49,
+          "reopens": 1,
+          "rss": 112373760,
+          "heap_used": 16596160,
+          "cpu_user_us": 11078000,
+          "cpu_system_us": 22688000,
+          "sqlite_bytes": 9265152,
+          "disk": {
+            "files": 896,
+            "bytes": 19598559
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 49,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 49,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T03:11:05.273Z",
+          "elapsed_ms": 2977199,
+          "kind": "EVENT_SETTLED",
+          "count": 50,
+          "reopens": 1,
+          "rss": 113356800,
+          "heap_used": 18046536,
+          "cpu_user_us": 11359000,
+          "cpu_system_us": 23438000,
+          "sqlite_bytes": 9437184,
+          "disk": {
+            "files": 914,
+            "bytes": 19888517
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 50,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 50,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T03:12:06.435Z",
+          "elapsed_ms": 3038358,
+          "kind": "EVENT_SETTLED",
+          "count": 51,
+          "reopens": 1,
+          "rss": 112496640,
+          "heap_used": 13541016,
+          "cpu_user_us": 11640000,
+          "cpu_system_us": 24235000,
+          "sqlite_bytes": 9609216,
+          "disk": {
+            "files": 932,
+            "bytes": 20178471
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 51,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 51,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T03:13:07.763Z",
+          "elapsed_ms": 3099686,
+          "kind": "EVENT_SETTLED",
+          "count": 52,
+          "reopens": 1,
+          "rss": 112001024,
+          "heap_used": 12350120,
+          "cpu_user_us": 11859000,
+          "cpu_system_us": 25328000,
+          "sqlite_bytes": 9973760,
+          "disk": {
+            "files": 950,
+            "bytes": 20660937
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 52,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 52,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T03:14:08.954Z",
+          "elapsed_ms": 3160879,
+          "kind": "EVENT_SETTLED",
+          "count": 53,
+          "reopens": 1,
+          "rss": 113156096,
+          "heap_used": 17181776,
+          "cpu_user_us": 12140000,
+          "cpu_system_us": 26141000,
+          "sqlite_bytes": 10141696,
+          "disk": {
+            "files": 968,
+            "bytes": 20946795
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 53,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 53,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T03:15:10.186Z",
+          "elapsed_ms": 3222107,
+          "kind": "EVENT_SETTLED",
+          "count": 54,
+          "reopens": 1,
+          "rss": 112001024,
+          "heap_used": 15953656,
+          "cpu_user_us": 12390000,
+          "cpu_system_us": 27016000,
+          "sqlite_bytes": 10313728,
+          "disk": {
+            "files": 986,
+            "bytes": 21236753
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 54,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 54,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T03:16:11.454Z",
+          "elapsed_ms": 3283373,
+          "kind": "EVENT_SETTLED",
+          "count": 55,
+          "reopens": 1,
+          "rss": 112898048,
+          "heap_used": 16267840,
+          "cpu_user_us": 12640000,
+          "cpu_system_us": 28016000,
+          "sqlite_bytes": 10502144,
+          "disk": {
+            "files": 1004,
+            "bytes": 21543093
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 55,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 55,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T03:17:12.898Z",
+          "elapsed_ms": 3344816,
+          "kind": "EVENT_SETTLED",
+          "count": 56,
+          "reopens": 1,
+          "rss": 112259072,
+          "heap_used": 12565872,
+          "cpu_user_us": 13000000,
+          "cpu_system_us": 29110000,
+          "sqlite_bytes": 10678272,
+          "disk": {
+            "files": 1022,
+            "bytes": 21837144
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 56,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 56,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T03:18:14.341Z",
+          "elapsed_ms": 3406259,
+          "kind": "EVENT_SETTLED",
+          "count": 57,
+          "reopens": 1,
+          "rss": 112967680,
+          "heap_used": 14397816,
+          "cpu_user_us": 13234000,
+          "cpu_system_us": 30188000,
+          "sqlite_bytes": 10854400,
+          "disk": {
+            "files": 1040,
+            "bytes": 22131192
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 57,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 57,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T03:19:15.665Z",
+          "elapsed_ms": 3467582,
+          "kind": "EVENT_SETTLED",
+          "count": 58,
+          "reopens": 1,
+          "rss": 112304128,
+          "heap_used": 12893184,
+          "cpu_user_us": 13359000,
+          "cpu_system_us": 31391000,
+          "sqlite_bytes": 11051008,
+          "disk": {
+            "files": 1058,
+            "bytes": 22445713
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 58,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 58,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T03:20:16.920Z",
+          "elapsed_ms": 3528835,
+          "kind": "EVENT_SETTLED",
+          "count": 59,
+          "reopens": 1,
+          "rss": 113598464,
+          "heap_used": 14635880,
+          "cpu_user_us": 13515000,
+          "cpu_system_us": 32406000,
+          "sqlite_bytes": 11218944,
+          "disk": {
+            "files": 1076,
+            "bytes": 22731568
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 59,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 59,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T03:21:18.118Z",
+          "elapsed_ms": 3590033,
+          "kind": "EVENT_SETTLED",
+          "count": 60,
+          "reopens": 1,
+          "rss": 112062464,
+          "heap_used": 14903376,
+          "cpu_user_us": 13703000,
+          "cpu_system_us": 33375000,
+          "sqlite_bytes": 11395072,
+          "disk": {
+            "files": 1094,
+            "bytes": 23025628
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 60,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 60,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T03:21:21.393Z",
+          "elapsed_ms": 3593308,
+          "kind": "HOST_STORE_REOPEN",
+          "count": 60,
+          "reopens": 2,
+          "rss": 121749504,
+          "heap_used": 24291680,
+          "cpu_user_us": 16390000,
+          "cpu_system_us": 34156000,
+          "sqlite_bytes": 11464704,
+          "disk": {
+            "files": 1097,
+            "bytes": 19468054
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 60,
+            "peak_active": 0,
+            "faulted": false
+          },
+          "requests": 60,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T03:22:23.113Z",
+          "elapsed_ms": 3655026,
+          "kind": "EVENT_SETTLED",
+          "count": 61,
+          "reopens": 2,
+          "rss": 119865344,
+          "heap_used": 15742952,
+          "cpu_user_us": 16718000,
+          "cpu_system_us": 35453000,
+          "sqlite_bytes": 11636736,
+          "disk": {
+            "files": 1115,
+            "bytes": 23618449
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 61,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 61,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T03:23:25.197Z",
+          "elapsed_ms": 3717110,
+          "kind": "EVENT_SETTLED",
+          "count": 62,
+          "reopens": 2,
+          "rss": 120971264,
+          "heap_used": 14909136,
+          "cpu_user_us": 17203000,
+          "cpu_system_us": 36828000,
+          "sqlite_bytes": 11812864,
+          "disk": {
+            "files": 1133,
+            "bytes": 23937212
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 62,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 62,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T03:24:28.266Z",
+          "elapsed_ms": 3780178,
+          "kind": "EVENT_SETTLED",
+          "count": 63,
+          "reopens": 2,
+          "rss": 120393728,
+          "heap_used": 13206912,
+          "cpu_user_us": 17578000,
+          "cpu_system_us": 39094000,
+          "sqlite_bytes": 12001280,
+          "disk": {
+            "files": 1151,
+            "bytes": 24243550
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 63,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 63,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T03:25:30.254Z",
+          "elapsed_ms": 3842165,
+          "kind": "EVENT_SETTLED",
+          "count": 64,
+          "reopens": 2,
+          "rss": 121049088,
+          "heap_used": 13375288,
+          "cpu_user_us": 17859000,
+          "cpu_system_us": 40485000,
+          "sqlite_bytes": 12185600,
+          "disk": {
+            "files": 1169,
+            "bytes": 24545796
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 64,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 64,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T03:26:32.259Z",
+          "elapsed_ms": 3904169,
+          "kind": "EVENT_SETTLED",
+          "count": 65,
+          "reopens": 2,
+          "rss": 120311808,
+          "heap_used": 17377768,
+          "cpu_user_us": 18265000,
+          "cpu_system_us": 41906000,
+          "sqlite_bytes": 12361728,
+          "disk": {
+            "files": 1187,
+            "bytes": 24839841
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 65,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 65,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T03:27:34.420Z",
+          "elapsed_ms": 3966329,
+          "kind": "EVENT_SETTLED",
+          "count": 66,
+          "reopens": 2,
+          "rss": 119611392,
+          "heap_used": 13692960,
+          "cpu_user_us": 18531000,
+          "cpu_system_us": 43406000,
+          "sqlite_bytes": 12533760,
+          "disk": {
+            "files": 1205,
+            "bytes": 25129795
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 66,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 66,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T03:28:36.015Z",
+          "elapsed_ms": 4027924,
+          "kind": "EVENT_SETTLED",
+          "count": 67,
+          "reopens": 2,
+          "rss": 120512512,
+          "heap_used": 14282672,
+          "cpu_user_us": 18843000,
+          "cpu_system_us": 44703000,
+          "sqlite_bytes": 12709888,
+          "disk": {
+            "files": 1223,
+            "bytes": 25427959
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 67,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 67,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T03:29:37.684Z",
+          "elapsed_ms": 4089591,
+          "kind": "EVENT_SETTLED",
+          "count": 68,
+          "reopens": 2,
+          "rss": 119119872,
+          "heap_used": 15449056,
+          "cpu_user_us": 19125000,
+          "cpu_system_us": 46063000,
+          "sqlite_bytes": 12886016,
+          "disk": {
+            "files": 1241,
+            "bytes": 25722004
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 68,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 68,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T03:30:39.355Z",
+          "elapsed_ms": 4151261,
+          "kind": "EVENT_SETTLED",
+          "count": 69,
+          "reopens": 2,
+          "rss": 120459264,
+          "heap_used": 14680416,
+          "cpu_user_us": 19406000,
+          "cpu_system_us": 47422000,
+          "sqlite_bytes": 13058048,
+          "disk": {
+            "files": 1259,
+            "bytes": 26011956
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 69,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 69,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T03:31:40.817Z",
+          "elapsed_ms": 4212722,
+          "kind": "EVENT_SETTLED",
+          "count": 70,
+          "reopens": 2,
+          "rss": 119300096,
+          "heap_used": 15433416,
+          "cpu_user_us": 19687000,
+          "cpu_system_us": 48469000,
+          "sqlite_bytes": 13230080,
+          "disk": {
+            "files": 1277,
+            "bytes": 26301908
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 70,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 70,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T03:32:42.151Z",
+          "elapsed_ms": 4274055,
+          "kind": "EVENT_SETTLED",
+          "count": 71,
+          "reopens": 2,
+          "rss": 121106432,
+          "heap_used": 14769264,
+          "cpu_user_us": 19843000,
+          "cpu_system_us": 49610000,
+          "sqlite_bytes": 13418496,
+          "disk": {
+            "files": 1295,
+            "bytes": 26661818
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 71,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 71,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T03:33:43.712Z",
+          "elapsed_ms": 4335616,
+          "kind": "EVENT_SETTLED",
+          "count": 72,
+          "reopens": 2,
+          "rss": 119230464,
+          "heap_used": 15608280,
+          "cpu_user_us": 20140000,
+          "cpu_system_us": 50750000,
+          "sqlite_bytes": 13594624,
+          "disk": {
+            "files": 1313,
+            "bytes": 26955870
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 72,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 72,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T03:34:45.276Z",
+          "elapsed_ms": 4397179,
+          "kind": "EVENT_SETTLED",
+          "count": 73,
+          "reopens": 2,
+          "rss": 119500800,
+          "heap_used": 13806424,
+          "cpu_user_us": 20421000,
+          "cpu_system_us": 51985000,
+          "sqlite_bytes": 13783040,
+          "disk": {
+            "files": 1331,
+            "bytes": 27262219
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 73,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 73,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T03:35:47.165Z",
+          "elapsed_ms": 4459071,
+          "kind": "EVENT_SETTLED",
+          "count": 74,
+          "reopens": 2,
+          "rss": 121012224,
+          "heap_used": 15719136,
+          "cpu_user_us": 20734000,
+          "cpu_system_us": 53469000,
+          "sqlite_bytes": 13955072,
+          "disk": {
+            "files": 1349,
+            "bytes": 27552178
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 74,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 74,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T03:36:48.988Z",
+          "elapsed_ms": 4520889,
+          "kind": "EVENT_SETTLED",
+          "count": 75,
+          "reopens": 2,
+          "rss": 119410688,
+          "heap_used": 15653432,
+          "cpu_user_us": 21031000,
+          "cpu_system_us": 55094000,
+          "sqlite_bytes": 14131200,
+          "disk": {
+            "files": 1367,
+            "bytes": 27846226
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 75,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 75,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T03:37:50.865Z",
+          "elapsed_ms": 4582765,
+          "kind": "EVENT_SETTLED",
+          "count": 76,
+          "reopens": 2,
+          "rss": 120434688,
+          "heap_used": 14984368,
+          "cpu_user_us": 21265000,
+          "cpu_system_us": 56610000,
+          "sqlite_bytes": 14307328,
+          "disk": {
+            "files": 1385,
+            "bytes": 28140280
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 76,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 76,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T03:38:52.318Z",
+          "elapsed_ms": 4644217,
+          "kind": "EVENT_SETTLED",
+          "count": 77,
+          "reopens": 2,
+          "rss": 119910400,
+          "heap_used": 15661112,
+          "cpu_user_us": 21500000,
+          "cpu_system_us": 57891000,
+          "sqlite_bytes": 14483456,
+          "disk": {
+            "files": 1403,
+            "bytes": 28434327
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 77,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 77,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T03:39:53.768Z",
+          "elapsed_ms": 4705665,
+          "kind": "EVENT_SETTLED",
+          "count": 78,
+          "reopens": 2,
+          "rss": 120512512,
+          "heap_used": 17527072,
+          "cpu_user_us": 21750000,
+          "cpu_system_us": 58985000,
+          "sqlite_bytes": 14831616,
+          "disk": {
+            "files": 1421,
+            "bytes": 28900409
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 78,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 78,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T03:40:55.250Z",
+          "elapsed_ms": 4767146,
+          "kind": "EVENT_SETTLED",
+          "count": 79,
+          "reopens": 2,
+          "rss": 120422400,
+          "heap_used": 15735264,
+          "cpu_user_us": 22031000,
+          "cpu_system_us": 60188000,
+          "sqlite_bytes": 14995456,
+          "disk": {
+            "files": 1439,
+            "bytes": 29182182
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 79,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 79,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T03:41:56.792Z",
+          "elapsed_ms": 4828688,
+          "kind": "EVENT_SETTLED",
+          "count": 80,
+          "reopens": 2,
+          "rss": 121004032,
+          "heap_used": 15147048,
+          "cpu_user_us": 22328000,
+          "cpu_system_us": 61360000,
+          "sqlite_bytes": 15179776,
+          "disk": {
+            "files": 1457,
+            "bytes": 29484429
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 80,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 80,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T03:42:58.298Z",
+          "elapsed_ms": 4890195,
+          "kind": "EVENT_SETTLED",
+          "count": 81,
+          "reopens": 2,
+          "rss": 119771136,
+          "heap_used": 15795248,
+          "cpu_user_us": 22578000,
+          "cpu_system_us": 62610000,
+          "sqlite_bytes": 15351808,
+          "disk": {
+            "files": 1475,
+            "bytes": 29774388
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 81,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 81,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T03:43:59.821Z",
+          "elapsed_ms": 4951715,
+          "kind": "EVENT_SETTLED",
+          "count": 82,
+          "reopens": 2,
+          "rss": 119693312,
+          "heap_used": 14075768,
+          "cpu_user_us": 23031000,
+          "cpu_system_us": 63735000,
+          "sqlite_bytes": 15532032,
+          "disk": {
+            "files": 1493,
+            "bytes": 30072536
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 82,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 82,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T03:45:01.519Z",
+          "elapsed_ms": 5013412,
+          "kind": "EVENT_SETTLED",
+          "count": 83,
+          "reopens": 2,
+          "rss": 120487936,
+          "heap_used": 16351368,
+          "cpu_user_us": 23296000,
+          "cpu_system_us": 65063000,
+          "sqlite_bytes": 15712256,
+          "disk": {
+            "files": 1511,
+            "bytes": 30370684
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 83,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 83,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T03:46:03.077Z",
+          "elapsed_ms": 5074970,
+          "kind": "EVENT_SETTLED",
+          "count": 84,
+          "reopens": 2,
+          "rss": 120238080,
+          "heap_used": 15939576,
+          "cpu_user_us": 23703000,
+          "cpu_system_us": 66203000,
+          "sqlite_bytes": 15888384,
+          "disk": {
+            "files": 1529,
+            "bytes": 30664734
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 84,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 84,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T03:47:04.821Z",
+          "elapsed_ms": 5136713,
+          "kind": "EVENT_SETTLED",
+          "count": 85,
+          "reopens": 2,
+          "rss": 120573952,
+          "heap_used": 15279936,
+          "cpu_user_us": 23968000,
+          "cpu_system_us": 67547000,
+          "sqlite_bytes": 16084992,
+          "disk": {
+            "files": 1547,
+            "bytes": 30979262
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 85,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 85,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T03:48:06.434Z",
+          "elapsed_ms": 5198325,
+          "kind": "EVENT_SETTLED",
+          "count": 86,
+          "reopens": 2,
+          "rss": 120598528,
+          "heap_used": 28473520,
+          "cpu_user_us": 24328000,
+          "cpu_system_us": 68750000,
+          "sqlite_bytes": 16261120,
+          "disk": {
+            "files": 1565,
+            "bytes": 31273309
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 86,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 86,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T03:49:08.045Z",
+          "elapsed_ms": 5259935,
+          "kind": "EVENT_SETTLED",
+          "count": 87,
+          "reopens": 2,
+          "rss": 120913920,
+          "heap_used": 25009280,
+          "cpu_user_us": 24546000,
+          "cpu_system_us": 70063000,
+          "sqlite_bytes": 16433152,
+          "disk": {
+            "files": 1583,
+            "bytes": 31563260
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 87,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 87,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T03:50:09.674Z",
+          "elapsed_ms": 5321563,
+          "kind": "EVENT_SETTLED",
+          "count": 88,
+          "reopens": 2,
+          "rss": 119504896,
+          "heap_used": 16020464,
+          "cpu_user_us": 24906000,
+          "cpu_system_us": 71266000,
+          "sqlite_bytes": 16613376,
+          "disk": {
+            "files": 1601,
+            "bytes": 31861406
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 88,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 88,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T03:51:11.324Z",
+          "elapsed_ms": 5383211,
+          "kind": "EVENT_SETTLED",
+          "count": 89,
+          "reopens": 2,
+          "rss": 120807424,
+          "heap_used": 16425264,
+          "cpu_user_us": 25171000,
+          "cpu_system_us": 72594000,
+          "sqlite_bytes": 16797696,
+          "disk": {
+            "files": 1619,
+            "bytes": 32163646
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 89,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 89,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T03:52:13.884Z",
+          "elapsed_ms": 5445771,
+          "kind": "EVENT_SETTLED",
+          "count": 90,
+          "reopens": 2,
+          "rss": 120094720,
+          "heap_used": 15306104,
+          "cpu_user_us": 25640000,
+          "cpu_system_us": 74281000,
+          "sqlite_bytes": 16977920,
+          "disk": {
+            "files": 1637,
+            "bytes": 32461790
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 90,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 90,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T03:52:23.694Z",
+          "elapsed_ms": 5455581,
+          "kind": "HOST_STORE_REOPEN",
+          "count": 90,
+          "reopens": 3,
+          "rss": 122114048,
+          "heap_used": 21252032,
+          "cpu_user_us": 32328000,
+          "cpu_system_us": 77000000,
+          "sqlite_bytes": 17104896,
+          "disk": {
+            "files": 1640,
+            "bytes": 28879624
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 90,
+            "peak_active": 0,
+            "faulted": false
+          },
+          "requests": 90,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T03:53:28.108Z",
+          "elapsed_ms": 5520001,
+          "kind": "EVENT_SETTLED",
+          "count": 91,
+          "reopens": 3,
+          "rss": 119992320,
+          "heap_used": 17504072,
+          "cpu_user_us": 32796000,
+          "cpu_system_us": 80453000,
+          "sqlite_bytes": 17281024,
+          "disk": {
+            "files": 1658,
+            "bytes": 33091797
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 91,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 91,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T03:54:33.885Z",
+          "elapsed_ms": 5585770,
+          "kind": "EVENT_SETTLED",
+          "count": 92,
+          "reopens": 3,
+          "rss": 120557568,
+          "heap_used": 16664760,
+          "cpu_user_us": 33375000,
+          "cpu_system_us": 84031000,
+          "sqlite_bytes": 17457152,
+          "disk": {
+            "files": 1676,
+            "bytes": 33398212
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 92,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 92,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T03:55:39.568Z",
+          "elapsed_ms": 5651452,
+          "kind": "EVENT_SETTLED",
+          "count": 93,
+          "reopens": 3,
+          "rss": 119742464,
+          "heap_used": 15121896,
+          "cpu_user_us": 34109000,
+          "cpu_system_us": 87688000,
+          "sqlite_bytes": 17645568,
+          "disk": {
+            "files": 1694,
+            "bytes": 33745751
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 93,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 93,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T03:56:43.510Z",
+          "elapsed_ms": 5715393,
+          "kind": "EVENT_SETTLED",
+          "count": 94,
+          "reopens": 3,
+          "rss": 120115200,
+          "heap_used": 14011368,
+          "cpu_user_us": 34687000,
+          "cpu_system_us": 90656000,
+          "sqlite_bytes": 17813504,
+          "disk": {
+            "files": 1712,
+            "bytes": 34031608
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 94,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 94,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T03:57:46.994Z",
+          "elapsed_ms": 5778882,
+          "kind": "EVENT_SETTLED",
+          "count": 95,
+          "reopens": 3,
+          "rss": 120795136,
+          "heap_used": 15556256,
+          "cpu_user_us": 35171000,
+          "cpu_system_us": 93391000,
+          "sqlite_bytes": 17989632,
+          "disk": {
+            "files": 1730,
+            "bytes": 34325665
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 95,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 95,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T03:58:50.326Z",
+          "elapsed_ms": 5842207,
+          "kind": "EVENT_SETTLED",
+          "count": 96,
+          "reopens": 3,
+          "rss": 120262656,
+          "heap_used": 13130744,
+          "cpu_user_us": 35953000,
+          "cpu_system_us": 95656000,
+          "sqlite_bytes": 18182144,
+          "disk": {
+            "files": 1748,
+            "bytes": 34636091
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 96,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 96,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T03:59:55.765Z",
+          "elapsed_ms": 5907645,
+          "kind": "EVENT_SETTLED",
+          "count": 97,
+          "reopens": 3,
+          "rss": 121012224,
+          "heap_used": 15947328,
+          "cpu_user_us": 36562000,
+          "cpu_system_us": 99375000,
+          "sqlite_bytes": 18366464,
+          "disk": {
+            "files": 1766,
+            "bytes": 34938342
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 97,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 97,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T04:01:00.424Z",
+          "elapsed_ms": 5972303,
+          "kind": "EVENT_SETTLED",
+          "count": 98,
+          "reopens": 3,
+          "rss": 120414208,
+          "heap_used": 14958344,
+          "cpu_user_us": 37187000,
+          "cpu_system_us": 102735000,
+          "sqlite_bytes": 18546688,
+          "disk": {
+            "files": 1784,
+            "bytes": 35236491
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 98,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 98,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T04:02:04.668Z",
+          "elapsed_ms": 6036546,
+          "kind": "EVENT_SETTLED",
+          "count": 99,
+          "reopens": 3,
+          "rss": 117485568,
+          "heap_used": 13785576,
+          "cpu_user_us": 37906000,
+          "cpu_system_us": 106063000,
+          "sqlite_bytes": 18718720,
+          "disk": {
+            "files": 1802,
+            "bytes": 35526453
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 99,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 99,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T04:03:09.300Z",
+          "elapsed_ms": 6101177,
+          "kind": "EVENT_SETTLED",
+          "count": 100,
+          "reopens": 3,
+          "rss": 117051392,
+          "heap_used": 15483104,
+          "cpu_user_us": 38484000,
+          "cpu_system_us": 109656000,
+          "sqlite_bytes": 18894848,
+          "disk": {
+            "files": 1820,
+            "bytes": 35820499
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 100,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 100,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T04:04:13.689Z",
+          "elapsed_ms": 6165565,
+          "kind": "EVENT_SETTLED",
+          "count": 101,
+          "reopens": 3,
+          "rss": 117927936,
+          "heap_used": 16776552,
+          "cpu_user_us": 39125000,
+          "cpu_system_us": 112969000,
+          "sqlite_bytes": 19058688,
+          "disk": {
+            "files": 1838,
+            "bytes": 36102268
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 101,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 101,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T04:05:18.002Z",
+          "elapsed_ms": 6229877,
+          "kind": "EVENT_SETTLED",
+          "count": 102,
+          "reopens": 3,
+          "rss": 117407744,
+          "heap_used": 18486000,
+          "cpu_user_us": 39890000,
+          "cpu_system_us": 116235000,
+          "sqlite_bytes": 19251200,
+          "disk": {
+            "files": 1856,
+            "bytes": 36412702
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 102,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 102,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T04:06:23.236Z",
+          "elapsed_ms": 6295110,
+          "kind": "EVENT_SETTLED",
+          "count": 103,
+          "reopens": 3,
+          "rss": 118235136,
+          "heap_used": 16796928,
+          "cpu_user_us": 40515000,
+          "cpu_system_us": 119610000,
+          "sqlite_bytes": 19419136,
+          "disk": {
+            "files": 1874,
+            "bytes": 36698561
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 103,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 103,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T04:07:28.608Z",
+          "elapsed_ms": 6360481,
+          "kind": "EVENT_SETTLED",
+          "count": 104,
+          "reopens": 3,
+          "rss": 117776384,
+          "heap_used": 17076008,
+          "cpu_user_us": 41343000,
+          "cpu_system_us": 123406000,
+          "sqlite_bytes": 19591168,
+          "disk": {
+            "files": 1892,
+            "bytes": 36988520
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 104,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 104,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T04:08:33.686Z",
+          "elapsed_ms": 6425558,
+          "kind": "EVENT_SETTLED",
+          "count": 105,
+          "reopens": 3,
+          "rss": 118083584,
+          "heap_used": 16617376,
+          "cpu_user_us": 41984000,
+          "cpu_system_us": 127063000,
+          "sqlite_bytes": 19771392,
+          "disk": {
+            "files": 1910,
+            "bytes": 37336110
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 105,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 105,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T04:09:36.743Z",
+          "elapsed_ms": 6488614,
+          "kind": "EVENT_SETTLED",
+          "count": 106,
+          "reopens": 3,
+          "rss": 118145024,
+          "heap_used": 16531640,
+          "cpu_user_us": 42421000,
+          "cpu_system_us": 129422000,
+          "sqlite_bytes": 19943424,
+          "disk": {
+            "files": 1928,
+            "bytes": 37626066
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 106,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 106,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T04:10:40.111Z",
+          "elapsed_ms": 6551982,
+          "kind": "EVENT_SETTLED",
+          "count": 107,
+          "reopens": 3,
+          "rss": 117739520,
+          "heap_used": 16566160,
+          "cpu_user_us": 42953000,
+          "cpu_system_us": 131766000,
+          "sqlite_bytes": 20127744,
+          "disk": {
+            "files": 1946,
+            "bytes": 37928311
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 107,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 107,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T04:11:43.299Z",
+          "elapsed_ms": 6615168,
+          "kind": "EVENT_SETTLED",
+          "count": 108,
+          "reopens": 3,
+          "rss": 117673984,
+          "heap_used": 13465680,
+          "cpu_user_us": 43453000,
+          "cpu_system_us": 134063000,
+          "sqlite_bytes": 20287488,
+          "disk": {
+            "files": 1964,
+            "bytes": 38205984
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 108,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 108,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T04:12:46.184Z",
+          "elapsed_ms": 6678064,
+          "kind": "EVENT_SETTLED",
+          "count": 109,
+          "reopens": 3,
+          "rss": 117280768,
+          "heap_used": 16173320,
+          "cpu_user_us": 43875000,
+          "cpu_system_us": 136203000,
+          "sqlite_bytes": 20459520,
+          "disk": {
+            "files": 1982,
+            "bytes": 38495937
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 109,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 109,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T04:13:49.189Z",
+          "elapsed_ms": 6741056,
+          "kind": "EVENT_SETTLED",
+          "count": 110,
+          "reopens": 3,
+          "rss": 118059008,
+          "heap_used": 17227088,
+          "cpu_user_us": 44296000,
+          "cpu_system_us": 138594000,
+          "sqlite_bytes": 20643840,
+          "disk": {
+            "files": 2000,
+            "bytes": 38798188
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 110,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 110,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T04:14:52.072Z",
+          "elapsed_ms": 6803939,
+          "kind": "EVENT_SETTLED",
+          "count": 111,
+          "reopens": 3,
+          "rss": 117055488,
+          "heap_used": 13368656,
+          "cpu_user_us": 44750000,
+          "cpu_system_us": 140860000,
+          "sqlite_bytes": 20983808,
+          "disk": {
+            "files": 2018,
+            "bytes": 39256098
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 111,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 111,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T04:15:55.130Z",
+          "elapsed_ms": 6867007,
+          "kind": "EVENT_SETTLED",
+          "count": 112,
+          "reopens": 3,
+          "rss": 118194176,
+          "heap_used": 17352368,
+          "cpu_user_us": 45281000,
+          "cpu_system_us": 143078000,
+          "sqlite_bytes": 21168128,
+          "disk": {
+            "files": 2036,
+            "bytes": 39558339
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 112,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 112,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T04:16:59.873Z",
+          "elapsed_ms": 6931738,
+          "kind": "EVENT_SETTLED",
+          "count": 113,
+          "reopens": 3,
+          "rss": 117927936,
+          "heap_used": 15501048,
+          "cpu_user_us": 45875000,
+          "cpu_system_us": 146735000,
+          "sqlite_bytes": 21340160,
+          "disk": {
+            "files": 2054,
+            "bytes": 39848284
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 113,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 113,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T04:18:04.630Z",
+          "elapsed_ms": 6996494,
+          "kind": "EVENT_SETTLED",
+          "count": 114,
+          "reopens": 3,
+          "rss": 117542912,
+          "heap_used": 14324136,
+          "cpu_user_us": 46593000,
+          "cpu_system_us": 150500000,
+          "sqlite_bytes": 21524480,
+          "disk": {
+            "files": 2072,
+            "bytes": 40150525
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 114,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 114,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T04:19:09.562Z",
+          "elapsed_ms": 7061436,
+          "kind": "EVENT_SETTLED",
+          "count": 115,
+          "reopens": 3,
+          "rss": 117395456,
+          "heap_used": 13572136,
+          "cpu_user_us": 47546000,
+          "cpu_system_us": 154172000,
+          "sqlite_bytes": 21692416,
+          "disk": {
+            "files": 2090,
+            "bytes": 40436397
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 115,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 115,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T04:20:12.734Z",
+          "elapsed_ms": 7124597,
+          "kind": "EVENT_SETTLED",
+          "count": 116,
+          "reopens": 3,
+          "rss": 117538816,
+          "heap_used": 14034816,
+          "cpu_user_us": 48140000,
+          "cpu_system_us": 156547000,
+          "sqlite_bytes": 21872640,
+          "disk": {
+            "files": 2108,
+            "bytes": 40734544
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 116,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 116,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T04:21:16.030Z",
+          "elapsed_ms": 7187891,
+          "kind": "EVENT_SETTLED",
+          "count": 117,
+          "reopens": 3,
+          "rss": 118464512,
+          "heap_used": 17652240,
+          "cpu_user_us": 48671000,
+          "cpu_system_us": 158860000,
+          "sqlite_bytes": 22052864,
+          "disk": {
+            "files": 2126,
+            "bytes": 41032689
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 117,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 117,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        },
+        {
+          "at": "2026-11-08T04:21:39.453Z",
+          "elapsed_ms": 7211314,
+          "kind": "FINAL",
+          "count": 117,
+          "reopens": 3,
+          "rss": 127492096,
+          "heap_used": 14778376,
+          "cpu_user_us": 55281000,
+          "cpu_system_us": 161985000,
+          "sqlite_bytes": 22052864,
+          "disk": {
+            "files": 2126,
+            "bytes": 41032689
+          },
+          "event": {
+            "running": true,
+            "active": 0,
+            "pending": 0,
+            "records": 117,
+            "peak_active": 1,
+            "faulted": false
+          },
+          "requests": 117,
+          "queued_messages": 0,
+          "unknown_tasks": 0,
+          "active_reservations": 0
+        }
+      ],
+      "conclusion": "Actual local events, durable receipts and idle model silence observed. CPU/memory are observations; logical resource budgets are not OS hard limits. This is not general autonomous development."
+    }
+  },
+  "history_preservation": {
+    "schema": "agentnexus/m17/history-preservation/1",
+    "verified_at": "2026-11-08T03:54:19.262041+00:00",
+    "status": "PASS",
+    "files_verified": 15294,
+    "mismatches": [],
+    "head": "78a9d54b96417c262321be35ee44e86e300ca46d",
+    "branch": "main",
+    "git_status": "?? .workflow-kit/tasks/AgentNexus-M1.7/\n?? deliverables/AgentNexus-M1.7/\n",
+    "scope": "All original files listed by Phase0 freeze: root selected files, source/tests/tools/config/inputs/deliverables/tasks and governance policy/baseline. Historical runtime directories were not frozen and are not claimed byte-audited.",
+    "commit_created": false,
+    "push_performed": false,
+    "hooks_installed": false
+  },
+  "governance": {
+    "schema": "agentnexus/m17/governance/1",
+    "status": "PASS",
+    "started_at": "2026-11-08T03:58:55.015491+00:00",
+    "ended_at": "2026-11-08T04:08:02.749334+00:00",
+    "elapsed_seconds": 547.7250876000035,
+    "command": [
+      "C:\\Users\\28642\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+      "I:\\AI_AgentNexus\\ai-workflow-kit-v4\\tools\\govern.py",
+      "check",
+      "--target",
+      "\\\\?\\I:\\AI_AgentNexus"
+    ],
+    "exit_code": 0,
+    "scope": "Existing full root check, not staged-only. No policy, rules, hook, index or tool changes.",
+    "extended_path_reason": "Normal Win32 directory enumeration failed at a 259-character retained test path; extended path enumerates the identical root inode without changing policy/scope.",
+    "same_root_identity": true,
+    "protected_before": {
+      "AGENTS.md": "a868b01052ea5613300e6973fd1c65917ba2f10b01eea025214b513432cd4694",
+      ".workflow-kit/governance/policy.json": "ea91359de90e74cbb554f93ac2dae82509f93f5bcc05c65bf22384aba4dd4d83",
+      ".workflow-kit/governance/baseline.json": "dde12816841f48122d8b919032df93bf1c7ad232d3789ddcf471a00293312345"
+    },
+    "protected_after": {
+      "AGENTS.md": "a868b01052ea5613300e6973fd1c65917ba2f10b01eea025214b513432cd4694",
+      ".workflow-kit/governance/policy.json": "ea91359de90e74cbb554f93ac2dae82509f93f5bcc05c65bf22384aba4dd4d83",
+      ".workflow-kit/governance/baseline.json": "dde12816841f48122d8b919032df93bf1c7ad232d3789ddcf471a00293312345"
+    },
+    "stdout_sha256": "74b9b169f20d84d2bc14b03ada594625dda519a7f855845ca917f6ec53661344",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "reviews": [
+    {
+      "file": "fixture-review-before-recheck-acef4ffc15377058016d3162797ef112de77608d0d05e7c23a8d9b8ce167575f.json",
+      "sha256": "acef4ffc15377058016d3162797ef112de77608d0d05e7c23a8d9b8ce167575f",
+      "status": "CHANGES_REQUESTED_FOR_TWO_FIXTURE_EDGE_CASES",
+      "scope": "Independent read-only engineering review of development.ts, pilot-fixtures.ts, and M1.7 index.ts/scheduler.ts differences against M1.6.1. The reviewer authored models.ts earlier and did not review that file here."
+    },
+    {
+      "file": "fixture-review.json",
+      "sha256": "d5c0f1c7b8ff265a5a1784766bdba9335347e519b29ef177b3289708fecee53d",
+      "status": "NO_OPEN_FINDINGS_IN_REVIEWED_SCOPE_AFTER_STATIC_RECHECK",
+      "scope": "Independent read-only engineering review of development.ts, pilot-fixtures.ts, and M1.7 index.ts/scheduler.ts differences against M1.6.1. The reviewer authored models.ts earlier and did not review that file here."
+    },
+    {
+      "file": "runtime-review.json",
+      "sha256": "129ebb2353a4f07e68b120f6b8cf17da83726f03b6c0a66bc08926eec02c9656",
+      "status": "PASS_WITH_DECLARED_SCOPE_LIMITS",
+      "scope": null
+    },
+    {
+      "file": "security-review.json",
+      "sha256": "80353ba55e8917dc6d101ea1d7c105e70c295675034d70e903e44f289b5e54a6",
+      "status": null,
+      "scope": "LOCAL_TRUSTED_LIBRARY_ENGINEERING_REVIEW"
+    }
+  ],
+  "limitations": [
+    "Code-generation strategies are explicit Codex-authored simulation fixtures; general model autonomy is not PASS.",
+    "Fixed Host runner executes only allowlisted immutable fixture bytes; arbitrary Agent PROCESS/EXTERNAL_EFFECT stays BLOCKED.",
+    "Logical budgets and observed process closure do not qualify strict cumulative CPU or hostile-process OS isolation.",
+    "Multi-file delivery is individually published and revalidated; no multi-file atomic transaction is claimed.",
+    "OS reboot, hard power loss and real Provider integration are NOT_RUN/SIMULATED.",
+    "Resident soak did not capture a complete starting source tree; only stable event-loop module/runner provenance and actual observed behavior are claimed."
+  ],
+  "os_reboot": "NOT_RUN",
+  "hard_power_loss": "NOT_RUN",
+  "git_commit_push_watcher": "NOT_RUN",
+  "cross_host_platform_budget": "NOT_RUN",
+  "pilot_plan_priority_to_event_mapping": "NOT_RUN",
+  "human_gate_profile": "NOT_REQUIRED",
+  "commits_created": 0,
+  "pushes": 0,
+  "hooks_installed": 0
+}

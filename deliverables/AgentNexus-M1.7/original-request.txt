@@ -1,0 +1,949 @@
+# AgentNexus M1.7 — Multi-Agent Autonomous Development Pilot
+
+**项目：** AgentNexus v0.4  
+**开发基线：** M1.6.1  
+**执行代理：** Codex  
+**任务性质：** 原生多 Agent 运行时集成、协作验证、自主软件研发试运行。
+
+---
+
+# 一、本轮战略目标
+
+AgentNexus 已经完成：
+
+- M0：主流开源 Harness 源码研究与架构设计。
+- M0.1：Feature Registry、Policy、Context Archive、Audit Trail、Tool Gateway。
+- M1：受限本地内核。
+- M1.2：强制策略执行、精确资源授权、Operation Reconciliation。
+- M1.3：Runtime Identity、Trusted IPC、ExitProof 协议。
+- M1.4：Windows 执行链候选实现。
+- M1.5：Production Bootstrap、Broker、Sandbox 候选实现。
+- M1.5.1：CPU 根因调查与失败关闭。
+- M1.6：Native Harness、Agent Loop、Message Bus、Task Scheduler、三级资源治理。
+- M1.6.1：Storage Owner、Context Provenance、Message Reliability、Rules Compiler、Gate Runtime。
+
+M1.6.1 当前状态：
+
+- 本地 Native Harness 稳定性范围：PASS。
+- 新增测试：99/99 PASS。
+- 完整回归：469 PASS、8 NOT_RUN、2 FAIL。
+- 严格 CPU 累计预算：BLOCKED。
+- 完整生产执行链：BLOCKED。
+- 真实 Provider：尚未接入。
+
+## 本轮核心目标
+
+**让 AgentNexus 第一次真正承担一个完整的软件研发任务，由多个不同职责的 Agent 自主协作完成，而不是仅仅展示五种 Agent 能够启动和互相发送消息。**
+
+本轮必须验证：
+
+1. Development Agent 能够理解项目并自主制定研发计划。
+2. Development Agent 能够拆分任务。
+3. 多个 Subagent 能够并行承担独立工作。
+4. Subagent 能够与主 Agent 双向通信。
+5. Resident Agent 能够持续接收消息并唤醒相关 Agent。
+6. Background Reviewer 能够独立审查代码。
+7. Coordinator 能够协调任务和共享资源。
+8. Context Assembly 能够支持跨任务、跨会话的连续研发。
+9. Workflow Runtime 能够真正参与研发流程。
+10. Resource Governance 能够控制 Agent 的资源消耗。
+11. 所有重要操作都能够追溯。
+12. Agent 能够在任务失败、中断和恢复后继续工作。
+
+本轮不要求完整产品一次性完成。
+
+但必须产生一个真实、可复现、可审计的多 Agent 软件研发闭环。
+
+---
+
+# 二、Phase 0：完整读取 M1.6.1 基线
+
+开始之前，必须：
+
+1. 阅读项目全部适用规则。
+2. 阅读 M1.6.1 完整验收报告。
+3. 阅读 M1.6.1 README。
+4. 阅读 M1.6.1 独立代码审查。
+5. 阅读 M1.6.1 完整源码和测试。
+6. 阅读 Storage Owner 设计。
+7. 阅读 Context Provenance。
+8. 阅读 Message Reliability。
+9. 阅读 Task Scheduler Recovery。
+10. 阅读 Project Rules Compiler。
+11. 阅读 Gate Runtime。
+12. 阅读五类 Agent 验证报告。
+13. 阅读全部 Feature / Policy Catalog。
+14. 阅读 M0 的主流 Harness 源码研究和 Workflow Kit 映射。
+
+核实：
+
+- 当前分支、HEAD 和工作树。
+- 当前源码 SHA256。
+- 已实现的 Agent Runtime。
+- 已实现的工具。
+- 当前实际可用的 Model Gateway。
+- 当前存储能力。
+- 当前执行能力资格。
+- 尚未关闭的问题。
+
+保留 M0 至 M1.6.1 的全部历史交付和失败证据。
+
+不要推倒 M1.6.1 重做。
+
+不要为了 M1.7 重构已经稳定的底层模块。
+
+---
+
+# 三、建立独立的 Pilot 项目
+
+本轮不直接使用 AI_Consciousness、AI_NeuroWeave、AI_Highlycomplex 等正式科研项目作为试验对象。
+
+创建一个独立的软件研发试运行项目：
+
+`AgentNexus-Pilot-Project`
+
+放在 AgentNexus 项目规定的独立测试工作区内。
+
+该项目应该具有真实的软件开发任务，而不是只有几个用于演示的空文件。
+
+建议选择一个规模适中、具有实际工程内容的项目，例如：
+
+一个独立的任务管理与数据分析工具，具有：
+
+- 清晰的功能需求。
+- 数据模型。
+- 多个功能模块。
+- API 或 CLI 接口。
+- 单元测试。
+- 集成测试。
+- 文档。
+- 配置。
+- 错误处理。
+- 数据完整性要求。
+
+具体项目可以由 Development Agent 在读取需求后自主规划，但必须先经过 Pilot 项目准入检查。
+
+项目规模应足以让多个子 Agent 有独立工作内容，又不能大到需要长期开发才能完成。
+
+## 重要要求
+
+Pilot 项目必须真实使用 AgentNexus 的：
+
+- Agent Runtime。
+- Agent Loop。
+- Context Assembly。
+- Message Bus。
+- Task Scheduler。
+- Storage Owner。
+- Workflow Runtime。
+- Gate Engine。
+- Resource Governance。
+- Tool Gateway。
+- Audit Trail。
+
+不允许在 AgentNexus 外部人工完成任务，再将结果伪装成 AgentNexus 自主开发成果。
+
+所有实际操作都必须留下来源和执行记录。
+
+---
+
+# 四、核心工作线 A：Development Agent 自主研发能力
+
+这是本轮最重要的部分。
+
+Development Agent 不应该只是接收一个已经拆分好的任务，然后执行编码。
+
+它必须具备真正的研发管理能力。
+
+## A1. 项目理解
+
+Development Agent 启动后：
+
+1. 读取项目规则。
+2. 读取项目需求。
+3. 读取现有代码。
+4. 读取架构和历史决策。
+5. 分析项目状态。
+6. 识别缺失功能。
+7. 识别技术风险。
+8. 形成研发计划。
+
+必须保留项目规则和文件来源。
+
+不能仅凭摘要猜测项目状态。
+
+## A2. 自主规划
+
+主 Agent 应能够：
+
+- 制定项目架构。
+- 识别工作模块。
+- 建立任务依赖。
+- 确定任务优先级。
+- 估计资源需求。
+- 选择合适的 Agent 类型。
+- 决定哪些任务可以并行。
+- 决定哪些任务必须串行。
+- 制定验收标准。
+
+任务计划必须结构化保存。
+
+## A3. 自主任务分发
+
+主 Agent 根据任务内容派发子 Agent。
+
+例如：
+
+```text
+Development Agent
+       |
+       +---- Research Agent
+       |
+       +---- Architecture Agent
+       |
+       +---- Coding Agent A
+       |
+       +---- Coding Agent B
+       |
+       +---- Test Agent
+       |
+       +---- Review Agent
+```
+
+这只是示例，实际分工由主 Agent 根据任务依赖决定。
+
+不能为了展示并行而把相互依赖的任务强行并行。
+
+也不能把所有任务都串行执行。
+
+## A4. 交付整合
+
+主 Agent 必须：
+
+- 接收子 Agent 的交付。
+- 验证 Artifact。
+- 检查测试结果。
+- 处理接口冲突。
+- 处理代码冲突。
+- 处理设计分歧。
+- 决定是否重新派发任务。
+- 整合最终代码。
+
+不能仅根据子 Agent 自报完成就验收。
+
+必须检查真实文件、测试和交付证据。
+
+---
+
+# 五、核心工作线 B：Development Subagent
+
+本轮必须验证真正的多子 Agent 协作。
+
+子 Agent 不是简单的多个独立聊天窗口。
+
+每个子 Agent 必须具备：
+
+- 独立 Agent ID。
+- 独立 Runtime Instance。
+- 独立 Task。
+- 独立 Context。
+- 独立 Model Binding。
+- 独立 Resource Budget。
+- 明确的文件访问范围。
+- 明确的工具权限。
+- 明确的交付合同。
+
+## B1. 子 Agent 类型
+
+至少验证：
+
+1. Research Agent。
+2. Architecture Agent。
+3. Coding Agent。
+4. Test Agent。
+5. Debug Agent。
+6. Code Review Agent。
+7. Documentation Agent。
+
+不要求所有角色同时启动。
+
+主 Agent 根据任务需要选择。
+
+## B2. 双向通信
+
+必须真实验证：
+
+- 主 Agent 向子 Agent 派发任务。
+- 子 Agent 向主 Agent 汇报进度。
+- 子 Agent 向主 Agent 提交问题。
+- 主 Agent 向子 Agent 追加任务。
+- 子 Agent 请求其他 Agent 协助。
+- Agent 之间传递 Artifact。
+- Agent 之间传递结构化证据。
+
+所有消息必须通过 Message Bus。
+
+不允许直接修改其他 Agent 的内部状态。
+
+## B3. 模型成本分层
+
+普通子 Agent 默认使用低成本模型策略。
+
+复杂设计、数学和安全审查可以使用更强模型策略。
+
+但是：
+
+模型选择不能改变 Agent 权限。
+
+昂贵模型不能自动获得更高文件权限或执行权限。
+
+本轮使用模拟 Provider 验证模型路由。
+
+真实 Provider 接入另行授权。
+
+## B4. 并行研发
+
+至少选择三个相互独立的任务进行真实并行执行。
+
+验证：
+
+- 独立工作区。
+- 并发资源预留。
+- 文件冲突。
+- 任务依赖。
+- 消息交接。
+- 取消。
+- 失败恢复。
+- 产物整合。
+
+如果两个 Agent 修改同一个文件，必须通过文件所有权、版本检查或显式协调处理冲突。
+
+禁止未经协调的并发写入。
+
+---
+
+# 六、核心工作线 C：Resident Agent
+
+Resident Agent 是本项目最重要的长期运行角色之一。
+
+本轮必须从简单的逻辑 Agent 原型向真实事件驱动运行机制推进。
+
+## C1. 常驻机制
+
+Resident Agent 应该在项目处于 ACTIVE 状态时持续运行。
+
+但：
+
+**常驻不等于持续调用模型，也不等于持续占用 CPU。**
+
+建议采用：
+
+- 事件驱动。
+- 持久消息队列。
+- 低成本等待。
+- 按需模型调用。
+- 任务状态监控。
+- Agent 唤醒。
+- Checkpoint。
+
+## C2. 核心职责
+
+Resident Agent 负责：
+
+- 接收消息。
+- 识别消息接收者。
+- 分发消息。
+- 检查任务状态。
+- 唤醒等待中的 Agent。
+- 发现无人处理的任务。
+- 通知 Development Agent。
+- 监控项目活动。
+- 处理过期消息。
+- 恢复未完成的调度工作。
+
+Resident 不直接修改项目代码。
+
+Resident 不擅自改变项目目标。
+
+Resident 不拥有超出自身职责的管理权限。
+
+## C3. 唤醒测试
+
+必须真实验证：
+
+1. 子 Agent 向 Resident 发送消息。
+2. Resident 收到消息。
+3. Resident 识别接收者。
+4. Resident 唤醒对应 Agent。
+5. 对应 Agent 恢复原 Task。
+6. Agent 获取原 Context。
+7. Agent 继续执行。
+8. 结果返回发送方。
+
+同时测试：
+
+- 重复消息。
+- 消息过期。
+- Agent 不在线。
+- Host 重启。
+- Resident 重启。
+- 唤醒失败。
+- 任务取消。
+
+## C4. 长期运行
+
+开展有界持续运行测试。
+
+建议先进行至少2小时的持续事件驱动测试，观察：
+
+- 消息积压。
+- CPU。
+- 内存。
+- SQLite。
+- Artifact 增长。
+- Agent 状态。
+- 重复任务。
+- 资源释放。
+
+如果运行环境不支持完整长期测试，明确标记 NOT_RUN。
+
+不得把短时间模拟演示描述为长期自治已经通过。
+
+---
+
+# 七、核心工作线 D：Background Review Agent
+
+本轮必须验证真正独立的后台代码审查流程。
+
+Reviewer 的主要职责是发现实现问题，而不是参与项目本体的设计决策。
+
+## D1. 触发机制
+
+优先支持：
+
+- Git Commit 事件。
+- Git Push 事件。
+- 明确请求的代码审查任务。
+- Task Contract 中规定的审查 Gate。
+
+自动 Git Watcher 可以采用事件或受控轮询实现。
+
+本轮不要求自动推送代码。
+
+## D2. 审查内容
+
+至少包括：
+
+- 语法错误。
+- 类型错误。
+- Bug。
+- 数值计算错误。
+- 数学公式实现错误。
+- 索引与边界问题。
+- 并发问题。
+- 状态机错误。
+- 数据完整性。
+- 安全问题。
+- 测试覆盖。
+- 实现与设计合同不一致。
+
+可以调用成熟静态分析工具。
+
+不必重新造轮子。
+
+## D3. Reviewer 权限
+
+Reviewer 默认只读。
+
+必须验证：
+
+- 无法修改源代码。
+- 无法删除开发文件。
+- 无法提交代码。
+- 无法修改项目规则。
+- 无法自行修改 Policy。
+- 无法覆盖审计记录。
+
+Reviewer 发现问题后：
+
+1. 记录 Commit / Diff。
+2. 记录文件和行号。
+3. 记录问题描述。
+4. 记录复现步骤。
+5. 记录证据。
+6. 发送给 Development Agent。
+7. 等待开发主 Agent 决定修复任务。
+
+不得让 Reviewer 自行修改代码来掩盖自己的审查发现。
+
+---
+
+# 八、核心工作线 E：Coordinator Agent
+
+Coordinator 负责协调，不参与项目本体开发。
+
+本轮需要验证：
+
+- 多个 Agent 的状态读取。
+- 多任务优先级。
+- 共享资源预算。
+- Agent 并发冲突。
+- 任务依赖。
+- 项目状态。
+- 任务阻塞。
+- 跨项目资源协调。
+
+Coordinator 可以提出资源和任务调度建议。
+
+但不能擅自：
+
+- 修改项目目标。
+- 修改项目规则。
+- 修改实验合同。
+- 批准高风险操作。
+- 覆盖项目决策。
+- 直接修改项目代码。
+
+Coordinator 的跨项目协调必须通过可信权限和项目级接口。
+
+---
+
+# 九、Context Assembly 与长期研发记忆
+
+这是本轮必须重点验证的基础能力。
+
+## 9.1 上下文组成
+
+每个 Agent 的上下文至少包括：
+
+- 平台规则。
+- 项目规则。
+- Agent Role。
+- Task Contract。
+- 当前任务状态。
+- 必要历史经历。
+- 相关决策。
+- 相关文件。
+- 子 Agent 消息。
+- 工具结果。
+- Artifact 引用。
+
+## 9.2 原始历史保护
+
+必须继续坚持：
+
+原始 Context Archive 不得被摘要覆盖。
+
+允许：
+
+- 摘要。
+- 索引。
+- 向量检索。
+- 历史提取。
+- 上下文重排。
+
+但这些都是派生数据。
+
+原始记录必须能够重新读取和校验。
+
+## 9.3 Context Retrieval
+
+当主 Agent 缺少信息时，可以派发 Retrieval Agent 读取历史。
+
+Retrieval Agent 必须：
+
+- 明确查询目标。
+- 读取原始记录。
+- 提供原始引用。
+- 区分事实和推断。
+- 标记缺失信息。
+- 不伪造历史经历。
+
+## 9.4 目标一致性
+
+每次 Agent 恢复任务时，应核对：
+
+- 原 Task。
+- 项目规则版本。
+- 原始决策。
+- 当前文件版本。
+- 当前任务状态。
+- 尚未解决的问题。
+
+规则版本发生变化时，不得静默替换旧任务的约束。
+
+必须经过明确迁移。
+
+---
+
+# 十、Workflow Runtime 与自动质量 Gate
+
+M1.6.1 已经建立 Project Rules Compiler 和 Gate Runtime。
+
+本轮必须将它们真正应用于完整研发流程。
+
+建议采用：
+
+| Gate | 检查内容 |
+|---|---|
+| G0 | 项目与任务准入 |
+| G1 | 规则和输入完整性 |
+| G2 | 设计与任务分解 |
+| G3 | 代码与测试 |
+| G4 | 独立审查 |
+| G5 | 交付证据 |
+| G6 | 最终验收 |
+
+每个 Gate 必须有：
+
+- 必要输入。
+- 证据引用。
+- 自动检查器。
+- 人工审查要求。
+- 通过条件。
+- 失败条件。
+- NOT_RUN。
+- INCONCLUSIVE。
+- BYPASSED。
+
+模型可以建议 Gate 结果。
+
+最终结果必须由程序根据证据计算。
+
+不能允许 Agent 直接把 Gate 状态改为 PASS。
+
+关键安全策略不能因为关闭 Gate 就自动放行。
+
+---
+
+# 十一、Model Gateway 与真实 Provider 准备
+
+本轮继续完善 Model Gateway。
+
+必须支持：
+
+- Provider Registry。
+- Model Capability Registry。
+- Model Router。
+- Credential Vault 接口。
+- Key Handle。
+- Usage Ledger。
+- 费用统计。
+- 请求失败。
+- 模型切换。
+- 供应商故障处理。
+
+模拟 Provider 必须可以完成整个多 Agent 测试流程。
+
+真实 GPT、DeepSeek、GLM 等 Provider 的接入必须单独获得用户授权。
+
+不得：
+
+- 读取现有 API Key。
+- 输出 API Key。
+- 将 Key 放入 Prompt。
+- 将 Key 写入 Context Archive。
+- 将 Key 写入普通 Audit 内容。
+- 将 Host 凭证传递给普通 Worker。
+
+本轮不产生真实模型费用。
+
+---
+
+# 十二、Resource Governance 与执行安全
+
+所有 Agent 必须使用统一 Resource Governance。
+
+至少管理：
+
+- Worker Budget。
+- Project Budget。
+- Platform Budget。
+
+控制：
+
+- 并发 Agent 数量。
+- 内存预算。
+- 磁盘预算。
+- CPU Bandwidth。
+- CPU Accounting。
+- 执行时间。
+- Artifact 大小。
+- 消息积压。
+- 模型请求次数。
+
+严格 CPU 累计硬预算继续 BLOCKED。
+
+不要把 Windows JOB_TIME 的历史失败改成 PASS。
+
+当前未获得资格的 PROCESS 和 EXTERNAL_EFFECT 继续 BLOCKED。
+
+本轮可以使用：
+
+- 已经通过资格验证的本地功能。
+- 模拟 Provider。
+- 受限工具。
+- 固定测试 Runner。
+- 独立 Pilot 工作区。
+
+不能因为 M1.7 需要真实研发，就绕过 Tool Gateway、Policy、Storage Owner 和 Audit。
+
+---
+
+# 十三、Pilot 项目的实际研发任务
+
+本轮不能只做架构测试。
+
+必须完成一个真实的软件研发闭环。
+
+建议主 Agent 自主完成以下工作：
+
+1. 读取 Pilot 项目需求。
+2. 自主设计项目架构。
+3. 拆分至少三个可并行任务。
+4. 分配不同子 Agent。
+5. 子 Agent 独立阅读相关文件。
+6. 子 Agent 实际完成代码或测试工作。
+7. Reviewer 独立审查。
+8. 发现问题后通知主 Agent。
+9. 主 Agent 决定修复方案。
+10. Coding Agent 修复。
+11. Test Agent 执行验证。
+12. 主 Agent 整合交付。
+13. Gate Engine 进行最终检查。
+14. Storage Owner 保存产物。
+15. Audit Trail 保存完整研发过程。
+
+必须证明代码是通过 AgentNexus 的 Native Harness 实际产生和管理的。
+
+不能由 Codex 在 Harness 外部人工完成全部工作，再将其描述为 AgentNexus 自主研发。
+
+允许 Codex 作为本轮工程执行者修复 AgentNexus 自身代码，但必须与 Pilot Agent 的实际执行记录分开。
+
+---
+
+# 十四、实施阶段
+
+### Phase 0：基线冻结与运行条件检查
+
+完成规则读取、源码冻结、当前资格检查。
+
+### Phase 1：Native Harness 集成
+
+完成五类 Agent 的统一配置和运行入口。
+
+### Phase 2：多 Agent 并行协作
+
+实现主 Agent、多个子 Agent、双向通信和交付整合。
+
+### Phase 3：Resident 与 Coordinator
+
+完成事件驱动唤醒、任务恢复和资源协调。
+
+### Phase 4：Background Reviewer
+
+完成只读审查和变更触发流程。
+
+### Phase 5：Pilot 软件研发
+
+让 Native Harness 实际完成独立软件项目。
+
+### Phase 6：长时间运行和故障恢复
+
+完成有界持续运行测试、Agent 崩溃、消息恢复和资源核算。
+
+### Phase 7：独立审查和最终验收
+
+核对真实执行证据、源码、测试、Gate 和 Audit。
+
+相互独立的工作可以并行推进。
+
+不要为了形式上的阶段划分造成不必要的串行等待。
+
+---
+
+# 十五、测试与验收
+
+必须分别报告：
+
+### A. 单 Agent
+
+- Agent 创建。
+- Agent Loop。
+- 上下文装配。
+- 工具调用。
+- Task 状态。
+- 崩溃恢复。
+
+### B. Multi-Agent
+
+- 三个以上 Subagent 并行。
+- 主子 Agent 双向通信。
+- 多 Agent 消息。
+- Task 交接。
+- 文件冲突。
+- 资源竞争。
+- 任务取消。
+- Agent 崩溃。
+
+### C. Resident
+
+- 消息接收。
+- 唤醒。
+- 任务恢复。
+- 事件积压。
+- 重复消息。
+- 长期运行。
+- Host 重启。
+
+### D. Reviewer
+
+- Git Diff 获取。
+- 只读权限。
+- Bug 检测。
+- 类型和数学检查。
+- 问题通知。
+- 修复后的重新审查。
+
+### E. Coordinator
+
+- 多 Agent 状态协调。
+- 资源竞争。
+- 任务优先级。
+- 项目隔离。
+- 越权拒绝。
+
+### F. Context
+
+- 原始历史完整性。
+- 来源追踪。
+- 检索。
+- 长上下文。
+- 规则版本绑定。
+- 任务恢复。
+
+### G. Workflow
+
+- G0-G6。
+- 证据缺失。
+- Gate 伪造。
+- Gate BYPASSED。
+- 人工审查。
+- 规则更新。
+
+### H. Resource Governance
+
+- Worker 超额。
+- Project 超额。
+- Platform 超额。
+- 并发预留。
+- 资源释放。
+- UNKNOWN 隔离。
+
+测试状态严格区分：
+
+PASS / FAIL / NOT_RUN / BLOCKED / INCONCLUSIVE / SIMULATED / BYPASSED。
+
+真实 Provider 未接入时，明确标记 SIMULATED。
+
+OS 安全能力未通过时，保持 BLOCKED。
+
+---
+
+# 十六、工程纪律
+
+- 保留 M0 至 M1.6.1 全部历史交付。
+- 不覆盖历史 FAIL。
+- 不自动 Commit / Push。
+- 不安装 Git Hooks。
+- 不修改其他科研项目。
+- 不运行正式科研实验。
+- 不读取 API Key。
+- 不连接真实 Provider。
+- 不产生真实模型费用。
+- 不擅自修改 Windows 账户、ACL、AppContainer。
+- 不擅自修改 Ubuntu。
+- 不开放未经资格验证的任意 Shell。
+- 不绕过 Tool Gateway。
+- 不绕过 Policy。
+- 不绕过 Storage Owner。
+- 不允许 Agent 自行修改权限。
+- 不允许 Reviewer 写入开发代码。
+- 不允许 Coordinator 擅自改变项目决策。
+- 不允许摘要覆盖原始历史。
+- 不无限累积内存。
+- 大型文件和输出必须流式处理。
+- 所有未知副作用保持隔离。
+
+不进行无关生产级过度工程化。
+
+优先保证科学正确性、代码正确性、可复现性、数据完整性和安全边界。
+
+---
+
+# 十七、最终交付
+
+建立独立：
+
+`AgentNexus-M1.7`
+
+至少包括：
+
+1. M1.7 总体架构。
+2. 五类 Agent 运行合同。
+3. Agent Runtime 配置。
+4. Multi-Agent 协作报告。
+5. Resident 长期运行报告。
+6. Development Agent 研发报告。
+7. Subagent 并行报告。
+8. Background Reviewer 报告。
+9. Coordinator 报告。
+10. Context Provenance 报告。
+11. Message Bus 报告。
+12. Task Scheduler 报告。
+13. Model Gateway 报告。
+14. Resource Governance 报告。
+15. Pilot 项目完整源码。
+16. Pilot 项目测试。
+17. Gate 验收记录。
+18. 完整 Audit 证据。
+19. 原始运行日志。
+20. 独立安全审查。
+21. SHA256 清单。
+22. 最终验收报告。
+23. M1.8 后续建议。
+
+---
+
+# 十八、最终验收原则
+
+本轮不要求所有生产安全问题全部解决。
+
+但必须证明：
+
+1. Development Agent 能够自主规划和拆分任务。
+2. 多个 Subagent 能够真正并行工作。
+3. Agent 之间能够双向通信。
+4. Resident 能够通过事件唤醒其他 Agent。
+5. Reviewer 能够独立只读审查代码。
+6. Coordinator 能够协调任务和资源。
+7. Context 能够支持连续研发。
+8. Workflow Gate 能够根据实际证据工作。
+9. Resource Governance 能够限制预算。
+10. Native Harness 能够实际完成独立软件研发任务。
+11. 所有关键操作都能追溯。
+12. 失败、中断和恢复不会导致未知副作用自动重试。
+
+**最终目标不是证明五种 Agent 可以启动，而是证明它们能够作为一个协作系统完成真实的软件研发工作。**
+
+如果只完成演示或模拟，不能标记真实自主研发 PASS。
+
+如果模型仍然是模拟 Provider，明确说明模型层尚未完成真实联调。
+
+如果生产 OS 隔离仍然 BLOCKED，继续限制高风险执行。
+
+现在开始执行 M1.7。
+
+先读取项目规则、冻结 M1.6.1 基线，再进入 Native Harness 集成。
+
+不要只提交架构计划就停止，在当前授权范围内持续推进真实代码、测试和 Pilot 项目研发。

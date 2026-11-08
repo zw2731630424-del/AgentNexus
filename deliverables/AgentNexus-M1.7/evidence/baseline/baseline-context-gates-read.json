@@ -1,0 +1,615 @@
+{
+  "schema": "agentnexus/m17/baseline-context-gates-read/1",
+  "created_at": "2026-11-08T02:08:29.608580+00:00",
+  "reviewer": "Codex baseline-context-gates read-only subagent",
+  "phase": "M1.7 Phase0",
+  "qualification": "STATIC_CODEX_BASELINE_REVIEW",
+  "pilot_execution_evidence": false,
+  "network_access_used": false,
+  "real_credentials_read": false,
+  "operating_system_settings_changed": false,
+  "source_or_history_modified": false,
+  "only_output_path": ".workflow-kit/runtime/AgentNexus-M1.7/baseline-context-gates-read.json",
+  "project_rules_index": {
+    "path": "project-rules/README.md",
+    "exists": false
+  },
+  "read_method": "PowerShell Get-Content in bounded chunks; SHA256 over original complete bytes. All required source/test/report contents were displayed without truncation; an initial oversized filename inventory was not used as content-read evidence.",
+  "test_fixture_selection": {
+    "root": "deliverables/AgentNexus-M1.6.1/source/tests",
+    "patterns": [
+      "m161-context*",
+      "m161-message*",
+      "m161-draft*",
+      "m161-rules*",
+      "m161-gates*",
+      "m16-context*",
+      "m16-messages*"
+    ],
+    "matched_files": 8,
+    "matched_files_fully_read": 8,
+    "additional_imported_fixture": "tests/agentnexus/m161-storage-fixture.ts",
+    "historical_runtime_objects": "Not treated as source fixtures and not claimed fully read."
+  },
+  "verification": {
+    "tests_run": false,
+    "reason": "Authorized Phase0 static baseline review only; inherited reports are historical claims, not current test execution.",
+    "govern_new_used": false,
+    "govern_new_reason": "Its source invokes refresh_project after creating the file, which may write shared governance outputs; the delegated write boundary permits only this manifest. The manifest is in the policy-approved runtime category."
+  },
+  "files": [
+    {
+      "path": "AGENTS.md",
+      "absolute_path": "I:\\AI_AgentNexus\\AGENTS.md",
+      "sha256": "a868b01052ea5613300e6973fd1c65917ba2f10b01eea025214b513432cd4694",
+      "bytes": 2587,
+      "lines": 28,
+      "coverage": "FULL_CONTENT_READ",
+      "read_ranges_1_based": [
+        [
+          1,
+          28
+        ]
+      ],
+      "kind": "project instructions"
+    },
+    {
+      "path": "ai-workflow-kit-v4/project-workflows/README.md",
+      "absolute_path": "I:\\AI_AgentNexus\\ai-workflow-kit-v4\\project-workflows\\README.md",
+      "sha256": "1f12071a31eca68714381c3f543ff46ba81b20acd5c951e2eb68aee0f6bc9b21",
+      "bytes": 1027,
+      "lines": 12,
+      "coverage": "FULL_CONTENT_READ",
+      "read_ranges_1_based": [
+        [
+          1,
+          12
+        ]
+      ],
+      "kind": "workflow routing"
+    },
+    {
+      "path": ".workflow-kit/governance/policy.json",
+      "absolute_path": "I:\\AI_AgentNexus\\.workflow-kit\\governance\\policy.json",
+      "sha256": "ea91359de90e74cbb554f93ac2dae82509f93f5bcc05c65bf22384aba4dd4d83",
+      "bytes": 7919,
+      "lines": 483,
+      "coverage": "FULL_CONTENT_READ",
+      "read_ranges_1_based": [
+        [
+          1,
+          483
+        ]
+      ],
+      "kind": "governance policy"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/src/agentnexus/harness/context.ts",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\src\\agentnexus\\harness\\context.ts",
+      "sha256": "322c8f68c7d19181a973a9f9cbd7a7d39cbd348a8b8442904b32924b9c209f97",
+      "bytes": 25433,
+      "lines": 302,
+      "coverage": "FULL_CONTENT_READ",
+      "read_ranges_1_based": [
+        [
+          1,
+          302
+        ]
+      ],
+      "kind": "harness source"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/src/agentnexus/harness/messages.ts",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\src\\agentnexus\\harness\\messages.ts",
+      "sha256": "fec7f184e3df60e4e09a762be1a3d83a62ba070b42fc63475b3e831eef04313f",
+      "bytes": 29686,
+      "lines": 331,
+      "coverage": "FULL_CONTENT_READ",
+      "read_ranges_1_based": [
+        [
+          1,
+          331
+        ]
+      ],
+      "kind": "harness source"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/src/agentnexus/harness/rules.ts",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\src\\agentnexus\\harness\\rules.ts",
+      "sha256": "deb0dc2d67c00ed5b82f31c7f30c839499d124399ec9a9f60f673ff3f9bd8032",
+      "bytes": 17195,
+      "lines": 147,
+      "coverage": "FULL_CONTENT_READ",
+      "read_ranges_1_based": [
+        [
+          1,
+          147
+        ]
+      ],
+      "kind": "harness source"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/src/agentnexus/harness/gates.ts",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\src\\agentnexus\\harness\\gates.ts",
+      "sha256": "f9688690a41898d93030ee45f9fbdfc4ebe8876a14d2e0becbfaebd310c88d66",
+      "bytes": 29768,
+      "lines": 219,
+      "coverage": "FULL_CONTENT_READ",
+      "read_ranges_1_based": [
+        [
+          1,
+          219
+        ]
+      ],
+      "kind": "harness source"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/src/agentnexus/harness/state.ts",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\src\\agentnexus\\harness\\state.ts",
+      "sha256": "c254cbee8f24f5511267a449bb07e4e6dd90416bf8264694e2214094e2d3ccb6",
+      "bytes": 7782,
+      "lines": 98,
+      "coverage": "FULL_CONTENT_READ",
+      "read_ranges_1_based": [
+        [
+          1,
+          98
+        ]
+      ],
+      "kind": "harness source"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/src/agentnexus/harness/contracts.ts",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\src\\agentnexus\\harness\\contracts.ts",
+      "sha256": "fae11a6e1a11ea1cd1e737ce1320b344a17c974baba4f7d33402fff84c8dfc39",
+      "bytes": 2537,
+      "lines": 35,
+      "coverage": "FULL_CONTENT_READ",
+      "read_ranges_1_based": [
+        [
+          1,
+          35
+        ]
+      ],
+      "kind": "harness source"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/tests/agentnexus/m161-context.test.ts",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\tests\\agentnexus\\m161-context.test.ts",
+      "sha256": "1d6b10f4b6718ddc0ac3b34853475b38d99250d37683597d60969083f5a0061d",
+      "bytes": 25065,
+      "lines": 220,
+      "coverage": "FULL_CONTENT_READ",
+      "read_ranges_1_based": [
+        [
+          1,
+          220
+        ]
+      ],
+      "kind": "test or fixture"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/tests/agentnexus/m161-messages.test.ts",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\tests\\agentnexus\\m161-messages.test.ts",
+      "sha256": "62b55dcb400eb82cac1f5c4d3c3c55d88efd2b79061d70de283b3e9b1c098723",
+      "bytes": 30503,
+      "lines": 248,
+      "coverage": "FULL_CONTENT_READ",
+      "read_ranges_1_based": [
+        [
+          1,
+          248
+        ]
+      ],
+      "kind": "test or fixture"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/tests/agentnexus/m161-message-drafts.test.ts",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\tests\\agentnexus\\m161-message-drafts.test.ts",
+      "sha256": "e6422c34a02c0eb0273238faf4cb49031d00ebe50542d8426361264b471342b3",
+      "bytes": 3594,
+      "lines": 28,
+      "coverage": "FULL_CONTENT_READ",
+      "read_ranges_1_based": [
+        [
+          1,
+          28
+        ]
+      ],
+      "kind": "test or fixture"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/tests/agentnexus/m161-draft-child.mjs",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\tests\\agentnexus\\m161-draft-child.mjs",
+      "sha256": "a2e4016e6f3be09568d8c43e25a85aeab47f257689afcdd992fc7bd5cd75cc90",
+      "bytes": 1133,
+      "lines": 10,
+      "coverage": "FULL_CONTENT_READ",
+      "read_ranges_1_based": [
+        [
+          1,
+          10
+        ]
+      ],
+      "kind": "test or fixture"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/tests/agentnexus/m161-rules.test.ts",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\tests\\agentnexus\\m161-rules.test.ts",
+      "sha256": "285603a415ffbe9b2278962afbf81a4c1dd3fc8850e903146d113045e4c25d17",
+      "bytes": 12425,
+      "lines": 99,
+      "coverage": "FULL_CONTENT_READ",
+      "read_ranges_1_based": [
+        [
+          1,
+          99
+        ]
+      ],
+      "kind": "test or fixture"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/tests/agentnexus/m161-gates.test.ts",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\tests\\agentnexus\\m161-gates.test.ts",
+      "sha256": "1216e6f6a68f9763c9cc8923e3e7172fd3c30790fdc53e8759e55dc5982bb29b",
+      "bytes": 28806,
+      "lines": 166,
+      "coverage": "FULL_CONTENT_READ",
+      "read_ranges_1_based": [
+        [
+          1,
+          166
+        ]
+      ],
+      "kind": "test or fixture"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/tests/agentnexus/m16-context.test.ts",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\tests\\agentnexus\\m16-context.test.ts",
+      "sha256": "0eec6b930114a1152e087c6f4c096a7e88980d94f66f9d0f9605ec357dfea2ee",
+      "bytes": 10268,
+      "lines": 114,
+      "coverage": "FULL_CONTENT_READ",
+      "read_ranges_1_based": [
+        [
+          1,
+          114
+        ]
+      ],
+      "kind": "test or fixture"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/tests/agentnexus/m16-messages.test.ts",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\tests\\agentnexus\\m16-messages.test.ts",
+      "sha256": "818f1a7d06d8b8e9e70b8faaed8be969de9b033a93f79de8bd9f4f95e40598c4",
+      "bytes": 12814,
+      "lines": 130,
+      "coverage": "FULL_CONTENT_READ",
+      "read_ranges_1_based": [
+        [
+          1,
+          130
+        ]
+      ],
+      "kind": "test or fixture"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/tests/agentnexus/m161-storage-fixture.ts",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\tests\\agentnexus\\m161-storage-fixture.ts",
+      "sha256": "1db55cb7ceadde6ba56cd00b0306886fbfe03f4ca25ce1b49c1112cf406e11e1",
+      "bytes": 2242,
+      "lines": 22,
+      "coverage": "FULL_CONTENT_READ",
+      "read_ranges_1_based": [
+        [
+          1,
+          22
+        ]
+      ],
+      "kind": "test or fixture"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/context-provenance.md",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\context-provenance.md",
+      "sha256": "d54d4344dcc64e6c2b54ecd8b12588c0a6baf8131282d1d83f2afa84db56c0ea",
+      "bytes": 8836,
+      "lines": 60,
+      "coverage": "FULL_CONTENT_READ",
+      "read_ranges_1_based": [
+        [
+          1,
+          60
+        ]
+      ],
+      "kind": "delivered report"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/message-reliability-report.md",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\message-reliability-report.md",
+      "sha256": "23c322153edae83cb0ec14a9625f65c635bd1845c521282f4c97d604b26a78db",
+      "bytes": 10117,
+      "lines": 69,
+      "coverage": "FULL_CONTENT_READ",
+      "read_ranges_1_based": [
+        [
+          1,
+          69
+        ]
+      ],
+      "kind": "delivered report"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/rules-compiler.md",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\rules-compiler.md",
+      "sha256": "b7c3abe982a3fde5ca95a595e6b9cb5cdd52f0c4d742f4e33bd73e9e88e5d217",
+      "bytes": 6362,
+      "lines": 58,
+      "coverage": "FULL_CONTENT_READ",
+      "read_ranges_1_based": [
+        [
+          1,
+          58
+        ]
+      ],
+      "kind": "delivered report"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/gate-runtime.md",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\gate-runtime.md",
+      "sha256": "0e2a0e53e9e23fa93b0fe79a2557960666a67fa44e972d904e70e63caf405042",
+      "bytes": 7769,
+      "lines": 56,
+      "coverage": "FULL_CONTENT_READ",
+      "read_ranges_1_based": [
+        [
+          1,
+          56
+        ]
+      ],
+      "kind": "delivered report"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/five-agent-verification.md",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\five-agent-verification.md",
+      "sha256": "52e21e76666535390c4814c534791c85054651bc24997ab39fe6888efaadd353",
+      "bytes": 1436,
+      "lines": 13,
+      "coverage": "FULL_CONTENT_READ",
+      "read_ranges_1_based": [
+        [
+          1,
+          13
+        ]
+      ],
+      "kind": "delivered report"
+    },
+    {
+      "path": ".workflow-kit/tasks/AgentNexus-v0.4-M0/research/primary_harness_audit.md",
+      "absolute_path": "I:\\AI_AgentNexus\\.workflow-kit\\tasks\\AgentNexus-v0.4-M0\\research\\primary_harness_audit.md",
+      "sha256": "6e7b79dda12d7257cc300c695bb436a6dfb669100e5e08860510e3df75449fba",
+      "bytes": 18183,
+      "lines": 72,
+      "coverage": "FULL_CONTENT_READ",
+      "read_ranges_1_based": [
+        [
+          1,
+          72
+        ]
+      ],
+      "kind": "M0 reference audit"
+    },
+    {
+      "path": ".workflow-kit/tasks/AgentNexus-v0.4-M0/architecture/workflow_kit_mapping.md",
+      "absolute_path": "I:\\AI_AgentNexus\\.workflow-kit\\tasks\\AgentNexus-v0.4-M0\\architecture\\workflow_kit_mapping.md",
+      "sha256": "90a6cc4e943813d189145b3f75a6ec7e6e0c279fe7ccefe1660bd37437ea1d6d",
+      "bytes": 40972,
+      "lines": 229,
+      "coverage": "FULL_CONTENT_READ",
+      "read_ranges_1_based": [
+        [
+          1,
+          229
+        ]
+      ],
+      "kind": "M0 reference mapping"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/src/agentnexus/harness/index.ts",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\src\\agentnexus\\harness\\index.ts",
+      "sha256": "8ffad0e7248abcf1fd9fa1ddd7d95ab240a92010d2892b37a4b8229864554dc5",
+      "bytes": 27950,
+      "lines": 267,
+      "coverage": "TARGETED_CONTENT_READ",
+      "read_ranges_1_based": [
+        [
+          80,
+          120
+        ],
+        [
+          180,
+          212
+        ]
+      ],
+      "kind": "integration or governance follow-up"
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.6.1/source/src/agentnexus/harness/scheduler.ts",
+      "absolute_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.6.1\\source\\src\\agentnexus\\harness\\scheduler.ts",
+      "sha256": "8808d36d03ec3570b6b763599f8f6dd5aaa734373c839acc057e5094606d7433",
+      "bytes": 44020,
+      "lines": 432,
+      "coverage": "TARGETED_CONTENT_READ",
+      "read_ranges_1_based": [
+        [
+          66,
+          152
+        ],
+        [
+          301,
+          397
+        ],
+        [
+          409,
+          431
+        ]
+      ],
+      "kind": "integration or governance follow-up"
+    },
+    {
+      "path": "ai-workflow-kit-v4/tools/govern.py",
+      "absolute_path": "I:\\AI_AgentNexus\\ai-workflow-kit-v4\\tools\\govern.py",
+      "sha256": "ef1d398ba503333bf04e269ba97788252d95c84f667acab460d5e90dc64edfc1",
+      "bytes": 47383,
+      "lines": 827,
+      "coverage": "TARGETED_CONTENT_READ",
+      "read_ranges_1_based": [
+        [
+          161,
+          171
+        ],
+        [
+          211,
+          223
+        ],
+        [
+          359,
+          411
+        ],
+        [
+          746,
+          827
+        ]
+      ],
+      "kind": "integration or governance follow-up"
+    }
+  ],
+  "integration_reuse": [
+    {
+      "component": "ContextAssembly",
+      "path": "deliverables/AgentNexus-M1.6.1/source/src/agentnexus/harness/context.ts",
+      "api": [
+        "capture",
+        "assemble",
+        "reconstruct",
+        "assertContextView"
+      ],
+      "notes": "Retain exact RAW artifacts and rule/task/agent contracts, source and task version bindings; publish evidence through existing SQLite/outbox durable barriers. Summary/index are derived views only."
+    },
+    {
+      "component": "RulesCompiler",
+      "path": "deliverables/AgentNexus-M1.6.1/source/src/agentnexus/harness/rules.ts",
+      "api": [
+        "compile",
+        "captureBinding",
+        "assertBinding",
+        "applicable",
+        "migrate"
+      ],
+      "notes": "Keep TEXT non-executable. Use finite DSL REQUIRE_ARTIFACT / REQUIRE_CHECKER / REQUIRE_HUMAN_REVIEW / GATE_FAIL_CLOSED for enforceable evidence requirements. Task rules remain frozen; trusted migration explicitly clears prior gate binding."
+    },
+    {
+      "component": "MessageBus",
+      "path": "deliverables/AgentNexus-M1.6.1/source/src/agentnexus/harness/messages.ts",
+      "api": [
+        "onDeliverable",
+        "bind.send",
+        "bind.receive",
+        "handoff",
+        "reconcileTask",
+        "recover",
+        "enqueueCoordinatorNotice"
+      ],
+      "notes": "Only enqueue a Host wake after durable message admission. Atomically adopt Task context plus receipt plus ACK. Derive processed/completed from trusted Task facts and verified result; ACK alone never certifies completion."
+    },
+    {
+      "component": "NativeGateEngine",
+      "path": "deliverables/AgentNexus-M1.6.1/source/src/agentnexus/harness/gates.ts",
+      "api": [
+        "registerChecker",
+        "evaluate",
+        "recordHumanReview",
+        "assertPass",
+        "requiredGates",
+        "recover"
+      ],
+      "notes": "Use native G0-G6 and exact candidate/baseline/profile/frozen-rules bindings; G3 requires TEST, G4 requires independent reviewer callback, G6 consumes all matching current-epoch G0-G5 records. Legacy gate ledger cannot certify native admission."
+    },
+    {
+      "component": "existing Host/Scheduler",
+      "path": "deliverables/AgentNexus-M1.6.1/source/src/agentnexus/harness/index.ts",
+      "api": [
+        "administration.dispatch",
+        "administration.nativeGate",
+        "administration.registerGateChecker",
+        "administration.recordGateReview",
+        "administration.bindTaskGate"
+      ],
+      "notes": "Injected trusted adapters should call existing narrow administration paths. Event-loop module must not capture or expose broad Host admin capabilities to Agent/model data."
+    }
+  ],
+  "semantic_migration": {
+    "M0_gate_numbering": "G0 requirements / G1 planning / G2 implementation / G3 review / G4 acceptance / G5 regression / G6 delivery",
+    "M161_native_numbering": "G0 task admission / G1 rule-input integrity / G2 design-plan / G3 code-test / G4 independent review / G5 delivery-evidence / G6 final acceptance",
+    "required_action": "Preserve both versioned meanings; execute the M1.6.1 native contract for M1.7 and retain M0 as historical source mapping."
+  },
+  "api_and_safety_findings": [
+    {
+      "id": "WAKE-01",
+      "severity": "integration-required",
+      "evidence": "deliverables/AgentNexus-M1.6.1/source/src/agentnexus/harness/index.ts:104; scheduler.ts:343",
+      "finding": "Current onDeliverable only calls TaskScheduler.wake; wake may resume an idle WAITING Task to QUEUED and does not dispatch a model turn. Long-lived resident/coordinator execution needs an explicit Host event driver."
+    },
+    {
+      "id": "WAKE-02",
+      "severity": "integration-risk",
+      "evidence": "deliverables/AgentNexus-M1.6.1/source/src/agentnexus/harness/messages.ts:199-215",
+      "finding": "The optional onDeliverable callback may be absent; optional chaining still leads to notified=true and a NOTIFIED wake. Even an installed callback returning successfully may do no Task work. NOTIFIED is notification bookkeeping, never processed/completed evidence."
+    },
+    {
+      "id": "WAKE-03",
+      "severity": "integration-risk",
+      "evidence": "deliverables/AgentNexus-M1.6.1/source/src/agentnexus/harness/messages.ts:72-95,216-234,314-322",
+      "finding": "Lease recovery and internal retry requeue an existing message without resetting its existing NOTIFIED wake. recover only retries PENDING wake entries. An event driver must independently schedule known-safe retry/reconciliation and must not assume one wake per queue transition."
+    },
+    {
+      "id": "WAKE-04",
+      "severity": "api-limit",
+      "evidence": "deliverables/AgentNexus-M1.6.1/source/src/agentnexus/harness/messages.ts:201-202,216-234",
+      "finding": "Wake callbacks retry at most eight times; each recover commits at most 32 transitions and attempts at most 32 callbacks. There is no automatic timer, watch service, unbounded recovery loop, or callback exactly-once guarantee."
+    },
+    {
+      "id": "EVENT-01",
+      "severity": "required-boundary",
+      "finding": "Event admission should use stable IDs, exact logical project/agent/task scope, immutable payload references, bounded queue and batch/concurrency, per-agent/task serialization, durable admission ACK and idempotent handler receipts. Avoid heartbeat-triggered model calls and leave blocked/paused/terminal/unknown Tasks under existing Host state rules."
+    },
+    {
+      "id": "EVENT-02",
+      "severity": "required-boundary",
+      "evidence": "deliverables/AgentNexus-M1.6.1/source/src/agentnexus/harness/scheduler.ts:97-114,321-326,418-427",
+      "finding": "Existing dispatch accepts only QUEUED or WAITING_RESOURCES, fences concurrent agent turns, gate requirements and known resource contracts. Host restart quarantines unsafe Tasks. New event code must never auto-resume PAUSED/UNKNOWN, rerun failed effects, remove pending approvals, release unknown claims or retry external effects."
+    },
+    {
+      "id": "GATE-01",
+      "severity": "trust-boundary",
+      "evidence": "deliverables/AgentNexus-M1.6.1/source/src/agentnexus/harness/gates.ts:73-91,172-191",
+      "finding": "Trusted callbacks and human review records are registered through admin capabilities. Function.toString SHA256 fingerprints callback source but does not close over dependencies, interpreter environment or genuine separate reviewer execution. Keep declared LOCAL_TRUSTED_LIBRARY/SIMULATED scope and explicit reviewer/result evidence."
+    },
+    {
+      "id": "GATE-02",
+      "severity": "api-limit",
+      "evidence": "deliverables/AgentNexus-M1.6.1/source/src/agentnexus/harness/gates.ts:138-160",
+      "finding": "G2 validates a bounded plan schema and candidate binding, not semantic correctness. G5 validates delivery schema/artifact identity and retains remaining issues, not their business acceptance. G1 hashes input artifacts; it does not execute arbitrary governance/file-classification checks. Register explicit trusted checkers for added acceptance obligations."
+    },
+    {
+      "id": "GATE-03",
+      "severity": "resource-limit",
+      "evidence": "deliverables/AgentNexus-M1.6.1/source/src/agentnexus/harness/gates.ts:16,194-212",
+      "finding": "Native gate execution limits concurrent calls to four but has no callback timeout/cancellation. A hung trusted checker retains its slot. Do not fake completion by releasing a slot while background code still runs; bound concrete checkers and their child processes."
+    },
+    {
+      "id": "SECURITY-01",
+      "severity": "scope-boundary",
+      "finding": "These in-process modules do not establish malicious-code OS isolation, real Provider qualification, strict cumulative CPU, production worker isolation, hard reboot/disk-power-loss durability, Git watcher or scientific acceptance. Keep EXTERNAL/UNKNOWN quarantine and existing Policy/Gateway/Resource/Storage owners independent of workflow gates."
+    }
+  ]
+}

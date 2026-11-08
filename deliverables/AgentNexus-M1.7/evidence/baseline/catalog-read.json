@@ -1,0 +1,2670 @@
+{
+  "schema": "agentnexus/m17/catalog-read/1",
+  "features": [
+    {
+      "id": "core.identity",
+      "kind": "CORE",
+      "default": "ON",
+      "depends_on": [],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: catalog definition does not register executable code"
+    },
+    {
+      "id": "core.state",
+      "kind": "CORE",
+      "default": "ON",
+      "depends_on": [],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: catalog definition does not register executable code"
+    },
+    {
+      "id": "core.events",
+      "kind": "CORE",
+      "default": "ON",
+      "depends_on": [],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: catalog definition does not register executable code"
+    },
+    {
+      "id": "core.archive.raw",
+      "kind": "CORE",
+      "default": "ON",
+      "depends_on": [
+        "core.artifact.store"
+      ],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: catalog definition does not register executable code"
+    },
+    {
+      "id": "core.features",
+      "kind": "CORE",
+      "default": "ON",
+      "depends_on": [],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: catalog definition does not register executable code"
+    },
+    {
+      "id": "core.admin-audit",
+      "kind": "CORE",
+      "default": "ON",
+      "depends_on": [
+        "core.audit.trail"
+      ],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: catalog definition does not register executable code"
+    },
+    {
+      "id": "policy.mode",
+      "kind": "MODE",
+      "default": "ON",
+      "depends_on": [
+        "core.identity",
+        "core.admin-audit"
+      ],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: catalog definition does not register executable code"
+    },
+    {
+      "id": "security.os-sandbox",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [],
+      "conflicts": [
+        "execution.local-unsandboxed"
+      ],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: catalog definition does not register executable code"
+    },
+    {
+      "id": "execution.local-unsandboxed",
+      "kind": "OPTIONAL",
+      "default": "OFF",
+      "depends_on": [
+        "core.identity"
+      ],
+      "conflicts": [
+        "security.os-sandbox"
+      ],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: catalog definition does not register executable code"
+    },
+    {
+      "id": "security.workspace-isolation",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: catalog definition does not register executable code"
+    },
+    {
+      "id": "security.vault-persistence",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: catalog definition does not register executable code"
+    },
+    {
+      "id": "archive.integrity-scan",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [
+        "core.archive.raw"
+      ],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: catalog definition does not register executable code"
+    },
+    {
+      "id": "archive.retrieval-agent",
+      "kind": "OPTIONAL",
+      "default": "OFF",
+      "depends_on": [
+        "core.archive.raw"
+      ],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: catalog definition does not register executable code"
+    },
+    {
+      "id": "archive.summary",
+      "kind": "OPTIONAL",
+      "default": "OFF",
+      "depends_on": [
+        "core.archive.raw"
+      ],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: catalog definition does not register executable code"
+    },
+    {
+      "id": "archive.keyword-index",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [
+        "core.archive.raw"
+      ],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: catalog definition does not register executable code"
+    },
+    {
+      "id": "archive.vector-index",
+      "kind": "OPTIONAL",
+      "default": "OFF",
+      "depends_on": [
+        "core.archive.raw"
+      ],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: catalog definition does not register executable code"
+    },
+    {
+      "id": "archive.knowledge-extract",
+      "kind": "OPTIONAL",
+      "default": "OFF",
+      "depends_on": [
+        "core.archive.raw"
+      ],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: catalog definition does not register executable code"
+    },
+    {
+      "id": "archive.backup-auto",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [
+        "core.archive.raw"
+      ],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: catalog definition does not register executable code"
+    },
+    {
+      "id": "native.harness",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [
+        "core.identity",
+        "core.events",
+        "core.archive.raw",
+        "model.gateway"
+      ],
+      "conflicts": [],
+      "implementation_status": "IMPLEMENTED_LOCAL",
+      "runtime_admission": "MOCK_ONLY_LOCAL_TRUSTED"
+    },
+    {
+      "id": "native.context-assembly",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [
+        "native.harness"
+      ],
+      "conflicts": [],
+      "implementation_status": "IMPLEMENTED_LOCAL",
+      "runtime_admission": "MOCK_ONLY_LOCAL_TRUSTED"
+    },
+    {
+      "id": "native.checkpoints-auto",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [
+        "core.state"
+      ],
+      "conflicts": [],
+      "implementation_status": "IMPLEMENTED_LOCAL",
+      "runtime_admission": "MOCK_ONLY_LOCAL_TRUSTED"
+    },
+    {
+      "id": "tool.file",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [
+        "core.identity",
+        "core.archive.raw",
+        "core.audit.trail",
+        "core.artifact.store"
+      ],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: catalog definition does not register executable code"
+    },
+    {
+      "id": "tool.shell",
+      "kind": "OPTIONAL",
+      "default": "OFF",
+      "depends_on": [
+        "core.identity",
+        "core.archive.raw",
+        "core.audit.trail",
+        "core.artifact.store"
+      ],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: catalog definition does not register executable code"
+    },
+    {
+      "id": "tool.git",
+      "kind": "OPTIONAL",
+      "default": "OFF",
+      "depends_on": [
+        "core.identity",
+        "core.archive.raw",
+        "core.audit.trail",
+        "core.artifact.store"
+      ],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: catalog definition does not register executable code"
+    },
+    {
+      "id": "tool.test",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [
+        "core.identity",
+        "core.archive.raw",
+        "core.audit.trail",
+        "core.artifact.store"
+      ],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: catalog definition does not register executable code"
+    },
+    {
+      "id": "adapter.mcp",
+      "kind": "OPTIONAL",
+      "default": "OFF",
+      "depends_on": [
+        "core.identity"
+      ],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: catalog definition does not register executable code"
+    },
+    {
+      "id": "adapter.acp",
+      "kind": "OPTIONAL",
+      "default": "OFF",
+      "depends_on": [
+        "core.identity"
+      ],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: catalog definition does not register executable code"
+    },
+    {
+      "id": "adapter.lsp",
+      "kind": "OPTIONAL",
+      "default": "OFF",
+      "depends_on": [
+        "core.identity"
+      ],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: catalog definition does not register executable code"
+    },
+    {
+      "id": "adapter.browser",
+      "kind": "OPTIONAL",
+      "default": "OFF",
+      "depends_on": [
+        "core.identity"
+      ],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: catalog definition does not register executable code"
+    },
+    {
+      "id": "adapter.harness.codex",
+      "kind": "OPTIONAL",
+      "default": "OFF",
+      "depends_on": [
+        "core.identity",
+        "core.archive.raw"
+      ],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: catalog definition does not register executable code"
+    },
+    {
+      "id": "adapter.harness.claude",
+      "kind": "OPTIONAL",
+      "default": "OFF",
+      "depends_on": [
+        "core.identity",
+        "core.archive.raw"
+      ],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: catalog definition does not register executable code"
+    },
+    {
+      "id": "adapter.harness.zcode",
+      "kind": "OPTIONAL",
+      "default": "OFF",
+      "depends_on": [
+        "core.identity",
+        "core.archive.raw"
+      ],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: catalog definition does not register executable code"
+    },
+    {
+      "id": "adapter.harness.opencode",
+      "kind": "OPTIONAL",
+      "default": "OFF",
+      "depends_on": [
+        "core.identity",
+        "core.archive.raw"
+      ],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: catalog definition does not register executable code"
+    },
+    {
+      "id": "runtime.auto-planning",
+      "kind": "OPTIONAL",
+      "default": "OFF",
+      "depends_on": [
+        "core.state",
+        "core.events"
+      ],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: catalog definition does not register executable code"
+    },
+    {
+      "id": "runtime.auto-spawn",
+      "kind": "OPTIONAL",
+      "default": "OFF",
+      "depends_on": [
+        "core.state",
+        "core.events"
+      ],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: catalog definition does not register executable code"
+    },
+    {
+      "id": "runtime.auto-review",
+      "kind": "OPTIONAL",
+      "default": "OFF",
+      "depends_on": [
+        "core.state",
+        "core.events"
+      ],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: catalog definition does not register executable code"
+    },
+    {
+      "id": "runtime.auto-coordinator",
+      "kind": "OPTIONAL",
+      "default": "OFF",
+      "depends_on": [
+        "core.state",
+        "core.events"
+      ],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: catalog definition does not register executable code"
+    },
+    {
+      "id": "runtime.auto-repair",
+      "kind": "OPTIONAL",
+      "default": "OFF",
+      "depends_on": [
+        "core.state",
+        "core.events"
+      ],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: catalog definition does not register executable code"
+    },
+    {
+      "id": "runtime.role.resident",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [
+        "core.identity",
+        "core.state"
+      ],
+      "conflicts": [],
+      "implementation_status": "IMPLEMENTED_LOCAL",
+      "runtime_admission": "MOCK_ONLY_LOCAL_TRUSTED"
+    },
+    {
+      "id": "runtime.role.lead",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [
+        "core.identity",
+        "core.state"
+      ],
+      "conflicts": [],
+      "implementation_status": "IMPLEMENTED_LOCAL",
+      "runtime_admission": "MOCK_ONLY_LOCAL_TRUSTED"
+    },
+    {
+      "id": "runtime.role.subagent",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [
+        "core.identity",
+        "core.state"
+      ],
+      "conflicts": [],
+      "implementation_status": "IMPLEMENTED_LOCAL",
+      "runtime_admission": "MOCK_ONLY_LOCAL_TRUSTED"
+    },
+    {
+      "id": "runtime.role.reviewer",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [
+        "core.identity",
+        "core.state"
+      ],
+      "conflicts": [],
+      "implementation_status": "IMPLEMENTED_LOCAL",
+      "runtime_admission": "MOCK_ONLY_LOCAL_TRUSTED"
+    },
+    {
+      "id": "runtime.role.coordinator",
+      "kind": "OPTIONAL",
+      "default": "OFF",
+      "depends_on": [
+        "core.identity",
+        "core.state"
+      ],
+      "conflicts": [],
+      "implementation_status": "IMPLEMENTED_LOCAL",
+      "runtime_admission": "MOCK_ONLY_LOCAL_TRUSTED"
+    },
+    {
+      "id": "model.gateway",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [
+        "core.identity",
+        "core.audit.trail",
+        "core.artifact.store"
+      ],
+      "conflicts": [],
+      "implementation_status": "IMPLEMENTED_LOCAL",
+      "runtime_admission": "MOCK_ONLY_LOCAL_TRUSTED"
+    },
+    {
+      "id": "model.auto-route",
+      "kind": "OPTIONAL",
+      "default": "OFF",
+      "depends_on": [
+        "model.gateway"
+      ],
+      "conflicts": [],
+      "implementation_status": "IMPLEMENTED_LOCAL",
+      "runtime_admission": "MOCK_ONLY_LOCAL_TRUSTED"
+    },
+    {
+      "id": "model.key-round-robin",
+      "kind": "OPTIONAL",
+      "default": "OFF",
+      "depends_on": [
+        "model.gateway"
+      ],
+      "conflicts": [],
+      "implementation_status": "IMPLEMENTED_LOCAL",
+      "runtime_admission": "MOCK_ONLY_LOCAL_TRUSTED"
+    },
+    {
+      "id": "model.provider-failover",
+      "kind": "OPTIONAL",
+      "default": "OFF",
+      "depends_on": [
+        "model.gateway"
+      ],
+      "conflicts": [],
+      "implementation_status": "IMPLEMENTED_LOCAL",
+      "runtime_admission": "MOCK_ONLY_LOCAL_TRUSTED"
+    },
+    {
+      "id": "model.capability-probe",
+      "kind": "OPTIONAL",
+      "default": "OFF",
+      "depends_on": [
+        "model.gateway"
+      ],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: catalog definition does not register executable code"
+    },
+    {
+      "id": "git.auto-snapshot",
+      "kind": "OPTIONAL",
+      "default": "OFF",
+      "depends_on": [
+        "tool.git"
+      ],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: catalog definition does not register executable code"
+    },
+    {
+      "id": "git.auto-merge",
+      "kind": "OPTIONAL",
+      "default": "OFF",
+      "depends_on": [
+        "tool.git"
+      ],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: catalog definition does not register executable code"
+    },
+    {
+      "id": "git.auto-commit",
+      "kind": "OPTIONAL",
+      "default": "OFF",
+      "depends_on": [
+        "tool.git"
+      ],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: catalog definition does not register executable code"
+    },
+    {
+      "id": "git.auto-push",
+      "kind": "OPTIONAL",
+      "default": "OFF",
+      "depends_on": [
+        "tool.git"
+      ],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: catalog definition does not register executable code"
+    },
+    {
+      "id": "ui.desktop",
+      "kind": "OPTIONAL",
+      "default": "OFF",
+      "depends_on": [],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: catalog definition does not register executable code"
+    },
+    {
+      "id": "ui.usage-dashboard",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: catalog definition does not register executable code"
+    },
+    {
+      "id": "ui.notifications",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: catalog definition does not register executable code"
+    },
+    {
+      "id": "ui.reports",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: catalog definition does not register executable code"
+    },
+    {
+      "id": "ui.decision-ledger",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: catalog definition does not register executable code"
+    },
+    {
+      "id": "wf.runtime",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [
+        "core.state"
+      ],
+      "conflicts": [],
+      "implementation_status": "IMPLEMENTED_LOCAL",
+      "runtime_admission": "MOCK_ONLY_LOCAL_TRUSTED"
+    },
+    {
+      "id": "wf.rules.global",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [
+        "wf.runtime"
+      ],
+      "conflicts": [],
+      "implementation_status": "IMPLEMENTED_VERSIONED_RULE_CAPTURE",
+      "runtime_admission": "MOCK_ONLY_LOCAL_TRUSTED"
+    },
+    {
+      "id": "wf.rules.project-index",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [
+        "wf.runtime"
+      ],
+      "conflicts": [],
+      "implementation_status": "IMPLEMENTED_VERSIONED_RULE_CAPTURE",
+      "runtime_admission": "MOCK_ONLY_LOCAL_TRUSTED"
+    },
+    {
+      "id": "wf.rules.registration",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [
+        "wf.runtime"
+      ],
+      "conflicts": [],
+      "implementation_status": "IMPLEMENTED_VERSIONED_RULE_CAPTURE",
+      "runtime_admission": "MOCK_ONLY_LOCAL_TRUSTED"
+    },
+    {
+      "id": "wf.capabilities",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [
+        "wf.runtime"
+      ],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: catalog definition does not register executable code"
+    },
+    {
+      "id": "wf.context",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [
+        "wf.runtime"
+      ],
+      "conflicts": [],
+      "implementation_status": "INTERFACE_ONLY",
+      "runtime_admission": "NO_MODULE_REGISTERED"
+    },
+    {
+      "id": "wf.decisions",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [
+        "wf.runtime",
+        "core.decision.ledger"
+      ],
+      "conflicts": [],
+      "implementation_status": "IMPLEMENTED_LOCAL",
+      "runtime_admission": "MOCK_ONLY_LOCAL_TRUSTED"
+    },
+    {
+      "id": "wf.evidence",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [
+        "wf.runtime"
+      ],
+      "conflicts": [],
+      "implementation_status": "IMPLEMENTED_LOCAL",
+      "runtime_admission": "MOCK_ONLY_LOCAL_TRUSTED"
+    },
+    {
+      "id": "wf.feasibility",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [
+        "wf.runtime"
+      ],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: catalog definition does not register executable code"
+    },
+    {
+      "id": "wf.governance",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [
+        "wf.runtime"
+      ],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: catalog definition does not register executable code"
+    },
+    {
+      "id": "wf.governance.service",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [
+        "wf.runtime"
+      ],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: catalog definition does not register executable code"
+    },
+    {
+      "id": "wf.review.strict",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [
+        "wf.runtime"
+      ],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: catalog definition does not register executable code"
+    },
+    {
+      "id": "wf.verification",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [
+        "wf.runtime"
+      ],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: catalog definition does not register executable code"
+    },
+    {
+      "id": "wf.safety-guidance",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [
+        "wf.runtime"
+      ],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: catalog definition does not register executable code"
+    },
+    {
+      "id": "wf.reference.router",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [
+        "wf.runtime"
+      ],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: catalog definition does not register executable code"
+    },
+    {
+      "id": "wf.roles.router",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [
+        "wf.runtime"
+      ],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: catalog definition does not register executable code"
+    },
+    {
+      "id": "wf.workflow.router",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [
+        "wf.runtime"
+      ],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: catalog definition does not register executable code"
+    },
+    {
+      "id": "wf.checks.gate-depth",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [
+        "wf.runtime"
+      ],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: catalog definition does not register executable code"
+    },
+    {
+      "id": "wf.checks.measurement",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [
+        "wf.runtime"
+      ],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: catalog definition does not register executable code"
+    },
+    {
+      "id": "wf.checks.protocol",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [
+        "wf.runtime"
+      ],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: catalog definition does not register executable code"
+    },
+    {
+      "id": "wf.checks.regression",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [
+        "wf.runtime"
+      ],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: catalog definition does not register executable code"
+    },
+    {
+      "id": "wf.validators.task",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [
+        "wf.runtime"
+      ],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: catalog definition does not register executable code"
+    },
+    {
+      "id": "wf.validators.review",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [
+        "wf.runtime"
+      ],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: catalog definition does not register executable code"
+    },
+    {
+      "id": "wf.validators.package",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [
+        "wf.runtime"
+      ],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: catalog definition does not register executable code"
+    },
+    {
+      "id": "wf.role.scout",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [
+        "wf.runtime"
+      ],
+      "conflicts": [],
+      "implementation_status": "IMPLEMENTED_LOCAL",
+      "runtime_admission": "MOCK_ONLY_LOCAL_TRUSTED"
+    },
+    {
+      "id": "wf.role.worker",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [
+        "wf.runtime"
+      ],
+      "conflicts": [],
+      "implementation_status": "IMPLEMENTED_LOCAL",
+      "runtime_admission": "MOCK_ONLY_LOCAL_TRUSTED"
+    },
+    {
+      "id": "wf.role.verifier",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [
+        "wf.runtime"
+      ],
+      "conflicts": [],
+      "implementation_status": "IMPLEMENTED_LOCAL",
+      "runtime_admission": "MOCK_ONLY_LOCAL_TRUSTED"
+    },
+    {
+      "id": "wf.role.reviewer",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [
+        "wf.runtime"
+      ],
+      "conflicts": [],
+      "implementation_status": "IMPLEMENTED_LOCAL",
+      "runtime_admission": "MOCK_ONLY_LOCAL_TRUSTED"
+    },
+    {
+      "id": "wf.gate.g0",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [
+        "wf.runtime"
+      ],
+      "conflicts": [],
+      "implementation_status": "IMPLEMENTED_GATE_LEDGER",
+      "runtime_admission": "MOCK_ONLY_LOCAL_TRUSTED"
+    },
+    {
+      "id": "wf.gate.g1",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [
+        "wf.runtime"
+      ],
+      "conflicts": [],
+      "implementation_status": "IMPLEMENTED_GATE_LEDGER",
+      "runtime_admission": "MOCK_ONLY_LOCAL_TRUSTED"
+    },
+    {
+      "id": "wf.gate.g2",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [
+        "wf.runtime"
+      ],
+      "conflicts": [],
+      "implementation_status": "IMPLEMENTED_GATE_LEDGER",
+      "runtime_admission": "MOCK_ONLY_LOCAL_TRUSTED"
+    },
+    {
+      "id": "wf.gate.g3",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [
+        "wf.runtime"
+      ],
+      "conflicts": [],
+      "implementation_status": "IMPLEMENTED_GATE_LEDGER",
+      "runtime_admission": "MOCK_ONLY_LOCAL_TRUSTED"
+    },
+    {
+      "id": "wf.gate.g4",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [
+        "wf.runtime"
+      ],
+      "conflicts": [],
+      "implementation_status": "IMPLEMENTED_GATE_LEDGER",
+      "runtime_admission": "MOCK_ONLY_LOCAL_TRUSTED"
+    },
+    {
+      "id": "wf.gate.g5",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [
+        "wf.runtime"
+      ],
+      "conflicts": [],
+      "implementation_status": "IMPLEMENTED_GATE_LEDGER",
+      "runtime_admission": "MOCK_ONLY_LOCAL_TRUSTED"
+    },
+    {
+      "id": "wf.gate.g6",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [
+        "wf.runtime"
+      ],
+      "conflicts": [],
+      "implementation_status": "IMPLEMENTED_GATE_LEDGER",
+      "runtime_admission": "MOCK_ONLY_LOCAL_TRUSTED"
+    },
+    {
+      "id": "wf.templates.artifact",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [
+        "wf.runtime"
+      ],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: catalog definition does not register executable code"
+    },
+    {
+      "id": "wf.templates.checkpoint",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [
+        "wf.runtime"
+      ],
+      "conflicts": [],
+      "implementation_status": "IMPLEMENTED_LOCAL",
+      "runtime_admission": "MOCK_ONLY_LOCAL_TRUSTED"
+    },
+    {
+      "id": "wf.templates.closeout",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [
+        "wf.runtime"
+      ],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: catalog definition does not register executable code"
+    },
+    {
+      "id": "wf.templates.commands",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [
+        "wf.runtime"
+      ],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: catalog definition does not register executable code"
+    },
+    {
+      "id": "wf.templates.decisions",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [
+        "wf.runtime"
+      ],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: catalog definition does not register executable code"
+    },
+    {
+      "id": "wf.templates.design",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [
+        "wf.runtime"
+      ],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: catalog definition does not register executable code"
+    },
+    {
+      "id": "wf.templates.document",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [
+        "wf.runtime"
+      ],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: catalog definition does not register executable code"
+    },
+    {
+      "id": "wf.templates.experiment",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [
+        "wf.runtime"
+      ],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: catalog definition does not register executable code"
+    },
+    {
+      "id": "wf.templates.freeze",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [
+        "wf.runtime"
+      ],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: catalog definition does not register executable code"
+    },
+    {
+      "id": "wf.templates.goal",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [
+        "wf.runtime"
+      ],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: catalog definition does not register executable code"
+    },
+    {
+      "id": "wf.templates.knowledge",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [
+        "wf.runtime"
+      ],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: catalog definition does not register executable code"
+    },
+    {
+      "id": "wf.templates.review",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [
+        "wf.runtime"
+      ],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: catalog definition does not register executable code"
+    },
+    {
+      "id": "wf.templates.subtask",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [
+        "wf.runtime"
+      ],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: catalog definition does not register executable code"
+    },
+    {
+      "id": "wf.templates.contract",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [
+        "wf.runtime"
+      ],
+      "conflicts": [],
+      "implementation_status": "IMPLEMENTED_LOCAL",
+      "runtime_admission": "MOCK_ONLY_LOCAL_TRUSTED"
+    },
+    {
+      "id": "wf.templates.cost",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [
+        "wf.runtime"
+      ],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: catalog definition does not register executable code"
+    },
+    {
+      "id": "wf.templates.workflow",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [
+        "wf.runtime"
+      ],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: catalog definition does not register executable code"
+    },
+    {
+      "id": "core.audit.trail",
+      "kind": "CORE",
+      "default": "ON",
+      "depends_on": [
+        "core.state"
+      ],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: implementation evidence recorded separately"
+    },
+    {
+      "id": "core.artifact.store",
+      "kind": "CORE",
+      "default": "ON",
+      "depends_on": [
+        "core.state"
+      ],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: implementation evidence recorded separately"
+    },
+    {
+      "id": "core.decision.ledger",
+      "kind": "CORE",
+      "default": "ON",
+      "depends_on": [
+        "core.state"
+      ],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: implementation evidence recorded separately"
+    },
+    {
+      "id": "audit.task-reconstruction",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [
+        "core.audit.trail"
+      ],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: implementation evidence recorded separately"
+    },
+    {
+      "id": "audit.integrity-background",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [
+        "core.audit.trail"
+      ],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: implementation evidence recorded separately"
+    },
+    {
+      "id": "audit.export",
+      "kind": "OPTIONAL",
+      "default": "OFF",
+      "depends_on": [
+        "core.audit.trail"
+      ],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: implementation evidence recorded separately"
+    },
+    {
+      "id": "audit.diagnostic-logs",
+      "kind": "OPTIONAL",
+      "default": "OFF",
+      "depends_on": [
+        "core.audit.trail"
+      ],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: implementation evidence recorded separately"
+    },
+    {
+      "id": "audit.external-anchor",
+      "kind": "OPTIONAL",
+      "default": "OFF",
+      "depends_on": [
+        "core.audit.trail"
+      ],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: implementation evidence recorded separately"
+    },
+    {
+      "id": "devint.runtime",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [
+        "core.audit.trail"
+      ],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: implementation evidence recorded separately"
+    },
+    {
+      "id": "devint.command-parser",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [
+        "devint.runtime"
+      ],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: implementation evidence recorded separately"
+    },
+    {
+      "id": "devint.syntax-validator",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [
+        "devint.runtime"
+      ],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: implementation evidence recorded separately"
+    },
+    {
+      "id": "devint.command-linter",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [
+        "devint.runtime"
+      ],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: implementation evidence recorded separately"
+    },
+    {
+      "id": "devint.argument-validator",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [
+        "devint.runtime"
+      ],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: implementation evidence recorded separately"
+    },
+    {
+      "id": "devint.safety-preflight",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [
+        "devint.runtime"
+      ],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: implementation evidence recorded separately"
+    },
+    {
+      "id": "devint.environment-checker",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [
+        "devint.runtime"
+      ],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: implementation evidence recorded separately"
+    },
+    {
+      "id": "devint.command-preview",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [
+        "devint.runtime"
+      ],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: implementation evidence recorded separately"
+    },
+    {
+      "id": "devint.code-diagnostics",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [
+        "devint.runtime"
+      ],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: implementation evidence recorded separately"
+    },
+    {
+      "id": "devint.code.python",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [
+        "devint.code-diagnostics",
+        "devint.syntax-validator"
+      ],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: implementation evidence recorded separately"
+    },
+    {
+      "id": "devint.code.csharp",
+      "kind": "OPTIONAL",
+      "default": "OFF",
+      "depends_on": [
+        "devint.code-diagnostics",
+        "devint.syntax-validator"
+      ],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: implementation evidence recorded separately"
+    },
+    {
+      "id": "devint.code.javascript",
+      "kind": "OPTIONAL",
+      "default": "OFF",
+      "depends_on": [
+        "devint.code-diagnostics",
+        "devint.syntax-validator"
+      ],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: implementation evidence recorded separately"
+    },
+    {
+      "id": "devint.code.typescript",
+      "kind": "OPTIONAL",
+      "default": "OFF",
+      "depends_on": [
+        "devint.code-diagnostics",
+        "devint.syntax-validator"
+      ],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: implementation evidence recorded separately"
+    },
+    {
+      "id": "devint.code.json",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [
+        "devint.code-diagnostics",
+        "devint.syntax-validator"
+      ],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: implementation evidence recorded separately"
+    },
+    {
+      "id": "devint.code.yaml",
+      "kind": "OPTIONAL",
+      "default": "OFF",
+      "depends_on": [
+        "devint.code-diagnostics",
+        "devint.syntax-validator"
+      ],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: implementation evidence recorded separately"
+    },
+    {
+      "id": "devint.code.sql",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [
+        "devint.code-diagnostics",
+        "devint.syntax-validator"
+      ],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: implementation evidence recorded separately"
+    },
+    {
+      "id": "devint.code.dockerfile",
+      "kind": "OPTIONAL",
+      "default": "OFF",
+      "depends_on": [
+        "devint.code-diagnostics",
+        "devint.syntax-validator"
+      ],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: implementation evidence recorded separately"
+    },
+    {
+      "id": "devint.command.bash",
+      "kind": "OPTIONAL",
+      "default": "OFF",
+      "depends_on": [
+        "devint.command-parser",
+        "devint.argument-validator"
+      ],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: implementation evidence recorded separately"
+    },
+    {
+      "id": "devint.command.zsh",
+      "kind": "OPTIONAL",
+      "default": "OFF",
+      "depends_on": [
+        "devint.command-parser",
+        "devint.argument-validator"
+      ],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: implementation evidence recorded separately"
+    },
+    {
+      "id": "devint.command.powershell",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [
+        "devint.command-parser",
+        "devint.argument-validator"
+      ],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: implementation evidence recorded separately"
+    },
+    {
+      "id": "devint.command.git",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [
+        "devint.command-parser",
+        "devint.argument-validator"
+      ],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: implementation evidence recorded separately"
+    },
+    {
+      "id": "devint.command.python-cli",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [
+        "devint.command-parser",
+        "devint.argument-validator"
+      ],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: implementation evidence recorded separately"
+    },
+    {
+      "id": "devint.command.docker-cli",
+      "kind": "OPTIONAL",
+      "default": "OFF",
+      "depends_on": [
+        "devint.command-parser",
+        "devint.argument-validator"
+      ],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: implementation evidence recorded separately"
+    },
+    {
+      "id": "devint.command.custom-cli",
+      "kind": "OPTIONAL",
+      "default": "OFF",
+      "depends_on": [
+        "devint.command-parser",
+        "devint.argument-validator"
+      ],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: implementation evidence recorded separately"
+    },
+    {
+      "id": "sandbox.windows",
+      "kind": "OPTIONAL",
+      "default": "OFF",
+      "depends_on": [
+        "security.os-sandbox",
+        "core.audit.trail"
+      ],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: implementation evidence recorded separately"
+    },
+    {
+      "id": "sandbox.ubuntu",
+      "kind": "OPTIONAL",
+      "default": "OFF",
+      "depends_on": [
+        "security.os-sandbox",
+        "core.audit.trail"
+      ],
+      "conflicts": [],
+      "implementation_status": "NOT_RUN",
+      "runtime_admission": "NOT_RUN: implementation evidence recorded separately"
+    },
+    {
+      "id": "security.identity.runtime",
+      "kind": "OPTIONAL",
+      "default": "OFF",
+      "depends_on": [
+        "core.identity",
+        "core.state"
+      ],
+      "conflicts": [],
+      "implementation_status": "CONTRACT_ONLY_DEPLOYMENT_BLOCKED",
+      "runtime_admission": null
+    },
+    {
+      "id": "security.ipc",
+      "kind": "OPTIONAL",
+      "default": "OFF",
+      "depends_on": [
+        "security.identity.runtime"
+      ],
+      "conflicts": [],
+      "implementation_status": "CONTRACT_ONLY_DEPLOYMENT_BLOCKED",
+      "runtime_admission": null
+    },
+    {
+      "id": "security.broker",
+      "kind": "OPTIONAL",
+      "default": "OFF",
+      "depends_on": [
+        "security.ipc",
+        "security.exit_proof"
+      ],
+      "conflicts": [],
+      "implementation_status": "CONTRACT_ONLY_DEPLOYMENT_BLOCKED",
+      "runtime_admission": null
+    },
+    {
+      "id": "security.sandbox.windows",
+      "kind": "OPTIONAL",
+      "default": "OFF",
+      "depends_on": [
+        "security.process.supervisor"
+      ],
+      "conflicts": [],
+      "implementation_status": "CONTRACT_ONLY_DEPLOYMENT_BLOCKED",
+      "runtime_admission": null
+    },
+    {
+      "id": "security.sandbox.linux",
+      "kind": "OPTIONAL",
+      "default": "OFF",
+      "depends_on": [
+        "security.process.supervisor"
+      ],
+      "conflicts": [],
+      "implementation_status": "CONTRACT_ONLY_DEPLOYMENT_BLOCKED",
+      "runtime_admission": null
+    },
+    {
+      "id": "security.process.supervisor",
+      "kind": "OPTIONAL",
+      "default": "OFF",
+      "depends_on": [
+        "security.identity.runtime"
+      ],
+      "conflicts": [],
+      "implementation_status": "CONTRACT_ONLY_DEPLOYMENT_BLOCKED",
+      "runtime_admission": null
+    },
+    {
+      "id": "security.exit_proof",
+      "kind": "OPTIONAL",
+      "default": "OFF",
+      "depends_on": [
+        "security.process.supervisor"
+      ],
+      "conflicts": [],
+      "implementation_status": "CONTRACT_ONLY_DEPLOYMENT_BLOCKED",
+      "runtime_admission": null
+    },
+    {
+      "id": "security.resource_reconciliation",
+      "kind": "OPTIONAL",
+      "default": "OFF",
+      "depends_on": [
+        "security.exit_proof"
+      ],
+      "conflicts": [],
+      "implementation_status": "CONTRACT_ONLY_DEPLOYMENT_BLOCKED",
+      "runtime_admission": null
+    },
+    {
+      "id": "audit.producer.ipc",
+      "kind": "OPTIONAL",
+      "default": "OFF",
+      "depends_on": [
+        "security.ipc",
+        "core.audit.trail"
+      ],
+      "conflicts": [],
+      "implementation_status": "CONTRACT_ONLY_DEPLOYMENT_BLOCKED",
+      "runtime_admission": null
+    },
+    {
+      "id": "audit.producer.worker",
+      "kind": "OPTIONAL",
+      "default": "OFF",
+      "depends_on": [
+        "security.identity.runtime",
+        "core.audit.trail"
+      ],
+      "conflicts": [],
+      "implementation_status": "CONTRACT_ONLY_DEPLOYMENT_BLOCKED",
+      "runtime_admission": null
+    },
+    {
+      "id": "audit.producer.process",
+      "kind": "OPTIONAL",
+      "default": "OFF",
+      "depends_on": [
+        "security.process.supervisor",
+        "core.audit.trail"
+      ],
+      "conflicts": [],
+      "implementation_status": "CONTRACT_ONLY_DEPLOYMENT_BLOCKED",
+      "runtime_admission": null
+    },
+    {
+      "id": "audit.producer.sandbox",
+      "kind": "OPTIONAL",
+      "default": "OFF",
+      "depends_on": [
+        "core.audit.trail"
+      ],
+      "conflicts": [],
+      "implementation_status": "CONTRACT_ONLY_DEPLOYMENT_BLOCKED",
+      "runtime_admission": null
+    },
+    {
+      "id": "runtime.host.production",
+      "kind": "OPTIONAL",
+      "default": "OFF",
+      "depends_on": [
+        "core.identity",
+        "core.state",
+        "core.audit.trail"
+      ],
+      "conflicts": [],
+      "implementation_status": "CANDIDATE_COMBINATION_DEPLOYMENT_BLOCKED",
+      "runtime_admission": null
+    },
+    {
+      "id": "runtime.worker.production",
+      "kind": "OPTIONAL",
+      "default": "OFF",
+      "depends_on": [
+        "runtime.host.production"
+      ],
+      "conflicts": [],
+      "implementation_status": "CANDIDATE_COMBINATION_DEPLOYMENT_BLOCKED",
+      "runtime_admission": null
+    },
+    {
+      "id": "runtime.ipc.windows.production",
+      "kind": "OPTIONAL",
+      "default": "OFF",
+      "depends_on": [
+        "runtime.host.production"
+      ],
+      "conflicts": [],
+      "implementation_status": "CANDIDATE_COMBINATION_DEPLOYMENT_BLOCKED",
+      "runtime_admission": null
+    },
+    {
+      "id": "runtime.sandbox.windows.production",
+      "kind": "OPTIONAL",
+      "default": "OFF",
+      "depends_on": [
+        "runtime.worker.production"
+      ],
+      "conflicts": [],
+      "implementation_status": "CANDIDATE_COMBINATION_DEPLOYMENT_BLOCKED",
+      "runtime_admission": null
+    },
+    {
+      "id": "runtime.file_broker",
+      "kind": "OPTIONAL",
+      "default": "OFF",
+      "depends_on": [
+        "runtime.host.production",
+        "audit.producer.file"
+      ],
+      "conflicts": [],
+      "implementation_status": "CANDIDATE_COMBINATION_DEPLOYMENT_BLOCKED",
+      "runtime_admission": null
+    },
+    {
+      "id": "runtime.process_supervisor",
+      "kind": "OPTIONAL",
+      "default": "OFF",
+      "depends_on": [
+        "runtime.worker.production",
+        "audit.producer.process"
+      ],
+      "conflicts": [],
+      "implementation_status": "CANDIDATE_COMBINATION_DEPLOYMENT_BLOCKED",
+      "runtime_admission": null
+    },
+    {
+      "id": "runtime.exit_proof.production",
+      "kind": "OPTIONAL",
+      "default": "OFF",
+      "depends_on": [
+        "runtime.process_supervisor"
+      ],
+      "conflicts": [],
+      "implementation_status": "CANDIDATE_COMBINATION_DEPLOYMENT_BLOCKED",
+      "runtime_admission": null
+    },
+    {
+      "id": "runtime.resource_release.production",
+      "kind": "OPTIONAL",
+      "default": "OFF",
+      "depends_on": [
+        "runtime.exit_proof.production"
+      ],
+      "conflicts": [],
+      "implementation_status": "CANDIDATE_COMBINATION_DEPLOYMENT_BLOCKED",
+      "runtime_admission": null
+    },
+    {
+      "id": "audit.producer.broker",
+      "kind": "OPTIONAL",
+      "default": "OFF",
+      "depends_on": [
+        "core.audit.trail"
+      ],
+      "conflicts": [],
+      "implementation_status": "CANDIDATE_COMBINATION_DEPLOYMENT_BLOCKED",
+      "runtime_admission": null
+    },
+    {
+      "id": "audit.producer.file",
+      "kind": "OPTIONAL",
+      "default": "OFF",
+      "depends_on": [
+        "core.audit.trail"
+      ],
+      "conflicts": [],
+      "implementation_status": "CANDIDATE_COMBINATION_DEPLOYMENT_BLOCKED",
+      "runtime_admission": null
+    },
+    {
+      "id": "runtime.broker.production",
+      "kind": "OPTIONAL",
+      "default": "OFF",
+      "depends_on": [
+        "runtime.worker.production",
+        "runtime.ipc.windows.production",
+        "runtime.sandbox.windows.production",
+        "runtime.file_broker",
+        "runtime.process_supervisor",
+        "runtime.exit_proof.production",
+        "runtime.resource_release.production",
+        "audit.producer.broker"
+      ],
+      "conflicts": [],
+      "implementation_status": "CANDIDATE_COMBINATION_DEPLOYMENT_BLOCKED",
+      "runtime_admission": null
+    },
+    {
+      "id": "runtime.bootstrap.host",
+      "kind": "OPTIONAL",
+      "default": "OFF",
+      "depends_on": [
+        "runtime.host.production"
+      ],
+      "conflicts": [],
+      "implementation_status": "CANDIDATE_DEPLOYMENT_BLOCKED",
+      "runtime_admission": null
+    },
+    {
+      "id": "runtime.bootstrap.worker",
+      "kind": "OPTIONAL",
+      "default": "OFF",
+      "depends_on": [
+        "runtime.worker.production",
+        "runtime.bootstrap.host"
+      ],
+      "conflicts": [],
+      "implementation_status": "CANDIDATE_DEPLOYMENT_BLOCKED",
+      "runtime_admission": null
+    },
+    {
+      "id": "runtime.ipc.persistent",
+      "kind": "OPTIONAL",
+      "default": "OFF",
+      "depends_on": [
+        "runtime.ipc.windows.production"
+      ],
+      "conflicts": [],
+      "implementation_status": "CANDIDATE_DEPLOYMENT_BLOCKED",
+      "runtime_admission": null
+    },
+    {
+      "id": "runtime.exit_closure",
+      "kind": "OPTIONAL",
+      "default": "OFF",
+      "depends_on": [
+        "runtime.exit_proof.production"
+      ],
+      "conflicts": [],
+      "implementation_status": "CANDIDATE_DEPLOYMENT_BLOCKED",
+      "runtime_admission": null
+    },
+    {
+      "id": "runtime.ubuntu.adapter",
+      "kind": "OPTIONAL",
+      "default": "OFF",
+      "depends_on": [
+        "core.identity",
+        "core.audit.trail"
+      ],
+      "conflicts": [],
+      "implementation_status": "TECHNICAL_PREPARATION_NOT_RUN",
+      "runtime_admission": null
+    },
+    {
+      "id": "native.agent-lifecycle",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [
+        "core.identity",
+        "core.state",
+        "core.audit.trail"
+      ],
+      "conflicts": [],
+      "implementation_status": "IMPLEMENTED_LOCAL",
+      "runtime_admission": "MOCK_ONLY_LOCAL_TRUSTED"
+    },
+    {
+      "id": "native.agent-type-registry",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [
+        "core.identity"
+      ],
+      "conflicts": [],
+      "implementation_status": "IMPLEMENTED_LOCAL",
+      "runtime_admission": "MOCK_ONLY_LOCAL_TRUSTED"
+    },
+    {
+      "id": "native.agent-loop",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [
+        "native.harness",
+        "native.context-assembly",
+        "native.agent-lifecycle",
+        "resource.registry"
+      ],
+      "conflicts": [],
+      "implementation_status": "IMPLEMENTED_LOCAL",
+      "runtime_admission": "MOCK_ONLY_LOCAL_TRUSTED"
+    },
+    {
+      "id": "native.message-bus",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [
+        "core.state",
+        "core.archive.raw",
+        "core.audit.trail"
+      ],
+      "conflicts": [],
+      "implementation_status": "IMPLEMENTED_LOCAL",
+      "runtime_admission": "MOCK_ONLY_LOCAL_TRUSTED"
+    },
+    {
+      "id": "native.task-scheduler",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [
+        "native.agent-lifecycle",
+        "resource.worker.budget",
+        "resource.project.budget",
+        "resource.platform.budget"
+      ],
+      "conflicts": [],
+      "implementation_status": "IMPLEMENTED_LOCAL",
+      "runtime_admission": "MOCK_ONLY_LOCAL_TRUSTED"
+    },
+    {
+      "id": "model.mock-provider",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [
+        "model.gateway"
+      ],
+      "conflicts": [],
+      "implementation_status": "IMPLEMENTED_LOCAL",
+      "runtime_admission": "MOCK_ONLY_LOCAL_TRUSTED"
+    },
+    {
+      "id": "resource.registry",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [
+        "core.state",
+        "core.audit.trail"
+      ],
+      "conflicts": [],
+      "implementation_status": "IMPLEMENTED_LOCAL",
+      "runtime_admission": "MOCK_ONLY_LOCAL_TRUSTED"
+    },
+    {
+      "id": "resource.worker.budget",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [
+        "resource.registry"
+      ],
+      "conflicts": [],
+      "implementation_status": "IMPLEMENTED_LOCAL",
+      "runtime_admission": "MOCK_ONLY_LOCAL_TRUSTED"
+    },
+    {
+      "id": "resource.project.budget",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [
+        "resource.registry"
+      ],
+      "conflicts": [],
+      "implementation_status": "IMPLEMENTED_LOCAL",
+      "runtime_admission": "MOCK_ONLY_LOCAL_TRUSTED"
+    },
+    {
+      "id": "resource.platform.budget",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [
+        "resource.registry"
+      ],
+      "conflicts": [],
+      "implementation_status": "IMPLEMENTED_LOCAL",
+      "runtime_admission": "MOCK_ONLY_LOCAL_TRUSTED"
+    },
+    {
+      "id": "resource.cpu.accounting",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [
+        "resource.registry"
+      ],
+      "conflicts": [],
+      "implementation_status": "IMPLEMENTED_LOCAL",
+      "runtime_admission": "MOCK_ONLY_LOCAL_TRUSTED"
+    },
+    {
+      "id": "resource.cpu.bandwidth",
+      "kind": "OPTIONAL",
+      "default": "OFF",
+      "depends_on": [
+        "resource.registry"
+      ],
+      "conflicts": [],
+      "implementation_status": "BLOCKED",
+      "runtime_admission": "NO_MODULE_REGISTERED"
+    },
+    {
+      "id": "resource.cpu.consumption",
+      "kind": "OPTIONAL",
+      "default": "OFF",
+      "depends_on": [
+        "resource.registry"
+      ],
+      "conflicts": [],
+      "implementation_status": "BLOCKED",
+      "runtime_admission": "NO_MODULE_REGISTERED"
+    },
+    {
+      "id": "resource.memory.limit",
+      "kind": "OPTIONAL",
+      "default": "OFF",
+      "depends_on": [
+        "resource.registry"
+      ],
+      "conflicts": [],
+      "implementation_status": "BLOCKED",
+      "runtime_admission": "NO_MODULE_REGISTERED"
+    },
+    {
+      "id": "resource.disk.quota",
+      "kind": "OPTIONAL",
+      "default": "OFF",
+      "depends_on": [
+        "resource.registry"
+      ],
+      "conflicts": [],
+      "implementation_status": "BLOCKED",
+      "runtime_admission": "NO_MODULE_REGISTERED"
+    },
+    {
+      "id": "resource.process.limit",
+      "kind": "OPTIONAL",
+      "default": "OFF",
+      "depends_on": [
+        "resource.registry"
+      ],
+      "conflicts": [],
+      "implementation_status": "BLOCKED",
+      "runtime_admission": "NO_MODULE_REGISTERED"
+    },
+    {
+      "id": "resource.io.limit",
+      "kind": "OPTIONAL",
+      "default": "OFF",
+      "depends_on": [
+        "resource.registry"
+      ],
+      "conflicts": [],
+      "implementation_status": "BLOCKED",
+      "runtime_admission": "NO_MODULE_REGISTERED"
+    },
+    {
+      "id": "resource.network.limit",
+      "kind": "OPTIONAL",
+      "default": "OFF",
+      "depends_on": [
+        "resource.registry"
+      ],
+      "conflicts": [],
+      "implementation_status": "BLOCKED",
+      "runtime_admission": "NO_MODULE_REGISTERED"
+    },
+    {
+      "id": "resource.time.deadline",
+      "kind": "OPTIONAL",
+      "default": "OFF",
+      "depends_on": [
+        "resource.registry"
+      ],
+      "conflicts": [],
+      "implementation_status": "BLOCKED",
+      "runtime_admission": "NO_MODULE_REGISTERED"
+    },
+    {
+      "id": "wf.checklists",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [
+        "wf.runtime",
+        "wf.evidence"
+      ],
+      "conflicts": [],
+      "implementation_status": "IMPLEMENTED_LOCAL",
+      "runtime_admission": "MOCK_ONLY_LOCAL_TRUSTED"
+    },
+    {
+      "id": "native.storage-owner",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [
+        "native.harness",
+        "core.artifact.store",
+        "core.audit.trail",
+        "core.archive.raw"
+      ],
+      "conflicts": [],
+      "implementation_status": "IMPLEMENTED",
+      "runtime_admission": "LOCAL_TRUSTED_LIBRARY"
+    },
+    {
+      "id": "native.rules-compiler",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [
+        "wf.runtime",
+        "wf.rules.registration",
+        "core.archive.raw",
+        "core.artifact.store"
+      ],
+      "conflicts": [],
+      "implementation_status": "IMPLEMENTED",
+      "runtime_admission": "LOCAL_TRUSTED_LIBRARY"
+    },
+    {
+      "id": "native.gate-engine",
+      "kind": "OPTIONAL",
+      "default": "ON",
+      "depends_on": [
+        "wf.runtime",
+        "wf.evidence",
+        "core.audit.trail",
+        "core.artifact.store",
+        "native.rules-compiler"
+      ],
+      "conflicts": [],
+      "implementation_status": "IMPLEMENTED",
+      "runtime_admission": "LOCAL_TRUSTED_LIBRARY"
+    }
+  ],
+  "policies": [
+    {
+      "id": "P.IDENTITY",
+      "level": "L0",
+      "enforcement_owner": "可信IPC身份与能力Broker",
+      "degradable": false,
+      "default_mode": "ENFORCE",
+      "failure": "owner不可用时暂停依赖副作用；不自动改模式",
+      "implementation_status": "NOT_RUN"
+    },
+    {
+      "id": "P.FS_SCOPE",
+      "level": "L0",
+      "enforcement_owner": "OS执行器/句柄授权",
+      "degradable": false,
+      "default_mode": "ENFORCE",
+      "failure": "owner不可用时暂停依赖副作用；不自动改模式",
+      "implementation_status": "NOT_RUN"
+    },
+    {
+      "id": "P.REVIEW_RO",
+      "level": "L0",
+      "enforcement_owner": "OS只读身份/挂载",
+      "degradable": false,
+      "default_mode": "ENFORCE",
+      "failure": "owner不可用时暂停依赖副作用；不自动改模式",
+      "implementation_status": "NOT_RUN"
+    },
+    {
+      "id": "P.ARCHIVE_APPEND",
+      "level": "L0",
+      "enforcement_owner": "Archive Writer/文件ACL",
+      "degradable": false,
+      "default_mode": "ENFORCE",
+      "failure": "owner不可用时暂停依赖副作用；不自动改模式",
+      "implementation_status": "NOT_RUN"
+    },
+    {
+      "id": "P.SECRET_BOUNDARY",
+      "level": "L0",
+      "enforcement_owner": "Credential Broker/模型出口",
+      "degradable": false,
+      "default_mode": "ENFORCE",
+      "failure": "owner不可用时暂停依赖副作用；不自动改模式",
+      "implementation_status": "NOT_RUN"
+    },
+    {
+      "id": "P.DB_ATOMIC",
+      "level": "L0",
+      "enforcement_owner": "唯一约束/条件事务",
+      "degradable": false,
+      "default_mode": "ENFORCE",
+      "failure": "owner不可用时暂停依赖副作用；不自动改模式",
+      "implementation_status": "NOT_RUN"
+    },
+    {
+      "id": "P.EXPERIMENT_ONCE",
+      "level": "L0",
+      "enforcement_owner": "独立实验Capability/数据库",
+      "degradable": false,
+      "default_mode": "ENFORCE",
+      "failure": "owner不可用时暂停依赖副作用；不自动改模式",
+      "implementation_status": "NOT_RUN"
+    },
+    {
+      "id": "P.WORKSPACE_WRITER",
+      "level": "L0",
+      "enforcement_owner": "Broker租约/OS进程树",
+      "degradable": false,
+      "default_mode": "ENFORCE",
+      "failure": "owner不可用时暂停依赖副作用；不自动改模式",
+      "implementation_status": "NOT_RUN"
+    },
+    {
+      "id": "P.BUDGET_HARD",
+      "level": "L0",
+      "enforcement_owner": "Model Gateway原子额度",
+      "degradable": false,
+      "default_mode": "ENFORCE",
+      "failure": "owner不可用时暂停依赖副作用；不自动改模式",
+      "implementation_status": "NOT_RUN"
+    },
+    {
+      "id": "P.ADMIN_MODE",
+      "level": "L0",
+      "enforcement_owner": "独立管理Broker/审计库",
+      "degradable": false,
+      "default_mode": "ENFORCE",
+      "failure": "owner不可用时暂停依赖副作用；不自动改模式",
+      "implementation_status": "NOT_RUN"
+    },
+    {
+      "id": "P.APPROVAL_REPLAY",
+      "level": "L0",
+      "enforcement_owner": "执行许可存储/原子consume",
+      "degradable": false,
+      "default_mode": "ENFORCE",
+      "failure": "owner不可用时暂停依赖副作用；不自动改模式",
+      "implementation_status": "NOT_RUN"
+    },
+    {
+      "id": "P.TOOL_CONTRACT",
+      "level": "L0",
+      "enforcement_owner": "Tool Gateway/执行器",
+      "degradable": false,
+      "default_mode": "ENFORCE",
+      "failure": "owner不可用时暂停依赖副作用；不自动改模式",
+      "implementation_status": "NOT_RUN"
+    },
+    {
+      "id": "P.GIT_PUBLISH",
+      "level": "L1",
+      "enforcement_owner": "PDP/PEP/Approval Service",
+      "degradable": true,
+      "default_mode": "ENFORCE",
+      "failure": "owner不可用时暂停依赖副作用；不自动改模式",
+      "implementation_status": "NOT_RUN"
+    },
+    {
+      "id": "P.DATA_DELETE",
+      "level": "L1",
+      "enforcement_owner": "PDP/PEP/Approval Service",
+      "degradable": true,
+      "default_mode": "ENFORCE",
+      "failure": "owner不可用时暂停依赖副作用；不自动改模式",
+      "implementation_status": "NOT_RUN"
+    },
+    {
+      "id": "P.INSTALL",
+      "level": "L1",
+      "enforcement_owner": "PDP/PEP/Approval Service",
+      "degradable": true,
+      "default_mode": "ENFORCE",
+      "failure": "owner不可用时暂停依赖副作用；不自动改模式",
+      "implementation_status": "NOT_RUN"
+    },
+    {
+      "id": "P.PROJECT_RULE_CHANGE",
+      "level": "L1",
+      "enforcement_owner": "PDP/PEP/Approval Service",
+      "degradable": true,
+      "default_mode": "ENFORCE",
+      "failure": "owner不可用时暂停依赖副作用；不自动改模式",
+      "implementation_status": "NOT_RUN"
+    },
+    {
+      "id": "P.EXPERIMENT_APPROVAL",
+      "level": "L1",
+      "enforcement_owner": "独立科研执行授权服务",
+      "degradable": false,
+      "default_mode": "ENFORCE",
+      "failure": "owner不可用时暂停依赖副作用；不自动改模式",
+      "implementation_status": "NOT_RUN"
+    },
+    {
+      "id": "P.BUDGET_INCREASE",
+      "level": "L1",
+      "enforcement_owner": "Model Gateway管理员配置",
+      "degradable": false,
+      "default_mode": "ENFORCE",
+      "failure": "owner不可用时暂停依赖副作用；不自动改模式",
+      "implementation_status": "NOT_RUN"
+    },
+    {
+      "id": "P.REVIEW_BINDING",
+      "level": "L2",
+      "enforcement_owner": "ReviewResult schema/集成服务",
+      "degradable": true,
+      "default_mode": "ENFORCE",
+      "failure": "owner不可用时暂停依赖副作用；不自动改模式",
+      "implementation_status": "NOT_RUN"
+    },
+    {
+      "id": "P.WORKFLOW_GATES",
+      "level": "L2",
+      "enforcement_owner": "Workflow Runtime",
+      "degradable": true,
+      "default_mode": "ENFORCE",
+      "failure": "owner不可用时暂停依赖副作用；不自动改模式",
+      "implementation_status": "NOT_RUN"
+    },
+    {
+      "id": "P.SCIENTIFIC_CLAIM",
+      "level": "L2",
+      "enforcement_owner": "证据/独立审查",
+      "degradable": true,
+      "default_mode": "ENFORCE",
+      "failure": "owner不可用时暂停依赖副作用；不自动改模式",
+      "implementation_status": "NOT_RUN"
+    },
+    {
+      "id": "P.STYLE",
+      "level": "L3",
+      "enforcement_owner": "规则提示/可选linter",
+      "degradable": true,
+      "default_mode": "ENFORCE",
+      "failure": "owner不可用时暂停依赖副作用；不自动改模式",
+      "implementation_status": "NOT_RUN"
+    },
+    {
+      "id": "P.AUDIT_REQUIRED",
+      "level": "L0",
+      "enforcement_owner": "Audit Writer / Tool Gateway",
+      "degradable": false,
+      "default_mode": "ENFORCE",
+      "failure": "owner unavailable freezes dependent execution; no automatic bypass",
+      "implementation_status": "NOT_RUN"
+    },
+    {
+      "id": "P.ARTIFACT_INTEGRITY",
+      "level": "L0",
+      "enforcement_owner": "Artifact Store",
+      "degradable": false,
+      "default_mode": "ENFORCE",
+      "failure": "owner unavailable freezes dependent execution; no automatic bypass",
+      "implementation_status": "NOT_RUN"
+    },
+    {
+      "id": "P.EVIDENCE_DOMAINS",
+      "level": "L0",
+      "enforcement_owner": "Archive / Audit / Decision owners",
+      "degradable": false,
+      "default_mode": "ENFORCE",
+      "failure": "owner unavailable freezes dependent execution; no automatic bypass",
+      "implementation_status": "NOT_RUN"
+    },
+    {
+      "id": "P.REPLAY_READONLY",
+      "level": "L0",
+      "enforcement_owner": "Task Reconstruction API",
+      "degradable": false,
+      "default_mode": "ENFORCE",
+      "failure": "owner unavailable freezes dependent execution; no automatic bypass",
+      "implementation_status": "NOT_RUN"
+    },
+    {
+      "id": "P.DI_NOEXEC",
+      "level": "L0",
+      "enforcement_owner": "Diagnostic Process Adapter",
+      "degradable": false,
+      "default_mode": "ENFORCE",
+      "failure": "owner unavailable freezes dependent execution; no automatic bypass",
+      "implementation_status": "NOT_RUN"
+    },
+    {
+      "id": "P.DI_SYNTAX",
+      "level": "L2",
+      "enforcement_owner": "Development Intelligence / PDP",
+      "degradable": true,
+      "default_mode": "ENFORCE",
+      "failure": "owner unavailable freezes dependent execution; no automatic bypass",
+      "implementation_status": "NOT_RUN"
+    },
+    {
+      "id": "P.DI_ARGUMENTS",
+      "level": "L2",
+      "enforcement_owner": "Versioned CLI Schema / PDP",
+      "degradable": true,
+      "default_mode": "ENFORCE",
+      "failure": "owner unavailable freezes dependent execution; no automatic bypass",
+      "implementation_status": "NOT_RUN"
+    },
+    {
+      "id": "P.DI_ENVIRONMENT",
+      "level": "L2",
+      "enforcement_owner": "Environment Checker / PDP",
+      "degradable": true,
+      "default_mode": "ENFORCE",
+      "failure": "owner unavailable freezes dependent execution; no automatic bypass",
+      "implementation_status": "NOT_RUN"
+    },
+    {
+      "id": "P.COMMAND_RISK",
+      "level": "L1",
+      "enforcement_owner": "PDP / Approval Service",
+      "degradable": true,
+      "default_mode": "ENFORCE",
+      "failure": "owner unavailable freezes dependent execution; no automatic bypass",
+      "implementation_status": "NOT_RUN"
+    },
+    {
+      "id": "P.SANDBOX_CAPABILITY",
+      "level": "L0",
+      "enforcement_owner": "Capability Broker / Sandbox",
+      "degradable": false,
+      "default_mode": "ENFORCE",
+      "failure": "owner unavailable freezes dependent execution; no automatic bypass",
+      "implementation_status": "NOT_RUN"
+    },
+    {
+      "id": "P.PACKAGE_INTEGRITY",
+      "level": "L0",
+      "enforcement_owner": "Native Package Verifier",
+      "degradable": false,
+      "default_mode": "ENFORCE",
+      "failure": "owner unavailable freezes dependent execution; no automatic bypass",
+      "implementation_status": "NOT_RUN"
+    },
+    {
+      "id": "P.RESOURCE_BOUNDS",
+      "level": "L0",
+      "enforcement_owner": "Stream / Queue / Process owners",
+      "degradable": false,
+      "default_mode": "ENFORCE",
+      "failure": "owner unavailable freezes dependent execution; no automatic bypass",
+      "implementation_status": "NOT_RUN"
+    },
+    {
+      "id": "P.RUNTIME_IDENTITY",
+      "level": "L0",
+      "enforcement_owner": "Runtime Identity Registry",
+      "degradable": false,
+      "default_mode": "ENFORCE",
+      "failure": "DENY/BLOCKED; retain UNKNOWN resources",
+      "implementation_status": "CONTRACT_ONLY_OS_DEPLOYMENT_BLOCKED"
+    },
+    {
+      "id": "P.IPC_PEER",
+      "level": "L0",
+      "enforcement_owner": "Trusted IPC Adapter",
+      "degradable": false,
+      "default_mode": "ENFORCE",
+      "failure": "DENY/BLOCKED; retain UNKNOWN resources",
+      "implementation_status": "CONTRACT_ONLY_OS_DEPLOYMENT_BLOCKED"
+    },
+    {
+      "id": "P.WORKER_SCOPE",
+      "level": "L0",
+      "enforcement_owner": "Execution Broker",
+      "degradable": false,
+      "default_mode": "ENFORCE",
+      "failure": "DENY/BLOCKED; retain UNKNOWN resources",
+      "implementation_status": "CONTRACT_ONLY_OS_DEPLOYMENT_BLOCKED"
+    },
+    {
+      "id": "P.SANDBOX_PROFILE",
+      "level": "L0",
+      "enforcement_owner": "Sandbox Controller",
+      "degradable": false,
+      "default_mode": "ENFORCE",
+      "failure": "DENY/BLOCKED; retain UNKNOWN resources",
+      "implementation_status": "CONTRACT_ONLY_OS_DEPLOYMENT_BLOCKED"
+    },
+    {
+      "id": "P.PROCESS_OWNER",
+      "level": "L0",
+      "enforcement_owner": "Worker Supervisor",
+      "degradable": false,
+      "default_mode": "ENFORCE",
+      "failure": "DENY/BLOCKED; retain UNKNOWN resources",
+      "implementation_status": "CONTRACT_ONLY_OS_DEPLOYMENT_BLOCKED"
+    },
+    {
+      "id": "P.EXIT_PROOF",
+      "level": "L0",
+      "enforcement_owner": "ExitProof Verifier",
+      "degradable": false,
+      "default_mode": "ENFORCE",
+      "failure": "DENY/BLOCKED; retain UNKNOWN resources",
+      "implementation_status": "CONTRACT_ONLY_OS_DEPLOYMENT_BLOCKED"
+    },
+    {
+      "id": "P.RESOURCE_RELEASE",
+      "level": "L0",
+      "enforcement_owner": "Resource Reconciliation",
+      "degradable": false,
+      "default_mode": "ENFORCE",
+      "failure": "DENY/BLOCKED; retain UNKNOWN resources",
+      "implementation_status": "CONTRACT_ONLY_OS_DEPLOYMENT_BLOCKED"
+    },
+    {
+      "id": "P.REMOTE_PERMIT",
+      "level": "L0",
+      "enforcement_owner": "Production Execution Broker",
+      "degradable": false,
+      "default_mode": "ENFORCE",
+      "failure": "DENY/BLOCKED; retain consumed authorization and UNKNOWN resources",
+      "implementation_status": "CANDIDATE_DEPLOYMENT_BLOCKED"
+    },
+    {
+      "id": "P.FILE_BROKER",
+      "level": "L0",
+      "enforcement_owner": "File Broker",
+      "degradable": false,
+      "default_mode": "ENFORCE",
+      "failure": "DENY/BLOCKED; retain consumed authorization and UNKNOWN resources",
+      "implementation_status": "CANDIDATE_DEPLOYMENT_BLOCKED"
+    },
+    {
+      "id": "P.PRODUCTION_QUALIFICATION",
+      "level": "L0",
+      "enforcement_owner": "Deployment Qualification Owner",
+      "degradable": false,
+      "default_mode": "ENFORCE",
+      "failure": "DENY/BLOCKED; retain consumed authorization and UNKNOWN resources",
+      "implementation_status": "CANDIDATE_DEPLOYMENT_BLOCKED"
+    },
+    {
+      "id": "P.NATIVE_IDENTITY",
+      "level": "L0",
+      "enforcement_owner": "Native Agent Runtime",
+      "degradable": false,
+      "default_mode": "ENFORCE",
+      "failure": null,
+      "implementation_status": "IMPLEMENTED_LOCAL"
+    },
+    {
+      "id": "P.AGENT_SCOPE",
+      "level": "L0",
+      "enforcement_owner": "Native Tool Runtime",
+      "degradable": false,
+      "default_mode": "ENFORCE",
+      "failure": null,
+      "implementation_status": "IMPLEMENTED_LOCAL"
+    },
+    {
+      "id": "P.MESSAGE_DELIVERY",
+      "level": "L0",
+      "enforcement_owner": "Native Message Bus",
+      "degradable": false,
+      "default_mode": "ENFORCE",
+      "failure": null,
+      "implementation_status": "IMPLEMENTED_LOCAL"
+    },
+    {
+      "id": "P.RESOURCE_ADMISSION",
+      "level": "L0",
+      "enforcement_owner": "Resource Governance Engine",
+      "degradable": false,
+      "default_mode": "ENFORCE",
+      "failure": null,
+      "implementation_status": "IMPLEMENTED_LOCAL"
+    },
+    {
+      "id": "P.MODEL_CREDENTIAL",
+      "level": "L0",
+      "enforcement_owner": "Model Gateway",
+      "degradable": false,
+      "default_mode": "ENFORCE",
+      "failure": null,
+      "implementation_status": "IMPLEMENTED_LOCAL"
+    },
+    {
+      "id": "P.CONTEXT_PROVENANCE",
+      "level": "L0",
+      "enforcement_owner": "Context Assembly",
+      "degradable": false,
+      "default_mode": "ENFORCE",
+      "failure": null,
+      "implementation_status": "IMPLEMENTED_LOCAL"
+    },
+    {
+      "id": "P.NATIVE_LIFECYCLE",
+      "level": "L0",
+      "enforcement_owner": "Native Agent Runtime",
+      "degradable": false,
+      "default_mode": "ENFORCE",
+      "failure": null,
+      "implementation_status": "IMPLEMENTED_LOCAL"
+    },
+    {
+      "id": "P.WORKFLOW_BINDING",
+      "level": "L0",
+      "enforcement_owner": "Workflow Runtime",
+      "degradable": false,
+      "default_mode": "ENFORCE",
+      "failure": null,
+      "implementation_status": "IMPLEMENTED_LOCAL"
+    }
+  ],
+  "all_json_fields_parsed": true,
+  "source_qualification": "DESIGN_CATALOG_IS_NOT_RUNTIME_EVIDENCE"
+}

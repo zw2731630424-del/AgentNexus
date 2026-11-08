@@ -1,0 +1,570 @@
+{
+  "schema": "agentnexus/m17/independent-engineering/security-review/1",
+  "generated_at": "2026-11-08 02:58:11 UTC",
+  "reviewer": {
+    "actor": "Codex engineering subagent /root/baseline_execution",
+    "independent_of_reviewed_implementation": true,
+    "implementation_modified_by_reviewer": false
+  },
+  "conclusion": "PASS_COVERED_SECURITY_PATHS_AFTER_ONE_CONFIRMED_P1_FIX",
+  "scope": "LOCAL_TRUSTED_LIBRARY_ENGINEERING_REVIEW",
+  "not_pilot_agent_runtime_evidence": true,
+  "independent_coverage_exclusions": [
+    {
+      "path": "deliverables/AgentNexus-M1.7/source/src/agentnexus/harness/pilot-checker.ts",
+      "reason": "Authored by this reviewer; not independently reviewed here. Only its report type/interface is consumed by the independently reviewed Host wrapper."
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.7/source/tests/agentnexus/m17-checker.test.ts",
+      "reason": "Authored by this reviewer; its results are not counted as independent review coverage."
+    },
+    {
+      "path": "Pilot generated task-CLI source and actual Pilot runs",
+      "reason": "Not executed or generated in this independent security task."
+    }
+  ],
+  "reviewed_files": [
+    {
+      "path": "deliverables/AgentNexus-M1.7/source/src/agentnexus/harness/models.ts",
+      "sha256": "9a46e5534f0a7d38eb337e0f009b0b14456202f95cb97780a6e4a2f92d57507c",
+      "bytes": 30988,
+      "lines": 348,
+      "coverage": "FULL",
+      "line_ranges": [
+        [
+          1,
+          348
+        ]
+      ]
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.7/source/src/agentnexus/harness/development.ts",
+      "sha256": "6800a83aed43912ba94f7d2f6fb35e3c3d9a3732a6119ce6687c179d2b29c919",
+      "bytes": 8530,
+      "lines": 81,
+      "coverage": "FULL",
+      "line_ranges": [
+        [
+          1,
+          81
+        ]
+      ]
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.7/source/src/agentnexus/harness/index.ts",
+      "sha256": "2e3070a53f51b05c6bb4735a53ccc758840e8ce5327bcb6e3cbb3ac3c82270f5",
+      "bytes": 32976,
+      "lines": 304,
+      "coverage": "FULL",
+      "line_ranges": [
+        [
+          1,
+          304
+        ]
+      ]
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.7/source/src/agentnexus/harness/messages.ts",
+      "sha256": "fec7f184e3df60e4e09a762be1a3d83a62ba070b42fc63475b3e831eef04313f",
+      "bytes": 29686,
+      "lines": 331,
+      "coverage": "FULL",
+      "line_ranges": [
+        [
+          1,
+          331
+        ]
+      ]
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.7/source/src/agentnexus/harness/event-loop.ts",
+      "sha256": "315cdb564506578c4e167dded5aa34725661d0e259ff1580687bd434a79c927f",
+      "bytes": 17269,
+      "lines": 215,
+      "coverage": "FULL",
+      "line_ranges": [
+        [
+          1,
+          215
+        ]
+      ]
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.7/source/src/agentnexus/harness/contracts.ts",
+      "sha256": "fae11a6e1a11ea1cd1e737ce1320b344a17c974baba4f7d33402fff84c8dfc39",
+      "bytes": 2537,
+      "lines": 35,
+      "coverage": "FULL",
+      "line_ranges": [
+        [
+          1,
+          35
+        ]
+      ]
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.7/source/src/agentnexus/harness/state.ts",
+      "sha256": "c254cbee8f24f5511267a449bb07e4e6dd90416bf8264694e2214094e2d3ccb6",
+      "bytes": 7782,
+      "lines": 98,
+      "coverage": "FULL",
+      "line_ranges": [
+        [
+          1,
+          98
+        ]
+      ]
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.7/source/src/agentnexus/harness/agents.ts",
+      "sha256": "0f96a316c617956f85bb232d5f24d34067be1f906e45ba382dd71529569db9bd",
+      "bytes": 10389,
+      "lines": 108,
+      "coverage": "FULL",
+      "line_ranges": [
+        [
+          1,
+          108
+        ]
+      ]
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.7/source/src/agentnexus/harness/tools.ts",
+      "sha256": "4e8e9cdb707d3227176c412f95aa3accf0ed3bf743f21ae9bb3fdf134ed900d6",
+      "bytes": 2368,
+      "lines": 28,
+      "coverage": "FULL",
+      "line_ranges": [
+        [
+          1,
+          28
+        ]
+      ]
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.7/source/src/agentnexus/harness/gates.ts",
+      "sha256": "f9688690a41898d93030ee45f9fbdfc4ebe8876a14d2e0becbfaebd310c88d66",
+      "bytes": 29768,
+      "lines": 219,
+      "coverage": "FULL",
+      "line_ranges": [
+        [
+          1,
+          219
+        ]
+      ]
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.7/source/src/agentnexus/resources/index.ts",
+      "sha256": "382ed3c1750941feb1642edc4fa1462760c7eb4176ffd95fc7167d5af87bf042",
+      "bytes": 166,
+      "lines": 3,
+      "coverage": "FULL",
+      "line_ranges": [
+        [
+          1,
+          3
+        ]
+      ]
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.7/source/src/agentnexus/resources/budget-manager.ts",
+      "sha256": "7ea22cc6c6b9facf741413be900fd1c9b0396f07d1d6472e4787f8a4014737b9",
+      "bytes": 18270,
+      "lines": 146,
+      "coverage": "FULL",
+      "line_ranges": [
+        [
+          1,
+          146
+        ]
+      ]
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.7/source/tests/agentnexus/m17-models.test.ts",
+      "sha256": "a0837cda107ff6177792b4a552e84885daf4e59a616e342302e077a42c24ea67",
+      "bytes": 18136,
+      "lines": 210,
+      "coverage": "FULL",
+      "line_ranges": [
+        [
+          1,
+          210
+        ]
+      ]
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.7/source/tests/agentnexus/m17-development.test.ts",
+      "sha256": "55880c9a8a33302cf4b534461632e345f5d1374cf959c946c7e7a5995185dcf1",
+      "bytes": 5661,
+      "lines": 50,
+      "coverage": "FULL",
+      "line_ranges": [
+        [
+          1,
+          50
+        ]
+      ]
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.7/source/tests/agentnexus/m17-events.test.ts",
+      "sha256": "c7e2731ab9c9beaa04f24048d153dc4c901e6b58fc13dc96b407b0fab63a85de",
+      "bytes": 24841,
+      "lines": 262,
+      "coverage": "FULL",
+      "line_ranges": [
+        [
+          1,
+          262
+        ]
+      ]
+    },
+    {
+      "path": "deliverables/AgentNexus-M1.7/source/src/agentnexus/harness/scheduler.ts",
+      "sha256": "3055506dcb077da90e107e2c69986feefefa7b0d5e33c07fa211b279e7d68af0",
+      "bytes": 44526,
+      "lines": 432,
+      "coverage": "PARTIAL",
+      "line_ranges": [
+        [
+          1,
+          65
+        ],
+        [
+          100,
+          280
+        ],
+        [
+          299,
+          329
+        ],
+        [
+          418,
+          432
+        ]
+      ]
+    }
+  ],
+  "existing_evidence_read": [
+    {
+      "path": ".workflow-kit/runtime/AgentNexus-M1.7/models/verification.json",
+      "sha256": "541b93ba4e876a949eacbffa7ba2aea750454ae850f028019bcba9df37a7e78d",
+      "bytes": 5611,
+      "coverage": "FULL"
+    },
+    {
+      "path": ".workflow-kit/runtime/AgentNexus-M1.7/models/round-02/models.tap",
+      "sha256": "015d321721813714e42a0dee80b2133a366bf294ceee89ef2e4428a0623953dc",
+      "bytes": 7828,
+      "coverage": "FULL"
+    },
+    {
+      "path": ".workflow-kit/runtime/AgentNexus-M1.7/event-loop-agent/verification.json",
+      "sha256": "a5a0046fae4561d71f5610ab3b1647f53bbe25644e1eb77d1f28882911ced087",
+      "bytes": 13064,
+      "coverage": "FULL"
+    },
+    {
+      "path": ".workflow-kit/runtime/AgentNexus-M1.7/event-loop-agent/run-05/tests.tap",
+      "sha256": "d05efc4a30b808a1740e089b792da440c8fac2707d3d9e3cfb0132dfb6a1d040",
+      "bytes": 3180,
+      "coverage": "FULL"
+    }
+  ],
+  "findings": [
+    {
+      "id": "SEC-M17-001",
+      "priority": "P1",
+      "state": "CLOSED_VERIFIED",
+      "title": "执行结果不确定时，空命令数组被误作全部进程已关闭",
+      "file": "deliverables/AgentNexus-M1.7/source/src/agentnexus/harness/index.ts",
+      "original_line": 211,
+      "original_end_line": 214,
+      "original_source_sha256": "9e54140811654a97562c9fbcc33203d207c0a489b09c42e168cf42d025b24548",
+      "trigger": {
+        "status": "INCONCLUSIVE",
+        "execution_started": true,
+        "commands": []
+      },
+      "original_behavior": "The actual Host wrapper treated an empty command list as settled, marked accounting complete and released the quality-check reservation despite explicitly unknown started execution.",
+      "original_observation": {
+        "schema": "m17/security-negative/1",
+        "test": "INCONCLUSIVE_STARTED_EMPTY_COMMANDS",
+        "source_sha256_before": "9e54140811654a97562c9fbcc33203d207c0a489b09c42e168cf42d025b24548",
+        "source_sha256_after": "9e54140811654a97562c9fbcc33203d207c0a489b09c42e168cf42d025b24548",
+        "source_unchanged": true,
+        "observed_report_status": "INCONCLUSIVE",
+        "observed_execution_started": true,
+        "observed_command_count": 0,
+        "reservations": [
+          {
+            "state": "RELEASED",
+            "amounts": {
+              "cpu_kernel_us": 0,
+              "cpu_user_us": 0,
+              "disk_bytes": 0,
+              "io_read_bytes": 0,
+              "io_write_bytes": 0,
+              "log_bytes": 0,
+              "memory_bytes": 67108864,
+              "model_cost_micros": 0,
+              "model_requests": 0,
+              "model_tokens": 0,
+              "network_bytes": 0,
+              "network_connections": 0,
+              "processes": 1,
+              "wall_ms": 180000,
+              "workers": 1
+            },
+            "accounting_complete": true
+          }
+        ],
+        "expected_reservation_state": "UNKNOWN_QUARANTINED",
+        "vulnerable": true,
+        "pilot_sources_generated": false,
+        "provider_calls": 0
+      },
+      "impact": "Worker/project/platform capacity could be reclaimed while checker execution/result remained unverified. This is a resource-ownership correctness defect in the trusted wrapper, not an Agent-created PROCESS privilege.",
+      "recommendation": "Release only explicit known-not-started reports or completed non-INCONCLUSIVE invocations with nonempty command evidence and observed close; otherwise retain UNKNOWN.",
+      "fixed_line": 211,
+      "fixed_end_line": 215,
+      "fixed_source_sha256": "0d8e6db48ddb9441601a6ba9365a55415aaa5a3c1fbeb0d8dde1826a1299a2bc",
+      "fix_author": "Parent/root implementation author; reviewer made no implementation change",
+      "fixed_behavior": "Explicit execution_started=false + zero commands + BLOCKED may settle. Started execution requires nonempty commands, a non-INCONCLUSIVE result and every close_observed; all other combinations retain UNKNOWN_QUARANTINED.",
+      "fixed_observation": {
+        "schema": "m17/security-negative/1",
+        "test": "P1_FIX_RECHECK",
+        "source_sha256_before": "0d8e6db48ddb9441601a6ba9365a55415aaa5a3c1fbeb0d8dde1826a1299a2bc",
+        "source_sha256_after": "0d8e6db48ddb9441601a6ba9365a55415aaa5a3c1fbeb0d8dde1826a1299a2bc",
+        "source_unchanged": true,
+        "results": [
+          {
+            "name": "INCONCLUSIVE_STARTED_EMPTY_COMMANDS",
+            "report_status": "INCONCLUSIVE",
+            "execution_started": true,
+            "command_count": 0,
+            "expected": "UNKNOWN_QUARANTINED",
+            "observed": "UNKNOWN_QUARANTINED",
+            "accounting_complete": false,
+            "pass": true
+          },
+          {
+            "name": "INCONCLUSIVE_STARTED_DECLARED_CLOSED_COMMAND",
+            "report_status": "INCONCLUSIVE",
+            "execution_started": true,
+            "command_count": 1,
+            "expected": "UNKNOWN_QUARANTINED",
+            "observed": "UNKNOWN_QUARANTINED",
+            "accounting_complete": false,
+            "pass": true
+          },
+          {
+            "name": "BLOCKED_EXPLICITLY_NOT_STARTED",
+            "report_status": "BLOCKED",
+            "execution_started": false,
+            "command_count": 0,
+            "expected": "RELEASED",
+            "observed": "RELEASED",
+            "accounting_complete": true,
+            "pass": true
+          }
+        ],
+        "pilot_sources_generated": false,
+        "provider_calls": 0,
+        "callback_spawned_processes": 0,
+        "agent_facade_keys": [
+          "ack",
+          "identity",
+          "notifyProject",
+          "projectStates",
+          "readContext",
+          "receive",
+          "retry",
+          "revoke",
+          "sendText",
+          "source",
+          "status"
+        ]
+      },
+      "reproduction": "Import the actual openHarness module; create an isolated synthetic project and BACKGROUND_REVIEWER with bounded budgets; call administration.runPilotQualityCheck with an in-memory report callback; inspect actual resource_reservation rows. No checker/child process/model/Provider is invoked.",
+      "preservation": "Pre-fix and post-fix tool observations are embedded here with exact source hashes. The original and recheck temporary SQLite/Artifact directories were closed and deleted after each validation; this report does not claim those temporary DBs still exist.",
+      "latest_code_review": {
+        "source_sha256": "2e3070a53f51b05c6bb4735a53ccc758840e8ce5327bcb6e3cbb3ac3c82270f5",
+        "coverage": "FULL_RE_READ",
+        "decision_lines": [
+          211,
+          212,
+          213,
+          214,
+          215
+        ],
+        "additional_observation_lines": [
+          216,
+          217
+        ],
+        "detail": "Latest index.ts only adds explicit budget_state to the quality-check record/event at this boundary. The noInvocation/completedInvocation predicates and UNKNOWN/settle actions remain identical to the exact 0d8e6db48ddb9441601a6ba9365a55415aaa5a3c1fbeb0d8dde1826a1299a2bc source exercised by the retained three-case actual negative recheck. This latest source hash is code-review coverage; it is not substituted into historical runtime output."
+      }
+    }
+  ],
+  "open_findings": [],
+  "checks": [
+    {
+      "id": "SENT_UNKNOWN",
+      "status": "PASS_CODE_AND_EXISTING_EVIDENCE",
+      "files": [
+        "harness/models.ts:248",
+        "harness/models.ts:284",
+        "harness/models.ts:299",
+        "harness/models.ts:325",
+        "harness/models.ts:340",
+        "resources/budget-manager.ts:135"
+      ],
+      "detail": "Budget reserve and durable intent precede the synchronous fixture callback. Callback throw/Promise/schema/usage failures preserve SENT, sequence, key occupancy and UNKNOWN quota. Recover does not dispatch or release old claims; only explicit KNOWN_NOT_SENT/AUTH simulation can advance the route. Existing models TAP contains all 34 passing cases, including negative/fault/cancellation paths."
+    },
+    {
+      "id": "CREDENTIAL_BOUNDARY",
+      "status": "PASS_CODE_AND_EXISTING_EVIDENCE",
+      "files": [
+        "harness/models.ts:73",
+        "harness/models.ts:101",
+        "harness/models.ts:154",
+        "harness/index.ts:263"
+      ],
+      "detail": "The responder receives frozen subject/request/public model definition and independently reconstructed context; detached callback invocation supplies no privileged receiver. Model/key/admin/Store/credential handles are not added to its input. Registration accepts only provider-bound vault:mock opaque handles; there is no HTTP/SDK/real-provider adapter. Agent facade inspection in the recheck exposes no administration/models/gates/checker object."
+    },
+    {
+      "id": "PROVENANCE_AND_PLAN_SCOPE",
+      "status": "PASS_CODE_AND_EXISTING_TEST_SOURCE",
+      "files": [
+        "harness/models.ts:224",
+        "harness/models.ts:235",
+        "harness/development.ts:26",
+        "harness/development.ts:60"
+      ],
+      "detail": "Model input is independently reconstructed and hash-bound before reserving or dispatching. Development admission requires a persisted successful model result owned by the exact subject, a Task-history source and the exact original requirement source in the proposer context. Plan outputs, case/prefix collisions, DAG, read-only roles and aggregate requests/disk are bounded by the Host envelope; a model strategy never becomes an execution permission."
+    },
+    {
+      "id": "NATIVE_TOOL_PERMISSIONS",
+      "status": "PASS_CODE",
+      "files": [
+        "harness/agents.ts:49",
+        "harness/tools.ts:11",
+        "harness/scheduler.ts:157"
+      ],
+      "detail": "Subagent tool/resource/file/read scopes are constrained to the existing parent grants. Read-only roles cannot receive write tools, and NativeToolRuntime always rejects PROCESS/EXTERNAL_EFFECT or unverified sandbox execution. A model proposal is data; local writes still traverse exact Gateway approval, Feature/Policy, intent and storage/Gate bindings."
+    },
+    {
+      "id": "OLD_APPROVAL_RESTART",
+      "status": "PASS_TARGETED_CODE_AND_EXISTING_EVENT_EVIDENCE",
+      "files": [
+        "harness/scheduler.ts:301",
+        "harness/scheduler.ts:418",
+        "harness/event-loop.ts:163",
+        "harness/event-loop.ts:189"
+      ],
+      "detail": "Scheduler recovery deletes approval_id on pending tools and returns approval-required work to an explicit Host lane. Message wakes resume only WAIT with no pending tool/reservation; APPROVAL_REQUIRED, HANDOFF, PAUSED, UNKNOWN and recovered DISPATCHING intents are not automatically replayed. Existing event TAP includes approval wait, cancelled/UNKNOWN and real close/reopen/process-kill cases."
+    },
+    {
+      "id": "MESSAGE_EVENT_BINDING",
+      "status": "PASS_CODE_AND_EXISTING_EVIDENCE",
+      "files": [
+        "harness/index.ts:105",
+        "harness/index.ts:117",
+        "harness/messages.ts:150",
+        "harness/messages.ts:166",
+        "harness/event-loop.ts:175"
+      ],
+      "detail": "Only an acknowledged durable message reaches the Host onDeliverable hook; it creates a deduplicated internal event binding message ID and payload hash. Existing dispatch receives/leases the current inbox and atomically adopts message payload into Task history with receipt/ACK. A settled wake is explicitly separate from Task completion and Gate acceptance; external-effect retry is prohibited and idle wake control performs no model call."
+    },
+    {
+      "id": "GATE_FORGERY",
+      "status": "PASS_CODE_IN_COVERED_BOUNDARIES",
+      "files": [
+        "harness/gates.ts:81",
+        "harness/gates.ts:145",
+        "harness/gates.ts:177",
+        "harness/scheduler.ts:109",
+        "harness/scheduler.ts:162"
+      ],
+      "detail": "Gate evaluation and checker/human-review registration require the trusted admin capability. Native PASS binds Task/rule registry, candidate, baseline, test profile and control epochs. G3 requires a registered TEST checker; G4 requires an independently bound reviewer. SIMULATED checker/model-shaped PASS artifacts cannot directly create a protected Native Gate PASS. Exact write candidate hashes are checked again at Task execution."
+    },
+    {
+      "id": "QUALITY_UNKNOWN_FIX",
+      "status": "PASS_ACTUAL_NEGATIVE_RECHECK",
+      "files": [
+        "harness/index.ts:204"
+      ],
+      "detail": "The independently confirmed P1 was fixed by the implementation author. Started+INCONCLUSIVE reports retain UNKNOWN even when they declare a closed command. Explicit BLOCKED/not-started reports can release known unused capacity. The final current index.ts was fully re-read after the parent added budget-state observability; unchanged decision predicates remain covered by the preserved exact-hash recheck."
+    }
+  ],
+  "existing_test_evidence": {
+    "models": {
+      "path": ".workflow-kit/runtime/AgentNexus-M1.7/models/round-02/models.tap",
+      "tests": 34,
+      "pass": 34,
+      "fail": 0,
+      "reviewer_reran": false,
+      "source_hash_matches_author_verification": true,
+      "scope": "Existing actual SQLite/Artifact/context tests with SIMULATED model computation"
+    },
+    "events": {
+      "path": ".workflow-kit/runtime/AgentNexus-M1.7/event-loop-agent/run-05/tests.tap",
+      "tests": 12,
+      "pass": 12,
+      "fail": 0,
+      "reviewer_reran": false,
+      "source_hash_matches_author_verification": true,
+      "scope": "Existing local Harness/message/event tests; mocked models and named barriers remain explicitly SIMULATED"
+    },
+    "development": {
+      "path": "deliverables/AgentNexus-M1.7/source/tests/agentnexus/m17-development.test.ts",
+      "reviewer_reran": false,
+      "coverage": "Read full negative cases for scope/cycles/aliases/budget/requirements provenance; no new whole-suite claim"
+    }
+  },
+  "actual_validation": {
+    "method": "In-memory negative Host-wrapper callbacks against real isolated Harness SQLite/resource ledgers; temporary native state was cleaned up after source/hash-stable observations.",
+    "pre_fix": {
+      "exit_code": 0,
+      "stdout": "{\"schema\":\"m17/security-negative/1\",\"test\":\"INCONCLUSIVE_STARTED_EMPTY_COMMANDS\",\"source_sha256_before\":\"9e54140811654a97562c9fbcc33203d207c0a489b09c42e168cf42d025b24548\",\"source_sha256_after\":\"9e54140811654a97562c9fbcc33203d207c0a489b09c42e168cf42d025b24548\",\"source_unchanged\":true,\"observed_report_status\":\"INCONCLUSIVE\",\"observed_execution_started\":true,\"observed_command_count\":0,\"reservations\":[{\"state\":\"RELEASED\",\"amounts\":{\"cpu_kernel_us\":0,\"cpu_user_us\":0,\"disk_bytes\":0,\"io_read_bytes\":0,\"io_write_bytes\":0,\"log_bytes\":0,\"memory_bytes\":67108864,\"model_cost_micros\":0,\"model_requests\":0,\"model_tokens\":0,\"network_bytes\":0,\"network_connections\":0,\"processes\":1,\"wall_ms\":180000,\"workers\":1},\"accounting_complete\":true}],\"expected_reservation_state\":\"UNKNOWN_QUARANTINED\",\"vulnerable\":true,\"pilot_sources_generated\":false,\"provider_calls\":0}\n",
+      "source_sha256": "9e54140811654a97562c9fbcc33203d207c0a489b09c42e168cf42d025b24548"
+    },
+    "post_fix": {
+      "exit_code": 0,
+      "stdout": "{\"schema\":\"m17/security-negative/1\",\"test\":\"P1_FIX_RECHECK\",\"source_sha256_before\":\"0d8e6db48ddb9441601a6ba9365a55415aaa5a3c1fbeb0d8dde1826a1299a2bc\",\"source_sha256_after\":\"0d8e6db48ddb9441601a6ba9365a55415aaa5a3c1fbeb0d8dde1826a1299a2bc\",\"source_unchanged\":true,\"results\":[{\"name\":\"INCONCLUSIVE_STARTED_EMPTY_COMMANDS\",\"report_status\":\"INCONCLUSIVE\",\"execution_started\":true,\"command_count\":0,\"expected\":\"UNKNOWN_QUARANTINED\",\"observed\":\"UNKNOWN_QUARANTINED\",\"accounting_complete\":false,\"pass\":true},{\"name\":\"INCONCLUSIVE_STARTED_DECLARED_CLOSED_COMMAND\",\"report_status\":\"INCONCLUSIVE\",\"execution_started\":true,\"command_count\":1,\"expected\":\"UNKNOWN_QUARANTINED\",\"observed\":\"UNKNOWN_QUARANTINED\",\"accounting_complete\":false,\"pass\":true},{\"name\":\"BLOCKED_EXPLICITLY_NOT_STARTED\",\"report_status\":\"BLOCKED\",\"execution_started\":false,\"command_count\":0,\"expected\":\"RELEASED\",\"observed\":\"RELEASED\",\"accounting_complete\":true,\"pass\":true}],\"pilot_sources_generated\":false,\"provider_calls\":0,\"callback_spawned_processes\":0,\"agent_facade_keys\":[\"ack\",\"identity\",\"notifyProject\",\"projectStates\",\"readContext\",\"receive\",\"retry\",\"revoke\",\"sendText\",\"source\",\"status\"]}\n",
+      "source_sha256": "0d8e6db48ddb9441601a6ba9365a55415aaa5a3c1fbeb0d8dde1826a1299a2bc"
+    },
+    "initial_environment_attempt": {
+      "status": "BLOCKED_ENVIRONMENT_NOT_A_SECURITY_RESULT",
+      "exit_code": 1,
+      "reason": "Managed OS temporary directory refused Artifact rename with EPERM before the target negative case. Retried only in an owned workspace temporary Harness directory, without changing OS permissions.",
+      "raw_observation": "node:internal/fs/promises:785\r\n  return await PromisePrototypeThen(\r\n         ^\r\n\r\nError: EPERM: operation not permitted, rename 'C:\\Users\\28642\\AppData\\Local\\Packages\\OpenAI.Codex_2p2nqsd0c76g0\\AC\\#!sandbox.{0376481f-f541-41ad-958f-ec69676f2c84}\\Temp\\AgentNexus-m17-security-JgF6MU\\artifacts\\partials\\8f69a09d-f313-4ddc-98d8-fc99c28f03b0.part' -> 'C:\\Users\\28642\\AppData\\Local\\Packages\\OpenAI.Codex_2p2nqsd0c76g0\\AC\\#!sandbox.{0376481f-f541-41ad-958f-ec69676f2c84}\\Temp\\AgentNexus-m17-security-JgF6MU\\artifacts\\objects\\8f69a09d-f313-4ddc-98d8-fc99c28f03b0.zst'\r\n    at async rename (node:internal/fs/promises:785:10)\r\n    at async ArtifactStore.putStream (file:///I:/AI_AgentNexus/deliverables/AgentNexus-M1.7/source/src/agentnexus/artifacts.ts:175:7) {\r\n  errno: -4048,\r\n  code: 'EPERM',\r\n  syscall: 'rename',\r\n  path: 'C:\\\\Users\\\\28642\\\\AppData\\\\Local\\\\Packages\\\\OpenAI.Codex_2p2nqsd0c76g0\\\\AC\\\\#!sandbox.{0376481f-f541-41ad-958f-ec69676f2c84}\\\\Temp\\\\AgentNexus-m17-security-JgF6MU\\\\artifacts\\\\partials\\\\8f69a09d-f313-4ddc-98d8-fc99c28f03b0.part',\r\n  dest: 'C:\\\\Users\\\\28642\\\\AppData\\\\Local\\\\Packages\\\\OpenAI.Codex_2p2nqsd0c76g0\\\\AC\\\\#!sandbox.{0376481f-f541-41ad-958f-ec69676f2c84}\\\\Temp\\\\AgentNexus-m17-security-JgF6MU\\\\artifacts\\\\objects\\\\8f69a09d-f313-4ddc-98d8-fc99c28f03b0.zst'\r\n}\r\n\r\nNode.js v24.15.0\r\n"
+    },
+    "no_pilot_source_generated": true,
+    "no_checker_process_launched": true,
+    "no_model_or_provider_called": true,
+    "no_key_read": true,
+    "temporary_databases_preserved": false,
+    "temporary_databases_cleanup_verified_by_successful_owned_directory_removal": true,
+    "only_persistent_output": ".workflow-kit/runtime/AgentNexus-M1.7/independent-engineering/security-review.json",
+    "latest_source_read_only_confirmation": {
+      "path": "deliverables/AgentNexus-M1.7/source/src/agentnexus/harness/index.ts",
+      "sha256": "2e3070a53f51b05c6bb4735a53ccc758840e8ce5327bcb6e3cbb3ac3c82270f5",
+      "lines": 304,
+      "actual_negative_run_source_sha256": "0d8e6db48ddb9441601a6ba9365a55415aaa5a3c1fbeb0d8dde1826a1299a2bc",
+      "decision_logic_unchanged": true,
+      "new_runtime_test_claim": false
+    }
+  },
+  "assumptions_and_limits": [
+    "This is independent engineering review of the listed other-author source paths, not evidence that an AgentNexus Pilot Agent autonomously performed the review.",
+    "Programmable responder and registered checker callbacks are trusted Host code. JavaScript callback purity, privileged closure capture and the Host-supplied responder source hash are not enforced or proven by an OS sandbox.",
+    "Authorized context content may itself contain Host-provided data; the reviewed responder constructor does not inject credential/key handles, and no real credential or Provider was accessed.",
+    "The fixed checker implementation and its authored tests are explicitly excluded from this independent coverage. The Host wrapper was tested using synthetic report metadata, with no checker invocation.",
+    "Budget mode and accounting source remain SIMULATED local ledger semantics. No cumulative CPU, hostile-process isolation, descendant-tree exit, network boundary, reboot, power loss or production deployment qualification is inferred.",
+    "The scheduler was read only in the explicitly listed relevant line ranges; this is not a fresh full-tree independent review or full-regression rerun.",
+    "Actual model and event TAP files were inspected as existing evidence. Their earlier failures and inherited platform limits are not overwritten or upgraded by this report.",
+    "The exact pre-fix temporary DB was deleted, so the preserved historical negative evidence is the tool-observed output and original source hash embedded in this report.",
+    "Final global governance and long soak/Pilot acceptance remain owned by the parent/root task; this reviewer did not rerun either."
+  ]
+}
