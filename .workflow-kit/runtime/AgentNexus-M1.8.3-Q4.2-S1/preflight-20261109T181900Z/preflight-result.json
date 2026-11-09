@@ -1,0 +1,96 @@
+{
+  "schema": "agentnexus.q42-s1.preflight.v1",
+  "status": "PASS_WITH_HISTORICAL_HEAD_GUARD_MISMATCH",
+  "errors": [],
+  "head": "2936fb8e32c9d19c973e607b7dd76cc242484217",
+  "start_worktree": "",
+  "baseline_head": "36f7c4484991d0b6b8c3e0f523492b2caf9ed59c",
+  "baseline_is_ancestor": true,
+  "historical_checker": {
+    "exit_code": 1,
+    "status": "FAIL",
+    "errors": [
+      "head-changed"
+    ],
+    "unchanged": true,
+    "hash_failure_waived": false
+  },
+  "closures": [
+    {
+      "base": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q3",
+      "sha256sums_sha256": "b772cc5bf9cee693d62aa5066b35e288c8e16eee6d9bfb2d774e7376ab4152ff",
+      "listed_files": 650,
+      "actual_files": 650,
+      "total_listed_bytes": 476347383,
+      "missing": [],
+      "extra": [],
+      "status": "PASS"
+    },
+    {
+      "base": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4",
+      "sha256sums_sha256": "71f9dc7d981fe4ad54466020c36017ba998a36e9af2d4cbf2a1b5abc206efc07",
+      "listed_files": 88,
+      "actual_files": 88,
+      "total_listed_bytes": 544736,
+      "missing": [],
+      "extra": [],
+      "status": "PASS"
+    },
+    {
+      "base": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.1",
+      "sha256sums_sha256": "3e437f22c89d1ca11ae2f96dd2ffdad27a05a5b7e083c7f79309ac135254c459",
+      "listed_files": 1644,
+      "actual_files": 1644,
+      "total_listed_bytes": 483943202,
+      "missing": [],
+      "extra": [],
+      "status": "PASS"
+    },
+    {
+      "base": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2",
+      "sha256sums_sha256": "bd87f3fb7903e5627ab6cb63a94c75848f4734ca626aab8fc52ab42709d95ffe",
+      "listed_files": 5649,
+      "actual_files": 5649,
+      "total_listed_bytes": 514610333,
+      "missing": [],
+      "extra": [],
+      "status": "PASS"
+    }
+  ],
+  "source_files": 264,
+  "source_and_zip_match": true,
+  "review_targets_match": true,
+  "review_target_count": 19,
+  "payload_files": 194,
+  "payload_bytes": 468592656,
+  "payload_matches": true,
+  "key_files": {
+    "SHA256SUMS": "bd87f3fb7903e5627ab6cb63a94c75848f4734ca626aab8fc52ab42709d95ffe",
+    "source-manifest.json": "382f06b7f9ef3c2d94cf2c4c562a14e3c5bc703df76a9f09d08f115e1d7586d8",
+    "payload-staging-manifest.json": "fdecd726c13c9f5ca92b47ef4a089750e6217bd88d81ed65659ad0bc8d9477f7",
+    "signer/AgentNexus.Qualification.Signer.exe": "6668d6a16739a31fea0d3c474bfc6f17a2bd8e0eb7760b7a8f2cb9728a23ce9b",
+    "signer/AgentNexus.Qualification.Verifier.exe": "5963e6f7200ef6b5e4f57632e1f6e5833d7c95b9dd71292e87f43de8893fccd2",
+    "source/native/qualification-signer/user-create-certificate.ps1": "568dbcfcf8db83db10c7ce6028c1189ab9b3fb6239483bffdb4b9d882f1a461e",
+    "tools/freeze.py": "39e6ecd1c16794fb60822c68859d62534bf838a7a29cc2a1456c073515588684",
+    "tools/build.py": "c998434c0ca845881ef760590cca462bc8535e80a7014ebb5c0642d6d741aff6",
+    "source/tools/agentnexus/install-q41-qualification.ps1": "deb40c5479d3b7c4fa711c1729fd1b1711fbdcb0f1aa9d49631b395f0d6e32a9"
+  },
+  "actual_certificate": null,
+  "actual_der_sha256_pin": null,
+  "actual_candidate": "NOT_RUN",
+  "qualification_plan_signing": "NOT_RUN",
+  "deployment_approval_signing": "NOT_RUN",
+  "target_signed_verification": "NOT_RUN",
+  "installation_approved": false,
+  "start_service": false,
+  "os_qualification": {
+    "passed": 0,
+    "not_run": 70
+  },
+  "production_vault": "BLOCKED",
+  "private_key_accessed": false,
+  "system_changes": false,
+  "real_api_keys_imported": 0,
+  "real_provider_requests": 0,
+  "completed_at_utc": "2026-11-09T18:22:18.627794+00:00"
+}

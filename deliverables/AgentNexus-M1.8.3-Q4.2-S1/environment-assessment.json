@@ -1,0 +1,36 @@
+{
+  "schema": "agentnexus.q42-s1.environment-assessment.v1",
+  "status": "WAITING_USER_PUBLIC_CERTIFICATE_UNSIGNED_NO_GO",
+  "user_answers": [
+    "另一台由我控制、Codex 无法访问的 Windows 设备（推荐）",
+    "拟新建 TPM_CNG 证书，设备须支持且不能回退软件"
+  ],
+  "chosen_method": "TPM_CNG",
+  "software_fallback_allowed": false,
+  "separate_device_readiness": "PENDING_USER_OBSERVATION_NOT_AGENT_VERIFIED",
+  "current_host_tpm": "INCONCLUSIVE_NO_NONEMPTY_PRESENT_READY_VALUES",
+  "raw_tpm_label_is_not_hardware_evidence": true,
+  "actual_certificate_creation": "NOT_RUN",
+  "actual_private_key_use": "NOT_RUN",
+  "actual_pin": null,
+  "candidate_freeze": "NOT_RUN",
+  "qualification_plan_signing": "NOT_RUN",
+  "deployment_approval_signing": "NOT_RUN",
+  "target_signed_verification": "NOT_RUN",
+  "final_precise_deployment_request": "NOT_RUN",
+  "os_counts": {
+    "PASS": 0,
+    "FAIL": 0,
+    "NOT_RUN": 70,
+    "BLOCKED": 0,
+    "INCONCLUSIVE": 0,
+    "SIMULATED": 0
+  },
+  "independent_pin_or_target_confirmation_received": false,
+  "system_changes": false,
+  "installation_approved": false,
+  "start_service": false,
+  "governance_new_attempt": "Original govern.py new was attempted; it was interrupted during prolonged full inventory before creating the requested file. New files were then created in approved task/runtime/deliverable classes; full unchanged governance check is required below.",
+  "client_date": "2026-11-10",
+  "timezone": "Asia/Shanghai"
+}

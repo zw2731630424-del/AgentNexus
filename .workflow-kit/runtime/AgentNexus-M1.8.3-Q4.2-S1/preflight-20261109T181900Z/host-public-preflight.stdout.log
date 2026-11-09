@@ -1,0 +1,62 @@
+{
+  "host": "DESKTOP-OSWALD",
+  "operator_name": "DESKTOP-OSWALD\\28642",
+  "operator_sid": "S-1-5-21-2532670394-1554971530-4095700938-1001",
+  "session_id": 1,
+  "administrator_enabled": false,
+  "observed_at_utc": "2026-11-09T18:22:17.2907078Z",
+  "selected_signing_environment": "USER_SELECTED_SEPARATE_WINDOWS_DEVICE_AGENT_INACCESSIBLE",
+  "separate_device_inspected_by_agent": false,
+  "independent_environment_readiness": "PENDING_USER_EVIDENCE",
+  "private_key_opened": false,
+  "certificate_store_modified": false,
+  "system_changes": false,
+  "certificate_stores": [
+    {
+      "location": "CurrentUser",
+      "status": "READ_ONLY_METADATA",
+      "total_certificates": 0,
+      "document_signing_candidates": []
+    },
+    {
+      "location": "LocalMachine",
+      "status": "READ_ONLY_METADATA",
+      "total_certificates": 2,
+      "document_signing_candidates": []
+    }
+  ],
+  "tpm": {
+    "status": "READ_ONLY_METADATA",
+    "present": null,
+    "ready": null,
+    "actual_cng_tpm_signing": "NOT_RUN"
+  },
+  "service_query": {
+    "exit_code": 1060,
+    "raw": [
+      "[SC] EnumQueryServicesStatus:OpenService FAILED 1060:",
+      "",
+      "The specified service does not exist as an installed service.",
+      ""
+    ]
+  },
+  "service_sid_query": {
+    "exit_code": 0,
+    "raw": [
+      "",
+      "NAME: AgentNexusCredential ",
+      "SERVICE SID: S-1-5-80-8808145-1723257024-8982472-3705063417-1094825873",
+      "STATUS: Inactive"
+    ]
+  },
+  "target_paths": [
+    {
+      "path": "C:\\Program Files\\AgentNexus",
+      "exists": false
+    },
+    {
+      "path": "C:\\ProgramData\\AgentNexusCredential",
+      "exists": false
+    }
+  ]
+}

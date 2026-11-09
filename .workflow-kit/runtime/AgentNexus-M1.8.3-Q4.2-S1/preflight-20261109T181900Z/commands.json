@@ -1,0 +1,150 @@
+[
+  {
+    "name": "git-head",
+    "command": [
+      "git",
+      "rev-parse",
+      "HEAD"
+    ],
+    "exit_code": 0,
+    "started_at_utc": "2026-11-09T18:21:30.894742+00:00",
+    "ended_at_utc": "2026-11-09T18:21:30.958808+00:00",
+    "stdout_sha256": "af57c0db9ec2f9ea19843fbf459b8a63ec0dcdea61f1dbbcdf5f05db3914e446",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "git-status-before",
+    "command": [
+      "git",
+      "--no-optional-locks",
+      "status",
+      "--porcelain=v1",
+      "--untracked-files=normal"
+    ],
+    "exit_code": 0,
+    "started_at_utc": "2026-11-09T18:21:30.958808+00:00",
+    "ended_at_utc": "2026-11-09T18:22:05.058509+00:00",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "q42-verify-delivery",
+    "command": [
+      "C:\\Users\\28642\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+      "-B",
+      "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\tools\\verify-delivery.py"
+    ],
+    "exit_code": 1,
+    "started_at_utc": "2026-11-09T18:22:10.725058+00:00",
+    "ended_at_utc": "2026-11-09T18:22:16.558531+00:00",
+    "stdout_sha256": "be81be7b3a735f277f78bb5b70c4f292f9cf192dccb1f8657b79b797de9bb8ac",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "baseline-ancestor",
+    "command": [
+      "git",
+      "merge-base",
+      "--is-ancestor",
+      "36f7c4484991d0b6b8c3e0f523492b2caf9ed59c",
+      "2936fb8e32c9d19c973e607b7dd76cc242484217"
+    ],
+    "exit_code": 0,
+    "started_at_utc": "2026-11-09T18:22:16.558531+00:00",
+    "ended_at_utc": "2026-11-09T18:22:16.624895+00:00",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "baseline-to-head",
+    "command": [
+      "git",
+      "diff",
+      "--name-status",
+      "36f7c4484991d0b6b8c3e0f523492b2caf9ed59c",
+      "2936fb8e32c9d19c973e607b7dd76cc242484217"
+    ],
+    "exit_code": 0,
+    "started_at_utc": "2026-11-09T18:22:16.624895+00:00",
+    "ended_at_utc": "2026-11-09T18:22:16.709020+00:00",
+    "stdout_sha256": "13f213985cc0f9b2a34e86ac55a3fba646732e339fa34f8785b39eb25ae2a0bb",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "verifier-describe",
+    "command": [
+      "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\signer\\AgentNexus.Qualification.Verifier.exe",
+      "--describe"
+    ],
+    "exit_code": 0,
+    "started_at_utc": "2026-11-09T18:22:16.710018+00:00",
+    "ended_at_utc": "2026-11-09T18:22:16.819084+00:00",
+    "stdout_sha256": "479a601ea3ba8ba092a879f62ac73f0b266876aee12a53ed18f58c8403792c9e",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "verifier-identity",
+    "command": [
+      "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\signer\\AgentNexus.Qualification.Verifier.exe",
+      "--identity"
+    ],
+    "exit_code": 0,
+    "started_at_utc": "2026-11-09T18:22:16.819084+00:00",
+    "ended_at_utc": "2026-11-09T18:22:16.921983+00:00",
+    "stdout_sha256": "3fdee51df3d951f4d3d380ea39b661bb16279070943cddc285e8391c037228a9",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "signer-automatic-arguments-rejected",
+    "command": [
+      "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\signer\\AgentNexus.Qualification.Signer.exe",
+      "--approve",
+      "--automatic"
+    ],
+    "exit_code": 21,
+    "started_at_utc": "2026-11-09T18:22:16.922984+00:00",
+    "ended_at_utc": "2026-11-09T18:22:16.988646+00:00",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "host-public-preflight",
+    "command": [
+      "pwsh",
+      "-NoLogo",
+      "-NoProfile",
+      "-NonInteractive",
+      "-Command",
+      "\n$ErrorActionPreference='Stop'\n[Console]::OutputEncoding=[Text.UTF8Encoding]::new($false)\n$id=[Security.Principal.WindowsIdentity]::GetCurrent()\n$report=[ordered]@{host=$env:COMPUTERNAME;operator_name=$id.Name;operator_sid=$id.User.Value;session_id=[Diagnostics.Process]::GetCurrentProcess().SessionId;administrator_enabled=([Security.Principal.WindowsPrincipal]::new($id)).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator);observed_at_utc=[DateTime]::UtcNow.ToString('o');selected_signing_environment='USER_SELECTED_SEPARATE_WINDOWS_DEVICE_AGENT_INACCESSIBLE';separate_device_inspected_by_agent=$false;independent_environment_readiness='PENDING_USER_EVIDENCE';private_key_opened=$false;certificate_store_modified=$false;system_changes=$false}\n$stores=@()\nforeach($location in @([Security.Cryptography.X509Certificates.StoreLocation]::CurrentUser,[Security.Cryptography.X509Certificates.StoreLocation]::LocalMachine)){\n $store=[Security.Cryptography.X509Certificates.X509Store]::new([Security.Cryptography.X509Certificates.StoreName]::My,$location)\n try{\n  $store.Open([Security.Cryptography.X509Certificates.OpenFlags]::ReadOnly -bor [Security.Cryptography.X509Certificates.OpenFlags]::OpenExistingOnly)\n  $certs=$store.Certificates;$candidates=@()\n  foreach($cert in $certs){\n   try{\n    $ekus=@($cert.Extensions | Where-Object {$_ -is [Security.Cryptography.X509Certificates.X509EnhancedKeyUsageExtension]} | ForEach-Object {$_.EnhancedKeyUsages} | ForEach-Object {$_.Value})\n    if($ekus -contains '1.3.6.1.5.5.7.3.36'){$candidates += [ordered]@{subject=$cert.Subject;issuer=$cert.Issuer;der_sha256=[Convert]::ToHexString([Security.Cryptography.SHA256]::HashData($cert.RawData)).ToLowerInvariant();not_before_utc=$cert.NotBefore.ToUniversalTime().ToString('o');not_after_utc=$cert.NotAfter.ToUniversalTime().ToString('o');has_private_key_metadata_only=$cert.HasPrivateKey;eku=$ekus;selected_or_trusted=$false}}\n   }finally{$cert.Dispose()}\n  }\n  $stores += [ordered]@{location=$location.ToString();status='READ_ONLY_METADATA';total_certificates=$certs.Count;document_signing_candidates=$candidates}\n }catch{$stores += [ordered]@{location=$location.ToString();status='INCONCLUSIVE';reason=$_.Exception.Message}}finally{$store.Dispose()}\n}\n$report.certificate_stores=$stores\ntry{$tpm=Get-Tpm -ErrorAction Stop;$report.tpm=[ordered]@{status='READ_ONLY_METADATA';present=$tpm.TpmPresent;ready=$tpm.TpmReady;actual_cng_tpm_signing='NOT_RUN'}}catch{$report.tpm=[ordered]@{status='INCONCLUSIVE';reason=$_.Exception.Message;actual_cng_tpm_signing='NOT_RUN'}}\n$sc=@(& 'C:\\Windows\\System32\\sc.exe' queryex AgentNexusCredential 2>&1);$report.service_query=[ordered]@{exit_code=$LASTEXITCODE;raw=$sc}\n$sid=@(& 'C:\\Windows\\System32\\sc.exe' showsid AgentNexusCredential 2>&1);$report.service_sid_query=[ordered]@{exit_code=$LASTEXITCODE;raw=$sid}\n$report.target_paths=@(foreach($p in @('C:\\Program Files\\AgentNexus','C:\\ProgramData\\AgentNexusCredential')){[ordered]@{path=$p;exists=(Test-Path -LiteralPath $p)}})\n$report | ConvertTo-Json -Depth 20\n"
+    ],
+    "exit_code": 0,
+    "started_at_utc": "2026-11-09T18:22:16.989645+00:00",
+    "ended_at_utc": "2026-11-09T18:22:18.544318+00:00",
+    "stdout_sha256": "ff6055bb49966100665f0720482c8986b981345da59871c69b66913172d4414b",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "whoami-groups",
+    "command": [
+      "C:/Windows/System32/whoami.exe",
+      "/groups"
+    ],
+    "exit_code": 0,
+    "started_at_utc": "2026-11-09T18:22:18.545319+00:00",
+    "ended_at_utc": "2026-11-09T18:22:18.588685+00:00",
+    "stdout_sha256": "17b76b51e08900334b857100976f31a34831c434b0af90d3b0e09add9d060313",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "session-query",
+    "command": [
+      "C:/Windows/System32/query.exe",
+      "user"
+    ],
+    "exit_code": 1,
+    "started_at_utc": "2026-11-09T18:22:18.589684+00:00",
+    "ended_at_utc": "2026-11-09T18:22:18.624475+00:00",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "5e29107e391ce3c7e64abc0fa09a7a86d9ae1f6613773ce00dd6c10b0bd61d3c"
+  }
+]

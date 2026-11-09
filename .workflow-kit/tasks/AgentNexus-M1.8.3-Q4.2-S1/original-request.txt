@@ -1,0 +1,425 @@
+# AgentNexus Q4.2-S1 — 真实本地签发与 Windows 资格部署准备
+
+**项目：** AgentNexus  
+**开发与执行代理：** Codex  
+**基线：** M1.8.3-Q4.2  
+**任务类型：** 实际资格签发准备、用户独立签署、部署候选冻结、Windows OS 验证准入。
+
+## 一、任务目标
+
+Q4.2 已经完成：
+
+- Qualification Signer 的源码审查和整改。
+- 独立 WinForms Signer。
+- CMS / DER SHA256 Pin 验证。
+- 签署内容内存快照与 TOCTOU 防护。
+- CNG / TPM CNG 签名支持。
+- 两阶段签名合同。
+- 107/107 签名模拟测试。
+- 224 PASS / 0 FAIL / 5 SKIP 的限定回归。
+- 194项部署载荷准备。
+
+当前仍然：
+
+- 实际用户证书：NOT_RUN。
+- 实际证书 Pin：null。
+- CNG / TPM 真实签署：NOT_RUN。
+- Qualification Plan 签署：NOT_RUN。
+- Deployment Approval 签署：NOT_RUN。
+- Windows Service：未安装。
+- 原70项 OS 资格测试：0 PASS / 70 NOT_RUN。
+- 生产 Credential Vault：BLOCKED。
+- 真实 API Key 和 Provider 请求：0。
+
+**本次目标不再是开发新的签名系统，而是推动现有 Signer 进入真实用户操作阶段，为下一步 Windows 资格部署取得有效的签名和审批材料。**
+
+不得再以新增模拟测试、签名协议或文档数量作为主要交付成果。
+
+## 二、读取项目规则与 Q4.2 基线
+
+开始前必须读取全部适用项目规则，并核实：
+
+1. Q4.2 最终验收报告。
+2. Q4.2 Signer README。
+3. Q4.2 Signer 源码及构建产物。
+4. 两份独立 Signer 审查。
+5. CNG / TPM 方案。
+6. 私钥保护报告。
+7. Qualification Plan 合同。
+8. Deployment Approval 合同。
+9. CMS / DER Pin 验证器。
+10. `freeze.py` 和 `build.py`。
+11. Q4.2 部署申请与回滚方案。
+12. Q3 / Q4 / Q4.1 历史失败和阻断记录。
+
+核对当前 HEAD、工作树和 SHA256。
+
+确认最终交付的194项载荷完整、Signer/Verifier 可运行，源文件和预期 Hash 一致。
+
+不要修改已经冻结的历史交付。
+
+除非发现可复现的阻断性缺陷，否则不再修改 Signer 架构。
+
+## 三、P0：确定真实签名环境
+
+首先调查当前可使用的签名环境。
+
+优先考虑：
+
+- 与 Codex 开发环境隔离的 Windows 设备。
+- 具有不同安全主体、独立密钥访问权限且代理无法控制的 Windows 会话。
+- 用户实际控制的 CNG / TPM CNG 私钥。
+
+必须核实隔离条件，而不是仅凭不同窗口或不同登录会话判断安全。
+
+特别明确：
+
+- 同 SID 的另一个桌面会话不构成充分隔离。
+- 软件 CNG 不等于硬件隔离。
+- TPM 不可导出不代表其他同 SID 进程绝对无法申请签名。
+- 签名工具不联网也不自动构成可信程序。
+
+如果当前没有符合原 Q4.2 安全合同的独立环境：
+
+1. 明确说明缺少哪些条件。
+2. 给出最小可行的操作选择。
+3. 区分各方案的剩余风险。
+4. 不自行降低信任标准。
+5. 不继续开发新的安全平台来规避这个问题。
+
+向用户呈现简单、明确的下一项选择，不要反复索取已经提供的信息。
+
+## 四、P0：准备真实证书操作
+
+复用 Q4.2 已有的：
+
+`user-create-certificate.ps1`
+
+和 Qualification Signer。
+
+如果用户选择创建本地证书：
+
+- 先检查该脚本及最终 Hash。
+- 说明 SOFTWARE_CNG 与 TPM_CNG 的区别。
+- 说明将修改哪个 Windows 用户的 `CurrentUser\My`。
+- 说明证书和密钥的存储位置。
+- 说明不可导出策略和实际调用权限。
+- 说明是否需要用户交互确认。
+- 明确取消及失败后的状态。
+
+**创建实际证书和私钥必须由用户明确批准并在独立环境执行。**
+
+Codex 不得自行创建用户签发私钥。
+
+不得读取或导出私钥。
+
+不得索取 PFX、私钥密码或私钥文件。
+
+不得自动向 Root 或 Trusted Publishers 导入信任。
+
+## 五、P0：独立证书和 Pin 核对
+
+用户选择证书后：
+
+1. 读取公开 DER 证书。
+2. 核实 Subject、Issuer 和有效期。
+3. 核实密钥算法及用途。
+4. 计算 DER SHA256。
+5. 让用户从独立渠道确认完整64位 Pin。
+6. 保留独立核对记录。
+
+不得将 Windows SHA1 Thumbprint 当作 DER SHA256。
+
+不得只因为证书来自本机，就自动信任。
+
+不得由 Codex 自行生成信任锚并自动批准。
+
+## 六、P0：重新生成真正的部署候选
+
+当前 Q4.2 仍然没有真实证书和最终签名，因此不能直接签署旧候选。
+
+取得用户允许公开使用的证书和独立确认的 Pin 后，按照 Q4.2 正式流程：
+
+1. 在目标 Windows 设备读取实际 Host Identity。
+2. 核实 Machine ID、Operator SID 和预计算 Service SID。
+3. 运行现有公开材料冻结工具。
+4. 生成新的 Deployment ID。
+5. 按现有合同生成新的 Epoch。
+6. 生成新的 UTC 有效窗口。
+7. 重新冻结194项安装文件。
+8. 核实实际文件数量、字节数和全部 Hash。
+9. 绑定 Signer、Verifier、安装器及相关配置。
+10. 输出全新候选目录。
+
+当前 Q4.2 默认准备流程使用 Epoch 5，具体以实际冻结合同为准。
+
+候选时间窗不得超过合同允许期限。
+
+必须坚持：
+
+- 不覆盖旧候选。
+- 不复用过期审批。
+- 不替换已冻结文件。
+- 不借用旧候选的 Hash。
+- 不使用未经核验的依赖。
+- 不修改原始历史记录。
+
+## 七、P0：用户独立签署 Qualification Plan
+
+本阶段由用户在独立签名环境操作。
+
+Codex 只负责准备文件、解释操作和验证公开结果。
+
+用户打开 Q4.2 Qualification Signer，选择第一阶段：
+
+**Sign Qualification Plan**
+
+必须展示：
+
+- 目标 Host。
+- Machine ID。
+- Operator SID。
+- Service SID。
+- Epoch。
+- 有效期限。
+- 安装清单 Hash。
+- 最终资格计划 JSON。
+- 具体系统变更。
+- 使用的证书及 Pin。
+- 允许的合成操作。
+- 全部真实权限为 false。
+
+用户确认最终内容后，使用自己的私钥完成签署。
+
+输出：
+
+- `qualification-plan.json`
+- `qualification-plan.p7s`
+- `signing-result.json`
+
+**这一步只批准资格计划，不批准安装。**
+
+不得自动继续第二阶段。
+
+不得自动执行部署。
+
+## 八、P0：用户独立签署 Deployment Approval
+
+第一阶段签名通过后，再进入第二阶段。
+
+必须重新验证：
+
+- 第一阶段 CMS。
+- 证书 Pin。
+- 安装清单。
+- Host。
+- Operator。
+- Service SID。
+- Epoch。
+- 有效期。
+- 完整资格计划。
+- 最终权限范围。
+
+随后由用户再次审阅具体的 Deployment Approval JSON。
+
+用户独立确认并签名后输出：
+
+- `deployment-approval.json`
+- `deployment-approval.p7s`
+- `signing-result.json`
+
+继续要求：
+
+`start_service=false`
+
+当前阶段不能自动安装或启动 Windows Service。
+
+## 九、P0：目标 Windows 只读验签
+
+签署完成后，在目标 Windows 设备运行现有 Verifier。
+
+必须核实：
+
+1. Qualification Plan CMS。
+2. Deployment Approval CMS。
+3. DER SHA256 Pin。
+4. 完整安装文件集合。
+5. Signer / Verifier Hash。
+6. Machine ID。
+7. Operator SID。
+8. Service SID。
+9. Epoch。
+10. 有效期限。
+11. 权限范围。
+12. 文件完整性。
+
+预期状态：
+
+`SIGNED_LOCAL_VERIFIED_ONLY`
+
+验证结果必须附原始记录。
+
+不能把该状态写成：
+
+- DEPLOYED。
+- SERVICE_RUNNING。
+- OS_QUALIFIED。
+- PRODUCTION_VAULT_READY。
+
+验签不得修改系统状态。
+
+## 十、P1：生成真正可批准的 Windows 部署申请
+
+签名完成并且验签通过后，基于最终签署文件生成新部署申请。
+
+必须清楚列出：
+
+- 最终证书指纹。
+- 资格计划 Hash。
+- 部署批准 Hash。
+- 全部安装文件 Hash。
+- 服务名称。
+- Virtual Service Account。
+- 目标安装目录。
+- 数据目录。
+- ACL / SDDL。
+- High Pipe。
+- Daily Pipe。
+- Trusted Helper。
+- Native Runtime。
+- SCM 变更。
+- 实际需要的管理员权限。
+- 回滚方案。
+
+必须明确分离：
+
+**A. 仅安装并保持停止。**
+
+**B. 启动 Credential Service。**
+
+**C. 使用合成凭证执行 Windows OS 资格测试。**
+
+用户可以分别批准。
+
+如建议一次批准某个严格限定的资格操作窗口，必须先在正式合同中明确其范围、期限、失败停止条件和回滚方式，并经用户独立批准。
+
+不得将既有安装许可推定为启动或 OS 攻击测试许可。
+
+## 十一、后续真正的工程目标
+
+一旦获得明确部署批准，下一阶段不再研究签名。
+
+直接进行真实 Windows 资格验证。
+
+关键流程：
+
+```text
+普通权限 AgentNexus Electron
+            |
+            v
+Add Key
+            |
+            v
+真实 UAC
+            |
+            v
+Trusted Helper
+            |
+            v
+合成凭证
+            |
+            v
+独立 Credential Service
+            |
+            v
+受保护 Native Runtime
+            |
+            v
+Daily Medium IPC
+            |
+            v
+Synthetic Provider
+            |
+            v
+Streaming Response
+            |
+            v
+AgentNexus UI
+```
+
+重点验证：
+
+- Service SID 与真实 Token。
+- High / Medium Pipe DACL 和 MIC。
+- UAC Helper。
+- 同 SID 进程攻击。
+- Runtime 对象和句柄保护。
+- 跨身份 DPAPI。
+- 进程注入边界。
+- 服务和 Runtime 重启。
+- 唯一 Token Ledger。
+- Data Egress。
+- 合成端到端模型调用。
+
+复用已有70项 OS 测试合同。
+
+不能再用新的模拟测试替代真实 Windows 验证。
+
+## 十二、当前严格禁止事项
+
+本轮未经独立授权，Codex 不得：
+
+- 创建或使用用户私钥。
+- 代替用户签署资格计划。
+- 代替用户签署部署批准。
+- 安装 Windows Service。
+- 创建账户。
+- 修改 ACL。
+- 修改系统信任存储。
+- 启动高权限安装器。
+- 启动正式 Credential Service。
+- 导入真实 API Key。
+- 连接 DeepSeek、OpenAI 或 GLM。
+- 迁移或重置 REAL Token Ledger。
+- 自动 Commit / Push。
+
+保留用户此前授权的输入与输出合计100,000,000 Token 上限，不重新申请，也不能将它当作真实 API 请求执行许可。
+
+## 十三、最终交付
+
+本轮不要再制作大量重复架构文档。
+
+只需要：
+
+1. 真实签名环境预检。
+2. 用户证书与 Pin 核对说明。
+3. 新冻结候选及完整 Hash。
+4. Qualification Plan 签名结果。
+5. Deployment Approval 签名结果。
+6. 目标 Windows 验签结果。
+7. 最终精确部署审批申请。
+8. 尚未满足的安全条件及原因。
+
+如果用户尚未完成证书选择或签署：
+
+- 如实标记 NOT_RUN。
+- 不伪造签名。
+- 不创建临时信任锚来冒充用户。
+- 不无限期继续增加模拟测试。
+- 提供明确的用户下一步操作。
+
+## 十四、执行要求
+
+由 Codex 负责技术预检、准备、验证和交付。
+
+实际证书创建、私钥使用、两次签署和系统部署批准由用户独立控制。
+
+优先完成已经具备条件的只读检查及公开材料准备。
+
+遇到真正需要用户执行的签名步骤，应展示完整具体操作和当前精确候选，然后停在该授权边界。
+
+不要自行越过。
+
+**本次成功标准不再是增加多少签名测试，而是使用户能够使用已开发的 Signer，完成真实的本地资格签署，并取得一个经独立核验、可以正式提交部署审批的候选。**
+
+现在开始执行 AgentNexus Q4.2-S1。
