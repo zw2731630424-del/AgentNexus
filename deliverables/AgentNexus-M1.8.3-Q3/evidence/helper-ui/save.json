@@ -1,0 +1,50 @@
+{
+  "schema": 1,
+  "test_case": "save",
+  "result": {
+    "status": "CREDENTIAL_SAVED",
+    "reason": "HELPER_COMPLETED_REFRESH_REQUIRED"
+  },
+  "driver": {
+    "schema": "agentnexus.synthetic-helper-ui-driver.v1",
+    "result": "PASS",
+    "ui_launched": true,
+    "test_case": "save",
+    "control_actions": 3,
+    "canary_logged": false,
+    "uac_verified": "NOT_RUN"
+  },
+  "events": [
+    {
+      "event": "synthetic.ui.shown",
+      "pid": 51984,
+      "helper_channel": "063d5b08-a370-40af-b7fa-df6f0ac03bb2",
+      "same_sid": true,
+      "elevated": false,
+      "integrity": "MEDIUM",
+      "ui_launched": true,
+      "uac_verified": "NOT_RUN"
+    },
+    {
+      "event": "synthetic.ui.save.ack",
+      "stored": true,
+      "uac_verified": "NOT_RUN"
+    },
+    {
+      "event": "synthetic.ui.closed",
+      "exit_code": 0,
+      "save_acknowledged": true,
+      "uac_verified": "NOT_RUN"
+    }
+  ],
+  "methods": [
+    "snapshot",
+    "snapshot",
+    "credential.prepare",
+    "credential.save"
+  ],
+  "keys_stored": 1,
+  "ui_launched": "PASS",
+  "uac_verified": "NOT_RUN",
+  "no_real_key_or_network": true
+}

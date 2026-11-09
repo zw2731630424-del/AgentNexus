@@ -1,0 +1,90 @@
+[
+  {
+    "seq": 1,
+    "at": "2026-11-09T09:07:51.260Z",
+    "code": "MANAGEMENT_REQUEST_CLAIMED",
+    "body": "{\"method\":\"credential.prepare\",\"request_id\":\"55778f69-d9dc-4fcf-902a-7afdcc273e01\"}",
+    "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+    "hash": "302213917f817f58e33ca90628aa311f20fd4a7edc9fbbc3c9d8c4ad8231491e"
+  },
+  {
+    "seq": 2,
+    "at": "2026-11-09T09:07:51.262Z",
+    "code": "CREDENTIAL_IMPORT_PREPARED",
+    "body": "{\"epoch\":1,\"expires\":1794215301262,\"operation_id_hash\":\"8c5ac54c8982403c870e27a2ca0dc426753bbbd6f9b2a4f89d8553bc781d5df8\",\"ticket_id\":\"228db600-b338-473a-9e40-670c921cafe7\"}",
+    "previous_hash": "302213917f817f58e33ca90628aa311f20fd4a7edc9fbbc3c9d8c4ad8231491e",
+    "hash": "3b278c6e5c8438beff6a135b9c7a49b4a1a50da4197ecd11ec8ad977af1db928"
+  },
+  {
+    "seq": 3,
+    "at": "2026-11-09T09:07:51.266Z",
+    "code": "MANAGEMENT_REQUEST_CLAIMED",
+    "body": "{\"method\":\"credential.save\",\"request_id\":\"6d7e4cbd-92c7-4e07-81a0-16adc1207517\"}",
+    "previous_hash": "3b278c6e5c8438beff6a135b9c7a49b4a1a50da4197ecd11ec8ad977af1db928",
+    "hash": "b61a1e1ee5861008100266311203149fa086a7d5356fa819519e82459b857fe7"
+  },
+  {
+    "seq": 4,
+    "at": "2026-11-09T09:07:51.267Z",
+    "code": "CREDENTIAL_SAVE_INTENT",
+    "body": "{\"key_id\":\"key.52481eee-9715-4e4f-8e39-9c86d75b6114\",\"old_key_id\":null,\"provider_id\":\"deepseek\"}",
+    "previous_hash": "b61a1e1ee5861008100266311203149fa086a7d5356fa819519e82459b857fe7",
+    "hash": "c940ffc9c92477392f21c87fbfa962a11c4a64c477e4b25fc04a7118421456dd"
+  },
+  {
+    "seq": 5,
+    "at": "2026-11-09T09:07:51.570Z",
+    "code": "CREDENTIAL_SAVED",
+    "body": "{\"key_id\":\"key.52481eee-9715-4e4f-8e39-9c86d75b6114\",\"old_key_id\":null}",
+    "previous_hash": "c940ffc9c92477392f21c87fbfa962a11c4a64c477e4b25fc04a7118421456dd",
+    "hash": "32d39b904cc8e8dd640ad929088e6f75ed47ee8d7d76dac9ceac3229303f13d7"
+  },
+  {
+    "seq": 6,
+    "at": "2026-11-09T09:07:51.571Z",
+    "code": "CREDENTIAL_IMPORT_CONSUMED",
+    "body": "{\"operation_id_hash\":\"8c5ac54c8982403c870e27a2ca0dc426753bbbd6f9b2a4f89d8553bc781d5df8\",\"ticket_id\":\"228db600-b338-473a-9e40-670c921cafe7\"}",
+    "previous_hash": "32d39b904cc8e8dd640ad929088e6f75ed47ee8d7d76dac9ceac3229303f13d7",
+    "hash": "7441e8c4623a5b5c8feddee9111beb6dd01975212449f04ec6b95736ca3fc7fe"
+  },
+  {
+    "seq": 7,
+    "at": "2026-11-09T09:07:52.142Z",
+    "code": "DAILY_GRANT_ISSUED",
+    "body": "{\"grant_id\":\"2d7080c9-6bd5-4b7c-9456-ff91c2565b6d\",\"input_hash\":\"419808549c52127381efa741f40a74c8b1c735e0190353663415cb4f8edb1f4b\",\"owner\":\"CREDENTIAL_SERVICE\",\"request_id\":\"e980d240-7d6d-4e4b-b962-2c869e48f531.a0\",\"runtime_identity\":\"b43a271b-dd17-4dc9-aca7-67843195de08\"}",
+    "previous_hash": "7441e8c4623a5b5c8feddee9111beb6dd01975212449f04ec6b95736ca3fc7fe",
+    "hash": "80f7c227b34f9907eca0232d3e92e5dca2a72ee3ad27fccb8d02f1583e38309f"
+  },
+  {
+    "seq": 8,
+    "at": "2026-11-09T09:07:52.146Z",
+    "code": "DAILY_GRANT_CONSUMED",
+    "body": "{\"grant_id\":\"2d7080c9-6bd5-4b7c-9456-ff91c2565b6d\",\"request_id\":\"e980d240-7d6d-4e4b-b962-2c869e48f531.a0\",\"runtime_identity\":\"b43a271b-dd17-4dc9-aca7-67843195de08\"}",
+    "previous_hash": "80f7c227b34f9907eca0232d3e92e5dca2a72ee3ad27fccb8d02f1583e38309f",
+    "hash": "90d971e3e73b39126bf7f9cd7d4f254a9e317a558cacef895708cf93ee8ce49a"
+  },
+  {
+    "seq": 9,
+    "at": "2026-11-09T09:07:52.146Z",
+    "code": "TOKENS_RESERVED",
+    "body": "{\"binding\":{\"agent_id\":\"development\",\"context_hash\":\"8db75b07a94af09f58f67caa90592f0f41194261bd9322d811c788a0dabcdf6e\",\"credential_handle_id\":\"c48a8a46-d873-47de-9501-0140865cfb1c\",\"data_classification\":\"SYNTHETIC\",\"data_egress_decision\":\"575f53f8-d29e-40da-b4cb-5177e050778d\",\"deadline\":1794215302141,\"model_id\":\"deepseek-flash\",\"nonce\":\"4eed46c0-2047-463e-bf09-c0c64a2b4c2d\",\"operation_id\":\"7566a63e-db25-4b80-b398-2fa35066d73a\",\"policy_epoch\":1,\"project_id\":\"desktop\",\"provider_id\":\"deepseek\",\"request_body_hash\":\"75f3faf08fbd515c19510d747b92507141cc2b29b909c56e2253917a638ced71\",\"request_id\":\"e980d240-7d6d-4e4b-b962-2c869e48f531.a0\",\"runtime_identity\":\"33a24812fa6d3adeef5cdd2e4c093f2788b777325d1892b5d4e76b594e3c7407\",\"task_id\":\"development.session\",\"token_reservation_id\":\"e980d240-7d6d-4e4b-b962-2c869e48f531.a0\"},\"held_tokens\":4814,\"owner\":\"CREDENTIAL_SERVICE\"}",
+    "previous_hash": "90d971e3e73b39126bf7f9cd7d4f254a9e317a558cacef895708cf93ee8ce49a",
+    "hash": "36fadbbb3da1900d754098d6ec52cc7f1a7b1758da99d10b8004e2c8cd41197e"
+  },
+  {
+    "seq": 10,
+    "at": "2026-11-09T09:07:52.463Z",
+    "code": "PROVIDER_SEND_INTENT",
+    "body": "{\"automatic_retry\":false,\"key_handle_id\":\"c48a8a46-d873-47de-9501-0140865cfb1c\",\"request_id\":\"e980d240-7d6d-4e4b-b962-2c869e48f531.a0\"}",
+    "previous_hash": "36fadbbb3da1900d754098d6ec52cc7f1a7b1758da99d10b8004e2c8cd41197e",
+    "hash": "669b4ef058bd485ecd18617d62dd632fc3e21842e7470db61141b58ac137505f"
+  },
+  {
+    "seq": 11,
+    "at": "2026-11-09T09:07:52.466Z",
+    "code": "USAGE_SETTLED",
+    "body": "{\"actual_invoice_micros\":null,\"capacity_released\":true,\"cost_estimate_micros\":0,\"input_tokens\":20,\"output_tokens\":10,\"request_id\":\"e980d240-7d6d-4e4b-b962-2c869e48f531.a0\"}",
+    "previous_hash": "669b4ef058bd485ecd18617d62dd632fc3e21842e7470db61141b58ac137505f",
+    "hash": "b6e150799e68aeb29b354714f722e283339e9ee8327d744af3014c02a72c9322"
+  }
+]

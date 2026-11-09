@@ -1,0 +1,61 @@
+{
+  "schema": "agentnexus.independent-post-review-addendum.v1",
+  "reviewed_at_utc": "2026-11-09T09:22:34.335Z",
+  "mode": "STATIC_DELTA_REVIEW_AND_EXISTING_LOG_INSPECTION",
+  "files": [
+    {
+      "path": "source/tools/agentnexus/package-q3.py",
+      "bytes": 6829,
+      "sha256": "d2459e01396f154dc9a87549b0ae93d02b1a7ca69e34c817af15681194866a2d"
+    },
+    {
+      "path": "source/tests/agentnexus/m18-vault.test.ts",
+      "bytes": 32674,
+      "sha256": "f22c85f9e1749418ce29d14cdfa1adbcf51bccb32e4f4b5f572773d0fe5cd39f"
+    },
+    {
+      "path": "source/assets/licenses/node-v24.15.0-LICENSE.txt",
+      "bytes": 156926,
+      "sha256": "4573185d56580da2b890ba34a85a409257640f1c5632eade4300137266194d18"
+    }
+  ],
+  "superseded_package_sha256": "7db1f148fcfd76333ac55a089111d9887826489a48081990a8078aec42b4e773",
+  "installer": {
+    "path": "source/tools/agentnexus/install-q3-qualification.ps1",
+    "bytes": 20360,
+    "sha256": "8985976a9be9758c7288cfb2a6b3482f41401bc5aa95a687b208fc932c797bcd"
+  },
+  "installer_unchanged_from_seven_verify_only_scenarios": true,
+  "original_core_48_hashes_unchanged": true,
+  "fixture_cleanup": {
+    "execution": "IMPLEMENTER_RUN_LOG_REVIEWED_NOT_REEXECUTED_BY_INDEPENDENT_REVIEWER",
+    "log": {
+      "path": ".workflow-kit/runtime/AgentNexus-M1.8.3-Q3/fixture-cleanup.tap.log",
+      "bytes": 6655,
+      "sha256": "e382b42641b05205f1cd01787a72e83e0fccc9cc56223ba8fffc35aa3812cb48"
+    },
+    "tests": 27,
+    "pass": 27,
+    "fail": 0,
+    "skipped": 0,
+    "code_observation": "after-hook registered only after successful creation; unlink exact freshly created junction entry; no recursive removal or target traversal; existing unsafe-path assertion retained"
+  },
+  "governance_wrapper": {
+    "wrapper": {
+      "path": ".workflow-kit/runtime/AgentNexus-M1.8.3-Q3/govern-cached.py",
+      "bytes": 2489,
+      "sha256": "872ceef82cddf6660368bf9b338ba040f4f369c210ab9a7b2c59c817f618fe2c"
+    },
+    "original_governor": {
+      "path": "ai-workflow-kit-v4/tools/govern.py",
+      "bytes": 47383,
+      "sha256": "ef1d398ba503333bf04e269ba97788252d95c84f667acab460d5e90dc64edfc1"
+    },
+    "review_mode": "STATIC_ONLY_NOT_RUN_BY_INDEPENDENT_REVIEWER",
+    "classification_policy_digest_path_guards_replaced": false,
+    "assessment": "Metadata memoization may accelerate the original main on a frozen filesystem; final mode/device/inode/attribute checks are not a full guard against transient concurrent changes, and resolve-cache results are not recomputed at the end. No general concurrent-filesystem equivalence or OS qualification is claimed."
+  },
+  "no_apply_uac_service_account_acl_system_change_by_reviewer": true,
+  "original_70_os_tests": "NOT_RUN_UNCHANGED",
+  "native_windows_qualification": "BLOCKED"
+}

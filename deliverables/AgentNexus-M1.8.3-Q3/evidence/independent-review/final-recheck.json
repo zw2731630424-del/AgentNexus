@@ -1,0 +1,67 @@
+{
+  "schema": "agentnexus.independent-review-final-recheck.v1",
+  "started_at_utc": "2026-11-09T09:03:16.315Z",
+  "finished_at_utc": "2026-11-09T09:03:34.163Z",
+  "status": "PASS_SYNTHETIC_AND_PURE_ONLY",
+  "runs": [
+    {
+      "name": "final-native-compilation",
+      "started_at_utc": "2026-11-09T09:03:16.328Z",
+      "finished_at_utc": "2026-11-09T09:03:17.526Z",
+      "exit_code": 0,
+      "stdout_sha256": "e3eb1a0359c434d0302e16f824747ea0a02bbceec8f03a109f37f29f31b3b5b5",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_bytes": 0
+    },
+    {
+      "name": "final-entry-compilation",
+      "started_at_utc": "2026-11-09T09:03:17.526Z",
+      "finished_at_utc": "2026-11-09T09:03:19.271Z",
+      "exit_code": 0,
+      "stdout_sha256": "2535d978cddd5b697265359c0db32d1d91871c3871d9ed288a58819491fe5af1",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_bytes": 0
+    },
+    {
+      "name": "final-pipe-attacks",
+      "started_at_utc": "2026-11-09T09:03:19.271Z",
+      "finished_at_utc": "2026-11-09T09:03:31.634Z",
+      "exit_code": 0,
+      "stdout_sha256": "6dfc689bfe34be33c1e550af7d4f8946006f3287aa7bd6dada9e3d998102dcae",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_bytes": 0
+    },
+    {
+      "name": "final-desktop-probe",
+      "started_at_utc": "2026-11-09T09:03:31.634Z",
+      "finished_at_utc": "2026-11-09T09:03:33.913Z",
+      "exit_code": 0,
+      "stdout_sha256": "b03e07b505a3c3ed03eac87c082ea34edef34a520b0c33460b365725633f9e47",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_bytes": 0
+    },
+    {
+      "name": "final-native-pure",
+      "started_at_utc": "2026-11-09T09:03:33.913Z",
+      "finished_at_utc": "2026-11-09T09:03:34.091Z",
+      "exit_code": 0,
+      "stdout_sha256": "6fd5c103a23e21247c3174b6ecb47b56bd795c53acb151be593b90e25007fc11",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_bytes": 0
+    }
+  ],
+  "exact_synthetic_attack_scenarios": 5,
+  "desktop_route": "SUCCEEDED",
+  "budget_change_rejected": "SERVICE_MANAGED_BUDGET",
+  "native_pure_assertions": 90,
+  "helper_pure_assertions": 138,
+  "launcher_pure_assertions": 36,
+  "original_os_tests": {
+    "total": 70,
+    "status": "NOT_RUN",
+    "changed_by_this_review": false
+  },
+  "uac_verified": "NOT_RUN",
+  "native_windows_boundary": "BLOCKED_PENDING_APPROVED_DEPLOYED_QUALIFICATION",
+  "source_unchanged_during_recheck": true
+}

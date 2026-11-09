@@ -1,0 +1,70 @@
+{
+  "schema": "agentnexus.independent-installer-readonly.v1",
+  "observed_at_utc": "2026-11-09T09:11:22.803Z",
+  "installer_sha256": "8985976a9be9758c7288cfb2a6b3482f41401bc5aa95a687b208fc932c797bcd",
+  "mode": "VERIFY_ONLY_NO_APPLY_NO_UAC",
+  "root": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q3\\independent-review\\installer-readonly-FCR2h1",
+  "status": "PASS",
+  "scenarios": [
+    {
+      "name": "valid payload verifies only",
+      "status": "PASS",
+      "exit_code": 0,
+      "expected_rejection": null,
+      "stdout_sha256": "21179b36e935978245c8174c45a6b478501729091784b91e1f29cfe735f5bc37",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "duplicate path cannot mask unlisted payload file",
+      "status": "PASS",
+      "exit_code": 1,
+      "expected_rejection": "DUPLICATE_PAYLOAD_PATH",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "d8dcda45accfa6b725a7d12b27fffd6e7fd6f06fc3a8792b55914bc555722555"
+    },
+    {
+      "name": "case-insensitive duplicate path is rejected",
+      "status": "PASS",
+      "exit_code": 1,
+      "expected_rejection": "DUPLICATE_PAYLOAD_PATH",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "d8dcda45accfa6b725a7d12b27fffd6e7fd6f06fc3a8792b55914bc555722555"
+    },
+    {
+      "name": "parent escape is rejected before file access",
+      "status": "PASS",
+      "exit_code": 1,
+      "expected_rejection": "PAYLOAD_PATH",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "2dee6ed1a1c8ac47605580d87badebedf2a2c127fbcfa2571cb061f9ba0c0187"
+    },
+    {
+      "name": "Windows trailing-dot alias is rejected",
+      "status": "PASS",
+      "exit_code": 1,
+      "expected_rejection": "PAYLOAD_PATH_ALIAS",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "68763c32d6d53857b36f34d255fa4aef11b57a78de2a54e9ad88a6566c46b3be"
+    },
+    {
+      "name": "unlisted payload file is rejected",
+      "status": "PASS",
+      "exit_code": 1,
+      "expected_rejection": "PAYLOAD_EXTRA_FILE",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "7ec229adf2eb9ee82022dd44f8cc7ed51db5b312df9b6be2e410f08310481746"
+    },
+    {
+      "name": "changed payload bytes are rejected",
+      "status": "PASS",
+      "exit_code": 1,
+      "expected_rejection": "PAYLOAD_HASH",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "dd2c2152172e7e06e907e50a4f090427255ccd98ae36ab4e1e0e34c0acc337a3"
+    }
+  ],
+  "apply_invoked": false,
+  "start_service_invoked": false,
+  "external_approval_granted": false,
+  "os_or_acl_change": false
+}

@@ -1,0 +1,40 @@
+{
+  "schema": "agentnexus.independent-deployment-tools-review.v1",
+  "observed_at_utc": "2026-11-09T09:22:34.335Z",
+  "files": [
+    {
+      "path": "source/tools/agentnexus/install-q3-qualification.ps1",
+      "sha256": "8985976a9be9758c7288cfb2a6b3482f41401bc5aa95a687b208fc932c797bcd",
+      "bytes": 20360,
+      "review_mode": "STATIC_PLUS_DEFAULT_VERIFY_ONLY"
+    },
+    {
+      "path": "source/tools/agentnexus/package-q3.py",
+      "sha256": "d2459e01396f154dc9a87549b0ae93d02b1a7ca69e34c817af15681194866a2d",
+      "bytes": 6829,
+      "review_mode": "STATIC_ONLY_NOT_EXECUTED_BY_REVIEWER"
+    }
+  ],
+  "core_source_still_matches_final_freeze": true,
+  "core_source_manifest_sha256": "38be862c7cc9042d5d50d95dc47bb08ea1b25669d917b7e2f6aa5725bc25ab5d",
+  "installer_default_scenarios": 7,
+  "installer_default_result": "PASS",
+  "mutating_apply_branch": "STATIC_REVIEW_ONLY_NOT_EXECUTED",
+  "start_service_invoked": false,
+  "uac_invoked": false,
+  "account_acl_system_changes": false,
+  "standalone_installer_driver": {
+    "path": ".workflow-kit/runtime/AgentNexus-M1.8.3-Q3/independent-review/installer-readonly-tests.mjs",
+    "sha256": "0b162feae62cd753418acba58253fc87e83c3414f202049b6445f9fbe5a67368"
+  },
+  "native_windows_qualification": "BLOCKED_PENDING_APPROVED_DEPLOYED_TESTS",
+  "original_70_os_tests": "NOT_RUN_UNCHANGED",
+  "initial_observed_at_utc": "2026-11-09T09:12:30.874Z",
+  "post_review_update": {
+    "previous_package_sha256": "7db1f148fcfd76333ac55a089111d9887826489a48081990a8078aec42b4e773",
+    "current_package_sha256": "d2459e01396f154dc9a87549b0ae93d02b1a7ca69e34c817af15681194866a2d",
+    "change": "Fixed versioned license fallback only; no runtime or privilege change.",
+    "details": "post-review-addendum.json",
+    "installer_unchanged_from_seven_verify_only_scenarios": true
+  }
+}

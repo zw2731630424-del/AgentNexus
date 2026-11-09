@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "test_case": "cancel",
+  "result": {
+    "status": "INCONCLUSIVE",
+    "reason": "HELPER_CANCELLED_OR_UNKNOWN"
+  },
+  "driver": {
+    "schema": "agentnexus.synthetic-helper-ui-driver.v1",
+    "result": "PASS",
+    "ui_launched": true,
+    "test_case": "cancel",
+    "control_actions": 1,
+    "canary_logged": false,
+    "uac_verified": "NOT_RUN"
+  },
+  "events": [
+    {
+      "event": "synthetic.ui.shown",
+      "pid": 29148,
+      "helper_channel": "4a84fa58-ab0e-4706-b90f-3c68d21a2550",
+      "same_sid": true,
+      "elevated": false,
+      "integrity": "MEDIUM",
+      "ui_launched": true,
+      "uac_verified": "NOT_RUN"
+    },
+    {
+      "event": "synthetic.ui.closed",
+      "exit_code": 20,
+      "save_acknowledged": false,
+      "uac_verified": "NOT_RUN"
+    }
+  ],
+  "methods": [
+    "snapshot"
+  ],
+  "keys_stored": 0,
+  "ui_launched": "PASS",
+  "uac_verified": "NOT_RUN",
+  "no_real_key_or_network": true
+}

@@ -1,0 +1,617 @@
+# AgentNexus M1.8.3-Q3 — Trusted Runtime & End-to-End Integration
+
+**项目：** AgentNexus  
+**开发执行：** Codex  
+**基线：** M1.8.3-Q2  
+**任务类型：** 关键功能闭环、可信 Runtime、Windows IPC、桌面集成与合成端到端验证。
+
+## 一、核心任务
+
+本轮不再扩大 AgentNexus 的整体架构。
+
+M1.8.3-Q2 已经交付：
+
+- 独立 C# WinForms Trusted Credential Helper。
+- 普通权限有限启动器。
+- 可信录入 Ticket 机制。
+- Daily Grant 协议。
+- 请求 Hash、Nonce、Epoch 和 Context 绑定。
+- Token Ledger 原子预算管理。
+- Data Egress。
+- 合成跨进程 IPC。
+- 215 PASS / 0 FAIL / 2 SKIP 的限定回归。
+
+但 Q2 整体仍然 BLOCKED。
+
+关键缺口：
+
+1. Trusted Helper 尚未通过实际 UAC 启动并显示可信录入窗口。
+2. Credential Service 尚未真实部署。
+3. 生产 Native Runtime 来源认证器尚未实现。
+4. 服务创建、启动和监管可信 Runtime 的机制尚未实现。
+5. Medium Integrity 日常 IPC Listener 尚未实现。
+6. 普通权限 AgentNexus 不能实际调用模型，目前返回 IPC_BLOCKED。
+7. 70项真实 Windows OS 资格测试全部 NOT_RUN。
+
+**本轮目标是完成可信凭证录入和日常模型调用两条完整执行链，不再停留在协议、Fixture 和模拟 API 的单独测试。**
+
+必须同时保证：
+
+- 日常启动 AgentNexus 不需要管理员权限。
+- 添加 API Key 时才触发 UAC。
+- 正常 Agent 模型请求不触发 UAC。
+- 普通 Agent 无法读回完整 API Key。
+- 不建立无授权限制的通用高权限代理。
+- 未取得生产资格前不导入真实 Key。
+
+---
+
+## 二、首先审查当前实际代码
+
+开始前阅读全部适用项目规则，并核实：
+
+- M1.8.3 和 Q2 源码。
+- Q2 acceptance-report.md。
+- ui-ipc-decision.md。
+- Credential Service 实现。
+- Trusted Helper 和 Launcher 实现。
+- Daily Grant 和 IPC 协议。
+- 原 Electron Main、Preload、Renderer。
+- Model Gateway、Provider Adapter 和 Router。
+- Token Ledger、Data Egress、Audit。
+- 历史同 SID 解密失败证据。
+- Q2 独立安全审查与原始测试记录。
+
+冻结原始源码、HEAD、工作树状态与 SHA256。
+
+保留 Q2 的215 PASS / 2 SKIP 和70项 OS 测试未执行的原始结论。
+
+不要覆盖历史文件或修改原始失败证据。
+
+### 工作原则
+
+优先复用现有：
+
+- WinForms Helper。
+- Windows Service。
+- Credential Vault。
+- Daily Grant。
+- Model Gateway。
+- Provider Adapter。
+- Token Ledger。
+
+不得重新设计一整套 Harness。
+
+不得仅仅新增更多安全策略字段，却不解决实际运行问题。
+
+---
+
+## 三、P0-A：实现真正可启动的 Trusted Helper
+
+完成 Q2 已编译 Helper 的实际启动链。
+
+目标：
+
+```text
+AgentNexus Desktop
+        |
+        v
+点击 Add Key
+        |
+        v
+固定受控启动器
+        |
+        v
+Windows UAC
+        |
+        v
+Trusted Credential Helper
+        |
+        v
+独立 API Key 录入窗口
+        |
+        v
+Credential Service
+        |
+        v
+保存结果与安全状态
+        |
+        v
+Helper 退出
+```
+
+### 必须实现
+
+1. 普通权限 Electron 能发起固定 Add Key 操作。
+2. 受控 Launcher 只能启动受保护的可信 Helper。
+3. 不接受任意可执行路径、命令、脚本或 URL。
+4. UAC 只针对本次凭证操作。
+5. Helper 显示独立可信表单。
+6. 用户在 Helper 中输入凭证。
+7. 原 Renderer 不接收明文 Key。
+8. Helper 将凭证通过受认证 IPC 提交。
+9. 服务返回保存确认或明确失败状态。
+10. Helper 退出并清理临时资源。
+11. 原 UI 刷新凭证元数据。
+
+保留 Q2 已完成的 Ticket、Hash、Epoch、Operation 和 Channel 绑定机制。
+
+不得重新实现第二套 Ticket 协议。
+
+### 特别验证
+
+处理两种 Windows 情况：
+
+- 当前用户是管理员，通过 UAC 同意进行提升。
+- 当前用户是标准用户，需要另一管理员凭证进行提升。
+
+不能将提供 UAC 凭证的管理员身份自动等同于原操作用户的授权身份。
+
+如果当前协议无法安全支持第二种情况，明确限制并显示错误，不得绕过验证。
+
+### 内存与进程安全
+
+重点保护可信 Helper 的实际进程、子进程、加载文件、句柄及凭证传递路径。
+
+不得仅以 High Integrity 或固定文件 Hash 宣称防注入已证明。
+
+明确区分可由常规 Windows 权限隔离保证的内容、需要附加隔离机制的内容，以及无法在当前威胁模型下绝对保证的内容。
+
+不应为了追求无法证明的绝对内存安全而无限期阻塞正常工程开发；但未满足的安全条件必须如实记录。
+
+---
+
+## 四、P0-B：实现可信 Runtime 的生产启动链
+
+这是本轮最高优先级。
+
+Q2 最大缺口是：
+
+**Daily Grant 已实现，但没有可被 Credential Service 可信识别的生产 Runtime。**
+
+必须完成：
+
+1. Runtime 的固定启动入口。
+2. Runtime 的身份和权限定义。
+3. Runtime 实际启动与退出。
+4. Credential Service 对 Runtime 生命周期的监管。
+5. Runtime 与授权 Session 的绑定。
+6. 请求通道的创建和关闭。
+7. Runtime 崩溃后的恢复与撤销。
+8. 原有 Agent Runtime 的兼容集成。
+
+### 架构选择
+
+优先研究并选择能够在当前 Windows 环境部署的最小方案。
+
+候选方案包括：
+
+- 由可信服务创建并监管受限 Runtime。
+- 使用操作系统提供的隔离身份或受限 Token。
+- 具有不可随意复制授权能力的受控 Broker。
+- 其他有实际 Windows API 支持的进程隔离方案。
+
+禁止仅凭 PID、进程路径、Hash 或自报 Agent ID 完成身份认证。
+
+不要假定普通同 SID 进程一定无法注入、打开句柄或操纵其他普通进程。
+
+如果需要 Windows AppContainer、独立 Token、额外服务或其他 OS 机制，必须给出实际可实现的代码和部署要求。
+
+不要只提交概念设计。
+
+### 重要安全原则
+
+必须区分：
+
+- Windows 用户身份。
+- 操作系统隔离身份。
+- AgentNexus Runtime 身份。
+- Agent / Task 逻辑身份。
+- 具体模型请求授权。
+
+这几者不能互相替代。
+
+如果选定方案不能满足原本的强同 SID 攻击者威胁模型，应准确说明安全边界和残余风险，不得把协议检查通过宣称为 OS 隔离通过。
+
+---
+
+## 五、P0-C：实现 Medium Integrity Daily Gateway
+
+目标：
+
+**普通权限 AgentNexus 能够日常调用模型，不再返回 IPC_BLOCKED，也不必每次弹出 UAC。**
+
+必须实现实际可用的生产日常 IPC 入口。
+
+不要把原有高权限管理 Pipe 直接开放给 Medium 进程。
+
+### 通道划分
+
+管理通道：
+
+- 凭证添加。
+- 凭证轮换。
+- 凭证撤销。
+- 其他需要高信任权限的配置操作。
+
+日常通道：
+
+- Agent 模型请求。
+- Subagent 模型请求。
+- Reviewer 模型请求。
+- 请求取消。
+- Streaming。
+- Usage 读取。
+- 受限状态查询。
+
+两个通道必须具有不同权限。
+
+日常通道不得提供：
+
+- API Key 读回。
+- Vault 解密。
+- 任意 HTTP 代理。
+- 任意 Shell。
+- 任意文件读取。
+- 任意系统配置修改。
+- 原始 Token Ledger 修改。
+- 任意权限签发。
+
+### 复用 Q2 Daily Grant
+
+必须继续使用现有：
+
+- Runtime Identity。
+- Task / Project / Agent。
+- Request Hash。
+- Context Hash。
+- Provider / Model。
+- Operation ID。
+- Nonce / Epoch。
+- Token Reservation。
+- Data Egress。
+- 审计。
+
+不要开发另一套平行授权系统。
+
+重点是将现有协议接入真正可信的 Runtime 与 IPC。
+
+### 必须形成完整执行流程
+
+```text
+AgentNexus 普通权限 UI
+         |
+         v
+Development Agent / Subagent
+         |
+         v
+Model Gateway
+         |
+         v
+可信 Runtime
+         |
+         v
+受限 Daily IPC
+         |
+         v
+Credential Service
+         |
+         +-- 身份与 Grant 验证
+         +-- Data Egress
+         +-- Token 预算
+         +-- 凭证使用
+         |
+         v
+Provider Adapter / Synthetic Provider
+         |
+         v
+Streaming Response
+         |
+         v
+AgentNexus UI
+```
+
+正常模型调用过程中不出现 UAC。
+
+不得让 Trusted Helper 成为长期常驻的高权限通用代理。
+
+---
+
+## 六、P0-D：完成两条通道的合成端到端联调
+
+本轮必须有一个真正跨组件的端到端测试。
+
+测试不能只分别运行 Helper Fixture 和 Gateway Fixture。
+
+目标测试：
+
+### 测试 A：凭证录入
+
+1. 普通权限启动 Electron。
+2. 进入 Model Providers。
+3. 点击 Add Key。
+4. 启动独立 Helper。
+5. 显示可信输入窗口。
+6. 输入合成 Key。
+7. 保存到测试 Credential Service。
+8. Helper 退出。
+9. UI 显示保存状态。
+
+### 测试 B：日常模型调用
+
+1. 继续保持 Electron 普通权限。
+2. 选择 Synthetic Provider。
+3. 选择测试模型。
+4. 由 Development Agent 发起请求。
+5. Runtime 获得有效精确 Grant。
+6. 通过 Daily IPC。
+7. Credential Service 验证授权。
+8. 执行 Data Egress。
+9. 原子预留 Token。
+10. Synthetic Provider 返回结果。
+11. 通过 Streaming 返回。
+12. UI 显示结果。
+13. Usage 正确核销。
+
+第二项测试全过程不触发 UAC。
+
+### 测试 C：失败与恢复
+
+覆盖：
+
+- Helper 取消。
+- IPC 断连。
+- Service 不可用。
+- Grant 过期。
+- 重放。
+- Host 崩溃。
+- Runtime 崩溃。
+- Service 重启。
+- UNKNOWN 请求。
+- 预算不足。
+- Key 被撤销。
+- Data Egress 拒绝。
+
+要求保持失败关闭。
+
+不自动重发 UNKNOWN 请求。
+
+不重置 Token 预算。
+
+### 严格证据分类
+
+如果未获得真实 Windows 服务安装授权，可以先完成代码、低权限跨进程合成联调及可执行的 OS 测试程序。
+
+不得将未提升的模拟窗口称为真实 UAC 通过。
+
+不得将同 SID 合成通信称为跨身份 OS 隔离通过。
+
+真实 Windows Service 安装、提升和权限攻击测试须等待明确部署批准。
+
+---
+
+## 七、P1：实际 Windows 安全资格
+
+复用原 Q2 已定义的70项 OS 测试。
+
+不需要为了增加测试数量另造大量重复用例。
+
+优先覆盖：
+
+- 实际 Service SID 与 Token。
+- Named Pipe DACL / MIC。
+- 同 SID 非授权进程。
+- Runtime 身份伪造。
+- 进程注入与句柄访问。
+- UAC Helper 身份。
+- Helper 加载文件保护。
+- Runtime 启动链。
+- Credential Vault 访问。
+- 跨身份 DPAPI。
+- IPC 重放。
+- Gateway 越权。
+- Crash / Restart。
+- Token Ledger 恢复。
+
+针对 OS 安全边界的验证必须使用真实系统进程与 Token。
+
+测试环境不能通过修改系统权限或关闭安全机制来制造 PASS。
+
+未执行时标记 NOT_RUN。
+
+---
+
+## 八、P1：完整部署包
+
+Q2 已准备部分安装文件 Hash，但还不是可执行部署包。
+
+本轮应补齐：
+
+- 完整 Electron 载荷。
+- Native Helper。
+- Launcher。
+- Credential Service。
+- Node Runtime。
+- Runtime 入口。
+- 相关依赖。
+- 精确启动参数。
+- 全部文件 Hash。
+- 可信签发方案。
+- 服务身份和权限。
+- IPC DACL / MIC。
+- 数据目录 ACL。
+- 回滚过程。
+
+生成可核查、可以独立批准的部署包。
+
+需要特别验证安装文件是否可以被普通用户替换、DLL/依赖加载路径是否可被劫持，以及不同身份运行时的文件访问权限。
+
+未经用户批准，不得：
+
+- 创建 Windows Service。
+- 创建或更改账户。
+- 修改 ACL。
+- 安装程序。
+- 修改系统策略。
+- 启动提升权限的部署程序。
+
+完成审批包后可继续执行不涉及系统变更的工作，但不得越过实际部署批准边界。
+
+---
+
+## 九、P1：不要扩大本轮范围
+
+以下内容本轮不开发：
+
+- 新 Agent 类型。
+- 新模型供应商适配器。
+- 新工作流系统。
+- 新上下文归档系统。
+- 新 UI 框架。
+- 新 Key Pool。
+- 新 Vault。
+- 新 Token Ledger。
+- 新 Policy Engine。
+
+现有组件能够复用的必须复用。
+
+不要继续通过大量文档、协议字段和测试模板代替真实执行链。
+
+不过，必须保留核心安全规则：
+
+- Policy-as-Code。
+- Default Deny。
+- 精确资源授权。
+- 审计。
+- 失败关闭。
+- 凭证不向 Agent 泄漏。
+- Token 预算一致性。
+
+不要为了追求功能通过而绕过这些机制。
+
+---
+
+## 十、最终验收与交付
+
+建立：
+
+`AgentNexus-M1.8.3-Q3`
+
+交付：
+
+1. 源码修改及完整清单。
+2. Trusted Helper 可运行实现。
+3. Runtime 启动与监管实现。
+4. Daily IPC Listener 实现。
+5. 原 UI 集成。
+6. 原 Gateway 集成。
+7. 合成端到端测试程序。
+8. 请求、响应及 Usage 原始证据。
+9. 安全攻击测试结果。
+10. 部署审批包。
+11. 独立安全审查。
+12. 剩余阻断项。
+13. 最终验收报告。
+14. SHA256SUMS。
+
+### 最终必须独立裁定四项
+
+**A. Credential Helper**
+
+- COMPILED
+- UI_LAUNCHED
+- UAC_VERIFIED
+- SERVICE_CONNECTED
+- CREDENTIAL_STORED
+- OS_QUALIFIED
+
+分别报告，不得合并成一个 PASS。
+
+**B. Trusted Runtime**
+
+- IMPLEMENTED
+- LAUNCH_VERIFIED
+- IDENTITY_VERIFIED
+- IPC_VERIFIED
+- SAME_SID_ATTACK_TESTED
+
+**C. Daily Gateway**
+
+- MEDIUM_LISTENER_IMPLEMENTED
+- REAL_PROCESS_REQUEST_PASS
+- STREAMING_PASS
+- BUDGET_PASS
+- EGRESS_PASS
+- PRODUCTION_QUALIFIED
+
+**D. End-to-End**
+
+- SYNTHETIC_E2E_PASS
+- REAL_WINDOWS_OS_QUALIFIED
+- LIVE_PROVIDER_READY
+
+### 重要限制
+
+如果系统部署尚未获得批准：
+
+- 可以将已完成的代码和离线测试验收为 PASS。
+- 不得宣称 UAC、独立身份或生产 OS 隔离通过。
+- 不得宣称真实模型可用。
+- 生产资格必须保持 BLOCKED。
+
+但不能因为 OS 部署尚未批准，就只交付新的接口规范而停止所有可完成的代码实现。
+
+---
+
+## 十一、执行纪律
+
+本轮由 Codex 作为主执行者。
+
+可以调用独立子 Agent 并行进行：
+
+- Windows Runtime 实现。
+- Trusted Helper 实现。
+- Daily Gateway 集成。
+- 独立安全审查。
+
+共享协议和安全边界由主执行者统一负责。
+
+避免多个子 Agent 同时修改同一关键组件产生冲突。
+
+只保留与真实功能、安全性和可复现性直接相关的必要测试。
+
+不得进行无关的生产级过度工程化。
+
+不得自行 Commit / Push。
+
+不得修改其他项目。
+
+真实 API Key、真实 DeepSeek 请求和实际模型费用继续禁止，直到独立生产资格和用户授权满足。
+
+已有1亿 Token 总授权不重置、不重复申请，也不能视为本轮真实 API 请求许可。
+
+---
+
+# 十二、本轮最重要的成功标准
+
+不接受仅仅交付：
+
+- 新 IPC 协议。
+- 新 Grant 字段。
+- 新安全设计文档。
+- 新 Mock。
+- 更多独立单元测试。
+
+**本轮必须优先实现可运行的完整合成链路。**
+
+尤其是：
+
+**普通权限 AgentNexus → 可信 Runtime → Daily IPC → Credential Service → Synthetic Provider → 返回模型结果。**
+
+不能再以 `IPC_BLOCKED` 作为日常模型请求的最终功能交付。
+
+如果技术上不能安全完成，必须准确说明阻断原因、已验证边界和下一种可执行方案，而不是放宽安全合同制造通过。
+
+最终提交代码、原始运行证据、独立审查和部署审批材料。
+
+现在开始执行 M1.8.3-Q3。

@@ -1,0 +1,143 @@
+{
+  "schema": "agentnexus.q3.desktop-e2e.v1",
+  "output": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q3\\desktop-e2e\\run-LWVolb",
+  "scope": "ACTUAL_MEDIUM_ELECTRON_AND_SAME_SID_SYNTHETIC_WINFORMS_RUNTIME_PIPE_SERVICE",
+  "status": "PASS",
+  "uac_verified": "NOT_RUN",
+  "production_os_qualified": false,
+  "live_provider_ready": false,
+  "real_keys": 0,
+  "real_requests": 0,
+  "steps": [
+    "Electron actual process Medium, non-elevated",
+    "Add Key launched real separate WinForms; UIA entered fixed canary, explicit review, original Ticket saved to same service, helper exited",
+    "Development Agent -> existing Router/Gateway -> Runtime -> daily Named Pipe -> same Credential Service -> Synthetic Provider -> stream -> original UI; 20+10 tokens settled; no new Helper launch"
+  ],
+  "helper_events": [
+    {
+      "event": "synthetic.ui.shown",
+      "pid": 10824,
+      "helper_channel": "e4c744d9-609e-4e9d-93b4-b7784396f4d1",
+      "same_sid": true,
+      "elevated": false,
+      "integrity": "MEDIUM",
+      "ui_launched": true,
+      "uac_verified": "NOT_RUN"
+    },
+    {
+      "event": "synthetic.ui.save.ack",
+      "stored": true,
+      "uac_verified": "NOT_RUN"
+    },
+    {
+      "event": "synthetic.ui.closed",
+      "exit_code": 0,
+      "save_acknowledged": true,
+      "uac_verified": "NOT_RUN"
+    }
+  ],
+  "helper_drivers": [
+    {
+      "schema": "agentnexus.synthetic-helper-ui-driver.v1",
+      "result": "PASS",
+      "ui_launched": true,
+      "test_case": "save",
+      "control_actions": 3,
+      "canary_logged": false,
+      "uac_verified": "NOT_RUN"
+    }
+  ],
+  "chat_results": [
+    {
+      "agent_id": "development",
+      "result": {
+        "assurance": "SIMULATED",
+        "model_id": "m.7469d98ab0f329f427a2cccb",
+        "outcome": "SUCCEEDED",
+        "provider_id": "deepseek",
+        "reason": "MODEL18_COMPLETE",
+        "reply": {
+          "kind": "FINAL",
+          "text": "SIMULATED · isolated credential process, no network."
+        },
+        "request_id": "e980d240-7d6d-4e4b-b962-2c869e48f531",
+        "response_source": {
+          "event_id": "64ccf2f2-d409-4bf8-9022-4850f2c6419f",
+          "kind": "RAW",
+          "length": 454,
+          "offset": 0,
+          "payload_ref": {
+            "artifact_id": "9c56b7e1-e41a-4e07-933a-e7630988d4d7",
+            "bytes": 454,
+            "codec": "zstd",
+            "media_type": "text/plain; charset=utf-8",
+            "sensitivity": "NORMAL",
+            "sha256": "3a1383988e3e15256bc261d2fa39b0c98ccbfeeed04889ed1b7ac4f41b0d389a",
+            "stored_bytes": 288,
+            "stored_sha256": "5c8eba86183b9fe385e72406481253f9678a8a207c737ebdb7f93f23429be59a"
+          },
+          "project_id": "desktop",
+          "record_hash": "0b43a94428194d0e513085710d7b6215a0f5d4340dcd70749ae38d44c4b5eb41",
+          "task_id": "development.session"
+        },
+        "status": "SIMULATED",
+        "usage": {
+          "assurance": "SIMULATED",
+          "concurrency": 0,
+          "cost_micros": 0,
+          "input_tokens": 20,
+          "output_tokens": 10,
+          "reasoning_tokens": null,
+          "request_id": "e980d240-7d6d-4e4b-b962-2c869e48f531"
+        }
+      }
+    }
+  ],
+  "stream_events": 1,
+  "electron_token": {
+    "observations": [
+      {
+        "pid": 53076,
+        "image": "C:\\Windows\\System32\\cmd.exe",
+        "start_id": "01dd7029c38572e8",
+        "sid": "S-1-5-21-2532670394-1554971530-4095700938-1001",
+        "session_id": 1,
+        "elevated": false,
+        "integrity": 8192,
+        "appcontainer": false,
+        "logon_id": "0000000000173046"
+      }
+    ],
+    "read_only": true,
+    "os_qualification": "NOT_RUN"
+  },
+  "stack_tokens": {
+    "observations": [
+      {
+        "pid": 54240,
+        "image": "D:\\Nodejs\\node.exe",
+        "start_id": "01dd7029c3b379d2",
+        "sid": "S-1-5-21-2532670394-1554971530-4095700938-1001",
+        "session_id": 1,
+        "elevated": false,
+        "integrity": 8192,
+        "appcontainer": false,
+        "logon_id": "0000000000173046"
+      },
+      {
+        "pid": 56460,
+        "image": "D:\\Nodejs\\node.exe",
+        "start_id": "01dd7029c3c84a49",
+        "sid": "S-1-5-21-2532670394-1554971530-4095700938-1001",
+        "session_id": 1,
+        "elevated": false,
+        "integrity": 8192,
+        "appcontainer": false,
+        "logon_id": "0000000000173046"
+      }
+    ],
+    "read_only": true,
+    "os_qualification": "NOT_RUN"
+  },
+  "service_audit_rows": 11
+}

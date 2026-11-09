@@ -1,0 +1,74 @@
+{
+  "schema": "agentnexus.q3.acceptance.v1",
+  "offline_implementation_and_synthetic_e2e": "PASS",
+  "overall_production": "BLOCKED",
+  "deployed_windows_os_qualified": false,
+  "A_Credential_Helper": {
+    "COMPILED": "PASS",
+    "UI_LAUNCHED": "PASS_SYNTHETIC_MEDIUM",
+    "UAC_VERIFIED": "NOT_RUN",
+    "SERVICE_CONNECTED": "PASS_SAME_SID_SYNTHETIC_SERVICE_ONLY",
+    "CREDENTIAL_STORED": "PASS_SYNTHETIC_ONLY",
+    "OS_QUALIFIED": "NOT_RUN"
+  },
+  "B_Trusted_Runtime": {
+    "IMPLEMENTED": "PASS_CODE",
+    "LAUNCH_VERIFIED": "PASS_SYNTHETIC_PROCESS_NATIVE_NOT_RUN",
+    "IDENTITY_VERIFIED": "NATIVE_OS_NOT_RUN",
+    "IPC_VERIFIED": "PASS_SYNTHETIC_PROCESS_NATIVE_NOT_RUN",
+    "SAME_SID_ATTACK_TESTED": "NATIVE_OS_NOT_RUN",
+    "synthetic_protocol_attacks": "5_PASS_NOT_OS_ISOLATION"
+  },
+  "C_Daily_Gateway": {
+    "MEDIUM_LISTENER_IMPLEMENTED": "PASS_CODE_AND_SYNTHETIC_PROCESS",
+    "REAL_PROCESS_REQUEST_PASS": "PASS_SYNTHETIC_REAL_PROCESSES",
+    "STREAMING_PASS": "PASS_SYNTHETIC",
+    "BUDGET_PASS": "PASS_SYNTHETIC",
+    "EGRESS_PASS": "PASS_SYNTHETIC",
+    "PRODUCTION_QUALIFIED": "BLOCKED"
+  },
+  "D_End_to_End": {
+    "SYNTHETIC_E2E_PASS": "PASS",
+    "REAL_WINDOWS_OS_QUALIFIED": "NOT_RUN",
+    "LIVE_PROVIDER_READY": "BLOCKED"
+  },
+  "tests": {
+    "affected_regression": {
+      "pass": 229,
+      "fail": 0,
+      "skip": 0
+    },
+    "native_pure": {
+      "service": 90,
+      "client": 90,
+      "helper": 138,
+      "launcher": 36,
+      "service_and_client_common_assertions_overlap": true
+    },
+    "independent_pipe_scenarios": 5,
+    "independent_install_verify_only_scenarios": 7,
+    "post_verification_vault_cleanup_suite": {
+      "pass": 27,
+      "fail": 0,
+      "skip": 0
+    },
+    "original_q2": {
+      "pass": 215,
+      "fail": 0,
+      "skip": 2,
+      "os_not_run": 70
+    }
+  },
+  "deployment_approved": false,
+  "system_install_or_uac_executed": false,
+  "real_api_keys": 0,
+  "real_provider_requests": 0,
+  "actual_model_cost": 0,
+  "existing_token_authorization": 100000000,
+  "token_authorization_reset": false,
+  "commit_or_push": false,
+  "synthetic_main_memory_isolation_proven": false,
+  "helper_standard_user_other_admin_uac": "EXPLICITLY_REJECTED",
+  "payload_files": 194,
+  "source_files": 258
+}

@@ -1,0 +1,61 @@
+{
+  "schema": "agentnexus.q2.windows-qualification-review.v1",
+  "as_of": "2026-11-09",
+  "classification": "DELIVERABLE",
+  "production_qualification_document": false,
+  "overall_status": "BLOCKED",
+  "credential_service_deployment": "NOT_RUN",
+  "protected_runtime_deployment": "NOT_RUN",
+  "runtime_source_authentication": "BLOCKED",
+  "native_daily_listener": "NOT_IMPLEMENTED",
+  "native_runtime_registration": "NOT_IMPLEMENTED",
+  "real_key_entry": false,
+  "real_api_requests": "NOT_RUN",
+  "production_daily_enabled": false,
+  "reason": "NO_DEPLOYED_TARGET_OR_NATIVE_DAILY_AUTHENTICATOR; SYSTEM_DEPLOYMENT_NOT_APPROVED",
+  "os_attack_test_count": 70,
+  "os_attack_pass_count": 0,
+  "os_attack_fail_count": 0,
+  "os_attack_not_run_count": 70,
+  "os_evidence": [],
+  "target": {
+    "machine": null,
+    "os_build": null,
+    "service_instance": null,
+    "signed_deployment_manifest": null,
+    "protected_runtime_handle_evidence": null,
+    "native_authentication_evidence": null
+  },
+  "synthetic_protocol_evidence": {
+    "status": "PASS_SYNTHETIC_ONLY",
+    "windows_isolation_evidence": false,
+    "suites": {
+      "independent_adversarial": 14,
+      "q2_daily": 22,
+      "q2_desktop": 10,
+      "existing_desktop_service": 14,
+      "helper_pure": 117,
+      "launcher_pure": 21,
+      "native_service_pure": 40,
+      "cross_language_snapshot": 4
+    },
+    "evidence": [
+      "evidence/independent-review/test-run-index.json",
+      "evidence/independent-review/reviewed-file-hashes.json",
+      "reports/independent-security-review.md"
+    ]
+  },
+  "mandatory_blockers": [
+    "Target service and Helper have not been deployed; system deployment has not been approved",
+    "Native service-created protected Runtime source authentication is not implemented or deployed",
+    "No deployed-target same-SID injection, token/thread access, handle duplication/inheritance, process-owner or source-spoofing attack evidence",
+    "Helper strict process/thread/token object protection and trusted-memory isolation are not implemented and qualified",
+    "No production Daily entry point; changing flags/configuration cannot enable Daily",
+    "No real input UI, UAC chain, clipboard/dump, real Key or provider qualification in this run"
+  ],
+  "independent_review": "reports/independent-security-review.md",
+  "attack_plan": "tests/windows-attack-tests.json",
+  "not_a_production_native_qualification": true,
+  "trusted_helper_memory_isolation": "BLOCKED",
+  "owned_benign_target_attack_validation_authorized": true
+}

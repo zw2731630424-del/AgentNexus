@@ -1,0 +1,68 @@
+{
+  "schema": "agentnexus.independent-pipe-attacks.v1",
+  "assurance": "SAME_SID_SYNTHETIC_NO_OS_QUALIFICATION",
+  "root": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q3\\independent-review\\pipe-attacks-MyDAbC",
+  "pass": 5,
+  "fail": 0,
+  "results": [
+    {
+      "name": "fragmented UTF-8 frame preserves exact binding; changed grant budget denied before send",
+      "status": "PASS",
+      "duration_ms": 485,
+      "evidence": {
+        "denied": "DAILY_GRANT_INVALID_OR_CONSUMED",
+        "valid": true,
+        "actual_tokens": 30,
+        "canary_in_wire": false
+      }
+    },
+    {
+      "name": "other connection cannot cancel unsent grant; owner cancel revokes it permanently",
+      "status": "PASS",
+      "duration_ms": 16,
+      "evidence": {
+        "denied": "DAILY_REQUEST_OWNER",
+        "replay": "DAILY_GRANT_INVALID_OR_CONSUMED",
+        "ledger_unchanged": true
+      }
+    },
+    {
+      "name": "oversized and malformed wire frames close only attacker connection",
+      "status": "PASS",
+      "duration_ms": 19,
+      "evidence": {
+        "service_alive": true,
+        "runtime_alive": true,
+        "ledger_unchanged": true
+      }
+    },
+    {
+      "name": "extra authority envelope and malformed nested params never create caller authority",
+      "status": "PASS",
+      "duration_ms": 9,
+      "evidence": {
+        "errors": [
+          "SERVICE_OPERATION_FAILED",
+          "SERVICE_OPERATION_FAILED",
+          "SERVICE_OPERATION_FAILED",
+          "DAILY_SCHEMA",
+          "DAILY_SCHEMA"
+        ],
+        "ledger_unchanged": true
+      }
+    },
+    {
+      "name": "unacknowledged stream becomes UNKNOWN, retains hold, and blocks automatic resend",
+      "status": "PASS",
+      "duration_ms": 10506,
+      "evidence": {
+        "result": "SERVICE_SENT_OUTCOME_UNKNOWN",
+        "unknown": 1,
+        "held": 4973,
+        "used": 30,
+        "replay": "DAILY_GRANT_INVALID_OR_CONSUMED",
+        "canary_in_wire": false
+      }
+    }
+  ]
+}

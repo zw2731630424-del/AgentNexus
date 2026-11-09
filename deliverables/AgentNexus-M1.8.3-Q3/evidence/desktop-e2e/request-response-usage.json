@@ -1,0 +1,884 @@
+{
+  "request": {
+    "agent_id": "development",
+    "text": "Synthetic Q3 full desktop end-to-end request. Return a short FINAL response."
+  },
+  "helper_events": [
+    {
+      "event": "synthetic.ui.shown",
+      "pid": 10824,
+      "helper_channel": "e4c744d9-609e-4e9d-93b4-b7784396f4d1",
+      "same_sid": true,
+      "elevated": false,
+      "integrity": "MEDIUM",
+      "ui_launched": true,
+      "uac_verified": "NOT_RUN"
+    },
+    {
+      "event": "synthetic.ui.save.ack",
+      "stored": true,
+      "uac_verified": "NOT_RUN"
+    },
+    {
+      "event": "synthetic.ui.closed",
+      "exit_code": 0,
+      "save_acknowledged": true,
+      "uac_verified": "NOT_RUN"
+    }
+  ],
+  "responses": [
+    {
+      "agent_id": "development",
+      "result": {
+        "assurance": "SIMULATED",
+        "model_id": "m.7469d98ab0f329f427a2cccb",
+        "outcome": "SUCCEEDED",
+        "provider_id": "deepseek",
+        "reason": "MODEL18_COMPLETE",
+        "reply": {
+          "kind": "FINAL",
+          "text": "SIMULATED · isolated credential process, no network."
+        },
+        "request_id": "e980d240-7d6d-4e4b-b962-2c869e48f531",
+        "response_source": {
+          "event_id": "64ccf2f2-d409-4bf8-9022-4850f2c6419f",
+          "kind": "RAW",
+          "length": 454,
+          "offset": 0,
+          "payload_ref": {
+            "artifact_id": "9c56b7e1-e41a-4e07-933a-e7630988d4d7",
+            "bytes": 454,
+            "codec": "zstd",
+            "media_type": "text/plain; charset=utf-8",
+            "sensitivity": "NORMAL",
+            "sha256": "3a1383988e3e15256bc261d2fa39b0c98ccbfeeed04889ed1b7ac4f41b0d389a",
+            "stored_bytes": 288,
+            "stored_sha256": "5c8eba86183b9fe385e72406481253f9678a8a207c737ebdb7f93f23429be59a"
+          },
+          "project_id": "desktop",
+          "record_hash": "0b43a94428194d0e513085710d7b6215a0f5d4340dcd70749ae38d44c4b5eb41",
+          "task_id": "development.session"
+        },
+        "status": "SIMULATED",
+        "usage": {
+          "assurance": "SIMULATED",
+          "concurrency": 0,
+          "cost_micros": 0,
+          "input_tokens": 20,
+          "output_tokens": 10,
+          "reasoning_tokens": null,
+          "request_id": "e980d240-7d6d-4e4b-b962-2c869e48f531"
+        }
+      }
+    }
+  ],
+  "streaming": [
+    {
+      "agent_id": "development",
+      "text": "{\"kind\":\"FINAL\",\"text\":\"SIMULATED · isolated credential process, no network.\"}"
+    }
+  ],
+  "after_save": {
+    "schema": "agentnexus/desktop/1",
+    "qualification": {
+      "live": "BLOCKED",
+      "credential_service": "BLOCKED",
+      "real_key_entry": false,
+      "synthetic_key_entry": true,
+      "mode": "SIMULATED",
+      "reason": "SYNTHETIC_PROCESS_ONLY_NO_OS_QUALIFICATION"
+    },
+    "budgets_managed_by_service": true,
+    "daily_gateway": {
+      "status": "AVAILABLE",
+      "reason": "SAME_SID_SYNTHETIC_STACK_NO_OS_QUALIFICATION",
+      "medium_listener_created": true,
+      "uac_required": false,
+      "synthetic_protocol_available": true,
+      "protocol": "SIMULATED",
+      "production_qualified": false
+    },
+    "credential_entry": {
+      "synthetic": true,
+      "real": false,
+      "trusted": true,
+      "status": "READY_FOR_INTENT"
+    },
+    "credential_statuses": [
+      {
+        "provider_id": "deepseek",
+        "status": "CREDENTIAL_SAVED",
+        "reason": "HELPER_COMPLETED_REFRESH_REQUIRED"
+      }
+    ],
+    "service_status": "AVAILABLE",
+    "registry": [
+      {
+        "id": "openai",
+        "name": "OpenAI",
+        "monogram": "O",
+        "color": "#357b67",
+        "protocol": "openai-compatible",
+        "base_url": "https://api.openai.com/v1",
+        "source": "M1.8.2 PROVIDER_ENDPOINTS",
+        "supported": true
+      },
+      {
+        "id": "deepseek",
+        "name": "DeepSeek",
+        "monogram": "D",
+        "color": "#496de5",
+        "protocol": "openai-compatible",
+        "base_url": "https://api.deepseek.com",
+        "source": "M1.8.2 PROVIDER_ENDPOINTS",
+        "models": [
+          {
+            "model_id": "deepseek-flash",
+            "name": "DeepSeek Flash",
+            "source": "https://api-docs.deepseek.com/quick_start/pricing"
+          },
+          {
+            "model_id": "deepseek-v4-pro",
+            "name": "DeepSeek V4 Pro",
+            "source": "https://api-docs.deepseek.com/quick_start/pricing"
+          }
+        ],
+        "supported": true
+      },
+      {
+        "id": "glm",
+        "name": "GLM / Z.ai",
+        "monogram": "Z",
+        "color": "#9976ca",
+        "protocol": "openai-compatible",
+        "base_url": "https://open.bigmodel.cn/api/paas/v4",
+        "source": "M1.8.2 PROVIDER_ENDPOINTS",
+        "supported": true
+      },
+      {
+        "id": "anthropic",
+        "name": "Anthropic",
+        "monogram": "A",
+        "color": "#b98265",
+        "protocol": "anthropic-compatible",
+        "base_url": "https://api.anthropic.com/v1",
+        "source": "https://docs.anthropic.com",
+        "supported": false
+      },
+      {
+        "id": "google",
+        "name": "Google",
+        "monogram": "G",
+        "color": "#b88e3d",
+        "protocol": "google-native",
+        "base_url": "https://generativelanguage.googleapis.com/v1beta",
+        "source": "https://ai.google.dev",
+        "supported": false
+      },
+      {
+        "id": "openrouter",
+        "name": "OpenRouter",
+        "monogram": "R",
+        "color": "#707a95",
+        "protocol": "openai-compatible",
+        "base_url": "https://openrouter.ai/api/v1",
+        "source": "https://openrouter.ai/docs",
+        "supported": true
+      }
+    ],
+    "providers": [
+      {
+        "base_url": "https://api.deepseek.com",
+        "default_model": null,
+        "enabled": true,
+        "id": "deepseek",
+        "name": "Synthetic Provider",
+        "preset_id": "deepseek",
+        "protocol": "openai-compatible",
+        "revision": 0,
+        "state": "ACTIVE"
+      }
+    ],
+    "models": [
+      {
+        "capabilities": {
+          "json": true,
+          "multimodal": false,
+          "reasoning": false,
+          "streaming": true,
+          "tools": false
+        },
+        "context_tokens": 65536,
+        "enabled": true,
+        "id": "m.7469d98ab0f329f427a2cccb",
+        "model_id": "deepseek-flash",
+        "name": "Synthetic Test Model",
+        "origin": "MANUAL",
+        "output_tokens": 4096,
+        "provider_id": "deepseek",
+        "revision": 0,
+        "source": "USER_ENTERED_NOT_VERIFIED",
+        "state": "ACTIVE",
+        "verified": "NOT_TESTED"
+      }
+    ],
+    "keys": [
+      {
+        "key_id": "key.52481eee-9715-4e4f-8e39-9c86d75b6114",
+        "key_handle_id": "c48a8a46-d873-47de-9501-0140865cfb1c",
+        "provider_id": "deepseek",
+        "models": [
+          "m.7469d98ab0f329f427a2cccb"
+        ],
+        "state": "ACTIVE",
+        "max_concurrency": 1,
+        "requests_per_minute": 120,
+        "cost_limit_micros": 9007199254740991,
+        "spent_micros": 0,
+        "reserved_micros": 0,
+        "in_flight": 0,
+        "protection": "WINDOWS_DPAPI_CURRENT_USER",
+        "classification": "SYNTHETIC",
+        "name": "Q3 Synthetic UI Canary",
+        "notes": "",
+        "created_at": "2026-11-09T09:07:51.570Z",
+        "tokens": 0,
+        "requests": 0,
+        "errors": 0,
+        "health": "UNVERIFIED"
+      }
+    ],
+    "connections": [],
+    "preferences": {
+      "id": "operator",
+      "revision": -1,
+      "favorites": [],
+      "recent": [],
+      "default_model": null,
+      "state": "ACTIVE"
+    },
+    "agents": [
+      {
+        "id": "coding",
+        "type": "SUBAGENT",
+        "lifecycle": "READY",
+        "binding": {
+          "revision": -1,
+          "id": "coding",
+          "primary": null,
+          "fallbacks": [],
+          "auto_route": true,
+          "failover": false,
+          "budget_tokens": 1000000,
+          "state": "ACTIVE"
+        },
+        "task_id": "coding.session"
+      },
+      {
+        "id": "coordinator",
+        "type": "COORDINATOR",
+        "lifecycle": "READY",
+        "binding": {
+          "revision": -1,
+          "id": "coordinator",
+          "primary": null,
+          "fallbacks": [],
+          "auto_route": true,
+          "failover": false,
+          "budget_tokens": 1000000,
+          "state": "ACTIVE"
+        },
+        "task_id": "coordinator.session"
+      },
+      {
+        "id": "development",
+        "type": "DEVELOPMENT",
+        "lifecycle": "READY",
+        "binding": {
+          "revision": -1,
+          "id": "development",
+          "primary": null,
+          "fallbacks": [],
+          "auto_route": true,
+          "failover": false,
+          "budget_tokens": 1000000,
+          "state": "ACTIVE"
+        },
+        "task_id": "development.session"
+      },
+      {
+        "id": "math-reviewer",
+        "type": "BACKGROUND_REVIEWER",
+        "lifecycle": "READY",
+        "binding": {
+          "revision": -1,
+          "id": "math-reviewer",
+          "primary": null,
+          "fallbacks": [],
+          "auto_route": true,
+          "failover": false,
+          "budget_tokens": 1000000,
+          "state": "ACTIVE"
+        },
+        "task_id": "math-reviewer.session"
+      },
+      {
+        "id": "research",
+        "type": "SUBAGENT",
+        "lifecycle": "READY",
+        "binding": {
+          "revision": -1,
+          "id": "research",
+          "primary": null,
+          "fallbacks": [],
+          "auto_route": true,
+          "failover": false,
+          "budget_tokens": 1000000,
+          "state": "ACTIVE"
+        },
+        "task_id": "research.session"
+      },
+      {
+        "id": "resident",
+        "type": "RESIDENT",
+        "lifecycle": "READY",
+        "binding": {
+          "revision": -1,
+          "id": "resident",
+          "primary": null,
+          "fallbacks": [],
+          "auto_route": true,
+          "failover": false,
+          "budget_tokens": 1000000,
+          "state": "ACTIVE"
+        },
+        "task_id": "resident.session"
+      },
+      {
+        "id": "reviewer",
+        "type": "BACKGROUND_REVIEWER",
+        "lifecycle": "READY",
+        "binding": {
+          "revision": -1,
+          "id": "reviewer",
+          "primary": null,
+          "fallbacks": [],
+          "auto_route": true,
+          "failover": false,
+          "budget_tokens": 1000000,
+          "state": "ACTIVE"
+        },
+        "task_id": "reviewer.session"
+      },
+      {
+        "id": "test-agent",
+        "type": "SUBAGENT",
+        "lifecycle": "READY",
+        "binding": {
+          "revision": -1,
+          "id": "test-agent",
+          "primary": null,
+          "fallbacks": [],
+          "auto_route": true,
+          "failover": false,
+          "budget_tokens": 1000000,
+          "state": "ACTIVE"
+        },
+        "task_id": "test-agent.session"
+      }
+    ],
+    "overrides": [],
+    "usage": {
+      "global": {
+        "id": "m181-deepseek",
+        "owner": "CREDENTIAL_SERVICE",
+        "assurance": "SIMULATED",
+        "limit": 100000000,
+        "used": 0,
+        "held": 0,
+        "remaining_tokens": 100000000,
+        "unknown": 0,
+        "requests": 0,
+        "state": "OPEN"
+      },
+      "real": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "cached_tokens": null,
+        "reasoning_tokens": null,
+        "requests": 0,
+        "failed_requests": 0,
+        "estimated_cost_micros": 0,
+        "actual_cost_micros": null
+      },
+      "simulated": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "cached_tokens": null,
+        "reasoning_tokens": null,
+        "requests": 0,
+        "failed_requests": 0,
+        "estimated_cost_micros": 0,
+        "actual_cost_micros": null
+      },
+      "simulated_budget": {
+        "limits": {
+          "tokens": 100000000
+        },
+        "used": {
+          "tokens": 0
+        },
+        "held": {
+          "tokens": 0
+        }
+      },
+      "by_provider": [],
+      "by_model": [],
+      "by_agent": [],
+      "by_task": [],
+      "records": []
+    }
+  },
+  "after_request": {
+    "schema": "agentnexus/desktop/1",
+    "qualification": {
+      "live": "BLOCKED",
+      "credential_service": "BLOCKED",
+      "real_key_entry": false,
+      "synthetic_key_entry": true,
+      "mode": "SIMULATED",
+      "reason": "SYNTHETIC_PROCESS_ONLY_NO_OS_QUALIFICATION"
+    },
+    "budgets_managed_by_service": true,
+    "daily_gateway": {
+      "status": "AVAILABLE",
+      "reason": "SAME_SID_SYNTHETIC_STACK_NO_OS_QUALIFICATION",
+      "medium_listener_created": true,
+      "uac_required": false,
+      "synthetic_protocol_available": true,
+      "protocol": "SIMULATED",
+      "production_qualified": false
+    },
+    "credential_entry": {
+      "synthetic": true,
+      "real": false,
+      "trusted": true,
+      "status": "READY_FOR_INTENT"
+    },
+    "credential_statuses": [
+      {
+        "provider_id": "deepseek",
+        "status": "CREDENTIAL_SAVED",
+        "reason": "HELPER_COMPLETED_REFRESH_REQUIRED"
+      }
+    ],
+    "service_status": "AVAILABLE",
+    "registry": [
+      {
+        "id": "openai",
+        "name": "OpenAI",
+        "monogram": "O",
+        "color": "#357b67",
+        "protocol": "openai-compatible",
+        "base_url": "https://api.openai.com/v1",
+        "source": "M1.8.2 PROVIDER_ENDPOINTS",
+        "supported": true
+      },
+      {
+        "id": "deepseek",
+        "name": "DeepSeek",
+        "monogram": "D",
+        "color": "#496de5",
+        "protocol": "openai-compatible",
+        "base_url": "https://api.deepseek.com",
+        "source": "M1.8.2 PROVIDER_ENDPOINTS",
+        "models": [
+          {
+            "model_id": "deepseek-flash",
+            "name": "DeepSeek Flash",
+            "source": "https://api-docs.deepseek.com/quick_start/pricing"
+          },
+          {
+            "model_id": "deepseek-v4-pro",
+            "name": "DeepSeek V4 Pro",
+            "source": "https://api-docs.deepseek.com/quick_start/pricing"
+          }
+        ],
+        "supported": true
+      },
+      {
+        "id": "glm",
+        "name": "GLM / Z.ai",
+        "monogram": "Z",
+        "color": "#9976ca",
+        "protocol": "openai-compatible",
+        "base_url": "https://open.bigmodel.cn/api/paas/v4",
+        "source": "M1.8.2 PROVIDER_ENDPOINTS",
+        "supported": true
+      },
+      {
+        "id": "anthropic",
+        "name": "Anthropic",
+        "monogram": "A",
+        "color": "#b98265",
+        "protocol": "anthropic-compatible",
+        "base_url": "https://api.anthropic.com/v1",
+        "source": "https://docs.anthropic.com",
+        "supported": false
+      },
+      {
+        "id": "google",
+        "name": "Google",
+        "monogram": "G",
+        "color": "#b88e3d",
+        "protocol": "google-native",
+        "base_url": "https://generativelanguage.googleapis.com/v1beta",
+        "source": "https://ai.google.dev",
+        "supported": false
+      },
+      {
+        "id": "openrouter",
+        "name": "OpenRouter",
+        "monogram": "R",
+        "color": "#707a95",
+        "protocol": "openai-compatible",
+        "base_url": "https://openrouter.ai/api/v1",
+        "source": "https://openrouter.ai/docs",
+        "supported": true
+      }
+    ],
+    "providers": [
+      {
+        "base_url": "https://api.deepseek.com",
+        "default_model": null,
+        "enabled": true,
+        "id": "deepseek",
+        "name": "Synthetic Provider",
+        "preset_id": "deepseek",
+        "protocol": "openai-compatible",
+        "revision": 0,
+        "state": "ACTIVE"
+      }
+    ],
+    "models": [
+      {
+        "capabilities": {
+          "json": true,
+          "multimodal": false,
+          "reasoning": false,
+          "streaming": true,
+          "tools": false
+        },
+        "context_tokens": 65536,
+        "enabled": true,
+        "id": "m.7469d98ab0f329f427a2cccb",
+        "model_id": "deepseek-flash",
+        "name": "Synthetic Test Model",
+        "origin": "MANUAL",
+        "output_tokens": 4096,
+        "provider_id": "deepseek",
+        "revision": 0,
+        "source": "USER_ENTERED_NOT_VERIFIED",
+        "state": "ACTIVE",
+        "verified": "NOT_TESTED"
+      }
+    ],
+    "keys": [
+      {
+        "key_id": "key.52481eee-9715-4e4f-8e39-9c86d75b6114",
+        "key_handle_id": "c48a8a46-d873-47de-9501-0140865cfb1c",
+        "provider_id": "deepseek",
+        "models": [
+          "m.7469d98ab0f329f427a2cccb"
+        ],
+        "state": "ACTIVE",
+        "max_concurrency": 1,
+        "requests_per_minute": 120,
+        "cost_limit_micros": 9007199254740991,
+        "spent_micros": 0,
+        "reserved_micros": 0,
+        "in_flight": 0,
+        "protection": "WINDOWS_DPAPI_CURRENT_USER",
+        "classification": "SYNTHETIC",
+        "name": "Q3 Synthetic UI Canary",
+        "notes": "",
+        "created_at": "2026-11-09T09:07:51.570Z",
+        "tokens": 30,
+        "requests": 1,
+        "errors": 0,
+        "health": "UNVERIFIED"
+      }
+    ],
+    "connections": [],
+    "preferences": {
+      "default_model": null,
+      "favorites": [],
+      "id": "operator",
+      "recent": [
+        "deepseek:m.7469d98ab0f329f427a2cccb"
+      ],
+      "revision": 0,
+      "state": "ACTIVE"
+    },
+    "agents": [
+      {
+        "id": "coding",
+        "type": "SUBAGENT",
+        "lifecycle": "READY",
+        "binding": {
+          "revision": -1,
+          "id": "coding",
+          "primary": null,
+          "fallbacks": [],
+          "auto_route": true,
+          "failover": false,
+          "budget_tokens": 1000000,
+          "state": "ACTIVE"
+        },
+        "task_id": "coding.session"
+      },
+      {
+        "id": "coordinator",
+        "type": "COORDINATOR",
+        "lifecycle": "READY",
+        "binding": {
+          "revision": -1,
+          "id": "coordinator",
+          "primary": null,
+          "fallbacks": [],
+          "auto_route": true,
+          "failover": false,
+          "budget_tokens": 1000000,
+          "state": "ACTIVE"
+        },
+        "task_id": "coordinator.session"
+      },
+      {
+        "id": "development",
+        "type": "DEVELOPMENT",
+        "lifecycle": "READY",
+        "binding": {
+          "revision": -1,
+          "id": "development",
+          "primary": null,
+          "fallbacks": [],
+          "auto_route": true,
+          "failover": false,
+          "budget_tokens": 1000000,
+          "state": "ACTIVE"
+        },
+        "task_id": "development.session"
+      },
+      {
+        "id": "math-reviewer",
+        "type": "BACKGROUND_REVIEWER",
+        "lifecycle": "READY",
+        "binding": {
+          "revision": -1,
+          "id": "math-reviewer",
+          "primary": null,
+          "fallbacks": [],
+          "auto_route": true,
+          "failover": false,
+          "budget_tokens": 1000000,
+          "state": "ACTIVE"
+        },
+        "task_id": "math-reviewer.session"
+      },
+      {
+        "id": "research",
+        "type": "SUBAGENT",
+        "lifecycle": "READY",
+        "binding": {
+          "revision": -1,
+          "id": "research",
+          "primary": null,
+          "fallbacks": [],
+          "auto_route": true,
+          "failover": false,
+          "budget_tokens": 1000000,
+          "state": "ACTIVE"
+        },
+        "task_id": "research.session"
+      },
+      {
+        "id": "resident",
+        "type": "RESIDENT",
+        "lifecycle": "READY",
+        "binding": {
+          "revision": -1,
+          "id": "resident",
+          "primary": null,
+          "fallbacks": [],
+          "auto_route": true,
+          "failover": false,
+          "budget_tokens": 1000000,
+          "state": "ACTIVE"
+        },
+        "task_id": "resident.session"
+      },
+      {
+        "id": "reviewer",
+        "type": "BACKGROUND_REVIEWER",
+        "lifecycle": "READY",
+        "binding": {
+          "revision": -1,
+          "id": "reviewer",
+          "primary": null,
+          "fallbacks": [],
+          "auto_route": true,
+          "failover": false,
+          "budget_tokens": 1000000,
+          "state": "ACTIVE"
+        },
+        "task_id": "reviewer.session"
+      },
+      {
+        "id": "test-agent",
+        "type": "SUBAGENT",
+        "lifecycle": "READY",
+        "binding": {
+          "revision": -1,
+          "id": "test-agent",
+          "primary": null,
+          "fallbacks": [],
+          "auto_route": true,
+          "failover": false,
+          "budget_tokens": 1000000,
+          "state": "ACTIVE"
+        },
+        "task_id": "test-agent.session"
+      }
+    ],
+    "overrides": [],
+    "usage": {
+      "global": {
+        "id": "m181-deepseek",
+        "owner": "CREDENTIAL_SERVICE",
+        "assurance": "SIMULATED",
+        "limit": 100000000,
+        "used": 30,
+        "held": 0,
+        "remaining_tokens": 99999970,
+        "unknown": 0,
+        "requests": 1,
+        "state": "OPEN"
+      },
+      "real": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "cached_tokens": null,
+        "reasoning_tokens": null,
+        "requests": 0,
+        "failed_requests": 0,
+        "estimated_cost_micros": 0,
+        "actual_cost_micros": null
+      },
+      "simulated": {
+        "input_tokens": 20,
+        "output_tokens": 10,
+        "cached_tokens": null,
+        "reasoning_tokens": null,
+        "requests": 1,
+        "failed_requests": 0,
+        "estimated_cost_micros": 0,
+        "actual_cost_micros": null
+      },
+      "simulated_budget": {
+        "limits": {
+          "tokens": 100000000
+        },
+        "used": {
+          "tokens": 30
+        },
+        "held": {
+          "tokens": 0
+        }
+      },
+      "by_provider": [
+        {
+          "id": "deepseek",
+          "input_tokens": 20,
+          "output_tokens": 10,
+          "cached_tokens": null,
+          "reasoning_tokens": null,
+          "requests": 1,
+          "failed_requests": 0,
+          "estimated_cost_micros": 0,
+          "actual_cost_micros": null
+        }
+      ],
+      "by_model": [
+        {
+          "id": "deepseek-flash",
+          "input_tokens": 20,
+          "output_tokens": 10,
+          "cached_tokens": null,
+          "reasoning_tokens": null,
+          "requests": 1,
+          "failed_requests": 0,
+          "estimated_cost_micros": 0,
+          "actual_cost_micros": null
+        }
+      ],
+      "by_agent": [
+        {
+          "id": "development",
+          "input_tokens": 20,
+          "output_tokens": 10,
+          "cached_tokens": null,
+          "reasoning_tokens": null,
+          "requests": 1,
+          "failed_requests": 0,
+          "estimated_cost_micros": 0,
+          "actual_cost_micros": null
+        }
+      ],
+      "by_task": [
+        {
+          "id": "development.session",
+          "input_tokens": 20,
+          "output_tokens": 10,
+          "cached_tokens": null,
+          "reasoning_tokens": null,
+          "requests": 1,
+          "failed_requests": 0,
+          "estimated_cost_micros": 0,
+          "actual_cost_micros": null
+        }
+      ],
+      "records": [
+        {
+          "request_id": "e980d240-7d6d-4e4b-b962-2c869e48f531.a0",
+          "assurance": "SIMULATED",
+          "state": "SETTLED",
+          "agent_id": "development",
+          "context_hash": "8db75b07a94af09f58f67caa90592f0f41194261bd9322d811c788a0dabcdf6e",
+          "credential_handle_id": "c48a8a46-d873-47de-9501-0140865cfb1c",
+          "data_classification": "SYNTHETIC",
+          "data_egress_decision": "575f53f8-d29e-40da-b4cb-5177e050778d",
+          "deadline": 1794215302141,
+          "model_id": "deepseek-flash",
+          "nonce": "4eed46c0-2047-463e-bf09-c0c64a2b4c2d",
+          "operation_id": "7566a63e-db25-4b80-b398-2fa35066d73a",
+          "policy_epoch": 1,
+          "project_id": "desktop",
+          "provider_id": "deepseek",
+          "request_body_hash": "75f3faf08fbd515c19510d747b92507141cc2b29b909c56e2253917a638ced71",
+          "runtime_identity": "33a24812fa6d3adeef5cdd2e4c093f2788b777325d1892b5d4e76b594e3c7407",
+          "task_id": "development.session",
+          "token_reservation_id": "e980d240-7d6d-4e4b-b962-2c869e48f531.a0",
+          "tokens": 30,
+          "held_tokens": 0,
+          "cost_micros": 0
+        }
+      ]
+    }
+  },
+  "safety": {
+    "node": "undefined",
+    "require": "undefined",
+    "local_storage": 0,
+    "read": {}
+  }
+}

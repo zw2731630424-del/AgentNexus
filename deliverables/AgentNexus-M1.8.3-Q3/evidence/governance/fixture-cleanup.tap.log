@@ -1,0 +1,173 @@
+TAP version 13
+# Subtest: M18 VAULT rotation never extends the old credential expiry before or during asynchronous decrypt
+ok 1 - M18 VAULT rotation never extends the old credential expiry before or during asynchronous decrypt
+  ---
+  duration_ms: 56.7598
+  type: 'test'
+  ...
+# Subtest: M18 VAULT rotating a rate-limited key prevents automatic cooldown resurrection
+ok 2 - M18 VAULT rotating a rate-limited key prevents automatic cooldown resurrection
+  ---
+  duration_ms: 36.4163
+  type: 'test'
+  ...
+# Subtest: M18 VAULT accepts only fabricated secrets and identity-bound host authority; LIVE is BLOCKED
+ok 3 - M18 VAULT accepts only fabricated secrets and identity-bound host authority; LIVE is BLOCKED
+  ---
+  duration_ms: 25.5553
+  type: 'test'
+  ...
+# Subtest: M18 VAULT encrypts actual persisted bytes and reloads only its own fabricated entries
+ok 4 - M18 VAULT encrypts actual persisted bytes and reloads only its own fabricated entries
+  ---
+  duration_ms: 36.93
+  type: 'test'
+  ...
+# Subtest: M18 VAULT inactive states, model eligibility, and expiration prevent acquisition
+ok 5 - M18 VAULT inactive states, model eligibility, and expiration prevent acquisition
+  ---
+  duration_ms: 61.3892
+  type: 'test'
+  ...
+# Subtest: M18 VAULT two SQLite connections atomically reserve concurrency and cost before sending
+ok 6 - M18 VAULT two SQLite connections atomically reserve concurrency and cost before sending
+  ---
+  duration_ms: 54.4742
+  type: 'test'
+  ...
+# Subtest: M18 VAULT subject binding, request conflicts, and once-only send prevent lease reuse
+ok 7 - M18 VAULT subject binding, request conflicts, and once-only send prevent lease reuse
+  ---
+  duration_ms: 41.1619
+  type: 'test'
+  ...
+# Subtest: M18 VAULT rate windows, AUTH and RATE_LIMIT alter future eligibility
+ok 8 - M18 VAULT rate windows, AUTH and RATE_LIMIT alter future eligibility
+  ---
+  duration_ms: 54.0296
+  type: 'test'
+  ...
+# Subtest: M18 VAULT deterministic health/cost/concurrency selection and rotation preserve old inflight
+ok 9 - M18 VAULT deterministic health/cost/concurrency selection and rotation preserve old inflight
+  ---
+  duration_ms: 45.7229
+  type: 'test'
+  ...
+# Subtest: M18 VAULT UNKNOWN and close/reopen retain reservations and never automatically resend
+ok 10 - M18 VAULT UNKNOWN and close/reopen retain reservations and never automatically resend
+  ---
+  duration_ms: 73.6448
+  type: 'test'
+  ...
+# Subtest: M18 VAULT guard blocks raw/JSON/URL/base64 known secrets and emits static events
+ok 11 - M18 VAULT guard blocks raw/JSON/URL/base64 known secrets and emits static events
+  ---
+  duration_ms: 32.2312
+  type: 'test'
+  ...
+# Subtest: M18 VAULT callback errors and returned credentials are sanitized and quarantined
+ok 12 - M18 VAULT callback errors and returned credentials are sanitized and quarantined
+  ---
+  duration_ms: 51.3275
+  type: 'test'
+  ...
+# Subtest: M18 VAULT import snapshot survives caller mutation while encryption awaits
+ok 13 - M18 VAULT import snapshot survives caller mutation while encryption awaits
+  ---
+  duration_ms: 27.6119
+  type: 'test'
+  ...
+# Subtest: M18 VAULT revocation during asynchronous unprotect blocks the host callback
+ok 14 - M18 VAULT revocation during asynchronous unprotect blocks the host callback
+  ---
+  duration_ms: 31.6151
+  type: 'test'
+  ...
+# Subtest: M18 VAULT removing a settled key preserves request replay tombstones
+ok 15 - M18 VAULT removing a settled key preserves request replay tombstones
+  ---
+  duration_ms: 33.1675
+  type: 'test'
+  ...
+# Subtest: M18 VAULT failed duplicate import never forgets the existing known secret
+ok 16 - M18 VAULT failed duplicate import never forgets the existing known secret
+  ---
+  duration_ms: 23.2653
+  type: 'test'
+  ...
+# Subtest: M18 VAULT independent connection guards reject stale imports/rotation until owner refresh
+ok 17 - M18 VAULT independent connection guards reject stale imports/rotation until owner refresh
+  ---
+  duration_ms: 49.0057
+  type: 'test'
+  ...
+# Subtest: M18 VAULT open rejects a generation changed while its own encrypted entries load
+ok 18 - M18 VAULT open rejects a generation changed while its own encrypted entries load
+  ---
+  duration_ms: 33.9549
+  type: 'test'
+  ...
+# Subtest: M18 VAULT security events retain only 256 entries and preserve a lifetime count
+ok 19 - M18 VAULT security events retain only 256 entries and preserve a lifetime count
+  ---
+  duration_ms: 32.0008
+  type: 'test'
+  ...
+# Subtest: M18 VAULT key/import and request evidence capacities fail closed without evicting leases
+ok 20 - M18 VAULT key/import and request evidence capacities fail closed without evicting leases
+  ---
+  duration_ms: 110.4164
+  type: 'test'
+  ...
+# Subtest: M18 VAULT DPAPI all child/pipe errors converge on static failure after confirmed close
+ok 21 - M18 VAULT DPAPI all child/pipe errors converge on static failure after confirmed close
+  ---
+  duration_ms: 2.1477
+  type: 'test'
+  ...
+# Subtest: M18 VAULT DPAPI helper capacity and unconfirmed close permanently poison the protector
+ok 22 - M18 VAULT DPAPI helper capacity and unconfirmed close permanently poison the protector
+  ---
+  duration_ms: 2013.0873
+  type: 'test'
+  ...
+# Subtest: M18 VAULT native DPAPI failed spawn is a static rejection without unhandled pipe error
+ok 23 - M18 VAULT native DPAPI failed spawn is a static rejection without unhandled pipe error
+  ---
+  duration_ms: 4.7741
+  type: 'test'
+  ...
+# Subtest: M18 VAULT refuses wrong DB content, foreign SQLite, hardlinks, symlinks, and protector mismatch
+    # Subtest: hardlink fixture is rejected where host permits creating it
+    ok 1 - hardlink fixture is rejected where host permits creating it
+      ---
+      duration_ms: 9.1873
+      type: 'test'
+      ...
+    # Subtest: junction/symlink fixture is rejected where host permits creating it
+    ok 2 - junction/symlink fixture is rejected where host permits creating it
+      ---
+      duration_ms: 7.9641
+      type: 'test'
+      ...
+    1..2
+ok 24 - M18 VAULT refuses wrong DB content, foreign SQLite, hardlinks, symlinks, and protector mismatch
+  ---
+  duration_ms: 107.9597
+  type: 'test'
+  ...
+# Subtest: M18 VAULT actual CurrentUser DPAPI anonymous-pipe synthetic smoke and persistent reopen
+ok 25 - M18 VAULT actual CurrentUser DPAPI anonymous-pipe synthetic smoke and persistent reopen
+  ---
+  duration_ms: 1296.6447
+  type: 'test'
+  ...
+1..25
+# tests 27
+# suites 0
+# pass 27
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 4574.2372

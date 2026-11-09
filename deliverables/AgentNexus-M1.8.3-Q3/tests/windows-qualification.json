@@ -1,0 +1,60 @@
+{
+  "schema": "agentnexus.q3.windows-qualification",
+  "as_of": "2026-11-09",
+  "classification": "DELIVERABLE",
+  "production_qualification_document": false,
+  "overall_status": "BLOCKED",
+  "credential_service_deployment": "NOT_RUN",
+  "protected_runtime_deployment": "NOT_RUN",
+  "runtime_source_authentication": "IMPLEMENTED_NOT_OS_VERIFIED",
+  "native_daily_listener": "IMPLEMENTED_NOT_DEPLOYED",
+  "native_runtime_registration": "IMPLEMENTED_PRIVATE_NATIVE_CHANNEL_NOT_DEPLOYED",
+  "real_key_entry": false,
+  "real_api_requests": "NOT_RUN",
+  "production_daily_enabled": false,
+  "reason": "SYSTEM_DEPLOYMENT_NOT_APPROVED; NO_REAL_NATIVE_TOKEN_UAC_OR_OS_ATTACK_EVIDENCE",
+  "os_attack_test_count": 70,
+  "os_attack_pass_count": 0,
+  "os_attack_fail_count": 0,
+  "os_attack_not_run_count": 70,
+  "os_evidence": [],
+  "target": {
+    "machine": null,
+    "os_build": null,
+    "service_instance": null,
+    "signed_deployment_manifest": null,
+    "protected_runtime_handle_evidence": null,
+    "native_authentication_evidence": null
+  },
+  "synthetic_protocol_evidence": {
+    "status": "PASS_SYNTHETIC_ONLY",
+    "windows_isolation_evidence": false,
+    "suites": {
+      "full_affected_regression": 229,
+      "independent_pipe_scenarios": 5,
+      "independent_install_verify_only": 7,
+      "service_pure": 90,
+      "client_pure_common_overlap": 90,
+      "helper_pure": 138,
+      "launcher_pure": 36
+    },
+    "evidence": [
+      "evidence/verification/result.json",
+      "evidence/desktop-e2e/result.json",
+      "reports/independent-security-review.md"
+    ]
+  },
+  "mandatory_blockers": [
+    "Explicit exact system-deployment approval and independent issuer/certificate pin/signatures are absent",
+    "Actual native service/Runtime/Helper Windows tokens, DACL/MIC, same-SID memory/handle/injection and lifetime recovery remain NOT_RUN",
+    "Helper startup/preexisting-handle races and CLR/WinForms default-object ACL compatibility remain unqualified",
+    "REAL ledger preservation/provisioning and real-key import/live exact-request approvals remain separate and blocked"
+  ],
+  "independent_review": "reports/independent-security-review.md",
+  "attack_plan": "tests/windows-attack-tests.json",
+  "not_a_production_native_qualification": true,
+  "trusted_helper_memory_isolation": "BLOCKED",
+  "owned_benign_target_attack_validation_authorized": true,
+  "production_daily": "BLOCKED",
+  "native_daily_adapter": "IMPLEMENTED_NOT_DEPLOYED_NOT_OS_QUALIFIED"
+}

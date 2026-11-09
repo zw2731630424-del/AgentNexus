@@ -1,0 +1,69 @@
+{
+  "schema": "agentnexus.independent-budget-probe.v1",
+  "assurance": "SAME_SID_SYNTHETIC_NO_OS_QUALIFICATION",
+  "root": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q3\\independent-review\\desktop-budget-IhFlOQ",
+  "outcome": {
+    "assurance": "SIMULATED",
+    "model_id": "m.7469d98ab0f329f427a2cccb",
+    "outcome": "SUCCEEDED",
+    "provider_id": "deepseek",
+    "reason": "MODEL18_COMPLETE",
+    "reply": {
+      "kind": "FINAL",
+      "text": "SIMULATED · isolated credential process, no network."
+    },
+    "request_id": "d8ecc8ec-2bc2-4bd4-a861-4fe2717584df",
+    "response_source": {
+      "event_id": "f5e6c605-8f27-4072-b431-16843965d5a6",
+      "kind": "RAW",
+      "length": 454,
+      "offset": 0,
+      "payload_ref": {
+        "artifact_id": "582fb8f4-e5d0-491d-b247-a4ce7b8dcc1e",
+        "bytes": 454,
+        "codec": "zstd",
+        "media_type": "text/plain; charset=utf-8",
+        "sensitivity": "NORMAL",
+        "sha256": "ac8c288f00ca38dd6d09c9568ae072c58e580b3c4ec6f482e40b44d3775f2a13",
+        "stored_bytes": 287,
+        "stored_sha256": "c33b0ffe9f4299d1ea5be66dd246a56d6be8c3726f462cab983c3422f660adbe"
+      },
+      "project_id": "desktop",
+      "record_hash": "3cf1d4929085eeb31b7cdd3b5e2853ac6951b60bb4a5160166a918b6ff8380f9",
+      "task_id": "development.session"
+    },
+    "status": "SIMULATED",
+    "usage": {
+      "assurance": "SIMULATED",
+      "concurrency": 0,
+      "cost_micros": 0,
+      "input_tokens": 20,
+      "output_tokens": 10,
+      "reasoning_tokens": null,
+      "request_id": "d8ecc8ec-2bc2-4bd4-a861-4fe2717584df"
+    }
+  },
+  "budget_save": {
+    "error": "SERVICE_MANAGED_BUDGET"
+  },
+  "model_mapping": {
+    "host_model": "m.7469d98ab0f329f427a2cccb",
+    "wire_model": "deepseek-flash",
+    "service_models": [
+      "deepseek-flash"
+    ],
+    "displayed_budget": 1000000,
+    "service_usage": {
+      "id": "m181-deepseek",
+      "owner": "CREDENTIAL_SERVICE",
+      "assurance": "SIMULATED",
+      "limit": 100000000,
+      "used": 30,
+      "held": 0,
+      "remaining_tokens": 99999970,
+      "unknown": 0,
+      "requests": 1,
+      "state": "OPEN"
+    }
+  }
+}
