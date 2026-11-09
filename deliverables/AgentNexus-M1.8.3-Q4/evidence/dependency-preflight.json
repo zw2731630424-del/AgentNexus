@@ -1,0 +1,780 @@
+{
+  "schema": "agentnexus.q4.dependency-preflight.v1",
+  "mode": "READ_ONLY_STATIC_IMPORT_INSPECTION",
+  "pe_images": [
+    {
+      "path": "AgentNexusCredential.exe",
+      "sha256": "7532ed9855935ad59af23cfed250fb0afbbaae383d13d06cf4556f567e501427",
+      "pe_machine": "0x8664",
+      "pe32_magic": "0x20b",
+      "imports": []
+    },
+    {
+      "path": "app/runtime/d3dcompiler_47.dll",
+      "sha256": "f5c95e919b4ffa1ac71049cd45b9f986d2965e6888395ca2806337985334fa56",
+      "pe_machine": "0x8664",
+      "pe32_magic": "0x20b",
+      "imports": [
+        {
+          "name": "KERNEL32.dll",
+          "kind": "IMPORT",
+          "candidate_path": "C:\\Windows\\System32\\KERNEL32.dll",
+          "candidate_sha256": "e132eba4166256e2f414b91fe7d5386590bc5ea8626aee5af9c9738383cf2ae1",
+          "resolution": "SYSTEM32_PATH_PRESENT",
+          "actual_loaded_path": "NOT_RUN"
+        },
+        {
+          "name": "ADVAPI32.dll",
+          "kind": "IMPORT",
+          "candidate_path": "C:\\Windows\\System32\\ADVAPI32.dll",
+          "candidate_sha256": "b864e1468a01a44f1901e03c05c1029e71655dd9abddd6d840bcfff5e7227d44",
+          "resolution": "SYSTEM32_PATH_PRESENT",
+          "actual_loaded_path": "NOT_RUN"
+        },
+        {
+          "name": "RPCRT4.dll",
+          "kind": "IMPORT",
+          "candidate_path": "C:\\Windows\\System32\\RPCRT4.dll",
+          "candidate_sha256": "c060f02c11fb19c9c8a30b5077a87cdb17d4be40f08070a539ec73eb53402775",
+          "resolution": "SYSTEM32_PATH_PRESENT",
+          "actual_loaded_path": "NOT_RUN"
+        }
+      ]
+    },
+    {
+      "path": "app/runtime/dxcompiler.dll",
+      "sha256": "883fa2326932e3564fbb08d09bb91246bf51c56bbc29a28854ad9227251d0db7",
+      "pe_machine": "0x8664",
+      "pe32_magic": "0x20b",
+      "imports": [
+        {
+          "name": "KERNEL32.dll",
+          "kind": "IMPORT",
+          "candidate_path": "C:\\Windows\\System32\\KERNEL32.dll",
+          "candidate_sha256": "e132eba4166256e2f414b91fe7d5386590bc5ea8626aee5af9c9738383cf2ae1",
+          "resolution": "SYSTEM32_PATH_PRESENT",
+          "actual_loaded_path": "NOT_RUN"
+        },
+        {
+          "name": "USER32.dll",
+          "kind": "IMPORT",
+          "candidate_path": "C:\\Windows\\System32\\USER32.dll",
+          "candidate_sha256": "f285937030bcb325cad39ee5be4818f6666241229adeadea4ff1ae469dfd7ef3",
+          "resolution": "SYSTEM32_PATH_PRESENT",
+          "actual_loaded_path": "NOT_RUN"
+        },
+        {
+          "name": "ADVAPI32.dll",
+          "kind": "IMPORT",
+          "candidate_path": "C:\\Windows\\System32\\ADVAPI32.dll",
+          "candidate_sha256": "b864e1468a01a44f1901e03c05c1029e71655dd9abddd6d840bcfff5e7227d44",
+          "resolution": "SYSTEM32_PATH_PRESENT",
+          "actual_loaded_path": "NOT_RUN"
+        },
+        {
+          "name": "ole32.dll",
+          "kind": "IMPORT",
+          "candidate_path": "C:\\Windows\\System32\\ole32.dll",
+          "candidate_sha256": "1053ffb858cddbe29eaaa6a5b0836b88c7cd11fbd58605288600e507c06db443",
+          "resolution": "SYSTEM32_PATH_PRESENT",
+          "actual_loaded_path": "NOT_RUN"
+        },
+        {
+          "name": "OLEAUT32.dll",
+          "kind": "IMPORT",
+          "candidate_path": "C:\\Windows\\System32\\OLEAUT32.dll",
+          "candidate_sha256": "e3fcdbbf040fd1e3c3504876cf060ac3908c134ac81b3d0c57f0f735769280ea",
+          "resolution": "SYSTEM32_PATH_PRESENT",
+          "actual_loaded_path": "NOT_RUN"
+        }
+      ]
+    },
+    {
+      "path": "app/runtime/electron.exe",
+      "sha256": "15e815a2d04aed1a01787354b93cd2cab425f339b3beaef4f9e4193647f5399b",
+      "pe_machine": "0x8664",
+      "pe32_magic": "0x20b",
+      "imports": [
+        {
+          "name": "VERSION.dll",
+          "kind": "IMPORT",
+          "candidate_path": "C:\\Windows\\System32\\VERSION.dll",
+          "candidate_sha256": "cea99f212af557a9613150c5509631403ed0f05f5d9a06ac42039bd59b40e39a",
+          "resolution": "SYSTEM32_PATH_PRESENT",
+          "actual_loaded_path": "NOT_RUN"
+        },
+        {
+          "name": "WINMM.dll",
+          "kind": "IMPORT",
+          "candidate_path": "C:\\Windows\\System32\\WINMM.dll",
+          "candidate_sha256": "b9035da2ee058fe565ecb3c0064f46f2d09bde01f29e423ffe6b33e15c773f04",
+          "resolution": "SYSTEM32_PATH_PRESENT",
+          "actual_loaded_path": "NOT_RUN"
+        },
+        {
+          "name": "WS2_32.dll",
+          "kind": "IMPORT",
+          "candidate_path": "C:\\Windows\\System32\\WS2_32.dll",
+          "candidate_sha256": "b123b00c46c415d7baeaada58c29c3e6920895db836ee4c0cfee49d738af60ad",
+          "resolution": "SYSTEM32_PATH_PRESENT",
+          "actual_loaded_path": "NOT_RUN"
+        },
+        {
+          "name": "KERNEL32.dll",
+          "kind": "IMPORT",
+          "candidate_path": "C:\\Windows\\System32\\KERNEL32.dll",
+          "candidate_sha256": "e132eba4166256e2f414b91fe7d5386590bc5ea8626aee5af9c9738383cf2ae1",
+          "resolution": "SYSTEM32_PATH_PRESENT",
+          "actual_loaded_path": "NOT_RUN"
+        },
+        {
+          "name": "CRYPT32.dll",
+          "kind": "IMPORT",
+          "candidate_path": "C:\\Windows\\System32\\CRYPT32.dll",
+          "candidate_sha256": "71da5f9806f7aaf9e081c1df28b13182d2643b7f3534173f868ba65287612bbb",
+          "resolution": "SYSTEM32_PATH_PRESENT",
+          "actual_loaded_path": "NOT_RUN"
+        },
+        {
+          "name": "ntdll.dll",
+          "kind": "IMPORT",
+          "candidate_path": "C:\\Windows\\System32\\ntdll.dll",
+          "candidate_sha256": "651ac9041af8e6b5ebd331d53163244c0a27d36d1433f0f15cac1f28c5f2e82c",
+          "resolution": "SYSTEM32_PATH_PRESENT",
+          "actual_loaded_path": "NOT_RUN"
+        },
+        {
+          "name": "DWrite.dll",
+          "kind": "IMPORT",
+          "candidate_path": "C:\\Windows\\System32\\DWrite.dll",
+          "candidate_sha256": "45b8d6534fd6cd884bfc38a62c007da0d9d5f29324bcb1f31cbf0528bc2e7eae",
+          "resolution": "SYSTEM32_PATH_PRESENT",
+          "actual_loaded_path": "NOT_RUN"
+        },
+        {
+          "name": "ffmpeg.dll",
+          "kind": "DELAY_IMPORT",
+          "candidate_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q3\\payload\\app\\runtime\\ffmpeg.dll",
+          "candidate_sha256": "fc2e3525f8fbb9c25f67b804b6708119a4918b48f74dd3c0574194b8b560c26b",
+          "resolution": "PACKAGED_PATH_PRESENT",
+          "actual_loaded_path": "NOT_RUN"
+        },
+        {
+          "name": "COMCTL32.dll",
+          "kind": "DELAY_IMPORT",
+          "candidate_path": "C:\\Windows\\System32\\COMCTL32.dll",
+          "candidate_sha256": "67e04b3a6650430ba7b57ce01180d7a8f2e06fb04570f4c26b511e6cb05b1761",
+          "resolution": "SYSTEM32_PATH_PRESENT",
+          "actual_loaded_path": "NOT_RUN"
+        },
+        {
+          "name": "UIAutomationCore.DLL",
+          "kind": "DELAY_IMPORT",
+          "candidate_path": "C:\\Windows\\System32\\UIAutomationCore.DLL",
+          "candidate_sha256": "be5037bf46e61566d3e5a83a6c628cebe9035771e4ae741a7b9aa27b5696d989",
+          "resolution": "SYSTEM32_PATH_PRESENT",
+          "actual_loaded_path": "NOT_RUN"
+        },
+        {
+          "name": "WTSAPI32.dll",
+          "kind": "DELAY_IMPORT",
+          "candidate_path": "C:\\Windows\\System32\\WTSAPI32.dll",
+          "candidate_sha256": "9bc998a7b2e3eca0941bf7b5449049b3aa0ef67a840baf78a7b04dbc323595c4",
+          "resolution": "SYSTEM32_PATH_PRESENT",
+          "actual_loaded_path": "NOT_RUN"
+        },
+        {
+          "name": "ADVAPI32.dll",
+          "kind": "DELAY_IMPORT",
+          "candidate_path": "C:\\Windows\\System32\\ADVAPI32.dll",
+          "candidate_sha256": "b864e1468a01a44f1901e03c05c1029e71655dd9abddd6d840bcfff5e7227d44",
+          "resolution": "SYSTEM32_PATH_PRESENT",
+          "actual_loaded_path": "NOT_RUN"
+        },
+        {
+          "name": "dbghelp.dll",
+          "kind": "DELAY_IMPORT",
+          "candidate_path": "C:\\Windows\\System32\\dbghelp.dll",
+          "candidate_sha256": "2d2ec94891162a61d86789133623b47d64d74c15d6be99473b25ad7a6468cf39",
+          "resolution": "SYSTEM32_PATH_PRESENT",
+          "actual_loaded_path": "NOT_RUN"
+        },
+        {
+          "name": "GDI32.dll",
+          "kind": "DELAY_IMPORT",
+          "candidate_path": "C:\\Windows\\System32\\GDI32.dll",
+          "candidate_sha256": "772c73e294a4c5f5e0d4146288af95287a85c074d3aee3fa9f320dc010d7dbfe",
+          "resolution": "SYSTEM32_PATH_PRESENT",
+          "actual_loaded_path": "NOT_RUN"
+        },
+        {
+          "name": "OLEAUT32.dll",
+          "kind": "DELAY_IMPORT",
+          "candidate_path": "C:\\Windows\\System32\\OLEAUT32.dll",
+          "candidate_sha256": "e3fcdbbf040fd1e3c3504876cf060ac3908c134ac81b3d0c57f0f735769280ea",
+          "resolution": "SYSTEM32_PATH_PRESENT",
+          "actual_loaded_path": "NOT_RUN"
+        },
+        {
+          "name": "SHELL32.dll",
+          "kind": "DELAY_IMPORT",
+          "candidate_path": "C:\\Windows\\System32\\SHELL32.dll",
+          "candidate_sha256": "c55a5f3b6ef059871fe2a0c8d82f086e0998d1154023e3ecf49698b97f9341f6",
+          "resolution": "SYSTEM32_PATH_PRESENT",
+          "actual_loaded_path": "NOT_RUN"
+        },
+        {
+          "name": "SHLWAPI.dll",
+          "kind": "DELAY_IMPORT",
+          "candidate_path": "C:\\Windows\\System32\\SHLWAPI.dll",
+          "candidate_sha256": "77b883ae848e1209b17ded14e6558656651f84d47cd656d1d3c118cc5409ed5b",
+          "resolution": "SYSTEM32_PATH_PRESENT",
+          "actual_loaded_path": "NOT_RUN"
+        },
+        {
+          "name": "USER32.dll",
+          "kind": "DELAY_IMPORT",
+          "candidate_path": "C:\\Windows\\System32\\USER32.dll",
+          "candidate_sha256": "f285937030bcb325cad39ee5be4818f6666241229adeadea4ff1ae469dfd7ef3",
+          "resolution": "SYSTEM32_PATH_PRESENT",
+          "actual_loaded_path": "NOT_RUN"
+        },
+        {
+          "name": "ole32.dll",
+          "kind": "DELAY_IMPORT",
+          "candidate_path": "C:\\Windows\\System32\\ole32.dll",
+          "candidate_sha256": "1053ffb858cddbe29eaaa6a5b0836b88c7cd11fbd58605288600e507c06db443",
+          "resolution": "SYSTEM32_PATH_PRESENT",
+          "actual_loaded_path": "NOT_RUN"
+        },
+        {
+          "name": "CRYPTUI.dll",
+          "kind": "DELAY_IMPORT",
+          "candidate_path": "C:\\Windows\\System32\\CRYPTUI.dll",
+          "candidate_sha256": "74ebac857ac17e3bbf528b55d67d46101c5b7012b3f59a84800ff373be14ec3b",
+          "resolution": "SYSTEM32_PATH_PRESENT",
+          "actual_loaded_path": "NOT_RUN"
+        },
+        {
+          "name": "dwmapi.dll",
+          "kind": "DELAY_IMPORT",
+          "candidate_path": "C:\\Windows\\System32\\dwmapi.dll",
+          "candidate_sha256": "733c4dbf3e3fc521199ae57a5adc0b780d8c63d3de96676670cbf6d27cfed5e2",
+          "resolution": "SYSTEM32_PATH_PRESENT",
+          "actual_loaded_path": "NOT_RUN"
+        },
+        {
+          "name": "api-ms-win-core-winrt-string-l1-1-0.dll",
+          "kind": "DELAY_IMPORT",
+          "resolution": "WINDOWS_API_SET_RUNTIME_RESOLUTION_NOT_RUN",
+          "actual_loaded_path": "NOT_RUN"
+        },
+        {
+          "name": "api-ms-win-core-handle-l1-1-0.dll",
+          "kind": "DELAY_IMPORT",
+          "resolution": "WINDOWS_API_SET_RUNTIME_RESOLUTION_NOT_RUN",
+          "actual_loaded_path": "NOT_RUN"
+        },
+        {
+          "name": "IPHLPAPI.DLL",
+          "kind": "DELAY_IMPORT",
+          "candidate_path": "C:\\Windows\\System32\\IPHLPAPI.DLL",
+          "candidate_sha256": "8521026d021cc5193a7cd7c0256bd14c7ab39738d22c019e6d544b37deee12c0",
+          "resolution": "SYSTEM32_PATH_PRESENT",
+          "actual_loaded_path": "NOT_RUN"
+        },
+        {
+          "name": "api-ms-win-core-winrt-l1-1-0.dll",
+          "kind": "DELAY_IMPORT",
+          "resolution": "WINDOWS_API_SET_RUNTIME_RESOLUTION_NOT_RUN",
+          "actual_loaded_path": "NOT_RUN"
+        },
+        {
+          "name": "SETUPAPI.dll",
+          "kind": "DELAY_IMPORT",
+          "candidate_path": "C:\\Windows\\System32\\SETUPAPI.dll",
+          "candidate_sha256": "9cca168a1a95fef4a69b8cb0f1e310b793563833658169cacaf3ad67382ba2c7",
+          "resolution": "SYSTEM32_PATH_PRESENT",
+          "actual_loaded_path": "NOT_RUN"
+        },
+        {
+          "name": "RPCRT4.dll",
+          "kind": "DELAY_IMPORT",
+          "candidate_path": "C:\\Windows\\System32\\RPCRT4.dll",
+          "candidate_sha256": "c060f02c11fb19c9c8a30b5077a87cdb17d4be40f08070a539ec73eb53402775",
+          "resolution": "SYSTEM32_PATH_PRESENT",
+          "actual_loaded_path": "NOT_RUN"
+        },
+        {
+          "name": "pdh.dll",
+          "kind": "DELAY_IMPORT",
+          "candidate_path": "C:\\Windows\\System32\\pdh.dll",
+          "candidate_sha256": "e7b56a43e9c3f8208968530b83b600afa401463254796a1630a12864ae646bc4",
+          "resolution": "SYSTEM32_PATH_PRESENT",
+          "actual_loaded_path": "NOT_RUN"
+        },
+        {
+          "name": "PROPSYS.dll",
+          "kind": "DELAY_IMPORT",
+          "candidate_path": "C:\\Windows\\System32\\PROPSYS.dll",
+          "candidate_sha256": "1d9e7fc09a540c6b23d239f2dceeb0a57a7a1f51e1c90ad28401ecb202f4b39b",
+          "resolution": "SYSTEM32_PATH_PRESENT",
+          "actual_loaded_path": "NOT_RUN"
+        },
+        {
+          "name": "WINTRUST.dll",
+          "kind": "DELAY_IMPORT",
+          "candidate_path": "C:\\Windows\\System32\\WINTRUST.dll",
+          "candidate_sha256": "a24ff2ace63b7facf6f62cd024a596083342eebc6a8d3748ff98938b6de93a0e",
+          "resolution": "SYSTEM32_PATH_PRESENT",
+          "actual_loaded_path": "NOT_RUN"
+        },
+        {
+          "name": "d3d11.dll",
+          "kind": "DELAY_IMPORT",
+          "candidate_path": "C:\\Windows\\System32\\d3d11.dll",
+          "candidate_sha256": "c9aee071495039e820cd0be0afdeb927b9ad32edc1d0dae460b6d64064b524f6",
+          "resolution": "SYSTEM32_PATH_PRESENT",
+          "actual_loaded_path": "NOT_RUN"
+        },
+        {
+          "name": "dxgi.dll",
+          "kind": "DELAY_IMPORT",
+          "candidate_path": "C:\\Windows\\System32\\dxgi.dll",
+          "candidate_sha256": "4225e13f27a4f3a4a4738e64a57fa0949d8589f317fc6f8ec194b3a4d394a528",
+          "resolution": "SYSTEM32_PATH_PRESENT",
+          "actual_loaded_path": "NOT_RUN"
+        },
+        {
+          "name": "MMDevAPI.DLL",
+          "kind": "DELAY_IMPORT",
+          "candidate_path": "C:\\Windows\\System32\\MMDevAPI.DLL",
+          "candidate_sha256": "fe8b4f2901e3dc45b6ecfbdc5ae555962432aff08c231e54e9e79def716f3123",
+          "resolution": "SYSTEM32_PATH_PRESENT",
+          "actual_loaded_path": "NOT_RUN"
+        },
+        {
+          "name": "MF.dll",
+          "kind": "DELAY_IMPORT",
+          "candidate_path": "C:\\Windows\\System32\\MF.dll",
+          "candidate_sha256": "5ef1a13910169e20186f1c132fbad7985e14b5c00aeff36758f541c90a0a6cfc",
+          "resolution": "SYSTEM32_PATH_PRESENT",
+          "actual_loaded_path": "NOT_RUN"
+        },
+        {
+          "name": "MFPlat.DLL",
+          "kind": "DELAY_IMPORT",
+          "candidate_path": "C:\\Windows\\System32\\MFPlat.DLL",
+          "candidate_sha256": "149a947b90bfb98e21be5ac168b181543b4fb76c21b475f036dc1dc8bf2fcfe1",
+          "resolution": "SYSTEM32_PATH_PRESENT",
+          "actual_loaded_path": "NOT_RUN"
+        },
+        {
+          "name": "MFReadWrite.dll",
+          "kind": "DELAY_IMPORT",
+          "candidate_path": "C:\\Windows\\System32\\MFReadWrite.dll",
+          "candidate_sha256": "455041c27356ea8fd92bea211dcca7d8c47fc08ed9ac41fb6818344ab5f86cbe",
+          "resolution": "SYSTEM32_PATH_PRESENT",
+          "actual_loaded_path": "NOT_RUN"
+        },
+        {
+          "name": "wevtapi.dll",
+          "kind": "DELAY_IMPORT",
+          "candidate_path": "C:\\Windows\\System32\\wevtapi.dll",
+          "candidate_sha256": "2a2bf3861e24ea3c7938cb8ea8cb8bb6f79124b9bc194ef8cc21703010751125",
+          "resolution": "SYSTEM32_PATH_PRESENT",
+          "actual_loaded_path": "NOT_RUN"
+        },
+        {
+          "name": "OLEACC.dll",
+          "kind": "DELAY_IMPORT",
+          "candidate_path": "C:\\Windows\\System32\\OLEACC.dll",
+          "candidate_sha256": "f250765d7f61f7c5aeb5e8bb3b5fa737f148fd444783357e52aef21000def46f",
+          "resolution": "SYSTEM32_PATH_PRESENT",
+          "actual_loaded_path": "NOT_RUN"
+        },
+        {
+          "name": "HID.DLL",
+          "kind": "DELAY_IMPORT",
+          "candidate_path": "C:\\Windows\\System32\\HID.DLL",
+          "candidate_sha256": "e8043b16f4d7fd2b815ffd1638d2def7be4c0e0e324fe2dcee3b262bdce0d2ac",
+          "resolution": "SYSTEM32_PATH_PRESENT",
+          "actual_loaded_path": "NOT_RUN"
+        },
+        {
+          "name": "api-ms-win-shcore-scaling-l1-1-1.dll",
+          "kind": "DELAY_IMPORT",
+          "resolution": "WINDOWS_API_SET_RUNTIME_RESOLUTION_NOT_RUN",
+          "actual_loaded_path": "NOT_RUN"
+        },
+        {
+          "name": "api-ms-win-power-base-l1-1-0.dll",
+          "kind": "DELAY_IMPORT",
+          "resolution": "WINDOWS_API_SET_RUNTIME_RESOLUTION_NOT_RUN",
+          "actual_loaded_path": "NOT_RUN"
+        },
+        {
+          "name": "api-ms-win-core-realtime-l1-1-1.dll",
+          "kind": "DELAY_IMPORT",
+          "resolution": "WINDOWS_API_SET_RUNTIME_RESOLUTION_NOT_RUN",
+          "actual_loaded_path": "NOT_RUN"
+        },
+        {
+          "name": "USERENV.dll",
+          "kind": "DELAY_IMPORT",
+          "candidate_path": "C:\\Windows\\System32\\USERENV.dll",
+          "candidate_sha256": "aeb1a6a15397bee7a0ebc67b8188f751e10089c0adadfd86146496c5faae914c",
+          "resolution": "SYSTEM32_PATH_PRESENT",
+          "actual_loaded_path": "NOT_RUN"
+        },
+        {
+          "name": "ncrypt.dll",
+          "kind": "DELAY_IMPORT",
+          "candidate_path": "C:\\Windows\\System32\\ncrypt.dll",
+          "candidate_sha256": "c8a48feb20b83ed24ad3ff32a1f60528fece29ef797a58a1d346b9e2908a9420",
+          "resolution": "SYSTEM32_PATH_PRESENT",
+          "actual_loaded_path": "NOT_RUN"
+        },
+        {
+          "name": "WINSPOOL.DRV",
+          "kind": "DELAY_IMPORT",
+          "candidate_path": "C:\\Windows\\System32\\WINSPOOL.DRV",
+          "candidate_sha256": "6caa63fb1b2498b4be7897e73eb201551093a8dcd41d93e871ff7324d4e5c53d",
+          "resolution": "SYSTEM32_PATH_PRESENT",
+          "actual_loaded_path": "NOT_RUN"
+        },
+        {
+          "name": "tbs.dll",
+          "kind": "DELAY_IMPORT",
+          "candidate_path": "C:\\Windows\\System32\\tbs.dll",
+          "candidate_sha256": "04b84d174893c0ab714841d74517777c14f1563e8a47485d7392c4d53e8da2d2",
+          "resolution": "SYSTEM32_PATH_PRESENT",
+          "actual_loaded_path": "NOT_RUN"
+        },
+        {
+          "name": "UxTheme.dll",
+          "kind": "DELAY_IMPORT",
+          "candidate_path": "C:\\Windows\\System32\\UxTheme.dll",
+          "candidate_sha256": "e5087142f87989c7430d82a65616817a2515a79fa582549ba48a1dd6ac1b7200",
+          "resolution": "SYSTEM32_PATH_PRESENT",
+          "actual_loaded_path": "NOT_RUN"
+        },
+        {
+          "name": "d3d12.dll",
+          "kind": "DELAY_IMPORT",
+          "candidate_path": "C:\\Windows\\System32\\d3d12.dll",
+          "candidate_sha256": "0963513f3291a67ea56985a6e8b7ed8088a1e858803be6dc3373faa07460ce02",
+          "resolution": "SYSTEM32_PATH_PRESENT",
+          "actual_loaded_path": "NOT_RUN"
+        },
+        {
+          "name": "dcomp.dll",
+          "kind": "DELAY_IMPORT",
+          "candidate_path": "C:\\Windows\\System32\\dcomp.dll",
+          "candidate_sha256": "4077bf81a9a178d097288ed5b47a66b21881fb7581ddd142e53e66f0f94376ed",
+          "resolution": "SYSTEM32_PATH_PRESENT",
+          "actual_loaded_path": "NOT_RUN"
+        },
+        {
+          "name": "api-ms-win-core-synch-l1-2-0.dll",
+          "kind": "DELAY_IMPORT",
+          "resolution": "WINDOWS_API_SET_RUNTIME_RESOLUTION_NOT_RUN",
+          "actual_loaded_path": "NOT_RUN"
+        },
+        {
+          "name": "bcryptprimitives.dll",
+          "kind": "DELAY_IMPORT",
+          "candidate_path": "C:\\Windows\\System32\\bcryptprimitives.dll",
+          "candidate_sha256": "f0dba794068893c9616b0b54bef1be8f904be89eb2cb09b575d3d7fb1b5000f8",
+          "resolution": "SYSTEM32_PATH_PRESENT",
+          "actual_loaded_path": "NOT_RUN"
+        },
+        {
+          "name": "Secur32.dll",
+          "kind": "DELAY_IMPORT",
+          "candidate_path": "C:\\Windows\\System32\\Secur32.dll",
+          "candidate_sha256": "4050dfd0d4e04e8d013cb16c09d90c2177e2b7e4f102f5931187b2bd0c9d14fc",
+          "resolution": "SYSTEM32_PATH_PRESENT",
+          "actual_loaded_path": "NOT_RUN"
+        },
+        {
+          "name": "CFGMGR32.dll",
+          "kind": "DELAY_IMPORT",
+          "candidate_path": "C:\\Windows\\System32\\CFGMGR32.dll",
+          "candidate_sha256": "fea3f02ba1a9ac87f7ec53932a5821d3d894d70c828a441c8767059efa53f5c5",
+          "resolution": "SYSTEM32_PATH_PRESENT",
+          "actual_loaded_path": "NOT_RUN"
+        },
+        {
+          "name": "WINUSB.DLL",
+          "kind": "DELAY_IMPORT",
+          "candidate_path": "C:\\Windows\\System32\\WINUSB.DLL",
+          "candidate_sha256": "5d4c0816d8c2d809640a9e35a2b519cde5be59bb6c12aea294d2d3d627ae56ae",
+          "resolution": "SYSTEM32_PATH_PRESENT",
+          "actual_loaded_path": "NOT_RUN"
+        },
+        {
+          "name": "COMDLG32.dll",
+          "kind": "DELAY_IMPORT",
+          "candidate_path": "C:\\Windows\\System32\\COMDLG32.dll",
+          "candidate_sha256": "7d87ea4e567e74005a7a0ffbb11707265962a24aeb73f909ba7f3d004b5925bf",
+          "resolution": "SYSTEM32_PATH_PRESENT",
+          "actual_loaded_path": "NOT_RUN"
+        },
+        {
+          "name": "WINHTTP.dll",
+          "kind": "DELAY_IMPORT",
+          "candidate_path": "C:\\Windows\\System32\\WINHTTP.dll",
+          "candidate_sha256": "2509edaea64d4ed9e9993b80fa370f431f37117401ef77cf367533a31b82c180",
+          "resolution": "SYSTEM32_PATH_PRESENT",
+          "actual_loaded_path": "NOT_RUN"
+        },
+        {
+          "name": "urlmon.dll",
+          "kind": "DELAY_IMPORT",
+          "candidate_path": "C:\\Windows\\System32\\urlmon.dll",
+          "candidate_sha256": "ed9262ab87744cf701e2cdd6a3714c3d1bdd30a1985f0d97a76c4bd35b03e239",
+          "resolution": "SYSTEM32_PATH_PRESENT",
+          "actual_loaded_path": "NOT_RUN"
+        },
+        {
+          "name": "bthprops.cpl",
+          "kind": "DELAY_IMPORT",
+          "candidate_path": "C:\\Windows\\System32\\bthprops.cpl",
+          "candidate_sha256": "fd6ed74c0e1817a7fec033f3b7feeea6fefd3d3afd8ac6d214daaf740a3a27c4",
+          "resolution": "SYSTEM32_PATH_PRESENT",
+          "actual_loaded_path": "NOT_RUN"
+        },
+        {
+          "name": "dhcpcsvc.DLL",
+          "kind": "DELAY_IMPORT",
+          "candidate_path": "C:\\Windows\\System32\\dhcpcsvc.DLL",
+          "candidate_sha256": "3c5b7c41e5b09fccbd303e308b16347f25b3c9399a2cfad0ed96a86cbbdb3729",
+          "resolution": "SYSTEM32_PATH_PRESENT",
+          "actual_loaded_path": "NOT_RUN"
+        }
+      ]
+    },
+    {
+      "path": "app/runtime/electron_wer.dll",
+      "sha256": "46c1e747f5f6d5b2c45375b34c11eb7bb8d347a27005dea759656c04d37bda6f",
+      "pe_machine": "0x8664",
+      "pe32_magic": "0x20b",
+      "imports": [
+        {
+          "name": "KERNEL32.dll",
+          "kind": "IMPORT",
+          "candidate_path": "C:\\Windows\\System32\\KERNEL32.dll",
+          "candidate_sha256": "e132eba4166256e2f414b91fe7d5386590bc5ea8626aee5af9c9738383cf2ae1",
+          "resolution": "SYSTEM32_PATH_PRESENT",
+          "actual_loaded_path": "NOT_RUN"
+        }
+      ]
+    },
+    {
+      "path": "app/runtime/ffmpeg.dll",
+      "sha256": "fc2e3525f8fbb9c25f67b804b6708119a4918b48f74dd3c0574194b8b560c26b",
+      "pe_machine": "0x8664",
+      "pe32_magic": "0x20b",
+      "imports": [
+        {
+          "name": "KERNEL32.dll",
+          "kind": "IMPORT",
+          "candidate_path": "C:\\Windows\\System32\\KERNEL32.dll",
+          "candidate_sha256": "e132eba4166256e2f414b91fe7d5386590bc5ea8626aee5af9c9738383cf2ae1",
+          "resolution": "SYSTEM32_PATH_PRESENT",
+          "actual_loaded_path": "NOT_RUN"
+        }
+      ]
+    },
+    {
+      "path": "app/runtime/vk_swiftshader.dll",
+      "sha256": "557c42833e94330a6394ab34636adb8cbc9bafd1087d9ed07a504d8855169359",
+      "pe_machine": "0x8664",
+      "pe32_magic": "0x20b",
+      "imports": [
+        {
+          "name": "KERNEL32.dll",
+          "kind": "IMPORT",
+          "candidate_path": "C:\\Windows\\System32\\KERNEL32.dll",
+          "candidate_sha256": "e132eba4166256e2f414b91fe7d5386590bc5ea8626aee5af9c9738383cf2ae1",
+          "resolution": "SYSTEM32_PATH_PRESENT",
+          "actual_loaded_path": "NOT_RUN"
+        },
+        {
+          "name": "USER32.dll",
+          "kind": "IMPORT",
+          "candidate_path": "C:\\Windows\\System32\\USER32.dll",
+          "candidate_sha256": "f285937030bcb325cad39ee5be4818f6666241229adeadea4ff1ae469dfd7ef3",
+          "resolution": "SYSTEM32_PATH_PRESENT",
+          "actual_loaded_path": "NOT_RUN"
+        },
+        {
+          "name": "GDI32.dll",
+          "kind": "IMPORT",
+          "candidate_path": "C:\\Windows\\System32\\GDI32.dll",
+          "candidate_sha256": "772c73e294a4c5f5e0d4146288af95287a85c074d3aee3fa9f320dc010d7dbfe",
+          "resolution": "SYSTEM32_PATH_PRESENT",
+          "actual_loaded_path": "NOT_RUN"
+        }
+      ]
+    },
+    {
+      "path": "app/runtime/vulkan-1.dll",
+      "sha256": "bf9d0bc276ffd5385bc29333f641b7ae4ba1983f02621e9c9c8cf417e4b15bdf",
+      "pe_machine": "0x8664",
+      "pe32_magic": "0x20b",
+      "imports": [
+        {
+          "name": "KERNEL32.dll",
+          "kind": "IMPORT",
+          "candidate_path": "C:\\Windows\\System32\\KERNEL32.dll",
+          "candidate_sha256": "e132eba4166256e2f414b91fe7d5386590bc5ea8626aee5af9c9738383cf2ae1",
+          "resolution": "SYSTEM32_PATH_PRESENT",
+          "actual_loaded_path": "NOT_RUN"
+        },
+        {
+          "name": "ADVAPI32.dll",
+          "kind": "IMPORT",
+          "candidate_path": "C:\\Windows\\System32\\ADVAPI32.dll",
+          "candidate_sha256": "b864e1468a01a44f1901e03c05c1029e71655dd9abddd6d840bcfff5e7227d44",
+          "resolution": "SYSTEM32_PATH_PRESENT",
+          "actual_loaded_path": "NOT_RUN"
+        },
+        {
+          "name": "CFGMGR32.dll",
+          "kind": "IMPORT",
+          "candidate_path": "C:\\Windows\\System32\\CFGMGR32.dll",
+          "candidate_sha256": "fea3f02ba1a9ac87f7ec53932a5821d3d894d70c828a441c8767059efa53f5c5",
+          "resolution": "SYSTEM32_PATH_PRESENT",
+          "actual_loaded_path": "NOT_RUN"
+        }
+      ]
+    },
+    {
+      "path": "credential-launcher.exe",
+      "sha256": "40475c39e8b5c65b20c33638fb12d81b497019b436186766dde0ddb8c43d55e7",
+      "pe_machine": "0x8664",
+      "pe32_magic": "0x20b",
+      "imports": []
+    },
+    {
+      "path": "node.exe",
+      "sha256": "3331e1ffe19874215472217c5e94f5a0c6d8e18c4ac7111d3937aa0ad5e9b4a5",
+      "pe_machine": "0x8664",
+      "pe32_magic": "0x20b",
+      "imports": [
+        {
+          "name": "CRYPT32.dll",
+          "kind": "IMPORT",
+          "candidate_path": "C:\\Windows\\System32\\CRYPT32.dll",
+          "candidate_sha256": "71da5f9806f7aaf9e081c1df28b13182d2643b7f3534173f868ba65287612bbb",
+          "resolution": "SYSTEM32_PATH_PRESENT",
+          "actual_loaded_path": "NOT_RUN"
+        },
+        {
+          "name": "WS2_32.dll",
+          "kind": "IMPORT",
+          "candidate_path": "C:\\Windows\\System32\\WS2_32.dll",
+          "candidate_sha256": "b123b00c46c415d7baeaada58c29c3e6920895db836ee4c0cfee49d738af60ad",
+          "resolution": "SYSTEM32_PATH_PRESENT",
+          "actual_loaded_path": "NOT_RUN"
+        },
+        {
+          "name": "USER32.dll",
+          "kind": "IMPORT",
+          "candidate_path": "C:\\Windows\\System32\\USER32.dll",
+          "candidate_sha256": "f285937030bcb325cad39ee5be4818f6666241229adeadea4ff1ae469dfd7ef3",
+          "resolution": "SYSTEM32_PATH_PRESENT",
+          "actual_loaded_path": "NOT_RUN"
+        },
+        {
+          "name": "dbghelp.dll",
+          "kind": "IMPORT",
+          "candidate_path": "C:\\Windows\\System32\\dbghelp.dll",
+          "candidate_sha256": "2d2ec94891162a61d86789133623b47d64d74c15d6be99473b25ad7a6468cf39",
+          "resolution": "SYSTEM32_PATH_PRESENT",
+          "actual_loaded_path": "NOT_RUN"
+        },
+        {
+          "name": "ADVAPI32.dll",
+          "kind": "IMPORT",
+          "candidate_path": "C:\\Windows\\System32\\ADVAPI32.dll",
+          "candidate_sha256": "b864e1468a01a44f1901e03c05c1029e71655dd9abddd6d840bcfff5e7227d44",
+          "resolution": "SYSTEM32_PATH_PRESENT",
+          "actual_loaded_path": "NOT_RUN"
+        },
+        {
+          "name": "IPHLPAPI.DLL",
+          "kind": "IMPORT",
+          "candidate_path": "C:\\Windows\\System32\\IPHLPAPI.DLL",
+          "candidate_sha256": "8521026d021cc5193a7cd7c0256bd14c7ab39738d22c019e6d544b37deee12c0",
+          "resolution": "SYSTEM32_PATH_PRESENT",
+          "actual_loaded_path": "NOT_RUN"
+        },
+        {
+          "name": "USERENV.dll",
+          "kind": "IMPORT",
+          "candidate_path": "C:\\Windows\\System32\\USERENV.dll",
+          "candidate_sha256": "aeb1a6a15397bee7a0ebc67b8188f751e10089c0adadfd86146496c5faae914c",
+          "resolution": "SYSTEM32_PATH_PRESENT",
+          "actual_loaded_path": "NOT_RUN"
+        },
+        {
+          "name": "SHELL32.dll",
+          "kind": "IMPORT",
+          "candidate_path": "C:\\Windows\\System32\\SHELL32.dll",
+          "candidate_sha256": "c55a5f3b6ef059871fe2a0c8d82f086e0998d1154023e3ecf49698b97f9341f6",
+          "resolution": "SYSTEM32_PATH_PRESENT",
+          "actual_loaded_path": "NOT_RUN"
+        },
+        {
+          "name": "ole32.dll",
+          "kind": "IMPORT",
+          "candidate_path": "C:\\Windows\\System32\\ole32.dll",
+          "candidate_sha256": "1053ffb858cddbe29eaaa6a5b0836b88c7cd11fbd58605288600e507c06db443",
+          "resolution": "SYSTEM32_PATH_PRESENT",
+          "actual_loaded_path": "NOT_RUN"
+        },
+        {
+          "name": "WINMM.dll",
+          "kind": "IMPORT",
+          "candidate_path": "C:\\Windows\\System32\\WINMM.dll",
+          "candidate_sha256": "b9035da2ee058fe565ecb3c0064f46f2d09bde01f29e423ffe6b33e15c773f04",
+          "resolution": "SYSTEM32_PATH_PRESENT",
+          "actual_loaded_path": "NOT_RUN"
+        },
+        {
+          "name": "KERNEL32.dll",
+          "kind": "IMPORT",
+          "candidate_path": "C:\\Windows\\System32\\KERNEL32.dll",
+          "candidate_sha256": "e132eba4166256e2f414b91fe7d5386590bc5ea8626aee5af9c9738383cf2ae1",
+          "resolution": "SYSTEM32_PATH_PRESENT",
+          "actual_loaded_path": "NOT_RUN"
+        }
+      ]
+    },
+    {
+      "path": "pipe-client.exe",
+      "sha256": "7672be27669282f79e40d765ba8083b84789d2fec09334f816d395bd8668ffef",
+      "pe_machine": "0x8664",
+      "pe32_magic": "0x20b",
+      "imports": []
+    },
+    {
+      "path": "trusted-credential-helper.exe",
+      "sha256": "3dd167fecea7d1e4046a1d885e89acd9f9c853a17aaa65fe8206c92507bfb7ed",
+      "pe_machine": "0x8664",
+      "pe32_magic": "0x20b",
+      "imports": []
+    }
+  ],
+  "missing_direct_imports": [],
+  "application_manifest_sha256": "033aa1e49ab7de3d75673fbb125026a96a16da88630cac6d744f494bd9d3c14c",
+  "application_manifest_entries": 186,
+  "application_file_set_matches": true,
+  "actual_module_load_trace": "NOT_RUN",
+  "dotnet_framework_compiler_present": true,
+  "managed_framework_GAC_binding": "NOT_RUN",
+  "production_dependency_qualification": "BLOCKED"
+}

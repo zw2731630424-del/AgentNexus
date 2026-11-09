@@ -1,0 +1,112 @@
+{
+  "schema": "agentnexus.q4.precise-deployment-request.v1",
+  "prepared_at_utc": "2026-11-09T12:10:50.0000000Z",
+  "status": "UNSIGNED",
+  "decision": "NO-GO",
+  "readiness": "BLOCKED",
+  "document_role": "PRECISE_SCOPE_REVIEW_DRAFT_NOT_FINAL_EXECUTABLE_APPROVAL",
+  "host": "DESKTOP-OSWALD",
+  "machine_id": "a013cd5e924eb5db1ba67eb28c65379f81b2d73f2cbd42fdb6645eb202681fe4",
+  "operator_sid": "S-1-5-21-2532670394-1554971530-4095700938-1001",
+  "service_sid": "S-1-5-80-8808145-1723257024-8982472-3705063417-1094825873",
+  "service_sid_activated": false,
+  "policy_epoch": 3,
+  "scope": "QUALIFICATION_ONLY",
+  "deployment_approved": false,
+  "start_service": false,
+  "approval_ref": "",
+  "qualification_test_approval_ref": "",
+  "external_issuer": null,
+  "authority_certificate_der_sha256": null,
+  "issued_at_utc": "2026-11-09T12:10:50.0000000Z",
+  "expires_at_utc": "2026-11-16T12:10:50.0000000Z",
+  "current_installation_manifest_sha256": "2021e60599b1c3996cd1393f4881621c1b8accd9c0ef4933ac6f779d38eabb5a",
+  "final_installation_manifest_sha256": null,
+  "qualification_draft_sha256": "e055392965705f3da1fa4f2009e2af50270bc1dd74e9f707b201b6f4f3896210",
+  "service_config_draft_sha256": "9bcdf0fea75f922d8bb9037cb0ba4c66622a1bdf5f8eaf9d318dca06768050be",
+  "deployment_approval_unsigned_sha256": "d485bfc5673305a1d3b059807fad6f4fa9d6f6456741f368b5ab86ae67d6cefb",
+  "source_zip_sha256": "bf1319b198f8c8f4ab4e4bad1522de60802278a05db16ea6769cb3ed0419535a",
+  "installer_sha256": "8985976a9be9758c7288cfb2a6b3482f41401bc5aa95a687b208fc932c797bcd",
+  "payload_files": 194,
+  "payload_bytes": 468433910,
+  "target_paths": {
+    "program": "C:\\Program Files\\AgentNexus",
+    "data": "C:\\ProgramData\\AgentNexusCredential"
+  },
+  "requested_future_scope": {
+    "scm": {
+      "name": "AgentNexusCredential",
+      "type": "own-process",
+      "start": "demand",
+      "session": 0,
+      "account": "NT SERVICE\\AgentNexusCredential",
+      "sid_type": "unrestricted",
+      "image": "\"C:\\Program Files\\AgentNexus\\AgentNexusCredential.exe\"",
+      "arguments": [],
+      "descriptor": "D:P(A;;GA;;;SY)(A;;GA;;;BA)(A;;CCLC;;;AU)"
+    },
+    "program_acl": "SYSTEM/Administrators maintenance; service/Users RX; protected owner/DACL; exact manifest only",
+    "data_acl": "SYSTEM/Administrators maintain config; service RX; service write only engine/qualification/temp; no ordinary-user access",
+    "runtime": "fixed same service EXE --daily-runtime; retained child handle; explicit inherited stdio; protected process/thread; kill-on-close Job",
+    "desktop": "fixed app/runtime/electron.exe C:\\Program Files\\AgentNexus\\app; Medium; Add Key only uses fixed Launcher then UAC",
+    "daily_client": "fixed pipe-client.exe --daily --stdio; no UAC",
+    "high_pipe": "\\\\.\\pipe\\AgentNexus.Credential.v1",
+    "daily_pipe": "\\\\.\\pipe\\AgentNexus.Daily.v1",
+    "readiness": "separately approved start; bounded actual SCM Running, engine readiness and Medium snapshot; actual Token/child/pipe evidence",
+    "failure_action_request": "stop only the approved AgentNexusCredential service on readiness failure; verify fixed children and pipes closed; retain all data; approval pending",
+    "forbidden": [
+      "existing-target takeover",
+      "custom account creation",
+      "SeDebugPrivilege grant",
+      "interactive/RDP logon grant",
+      "unrelated ACL/firewall/UAC policy changes",
+      "real ledger migration/reset",
+      "real Key",
+      "live Provider",
+      "automatic data deletion"
+    ]
+  },
+  "real_import_enabled": false,
+  "real_import_approval_ref": "",
+  "live_enabled": false,
+  "live_approval_ref": "",
+  "existing_token_authorization": 100000000,
+  "token_authorization_reset": false,
+  "blockers": [
+    {
+      "id": "Q4-B01",
+      "status": "BLOCKED",
+      "reason": "USER_CONFIRMED_NO_APPROVED_EXTERNAL_SIGNER_CERTIFICATE_OR_DER_SHA256_PIN"
+    },
+    {
+      "id": "Q4-B02",
+      "status": "BLOCKED",
+      "reason": "QUALIFICATION_AND_DEPLOYMENT_DETACHED_CMS_SIGNATURES_ABSENT"
+    },
+    {
+      "id": "Q4-B03",
+      "status": "BLOCKED",
+      "reason": "UNSIGNED_EXECUTABLES_AND_INSTALLER;_AUTHENTICODE_POLICY_AND_REFREEZE_PENDING"
+    },
+    {
+      "id": "Q4-B04",
+      "status": "BLOCKED",
+      "reason": "Q3_LAUNCH_PLAN_EXPIRED;_FINAL_PAYLOAD_AND_MANIFEST_HASHES_NOT_YET_FREEZABLE"
+    },
+    {
+      "id": "Q4-B05",
+      "status": "BLOCKED",
+      "reason": "STRICT_LAUNCHER_DATE_AND_CASE_SENSITIVE_TEST_NAME_CONTRACT_MUST_BE_VALIDATED_BEFORE_SIGNING"
+    },
+    {
+      "id": "Q4-B06",
+      "status": "BLOCKED",
+      "reason": "START_REQUEST_IS_NOT_READINESS;_BOUNDED_SCM_AND_DAILY_READINESS_AND_FAILURE_STOP_APPROVAL_REQUIRED"
+    },
+    {
+      "id": "Q4-B07",
+      "status": "BLOCKED",
+      "reason": "USER_EXPLICIT_NO_GO;_FINAL_EXACT_DEPLOYMENT_APPROVAL_NOT_GRANTED"
+    }
+  ]
+}

@@ -1,0 +1,330 @@
+{
+  "schema": "agentnexus.q4.offline-checks.v1",
+  "run": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4\\offline-20261109T120357Z-6c1e2f1e",
+  "scope": "FROZEN_Q3_REBUILD_AND_SYNTHETIC_DIAGNOSTICS_ONLY",
+  "status": "PASS",
+  "source_unchanged": true,
+  "q3_source_manifest_sha256": "dff5a53723907c128084ce2fd621176f4c6b6ce1b61c6fd951285f27a0abc52e",
+  "stages": [
+    {
+      "name": "node-version",
+      "command": [
+        "D:\\Nodejs\\node.EXE",
+        "--version"
+      ],
+      "started_at_utc": "2026-11-09T12:03:58.362644+00:00",
+      "exit_code": 0,
+      "stdout_file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4\\offline-20261109T120357Z-6c1e2f1e\\node-version.stdout.log",
+      "stderr_file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4\\offline-20261109T120357Z-6c1e2f1e\\node-version.stderr.log",
+      "stdout_sha256": "0696fc75ebdd632c8c328370653d4dddc37504bf96b32317a50d7189cc1a775f",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS"
+    },
+    {
+      "name": "strict-typecheck",
+      "command": [
+        "D:\\Nodejs\\node.EXE",
+        "tools/agentnexus/typecheck-m15.mjs"
+      ],
+      "started_at_utc": "2026-11-09T12:03:58.425428+00:00",
+      "exit_code": 0,
+      "stdout_file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4\\offline-20261109T120357Z-6c1e2f1e\\strict-typecheck.stdout.log",
+      "stderr_file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4\\offline-20261109T120357Z-6c1e2f1e\\strict-typecheck.stderr.log",
+      "stdout_sha256": "f2f1340877f8fa76f4dc290b51caf5580548734d7f3ec659d23ab77ec9396bca",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS"
+    },
+    {
+      "name": "compile-service",
+      "command": [
+        "C:\\Windows\\Microsoft.NET\\Framework64\\v4.0.30319\\csc.exe",
+        "/nologo",
+        "/target:exe",
+        "/platform:x64",
+        "/optimize+",
+        "/warn:4",
+        "/warnaserror+",
+        "/r:System.Core.dll",
+        "/r:System.ServiceProcess.dll",
+        "/r:System.Security.dll",
+        "/r:System.Web.Extensions.dll",
+        "/out:I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4\\offline-20261109T120357Z-6c1e2f1e\\AgentNexusCredential.exe",
+        "/main:AgentNexus.CredentialBoundary.ServiceProgram",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4\\offline-20261109T120357Z-6c1e2f1e\\sandbox\\deliverables\\AgentNexus-M1.8.3-Q3\\source\\native\\credential-service\\Common.cs",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4\\offline-20261109T120357Z-6c1e2f1e\\sandbox\\deliverables\\AgentNexus-M1.8.3-Q3\\source\\native\\credential-service\\CredentialService.cs",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4\\offline-20261109T120357Z-6c1e2f1e\\sandbox\\deliverables\\AgentNexus-M1.8.3-Q3\\source\\native\\credential-service\\DailyRuntime.cs"
+      ],
+      "started_at_utc": "2026-11-09T12:04:01.957540+00:00",
+      "exit_code": 0,
+      "stdout_file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4\\offline-20261109T120357Z-6c1e2f1e\\compile-service.stdout.log",
+      "stderr_file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4\\offline-20261109T120357Z-6c1e2f1e\\compile-service.stderr.log",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS"
+    },
+    {
+      "name": "pure-service",
+      "command": [
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4\\offline-20261109T120357Z-6c1e2f1e\\AgentNexusCredential.exe",
+        "--self-test"
+      ],
+      "started_at_utc": "2026-11-09T12:04:02.150143+00:00",
+      "exit_code": 0,
+      "stdout_file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4\\offline-20261109T120357Z-6c1e2f1e\\pure-service.stdout.log",
+      "stderr_file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4\\offline-20261109T120357Z-6c1e2f1e\\pure-service.stderr.log",
+      "stdout_sha256": "6fd5c103a23e21247c3174b6ecb47b56bd795c53acb151be593b90e25007fc11",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS"
+    },
+    {
+      "name": "compile-client",
+      "command": [
+        "C:\\Windows\\Microsoft.NET\\Framework64\\v4.0.30319\\csc.exe",
+        "/nologo",
+        "/target:exe",
+        "/platform:x64",
+        "/optimize+",
+        "/warn:4",
+        "/warnaserror+",
+        "/r:System.Core.dll",
+        "/r:System.ServiceProcess.dll",
+        "/r:System.Security.dll",
+        "/r:System.Web.Extensions.dll",
+        "/out:I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4\\offline-20261109T120357Z-6c1e2f1e\\pipe-client.exe",
+        "/main:AgentNexus.CredentialBoundary.ClientProgram",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4\\offline-20261109T120357Z-6c1e2f1e\\sandbox\\deliverables\\AgentNexus-M1.8.3-Q3\\source\\native\\credential-service\\Common.cs",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4\\offline-20261109T120357Z-6c1e2f1e\\sandbox\\deliverables\\AgentNexus-M1.8.3-Q3\\source\\native\\credential-service\\PipeClient.cs"
+      ],
+      "started_at_utc": "2026-11-09T12:04:02.366772+00:00",
+      "exit_code": 0,
+      "stdout_file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4\\offline-20261109T120357Z-6c1e2f1e\\compile-client.stdout.log",
+      "stderr_file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4\\offline-20261109T120357Z-6c1e2f1e\\compile-client.stderr.log",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS"
+    },
+    {
+      "name": "pure-client",
+      "command": [
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4\\offline-20261109T120357Z-6c1e2f1e\\pipe-client.exe",
+        "--self-test"
+      ],
+      "started_at_utc": "2026-11-09T12:04:02.549965+00:00",
+      "exit_code": 0,
+      "stdout_file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4\\offline-20261109T120357Z-6c1e2f1e\\pure-client.stdout.log",
+      "stderr_file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4\\offline-20261109T120357Z-6c1e2f1e\\pure-client.stderr.log",
+      "stdout_sha256": "6fd5c103a23e21247c3174b6ecb47b56bd795c53acb151be593b90e25007fc11",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS"
+    },
+    {
+      "name": "compile-helper",
+      "command": [
+        "C:\\Windows\\Microsoft.NET\\Framework64\\v4.0.30319\\csc.exe",
+        "/nologo",
+        "/target:exe",
+        "/platform:x64",
+        "/optimize+",
+        "/warn:4",
+        "/warnaserror+",
+        "/r:System.Core.dll",
+        "/r:System.ServiceProcess.dll",
+        "/r:System.Security.dll",
+        "/r:System.Web.Extensions.dll",
+        "/target:winexe",
+        "/langversion:5",
+        "/r:System.Windows.Forms.dll",
+        "/r:System.Drawing.dll",
+        "/win32manifest:I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4\\offline-20261109T120357Z-6c1e2f1e\\sandbox\\deliverables\\AgentNexus-M1.8.3-Q3\\source\\native\\credential-helper\\helper.manifest",
+        "/out:I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4\\offline-20261109T120357Z-6c1e2f1e\\trusted-credential-helper.exe",
+        "/main:AgentNexus.CredentialBoundary.TrustedHelperProgram",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4\\offline-20261109T120357Z-6c1e2f1e\\sandbox\\deliverables\\AgentNexus-M1.8.3-Q3\\source\\native\\credential-service\\Common.cs",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4\\offline-20261109T120357Z-6c1e2f1e\\sandbox\\deliverables\\AgentNexus-M1.8.3-Q3\\source\\native\\credential-helper\\HelperIntent.cs",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4\\offline-20261109T120357Z-6c1e2f1e\\sandbox\\deliverables\\AgentNexus-M1.8.3-Q3\\source\\native\\credential-helper\\HelperProtocol.cs",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4\\offline-20261109T120357Z-6c1e2f1e\\sandbox\\deliverables\\AgentNexus-M1.8.3-Q3\\source\\native\\credential-helper\\HelperObjectSecurity.cs",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4\\offline-20261109T120357Z-6c1e2f1e\\sandbox\\deliverables\\AgentNexus-M1.8.3-Q3\\source\\native\\credential-helper\\TrustedCredentialHelper.cs",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4\\offline-20261109T120357Z-6c1e2f1e\\sandbox\\deliverables\\AgentNexus-M1.8.3-Q3\\source\\native\\credential-helper\\HelperTests.cs"
+      ],
+      "started_at_utc": "2026-11-09T12:04:02.750000+00:00",
+      "exit_code": 0,
+      "stdout_file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4\\offline-20261109T120357Z-6c1e2f1e\\compile-helper.stdout.log",
+      "stderr_file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4\\offline-20261109T120357Z-6c1e2f1e\\compile-helper.stderr.log",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS"
+    },
+    {
+      "name": "pure-helper",
+      "command": [
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4\\offline-20261109T120357Z-6c1e2f1e\\trusted-credential-helper.exe",
+        "--self-test"
+      ],
+      "started_at_utc": "2026-11-09T12:04:03.054068+00:00",
+      "exit_code": 0,
+      "stdout_file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4\\offline-20261109T120357Z-6c1e2f1e\\pure-helper.stdout.log",
+      "stderr_file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4\\offline-20261109T120357Z-6c1e2f1e\\pure-helper.stderr.log",
+      "stdout_sha256": "12092a5c2e5b7dbcfcf3f3ab143a4df3781fee1a4cc7b1d1febf65b9c77d5e55",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS"
+    },
+    {
+      "name": "compile-launcher",
+      "command": [
+        "C:\\Windows\\Microsoft.NET\\Framework64\\v4.0.30319\\csc.exe",
+        "/nologo",
+        "/target:exe",
+        "/platform:x64",
+        "/optimize+",
+        "/warn:4",
+        "/warnaserror+",
+        "/r:System.Core.dll",
+        "/r:System.ServiceProcess.dll",
+        "/r:System.Security.dll",
+        "/r:System.Web.Extensions.dll",
+        "/win32manifest:I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4\\offline-20261109T120357Z-6c1e2f1e\\sandbox\\deliverables\\AgentNexus-M1.8.3-Q3\\source\\native\\credential-launcher\\launcher.manifest",
+        "/out:I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4\\offline-20261109T120357Z-6c1e2f1e\\credential-launcher.exe",
+        "/main:AgentNexus.CredentialBoundary.LauncherProgram",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4\\offline-20261109T120357Z-6c1e2f1e\\sandbox\\deliverables\\AgentNexus-M1.8.3-Q3\\source\\native\\credential-service\\Common.cs",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4\\offline-20261109T120357Z-6c1e2f1e\\sandbox\\deliverables\\AgentNexus-M1.8.3-Q3\\source\\native\\credential-launcher\\CredentialLauncher.cs"
+      ],
+      "started_at_utc": "2026-11-09T12:04:03.236993+00:00",
+      "exit_code": 0,
+      "stdout_file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4\\offline-20261109T120357Z-6c1e2f1e\\compile-launcher.stdout.log",
+      "stderr_file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4\\offline-20261109T120357Z-6c1e2f1e\\compile-launcher.stderr.log",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS"
+    },
+    {
+      "name": "pure-launcher",
+      "command": [
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4\\offline-20261109T120357Z-6c1e2f1e\\credential-launcher.exe",
+        "--self-test"
+      ],
+      "started_at_utc": "2026-11-09T12:04:03.427764+00:00",
+      "exit_code": 0,
+      "stdout_file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4\\offline-20261109T120357Z-6c1e2f1e\\pure-launcher.stdout.log",
+      "stderr_file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4\\offline-20261109T120357Z-6c1e2f1e\\pure-launcher.stderr.log",
+      "stdout_sha256": "7f74e5e64073c7b2434e6530ba60db59d3f3f673131185fb34341d80f63265f1",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS"
+    },
+    {
+      "name": "compile-observer",
+      "command": [
+        "C:\\Windows\\Microsoft.NET\\Framework64\\v4.0.30319\\csc.exe",
+        "/nologo",
+        "/target:exe",
+        "/platform:x64",
+        "/optimize+",
+        "/warn:4",
+        "/warnaserror+",
+        "/r:System.Core.dll",
+        "/r:System.ServiceProcess.dll",
+        "/r:System.Security.dll",
+        "/r:System.Web.Extensions.dll",
+        "/out:I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4\\offline-20261109T120357Z-6c1e2f1e\\observe-processes.exe",
+        "/main:AgentNexus.CredentialBoundary.ObserveProcesses",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4\\offline-20261109T120357Z-6c1e2f1e\\sandbox\\deliverables\\AgentNexus-M1.8.3-Q3\\source\\native\\credential-service\\Common.cs",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4\\offline-20261109T120357Z-6c1e2f1e\\sandbox\\deliverables\\AgentNexus-M1.8.3-Q3\\source\\tools\\agentnexus\\ObserveProcesses.cs"
+      ],
+      "started_at_utc": "2026-11-09T12:04:03.580697+00:00",
+      "exit_code": 0,
+      "stdout_file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4\\offline-20261109T120357Z-6c1e2f1e\\compile-observer.stdout.log",
+      "stderr_file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4\\offline-20261109T120357Z-6c1e2f1e\\compile-observer.stderr.log",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS"
+    },
+    {
+      "name": "affected-regression",
+      "command": [
+        "D:\\Nodejs\\node.EXE",
+        "--test",
+        "--test-reporter=tap",
+        "--test-concurrency=1",
+        "tests/agentnexus/m18-vault.test.ts",
+        "tests/agentnexus/m18-ledger.test.ts",
+        "tests/agentnexus/m18-gateway.test.ts",
+        "tests/agentnexus/m18-secret-boundary.test.ts",
+        "tests/agentnexus/m18-authorization.test.ts",
+        "tests/agentnexus/m18-protocol.test.ts",
+        "tests/agentnexus/m18-review-fixes.test.ts",
+        "tests/agentnexus/m181-control.test.ts",
+        "tests/agentnexus/m181-adapter.test.ts",
+        "tests/agentnexus/m182-egress.test.ts",
+        "tests/agentnexus/m183-service.test.ts",
+        "tests/agentnexus/q2-daily.test.ts",
+        "tests/agentnexus/q3-stack.test.ts",
+        "tests/desktop/isolated.test.ts",
+        "tests/desktop/q2-trusted-entry.test.ts",
+        "tests/desktop/q3-helper-launch.test.ts",
+        "tests/desktop/service.test.ts"
+      ],
+      "started_at_utc": "2026-11-09T12:04:03.764020+00:00",
+      "exit_code": 0,
+      "stdout_file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4\\offline-20261109T120357Z-6c1e2f1e\\affected-regression.stdout.log",
+      "stderr_file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4\\offline-20261109T120357Z-6c1e2f1e\\affected-regression.stderr.log",
+      "stdout_sha256": "d860d11dc38928dc61ee8473326ced96ea75bf19072ef8e9a56a01ef0219eb18",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS"
+    },
+    {
+      "name": "installer-verify-only",
+      "command": [
+        "C:\\Program Files\\WindowsApps\\OpenAI.CodexPrimaryRuntime.v26-1104-709-0_26.1104.709.0_x64__3k8sg7r9htsxt\\dependencies\\native\\powershell\\pwsh.EXE",
+        "-NoProfile",
+        "-File",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4\\offline-20261109T120357Z-6c1e2f1e\\sandbox\\deliverables\\AgentNexus-M1.8.3-Q3\\source\\tools\\agentnexus\\install-q3-qualification.ps1",
+        "-BundleRoot",
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q3"
+      ],
+      "started_at_utc": "2026-11-09T12:05:40.389386+00:00",
+      "exit_code": 0,
+      "stdout_file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4\\offline-20261109T120357Z-6c1e2f1e\\installer-verify-only.stdout.log",
+      "stderr_file": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4\\offline-20261109T120357Z-6c1e2f1e\\installer-verify-only.stderr.log",
+      "stdout_sha256": "91d006431352ec82345e28ddb3680ebd17df8eb347641b257177a373fa1bcb68",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS"
+    }
+  ],
+  "binaries": [
+    {
+      "name": "service",
+      "path": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4\\offline-20261109T120357Z-6c1e2f1e\\AgentNexusCredential.exe",
+      "sha256": "3ee03fca8c9b3ad546ca20d6c27b8e796d25ec2a02c371fb70b9446962159c4b",
+      "purpose": "DIAGNOSTIC_ONLY_NOT_DEPLOYMENT_PAYLOAD"
+    },
+    {
+      "name": "client",
+      "path": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4\\offline-20261109T120357Z-6c1e2f1e\\pipe-client.exe",
+      "sha256": "0578f1d0e38b7471643245164852d56fa7a228e38fc9fc5d825b3b0186c8e05c",
+      "purpose": "DIAGNOSTIC_ONLY_NOT_DEPLOYMENT_PAYLOAD"
+    },
+    {
+      "name": "helper",
+      "path": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4\\offline-20261109T120357Z-6c1e2f1e\\trusted-credential-helper.exe",
+      "sha256": "6b30ad35d74e59d2651cd16a6ee672795a70a5981e287c5efb064420afecea6c",
+      "purpose": "DIAGNOSTIC_ONLY_NOT_DEPLOYMENT_PAYLOAD"
+    },
+    {
+      "name": "launcher",
+      "path": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4\\offline-20261109T120357Z-6c1e2f1e\\credential-launcher.exe",
+      "sha256": "c1f85636f1f418544aff506ad45184d343922697a82a120be52857f65c27e4f4",
+      "purpose": "DIAGNOSTIC_ONLY_NOT_DEPLOYMENT_PAYLOAD"
+    },
+    {
+      "name": "observer",
+      "path": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4\\offline-20261109T120357Z-6c1e2f1e\\observe-processes.exe",
+      "sha256": "d6dc7d04f62daec6d7658008ec8989a373dfea9f0be519a17bd3edefe823638c",
+      "purpose": "DIAGNOSTIC_ONLY_NOT_DEPLOYMENT_PAYLOAD"
+    }
+  ],
+  "system_deployment_executed": false,
+  "uac_executed": false,
+  "real_key_imported": false,
+  "live_provider_requested": false,
+  "windows_os_qualification": "NOT_RUN",
+  "q3_source_files": 258,
+  "diagnostic_builds_replace_frozen_payload": false
+}

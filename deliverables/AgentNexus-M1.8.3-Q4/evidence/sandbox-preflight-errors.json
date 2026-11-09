@@ -1,0 +1,21 @@
+{
+  "schema": "agentnexus.q4.preflight-attempts.v1",
+  "attempts": [
+    {
+      "chunk_id": "3804b9",
+      "wall_time_seconds": 0.7642831,
+      "exit_code": 1,
+      "original_token_count": 45,
+      "output": "Get-CimInstance: \r\nLine |\r\n   5 |  $os=Get-CimInstance Win32_OperatingSystem\r\n     |      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\r\n     | 无法从客户端中访问 CIM 资源。\r\n"
+    },
+    {
+      "chunk_id": "2b5bc6",
+      "wall_time_seconds": 0.9633417,
+      "exit_code": 1,
+      "original_token_count": 64,
+      "output": "Get-Service: \r\nLine |\r\n   8 |  $serviceInventory=@(Get-Service | Select-Object Name,Status,ServiceTy …\r\n     |                      ~~~~~~~~~~~\r\n     | Cannot open Service Control Manager on computer '.'. This operation might require other privileges.\r\n"
+    }
+  ],
+  "resolution": "Read-only OS queries repeated outside sandbox under explicit read-only authorization; target operator remained Medium. Full attempted query stdout exceeded capture limit once; only later complete compact JSON is normative.",
+  "normative_evidence": "host-preflight.json"
+}

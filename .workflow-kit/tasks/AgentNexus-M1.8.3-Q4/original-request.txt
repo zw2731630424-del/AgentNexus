@@ -1,0 +1,793 @@
+# AgentNexus M1.8.3-Q4
+# Windows Qualification Deployment & OS Security Verification
+
+**项目：** AgentNexus  
+**开发基线：** M1.8.3-Q3  
+**执行者：** Codex  
+**任务性质：** Windows 资格部署、真实 OS 安全验证、Credential Service 部署验收、双通道实际运行验证。
+
+---
+
+# 一、本轮战略目标
+
+M1.8.3-Q3 已完成：
+
+- Trusted Credential Helper。
+- 固定 Launcher。
+- Credential Service。
+- Native Trusted Runtime。
+- Daily Medium Listener。
+- High 管理 Pipe。
+- Medium Daily Pipe。
+- Daily Grant。
+- Token Ledger。
+- Data Egress。
+- Electron UI 集成。
+- 完整合成端到端调用。
+
+Q3 最终限定回归：
+
+- 229 PASS。
+- 0 FAIL。
+- 0 SKIP。
+
+已经完成的关键验证：
+
+普通权限 Electron → 合成凭证录入 → Development Agent → Native Runtime → Daily IPC → Credential Service → Synthetic Provider → Streaming Response → UI。
+
+但仍然：
+
+- 真实 UAC：NOT_RUN。
+- Virtual Service Account：未部署。
+- 真实 Windows Service：未部署。
+- 真实 OS 隔离：NOT_RUN。
+- 同 SID 进程注入和句柄攻击：未完成生产资格验证。
+- 真实 API Key：0。
+- DeepSeek 请求：0。
+- 真实费用：$0。
+
+## 本轮核心目标
+
+**将 Q3 的合成端到端实现部署到真实 Windows 环境，完成 QUALIFICATION_ONLY 资格验证。**
+
+本轮不开发新的 Harness 架构。
+
+不重做 UI。
+
+不重做 Model Gateway。
+
+不重做 Credential Service。
+
+重点是取得真实 Windows 系统证据。
+
+---
+
+# 二、Phase 0：完整读取 Q3 部署基线
+
+开始前必须读取：
+
+1. 全部项目规则。
+2. Q3 README。
+3. Q3 acceptance-report.md。
+4. Q3 deployment-approval.md。
+5. installation-manifest.json。
+6. 完整源码 ZIP。
+7. SHA256SUMS。
+8. 独立安全审查报告。
+9. Credential Service README。
+10. Runtime 启动链。
+11. Helper 和 Launcher 源码。
+12. High / Daily Pipe 协议。
+13. OS 测试合同。
+14. 回滚方案。
+15. 历史同 SID 解密失败证据。
+16. Q2、Q3 历史保护记录。
+
+核实：
+
+- 当前 HEAD。
+- 工作树。
+- Q3 源码 SHA256。
+- 194个部署载荷文件。
+- 468,433,910 字节的载荷总量。
+- 安装文件完整性。
+- 依赖完整性。
+- 服务启动参数。
+- Helper 启动参数。
+- Runtime 入口。
+- 两条 IPC 通道。
+- 安装器默认拒绝行为。
+
+不得覆盖历史交付。
+
+不得修改 Q3 原始源码和历史测试记录。
+
+---
+
+# 三、P0：部署前最终资格检查
+
+本阶段只允许只读操作。
+
+检查当前 Windows：
+
+- Windows 版本和 Build。
+- 当前 Operator SID。
+- 当前 Integrity Level。
+- 当前 Elevation 状态。
+- UAC 配置。
+- 目标安装目录。
+- 目标数据目录。
+- 已有服务。
+- 已有 AgentNexus 安装。
+- Named Pipe 状态。
+- 当前账户权限。
+- 目标 Virtual Service Account 状态。
+
+重点确认：
+
+`NT SERVICE\AgentNexusCredential`
+
+以及：
+
+`AgentNexusCredential`
+
+必须区分 Service SID 是否仅被查询到，以及是否已经通过真实服务启动激活。
+
+不能把配置模板当成实际运行证据。
+
+## 部署文件检查
+
+逐项验证：
+
+- Electron。
+- Node Runtime。
+- Native Helper。
+- Launcher。
+- Credential Service。
+- Runtime。
+- Native Client。
+- JavaScript Engine。
+- 所有依赖。
+- 安装器。
+
+检查所有文件的 Hash、签名、路径、启动参数和依赖加载路径。
+
+发现文件缺失、Hash 不匹配、签名缺失或安装清单不完整时，停止部署准备。
+
+不得通过自动替换文件或忽略 Hash 错误继续执行。
+
+---
+
+# 四、P0：部署签名与审批准备
+
+Q3 部署包目前为 UNSIGNED / 未批准 / 未安装。
+
+必须严格遵循原部署审批合同。
+
+## 4.1 可信签发
+
+明确：
+
+- 外部签发证书。
+- 证书 DER SHA256。
+- 签发者身份。
+- 主机身份。
+- Operator SID。
+- Service SID。
+- Epoch。
+- 有效期限。
+- 安装清单 Hash。
+- 资格计划 Hash。
+- 部署批准 Hash。
+
+不能使用自行生成的自签名证书冒充生产可信签名。
+
+如果需要真实签发证书而当前没有，明确列出缺失条件，等待用户提供或确认。
+
+## 4.2 签名后重新冻结
+
+如果 Authenticode 或其他签名导致二进制内容变化：
+
+- 重新计算二进制 Hash。
+- 重新生成安装清单。
+- 重新检查全部依赖。
+- 重新执行严格构建。
+- 重新执行受影响测试。
+- 重新进行独立审查。
+
+不能沿用签名前的旧 Hash。
+
+## 4.3 QUALIFICATION_ONLY 计划
+
+资格计划必须：
+
+- `status=QUALIFICATION_ONLY`。
+- `decision=NOT_RUN/BLOCKED`。
+- `real_import=false`。
+- `live=false`。
+- 真实授权引用为空。
+- 资格测试引用单独绑定。
+- 有明确 Epoch。
+- 有明确有效期限。
+- 仅允许合成 Vault、合成账本和 FixtureTransport。
+
+不能通过资格签名直接赋予真实 Key 导入或真实 Provider 调用权限。
+
+---
+
+# 五、P0：独立 Windows Service 部署
+
+完成部署审批后，才允许执行实际系统变更。
+
+目标服务：
+
+`AgentNexusCredential`
+
+目标身份：
+
+`NT SERVICE\AgentNexusCredential`
+
+运行方式：
+
+- 独立 own-process。
+- Virtual Service Account。
+- Session 0。
+- 初期手动启动。
+- 不允许交互式登录。
+- 不允许远程桌面登录。
+- 不授予不必要的管理员权限。
+- 不授予 SeDebugPrivilege。
+
+必须实际验证：
+
+1. SCM 服务注册。
+2. 服务启动。
+3. 服务 SID。
+4. 实际 Service Token。
+5. Token Privileges。
+6. Integrity Level。
+7. Session ID。
+8. 进程树。
+9. 服务停止。
+10. 服务重启。
+
+服务身份不能只通过配置文件证明。
+
+必须读取实际运行 Token。
+
+## 程序目录
+
+目标：
+
+`C:\Program Files\AgentNexus`
+
+要求：
+
+- SYSTEM、Administrators、TrustedInstaller 维护。
+- 服务和普通用户仅有必要的读取、执行权限。
+- 普通用户不能替换程序。
+- 普通用户不能替换 Node Runtime。
+- 普通用户不能替换 Helper。
+- 普通用户不能替换 Runtime。
+- 普通用户不能替换依赖文件。
+
+## 数据目录
+
+目标：
+
+`C:\ProgramData\AgentNexusCredential`
+
+要求：
+
+- 配置由管理员维护。
+- Vault 仅可信服务访问。
+- 运行状态目录具有独立 ACL。
+- 普通用户无法读取或修改受保护数据。
+- 禁止父目录替换。
+- 禁止未经授权的 Reparse Point。
+
+必须保留实际 ACL / SDDL 证据。
+
+不能仅凭预期 ACL 声明安全通过。
+
+---
+
+# 六、P0：Trusted Helper 真实 UAC 验证
+
+本轮必须实际验证：
+
+普通权限 AgentNexus → Add Key → UAC → Trusted Helper。
+
+操作流程：
+
+1. 正常启动 AgentNexus。
+2. 打开 Model Providers。
+3. 点击 Add Key。
+4. 触发固定 Launcher。
+5. Windows 显示真实 UAC。
+6. 启动受保护 Helper。
+7. 显示可信录入窗口。
+8. 输入合成 Key。
+9. 提交 Credential Service。
+10. 服务返回保存确认。
+11. Helper 退出。
+12. 原 UI 更新状态。
+
+本轮只能输入合成 Key。
+
+不得导入真实 DeepSeek、GPT 或 GLM Key。
+
+必须分别验证：
+
+- 管理员账户正常 UAC 同意。
+- 标准用户无法使用未经批准的提升路径。
+- 提供其他管理员凭证时的身份绑定。
+- 用户取消 UAC。
+- Helper 启动失败。
+- 服务不存在。
+- 服务拒绝。
+- Ticket 过期。
+- 重放。
+- 保存 ACK 丢失。
+- Helper 异常退出。
+
+标准用户使用其他管理员凭证提升的情况，如果当前架构不支持，明确保持拒绝，不得绕过原始 Operator 身份验证。
+
+---
+
+# 七、P0：High Pipe 与 Daily Medium Pipe 真实验证
+
+必须分别验证两个 IPC。
+
+## 7.1 High 管理 Pipe
+
+目标：
+
+`\\.\pipe\AgentNexus.Credential.v1`
+
+验证：
+
+- 实际 DACL。
+- Mandatory Label。
+- SYSTEM。
+- Administrators。
+- Credential Service SID。
+- 普通 Medium 进程拒绝。
+- 普通同 SID 进程拒绝。
+- 远程连接拒绝。
+- Pipe 抢占。
+- 重放。
+- 消息篡改。
+- 未授权管理方法拒绝。
+
+不能因为 DACL 配置正确就直接判定所有攻击均被阻止。
+
+## 7.2 Daily Medium Pipe
+
+目标：
+
+`\\.\pipe\AgentNexus.Daily.v1`
+
+验证：
+
+- 实际 Pipe 创建者。
+- 实际 DACL。
+- Medium Mandatory Label。
+- Operator Rights。
+- 不允许 CREATE_INSTANCE。
+- 不允许远程连接。
+- 真实 Impersonated Token。
+- SID。
+- Integrity Level。
+- Session ID。
+- Logon ID。
+- Runtime 来源认证。
+- Grant 绑定。
+- Nonce。
+- Epoch。
+- Request Hash。
+- Context Hash。
+
+重点验证：
+
+同 SID 普通进程即使可以连接 Medium Pipe，也不能伪造可信 Runtime 身份或取得其他 Agent 的授权。
+
+必须使用真实独立攻击进程。
+
+不能用请求自报的 PID、Agent ID 或路径作为身份验证依据。
+
+---
+
+# 八、P0：Native Runtime 实际隔离验证
+
+本轮必须重点验证 Q3 新增的 Runtime 进程保护。
+
+覆盖：
+
+1. 服务创建 Runtime。
+2. 实际父子进程关系。
+3. Runtime Token。
+4. Process Security Descriptor。
+5. Thread Security Descriptor。
+6. 私有继承句柄。
+7. Job Object。
+8. 生命周期监管。
+9. 服务停止时 Runtime 退出。
+10. Runtime 崩溃时授权撤销。
+11. Host 崩溃时授权撤销。
+12. Runtime 重启后旧 Grant 失效。
+13. 句柄访问。
+14. 进程打开。
+15. 线程打开。
+16. 内存读取。
+17. 进程注入。
+18. 句柄复制。
+19. 依赖替换。
+20. DLL / Module 加载路径。
+
+不能只检查进程路径或 Hash。
+
+必须检查实际操作系统对象权限和进程 Token。
+
+对于无法完全抵御的管理员/SYSTEM/内核级攻击，明确界定威胁模型，不要作出绝对安全承诺。
+
+---
+
+# 九、P0：完整合成端到端生产候选测试
+
+本轮必须在真实部署后的环境重新执行完整闭环。
+
+不能直接复用 Q3 同 SID 测试构建的结果。
+
+完整流程：
+
+```text
+普通权限 Electron
+        |
+        v
+点击 Add Key
+        |
+        v
+真实 UAC Helper
+        |
+        v
+合成 Key 保存
+        |
+        v
+Credential Service
+        |
+        v
+普通权限 Development Agent
+        |
+        v
+受保护 Native Runtime
+        |
+        v
+Daily Medium IPC
+        |
+        v
+Credential Service
+        |
+        v
+Data Egress
+        |
+        v
+Token Ledger
+        |
+        v
+Synthetic Provider
+        |
+        v
+Streaming Response
+        |
+        v
+AgentNexus UI
+```
+
+必须证明：
+
+- 凭证录入成功。
+- Helper 退出。
+- UI 保持普通权限。
+- 日常请求不再弹 UAC。
+- Runtime 由可信服务创建。
+- Daily Grant 有效。
+- Data Egress 真实执行。
+- Token 预算原子核销。
+- 响应完整。
+- Usage 正确。
+- Audit 完整。
+- 失败时保持 UNKNOWN 和失败关闭。
+
+合成端到端通过不能替代 OS 攻击测试。
+
+---
+
+# 十、P1：原始70项 OS 测试与19类资格证据
+
+复用 Q3 原有测试合同。
+
+不要重复创建大量相同测试。
+
+逐项记录：
+
+- 原始 Test ID。
+- 本轮执行状态。
+- 真实进程身份。
+- SID。
+- Token。
+- Integrity。
+- 目标对象。
+- 实际结果。
+- 原始日志。
+- 证据 Hash。
+- 独立复核结果。
+
+状态严格使用：
+
+PASS / FAIL / NOT_RUN / BLOCKED / INCONCLUSIVE / SIMULATED。
+
+70项原始测试必须逐项保留状态。
+
+19类生产资格证据必须按照原始合同逐项核对。
+
+不能因为其中若干测试通过，就自动将整个 Vault 升级为生产资格 PASS。
+
+---
+
+# 十一、P1：崩溃恢复与数据完整性
+
+真实部署后验证：
+
+- Credential Service 崩溃。
+- Native Runtime 崩溃。
+- Electron Host 崩溃。
+- Helper 崩溃。
+- Named Pipe 断连。
+- Streaming 中断。
+- ACK 丢失。
+- Host 重启。
+- Service 重启。
+- Windows 重启。
+- UNKNOWN 请求恢复。
+- Token Ledger 恢复。
+- Credential Handle 撤销。
+- Ticket 失效。
+- Grant 失效。
+
+必须确保：
+
+- 不重发 UNKNOWN 请求。
+- 不重复扣减或释放预算。
+- 不重置全局 Token 额度。
+- 不覆盖原始 Vault。
+- 不覆盖原始 Audit。
+- 不产生未授权凭证回退。
+
+真实账本的保护式迁移不得在本轮自动执行。
+
+资格阶段使用独立合成账本。
+
+---
+
+# 十二、独立安全审查
+
+部署和测试完成后，安排独立审查。
+
+审查范围：
+
+- 服务身份。
+- 实际 Token。
+- ACL。
+- Named Pipe。
+- UAC。
+- Helper。
+- Runtime。
+- 句柄。
+- 内存。
+- 依赖加载。
+- 同 SID 攻击。
+- 不同 SID 攻击。
+- Credential Vault。
+- Token Ledger。
+- Data Egress。
+- 崩溃恢复。
+
+开发 Agent 不得仅凭自己的测试结果宣布生产资格。
+
+独立审查必须引用实际 OS 证据。
+
+如果任何关键安全边界仍然未验证，继续 BLOCKED。
+
+---
+
+# 十三、真实 Provider 与 API Key 限制
+
+本轮只做 QUALIFICATION_ONLY。
+
+禁止：
+
+- 导入真实 API Key。
+- 调用 DeepSeek。
+- 调用 OpenAI。
+- 调用 GLM。
+- 产生真实模型 Token。
+- 产生真实模型费用。
+- 发送项目源码。
+- 发送正式科研材料。
+
+现有1亿 Token 授权继续保留，不重置、不重复申请。
+
+但它不构成本轮真实 API 调用许可。
+
+生产 Vault 资格通过后，真实 Key 导入和具体请求仍须独立审批。
+
+---
+
+# 十四、部署与回滚纪律
+
+严格遵守 Q3 deployment-approval.md。
+
+安装前必须核对：
+
+- 外部证书 DER SHA256 Pin。
+- 最终安装清单。
+- 全部载荷 Hash。
+- 资格计划签名。
+- 独立部署批准。
+- 同一 Host。
+- 同一 Operator。
+- 同一 Epoch。
+- 有效期限。
+
+签名导致二进制变化时重新冻结全部 Hash。
+
+不得伪造生产签名。
+
+不得把普通开发授权或1亿 Token 授权当成系统部署授权。
+
+回滚必须：
+
+1. 停止服务。
+2. 确认 Runtime 和 Helper 退出。
+3. 确认 Named Pipe 关闭。
+4. 保留 Vault。
+5. 保留 Token Ledger。
+6. 保留 Audit。
+7. 按批准范围撤销服务登记。
+8. 不重建预算账本。
+9. 不递归删除数据。
+10. 不擅自删除账户或修改其他 ACL。
+
+---
+
+# 十五、最终交付
+
+建立：
+
+`AgentNexus-M1.8.3-Q4`
+
+至少包含：
+
+1. 完整部署报告。
+2. 最终安装清单。
+3. 签名与证书验证报告。
+4. Service SID 和 Token 证据。
+5. 实际 ACL / SDDL。
+6. UAC Helper 验证。
+7. High Pipe 验证。
+8. Daily Pipe 验证。
+9. Runtime 进程隔离报告。
+10. 同 SID 攻击报告。
+11. 不同 SID 攻击报告。
+12. 70项 OS 测试逐项结果。
+13. 19类资格证据。
+14. 合成端到端报告。
+15. 崩溃恢复报告。
+16. Token Ledger 报告。
+17. Data Egress 报告。
+18. 独立安全审查。
+19. 回滚记录。
+20. SHA256 清单。
+21. 最终验收报告。
+22. DeepSeek Live 后续准入条件。
+
+---
+
+# 十六、最终验收原则
+
+必须分别裁定：
+
+**A. Credential Service**
+
+- SERVICE_INSTALLED。
+- SERVICE_STARTED。
+- SERVICE_TOKEN_VERIFIED。
+- SERVICE_SID_VERIFIED。
+- VAULT_ISOLATION_VERIFIED。
+
+**B. Trusted Helper**
+
+- LAUNCHER_VERIFIED。
+- UAC_VERIFIED。
+- HELPER_IDENTITY_VERIFIED。
+- CREDENTIAL_INPUT_VERIFIED。
+- CREDENTIAL_STORED_VERIFIED。
+
+**C. Daily Runtime**
+
+- RUNTIME_CREATED_BY_SERVICE。
+- RUNTIME_TOKEN_VERIFIED。
+- RUNTIME_PROCESS_PROTECTION_VERIFIED。
+- DAILY_PIPE_VERIFIED。
+- SAME_SID_ATTACK_RESISTANCE_VERIFIED。
+
+**D. End-to-End**
+
+- SYNTHETIC_E2E_PASS。
+- REAL_WINDOWS_OS_QUALIFIED。
+- TOKEN_LEDGER_QUALIFIED。
+- DATA_EGRESS_QUALIFIED。
+- PRODUCTION_VAULT_QUALIFIED。
+
+**E. Live Provider**
+
+本轮保持：
+
+- REAL_KEY_IMPORTED=false。
+- LIVE_PROVIDER_REQUESTED=false。
+
+如果全部 OS 资格通过，也只能说明具备进入下一阶段的条件，不能自动导入真实 Key 或调用 DeepSeek。
+
+---
+
+# 十七、执行纪律
+
+本轮由 Codex 主执行。
+
+可并行安排：
+
+- Windows Service。
+- Helper / Launcher。
+- Native Runtime。
+- IPC。
+- 独立安全审查。
+
+共享协议由主执行者统一管理。
+
+不要多个子 Agent 同时修改同一关键组件。
+
+只进行与实际功能、安全性和可复现性直接相关的测试。
+
+不进行无关生产级过度工程化。
+
+不自动 Commit / Push。
+
+不修改其他科研项目。
+
+---
+
+# 十八、开始执行
+
+第一步先完成：
+
+1. 完整读取 Q3 部署文件。
+2. 只读检查当前 Windows。
+3. 核对安装载荷。
+4. 核对签发条件。
+5. 生成最终精确部署申请。
+6. 检查回滚方案。
+
+**在用户明确批准最终部署申请之前，不得执行安装、创建服务、启动服务、创建账户或修改 ACL。**
+
+批准后，在严格 QUALIFICATION_ONLY 模式下执行实际 Windows 部署和合成 OS 安全验证。
+
+本轮最重要的目标是：
+
+**证明 AgentNexus 能够在真实 Windows 环境中，以普通权限运行桌面 UI，通过一次 UAC 完成可信凭证录入，并在日常使用中通过受保护 Runtime 安全调用 Credential Service。**
+
+不要只提交设计文档。
+
+在当前授权范围内持续推进代码、构建、预检和测试。
+
+最终提交真实 OS 证据、独立审查和资格裁定。

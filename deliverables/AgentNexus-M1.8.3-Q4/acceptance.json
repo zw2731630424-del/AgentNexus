@@ -1,0 +1,112 @@
+{
+  "schema": "agentnexus.q4.acceptance.v1",
+  "as_of_utc": "2026-11-09T12:10:50.0000000Z",
+  "status": "BLOCKED",
+  "deployment_decision": "NO-GO",
+  "signing_status": "UNSIGNED",
+  "qualification_mode": "QUALIFICATION_ONLY",
+  "phase": "READ_ONLY_PREFLIGHT_AND_APPROVAL_MATERIALS_ONLY",
+  "A_Credential_Service": {
+    "SERVICE_INSTALLED": "NOT_RUN",
+    "SERVICE_STARTED": "NOT_RUN",
+    "SERVICE_TOKEN_VERIFIED": "NOT_RUN",
+    "SERVICE_SID_VERIFIED": "NOT_RUN",
+    "VAULT_ISOLATION_VERIFIED": "NOT_RUN"
+  },
+  "B_Trusted_Helper": {
+    "LAUNCHER_VERIFIED": "NOT_RUN",
+    "UAC_VERIFIED": "NOT_RUN",
+    "HELPER_IDENTITY_VERIFIED": "NOT_RUN",
+    "CREDENTIAL_INPUT_VERIFIED": "NOT_RUN",
+    "CREDENTIAL_STORED_VERIFIED": "NOT_RUN"
+  },
+  "C_Daily_Runtime": {
+    "RUNTIME_CREATED_BY_SERVICE": "NOT_RUN",
+    "RUNTIME_TOKEN_VERIFIED": "NOT_RUN",
+    "RUNTIME_PROCESS_PROTECTION_VERIFIED": "NOT_RUN",
+    "DAILY_PIPE_VERIFIED": "NOT_RUN",
+    "SAME_SID_ATTACK_RESISTANCE_VERIFIED": "NOT_RUN"
+  },
+  "D_End_to_End": {
+    "SYNTHETIC_E2E_PASS": "NOT_RUN",
+    "REAL_WINDOWS_OS_QUALIFIED": "NOT_RUN",
+    "TOKEN_LEDGER_QUALIFIED": "NOT_RUN",
+    "DATA_EGRESS_QUALIFIED": "NOT_RUN",
+    "PRODUCTION_VAULT_QUALIFIED": "NOT_RUN"
+  },
+  "E_Live_Provider": {
+    "REAL_KEY_IMPORTED": false,
+    "LIVE_PROVIDER_REQUESTED": false
+  },
+  "os_cases": {
+    "PASS": 0,
+    "FAIL": 0,
+    "NOT_RUN": 70
+  },
+  "qualification_categories": {
+    "PASS": 0,
+    "NOT_RUN": 19
+  },
+  "payload_integrity": "PASS",
+  "source_zip_integrity": "PASS",
+  "historical_preservation": "PASS",
+  "offline_diagnostics": {
+    "status": "PASS",
+    "counts": {
+      "tests": 229,
+      "pass": 226,
+      "fail": 0,
+      "skipped": 3
+    },
+    "is_os_qualification": false
+  },
+  "production_vault_qualified": false,
+  "independent_review": "reports/independent-security-review.md",
+  "actual_provider_calls": 0,
+  "actual_live_model_tokens": 0,
+  "actual_model_cost": 0,
+  "existing_token_authorization": 100000000,
+  "token_authorization_reset": false,
+  "system_changes": false,
+  "real_ledger_migrated": false,
+  "certificate_generated": false,
+  "private_keys_requested_read_or_exported": false,
+  "commit_or_push": false,
+  "blockers": [
+    {
+      "id": "Q4-B01",
+      "status": "BLOCKED",
+      "reason": "USER_CONFIRMED_NO_APPROVED_EXTERNAL_SIGNER_CERTIFICATE_OR_DER_SHA256_PIN"
+    },
+    {
+      "id": "Q4-B02",
+      "status": "BLOCKED",
+      "reason": "QUALIFICATION_AND_DEPLOYMENT_DETACHED_CMS_SIGNATURES_ABSENT"
+    },
+    {
+      "id": "Q4-B03",
+      "status": "BLOCKED",
+      "reason": "UNSIGNED_EXECUTABLES_AND_INSTALLER;_AUTHENTICODE_POLICY_AND_REFREEZE_PENDING"
+    },
+    {
+      "id": "Q4-B04",
+      "status": "BLOCKED",
+      "reason": "Q3_LAUNCH_PLAN_EXPIRED;_FINAL_PAYLOAD_AND_MANIFEST_HASHES_NOT_YET_FREEZABLE"
+    },
+    {
+      "id": "Q4-B05",
+      "status": "BLOCKED",
+      "reason": "STRICT_LAUNCHER_DATE_AND_CASE_SENSITIVE_TEST_NAME_CONTRACT_MUST_BE_VALIDATED_BEFORE_SIGNING"
+    },
+    {
+      "id": "Q4-B06",
+      "status": "BLOCKED",
+      "reason": "START_REQUEST_IS_NOT_READINESS;_BOUNDED_SCM_AND_DAILY_READINESS_AND_FAILURE_STOP_APPROVAL_REQUIRED"
+    },
+    {
+      "id": "Q4-B07",
+      "status": "BLOCKED",
+      "reason": "USER_EXPLICIT_NO_GO;_FINAL_EXACT_DEPLOYMENT_APPROVAL_NOT_GRANTED"
+    }
+  ]
+}

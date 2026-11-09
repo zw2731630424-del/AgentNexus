@@ -1,0 +1,310 @@
+{
+  "schema": "agentnexus.q4.independent-predeployment-review.v1",
+  "reviewed_at_utc": "2026-11-09T12:06:39Z",
+  "reviewer_role": "INDEPENDENT_SUBAGENT_NO_DELEGATION",
+  "decision": "UNSIGNED_NO_GO",
+  "signed_approval_status": "BLOCKED",
+  "windows_os_qualification": "NOT_RUN",
+  "windows_attack_cases": { "total": 70, "pass": 0, "not_run": 70 },
+  "required_signed_evidence_categories": 19,
+  "approved_external_authority_available": false,
+  "approved_authority_der_sha256": null,
+  "user_forbids_self_issued_trust_and_private_key_handling": true,
+  "reviewer_executed_deployment_or_collection_scripts": false,
+  "system_changes": false,
+  "named_pipe_connected": false,
+  "uac_executed": false,
+  "real_key_handled": false,
+  "provider_contacted": false,
+  "recursive_delegation": false,
+  "writes_limited_to": [
+    "deliverables/AgentNexus-M1.8.3-Q4/reports/independent-security-review.md",
+    "deliverables/AgentNexus-M1.8.3-Q4/evidence/independent-review.json"
+  ],
+  "normative_host_run": ".workflow-kit/runtime/AgentNexus-M1.8.3-Q4/host-20261109T120425Z-9b23e1e5",
+  "normative_host_observed_at_utc": "2026-11-09T12:04:27.5570032Z",
+  "host_observations": {
+    "machine_id": "a013cd5e924eb5db1ba67eb28c65379f81b2d73f2cbd42fdb6645eb202681fe4",
+    "operator_sid": "S-1-5-21-2532670394-1554971530-4095700938-1001",
+    "observed_process_id": 22708,
+    "session_id": 1,
+    "integrity": 8192,
+    "elevated": false,
+    "appcontainer": false,
+    "observer_exit_code": 0,
+    "service_inventory_count": 324,
+    "agentnexus_services_observed": 0,
+    "agentnexus_target_processes_observed": 0,
+    "agentnexus_pipe_names_observed": 0,
+    "sc_queryex_exit_code": 1060,
+    "service_sid_precomputed": "S-1-5-80-8808145-1723257024-8982472-3705063417-1094825873",
+    "service_sid_translate_succeeded": false,
+    "virtual_service_runtime_token_verified": false,
+    "install_root_exists": false,
+    "data_root_exists": false,
+    "parent_owner_dacl_read": true,
+    "sacl_or_mandatory_label_read": false,
+    "public_certificate_metadata_count": 7,
+    "certificate_presence_confers_approval": false
+  },
+  "offline_evidence_review": {
+    "executed_by": "MAIN_AGENT",
+    "reexecuted_by_independent_reviewer": false,
+    "run": ".workflow-kit/runtime/AgentNexus-M1.8.3-Q4/offline-20261109T120357Z-6c1e2f1e",
+    "result_sha256": "4cce77d6bdbe564604c8344041dddc6ff9a4c693da0ecc0638f4191e9a5b6387",
+    "stages": 13,
+    "stage_exit_codes_all_zero": true,
+    "stdout_stderr_hashes_independently_checked": 26,
+    "stdout_stderr_hash_mismatches": [],
+    "source_files": 258,
+    "source_unchanged_reported": true,
+    "strict_typecheck": "PASS",
+    "diagnostic_compilations": 5,
+    "pure_assertions": { "service": 90, "client": 90, "helper": 138, "launcher": 36 },
+    "shared_common_assertions_are_not_independent_os_passes": true,
+    "regression": { "pass": 226, "fail": 0, "skip": 3 },
+    "skips": ["synthetic WinForms save", "synthetic WinForms cancel", "synthetic WinForms review-cancel"],
+    "installer_verify_only": { "files": 194, "status": "PAYLOAD_VERIFIED_ONLY", "approved": false, "system_changes": false },
+    "diagnostic_builds_replace_frozen_payload": false,
+    "first_attempt_pwsh_path_failure_superseded_by_normative_second_run": true
+  },
+  "findings": [
+    {
+      "id": "Q4-IR-01",
+      "severity": "P2",
+      "status": "OPEN_FROZEN_PRODUCT_UNCHANGED",
+      "title": "Installer validation is weaker than runtime contracts",
+      "locations": [
+        "deliverables/AgentNexus-M1.8.3-Q3/source/tools/agentnexus/install-q3-qualification.ps1:97",
+        "deliverables/AgentNexus-M1.8.3-Q3/source/tools/agentnexus/install-q3-qualification.ps1:105",
+        "deliverables/AgentNexus-M1.8.3-Q3/source/native/credential-launcher/CredentialLauncher.cs:59",
+        "deliverables/AgentNexus-M1.8.3-Q3/source/native/credential-service/Common.cs:582"
+      ],
+      "observed_pure_expression_examples": [
+        { "input": "2026-11-10T12:00:00Z", "installer_date_predicate_accepts": true, "launcher_roundtrip_predicate_accepts": false },
+        { "input": "Daily_native_runtime_origin", "installer_case_insensitive_membership": true, "runtime_ordinal_match": false }
+      ],
+      "apply_reproduction_executed": false,
+      "required_condition": "Unify exact date, case and type contracts before a future signed freeze; do not change frozen Q3 or issue signatures in the current NO-GO scope"
+    },
+    {
+      "id": "Q4-IR-02",
+      "severity": "P2",
+      "status": "OPEN_FROZEN_PRODUCT_UNCHANGED",
+      "title": "Start request is reported as started without readiness or stopped rollback proof",
+      "locations": [
+        "deliverables/AgentNexus-M1.8.3-Q3/source/tools/agentnexus/install-q3-qualification.ps1:125",
+        "deliverables/AgentNexus-M1.8.3-Q3/source/tools/agentnexus/install-q3-qualification.ps1:170",
+        "deliverables/AgentNexus-M1.8.3-Q3/source/native/credential-service/CredentialService.cs:128",
+        "deliverables/AgentNexus-M1.8.3-Q3/reports/deployment-approval.md:11",
+        "deliverables/AgentNexus-M1.8.3-Q3/reports/deployment-approval.md:36"
+      ],
+      "os_reproduction_executed": false,
+      "required_condition": "A future exact approval must cover bounded SCM/readiness checks and authorized stop/child-exit verification; no service mutation is authorized now"
+    }
+  ],
+  "hash_self_reference_cycle_found": false,
+  "baseline_integrity_results_read_from_main_agent": {
+    "q3_sha256sums_files": 650,
+    "q2_sha256sums_files": 503,
+    "historical_freeze_files": 862,
+    "payload_files": 194,
+    "payload_bytes": 468433910,
+    "source_and_zip_files": 258,
+    "mismatches_reported": [],
+    "full_scan_independently_reexecuted": false
+  },
+  "reviewed_file_hashes": [
+    { "path": "deliverables/AgentNexus-M1.8.3-Q3/source/tools/agentnexus/install-q3-qualification.ps1", "sha256": "8985976a9be9758c7288cfb2a6b3482f41401bc5aa95a687b208fc932c797bcd" },
+    { "path": "deliverables/AgentNexus-M1.8.3-Q3/source/tools/agentnexus/package-q3.py", "sha256": "d2459e01396f154dc9a87549b0ae93d02b1a7ca69e34c817af15681194866a2d" },
+    { "path": "deliverables/AgentNexus-M1.8.3-Q3/source/native/credential-service/Common.cs", "sha256": "f9b8a6d34f6251a7a3b01a90ae485762d8a70c7dcfffef4bb4af047eb026ac0e" },
+    { "path": "deliverables/AgentNexus-M1.8.3-Q3/source/native/credential-service/CredentialService.cs", "sha256": "d2c9d8ee014775e8b22a55a02764c8439cce3525a371c62097d2e68255ba6f8c" },
+    { "path": "deliverables/AgentNexus-M1.8.3-Q3/source/native/credential-service/DailyRuntime.cs", "sha256": "80fe489ec6cff1d6a513753c57c42428fee83f098cafc5714f0ecdd1a0e3a716" },
+    { "path": "deliverables/AgentNexus-M1.8.3-Q3/source/native/credential-launcher/CredentialLauncher.cs", "sha256": "97a27681ed390f2638726298d44c62065e3962e68f284f4790ae47f1fa01a125" },
+    { "path": "deliverables/AgentNexus-M1.8.3-Q3/source/native/credential-helper/HelperObjectSecurity.cs", "sha256": "76bb0953388c491c8d7378ed060c06beb89bf43b5b73cc50d38626dd4d5c2fbc" },
+    { "path": "deliverables/AgentNexus-M1.8.3-Q3/source/native/credential-helper/HelperProtocol.cs", "sha256": "4644e0ad417f5db0ffedd22348de5b4bf5f5e4272193f9a3f2fc9c8a3fe4946a" },
+    { "path": "deliverables/AgentNexus-M1.8.3-Q4/tools/offline-checks.py", "sha256": "c9a8a7f134de29e5c0e7218b5400d77bac53cab869df935b39cf2b834748e640" },
+    { "path": "deliverables/AgentNexus-M1.8.3-Q4/tools/collect-host.ps1", "sha256": "72b9c808f3bbfaaa1c7ae4789e044745cc8b56d1d53defc88902d39521517595" },
+    { "path": "deliverables/AgentNexus-M1.8.3-Q4/evidence/baseline-integrity.json", "sha256": "b821ab919f6436a31cafd3ebf0a9266dc34d41201d025553f05504f451368e24" },
+    { "path": "deliverables/AgentNexus-M1.8.3-Q4/evidence/payload-signatures.json", "sha256": "1305df0da50503f5c654a16c64e247d62bd8507ed0d8360e6ed38d2f259cb8b5" },
+    { "path": ".workflow-kit/runtime/AgentNexus-M1.8.3-Q4/host-20261109T120425Z-9b23e1e5/host-preflight.json", "sha256": "00ecad8e52e543bab05dadae6b3d11faeefb738f9919b63a523fb99e6b366beb" },
+    { "path": ".workflow-kit/runtime/AgentNexus-M1.8.3-Q4/host-20261109T120425Z-9b23e1e5/service-inventory.json", "sha256": "9e720fbcf507301491e3e9a11d0bb8c02702dc6d9336005088561d71d7368b85" },
+    { "path": ".workflow-kit/runtime/AgentNexus-M1.8.3-Q4/host-20261109T120425Z-9b23e1e5/actual-parent-acl-sddl.json", "sha256": "68e4d86d111564c5ba472513af8e68c0d483963ba33a1bf32562eff7ec1a8f13" },
+    { "path": ".workflow-kit/runtime/AgentNexus-M1.8.3-Q4/host-20261109T120425Z-9b23e1e5/public-certificates.json", "sha256": "54e4989f4551925de61295cf1503f1effc2afa8087d34888b81b8630614191ad" },
+    { "path": ".workflow-kit/runtime/AgentNexus-M1.8.3-Q4/host-20261109T120425Z-9b23e1e5/process-token.raw.log", "sha256": "43f83899f7aad3af0be5127a47061ebb3c2c7f4befb411ff79ec255eeca237cb" }
+  ],
+  "final_q4_materials_review": {
+    "status": "COMPLETE_FOR_UNSIGNED_PREPARATION_ONLY",
+    "reviewed_at_utc": "2026-11-09T12:14:50.8056534Z",
+    "deployment_decision": "NO_GO",
+    "signed_approval_status": "BLOCKED",
+    "windows_os_qualification": "NOT_RUN",
+    "request_role": "PRECISE_SCOPE_REVIEW_DRAFT_NOT_FINAL_EXECUTABLE_APPROVAL",
+    "host_operator_service_sid_and_epoch_match": true,
+    "real_import_and_live_flags_all_false": true,
+    "real_import_live_and_qualification_approval_refs_empty": true,
+    "deployment_approved_and_start_service_false": true,
+    "final_signed_installation_manifest_sha256": null,
+    "draft_hash_bindings_verified": true,
+    "baseline_installation_manifest_copy_byte_identical": true,
+    "host_medium_files_byte_identical_and_hash_matched": 5,
+    "windows_case_count": 70,
+    "windows_case_original_id_layer_area_attack_expected_required_observation_and_order_preserved": true,
+    "windows_case_status_all": "NOT_RUN",
+    "qualification_category_count": 19,
+    "qualification_names_and_order_preserved_case_sensitively": true,
+    "qualification_status_all": "NOT_RUN",
+    "runtime_isolation_items_not_run": 20,
+    "helper_scenarios_not_run": 11,
+    "crash_recovery_scenarios_not_run": 15,
+    "offline_result_copy_byte_identical": true,
+    "offline_stdout_stderr_copies_hash_checked": 26,
+    "offline_stdout_stderr_copy_mismatches": [],
+    "offline_regression_counts": {
+      "pass": 226,
+      "fail": 0,
+      "skip": 3
+    },
+    "offline_results_counted_as_os_passes": 0,
+    "dependency_preflight": {
+      "pe_images": 12,
+      "direct_or_delay_import_entries": 86,
+      "path_candidates": 79,
+      "api_set_runtime_resolution_not_run": 7,
+      "actual_module_load_trace": "NOT_RUN",
+      "managed_framework_GAC_binding": "NOT_RUN",
+      "production_dependency_qualification": "BLOCKED"
+    },
+    "existing_P2_findings_retained_as_presigning_conditions": true,
+    "frozen_Q3_product_modified": false,
+    "new_blocking_security_finding_in_unsigned_preparation_materials": false,
+    "evidence_wording_corrections_completed": [
+      "Dependency entries distinguish 79 path candidates from 7 unresolved API-set contracts",
+      "Offline result preserved as exact original bytes rather than normalized JSON"
+    ],
+    "post_freeze_governance_and_SHA256SUMS": "MAIN_AGENT_TO_GENERATE_AFTER_THIS_REVIEW",
+    "artifact_hash_snapshot": [
+      {
+        "path": "deliverables/AgentNexus-M1.8.3-Q4/README.md",
+        "sha256": "f2529fb16a09390b716bf47a7538772ebee46f7f922aa9826bc0102fba72e1b4"
+      },
+      {
+        "path": "deliverables/AgentNexus-M1.8.3-Q4/acceptance-report.md",
+        "sha256": "7e21496aaf3940c06b878b2fb3cb05ea6be123588180f74577403eeea8a1235d"
+      },
+      {
+        "path": "deliverables/AgentNexus-M1.8.3-Q4/acceptance.json",
+        "sha256": "d1eeb4cf48f427f854373db43771379329ff749f9281eced42a8d1f7dc9d9c6f"
+      },
+      {
+        "path": "deliverables/AgentNexus-M1.8.3-Q4/deployment-report.md",
+        "sha256": "faf9a8eccf67a8622bafe1e80833eac90b9f712b410b970eefa6f8079271a103"
+      },
+      {
+        "path": "deliverables/AgentNexus-M1.8.3-Q4/approval/deployment-request.json",
+        "sha256": "779c0ad97b1e67f591ea4bc31ee51736875bc9570a3085cb0a8b0c88ba158d35"
+      },
+      {
+        "path": "deliverables/AgentNexus-M1.8.3-Q4/approval/deployment-request.md",
+        "sha256": "e38d9b30dacd199dd796e4c63c28b14581b2d3b511cf124196b806b3c106a76f"
+      },
+      {
+        "path": "deliverables/AgentNexus-M1.8.3-Q4/approval/deployment-approval.UNSIGNED.json",
+        "sha256": "d485bfc5673305a1d3b059807fad6f4fa9d6f6456741f368b5ab86ae67d6cefb"
+      },
+      {
+        "path": "deliverables/AgentNexus-M1.8.3-Q4/approval/service-config.UNSIGNED.json",
+        "sha256": "9bcdf0fea75f922d8bb9037cb0ba4c66622a1bdf5f8eaf9d318dca06768050be"
+      },
+      {
+        "path": "deliverables/AgentNexus-M1.8.3-Q4/approval/qualification.UNSIGNED.json",
+        "sha256": "e055392965705f3da1fa4f2009e2af50270bc1dd74e9f707b201b6f4f3896210"
+      },
+      {
+        "path": "deliverables/AgentNexus-M1.8.3-Q4/approval/installation-manifest.json",
+        "sha256": "2021e60599b1c3996cd1393f4881621c1b8accd9c0ef4933ac6f779d38eabb5a"
+      },
+      {
+        "path": "deliverables/AgentNexus-M1.8.3-Q4/approval/installation-manifest-status.json",
+        "sha256": "63dc08d879c9062fd873b476dcf3a7b41d68dee2b47e239eab94c867e63c0b00"
+      },
+      {
+        "path": "deliverables/AgentNexus-M1.8.3-Q4/approval/blockers.json",
+        "sha256": "2c3ded9870c0a5fc1ee8b2e00342552f5c0061357cd02bf899a06fc62cc6c1ca"
+      },
+      {
+        "path": "deliverables/AgentNexus-M1.8.3-Q4/evidence/dependency-preflight.json",
+        "sha256": "b676d2115567b45551cd951c312d0aff72b5b74524cbf224d3481c41064bb293"
+      },
+      {
+        "path": "deliverables/AgentNexus-M1.8.3-Q4/evidence/host-evidence-manifest.json",
+        "sha256": "c6914d7cb2665f14fc54e4b40a95e16597ff3df76e7ff8dd27c87f7165d46a24"
+      },
+      {
+        "path": "deliverables/AgentNexus-M1.8.3-Q4/evidence/service-sid-and-token.json",
+        "sha256": "1eb78974df237f214c9cd0934bd930edd8a15d78ea38be7e3f309380b2c536ba"
+      },
+      {
+        "path": "deliverables/AgentNexus-M1.8.3-Q4/evidence/offline-verification/result.json",
+        "sha256": "4cce77d6bdbe564604c8344041dddc6ff9a4c693da0ecc0638f4191e9a5b6387"
+      },
+      {
+        "path": "deliverables/AgentNexus-M1.8.3-Q4/evidence/offline-verification/summary.json",
+        "sha256": "b9ec90985e44cbf53c34dc748f6c46b8d1cb8ba096ab910b31a9ff10cc6f91e3"
+      },
+      {
+        "path": "deliverables/AgentNexus-M1.8.3-Q4/evidence/historical-same-sid-reference.json",
+        "sha256": "4f4514fd361d83e6771bcd7643b4d779c40986d445a7e9499a4b88ba43e4e231"
+      },
+      {
+        "path": "deliverables/AgentNexus-M1.8.3-Q4/tests/windows-attack-results.json",
+        "sha256": "f566d0b446b0a044dd81c41a7b77991bc5f86b1fadf5a0493251718cae24de90"
+      },
+      {
+        "path": "deliverables/AgentNexus-M1.8.3-Q4/tests/qualification-evidence-19.json",
+        "sha256": "d5ce383e7b0e7b02e6a3c68330e52a0cca1eb47c6100cbd5ac7929719a558867"
+      },
+      {
+        "path": "deliverables/AgentNexus-M1.8.3-Q4/tests/runtime-isolation-results.json",
+        "sha256": "0784e9a7c73ab7b5810615ca6a29b9a7500dddd7f7194ddd27f1881e8510526f"
+      },
+      {
+        "path": "deliverables/AgentNexus-M1.8.3-Q4/tests/uac-helper-results.json",
+        "sha256": "1a370136c903ca50da5056af841833a7e06795a212c78481c46698a76ee14961"
+      },
+      {
+        "path": "deliverables/AgentNexus-M1.8.3-Q4/tests/crash-recovery-results.json",
+        "sha256": "ab6c7bc28258e5b7d90d2c13480c55170cb2c11ebc7472552d59e2e7014819eb"
+      },
+      {
+        "path": "deliverables/AgentNexus-M1.8.3-Q4/reports/signatures-and-certificates.md",
+        "sha256": "ff3558133f909e824c63e162a9e6769786bdd1eb69a523bc55b2814e18d0df35"
+      },
+      {
+        "path": "deliverables/AgentNexus-M1.8.3-Q4/reports/rollback-record.md",
+        "sha256": "a598ae4c27faa6af2bdfc8820efca0388c37567b34af6eeb672146dc5afeea72"
+      },
+      {
+        "path": "deliverables/AgentNexus-M1.8.3-Q4/reports/offline-verification.md",
+        "sha256": "44572af9cfd235cac11fd603b931b292d73e993fc390c51193d6842363cab006"
+      },
+      {
+        "path": "deliverables/AgentNexus-M1.8.3-Q4/reports/qualification-evidence.md",
+        "sha256": "f3d291e53b1d6f9156e9196947129a730e866ea6eff8c92ffcb99e84fab62208"
+      },
+      {
+        "path": "deliverables/AgentNexus-M1.8.3-Q4/reports/windows-os-tests.md",
+        "sha256": "a8e6d447a4f0eea4853af9fe1b05f2a20b9371f3a61de9a482c46e59a6d4fbcd"
+      },
+      {
+        "path": "deliverables/AgentNexus-M1.8.3-Q4/reports/runtime-isolation.md",
+        "sha256": "581013a760ec689be4283c8c9a6227093a6650f3bd41d815ea35a1501c189bdb"
+      },
+      {
+        "path": "deliverables/AgentNexus-M1.8.3-Q4/reports/uac-helper.md",
+        "sha256": "26fbb56024b09b86e8576a602edc3736a72b196d22770fca1ecd2d62428a8ad9"
+      }
+    ]
+  },
+  "report": "deliverables/AgentNexus-M1.8.3-Q4/reports/independent-security-review.md"
+}

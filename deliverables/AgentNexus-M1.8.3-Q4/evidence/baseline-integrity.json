@@ -1,0 +1,100 @@
+{
+  "schema": "agentnexus.q4.integrity-preflight.v1",
+  "head": "d895d11bb500915ca2e0bb1e928336edfee0373e",
+  "q3_checksums": {
+    "manifest_sha256": "b772cc5bf9cee693d62aa5066b35e288c8e16eee6d9bfb2d774e7376ab4152ff",
+    "files": 650,
+    "mismatches": [],
+    "status": "PASS"
+  },
+  "q2_checksums": {
+    "manifest_sha256": "50bc57ecee431b81f16dcb23acf2b049e5e1913c55392b1d618df6bc84f4a08d",
+    "files": 503,
+    "mismatches": [],
+    "status": "PASS"
+  },
+  "payload": {
+    "manifest_sha256": "2021e60599b1c3996cd1393f4881621c1b8accd9c0ef4933ac6f779d38eabb5a",
+    "files": 194,
+    "bytes": 468433910,
+    "unique_case_insensitive": 194,
+    "extra_files": [],
+    "missing_files": [],
+    "mismatches": [],
+    "metadata": {
+      "schema": "agentnexus.q3.installation-manifest.v1",
+      "complete_payload_staged": true,
+      "deployment_approved": false,
+      "scope": "QUALIFICATION_ONLY",
+      "node_version": "24.15.0",
+      "electron_version": "45.2.3",
+      "start": {
+        "desktop": {
+          "executable": "C:/Program Files/AgentNexus/app/runtime/electron.exe",
+          "arguments": [
+            "C:/Program Files/AgentNexus/app"
+          ],
+          "integrity": "MEDIUM",
+          "uac": false
+        },
+        "service": {
+          "executable": "C:/Program Files/AgentNexus/AgentNexusCredential.exe",
+          "arguments": [],
+          "identity": "NT SERVICE\\AgentNexusCredential",
+          "session": 0
+        },
+        "runtime": {
+          "executable": "C:/Program Files/AgentNexus/AgentNexusCredential.exe",
+          "arguments": [
+            "--daily-runtime"
+          ],
+          "caller": "SERVICE_ONLY_PRIVATE_INHERITED_HANDLES"
+        },
+        "daily_client": {
+          "executable": "C:/Program Files/AgentNexus/pipe-client.exe",
+          "arguments": [
+            "--daily",
+            "--stdio"
+          ],
+          "uac": false
+        }
+      },
+      "not_in_production_payload": [
+        "synthetic-credential-ui.exe",
+        "synthetic-ui-driver.exe",
+        "private keys",
+        "real API keys",
+        "test databases"
+      ],
+      "production_qualified": false
+    }
+  },
+  "source": {
+    "files": 258,
+    "manifest_sha256": "dff5a53723907c128084ce2fd621176f4c6b6ce1b61c6fd951285f27a0abc52e",
+    "source_mismatches": [],
+    "zip_sha256": "bf1319b198f8c8f4ab4e4bad1522de60802278a05db16ea6769cb3ed0419535a",
+    "zip_files": 258,
+    "zip_unique_entries": 258,
+    "zip_matches_manifest": true,
+    "source_metadata": {
+      "schema": "agentnexus.q3.source-manifest.v1",
+      "collection_sha256": "064a7ef7c4bbecff0d3ddc90ec0357a785d1d8d4264ae05cbd6ae4eb3c05d0cb"
+    }
+  },
+  "history_manifest_keys": [
+    "captured_utc",
+    "head",
+    "status_porcelain",
+    "original_files",
+    "q2_original_result"
+  ],
+  "historical_freeze": {
+    "files": 862,
+    "manifest_sha256": "55c6eb16b50901dae4dd46730d92d6cd20cf49955aee309775f8500b75d8792a",
+    "mismatches": []
+  },
+  "q4_initial_git_status_porcelain": "",
+  "q4_initial_git_status_observation": "git status --porcelain=v1 --untracked-files=no and --untracked-files=normal both produced no status entries before first Q4 write",
+  "q4_collected_at_utc": "2026-11-09T11:54:39.4740528Z"
+}
