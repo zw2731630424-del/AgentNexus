@@ -1,0 +1,263 @@
+SIMULATED / UNSIGNED PREVIEW — signing disabled
+
+Mode: LOCAL_QUALIFICATION / QUALIFICATION_ONLY
+Host: DESKTOP-OSWALD
+Machine ID: a013cd5e924eb5db1ba67eb28c65379f81b2d73f2cbd42fdb6645eb202681fe4
+Operator SID: S-1-5-21-2532670394-1554971530-4095700938-1001
+Service SID: S-1-5-80-8808145-1723257024-8982472-3705063417-1094825873
+Epoch: 5
+UTC: 2026-11-09T17:15:17.3148200Z -> 2026-11-11T17:16:17.3017950Z
+Manifest SHA256: aad3b30a84207ca9779126f1de597a0bad5f9eeb30f8f0629fbfd176d8f59488
+Qualification SHA256: ff6cf3e7e6cadc2d42337a6f2189c910af92770fa38ab0c8d7534de66c7422de
+Actual signed snapshot SHA256: ff6cf3e7e6cadc2d42337a6f2189c910af92770fa38ab0c8d7534de66c7422de
+Files / bytes: 9 / 1253
+real_import=false; live_provider=false; production_release=false; real_ledger_migration=false; start_service=false
+
+Create only AgentNexusCredential own-process demand Windows Service; no arguments; Session 0
+
+Use only NT SERVICE\AgentNexusCredential virtual service account; sidtype unrestricted; no custom account or login/debug privilege
+
+Service SCM DACL D:P(A;;GA;;;SY)(A;;GA;;;BA)(A;;CCLC;;;AU)
+
+Create C:\Program Files\AgentNexus; protected BA owner; SYSTEM/BA FullControl; service/Users ReadAndExecute; exact manifest files only
+
+Create C:\ProgramData\AgentNexusCredential; protected BA owner; SYSTEM/BA FullControl; service ReadAndExecute; no ordinary-user access
+
+Only engine, qualification, temp state subtrees grant service FullControl; config, signatures, receipts and plans remain admin-write only
+
+Create protected C:\ProgramData\AgentNexusCredential\installation-receipt.json BEFORE SCM creation; consume epoch 5 once even on failure; preserve the data root
+
+Fixed High pipe \\.\pipe\AgentNexus.Credential.v1 and Medium pipe \\.\pipe\AgentNexus.Daily.v1 only when separately approved service start occurs
+
+Fixed service EXE --daily-runtime; retained handle/private inherited stdio/kill-on-close Job; fixed Launcher and UAC Helper only on later user action
+
+Synthetic Vault, Synthetic Token Ledger and Synthetic Provider only; all real import/live/production/REAL ledger migration permissions false
+
+Install stopped only; start_service=false; service start, readiness, failure stop and 70 OS tests require a subsequent precise approval
+
+No firewall, drivers, Ubuntu, AppContainer, shell exposure, certificate trust import, data deletion, ledger reset, commit or push
+
+公开证书（完整 DER Pin 为信任锚）:
+{
+  "certificate_name": "SIMULATED AgentNexus Q41 Test Only",
+  "certificate_signature_algorithm": "1.2.840.113549.1.1.11",
+  "der_sha256": "33d213f88bafa8bddb748ba0cbe5f653b2d61a8d0c2450576a0595a6962be0ba",
+  "eku": [
+    "1.3.6.1.5.5.7.3.36"
+  ],
+  "issuer": "CN=SIMULATED AgentNexus Q41 Test Only",
+  "key_usage": "DigitalSignature",
+  "not_after_utc": "2026-12-09T17:16:18.0000000Z",
+  "not_before_utc": "2026-10-30T17:16:18.0000000Z",
+  "private_key_accessed_by_metadata_inspection": false,
+  "public_key_algorithm": "1.2.840.113549.1.1.1",
+  "public_key_bits": 3072,
+  "purpose": "1.3.6.1.5.5.7.3.36",
+  "serial_number": "28376584E6C0346B",
+  "subject": "CN=SIMULATED AgentNexus Q41 Test Only",
+  "trusted_automatically": false
+}
+
+公开存储关联（不是私钥策略验证）:
+{
+  "container": "NOT_RUN — NO KEY ACCESS IN PREVIEW",
+  "provider": "NOT_RUN — SIMULATED PUBLIC CERTIFICATE"
+}
+
+CNG 属性: NOT_CHECKED — 需单独授权取得 CNG 密钥句柄；实际提示 / 同 SID 隔离未获证明
+
+Confirmation: SIGN PLAN 4de66c7422de
+
+Exact signed UTF-8 JSON (LF):
+{
+  "application_manifest_sha256": "6a5e00782cfc52c72d1506a45e327152fcc527295e9b91041f5cde3578dfd370",
+  "client_sha256": "a0ca404736878548d61893d407d9cc277dbfc84eff74bd042b4b03f7538074c0",
+  "confirmation_kind": "QUALIFICATION_PLAN",
+  "decision": "NOT_RUN",
+  "deployment_id": "5677a3ce-0407-44ac-88be-2c945459965e",
+  "engine_sha256": "62721f0ee769a9874dddd1a9eeb53539bd921548d4beb6948a284eaef0f0e394",
+  "expires_at_utc": "2026-11-11T17:16:17.3017950Z",
+  "helper_sha256": "a9a134429b83df1b4d9f136d723a4236fa8a7ff5aa47a046f40b58c623b92455",
+  "installation_manifest_sha256": "aad3b30a84207ca9779126f1de597a0bad5f9eeb30f8f0629fbfd176d8f59488",
+  "installer_sha256": "deb40c5479d3b7c4fa711c1729fd1b1711fbdcb0f1aa9d49631b395f0d6e32a9",
+  "issued_at_utc": "2026-11-09T17:15:17.3148200Z",
+  "launcher_sha256": "02492715a9e58c816577f92530da45082300b2d1daf063bc4a53ee9591d3f87a",
+  "live_approval_ref": "",
+  "live_enabled": false,
+  "live_provider": false,
+  "machine_id": "a013cd5e924eb5db1ba67eb28c65379f81b2d73f2cbd42fdb6645eb202681fe4",
+  "node_sha256": "8e757244b87c468a5b382a458692f0e77d6dfae5272d62920b33ede0fc5336e5",
+  "operator_sid": "S-1-5-21-2532670394-1554971530-4095700938-1001",
+  "payload_bytes": 1253,
+  "payload_files": 9,
+  "policy_epoch": 5,
+  "production_release": false,
+  "qualification_test_approval_ref": "APPROVED-SIMULATED-QUAL-5677a3ce-0407-44ac-88be-2c945459965e",
+  "real_import": false,
+  "real_import_approval_ref": "",
+  "real_import_enabled": false,
+  "real_ledger_migration": false,
+  "schema": "agentnexus.windows-qualification.v1",
+  "scope": "WINDOWS_BOUNDARY_ONLY",
+  "service_config_sha256": "2dba21ca90876a3f8580edb251f0cc2d661dc76ceb205a0c4a350e53814dbbb7",
+  "service_sha256": "944e5ff5510f750b0df116dfc69768596c7b2eb7a6f9150faa7f5f6b52845a29",
+  "service_sid": "S-1-5-80-8808145-1723257024-8982472-3705063417-1094825873",
+  "signature_policy_sha256": "4afa7db5fbc991c477ddc9328b998e58334c4de29d853eddfcb94497fb040b8c",
+  "signer_certificate_der_sha256": "33d213f88bafa8bddb748ba0cbe5f653b2d61a8d0c2450576a0595a6962be0ba",
+  "signer_id": "CN=SIMULATED AgentNexus Q41 Test Only",
+  "signer_tool_sha256": "6668d6a16739a31fea0d3c474bfc6f17a2bd8e0eb7760b7a8f2cb9728a23ce9b",
+  "signing_mode": "LOCAL_QUALIFICATION",
+  "status": "QUALIFICATION_ONLY",
+  "system_changes_sha256": "41c879f6ee929bab68e1e4098f6601d1b7a297a62e8c728baa05e6b70082faea",
+  "target_host": "DESKTOP-OSWALD",
+  "tests": [
+    {
+      "evidence_file": "service-account-isolation.json",
+      "evidence_sha256": "BLOCKED",
+      "name": "service_account_isolation",
+      "observed_result": "NOT_RUN"
+    },
+    {
+      "evidence_file": "protected-install-acl.json",
+      "evidence_sha256": "BLOCKED",
+      "name": "protected_install_acl",
+      "observed_result": "NOT_RUN"
+    },
+    {
+      "evidence_file": "pipe-dacl-remote-reject.json",
+      "evidence_sha256": "BLOCKED",
+      "name": "pipe_dacl_remote_reject",
+      "observed_result": "NOT_RUN"
+    },
+    {
+      "evidence_file": "medium-integrity-rejection.json",
+      "evidence_sha256": "BLOCKED",
+      "name": "medium_integrity_rejection",
+      "observed_result": "NOT_RUN"
+    },
+    {
+      "evidence_file": "server-impersonation-rejection.json",
+      "evidence_sha256": "BLOCKED",
+      "name": "server_impersonation_rejection",
+      "observed_result": "NOT_RUN"
+    },
+    {
+      "evidence_file": "same-sid-dpapi-denial.json",
+      "evidence_sha256": "BLOCKED",
+      "name": "same_sid_dpapi_denial",
+      "observed_result": "NOT_RUN"
+    },
+    {
+      "evidence_file": "import-ticket-single-use.json",
+      "evidence_sha256": "BLOCKED",
+      "name": "import_ticket_single_use",
+      "observed_result": "NOT_RUN"
+    },
+    {
+      "evidence_file": "confirmation-queue-disconnect.json",
+      "evidence_sha256": "BLOCKED",
+      "name": "confirmation_queue_disconnect",
+      "observed_result": "NOT_RUN"
+    },
+    {
+      "evidence_file": "crash-recovery-no-replay.json",
+      "evidence_sha256": "BLOCKED",
+      "name": "crash_recovery_no_replay",
+      "observed_result": "NOT_RUN"
+    },
+    {
+      "evidence_file": "audit-no-plaintext.json",
+      "evidence_sha256": "BLOCKED",
+      "name": "audit_no_plaintext",
+      "observed_result": "NOT_RUN"
+    },
+    {
+      "evidence_file": "negative-host-or-binary.json",
+      "evidence_sha256": "BLOCKED",
+      "name": "negative_host_or_binary",
+      "observed_result": "NOT_RUN"
+    },
+    {
+      "evidence_file": "trusted-helper-entry-isolation.json",
+      "evidence_sha256": "BLOCKED",
+      "name": "trusted_helper_entry_isolation",
+      "observed_result": "NOT_RUN"
+    },
+    {
+      "evidence_file": "helper-manifest-launch-binding.json",
+      "evidence_sha256": "BLOCKED",
+      "name": "helper_manifest_launch_binding",
+      "observed_result": "NOT_RUN"
+    },
+    {
+      "evidence_file": "helper-ticket-lifecycle.json",
+      "evidence_sha256": "BLOCKED",
+      "name": "helper_ticket_lifecycle",
+      "observed_result": "NOT_RUN"
+    },
+    {
+      "evidence_file": "helper-memory-clipboard-dump.json",
+      "evidence_sha256": "BLOCKED",
+      "name": "helper_memory_clipboard_dump",
+      "observed_result": "NOT_RUN"
+    },
+    {
+      "evidence_file": "daily-native-runtime-origin.json",
+      "evidence_sha256": "BLOCKED",
+      "matrix_case_ids": [
+        "SRC-01",
+        "SRC-02",
+        "SRC-03",
+        "SRC-10",
+        "SRC-12",
+        "SRC-13",
+        "SRC-14"
+      ],
+      "name": "daily_native_runtime_origin",
+      "observed_result": "NOT_RUN"
+    },
+    {
+      "evidence_file": "daily-medium-pipe-boundary.json",
+      "evidence_sha256": "BLOCKED",
+      "matrix_case_ids": [
+        "SRC-11",
+        "HLP-07",
+        "DLY-07"
+      ],
+      "name": "daily_medium_pipe_boundary",
+      "observed_result": "NOT_RUN"
+    },
+    {
+      "evidence_file": "daily-runtime-process-token-isolation.json",
+      "evidence_sha256": "BLOCKED",
+      "matrix_case_ids": [
+        "SRC-04",
+        "SRC-05",
+        "SRC-06",
+        "SRC-07",
+        "SRC-09",
+        "PRV-04"
+      ],
+      "name": "daily_runtime_process_token_isolation",
+      "observed_result": "NOT_RUN"
+    },
+    {
+      "evidence_file": "daily-runtime-lifecycle-revocation.json",
+      "evidence_sha256": "BLOCKED",
+      "matrix_case_ids": [
+        "SRC-08",
+        "LIF-01",
+        "LIF-02",
+        "LIF-03",
+        "LIF-04",
+        "LIF-05",
+        "DLY-01",
+        "DLY-05"
+      ],
+      "name": "daily_runtime_lifecycle_revocation",
+      "observed_result": "NOT_RUN"
+    }
+  ],
+  "user_confirmed": true,
+  "verifier_sha256": "5963e6f7200ef6b5e4f57632e1f6e5833d7c95b9dd71292e87f43de8893fccd2"
+}

@@ -1,0 +1,349 @@
+{
+  "schema": "agentnexus.q42.signing-requirements.v1",
+  "requirements": [
+    {
+      "requirement": 1,
+      "title": "正确证书",
+      "cases": [
+        "01-correct-simulated-local-certificate"
+      ],
+      "offline_status": "PASS",
+      "assurance": "SIMULATED_CMS",
+      "actual_user_cng_tpm": "NOT_RUN",
+      "actual_user_gui": "NOT_RUN"
+    },
+    {
+      "requirement": 2,
+      "title": "错误证书",
+      "cases": [
+        "02-wrong-certificate"
+      ],
+      "offline_status": "PASS",
+      "assurance": "SIMULATED_CMS",
+      "actual_user_cng_tpm": "NOT_RUN",
+      "actual_user_gui": "NOT_RUN"
+    },
+    {
+      "requirement": 3,
+      "title": "DER Pin不匹配",
+      "cases": [
+        "03-wrong-der-pin"
+      ],
+      "offline_status": "PASS",
+      "assurance": "SIMULATED_CMS",
+      "actual_user_cng_tpm": "NOT_RUN",
+      "actual_user_gui": "NOT_RUN"
+    },
+    {
+      "requirement": 4,
+      "title": "证书替换",
+      "cases": [
+        "04-certificate-replaced"
+      ],
+      "offline_status": "PASS",
+      "assurance": "SIMULATED_CMS",
+      "actual_user_cng_tpm": "NOT_RUN",
+      "actual_user_gui": "NOT_RUN"
+    },
+    {
+      "requirement": 5,
+      "title": "证书过期",
+      "cases": [
+        "05-expired-certificate"
+      ],
+      "offline_status": "PASS",
+      "assurance": "SIMULATED_CMS",
+      "actual_user_cng_tpm": "NOT_RUN",
+      "actual_user_gui": "NOT_RUN"
+    },
+    {
+      "requirement": 6,
+      "title": "私钥不存在",
+      "cases": [
+        "private-key-absent-public-certificate"
+      ],
+      "offline_status": "PASS",
+      "assurance": "PUBLIC_CERTIFICATE_HAS_NO_KEY",
+      "actual_user_cng_tpm": "NOT_RUN",
+      "actual_user_gui": "NOT_RUN"
+    },
+    {
+      "requirement": 7,
+      "title": "私钥不可用",
+      "cases": [
+        "simulated-private-key-unavailable"
+      ],
+      "offline_status": "PASS",
+      "assurance": "SIMULATED_CALLBACK_ONLY",
+      "actual_user_cng_tpm": "NOT_RUN",
+      "actual_user_gui": "NOT_RUN"
+    },
+    {
+      "requirement": 8,
+      "title": "私钥与公开证书不匹配",
+      "cases": [
+        "private-public-key-mismatch"
+      ],
+      "offline_status": "PASS",
+      "assurance": "PUBLIC_PARAMETER_COMPARATOR_ONLY",
+      "actual_user_cng_tpm": "NOT_RUN",
+      "actual_user_gui": "NOT_RUN"
+    },
+    {
+      "requirement": 9,
+      "title": "用户取消",
+      "cases": [
+        "user-cancel"
+      ],
+      "offline_status": "PASS",
+      "assurance": "SHARED_CONSENT_CALLBACK_ONLY",
+      "actual_user_cng_tpm": "NOT_RUN",
+      "actual_user_gui": "NOT_RUN"
+    },
+    {
+      "requirement": 10,
+      "title": "用户拒绝签名",
+      "cases": [
+        "user-refuses-signature"
+      ],
+      "offline_status": "PASS",
+      "assurance": "SHARED_CONSENT_CALLBACK_ONLY",
+      "actual_user_cng_tpm": "NOT_RUN",
+      "actual_user_gui": "NOT_RUN"
+    },
+    {
+      "requirement": 11,
+      "title": "签名过程/发布中断",
+      "cases": [
+        "publication-exit-after-first-file",
+        "publication-verify-before-marker"
+      ],
+      "offline_status": "PASS",
+      "assurance": "DIAGNOSTIC_EXPORT_PROCESS_EXIT_NOT_CNG",
+      "actual_user_cng_tpm": "NOT_RUN",
+      "actual_user_gui": "NOT_RUN"
+    },
+    {
+      "requirement": 12,
+      "title": "文件被替换",
+      "cases": [
+        "21-dependency-replaced",
+        "installer-replaced"
+      ],
+      "offline_status": "PASS",
+      "assurance": "SIMULATED_SIGNED_DOCUMENTS",
+      "actual_user_cng_tpm": "NOT_RUN",
+      "actual_user_gui": "NOT_RUN"
+    },
+    {
+      "requirement": 13,
+      "title": "文件内容改变",
+      "cases": [
+        "20-payload-changed",
+        "held-dependency-mutation"
+      ],
+      "offline_status": "PASS",
+      "assurance": "REAL_FILESYSTEM_WITH_SYNTHETIC_FILES",
+      "actual_user_cng_tpm": "NOT_RUN",
+      "actual_user_gui": "NOT_RUN"
+    },
+    {
+      "requirement": 14,
+      "title": "文件数量改变",
+      "cases": [
+        "wrong-file-count",
+        "payload-file-added"
+      ],
+      "offline_status": "PASS",
+      "assurance": "SIMULATED_DOCUMENTS",
+      "actual_user_cng_tpm": "NOT_RUN",
+      "actual_user_gui": "NOT_RUN"
+    },
+    {
+      "requirement": 15,
+      "title": "总字节改变",
+      "cases": [
+        "wrong-total-bytes"
+      ],
+      "offline_status": "PASS",
+      "assurance": "SIMULATED_DOCUMENTS",
+      "actual_user_cng_tpm": "NOT_RUN",
+      "actual_user_gui": "NOT_RUN"
+    },
+    {
+      "requirement": 16,
+      "title": "安装清单改变",
+      "cases": [
+        "07-manifest-changed"
+      ],
+      "offline_status": "PASS",
+      "assurance": "SIMULATED_DOCUMENTS",
+      "actual_user_cng_tpm": "NOT_RUN",
+      "actual_user_gui": "NOT_RUN"
+    },
+    {
+      "requirement": 17,
+      "title": "计划改变",
+      "cases": [
+        "08-plan-changed"
+      ],
+      "offline_status": "PASS",
+      "assurance": "SIMULATED_CMS",
+      "actual_user_cng_tpm": "NOT_RUN",
+      "actual_user_gui": "NOT_RUN"
+    },
+    {
+      "requirement": 18,
+      "title": "部署批准改变",
+      "cases": [
+        "approval-content-changed"
+      ],
+      "offline_status": "PASS",
+      "assurance": "SIMULATED_CMS",
+      "actual_user_cng_tpm": "NOT_RUN",
+      "actual_user_gui": "NOT_RUN"
+    },
+    {
+      "requirement": 19,
+      "title": "Host不匹配",
+      "cases": [
+        "10-host-machine",
+        "wrong-target-host-name"
+      ],
+      "offline_status": "PASS",
+      "assurance": "SIMULATED_DOCUMENTS_WITH_ACTUAL_READ_ONLY_IDENTITY",
+      "actual_user_cng_tpm": "NOT_RUN",
+      "actual_user_gui": "NOT_RUN"
+    },
+    {
+      "requirement": 20,
+      "title": "Operator SID不匹配",
+      "cases": [
+        "09-operator-sid"
+      ],
+      "offline_status": "PASS",
+      "assurance": "SIMULATED_DOCUMENTS",
+      "actual_user_cng_tpm": "NOT_RUN",
+      "actual_user_gui": "NOT_RUN"
+    },
+    {
+      "requirement": 21,
+      "title": "Service SID不匹配",
+      "cases": [
+        "11-service-sid"
+      ],
+      "offline_status": "PASS",
+      "assurance": "SIMULATED_DOCUMENTS",
+      "actual_user_cng_tpm": "NOT_RUN",
+      "actual_user_gui": "NOT_RUN"
+    },
+    {
+      "requirement": 22,
+      "title": "Epoch不匹配",
+      "cases": [
+        "12-old-epoch",
+        "q41-epoch-replay"
+      ],
+      "offline_status": "PASS",
+      "assurance": "SIMULATED_DOCUMENTS",
+      "actual_user_cng_tpm": "NOT_RUN",
+      "actual_user_gui": "NOT_RUN"
+    },
+    {
+      "requirement": 23,
+      "title": "有效期过期",
+      "cases": [
+        "expired-plan",
+        "certificate-shorter-than-plan"
+      ],
+      "offline_status": "PASS",
+      "assurance": "SIMULATED_DOCUMENTS",
+      "actual_user_cng_tpm": "NOT_RUN",
+      "actual_user_gui": "NOT_RUN"
+    },
+    {
+      "requirement": 24,
+      "title": "LOCAL改为PRODUCTION",
+      "cases": [
+        "local-mode-to-production",
+        "local-cert-cannot-production"
+      ],
+      "offline_status": "PASS",
+      "assurance": "SIMULATED_CMS",
+      "actual_user_cng_tpm": "NOT_RUN",
+      "actual_user_gui": "NOT_RUN"
+    },
+    {
+      "requirement": 25,
+      "title": "start_service=true",
+      "cases": [
+        "unapproved-service-start"
+      ],
+      "offline_status": "PASS",
+      "assurance": "SIMULATED_DOCUMENTS",
+      "actual_user_cng_tpm": "NOT_RUN",
+      "actual_user_gui": "NOT_RUN"
+    },
+    {
+      "requirement": 26,
+      "title": "real_import=true",
+      "cases": [
+        "15-real-import"
+      ],
+      "offline_status": "PASS",
+      "assurance": "SIMULATED_DOCUMENTS",
+      "actual_user_cng_tpm": "NOT_RUN",
+      "actual_user_gui": "NOT_RUN"
+    },
+    {
+      "requirement": 27,
+      "title": "live_provider=true",
+      "cases": [
+        "16-live-provider"
+      ],
+      "offline_status": "PASS",
+      "assurance": "SIMULATED_DOCUMENTS",
+      "actual_user_cng_tpm": "NOT_RUN",
+      "actual_user_gui": "NOT_RUN"
+    },
+    {
+      "requirement": 28,
+      "title": "CMS重放",
+      "cases": [
+        "cms-replay-other-plan",
+        "19-old-signature-replay"
+      ],
+      "offline_status": "PASS",
+      "assurance": "SIMULATED_CMS_AND_RECEIPT_PREDICATE",
+      "actual_user_cng_tpm": "NOT_RUN",
+      "actual_user_gui": "NOT_RUN"
+    },
+    {
+      "requirement": 29,
+      "title": "输出目录已有文件",
+      "cases": [
+        "output-existing-directory"
+      ],
+      "offline_status": "PASS",
+      "assurance": "REAL_FILESYSTEM_WITH_SYNTHETIC_FILES",
+      "actual_user_cng_tpm": "NOT_RUN",
+      "actual_user_gui": "NOT_RUN"
+    },
+    {
+      "requirement": 30,
+      "title": "半成品与恢复",
+      "cases": [
+        "preparation-interrupted",
+        "preparation-marker-missing",
+        "24b-interrupted-output-refused",
+        "publication-verify-before-marker"
+      ],
+      "offline_status": "PASS",
+      "assurance": "SIMULATED_EXPORT_AND_PREPARATION",
+      "actual_user_cng_tpm": "NOT_RUN",
+      "actual_user_gui": "NOT_RUN"
+    }
+  ],
+  "source_run": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\signing-tests-20261109T171616717426Z",
+  "actual_user_signature": "NOT_RUN"
+}

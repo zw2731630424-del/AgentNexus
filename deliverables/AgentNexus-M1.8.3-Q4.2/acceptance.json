@@ -1,0 +1,98 @@
+{
+  "schema": "agentnexus.q42.acceptance.v1",
+  "status": "TOOLING_AUDITED_BUILT_AND_OFFLINE_TESTED_ACTUAL_SIGNING_NOT_RUN_NO_GO",
+  "decision": "UNSIGNED / NO-GO",
+  "checked_at_utc": "2026-11-09T17:36:57.141584+00:00",
+  "sections": {
+    "A_Signer": {
+      "SOURCE_AUDITED": "PASS_SCOPED",
+      "BINARY_BUILT": "PASS",
+      "INDEPENDENT_REVIEWED": "PASS_SCOPED_NO_OPEN_IMPLEMENTATION_FINDINGS",
+      "UI_VERIFIED": "PASS_PREVIEW_ONLY",
+      "ACTUAL_USER_GUI": "NOT_RUN",
+      "PRIVATE_KEY_BOUNDARY_VERIFIED": "INCONCLUSIVE",
+      "source_files": 264,
+      "signer_sha256": "6668d6a16739a31fea0d3c474bfc6f17a2bd8e0eb7760b7a8f2cb9728a23ce9b",
+      "verifier_sha256": "5963e6f7200ef6b5e4f57632e1f6e5833d7c95b9dd71292e87f43de8893fccd2"
+    },
+    "B_Certificate": {
+      "CERTIFICATE_SELECTED": "NOT_RUN",
+      "DER_PIN_VERIFIED": "NOT_RUN",
+      "CNG_KEY_CREATED": "NOT_RUN",
+      "PRIVATE_KEY_NON_EXPORTABLE": "NOT_RUN",
+      "USER_INTERACTION_REQUIRED": "NOT_RUN",
+      "ACTUAL_SIGNATURE_VERIFIED": "NOT_RUN",
+      "actual_der_sha256_pin": null,
+      "actual_provider": null,
+      "actual_container": null,
+      "trusted_user_presence": "INCONCLUSIVE",
+      "same_sid_resistance": "NOT_PROVEN"
+    },
+    "C_Qualification_Plan": {
+      "PLAN_FROZEN": "NOT_RUN",
+      "PLAN_REVIEWED": "NOT_RUN",
+      "PLAN_SIGNED": "NOT_RUN",
+      "CMS_VERIFIED": "NOT_RUN"
+    },
+    "D_Deployment_Approval": {
+      "APPROVAL_FROZEN": "NOT_RUN",
+      "APPROVAL_REVIEWED": "NOT_RUN",
+      "APPROVAL_SIGNED": "NOT_RUN",
+      "CMS_VERIFIED": "NOT_RUN"
+    },
+    "E_Deployment": {
+      "INSTALLATION_APPROVED": false,
+      "SERVICE_STARTED": false,
+      "REAL_KEY_IMPORTED": false,
+      "LIVE_PROVIDER": false,
+      "PRODUCTION_RELEASE": false,
+      "REAL_LEDGER_MIGRATION": false
+    }
+  },
+  "tests": {
+    "signing_simulated": {
+      "tests": 107,
+      "pass": 107,
+      "fail": 0
+    },
+    "public_preparation_simulated": {
+      "tests": 14,
+      "pass": 14,
+      "fail": 0,
+      "files": 194,
+      "bytes": 468592646
+    },
+    "regression": {
+      "tests": 229,
+      "pass": 224,
+      "fail": 0,
+      "skipped": 5
+    },
+    "independent_signer_commands": 98,
+    "independent_delta_checks": 21,
+    "os_tests": {
+      "pass": 0,
+      "not_run": 70
+    },
+    "production_evidence": {
+      "pass": 0,
+      "not_run": 19
+    }
+  },
+  "actual_candidate_created": false,
+  "staging": {
+    "files": 194,
+    "bytes": 468592656,
+    "installation_manifest_frozen": false
+  },
+  "review_target_manifest_sha256": "a24e37cc0350c320364088e649f12f7ff7708d520e054428a8248ad07e5222f6",
+  "governance_result": "evidence/governance-result.json",
+  "real_api_keys": 0,
+  "real_provider_requests": 0,
+  "real_cost": 0,
+  "existing_token_authorization": 100000000,
+  "certificate_or_trust_store_changed": false,
+  "private_user_key_opened_by_agent": false,
+  "system_changes": false,
+  "commit_push": false
+}

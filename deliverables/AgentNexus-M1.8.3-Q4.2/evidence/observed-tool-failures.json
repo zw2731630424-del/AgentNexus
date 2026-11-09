@@ -1,0 +1,42 @@
+{
+  "source": "Tool-returned diagnostic text; original build/test raw logs are separately archived",
+  "items": [
+    {
+      "action": "govern.py new with ordinary Windows path",
+      "exit_code": 1,
+      "failure": "WinError 3 in an existing long historical runtime path; no rule or baseline change",
+      "resolution": "Use previously reviewed unchanged full-check wrapper with extended-length root and stat memoization; independently verify final history and all hashes."
+    },
+    {
+      "action": "initial signer build",
+      "failure": "CS0117: .NET Framework CmsSigner has no PrivateKey setter",
+      "resolution": "Use Framework certificate association, hold inspected CNG handle, revalidate policy/public key and resulting CMS; no claim of same-handle signing."
+    },
+    {
+      "action": "directory attributes-only sharing test",
+      "failure": "102-case run: 101 PASS / 1 FAIL; write handle was still allowed with attributes-only directory access",
+      "resolution": "FILE_LIST_DIRECTORY|READ_ATTRIBUTES (0x81), share READ only; actual controlled writer denied error 32."
+    },
+    {
+      "action": "read-only public writer reflection",
+      "failure": "Constructor on AtomicOutput not found through Activator overload",
+      "resolution": "Explicit GetConstructor(Type[string])/Invoke; tested with public-only output in PowerShell 5 and pwsh."
+    },
+    {
+      "action": "read-only invalid-argument exit collection",
+      "failure": "READ_ONLY_ENTRY_CONTRACT_FAILED: GUI launch did not update LASTEXITCODE synchronously",
+      "resolution": "Use ProcessStartInfo/WaitForExit and process ExitCode; auto-signing arguments actually reject 21."
+    },
+    {
+      "action": "early source-binding shell command",
+      "exit_code": 1,
+      "failure": "Empty tool output from a quoted Python command; no successful mutation recorded",
+      "resolution": "Use literal PowerShell here-string for Python; source hashes subsequently verified."
+    },
+    {
+      "action": "keyless UI preview diagnostic",
+      "failure": "SelectionStart=-1 because Windows PowerShell 5 interpreted a UTF-8 Chinese script search literal using its default script encoding",
+      "resolution": "Use an ASCII NOT_CHECKED anchor; both final keyless preview stages and public certificate fields rendered and were visually inspected. No product code or private-key path executed."
+    }
+  ]
+}

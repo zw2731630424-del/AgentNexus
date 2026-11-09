@@ -1,0 +1,143 @@
+{
+  "schema": "agentnexus.windows-qualification.v1",
+  "status": "BLOCKED",
+  "decision": "BLOCKED",
+  "scope": "WINDOWS_BOUNDARY_ONLY",
+  "machine_id": "BLOCKED_REQUIRES_HASH_OF_REAL_MACHINE_GUID",
+  "service_sid": "BLOCKED_REQUIRES_REAL_VIRTUAL_SERVICE_SID",
+  "policy_epoch": 2,
+  "qualification_test_approval_ref": "",
+  "issued_at_utc": "BLOCKED",
+  "expires_at_utc": "BLOCKED",
+  "service_sha256": "BLOCKED",
+  "client_sha256": "BLOCKED",
+  "node_sha256": "BLOCKED",
+  "engine_sha256": "BLOCKED",
+  "application_manifest_sha256": "BLOCKED",
+  "real_import_enabled": false,
+  "real_import_approval_ref": "",
+  "live_enabled": false,
+  "live_approval_ref": "",
+  "tests": [
+    {
+      "name": "service_account_isolation",
+      "observed_result": "BLOCKED",
+      "evidence_file": "service-account-isolation.json",
+      "evidence_sha256": "BLOCKED"
+    },
+    {
+      "name": "protected_install_acl",
+      "observed_result": "BLOCKED",
+      "evidence_file": "protected-install-acl.json",
+      "evidence_sha256": "BLOCKED"
+    },
+    {
+      "name": "pipe_dacl_remote_reject",
+      "observed_result": "BLOCKED",
+      "evidence_file": "pipe-dacl-remote-reject.json",
+      "evidence_sha256": "BLOCKED"
+    },
+    {
+      "name": "medium_integrity_rejection",
+      "observed_result": "BLOCKED",
+      "evidence_file": "medium-integrity-rejection.json",
+      "evidence_sha256": "BLOCKED"
+    },
+    {
+      "name": "server_impersonation_rejection",
+      "observed_result": "BLOCKED",
+      "evidence_file": "server-impersonation-rejection.json",
+      "evidence_sha256": "BLOCKED"
+    },
+    {
+      "name": "same_sid_dpapi_denial",
+      "observed_result": "BLOCKED",
+      "evidence_file": "same-sid-dpapi-denial.json",
+      "evidence_sha256": "BLOCKED"
+    },
+    {
+      "name": "import_ticket_single_use",
+      "observed_result": "BLOCKED",
+      "evidence_file": "import-ticket-single-use.json",
+      "evidence_sha256": "BLOCKED"
+    },
+    {
+      "name": "confirmation_queue_disconnect",
+      "observed_result": "BLOCKED",
+      "evidence_file": "confirmation-queue-disconnect.json",
+      "evidence_sha256": "BLOCKED"
+    },
+    {
+      "name": "crash_recovery_no_replay",
+      "observed_result": "BLOCKED",
+      "evidence_file": "crash-recovery-no-replay.json",
+      "evidence_sha256": "BLOCKED"
+    },
+    {
+      "name": "audit_no_plaintext",
+      "observed_result": "BLOCKED",
+      "evidence_file": "audit-no-plaintext.json",
+      "evidence_sha256": "BLOCKED"
+    },
+    {
+      "name": "negative_host_or_binary",
+      "observed_result": "BLOCKED",
+      "evidence_file": "negative-host-or-binary.json",
+      "evidence_sha256": "BLOCKED"
+    },
+    {
+      "name": "trusted_helper_entry_isolation",
+      "observed_result": "BLOCKED",
+      "evidence_file": "trusted-helper-entry-isolation.json",
+      "evidence_sha256": "BLOCKED"
+    },
+    {
+      "name": "helper_manifest_launch_binding",
+      "observed_result": "BLOCKED",
+      "evidence_file": "helper-manifest-launch-binding.json",
+      "evidence_sha256": "BLOCKED"
+    },
+    {
+      "name": "helper_ticket_lifecycle",
+      "observed_result": "BLOCKED",
+      "evidence_file": "helper-ticket-lifecycle.json",
+      "evidence_sha256": "BLOCKED"
+    },
+    {
+      "name": "helper_memory_clipboard_dump",
+      "observed_result": "BLOCKED",
+      "evidence_file": "helper-memory-clipboard-dump.json",
+      "evidence_sha256": "BLOCKED"
+    },
+    {
+      "name": "daily_native_runtime_origin",
+      "observed_result": "NOT_RUN",
+      "evidence_file": "daily-native-runtime-origin.json",
+      "evidence_sha256": "BLOCKED",
+      "matrix_case_ids": ["SRC-01", "SRC-02", "SRC-03", "SRC-10", "SRC-12", "SRC-13", "SRC-14"]
+    },
+    {
+      "name": "daily_medium_pipe_boundary",
+      "observed_result": "NOT_RUN",
+      "evidence_file": "daily-medium-pipe-boundary.json",
+      "evidence_sha256": "BLOCKED",
+      "matrix_case_ids": ["SRC-11", "HLP-07", "DLY-07"]
+    },
+    {
+      "name": "daily_runtime_process_token_isolation",
+      "observed_result": "NOT_RUN",
+      "evidence_file": "daily-runtime-process-token-isolation.json",
+      "evidence_sha256": "BLOCKED",
+      "matrix_case_ids": ["SRC-04", "SRC-05", "SRC-06", "SRC-07", "SRC-09", "PRV-04"]
+    },
+    {
+      "name": "daily_runtime_lifecycle_revocation",
+      "observed_result": "NOT_RUN",
+      "evidence_file": "daily-runtime-lifecycle-revocation.json",
+      "evidence_sha256": "BLOCKED",
+      "matrix_case_ids": ["SRC-08", "LIF-01", "LIF-02", "LIF-03", "LIF-04", "LIF-05", "DLY-01", "DLY-05"]
+    }
+  ],
+  "helper_sha256": "BLOCKED_REQUIRES_FINAL_TRUSTED_HELPER_HASH",
+  "launcher_sha256": "BLOCKED_REQUIRES_FINAL_FIXED_LAUNCHER_HASH"
+}

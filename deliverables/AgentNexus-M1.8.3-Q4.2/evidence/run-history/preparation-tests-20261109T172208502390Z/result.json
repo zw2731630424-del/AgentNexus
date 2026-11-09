@@ -1,0 +1,101 @@
+{
+  "status": "PASS",
+  "run": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\preparation-tests-20261109T172208502390Z",
+  "assurance": "SIMULATED_PUBLIC_PREPARATION_ONLY",
+  "cases": [
+    {
+      "id": "path-0",
+      "status": "PASS",
+      "assurance": "SIMULATED_PUBLIC_DATA_OR_FILESYSTEM",
+      "detail": "LOCAL_ABSOLUTE_PATH_REQUIRED"
+    },
+    {
+      "id": "path-1",
+      "status": "PASS",
+      "assurance": "SIMULATED_PUBLIC_DATA_OR_FILESYSTEM",
+      "detail": "LOCAL_ABSOLUTE_PATH_REQUIRED"
+    },
+    {
+      "id": "path-2",
+      "status": "PASS",
+      "assurance": "SIMULATED_PUBLIC_DATA_OR_FILESYSTEM",
+      "detail": "LOCAL_ABSOLUTE_PATH_REQUIRED"
+    },
+    {
+      "id": "path-3",
+      "status": "PASS",
+      "assurance": "SIMULATED_PUBLIC_DATA_OR_FILESYSTEM",
+      "detail": "LOCAL_ABSOLUTE_PATH_REQUIRED"
+    },
+    {
+      "id": "empty-directory-write-denied",
+      "status": "PASS",
+      "assurance": "SIMULATED_PUBLIC_DATA_OR_FILESYSTEM",
+      "detail": "Win32 sharing violation 32 while pinned"
+    },
+    {
+      "id": "output-overwrite-denied",
+      "status": "PASS",
+      "assurance": "SIMULATED_PUBLIC_DATA_OR_FILESYSTEM",
+      "detail": "held CreateNew read/write handle shares read only"
+    },
+    {
+      "id": "output-rename-denied",
+      "status": "PASS",
+      "assurance": "SIMULATED_PUBLIC_DATA_OR_FILESYSTEM",
+      "detail": "pinned directory identity"
+    },
+    {
+      "id": "extra-directory-denied",
+      "status": "PASS",
+      "assurance": "SIMULATED_PUBLIC_DATA_OR_FILESYSTEM",
+      "detail": "OUTPUT_EXTRA_DIRECTORY"
+    },
+    {
+      "id": "shared-contract-public-snapshot",
+      "status": "PASS",
+      "assurance": "SIMULATED_PUBLIC_DATA_OR_FILESYSTEM",
+      "detail": "exact byte[] verifier and DER; no path execution or store"
+    },
+    {
+      "id": "prepare-public-pkcs12-denied",
+      "status": "PASS",
+      "assurance": "SIMULATED_PUBLIC_DATA_OR_FILESYSTEM",
+      "detail": "shared PublicCertificate gate"
+    },
+    {
+      "id": "invalid-pin-before-output",
+      "status": "PASS",
+      "assurance": "SIMULATED_PUBLIC_DATA_OR_FILESYSTEM",
+      "detail": "no directory created"
+    },
+    {
+      "id": "prepare-194-new-unsigned",
+      "status": "PASS",
+      "assurance": "SIMULATED_PUBLIC_DATA_OR_FILESYSTEM",
+      "detail": "all payload bytes and complete new SHA256SUMS match; no signatures"
+    },
+    {
+      "id": "native-candidate-contract",
+      "status": "PASS",
+      "assurance": "SIMULATED_PUBLIC_DATA_OR_FILESYSTEM",
+      "detail": "actual prepared 194-file snapshot accepted only as UNSIGNED / NO-GO"
+    },
+    {
+      "id": "unsigned-cannot-be-signed-verified",
+      "status": "PASS",
+      "assurance": "SIMULATED_PUBLIC_DATA_OR_FILESYSTEM",
+      "detail": "missing plan confirmation/CMS refuses actual signed verification"
+    }
+  ],
+  "tests": 14,
+  "payload_files": 194,
+  "payload_bytes": 468592646,
+  "actual_user_certificate_selected": false,
+  "actual_user_pin_verified": false,
+  "actual_cng_signature": "NOT_RUN",
+  "certificate_store_modified": false,
+  "private_key_opened": false,
+  "installation_approved": false,
+  "system_changes": false
+}

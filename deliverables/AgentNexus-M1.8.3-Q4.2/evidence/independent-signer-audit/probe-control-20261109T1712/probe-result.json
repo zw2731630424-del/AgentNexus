@@ -1,0 +1,62 @@
+{
+    "status":  "PASS",
+    "checks":  [
+                   {
+                       "id":  "release-no-publication-callback",
+                       "status":  "PASS",
+                       "details":  "Reflection-only; release assembly entry point not invoked"
+                   },
+                   {
+                       "id":  "release-no-contract-harness-type",
+                       "status":  "PASS",
+                       "details":  "Diagnostic harness absent from release Signer"
+                   },
+                   {
+                       "id":  "release-empty-directory-writer-denied",
+                       "status":  "PASS",
+                       "details":  {
+                                       "win32_error":  32,
+                                       "expected":  32
+                                   }
+                   },
+                   {
+                       "id":  "directory-writer-control-after-release",
+                       "status":  "PASS",
+                       "details":  "Same path and token; only the directory lock has been released"
+                   },
+                   {
+                       "id":  "release-output-file-write-denied",
+                       "status":  "PASS",
+                       "details":  "FileShare.Read; existing output remains unchanged"
+                   },
+                   {
+                       "id":  "release-output-root-rename-denied",
+                       "status":  "PASS",
+                       "details":  "Directory handles remain held"
+                   },
+                   {
+                       "id":  "release-snapshot-return-is-clone",
+                       "status":  "PASS",
+                       "details":  "Caller mutation does not affect internal snapshot"
+                   },
+                   {
+                       "id":  "preexisting-mapping-read-open-denied",
+                       "status":  "PASS",
+                       "details":  {
+                                       "win32_error":  32,
+                                       "note":  "Host rejects a sharing-compatible read acquisition while a writable mapping exists; post-acquisition mutation branch was not reached"
+                                   }
+                   },
+                   {
+                       "id":  "mapped-file-reader-control-after-release",
+                       "status":  "PASS",
+                       "details":  "Mapping released; same path and token permit reader open"
+                   }
+               ],
+    "new_signatures_created":  false,
+    "user_key_access":  false,
+    "certificate_store_modified":  false,
+    "service_or_acl_operations":  false,
+    "actual_cng":  "NOT_RUN",
+    "scope":  "PURE_FILESYSTEM_ON_NEW_PROBE_PATHS_AND_EXISTING_PUBLIC_SIMULATED_FIXTURE"
+}

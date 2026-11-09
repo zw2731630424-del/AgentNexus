@@ -1,0 +1,2054 @@
+{
+  "status": "PASS",
+  "run": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\evidence\\independent-signer-audit\\run-20261109T171204326933Z",
+  "review_targets_sha256": "02615f178ef5da0c43c1e910c08299deee51a6d98259a39acb4a43c457524df7",
+  "source_simulated_run": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\signing-tests-20261109T170655179407Z",
+  "target_files": [
+    {
+      "path": "source/native/qualification-signer/QualificationSigner.cs",
+      "sha256": "1ac87f1ac6394aa0dd6e08ecb4e088fe6e2dc450f9cfff6f5549851bd7d43498",
+      "actual_sha256": "1ac87f1ac6394aa0dd6e08ecb4e088fe6e2dc450f9cfff6f5549851bd7d43498",
+      "match": true
+    },
+    {
+      "path": "source/native/qualification-signer/SigningContracts.cs",
+      "sha256": "295a18d8c315c7f88c5aa6d87d227af13477a06c5269bfbb86e18dc09030de69",
+      "actual_sha256": "295a18d8c315c7f88c5aa6d87d227af13477a06c5269bfbb86e18dc09030de69",
+      "match": true
+    },
+    {
+      "path": "source/native/qualification-signer/Verifier.cs",
+      "sha256": "ae3efe330627d7146d551b9a92eb8b826fd0da7a4b81dc1a882767011bcac4e0",
+      "actual_sha256": "ae3efe330627d7146d551b9a92eb8b826fd0da7a4b81dc1a882767011bcac4e0",
+      "match": true
+    },
+    {
+      "path": "source/native/credential-service/Common.cs",
+      "sha256": "6b3a79c768bf172f18cf6c023fc6c8ff2cdbc90465b155caa0b0be4122063d47",
+      "actual_sha256": "6b3a79c768bf172f18cf6c023fc6c8ff2cdbc90465b155caa0b0be4122063d47",
+      "match": true
+    },
+    {
+      "path": "source/native/qualification-signer/user-create-certificate.ps1",
+      "sha256": "90f9cff6b06c32c197df0cfbade3a284f5872f14863cc8217059ebd0426227f0",
+      "actual_sha256": "90f9cff6b06c32c197df0cfbade3a284f5872f14863cc8217059ebd0426227f0",
+      "match": true
+    },
+    {
+      "path": "tools/freeze.py",
+      "sha256": "67c1463c9134d78d685f71e3acb0a40d2f162f195a1ce38d7daad057b1874ab7",
+      "actual_sha256": "67c1463c9134d78d685f71e3acb0a40d2f162f195a1ce38d7daad057b1874ab7",
+      "match": true
+    },
+    {
+      "path": "signer/AgentNexus.Qualification.Signer.exe",
+      "sha256": "09efcba6fcbf5570a851313ef7400d13a97a3e93e1c6a0f2c5390ec77ae9f286",
+      "actual_sha256": "09efcba6fcbf5570a851313ef7400d13a97a3e93e1c6a0f2c5390ec77ae9f286",
+      "match": true
+    },
+    {
+      "path": "signer/AgentNexus.Qualification.Verifier.exe",
+      "sha256": "290d4aac30beca71e1e06227098071848f2e100b8929964b300c592a4d85646c",
+      "actual_sha256": "290d4aac30beca71e1e06227098071848f2e100b8929964b300c592a4d85646c",
+      "match": true
+    }
+  ],
+  "commands": [
+    {
+      "id": "compile-independent-harness",
+      "command": [
+        "C:\\Windows\\Microsoft.NET\\Framework64\\v4.0.30319\\csc.exe",
+        "/nologo",
+        "/target:exe",
+        "/platform:x64",
+        "/langversion:5",
+        "/warn:4",
+        "/warnaserror+",
+        "/define:SIGNING_DIAGNOSTIC",
+        "/r:System.Core.dll",
+        "/r:System.ServiceProcess.dll",
+        "/r:System.Security.dll",
+        "/r:System.Web.Extensions.dll",
+        "/r:System.Windows.Forms.dll",
+        "/r:System.Drawing.dll",
+        "/out:I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\evidence\\independent-signer-audit\\run-20261109T171204326933Z\\independent-contract-harness.exe",
+        "/main:AgentNexus.CredentialBoundary.ContractHarness",
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\source\\native\\credential-service\\Common.cs",
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\source\\native\\qualification-signer\\SigningContracts.cs",
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\source\\native\\qualification-signer\\Verifier.cs",
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\source\\native\\qualification-signer\\QualificationSigner.cs",
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\source\\native\\qualification-signer\\ContractHarness.cs"
+      ],
+      "exit_code": 0,
+      "expected_exit": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS"
+    },
+    {
+      "id": "readonly-01-correct-simulated-local-certificate",
+      "command": [
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\evidence\\independent-signer-audit\\run-20261109T171204326933Z\\independent-contract-harness.exe",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\signing-tests-20261109T170655179407Z\\01-correct-simulated-local-certificate.input.json"
+      ],
+      "exit_code": 21,
+      "expected_exit": 21,
+      "stdout_sha256": "67bce980d8dece5414169a7409008d53b50c94078a50d835f39ca46aad4a5359",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "expected_stdout": "PAYLOAD_FILE_SET"
+    },
+    {
+      "id": "readonly-09-operator-sid",
+      "command": [
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\evidence\\independent-signer-audit\\run-20261109T171204326933Z\\independent-contract-harness.exe",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\signing-tests-20261109T170655179407Z\\09-operator-sid.input.json"
+      ],
+      "exit_code": 21,
+      "expected_exit": 21,
+      "stdout_sha256": "3f470b2669c3322a1845a4af8d611866c9b678266dad6cabbc8ccb6bdc4c8a86",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "expected_stdout": "OPERATOR_SID_MISMATCH"
+    },
+    {
+      "id": "readonly-10-host-machine",
+      "command": [
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\evidence\\independent-signer-audit\\run-20261109T171204326933Z\\independent-contract-harness.exe",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\signing-tests-20261109T170655179407Z\\10-host-machine.input.json"
+      ],
+      "exit_code": 21,
+      "expected_exit": 21,
+      "stdout_sha256": "c9ee0cece9c1bed3b03736cb35bb0d42cf61bffc312f036cb70cb79a5fad3275",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "expected_stdout": "HOST_MISMATCH"
+    },
+    {
+      "id": "readonly-11-service-sid",
+      "command": [
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\evidence\\independent-signer-audit\\run-20261109T171204326933Z\\independent-contract-harness.exe",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\signing-tests-20261109T170655179407Z\\11-service-sid.input.json"
+      ],
+      "exit_code": 21,
+      "expected_exit": 21,
+      "stdout_sha256": "0491c1b6d5652aa6b29c9af253944643ed24a8a763b15000640a49abda7f2379",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "expected_stdout": "SERVICE_SID_MISMATCH"
+    },
+    {
+      "id": "readonly-12-old-epoch",
+      "command": [
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\evidence\\independent-signer-audit\\run-20261109T171204326933Z\\independent-contract-harness.exe",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\signing-tests-20261109T170655179407Z\\12-old-epoch.input.json"
+      ],
+      "exit_code": 21,
+      "expected_exit": 21,
+      "stdout_sha256": "587f5492996d4ad4f5a5ea915a0a3df61a8444553cadb59e2bb28b2094708e72",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "expected_stdout": "EPOCH_MISMATCH"
+    },
+    {
+      "id": "readonly-14-scope-expanded",
+      "command": [
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\evidence\\independent-signer-audit\\run-20261109T171204326933Z\\independent-contract-harness.exe",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\signing-tests-20261109T170655179407Z\\14-scope-expanded.input.json"
+      ],
+      "exit_code": 21,
+      "expected_exit": 21,
+      "stdout_sha256": "a9111ec6a35c2b749bd9e044836e65145ffadb0efb511d8fbaf900181b823ff6",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "expected_stdout": "LOCAL_QUALIFICATION_SCOPE_REQUIRED"
+    },
+    {
+      "id": "readonly-15-real-import",
+      "command": [
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\evidence\\independent-signer-audit\\run-20261109T171204326933Z\\independent-contract-harness.exe",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\signing-tests-20261109T170655179407Z\\15-real-import.input.json"
+      ],
+      "exit_code": 21,
+      "expected_exit": 21,
+      "stdout_sha256": "17365336d4ce9e017086b0d7851dde5212eba762ee0b68c2698ce0c619c5af2b",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "expected_stdout": "LOCAL_REAL_PERMISSION_DENIED:real_import"
+    },
+    {
+      "id": "readonly-16-live-provider",
+      "command": [
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\evidence\\independent-signer-audit\\run-20261109T171204326933Z\\independent-contract-harness.exe",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\signing-tests-20261109T170655179407Z\\16-live-provider.input.json"
+      ],
+      "exit_code": 21,
+      "expected_exit": 21,
+      "stdout_sha256": "9a25361e3f110f693a7f46d1b81ea6ad3897d329682a4c27fa023c06e49a3833",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "expected_stdout": "LOCAL_REAL_PERMISSION_DENIED:live_provider"
+    },
+    {
+      "id": "readonly-17-production-release",
+      "command": [
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\evidence\\independent-signer-audit\\run-20261109T171204326933Z\\independent-contract-harness.exe",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\signing-tests-20261109T170655179407Z\\17-production-release.input.json"
+      ],
+      "exit_code": 21,
+      "expected_exit": 21,
+      "stdout_sha256": "647e40a590047d7d6d0a6d9138fdd8cf58f9866e850d1fd66e6573bfc3831f4d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "expected_stdout": "LOCAL_REAL_PERMISSION_DENIED:production_release"
+    },
+    {
+      "id": "readonly-18-real-ledger",
+      "command": [
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\evidence\\independent-signer-audit\\run-20261109T171204326933Z\\independent-contract-harness.exe",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\signing-tests-20261109T170655179407Z\\18-real-ledger.input.json"
+      ],
+      "exit_code": 21,
+      "expected_exit": 21,
+      "stdout_sha256": "76284ee09060fabcc32e77f108602fac685fc4e1c8e0b184a596c6c13ecbdcbb",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "expected_stdout": "LOCAL_REAL_PERMISSION_DENIED:real_ledger_migration"
+    },
+    {
+      "id": "readonly-flag-string",
+      "command": [
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\evidence\\independent-signer-audit\\run-20261109T171204326933Z\\independent-contract-harness.exe",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\signing-tests-20261109T170655179407Z\\flag-string.input.json"
+      ],
+      "exit_code": 21,
+      "expected_exit": 21,
+      "stdout_sha256": "1a32a45e7a964aec08ac42741cf60e79755f4371e56c3600712e9b57e889f951",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "expected_stdout": "BOOLEAN_REQUIRED:real_import"
+    },
+    {
+      "id": "readonly-wrong-file-count",
+      "command": [
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\evidence\\independent-signer-audit\\run-20261109T171204326933Z\\independent-contract-harness.exe",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\signing-tests-20261109T170655179407Z\\wrong-file-count.input.json"
+      ],
+      "exit_code": 21,
+      "expected_exit": 21,
+      "stdout_sha256": "2a201bf022057932b5e18f260bea1325b3dec7f1126e4df6d4e61b74ab22cd09",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "expected_stdout": "PAYLOAD_TOTALS_MISMATCH"
+    },
+    {
+      "id": "readonly-wrong-total-bytes",
+      "command": [
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\evidence\\independent-signer-audit\\run-20261109T171204326933Z\\independent-contract-harness.exe",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\signing-tests-20261109T170655179407Z\\wrong-total-bytes.input.json"
+      ],
+      "exit_code": 21,
+      "expected_exit": 21,
+      "stdout_sha256": "2a201bf022057932b5e18f260bea1325b3dec7f1126e4df6d4e61b74ab22cd09",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "expected_stdout": "PAYLOAD_TOTALS_MISMATCH"
+    },
+    {
+      "id": "readonly-missing-plan-confirmation",
+      "command": [
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\evidence\\independent-signer-audit\\run-20261109T171204326933Z\\independent-contract-harness.exe",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\signing-tests-20261109T170655179407Z\\missing-plan-confirmation.input.json"
+      ],
+      "exit_code": 21,
+      "expected_exit": 21,
+      "stdout_sha256": "aea3f2440b088e91d2e3e53454347c4a0c382f50e40917abd91035b3d0748e2a",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "expected_stdout": "USER_CONFIRMATION_REQUIRED"
+    },
+    {
+      "id": "readonly-loose-date-format",
+      "command": [
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\evidence\\independent-signer-audit\\run-20261109T171204326933Z\\independent-contract-harness.exe",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\signing-tests-20261109T170655179407Z\\loose-date-format.input.json"
+      ],
+      "exit_code": 21,
+      "expected_exit": 21,
+      "stdout_sha256": "89751318a95c6720456306df6b343e5bd0280cb643a37596ef4c4a1f25514760",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "expected_stdout": "STRICT_UTC_REQUIRED"
+    },
+    {
+      "id": "readonly-expired-plan",
+      "command": [
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\evidence\\independent-signer-audit\\run-20261109T171204326933Z\\independent-contract-harness.exe",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\signing-tests-20261109T170655179407Z\\expired-plan.input.json"
+      ],
+      "exit_code": 21,
+      "expected_exit": 21,
+      "stdout_sha256": "10a4a6eadd3d0bbd2a84ff0d085ba5931871a59542c4a210e0186e63877abfc6",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "expected_stdout": "LOCAL_TIME_INVALID"
+    },
+    {
+      "id": "readonly-future-plan",
+      "command": [
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\evidence\\independent-signer-audit\\run-20261109T171204326933Z\\independent-contract-harness.exe",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\signing-tests-20261109T170655179407Z\\future-plan.input.json"
+      ],
+      "exit_code": 21,
+      "expected_exit": 21,
+      "stdout_sha256": "10a4a6eadd3d0bbd2a84ff0d085ba5931871a59542c4a210e0186e63877abfc6",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "expected_stdout": "LOCAL_TIME_INVALID"
+    },
+    {
+      "id": "readonly-q41-epoch-replay",
+      "command": [
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\evidence\\independent-signer-audit\\run-20261109T171204326933Z\\independent-contract-harness.exe",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\signing-tests-20261109T170655179407Z\\q41-epoch-replay.input.json"
+      ],
+      "exit_code": 21,
+      "expected_exit": 21,
+      "stdout_sha256": "587f5492996d4ad4f5a5ea915a0a3df61a8444553cadb59e2bb28b2094708e72",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "expected_stdout": "EPOCH_MISMATCH"
+    },
+    {
+      "id": "readonly-local-mode-to-production",
+      "command": [
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\evidence\\independent-signer-audit\\run-20261109T171204326933Z\\independent-contract-harness.exe",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\signing-tests-20261109T170655179407Z\\local-mode-to-production.input.json"
+      ],
+      "exit_code": 21,
+      "expected_exit": 21,
+      "stdout_sha256": "a9111ec6a35c2b749bd9e044836e65145ffadb0efb511d8fbaf900181b823ff6",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "expected_stdout": "LOCAL_QUALIFICATION_SCOPE_REQUIRED"
+    },
+    {
+      "id": "readonly-wrong-target-host-name",
+      "command": [
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\evidence\\independent-signer-audit\\run-20261109T171204326933Z\\independent-contract-harness.exe",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\signing-tests-20261109T170655179407Z\\wrong-target-host-name.input.json"
+      ],
+      "exit_code": 21,
+      "expected_exit": 21,
+      "stdout_sha256": "e9e994558b9ebb7f7af5572e79c898b900d25406ab0503e302a3abe84adfbbc9",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "expected_stdout": "HOST_NAME_MISMATCH"
+    },
+    {
+      "id": "readonly-13-validity-mismatch",
+      "command": [
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\evidence\\independent-signer-audit\\run-20261109T171204326933Z\\independent-contract-harness.exe",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\signing-tests-20261109T170655179407Z\\13-validity-mismatch.input.json"
+      ],
+      "exit_code": 21,
+      "expected_exit": 21,
+      "stdout_sha256": "fa23b0ff0471f0b7fc606f03ef0c039708942414e60d74d5180f86c7f4a07435",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "expected_stdout": "APPROVAL_BINDING_MISMATCH:expires_at_utc"
+    },
+    {
+      "id": "readonly-plan-does-not-approve-deployment",
+      "command": [
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\evidence\\independent-signer-audit\\run-20261109T171204326933Z\\independent-contract-harness.exe",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\signing-tests-20261109T170655179407Z\\plan-does-not-approve-deployment.input.json"
+      ],
+      "exit_code": 21,
+      "expected_exit": 21,
+      "stdout_sha256": "c38bbe826fe6874243fd7597146f7fe087f7e3abc77d76e9288c3f3ee526371c",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "expected_stdout": "SEPARATE_DEPLOYMENT_CONFIRMATION_REQUIRED"
+    },
+    {
+      "id": "readonly-missing-deploy-confirmation",
+      "command": [
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\evidence\\independent-signer-audit\\run-20261109T171204326933Z\\independent-contract-harness.exe",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\signing-tests-20261109T170655179407Z\\missing-deploy-confirmation.input.json"
+      ],
+      "exit_code": 21,
+      "expected_exit": 21,
+      "stdout_sha256": "c38bbe826fe6874243fd7597146f7fe087f7e3abc77d76e9288c3f3ee526371c",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "expected_stdout": "SEPARATE_DEPLOYMENT_CONFIRMATION_REQUIRED"
+    },
+    {
+      "id": "readonly-unapproved-service-start",
+      "command": [
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\evidence\\independent-signer-audit\\run-20261109T171204326933Z\\independent-contract-harness.exe",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\signing-tests-20261109T170655179407Z\\unapproved-service-start.input.json"
+      ],
+      "exit_code": 21,
+      "expected_exit": 21,
+      "stdout_sha256": "1bcb3ba44a8bdbde43e0009c954010d562fa4b283e2f4b1c2c27ed962fc66ec4",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "expected_stdout": "SERVICE_START_REQUIRES_SEPARATE_FUTURE_APPROVAL"
+    },
+    {
+      "id": "readonly-cross-host-approval",
+      "command": [
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\evidence\\independent-signer-audit\\run-20261109T171204326933Z\\independent-contract-harness.exe",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\signing-tests-20261109T170655179407Z\\cross-host-approval.input.json"
+      ],
+      "exit_code": 21,
+      "expected_exit": 21,
+      "stdout_sha256": "0b72168a381a73f7ba361e14273b051fb03a55f69046a5527a381ea9f4845fbb",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "expected_stdout": "APPROVAL_BINDING_MISMATCH:machine_id"
+    },
+    {
+      "id": "readonly-same-reference-not-independent",
+      "command": [
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\evidence\\independent-signer-audit\\run-20261109T171204326933Z\\independent-contract-harness.exe",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\signing-tests-20261109T170655179407Z\\same-reference-not-independent.input.json"
+      ],
+      "exit_code": 21,
+      "expected_exit": 21,
+      "stdout_sha256": "c38bbe826fe6874243fd7597146f7fe087f7e3abc77d76e9288c3f3ee526371c",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "expected_stdout": "SEPARATE_DEPLOYMENT_CONFIRMATION_REQUIRED"
+    },
+    {
+      "id": "readonly-certificate-shorter-than-plan",
+      "command": [
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\evidence\\independent-signer-audit\\run-20261109T171204326933Z\\independent-contract-harness.exe",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\signing-tests-20261109T170655179407Z\\certificate-shorter-than-plan.input.json"
+      ],
+      "exit_code": 21,
+      "expected_exit": 21,
+      "stdout_sha256": "b0ade28422ed934626cae0d9e9ae2166fb7d9bea378164c6580b9a899e22fec4",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "expected_stdout": "CERTIFICATE_PLAN_WINDOW_MISMATCH"
+    },
+    {
+      "id": "readonly-preparation-interrupted",
+      "command": [
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\evidence\\independent-signer-audit\\run-20261109T171204326933Z\\independent-contract-harness.exe",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\signing-tests-20261109T170655179407Z\\preparation-interrupted.input.json"
+      ],
+      "exit_code": 21,
+      "expected_exit": 21,
+      "stdout_sha256": "9c2f30014e9757aebe311b95f355312d59870490752adfe313121df9cbbb0374",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "expected_stdout": "PREPARATION_TRANSACTION_INCOMPLETE"
+    },
+    {
+      "id": "readonly-preparation-marker-missing",
+      "command": [
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\evidence\\independent-signer-audit\\run-20261109T171204326933Z\\independent-contract-harness.exe",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\signing-tests-20261109T170655179407Z\\preparation-marker-missing.input.json"
+      ],
+      "exit_code": 21,
+      "expected_exit": 21,
+      "stdout_sha256": "765569dd3e5f657b254483f55d1d889e688932ad3228ba8a347c83190f17c5ff",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "expected_stdout": "FileNotFoundException"
+    },
+    {
+      "id": "readonly-06-signature-tamper",
+      "command": [
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\evidence\\independent-signer-audit\\run-20261109T171204326933Z\\independent-contract-harness.exe",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\signing-tests-20261109T170655179407Z\\06-signature-tamper.input.json"
+      ],
+      "exit_code": 21,
+      "expected_exit": 21,
+      "stdout_sha256": "a907ead408a8ea2de73703bf6b44bc32a0112b4b9e49ce6e10a21bee84c0d543",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "expected_stdout": "CMS_INVALID"
+    },
+    {
+      "id": "readonly-07-manifest-changed",
+      "command": [
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\evidence\\independent-signer-audit\\run-20261109T171204326933Z\\independent-contract-harness.exe",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\signing-tests-20261109T170655179407Z\\07-manifest-changed.input.json"
+      ],
+      "exit_code": 21,
+      "expected_exit": 21,
+      "stdout_sha256": "bc3ce0f5e8aae2a348d8f27a4eb40e87b22563a62ab2fbd01e6c01a5e2053fc2",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "expected_stdout": "CANDIDATE_HASH_MISMATCH:installation_manifest_sha256"
+    },
+    {
+      "id": "readonly-08-plan-changed",
+      "command": [
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\evidence\\independent-signer-audit\\run-20261109T171204326933Z\\independent-contract-harness.exe",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\signing-tests-20261109T170655179407Z\\08-plan-changed.input.json"
+      ],
+      "exit_code": 21,
+      "expected_exit": 21,
+      "stdout_sha256": "a907ead408a8ea2de73703bf6b44bc32a0112b4b9e49ce6e10a21bee84c0d543",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "expected_stdout": "CMS_INVALID"
+    },
+    {
+      "id": "readonly-20-payload-changed",
+      "command": [
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\evidence\\independent-signer-audit\\run-20261109T171204326933Z\\independent-contract-harness.exe",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\signing-tests-20261109T170655179407Z\\20-payload-changed.input.json"
+      ],
+      "exit_code": 21,
+      "expected_exit": 21,
+      "stdout_sha256": "65cceb54d38625a85933ae5abd5bd58cfdf62f4a0dccb5a179ee2f1c08fed23f",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "expected_stdout": "PAYLOAD_HASH_OR_BYTES"
+    },
+    {
+      "id": "readonly-21-dependency-replaced",
+      "command": [
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\evidence\\independent-signer-audit\\run-20261109T171204326933Z\\independent-contract-harness.exe",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\signing-tests-20261109T170655179407Z\\21-dependency-replaced.input.json"
+      ],
+      "exit_code": 21,
+      "expected_exit": 21,
+      "stdout_sha256": "65cceb54d38625a85933ae5abd5bd58cfdf62f4a0dccb5a179ee2f1c08fed23f",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "expected_stdout": "PAYLOAD_HASH_OR_BYTES"
+    },
+    {
+      "id": "readonly-22-unsigned-deploy",
+      "command": [
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\evidence\\independent-signer-audit\\run-20261109T171204326933Z\\independent-contract-harness.exe",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\signing-tests-20261109T170655179407Z\\22-unsigned-deploy.input.json"
+      ],
+      "exit_code": 21,
+      "expected_exit": 21,
+      "stdout_sha256": "765569dd3e5f657b254483f55d1d889e688932ad3228ba8a347c83190f17c5ff",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "expected_stdout": "FileNotFoundException"
+    },
+    {
+      "id": "readonly-missing-completion-marker",
+      "command": [
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\evidence\\independent-signer-audit\\run-20261109T171204326933Z\\independent-contract-harness.exe",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\signing-tests-20261109T170655179407Z\\missing-completion-marker.input.json"
+      ],
+      "exit_code": 21,
+      "expected_exit": 21,
+      "stdout_sha256": "765569dd3e5f657b254483f55d1d889e688932ad3228ba8a347c83190f17c5ff",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "expected_stdout": "FileNotFoundException"
+    },
+    {
+      "id": "readonly-installer-replaced",
+      "command": [
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\evidence\\independent-signer-audit\\run-20261109T171204326933Z\\independent-contract-harness.exe",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\signing-tests-20261109T170655179407Z\\installer-replaced.input.json"
+      ],
+      "exit_code": 21,
+      "expected_exit": 21,
+      "stdout_sha256": "aa8f69df1d7d39f480d19ac62dc1485958c0f6386afc13644c90fcdf4723ea06",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "expected_stdout": "CANDIDATE_HASH_MISMATCH:installer_sha256"
+    },
+    {
+      "id": "readonly-approval-content-changed",
+      "command": [
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\evidence\\independent-signer-audit\\run-20261109T171204326933Z\\independent-contract-harness.exe",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\signing-tests-20261109T170655179407Z\\approval-content-changed.input.json"
+      ],
+      "exit_code": 21,
+      "expected_exit": 21,
+      "stdout_sha256": "a907ead408a8ea2de73703bf6b44bc32a0112b4b9e49ce6e10a21bee84c0d543",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "expected_stdout": "CMS_INVALID"
+    },
+    {
+      "id": "readonly-payload-file-added",
+      "command": [
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\evidence\\independent-signer-audit\\run-20261109T171204326933Z\\independent-contract-harness.exe",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\signing-tests-20261109T170655179407Z\\payload-file-added.input.json"
+      ],
+      "exit_code": 21,
+      "expected_exit": 21,
+      "stdout_sha256": "67bce980d8dece5414169a7409008d53b50c94078a50d835f39ca46aad4a5359",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "expected_stdout": "PAYLOAD_FILE_SET"
+    },
+    {
+      "id": "readonly-cms-replay-other-plan",
+      "command": [
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\evidence\\independent-signer-audit\\run-20261109T171204326933Z\\independent-contract-harness.exe",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\signing-tests-20261109T170655179407Z\\cms-replay-other-plan.input.json"
+      ],
+      "exit_code": 21,
+      "expected_exit": 21,
+      "stdout_sha256": "a907ead408a8ea2de73703bf6b44bc32a0112b4b9e49ce6e10a21bee84c0d543",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "expected_stdout": "CMS_INVALID"
+    },
+    {
+      "id": "readonly-02-wrong-certificate",
+      "command": [
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\evidence\\independent-signer-audit\\run-20261109T171204326933Z\\independent-contract-harness.exe",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\signing-tests-20261109T170655179407Z\\02-wrong-certificate.input.json"
+      ],
+      "exit_code": 21,
+      "expected_exit": 21,
+      "stdout_sha256": "fab75b4326a2c77ae1c103057331ec6ca2bd61b7408d3bfa2b7a3573e1365b55",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "expected_stdout": "CERTIFICATE_PIN_MISMATCH"
+    },
+    {
+      "id": "readonly-03-wrong-der-pin",
+      "command": [
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\evidence\\independent-signer-audit\\run-20261109T171204326933Z\\independent-contract-harness.exe",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\signing-tests-20261109T170655179407Z\\03-wrong-der-pin.input.json"
+      ],
+      "exit_code": 21,
+      "expected_exit": 21,
+      "stdout_sha256": "fab75b4326a2c77ae1c103057331ec6ca2bd61b7408d3bfa2b7a3573e1365b55",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "expected_stdout": "CERTIFICATE_PIN_MISMATCH"
+    },
+    {
+      "id": "readonly-04-certificate-replaced",
+      "command": [
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\evidence\\independent-signer-audit\\run-20261109T171204326933Z\\independent-contract-harness.exe",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\signing-tests-20261109T170655179407Z\\04-certificate-replaced.input.json"
+      ],
+      "exit_code": 21,
+      "expected_exit": 21,
+      "stdout_sha256": "fab75b4326a2c77ae1c103057331ec6ca2bd61b7408d3bfa2b7a3573e1365b55",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "expected_stdout": "CERTIFICATE_PIN_MISMATCH"
+    },
+    {
+      "id": "readonly-05-expired-certificate",
+      "command": [
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\evidence\\independent-signer-audit\\run-20261109T171204326933Z\\independent-contract-harness.exe",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\signing-tests-20261109T170655179407Z\\05-expired-certificate.input.json"
+      ],
+      "exit_code": 21,
+      "expected_exit": 21,
+      "stdout_sha256": "f0c9c526414c433446b190c42bd546f660de07185221932dbab0bd0c9622d32f",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "expected_stdout": "CERTIFICATE_EXPIRED"
+    },
+    {
+      "id": "readonly-code",
+      "command": [
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\evidence\\independent-signer-audit\\run-20261109T171204326933Z\\independent-contract-harness.exe",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\signing-tests-20261109T170655179407Z\\code.input.json"
+      ],
+      "exit_code": 21,
+      "expected_exit": 21,
+      "stdout_sha256": "9e1324b946402dee6f94c65986738f754eb9aeb2e256f85790d8c9c1ad672899",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "expected_stdout": "LOCAL_CERTIFICATE_PURPOSE"
+    },
+    {
+      "id": "readonly-weak",
+      "command": [
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\evidence\\independent-signer-audit\\run-20261109T171204326933Z\\independent-contract-harness.exe",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\signing-tests-20261109T170655179407Z\\weak.input.json"
+      ],
+      "exit_code": 21,
+      "expected_exit": 21,
+      "stdout_sha256": "b3f13981a48c2f90239861874ff658a09c2e46335f76a32785eba9f3f4d22798",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "expected_stdout": "LOCAL_CERTIFICATE_ALGORITHM"
+    },
+    {
+      "id": "readonly-sha1",
+      "command": [
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\evidence\\independent-signer-audit\\run-20261109T171204326933Z\\independent-contract-harness.exe",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\signing-tests-20261109T170655179407Z\\sha1.input.json"
+      ],
+      "exit_code": 21,
+      "expected_exit": 21,
+      "stdout_sha256": "40a11ff3b9d4e84b459ad0b99d9a9904e74edcbeba2c3a09df7c3be8c4d8c54d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "expected_stdout": "CMS_SHA256_REQUIRED"
+    },
+    {
+      "id": "readonly-attached-same",
+      "command": [
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\evidence\\independent-signer-audit\\run-20261109T171204326933Z\\independent-contract-harness.exe",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\signing-tests-20261109T170655179407Z\\attached-same.input.json"
+      ],
+      "exit_code": 21,
+      "expected_exit": 21,
+      "stdout_sha256": "62dd9737cf414844d0ffeea4fc46558a86f8e43ed73ebc1394ff3b32f3df9d75",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "expected_stdout": "DETACHED_CMS_REQUIRED"
+    },
+    {
+      "id": "readonly-attached-other",
+      "command": [
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\evidence\\independent-signer-audit\\run-20261109T171204326933Z\\independent-contract-harness.exe",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\signing-tests-20261109T170655179407Z\\attached-other.input.json"
+      ],
+      "exit_code": 21,
+      "expected_exit": 21,
+      "stdout_sha256": "62dd9737cf414844d0ffeea4fc46558a86f8e43ed73ebc1394ff3b32f3df9d75",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "expected_stdout": "DETACHED_CMS_REQUIRED"
+    },
+    {
+      "id": "readonly-multiple-signers",
+      "command": [
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\evidence\\independent-signer-audit\\run-20261109T171204326933Z\\independent-contract-harness.exe",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\signing-tests-20261109T170655179407Z\\multiple-signers.input.json"
+      ],
+      "exit_code": 21,
+      "expected_exit": 21,
+      "stdout_sha256": "dbaf611910b0ce5efa93e7824deff4b9f36b5ededc90152d540c7317dc3eb9d4",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "expected_stdout": "CMS_SIGNER_COUNT_OR_ATTACHED_CONTENT"
+    },
+    {
+      "id": "readonly-md5",
+      "command": [
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\evidence\\independent-signer-audit\\run-20261109T171204326933Z\\independent-contract-harness.exe",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\signing-tests-20261109T170655179407Z\\md5.input.json"
+      ],
+      "exit_code": 21,
+      "expected_exit": 21,
+      "stdout_sha256": "40a11ff3b9d4e84b459ad0b99d9a9904e74edcbeba2c3a09df7c3be8c4d8c54d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "expected_stdout": "CMS_SHA256_REQUIRED"
+    },
+    {
+      "id": "readonly-sha384",
+      "command": [
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\evidence\\independent-signer-audit\\run-20261109T171204326933Z\\independent-contract-harness.exe",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\signing-tests-20261109T170655179407Z\\sha384.input.json"
+      ],
+      "exit_code": 21,
+      "expected_exit": 21,
+      "stdout_sha256": "40a11ff3b9d4e84b459ad0b99d9a9904e74edcbeba2c3a09df7c3be8c4d8c54d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "expected_stdout": "CMS_SHA256_REQUIRED"
+    },
+    {
+      "id": "readonly-counter-signature",
+      "command": [
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\evidence\\independent-signer-audit\\run-20261109T171204326933Z\\independent-contract-harness.exe",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\signing-tests-20261109T170655179407Z\\counter-signature.input.json"
+      ],
+      "exit_code": 21,
+      "expected_exit": 21,
+      "stdout_sha256": "dbaf611910b0ce5efa93e7824deff4b9f36b5ededc90152d540c7317dc3eb9d4",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "expected_stdout": "CMS_SIGNER_COUNT_OR_ATTACHED_CONTENT"
+    },
+    {
+      "id": "readonly-local-cert-cannot-production",
+      "command": [
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\evidence\\independent-signer-audit\\run-20261109T171204326933Z\\independent-contract-harness.exe",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\signing-tests-20261109T170655179407Z\\local-cert-cannot-production.input.json"
+      ],
+      "exit_code": 21,
+      "expected_exit": 21,
+      "stdout_sha256": "7e39cba5e59b2f3a7000870ee178261cd74ae510d4de3816bb6894a901481467",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "expected_stdout": "LOCAL_CERTIFICATE_CANNOT_RELEASE_PRODUCTION"
+    },
+    {
+      "id": "readonly-untrusted-ca-cannot-production",
+      "command": [
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\evidence\\independent-signer-audit\\run-20261109T171204326933Z\\independent-contract-harness.exe",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\signing-tests-20261109T170655179407Z\\untrusted-ca-cannot-production.input.json"
+      ],
+      "exit_code": 21,
+      "expected_exit": 21,
+      "stdout_sha256": "9dd4536c17265dfccfab156698a0093c79eef8952281b82fc4fcd36d87c34f52",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "expected_stdout": "PRODUCTION_TRUST_CHAIN_REQUIRED"
+    },
+    {
+      "id": "readonly-19-old-signature-replay",
+      "command": [
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\evidence\\independent-signer-audit\\run-20261109T171204326933Z\\independent-contract-harness.exe",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\signing-tests-20261109T170655179407Z\\19-old-signature-replay.input.json"
+      ],
+      "exit_code": 21,
+      "expected_exit": 21,
+      "stdout_sha256": "60bba0d6858930b4b39c4557b10877580f34c5e75d203097200e16cd8a3e07fb",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "expected_stdout": "EPOCH_ALREADY_CONSUMED"
+    },
+    {
+      "id": "readonly-old-epoch-without-receipt",
+      "command": [
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\evidence\\independent-signer-audit\\run-20261109T171204326933Z\\independent-contract-harness.exe",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\signing-tests-20261109T170655179407Z\\old-epoch-without-receipt.input.json"
+      ],
+      "exit_code": 21,
+      "expected_exit": 21,
+      "stdout_sha256": "587f5492996d4ad4f5a5ea915a0a3df61a8444553cadb59e2bb28b2094708e72",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "expected_stdout": "EPOCH_MISMATCH"
+    },
+    {
+      "id": "readonly-23-missing-confirmation",
+      "command": [
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\evidence\\independent-signer-audit\\run-20261109T171204326933Z\\independent-contract-harness.exe",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\signing-tests-20261109T170655179407Z\\23-missing-confirmation.input.json"
+      ],
+      "exit_code": 21,
+      "expected_exit": 21,
+      "stdout_sha256": "d51a34d44898082a6f07838223da49bc1ec909c025ce44a0af1725b5ad381258",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "expected_stdout": "EXPLICIT_USER_CONFIRMATION_REQUIRED"
+    },
+    {
+      "id": "readonly-missing-isolation",
+      "command": [
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\evidence\\independent-signer-audit\\run-20261109T171204326933Z\\independent-contract-harness.exe",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\signing-tests-20261109T170655179407Z\\missing-isolation.input.json"
+      ],
+      "exit_code": 21,
+      "expected_exit": 21,
+      "stdout_sha256": "d51a34d44898082a6f07838223da49bc1ec909c025ce44a0af1725b5ad381258",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "expected_stdout": "EXPLICIT_USER_CONFIRMATION_REQUIRED"
+    },
+    {
+      "id": "readonly-missing-host-review",
+      "command": [
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\evidence\\independent-signer-audit\\run-20261109T171204326933Z\\independent-contract-harness.exe",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\signing-tests-20261109T170655179407Z\\missing-host-review.input.json"
+      ],
+      "exit_code": 21,
+      "expected_exit": 21,
+      "stdout_sha256": "d51a34d44898082a6f07838223da49bc1ec909c025ce44a0af1725b5ad381258",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "expected_stdout": "EXPLICIT_USER_CONFIRMATION_REQUIRED"
+    },
+    {
+      "id": "readonly-duplicate-json",
+      "command": [
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\evidence\\independent-signer-audit\\run-20261109T171204326933Z\\independent-contract-harness.exe",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\signing-tests-20261109T170655179407Z\\duplicate-json.input.json"
+      ],
+      "exit_code": 21,
+      "expected_exit": 21,
+      "stdout_sha256": "5e172f2516a9db3b72a4e55305e8ffedc1f6cf0f32b5a33a855752df9c44e5a3",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "expected_stdout": "DUPLICATE_JSON_KEY"
+    },
+    {
+      "id": "readonly-case-alias-json",
+      "command": [
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\evidence\\independent-signer-audit\\run-20261109T171204326933Z\\independent-contract-harness.exe",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\signing-tests-20261109T170655179407Z\\case-alias-json.input.json"
+      ],
+      "exit_code": 21,
+      "expected_exit": 21,
+      "stdout_sha256": "5e172f2516a9db3b72a4e55305e8ffedc1f6cf0f32b5a33a855752df9c44e5a3",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "expected_stdout": "DUPLICATE_JSON_KEY"
+    },
+    {
+      "id": "readonly-escaped-duplicate-json",
+      "command": [
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\evidence\\independent-signer-audit\\run-20261109T171204326933Z\\independent-contract-harness.exe",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\signing-tests-20261109T170655179407Z\\escaped-duplicate-json.input.json"
+      ],
+      "exit_code": 21,
+      "expected_exit": 21,
+      "stdout_sha256": "5e172f2516a9db3b72a4e55305e8ffedc1f6cf0f32b5a33a855752df9c44e5a3",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "expected_stdout": "DUPLICATE_JSON_KEY"
+    },
+    {
+      "id": "readonly-runtime-detached-valid",
+      "command": [
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\evidence\\independent-signer-audit\\run-20261109T171204326933Z\\independent-contract-harness.exe",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\signing-tests-20261109T170655179407Z\\runtime-detached-valid.input.json"
+      ],
+      "exit_code": 0,
+      "expected_exit": 0,
+      "stdout_sha256": "439968ee21be656d82e377b93053abf13c08f87f7ab4784d0f27ad4aedbb9b5d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "expected_stdout": "ACCEPTED"
+    },
+    {
+      "id": "readonly-runtime-certificate-window-denied",
+      "command": [
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\evidence\\independent-signer-audit\\run-20261109T171204326933Z\\independent-contract-harness.exe",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\signing-tests-20261109T170655179407Z\\runtime-certificate-window-denied.input.json"
+      ],
+      "exit_code": 21,
+      "expected_exit": 21,
+      "stdout_sha256": "b0ade28422ed934626cae0d9e9ae2166fb7d9bea378164c6580b9a899e22fec4",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "expected_stdout": "CERTIFICATE_PLAN_WINDOW_MISMATCH"
+    },
+    {
+      "id": "readonly-exported-bundle-reverified",
+      "command": [
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\evidence\\independent-signer-audit\\run-20261109T171204326933Z\\independent-contract-harness.exe",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\signing-tests-20261109T170655179407Z\\exported-bundle-reverified.input.json"
+      ],
+      "exit_code": 0,
+      "expected_exit": 0,
+      "stdout_sha256": "439968ee21be656d82e377b93053abf13c08f87f7ab4784d0f27ad4aedbb9b5d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "expected_stdout": "ACCEPTED"
+    },
+    {
+      "id": "readonly-24b-interrupted-output-refused",
+      "command": [
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\evidence\\independent-signer-audit\\run-20261109T171204326933Z\\independent-contract-harness.exe",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\signing-tests-20261109T170655179407Z\\24b-interrupted-output-refused.input.json"
+      ],
+      "exit_code": 21,
+      "expected_exit": 21,
+      "stdout_sha256": "86ac688faaf7e2e9647ed15995421ba05a6454c26fe33b13b9514c9fdf37436a",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "expected_stdout": "DirectoryNotFoundException"
+    },
+    {
+      "id": "readonly-private-key-absent-public-certificate",
+      "command": [
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\evidence\\independent-signer-audit\\run-20261109T171204326933Z\\independent-contract-harness.exe",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\signing-tests-20261109T170655179407Z\\private-key-absent-public-certificate.input.json"
+      ],
+      "exit_code": 21,
+      "expected_exit": 21,
+      "stdout_sha256": "99319945b1d030c943cfba335f3f8a627162115adc69ca0cf8f3666abb13a7f6",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "expected_stdout": "USER_STORE_SIGNING_CERTIFICATE_REQUIRED"
+    },
+    {
+      "id": "readonly-private-public-key-mismatch",
+      "command": [
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\evidence\\independent-signer-audit\\run-20261109T171204326933Z\\independent-contract-harness.exe",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\signing-tests-20261109T170655179407Z\\private-public-key-mismatch.input.json"
+      ],
+      "exit_code": 21,
+      "expected_exit": 21,
+      "stdout_sha256": "9be3d02a452631ca35734ad16cbcc73d8ca0b926cf168f2dbdeb08bf97b8af5f",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "expected_stdout": "PRIVATE_PUBLIC_KEY_MISMATCH"
+    },
+    {
+      "id": "readonly-user-cancel",
+      "command": [
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\evidence\\independent-signer-audit\\run-20261109T171204326933Z\\independent-contract-harness.exe",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\signing-tests-20261109T170655179407Z\\user-cancel.input.json"
+      ],
+      "exit_code": 0,
+      "expected_exit": 0,
+      "stdout_sha256": "439968ee21be656d82e377b93053abf13c08f87f7ab4784d0f27ad4aedbb9b5d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "expected_stdout": "ACCEPTED"
+    },
+    {
+      "id": "readonly-user-refuses-signature",
+      "command": [
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\evidence\\independent-signer-audit\\run-20261109T171204326933Z\\independent-contract-harness.exe",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\signing-tests-20261109T170655179407Z\\user-refuses-signature.input.json"
+      ],
+      "exit_code": 0,
+      "expected_exit": 0,
+      "stdout_sha256": "439968ee21be656d82e377b93053abf13c08f87f7ab4784d0f27ad4aedbb9b5d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "expected_stdout": "ACCEPTED"
+    },
+    {
+      "id": "readonly-simulated-private-key-unavailable",
+      "command": [
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\evidence\\independent-signer-audit\\run-20261109T171204326933Z\\independent-contract-harness.exe",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\signing-tests-20261109T170655179407Z\\simulated-private-key-unavailable.input.json"
+      ],
+      "exit_code": 21,
+      "expected_exit": 21,
+      "stdout_sha256": "ee811e27fb47d01c7ab1ceefef624d329dc384451b1c1e15cd011f2e045eb382",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "expected_stdout": "SIMULATED_PRIVATE_KEY_UNAVAILABLE"
+    },
+    {
+      "id": "readonly-deny-path-unc",
+      "command": [
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\evidence\\independent-signer-audit\\run-20261109T171204326933Z\\independent-contract-harness.exe",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\signing-tests-20261109T170655179407Z\\deny-path-unc.input.json"
+      ],
+      "exit_code": 21,
+      "expected_exit": 21,
+      "stdout_sha256": "fa5be2310b89c3119d8b6cbea8d3151c34dc48bc0e173eefccf32b5d5f3c062b",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "expected_stdout": "LOCAL_ABSOLUTE_PATH_REQUIRED"
+    },
+    {
+      "id": "readonly-deny-path-device",
+      "command": [
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\evidence\\independent-signer-audit\\run-20261109T171204326933Z\\independent-contract-harness.exe",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\signing-tests-20261109T170655179407Z\\deny-path-device.input.json"
+      ],
+      "exit_code": 21,
+      "expected_exit": 21,
+      "stdout_sha256": "fa5be2310b89c3119d8b6cbea8d3151c34dc48bc0e173eefccf32b5d5f3c062b",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "expected_stdout": "LOCAL_ABSOLUTE_PATH_REQUIRED"
+    },
+    {
+      "id": "readonly-deny-path-drive-relative",
+      "command": [
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\evidence\\independent-signer-audit\\run-20261109T171204326933Z\\independent-contract-harness.exe",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\signing-tests-20261109T170655179407Z\\deny-path-drive-relative.input.json"
+      ],
+      "exit_code": 21,
+      "expected_exit": 21,
+      "stdout_sha256": "fa5be2310b89c3119d8b6cbea8d3151c34dc48bc0e173eefccf32b5d5f3c062b",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "expected_stdout": "LOCAL_ABSOLUTE_PATH_REQUIRED"
+    },
+    {
+      "id": "readonly-deny-path-root-relative",
+      "command": [
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\evidence\\independent-signer-audit\\run-20261109T171204326933Z\\independent-contract-harness.exe",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\signing-tests-20261109T170655179407Z\\deny-path-root-relative.input.json"
+      ],
+      "exit_code": 21,
+      "expected_exit": 21,
+      "stdout_sha256": "fa5be2310b89c3119d8b6cbea8d3151c34dc48bc0e173eefccf32b5d5f3c062b",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "expected_stdout": "LOCAL_ABSOLUTE_PATH_REQUIRED"
+    },
+    {
+      "id": "readonly-deny-path-ads",
+      "command": [
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\evidence\\independent-signer-audit\\run-20261109T171204326933Z\\independent-contract-harness.exe",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\signing-tests-20261109T170655179407Z\\deny-path-ads.input.json"
+      ],
+      "exit_code": 21,
+      "expected_exit": 21,
+      "stdout_sha256": "fa5be2310b89c3119d8b6cbea8d3151c34dc48bc0e173eefccf32b5d5f3c062b",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "expected_stdout": "LOCAL_ABSOLUTE_PATH_REQUIRED"
+    },
+    {
+      "id": "readonly-cms-signature-oid-rsa",
+      "command": [
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\evidence\\independent-signer-audit\\run-20261109T171204326933Z\\independent-contract-harness.exe",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\signing-tests-20261109T170655179407Z\\cms-signature-oid-rsa.input.json"
+      ],
+      "exit_code": 0,
+      "expected_exit": 0,
+      "stdout_sha256": "439968ee21be656d82e377b93053abf13c08f87f7ab4784d0f27ad4aedbb9b5d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "expected_stdout": "ACCEPTED"
+    },
+    {
+      "id": "readonly-cms-signature-oid-rsa-sha256",
+      "command": [
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\evidence\\independent-signer-audit\\run-20261109T171204326933Z\\independent-contract-harness.exe",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\signing-tests-20261109T170655179407Z\\cms-signature-oid-rsa-sha256.input.json"
+      ],
+      "exit_code": 0,
+      "expected_exit": 0,
+      "stdout_sha256": "439968ee21be656d82e377b93053abf13c08f87f7ab4784d0f27ad4aedbb9b5d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "expected_stdout": "ACCEPTED"
+    },
+    {
+      "id": "readonly-cms-signature-oid-pss",
+      "command": [
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\evidence\\independent-signer-audit\\run-20261109T171204326933Z\\independent-contract-harness.exe",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\signing-tests-20261109T170655179407Z\\cms-signature-oid-pss.input.json"
+      ],
+      "exit_code": 0,
+      "expected_exit": 0,
+      "stdout_sha256": "439968ee21be656d82e377b93053abf13c08f87f7ab4784d0f27ad4aedbb9b5d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "expected_stdout": "ACCEPTED"
+    },
+    {
+      "id": "readonly-cms-signature-oid-unknown",
+      "command": [
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\evidence\\independent-signer-audit\\run-20261109T171204326933Z\\independent-contract-harness.exe",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\signing-tests-20261109T170655179407Z\\cms-signature-oid-unknown.input.json"
+      ],
+      "exit_code": 0,
+      "expected_exit": 0,
+      "stdout_sha256": "439968ee21be656d82e377b93053abf13c08f87f7ab4784d0f27ad4aedbb9b5d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "expected_stdout": "ACCEPTED"
+    },
+    {
+      "id": "readonly-cms-signature-oid-truncated",
+      "command": [
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\evidence\\independent-signer-audit\\run-20261109T171204326933Z\\independent-contract-harness.exe",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\signing-tests-20261109T170655179407Z\\cms-signature-oid-truncated.input.json"
+      ],
+      "exit_code": 21,
+      "expected_exit": 21,
+      "stdout_sha256": "60f60da6ed0097c0a0872bf600d8cfa33507e6677ac3ed42ee23c7da2b0734b9",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "expected_stdout": "CMS_DER_TRUNCATED"
+    },
+    {
+      "id": "readonly-certificate-signature-sha1",
+      "command": [
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\evidence\\independent-signer-audit\\run-20261109T171204326933Z\\independent-contract-harness.exe",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\signing-tests-20261109T170655179407Z\\certificate-signature-sha1.input.json"
+      ],
+      "exit_code": 21,
+      "expected_exit": 21,
+      "stdout_sha256": "20693c95e27614d10a53e7685a20f9a1f547b02e706016d0ac478c9d8c30a625",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "expected_stdout": "LOCAL_CERTIFICATE_SIGNATURE_ALGORITHM"
+    },
+    {
+      "id": "readonly-certificate-signature-md5",
+      "command": [
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\evidence\\independent-signer-audit\\run-20261109T171204326933Z\\independent-contract-harness.exe",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\signing-tests-20261109T170655179407Z\\certificate-signature-md5.input.json"
+      ],
+      "exit_code": 21,
+      "expected_exit": 21,
+      "stdout_sha256": "20693c95e27614d10a53e7685a20f9a1f547b02e706016d0ac478c9d8c30a625",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "expected_stdout": "LOCAL_CERTIFICATE_SIGNATURE_ALGORITHM"
+    },
+    {
+      "id": "readonly-certificate-signature-unsupported",
+      "command": [
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\evidence\\independent-signer-audit\\run-20261109T171204326933Z\\independent-contract-harness.exe",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\signing-tests-20261109T170655179407Z\\certificate-signature-unsupported.input.json"
+      ],
+      "exit_code": 21,
+      "expected_exit": 21,
+      "stdout_sha256": "20693c95e27614d10a53e7685a20f9a1f547b02e706016d0ac478c9d8c30a625",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "expected_stdout": "LOCAL_CERTIFICATE_SIGNATURE_ALGORITHM"
+    },
+    {
+      "id": "readonly-publication-verify-after-first-file",
+      "command": [
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\evidence\\independent-signer-audit\\run-20261109T171204326933Z\\independent-contract-harness.exe",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\signing-tests-20261109T170655179407Z\\publication-verify-after-first-file.input.json"
+      ],
+      "exit_code": 21,
+      "expected_exit": 21,
+      "stdout_sha256": "86ac688faaf7e2e9647ed15995421ba05a6454c26fe33b13b9514c9fdf37436a",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "expected_stdout": "DirectoryNotFoundException"
+    },
+    {
+      "id": "readonly-publication-verify-after-input-copy",
+      "command": [
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\evidence\\independent-signer-audit\\run-20261109T171204326933Z\\independent-contract-harness.exe",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\signing-tests-20261109T170655179407Z\\publication-verify-after-input-copy.input.json"
+      ],
+      "exit_code": 21,
+      "expected_exit": 21,
+      "stdout_sha256": "765569dd3e5f657b254483f55d1d889e688932ad3228ba8a347c83190f17c5ff",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "expected_stdout": "FileNotFoundException"
+    },
+    {
+      "id": "readonly-publication-verify-before-marker",
+      "command": [
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\evidence\\independent-signer-audit\\run-20261109T171204326933Z\\independent-contract-harness.exe",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\signing-tests-20261109T170655179407Z\\publication-verify-before-marker.input.json"
+      ],
+      "exit_code": 21,
+      "expected_exit": 21,
+      "stdout_sha256": "765569dd3e5f657b254483f55d1d889e688932ad3228ba8a347c83190f17c5ff",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "expected_stdout": "FileNotFoundException"
+    },
+    {
+      "id": "readonly-publication-verify-after-marker",
+      "command": [
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\evidence\\independent-signer-audit\\run-20261109T171204326933Z\\independent-contract-harness.exe",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\signing-tests-20261109T170655179407Z\\publication-verify-after-marker.input.json"
+      ],
+      "exit_code": 0,
+      "expected_exit": 0,
+      "stdout_sha256": "439968ee21be656d82e377b93053abf13c08f87f7ab4784d0f27ad4aedbb9b5d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS",
+      "expected_stdout": "ACCEPTED"
+    },
+    {
+      "id": "release-verifier-describe",
+      "command": [
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\signer\\AgentNexus.Qualification.Verifier.exe",
+        "--describe"
+      ],
+      "exit_code": 0,
+      "expected_exit": 0,
+      "stdout_sha256": "479a601ea3ba8ba092a879f62ac73f0b266876aee12a53ed18f58c8403792c9e",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS"
+    },
+    {
+      "id": "release-verifier-identity",
+      "command": [
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\signer\\AgentNexus.Qualification.Verifier.exe",
+        "--identity"
+      ],
+      "exit_code": 0,
+      "expected_exit": 0,
+      "stdout_sha256": "3fdee51df3d951f4d3d380ea39b661bb16279070943cddc285e8391c037228a9",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS"
+    },
+    {
+      "id": "release-verifier-toolkit-cannot-be-candidate",
+      "command": [
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\signer\\AgentNexus.Qualification.Verifier.exe",
+        "--inspect",
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2"
+      ],
+      "exit_code": 21,
+      "expected_exit": 21,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "86ac688faaf7e2e9647ed15995421ba05a6454c26fe33b13b9514c9fdf37436a",
+      "status": "PASS",
+      "expected_stdout": ""
+    },
+    {
+      "id": "release-verifier-public-simulated-certificate",
+      "command": [
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\signer\\AgentNexus.Qualification.Verifier.exe",
+        "--public-certificate",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\signing-tests-20261109T170655179407Z\\SIMULATED-local-public.cer",
+        "94f38b5b6aee423c27a0c66e98fd2b821ad33c973d4609afc11ad32562e52cf8"
+      ],
+      "exit_code": 0,
+      "expected_exit": 0,
+      "stdout_sha256": "0ae3da7e8ee82baf020ecf05a6a6b71e481449c7d8c15559b1aaae5e6f5a35e5",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS"
+    },
+    {
+      "id": "release-verifier-simulated-bundle",
+      "command": [
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\signer\\AgentNexus.Qualification.Verifier.exe",
+        "--verify",
+        "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\signing-tests-20261109T170655179407Z\\exported-approval",
+        "94f38b5b6aee423c27a0c66e98fd2b821ad33c973d4609afc11ad32562e52cf8"
+      ],
+      "exit_code": 0,
+      "expected_exit": 0,
+      "stdout_sha256": "e64ab07741f276e311344fcb4be8cf46207e3776572a22e3e91830714185a919",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS"
+    },
+    {
+      "id": "release-pure-filesystem-probe",
+      "command": [
+        "C:/Windows/System32/WindowsPowerShell/v1.0/powershell.exe",
+        "-NoProfile",
+        "-File",
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\evidence\\independent-signer-audit\\pure-filesystem-probe.ps1",
+        "-BundleRoot",
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2",
+        "-NewWorkRoot",
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\evidence\\independent-signer-audit\\run-20261109T171204326933Z\\pure-fs"
+      ],
+      "exit_code": 0,
+      "expected_exit": 0,
+      "stdout_sha256": "608320928dd75b0c824a65cbad11dcc973a662420c4aeb531ff5e31d2801cb97",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS"
+    }
+  ],
+  "readonly_diagnostic_cases": [
+    {
+      "id": "01-correct-simulated-local-certificate",
+      "action": "bundle",
+      "input_sha256": "fc5cc4530720fe699596d9e7e8b39e21a06bc437e98c369c49331ecf66726bb7",
+      "original_expected": "ACCEPTED",
+      "effective_expected": "PAYLOAD_FILE_SET",
+      "note": "Original positive fixture was intentionally mutated by the later added-after-review case; current rejection is expected. Exported approval supplies the independent positive control."
+    },
+    {
+      "id": "09-operator-sid",
+      "action": "bundle",
+      "input_sha256": "e4bf8ef1f61ee64560bfc23a5de8e738f6370d2c3fedb67b345688cce3ffb873",
+      "original_expected": "OPERATOR_SID_MISMATCH",
+      "effective_expected": "OPERATOR_SID_MISMATCH",
+      "note": null
+    },
+    {
+      "id": "10-host-machine",
+      "action": "bundle",
+      "input_sha256": "c202fc13f9150dd7d64d24909c3fa6529d64156861c9d58f0894659d2d92b999",
+      "original_expected": "HOST_MISMATCH",
+      "effective_expected": "HOST_MISMATCH",
+      "note": null
+    },
+    {
+      "id": "11-service-sid",
+      "action": "bundle",
+      "input_sha256": "21ca64d0c7bfe347c6c497d501c9d19cca1eaa487fbca7c19b94cd958bdbcf17",
+      "original_expected": "SERVICE_SID_MISMATCH",
+      "effective_expected": "SERVICE_SID_MISMATCH",
+      "note": null
+    },
+    {
+      "id": "12-old-epoch",
+      "action": "bundle",
+      "input_sha256": "4b1919a61d7011b530e968bed77b1718c4f90ea4edae773923707c70afa9bcd7",
+      "original_expected": "EPOCH_MISMATCH",
+      "effective_expected": "EPOCH_MISMATCH",
+      "note": null
+    },
+    {
+      "id": "14-scope-expanded",
+      "action": "bundle",
+      "input_sha256": "2be3e423aa13e15a11a5e0f8b89a5d14c88c150f747af0a3c30ef14b6f7f85ba",
+      "original_expected": "LOCAL_QUALIFICATION_SCOPE_REQUIRED",
+      "effective_expected": "LOCAL_QUALIFICATION_SCOPE_REQUIRED",
+      "note": null
+    },
+    {
+      "id": "15-real-import",
+      "action": "bundle",
+      "input_sha256": "397d5ddfa31e712be91ce37940244f5e2d861167bd2154173d10c9426a970b6a",
+      "original_expected": "LOCAL_REAL_PERMISSION_DENIED:real_import",
+      "effective_expected": "LOCAL_REAL_PERMISSION_DENIED:real_import",
+      "note": null
+    },
+    {
+      "id": "16-live-provider",
+      "action": "bundle",
+      "input_sha256": "aaeb133a7f67cf09650af7a74a14db48f906ceb5ec79047aea0d8a820d179432",
+      "original_expected": "LOCAL_REAL_PERMISSION_DENIED:live_provider",
+      "effective_expected": "LOCAL_REAL_PERMISSION_DENIED:live_provider",
+      "note": null
+    },
+    {
+      "id": "17-production-release",
+      "action": "bundle",
+      "input_sha256": "fa57d95a4b21146a0f27152c78181fb7a72c4ce0fac23971595cbbc5c6b39261",
+      "original_expected": "LOCAL_REAL_PERMISSION_DENIED:production_release",
+      "effective_expected": "LOCAL_REAL_PERMISSION_DENIED:production_release",
+      "note": null
+    },
+    {
+      "id": "18-real-ledger",
+      "action": "bundle",
+      "input_sha256": "c85873abfae163944004dac098e00a5e1fd4d0243de8d7a0d2a30d751a36e5f1",
+      "original_expected": "LOCAL_REAL_PERMISSION_DENIED:real_ledger_migration",
+      "effective_expected": "LOCAL_REAL_PERMISSION_DENIED:real_ledger_migration",
+      "note": null
+    },
+    {
+      "id": "flag-string",
+      "action": "bundle",
+      "input_sha256": "7563ee23fd1f3ea9b459bf9bf6c0fd9ab5ab1c3a854eee0b315a8ab1fa36834b",
+      "original_expected": "BOOLEAN_REQUIRED:real_import",
+      "effective_expected": "BOOLEAN_REQUIRED:real_import",
+      "note": null
+    },
+    {
+      "id": "wrong-file-count",
+      "action": "bundle",
+      "input_sha256": "73e9fc2f23c0255102342ec9463a927a2bf442108a4225327b8bd93d18380376",
+      "original_expected": "PAYLOAD_TOTALS_MISMATCH",
+      "effective_expected": "PAYLOAD_TOTALS_MISMATCH",
+      "note": null
+    },
+    {
+      "id": "wrong-total-bytes",
+      "action": "bundle",
+      "input_sha256": "86e56c764c58460ad91f7b80b1efd061689cec7cb98e5e65f1962a59a8258f8c",
+      "original_expected": "PAYLOAD_TOTALS_MISMATCH",
+      "effective_expected": "PAYLOAD_TOTALS_MISMATCH",
+      "note": null
+    },
+    {
+      "id": "missing-plan-confirmation",
+      "action": "bundle",
+      "input_sha256": "407962fe029977d915fec0a92e37b835a1363208b4fd4627654eb3d94f555885",
+      "original_expected": "USER_CONFIRMATION_REQUIRED",
+      "effective_expected": "USER_CONFIRMATION_REQUIRED",
+      "note": null
+    },
+    {
+      "id": "loose-date-format",
+      "action": "bundle",
+      "input_sha256": "980f6fe834b86633b5d77a342291f5c388c942660f31c0f3415ccd56ff931bb8",
+      "original_expected": "STRICT_UTC_REQUIRED",
+      "effective_expected": "STRICT_UTC_REQUIRED",
+      "note": null
+    },
+    {
+      "id": "expired-plan",
+      "action": "bundle",
+      "input_sha256": "fe03e363a6e6857e490f22bd9dc3a5dd2f33e78ac4c1c2303015f977bd6e55f8",
+      "original_expected": "LOCAL_TIME_INVALID",
+      "effective_expected": "LOCAL_TIME_INVALID",
+      "note": null
+    },
+    {
+      "id": "future-plan",
+      "action": "bundle",
+      "input_sha256": "a4641bd56c8dcf6a887666bd7f601fa85d6016283c4f6d6ea6daa9e48858db25",
+      "original_expected": "LOCAL_TIME_INVALID",
+      "effective_expected": "LOCAL_TIME_INVALID",
+      "note": null
+    },
+    {
+      "id": "q41-epoch-replay",
+      "action": "bundle",
+      "input_sha256": "80853d08fc1efb3bb3b560afe52604c0c27a13f919eff3b395c55e7f45b59266",
+      "original_expected": "EPOCH_MISMATCH",
+      "effective_expected": "EPOCH_MISMATCH",
+      "note": null
+    },
+    {
+      "id": "local-mode-to-production",
+      "action": "bundle",
+      "input_sha256": "3e9b6e5b529f4d9d30df4ba6c0eb608c4254f0dc6f83d317415e07ca7c355657",
+      "original_expected": "LOCAL_QUALIFICATION_SCOPE_REQUIRED",
+      "effective_expected": "LOCAL_QUALIFICATION_SCOPE_REQUIRED",
+      "note": null
+    },
+    {
+      "id": "wrong-target-host-name",
+      "action": "bundle",
+      "input_sha256": "09d990870d324be5659ca0ad23f4d6b52371ce45ae8ce35cafa563b529b01aea",
+      "original_expected": "HOST_NAME_MISMATCH",
+      "effective_expected": "HOST_NAME_MISMATCH",
+      "note": null
+    },
+    {
+      "id": "13-validity-mismatch",
+      "action": "bundle",
+      "input_sha256": "c4f7a31a9c122846f9bdfb7e26dda47f7f3fd5cd381ddd12006b3b76cf636be2",
+      "original_expected": "APPROVAL_BINDING_MISMATCH:expires_at_utc",
+      "effective_expected": "APPROVAL_BINDING_MISMATCH:expires_at_utc",
+      "note": null
+    },
+    {
+      "id": "plan-does-not-approve-deployment",
+      "action": "bundle",
+      "input_sha256": "c42886be3dd846e3931f51bae9e680442c596be8e2fd1b8e69a0a40044b78f79",
+      "original_expected": "SEPARATE_DEPLOYMENT_CONFIRMATION_REQUIRED",
+      "effective_expected": "SEPARATE_DEPLOYMENT_CONFIRMATION_REQUIRED",
+      "note": null
+    },
+    {
+      "id": "missing-deploy-confirmation",
+      "action": "bundle",
+      "input_sha256": "82880380caf89562543187837f8f32a41bfe791bc1e6d1b7c368fbc9d0cb3c4e",
+      "original_expected": "SEPARATE_DEPLOYMENT_CONFIRMATION_REQUIRED",
+      "effective_expected": "SEPARATE_DEPLOYMENT_CONFIRMATION_REQUIRED",
+      "note": null
+    },
+    {
+      "id": "unapproved-service-start",
+      "action": "bundle",
+      "input_sha256": "9f1e0daf1a3942777f6e55e2088576287602cba0b64570632805149348d0dbe2",
+      "original_expected": "SERVICE_START_REQUIRES_SEPARATE_FUTURE_APPROVAL",
+      "effective_expected": "SERVICE_START_REQUIRES_SEPARATE_FUTURE_APPROVAL",
+      "note": null
+    },
+    {
+      "id": "cross-host-approval",
+      "action": "bundle",
+      "input_sha256": "a6857d0e42e5ddb1efca91f5d30328bddcd5e14cfdb30eb6dff89d7fd2a34ab6",
+      "original_expected": "APPROVAL_BINDING_MISMATCH:machine_id",
+      "effective_expected": "APPROVAL_BINDING_MISMATCH:machine_id",
+      "note": null
+    },
+    {
+      "id": "same-reference-not-independent",
+      "action": "bundle",
+      "input_sha256": "c68b4aeb03629dd558d5bc0aadda64cdfcc34d35aa62949e0c44df9d2969ee85",
+      "original_expected": "SEPARATE_DEPLOYMENT_CONFIRMATION_REQUIRED",
+      "effective_expected": "SEPARATE_DEPLOYMENT_CONFIRMATION_REQUIRED",
+      "note": null
+    },
+    {
+      "id": "certificate-shorter-than-plan",
+      "action": "bundle",
+      "input_sha256": "d22011e60bbf3dd935de38b71e6f73bc83f2a7ffc7c836b41a8a7adeab17ca62",
+      "original_expected": "CERTIFICATE_PLAN_WINDOW_MISMATCH",
+      "effective_expected": "CERTIFICATE_PLAN_WINDOW_MISMATCH",
+      "note": null
+    },
+    {
+      "id": "preparation-interrupted",
+      "action": "bundle",
+      "input_sha256": "5a70134ce5c36280edce58f3288a7207f292e71e65013658550fea32903fe8e6",
+      "original_expected": "PREPARATION_TRANSACTION_INCOMPLETE",
+      "effective_expected": "PREPARATION_TRANSACTION_INCOMPLETE",
+      "note": null
+    },
+    {
+      "id": "preparation-marker-missing",
+      "action": "bundle",
+      "input_sha256": "eb5f1fb6b44c8050a0269023f6402a8d0fa2cbb1b1c1f225726182b4e073d7c6",
+      "original_expected": "FileNotFoundException",
+      "effective_expected": "FileNotFoundException",
+      "note": null
+    },
+    {
+      "id": "06-signature-tamper",
+      "action": "bundle",
+      "input_sha256": "5123e5481b47187b25d727fb6d96bbee006104de6d1c4960e767a9c98e4ac21c",
+      "original_expected": "CMS_INVALID",
+      "effective_expected": "CMS_INVALID",
+      "note": null
+    },
+    {
+      "id": "07-manifest-changed",
+      "action": "bundle",
+      "input_sha256": "98d630d862a1e6dd07167911c53ce7009b1b35de1cdd83aa9884e48eb9f76bfa",
+      "original_expected": "CANDIDATE_HASH_MISMATCH:installation_manifest_sha256",
+      "effective_expected": "CANDIDATE_HASH_MISMATCH:installation_manifest_sha256",
+      "note": null
+    },
+    {
+      "id": "08-plan-changed",
+      "action": "bundle",
+      "input_sha256": "1899a3611a8e6e4d0a3fa08e45fe1c76cb53308dee30abf395150bcbedc79207",
+      "original_expected": "CMS_INVALID",
+      "effective_expected": "CMS_INVALID",
+      "note": null
+    },
+    {
+      "id": "20-payload-changed",
+      "action": "bundle",
+      "input_sha256": "ff189175dd371660649be1111d0ddc954387c2ea074c50600591d0b47cb895bd",
+      "original_expected": "PAYLOAD_HASH_OR_BYTES",
+      "effective_expected": "PAYLOAD_HASH_OR_BYTES",
+      "note": null
+    },
+    {
+      "id": "21-dependency-replaced",
+      "action": "bundle",
+      "input_sha256": "05b100116fbb7026396d83ce183c916ab4fc54a72630e80b48263ec723cbd0d0",
+      "original_expected": "PAYLOAD_HASH_OR_BYTES",
+      "effective_expected": "PAYLOAD_HASH_OR_BYTES",
+      "note": null
+    },
+    {
+      "id": "22-unsigned-deploy",
+      "action": "bundle",
+      "input_sha256": "81e8f8d99e8143c4bb48590bc06cab2a97d0e399964b385f98b43f7a337b641a",
+      "original_expected": "FileNotFoundException",
+      "effective_expected": "FileNotFoundException",
+      "note": null
+    },
+    {
+      "id": "missing-completion-marker",
+      "action": "bundle",
+      "input_sha256": "e852d6828e1bf60ba29ea7e4c18076cfbc4f5335388ed927a59080d20c3e5b9f",
+      "original_expected": "FileNotFoundException",
+      "effective_expected": "FileNotFoundException",
+      "note": null
+    },
+    {
+      "id": "installer-replaced",
+      "action": "bundle",
+      "input_sha256": "5a596ee672e1d1f60fd478a9cae84f3816633c9f79166e1292c70329157193a3",
+      "original_expected": "CANDIDATE_HASH_MISMATCH:installer_sha256",
+      "effective_expected": "CANDIDATE_HASH_MISMATCH:installer_sha256",
+      "note": null
+    },
+    {
+      "id": "approval-content-changed",
+      "action": "bundle",
+      "input_sha256": "cbab3051311cbb0e297ed8f08ff948b5e01e332ad626052c468b1f4a7317a617",
+      "original_expected": "CMS_INVALID",
+      "effective_expected": "CMS_INVALID",
+      "note": null
+    },
+    {
+      "id": "payload-file-added",
+      "action": "bundle",
+      "input_sha256": "106cc8e54f14f37b96e342a0156eb50c6fae09cfdfd18e76812ab96f425afa40",
+      "original_expected": "PAYLOAD_FILE_SET",
+      "effective_expected": "PAYLOAD_FILE_SET",
+      "note": null
+    },
+    {
+      "id": "cms-replay-other-plan",
+      "action": "bundle",
+      "input_sha256": "9737a7efe1514aa4eec486e1a127a2e8ff5682cfab0f5b9f33b2afe94c71c80c",
+      "original_expected": "CMS_INVALID",
+      "effective_expected": "CMS_INVALID",
+      "note": null
+    },
+    {
+      "id": "02-wrong-certificate",
+      "action": "cms",
+      "input_sha256": "d9fb5576ce37f9a524afeb5607d4826213fcc9406501616420dc47048ca04f57",
+      "original_expected": "CERTIFICATE_PIN_MISMATCH",
+      "effective_expected": "CERTIFICATE_PIN_MISMATCH",
+      "note": null
+    },
+    {
+      "id": "03-wrong-der-pin",
+      "action": "cms",
+      "input_sha256": "d3452cb6245b8323d1c84ad6690cb3afed8020499ed0bcc8fa2a1600481bf1e2",
+      "original_expected": "CERTIFICATE_PIN_MISMATCH",
+      "effective_expected": "CERTIFICATE_PIN_MISMATCH",
+      "note": null
+    },
+    {
+      "id": "04-certificate-replaced",
+      "action": "cms",
+      "input_sha256": "e9c2f76e5d54bac7b7f71aaa50c3741a8338298d8da00c2c68cdc985d8e580d5",
+      "original_expected": "CERTIFICATE_PIN_MISMATCH",
+      "effective_expected": "CERTIFICATE_PIN_MISMATCH",
+      "note": null
+    },
+    {
+      "id": "05-expired-certificate",
+      "action": "cms",
+      "input_sha256": "086b202b8de555929483945eea8f6adc65b7fd18f28187274df5b5ebe751d0cf",
+      "original_expected": "CERTIFICATE_EXPIRED",
+      "effective_expected": "CERTIFICATE_EXPIRED",
+      "note": null
+    },
+    {
+      "id": "code",
+      "action": "cms",
+      "input_sha256": "24b61d256bb4501b73eff79a657e6704fceb7a8a99085b04965111ed23af1de4",
+      "original_expected": "LOCAL_CERTIFICATE_PURPOSE",
+      "effective_expected": "LOCAL_CERTIFICATE_PURPOSE",
+      "note": null
+    },
+    {
+      "id": "weak",
+      "action": "cms",
+      "input_sha256": "79534f9bb4dbfb49c06fc555fc863e33292ecd2e4567090c26e98fd3ccd7738f",
+      "original_expected": "LOCAL_CERTIFICATE_ALGORITHM",
+      "effective_expected": "LOCAL_CERTIFICATE_ALGORITHM",
+      "note": null
+    },
+    {
+      "id": "sha1",
+      "action": "cms",
+      "input_sha256": "8c65a1332234eb494e1c4a3982d561f793bc4b3f96ed930d70f7edb0174cec60",
+      "original_expected": "CMS_SHA256_REQUIRED",
+      "effective_expected": "CMS_SHA256_REQUIRED",
+      "note": null
+    },
+    {
+      "id": "attached-same",
+      "action": "cms",
+      "input_sha256": "9d80a7390bba0febc8956162c0460394cf944e8b381604e1bdbbd4d425e604bf",
+      "original_expected": "DETACHED_CMS_REQUIRED",
+      "effective_expected": "DETACHED_CMS_REQUIRED",
+      "note": null
+    },
+    {
+      "id": "attached-other",
+      "action": "cms",
+      "input_sha256": "9086f8b87b84eba4ac9d5951685018817ae291293b67bfaf5632f06987052019",
+      "original_expected": "DETACHED_CMS_REQUIRED",
+      "effective_expected": "DETACHED_CMS_REQUIRED",
+      "note": null
+    },
+    {
+      "id": "multiple-signers",
+      "action": "cms",
+      "input_sha256": "9fdff11723163889442a7e4081fed66cd59145f1701dabc9cc8cfd5fbed38164",
+      "original_expected": "CMS_SIGNER_COUNT_OR_ATTACHED_CONTENT",
+      "effective_expected": "CMS_SIGNER_COUNT_OR_ATTACHED_CONTENT",
+      "note": null
+    },
+    {
+      "id": "md5",
+      "action": "cms",
+      "input_sha256": "93126de2273b594768897fba88ce6e6b23801ddd5be47f79ea6d311d148789b2",
+      "original_expected": "CMS_SHA256_REQUIRED",
+      "effective_expected": "CMS_SHA256_REQUIRED",
+      "note": null
+    },
+    {
+      "id": "sha384",
+      "action": "cms",
+      "input_sha256": "df9b1c0ce617f6dfda21a89d1f82ac5b90fe6f46a8b8d13b0d71ab4fbe3dce87",
+      "original_expected": "CMS_SHA256_REQUIRED",
+      "effective_expected": "CMS_SHA256_REQUIRED",
+      "note": null
+    },
+    {
+      "id": "counter-signature",
+      "action": "cms",
+      "input_sha256": "d1c6c665e63e1ea104fde39003acacace367d74f40ccf540af855939f23dadeb",
+      "original_expected": "CMS_SIGNER_COUNT_OR_ATTACHED_CONTENT",
+      "effective_expected": "CMS_SIGNER_COUNT_OR_ATTACHED_CONTENT",
+      "note": null
+    },
+    {
+      "id": "local-cert-cannot-production",
+      "action": "cms",
+      "input_sha256": "d4fc38e3871c93d78dc5cbf5004a007bba9cf78b11674a83f44c45936a06d657",
+      "original_expected": "LOCAL_CERTIFICATE_CANNOT_RELEASE_PRODUCTION",
+      "effective_expected": "LOCAL_CERTIFICATE_CANNOT_RELEASE_PRODUCTION",
+      "note": null
+    },
+    {
+      "id": "untrusted-ca-cannot-production",
+      "action": "cms",
+      "input_sha256": "ea80dc9b24122b7f419d0ee292f970f925b240d8c96c451e27fca78391a2eebd",
+      "original_expected": "PRODUCTION_TRUST_CHAIN_REQUIRED",
+      "effective_expected": "PRODUCTION_TRUST_CHAIN_REQUIRED",
+      "note": null
+    },
+    {
+      "id": "19-old-signature-replay",
+      "action": "epoch",
+      "input_sha256": "802fd98ea3c59dca4e7493eb15bbdbf3cf316b0bb6ce72fb54afd6b51525fd61",
+      "original_expected": "EPOCH_ALREADY_CONSUMED",
+      "effective_expected": "EPOCH_ALREADY_CONSUMED",
+      "note": null
+    },
+    {
+      "id": "old-epoch-without-receipt",
+      "action": "epoch",
+      "input_sha256": "8a04db3321bfbfbce5526edaef16341a1eda08b4620387735deeb816dcd25030",
+      "original_expected": "EPOCH_MISMATCH",
+      "effective_expected": "EPOCH_MISMATCH",
+      "note": null
+    },
+    {
+      "id": "23-missing-confirmation",
+      "action": "review",
+      "input_sha256": "efe9ebb7052cc902a597c1f40d011a52f8cac5375f5038a05cc79b1f894fef3f",
+      "original_expected": "EXPLICIT_USER_CONFIRMATION_REQUIRED",
+      "effective_expected": "EXPLICIT_USER_CONFIRMATION_REQUIRED",
+      "note": null
+    },
+    {
+      "id": "missing-isolation",
+      "action": "review",
+      "input_sha256": "e01ba4484ee8b5e13df61b6bdaff5767951bc95bc424b4419aff1d140aedd3b1",
+      "original_expected": "EXPLICIT_USER_CONFIRMATION_REQUIRED",
+      "effective_expected": "EXPLICIT_USER_CONFIRMATION_REQUIRED",
+      "note": null
+    },
+    {
+      "id": "missing-host-review",
+      "action": "review",
+      "input_sha256": "f707dd410000a55216b2bc96d7444d8f7dc61081578fe88e3be41e50dd0fa1ac",
+      "original_expected": "EXPLICIT_USER_CONFIRMATION_REQUIRED",
+      "effective_expected": "EXPLICIT_USER_CONFIRMATION_REQUIRED",
+      "note": null
+    },
+    {
+      "id": "duplicate-json",
+      "action": "json",
+      "input_sha256": "8a824b17c478be95d5ebaa03a595f3ea87241b2674c6961e9c055135280cd712",
+      "original_expected": "DUPLICATE_JSON_KEY",
+      "effective_expected": "DUPLICATE_JSON_KEY",
+      "note": null
+    },
+    {
+      "id": "case-alias-json",
+      "action": "json",
+      "input_sha256": "b564e9eeb9bd81714271a3091415a2f058f98ce0a34ad972589fad5a94d8046b",
+      "original_expected": "DUPLICATE_JSON_KEY",
+      "effective_expected": "DUPLICATE_JSON_KEY",
+      "note": null
+    },
+    {
+      "id": "escaped-duplicate-json",
+      "action": "json",
+      "input_sha256": "8a34b06df34de0ebb6da69fea6c683265506ced6da61ec244bc959ca33c0dce9",
+      "original_expected": "DUPLICATE_JSON_KEY",
+      "effective_expected": "DUPLICATE_JSON_KEY",
+      "note": null
+    },
+    {
+      "id": "runtime-detached-valid",
+      "action": "runtime-detached",
+      "input_sha256": "c573a0dade02e4dca9c438b0791c708d240737209ca64cc7f1cf164fc124e5ad",
+      "original_expected": "ACCEPTED",
+      "effective_expected": "ACCEPTED",
+      "note": null
+    },
+    {
+      "id": "runtime-certificate-window-denied",
+      "action": "runtime-detached",
+      "input_sha256": "28ee856dc1f1351d29ad6b5298279c71c9fab28daea1efd168a5f11b173f8f19",
+      "original_expected": "CERTIFICATE_PLAN_WINDOW_MISMATCH",
+      "effective_expected": "CERTIFICATE_PLAN_WINDOW_MISMATCH",
+      "note": null
+    },
+    {
+      "id": "exported-bundle-reverified",
+      "action": "bundle",
+      "input_sha256": "9387e8dce0592fdb2a7773b7a5bd59a5f1d434d04ef0f805496d42723f7e0971",
+      "original_expected": "ACCEPTED",
+      "effective_expected": "ACCEPTED",
+      "note": null
+    },
+    {
+      "id": "24b-interrupted-output-refused",
+      "action": "bundle",
+      "input_sha256": "23b9eb4d9d0ffaebf1ce0fd080a67be9f599619ef453731999cff981fd7b6d22",
+      "original_expected": "DirectoryNotFoundException",
+      "effective_expected": "DirectoryNotFoundException",
+      "note": null
+    },
+    {
+      "id": "private-key-absent-public-certificate",
+      "action": "missing-private-key",
+      "input_sha256": "3f4164c157abf63a1e180638aa74fffee9f860a28d7e9001acb44a081aba06fe",
+      "original_expected": "USER_STORE_SIGNING_CERTIFICATE_REQUIRED",
+      "effective_expected": "USER_STORE_SIGNING_CERTIFICATE_REQUIRED",
+      "note": null
+    },
+    {
+      "id": "private-public-key-mismatch",
+      "action": "public-key-mismatch",
+      "input_sha256": "276973d9616e247b87bbdac2514d8b8c21674fbee1b02b0ecdf1c005a8126d24",
+      "original_expected": "PRIVATE_PUBLIC_KEY_MISMATCH",
+      "effective_expected": "PRIVATE_PUBLIC_KEY_MISMATCH",
+      "note": null
+    },
+    {
+      "id": "user-cancel",
+      "action": "authorization-gate",
+      "input_sha256": "2e0126b4f8f8fbe819317e7fb1f869fa0402fbfedf1e303520fc70a9b79e23db",
+      "original_expected": "ACCEPTED",
+      "effective_expected": "ACCEPTED",
+      "note": null
+    },
+    {
+      "id": "user-refuses-signature",
+      "action": "authorization-gate",
+      "input_sha256": "2e0126b4f8f8fbe819317e7fb1f869fa0402fbfedf1e303520fc70a9b79e23db",
+      "original_expected": "ACCEPTED",
+      "effective_expected": "ACCEPTED",
+      "note": null
+    },
+    {
+      "id": "simulated-private-key-unavailable",
+      "action": "authorization-gate",
+      "input_sha256": "00868c1ad7bb1898c2d09291b0f3b37330970f7e3bf9827b83c631bd7140f583",
+      "original_expected": "SIMULATED_PRIVATE_KEY_UNAVAILABLE",
+      "effective_expected": "SIMULATED_PRIVATE_KEY_UNAVAILABLE",
+      "note": null
+    },
+    {
+      "id": "deny-path-unc",
+      "action": "local-path",
+      "input_sha256": "eb738d4d9927df53e1236624960b2950c4ee03b66d8b583316771204e7451243",
+      "original_expected": "LOCAL_ABSOLUTE_PATH_REQUIRED",
+      "effective_expected": "LOCAL_ABSOLUTE_PATH_REQUIRED",
+      "note": null
+    },
+    {
+      "id": "deny-path-device",
+      "action": "local-path",
+      "input_sha256": "89bc2b21f468a35b6f68b8aeeab8783ce5bdb21617a85818f35ad89822eea08d",
+      "original_expected": "LOCAL_ABSOLUTE_PATH_REQUIRED",
+      "effective_expected": "LOCAL_ABSOLUTE_PATH_REQUIRED",
+      "note": null
+    },
+    {
+      "id": "deny-path-drive-relative",
+      "action": "local-path",
+      "input_sha256": "b734834c13ac051e205d71d5a859662408db01fead512b62d832ac2e69449def",
+      "original_expected": "LOCAL_ABSOLUTE_PATH_REQUIRED",
+      "effective_expected": "LOCAL_ABSOLUTE_PATH_REQUIRED",
+      "note": null
+    },
+    {
+      "id": "deny-path-root-relative",
+      "action": "local-path",
+      "input_sha256": "006c5a2d418c538d5b720599fdae65b3af0e6231559b6bebce27009d390331a1",
+      "original_expected": "LOCAL_ABSOLUTE_PATH_REQUIRED",
+      "effective_expected": "LOCAL_ABSOLUTE_PATH_REQUIRED",
+      "note": null
+    },
+    {
+      "id": "deny-path-ads",
+      "action": "local-path",
+      "input_sha256": "64afa66af0fdfbb3b97408e01d2dca680d73d3066b1e5b8c4dbdd8e1019bd320",
+      "original_expected": "LOCAL_ABSOLUTE_PATH_REQUIRED",
+      "effective_expected": "LOCAL_ABSOLUTE_PATH_REQUIRED",
+      "note": null
+    },
+    {
+      "id": "cms-signature-oid-rsa",
+      "action": "cms-signature-oid",
+      "input_sha256": "72b281436990e1d2664b5923d960d3fe4ea2105f68a25ee3cf4e566db8da01e0",
+      "original_expected": "ACCEPTED",
+      "effective_expected": "ACCEPTED",
+      "note": null
+    },
+    {
+      "id": "cms-signature-oid-rsa-sha256",
+      "action": "cms-signature-oid",
+      "input_sha256": "ba4ae4ee81f558ed3b818b417fb5068a929bb541ecf187cdcbad71f29647bcd3",
+      "original_expected": "ACCEPTED",
+      "effective_expected": "ACCEPTED",
+      "note": null
+    },
+    {
+      "id": "cms-signature-oid-pss",
+      "action": "cms-signature-oid",
+      "input_sha256": "d70a36f987c19861551902de4d7c1b66778bae7bcfc67ef08609737f2005f201",
+      "original_expected": "ACCEPTED",
+      "effective_expected": "ACCEPTED",
+      "note": null
+    },
+    {
+      "id": "cms-signature-oid-unknown",
+      "action": "cms-signature-oid",
+      "input_sha256": "8f5c67cb88faf3818daa35a219aebdc9dd3bd2b35b53a1ef7a976de31fd2e943",
+      "original_expected": "ACCEPTED",
+      "effective_expected": "ACCEPTED",
+      "note": null
+    },
+    {
+      "id": "cms-signature-oid-truncated",
+      "action": "cms-signature-oid",
+      "input_sha256": "8e640060119e15c5394187e2fe2e734c817966451d6ee195f13bae1f4414e471",
+      "original_expected": "CMS_DER_TRUNCATED",
+      "effective_expected": "CMS_DER_TRUNCATED",
+      "note": null
+    },
+    {
+      "id": "certificate-signature-sha1",
+      "action": "certificate",
+      "input_sha256": "001e6c25087b3a093fae105105491403756a3c91c28cd00bfd15adb6211b6e2c",
+      "original_expected": "LOCAL_CERTIFICATE_SIGNATURE_ALGORITHM",
+      "effective_expected": "LOCAL_CERTIFICATE_SIGNATURE_ALGORITHM",
+      "note": null
+    },
+    {
+      "id": "certificate-signature-md5",
+      "action": "certificate",
+      "input_sha256": "dbb573cfeebbe9a90fd494428b3d3efb1c9d55abf79fbcc7514546963fed1940",
+      "original_expected": "LOCAL_CERTIFICATE_SIGNATURE_ALGORITHM",
+      "effective_expected": "LOCAL_CERTIFICATE_SIGNATURE_ALGORITHM",
+      "note": null
+    },
+    {
+      "id": "certificate-signature-unsupported",
+      "action": "certificate",
+      "input_sha256": "eee3967570eb53bc08de15bd12d82b2b08bafaabc98159c3a5d37d86941e6692",
+      "original_expected": "LOCAL_CERTIFICATE_SIGNATURE_ALGORITHM",
+      "effective_expected": "LOCAL_CERTIFICATE_SIGNATURE_ALGORITHM",
+      "note": null
+    },
+    {
+      "id": "publication-verify-after-first-file",
+      "action": "signed-plan",
+      "input_sha256": "faadabb6820ef167699f47b4e7c5b1ebd3536bb417becc093a29fb0dd6c210b7",
+      "original_expected": "DirectoryNotFoundException",
+      "effective_expected": "DirectoryNotFoundException",
+      "note": null
+    },
+    {
+      "id": "publication-verify-after-input-copy",
+      "action": "signed-plan",
+      "input_sha256": "319f40e8a8d5e65d657991a27df54b8a6a09fa535fa065fb7d007275d8f40edc",
+      "original_expected": "FileNotFoundException",
+      "effective_expected": "FileNotFoundException",
+      "note": null
+    },
+    {
+      "id": "publication-verify-before-marker",
+      "action": "signed-plan",
+      "input_sha256": "299376d3f9a94ccb495d3ec208f1bff2ba55a7ee1e4ac2939f35bbe6b99d6367",
+      "original_expected": "FileNotFoundException",
+      "effective_expected": "FileNotFoundException",
+      "note": null
+    },
+    {
+      "id": "publication-verify-after-marker",
+      "action": "signed-plan",
+      "input_sha256": "a6e85470eef57c7ea8b95e6de8640f12b469b3c4e3b9e7eac82a3efd3e1e3a6a",
+      "original_expected": "ACCEPTED",
+      "effective_expected": "ACCEPTED",
+      "note": null
+    }
+  ],
+  "historical_case_artifacts_checked": 315,
+  "historical_runtime_files_checked": 1434,
+  "historical_archive_files_checked": 1434,
+  "scope": "SOURCE_PE_READONLY_PUBLIC_SIMULATED_CMS_AND_PURE_FILESYSTEM_ONLY",
+  "new_signatures_created": false,
+  "user_private_keys_opened": false,
+  "certificate_store_modified": false,
+  "service_or_acl_operations": false,
+  "actual_gui_cancel_or_signing": "NOT_RUN",
+  "actual_cng_or_tpm": "NOT_RUN"
+}

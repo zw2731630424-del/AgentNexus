@@ -1,0 +1,17 @@
+{
+  "schema": "agentnexus.q41.system-changes.v1",
+  "changes": [
+    "Create only AgentNexusCredential own-process demand Windows Service; no arguments; Session 0",
+    "Use only NT SERVICE\\AgentNexusCredential virtual service account; sidtype unrestricted; no custom account or login/debug privilege",
+    "Service SCM DACL D:P(A;;GA;;;SY)(A;;GA;;;BA)(A;;CCLC;;;AU)",
+    "Create C:\\Program Files\\AgentNexus; protected BA owner; SYSTEM/BA FullControl; service/Users ReadAndExecute; exact manifest files only",
+    "Create C:\\ProgramData\\AgentNexusCredential; protected BA owner; SYSTEM/BA FullControl; service ReadAndExecute; no ordinary-user access",
+    "Only engine, qualification, temp state subtrees grant service FullControl; config, signatures, receipts and plans remain admin-write only",
+    "Create protected C:\\ProgramData\\AgentNexusCredential\\installation-receipt.json BEFORE SCM creation; consume epoch 5 once even on failure; preserve the data root",
+    "Fixed High pipe \\\\.\\pipe\\AgentNexus.Credential.v1 and Medium pipe \\\\.\\pipe\\AgentNexus.Daily.v1 only when separately approved service start occurs",
+    "Fixed service EXE --daily-runtime; retained handle/private inherited stdio/kill-on-close Job; fixed Launcher and UAC Helper only on later user action",
+    "Synthetic Vault, Synthetic Token Ledger and Synthetic Provider only; all real import/live/production/REAL ledger migration permissions false",
+    "Install stopped only; start_service=false; service start, readiness, failure stop and 70 OS tests require a subsequent precise approval",
+    "No firewall, drivers, Ubuntu, AppContainer, shell exposure, certificate trust import, data deletion, ledger reset, commit or push"
+  ]
+}

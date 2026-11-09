@@ -1,0 +1,280 @@
+{
+  "schema": "agentnexus.q42.independent-signer-audit.v1",
+  "status": "LIMITED_SOURCE_PE_PUBLIC_SIMULATED_FILESYSTEM_REVIEW_PASS_REAL_SIGNING_GUI_CNG_OS_PRODUCTION_NOT_GRANTED",
+  "review_targets_sha256": "a24e37cc0350c320364088e649f12f7ff7708d520e054428a8248ad07e5222f6",
+  "review_targets": [
+    {
+      "path": "source/native/qualification-signer/QualificationSigner.cs",
+      "sha256": "6f480ab40343fafc51b4d3ae72adb5910be1eb654a622caa4f03f07e6abc48e8"
+    },
+    {
+      "path": "source/native/qualification-signer/SigningContracts.cs",
+      "sha256": "310302cb47c0039890533ca7fe1de7b02345bc0cb253b098cbe4fcc8c48b3709"
+    },
+    {
+      "path": "source/native/qualification-signer/Verifier.cs",
+      "sha256": "52ece3729da283847a564ad198a4ad1c16ed925a4882e0cd3e2ea77c5bca6667"
+    },
+    {
+      "path": "source/native/credential-service/Common.cs",
+      "sha256": "6b3a79c768bf172f18cf6c023fc6c8ff2cdbc90465b155caa0b0be4122063d47"
+    },
+    {
+      "path": "source/native/qualification-signer/user-create-certificate.ps1",
+      "sha256": "568dbcfcf8db83db10c7ce6028c1189ab9b3fb6239483bffdb4b9d882f1a461e"
+    },
+    {
+      "path": "source/native/qualification-signer/ContractHarness.cs",
+      "sha256": "7c01805c6d52d716bc003a12c70c634cf86fb1c44f5548440e425bb2607a9207"
+    },
+    {
+      "path": "source/tools/agentnexus/install-q41-qualification.ps1",
+      "sha256": "deb40c5479d3b7c4fa711c1729fd1b1711fbdcb0f1aa9d49631b395f0d6e32a9"
+    },
+    {
+      "path": "tools/freeze.py",
+      "sha256": "39e6ecd1c16794fb60822c68859d62534bf838a7a29cc2a1456c073515588684"
+    },
+    {
+      "path": "tools/local_files.py",
+      "sha256": "d421479c9a3b4bc517122c136dc67c9c1ccd480af436203caedcf0cd0daf063c"
+    },
+    {
+      "path": "tools/test-preparation.py",
+      "sha256": "19c639747131b38f181d95d33b49e7cfd9858ea078e0e61176ab9c1e74c1ab64"
+    },
+    {
+      "path": "tools/test-signing.py",
+      "sha256": "f459159e4290e57772c8bc321d2e98397f9741ddca651b7b35fe76413020bf51"
+    },
+    {
+      "path": "tools/sign-fixtures.ps1",
+      "sha256": "1b58e62397279ad5eebbb1656bf7ef651ded353fcbf15a85d44d983ae75b5e11"
+    },
+    {
+      "path": "tools/read-only-checks.ps1",
+      "sha256": "0950342f66aa3c631ae894968e44ad3971bf554c2a8c272c18e6b2349e205e3d"
+    },
+    {
+      "path": "evidence/signing-tests.json",
+      "sha256": "23e2a9be9ef2bf84b5fa8b7ad52899069955fde71831de1cd05540f1b5f07d78"
+    },
+    {
+      "path": "evidence/preparation-tests.json",
+      "sha256": "0848446974ee8facee63cf2864e747521d441b507ce1c11d1981f6105320001e"
+    },
+    {
+      "path": "evidence/read-only-checks.json",
+      "sha256": "5b4841c36989c791add0fe407b3de05574700ab466efde293a8b224eee6701a6"
+    },
+    {
+      "path": "evidence/build.json",
+      "sha256": "443c23ea3aa6902f5a303094bbb3c57533418e824ad6975cbfecb939387b4982"
+    },
+    {
+      "path": "signer/AgentNexus.Qualification.Signer.exe",
+      "sha256": "6668d6a16739a31fea0d3c474bfc6f17a2bd8e0eb7760b7a8f2cb9728a23ce9b"
+    },
+    {
+      "path": "signer/AgentNexus.Qualification.Verifier.exe",
+      "sha256": "5963e6f7200ef6b5e4f57632e1f6e5833d7c95b9dd71292e87f43de8893fccd2"
+    }
+  ],
+  "target_files_checked": 19,
+  "targets_unchanged_after_review": true,
+  "independent_run": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\evidence\\independent-signer-audit\\run-20261109T172540188484Z",
+  "independent_result_sha256": "f6c33a510b6ec95e1a7ab5dc507f2d899abd772e77ce8495f2694cafef3ba0e4",
+  "commands": 98,
+  "commands_passed": 98,
+  "readonly_simulated_cases": 91,
+  "historical_signing_tests_reported": 107,
+  "historical_case_artifacts_checked": 321,
+  "historical_runtime_files_checked": 1441,
+  "historical_archive_files_checked": 1441,
+  "release_pure_filesystem": {
+    "status": "PASS",
+    "checks": [
+      {
+        "id": "release-no-publication-callback",
+        "status": "PASS",
+        "details": "Reflection-only; release assembly entry point not invoked"
+      },
+      {
+        "id": "release-no-contract-harness-type",
+        "status": "PASS",
+        "details": "Diagnostic harness absent from release Signer"
+      },
+      {
+        "id": "release-empty-directory-writer-denied",
+        "status": "PASS",
+        "details": {
+          "win32_error": 32,
+          "expected": 32
+        }
+      },
+      {
+        "id": "directory-writer-control-after-release",
+        "status": "PASS",
+        "details": "Same path and token; only the directory lock has been released"
+      },
+      {
+        "id": "release-output-file-write-denied",
+        "status": "PASS",
+        "details": "FileShare.Read; existing output remains unchanged"
+      },
+      {
+        "id": "release-output-root-rename-denied",
+        "status": "PASS",
+        "details": "Directory handles remain held"
+      },
+      {
+        "id": "release-snapshot-return-is-clone",
+        "status": "PASS",
+        "details": "Caller mutation does not affect internal snapshot"
+      },
+      {
+        "id": "preexisting-mapping-read-open-denied",
+        "status": "PASS",
+        "details": {
+          "win32_error": 32,
+          "note": "Host rejects a sharing-compatible read acquisition while a writable mapping exists; post-acquisition mutation branch was not reached"
+        }
+      },
+      {
+        "id": "mapped-file-reader-control-after-release",
+        "status": "PASS",
+        "details": "Mapping released; same path and token permit reader open"
+      }
+    ],
+    "new_signatures_created": false,
+    "user_key_access": false,
+    "certificate_store_modified": false,
+    "service_or_acl_operations": false,
+    "actual_cng": "NOT_RUN",
+    "scope": "PURE_FILESYSTEM_ON_NEW_PROBE_PATHS_AND_EXISTING_PUBLIC_SIMULATED_FIXTURE"
+  },
+  "final_delta_run": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\evidence\\independent-signer-audit\\delta-20261109T172734283369Z",
+  "final_delta_result_sha256": "8d9b3be6f64e6dd2ccaf8c729451643d78cb67baeef81c0ebee0d06bf07fa68f",
+  "final_delta_checks": 21,
+  "final_delta_checks_passed": 21,
+  "historical_preparation_tests_reported": 14,
+  "prepared_public_files_checked": 475,
+  "prepared_checksum_files_checked": 474,
+  "prepared_payload_files": 194,
+  "prepared_payload_bytes": 468592646,
+  "public_script_boundaries": {
+    "status": "PASS",
+    "provider_selection": [
+      {
+        "method": "TPM_CNG",
+        "provider": "Microsoft Platform Crypto Provider",
+        "status": "PASS"
+      },
+      {
+        "method": "tpm_cng",
+        "provider": "Microsoft Platform Crypto Provider",
+        "status": "PASS"
+      },
+      {
+        "method": "TpM_CnG",
+        "provider": "Microsoft Platform Crypto Provider",
+        "status": "PASS"
+      },
+      {
+        "method": "SOFTWARE_CNG",
+        "provider": "Microsoft Software Key Storage Provider",
+        "status": "PASS"
+      },
+      {
+        "method": "software_cng",
+        "provider": "Microsoft Software Key Storage Provider",
+        "status": "PASS"
+      }
+    ],
+    "exact_fixed_hash_loaded": "6668d6a16739a31fea0d3c474bfc6f17a2bd8e0eb7760b7a8f2cb9728a23ce9b",
+    "wrong_hash_denied": true,
+    "unc_rejected_before_io": true,
+    "certificate_script_executed": false,
+    "user_key_access": false,
+    "certificate_store_access": false
+  },
+  "preview": {
+    "path": "evidence/signer-preview.png",
+    "sha256": "84e3895398483d1aa1c1d7ab2ac0ed1d2b0a9f825950e80cceb4733b336dd9ed",
+    "scope": "VISUAL_INSPECTION_ONLY_SIMULATED_UNSIGNED_9_FILES_1253_BYTES",
+    "actual_gui_confirmation": "NOT_RUN"
+  },
+  "open_implementation_findings": [],
+  "closed_findings": [
+    {
+      "id": "Q42-SIGN-PREVIEW-DER",
+      "priority": "P2",
+      "status": "CLOSED_SOURCE_AND_PUBLIC_NEGATIVE",
+      "evidence": [
+        "source/native/qualification-signer/SigningContracts.cs:174",
+        "public-der-accepts-exact-cert",
+        "public-der-rejects-keyless-pkcs12-before-construction",
+        "final-preparation-keyless-pkcs12-rejected-before-construction"
+      ]
+    },
+    {
+      "id": "Q42-SIGN-METHOD-CASE",
+      "priority": "P2",
+      "status": "CLOSED_SOURCE_AND_EXTRACTED_BINDER_EXPRESSION",
+      "evidence": [
+        "source/native/qualification-signer/user-create-certificate.ps1:14",
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\evidence\\independent-signer-audit\\delta-20261109T172734283369Z\\public-script-boundaries.json"
+      ]
+    },
+    {
+      "id": "Q42-PREP-PATH-TRANSACTION",
+      "priority": "P2",
+      "status": "CLOSED_SOURCE_RELEASE_READONLY_AND_PUBLIC_FILESYSTEM",
+      "evidence": [
+        "tools/local_files.py:41",
+        "tools/freeze.py:24",
+        "tools/freeze.py:54",
+        "tools/freeze.py:154",
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\evidence\\independent-signer-audit\\delta-20261109T172734283369Z\\result.json"
+      ]
+    }
+  ],
+  "assurance": {
+    "source": "REVIEWED_19_BOUND_TARGETS",
+    "release_pe": "FINAL_READONLY_VERIFIER_AND_REFLECTION_PURE_FILESYSTEM_PROBED",
+    "simulated_crypto": "EXISTING_PUBLIC_CMS_ONLY_NO_NEW_SIGNATURES",
+    "public_preparation": "EXISTING_475_FILES_CHECKED_NO_NEW_FULL_CANDIDATE_CREATED",
+    "actual_cng_tpm": "NOT_RUN",
+    "actual_gui_cancel_sign": "NOT_RUN",
+    "trusted_user_presence": "INCONCLUSIVE",
+    "same_sid_key_isolation": "INCONCLUSIVE",
+    "same_cng_handle_used_by_framework_cms": "NOT_PROVEN",
+    "mapped_mutation_after_acquisition": "NOT_REACHED_HOST_DENIED_PREEXISTING_WRITABLE_MAPPING_WITH_ERROR_32",
+    "os_70_tests": "NOT_GRANTED",
+    "production_19_evidence": "NOT_GRANTED"
+  },
+  "actions": {
+    "new_signatures_created": false,
+    "user_private_key_access": false,
+    "explicit_user_my_signing_store_open": false,
+    "certificate_store_modified": false,
+    "windows_chain_engine_may_read_public_trust_stores": true,
+    "certificate_creation_script_executed": false,
+    "install_uac_scm_service_account_acl_operations": false,
+    "network_probe_executed": false
+  },
+  "earlier_independent_runs": [
+    {
+      "run": "run-20261109T170916049433Z",
+      "status": "FAIL",
+      "explanation": "Two historical fixtures were intentionally mutated by a later test, and reviewer PowerShell reflection constructor selection was initially wrong; all raw records retained"
+    },
+    {
+      "run": "run-20261109T171204326933Z",
+      "status": "PASS",
+      "commands": 96,
+      "scope": "Previous 8-target stage, not accumulated into final independent test count"
+    }
+  ],
+  "report_sha256": "d67faadd48e2f3ab84dc7645b85afd820b819867d5961218f2ff6bca1dba1155"
+}

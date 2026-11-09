@@ -1,0 +1,709 @@
+# AgentNexus M1.8.3-Q4.2
+# Independent Signer Audit & Local Qualification Signing
+
+**项目：** AgentNexus  
+**开发基线：** M1.8.3-Q4.1  
+**执行者：** Codex  
+**任务性质：** 独立签名工具审查、本地 CNG 资格签发、签名验证器完善、最终部署候选准备。
+
+---
+
+# 一、本轮战略目标
+
+M1.8.3-Q4.1 已完成：
+
+- LOCAL_QUALIFICATION 签发合同。
+- PRODUCTION_RELEASE 独立合同。
+- Qualification Signer。
+- WinForms 签名界面。
+- 共享 CMS / DER SHA256 Pin 验证实现。
+- 安装器验证逻辑。
+- 60/60 签名模拟测试 PASS。
+- 224 PASS / 0 FAIL / 5 SKIP 的限定回归。
+- 194 项安装清单。
+- 完整部署申请。
+- 独立安全审查。
+
+但目前：
+
+- 实际用户证书：未创建或选择。
+- 证书 DER SHA256 Pin：NULL。
+- 实际 CNG / TPM 签名：NOT_RUN。
+- Qualification Plan 签名：未完成。
+- Deployment Approval 签名：未完成。
+- Windows Service：未安装。
+- OS 资格测试：70项全部 NOT_RUN。
+- 生产 Credential Vault：BLOCKED。
+- 真实 API Key：0。
+- 真实 Provider 请求：0。
+
+## 本轮核心目标
+
+**完成 Qualification Signer 的独立技术审查，验证用户控制的本地签名流程，并准备一套可以由用户在独立 Windows 环境中安全操作的资格签发工具。**
+
+本轮不是重新设计签名体系。
+
+必须复用 Q4.1 的：
+
+- LOCAL_QUALIFICATION。
+- PRODUCTION_RELEASE。
+- CMS 签名合同。
+- DER SHA256 Pin。
+- Qualification Plan。
+- Deployment Approval。
+- 安装清单。
+- Verifier。
+- 安装器。
+
+不要重新开发第二套签名系统。
+
+---
+
+# 二、Phase 0：完整读取 Q4.1 基线
+
+开始前必须阅读：
+
+1. Q4.1 README。
+2. Q4.1 acceptance-report.md。
+3. Q4.1 总体设计。
+4. LOCAL_QUALIFICATION 合同。
+5. PRODUCTION_RELEASE 合同。
+6. Certificate Design。
+7. Private Key Protection。
+8. Signer README。
+9. QualificationSigner.cs。
+10. SigningContracts.cs。
+11. Signer UI 预览。
+12. CMS 验证实现。
+13. DER Pin 验证实现。
+14. freeze.py。
+15. build.py。
+16. Q4.1 安装器。
+17. installation-manifest.json。
+18. deployment-request.md。
+19. rollback-plan.json。
+20. 独立安全审查报告。
+21. 原始签名测试。
+22. Q3 / Q4 历史交付与失败记录。
+
+核实：
+
+- 当前 HEAD。
+- 工作树。
+- 源码 SHA256。
+- Signer 实际构建产物。
+- Verifier 实际构建产物。
+- 194项载荷清单。
+- 签名文件与安装文件的绑定关系。
+- 当前 CMS 算法。
+- 证书 Pin 的计算方式。
+- 私钥实际调用位置。
+- Signer 的系统权限。
+- Signer 的文件访问范围。
+
+保留 Q4.1 原始交付和 UNSIGNED / NO-GO 状态。
+
+---
+
+# 三、P0：Qualification Signer 独立安全审查
+
+这是本轮最高优先级。
+
+Signer 虽然独立于 Codex 运行，但其源码和构建产物仍然来自 AgentNexus 开发链。
+
+因此不能简单认为它已经可信。
+
+必须安排独立审查者，对 Signer 的源码、构建结果和实际签名行为进行独立检查。
+
+## 3.1 私钥安全
+
+确认：
+
+1. Signer 不接受 PFX。
+2. Signer 不接受 PEM 私钥。
+3. Signer 不接受私钥明文。
+4. Signer 不接收私钥密码。
+5. Signer 不把私钥写入普通文件。
+6. Signer 不把私钥传递给 Codex。
+7. Signer 不把私钥传递给 Agent。
+8. Signer 不向日志写入私钥。
+9. Signer 不向网络发送任何内容。
+10. Signer 不自动创建或信任证书。
+
+使用 CNG / TPM CNG 时，验证实际 Key Provider、Key Container、Export Policy 和调用权限。
+
+特别区分：
+
+- 私钥不可导出。
+- 私钥不可被普通进程调用。
+- 私钥调用需要用户确认。
+
+这三者不是同一件事。
+
+NonExportable 不代表同 SID 恶意进程不能调用签名接口。
+
+如果无法证明更强的隔离，明确记录剩余风险。
+
+## 3.2 签名内容完整性
+
+重点审查 TOCTOU：
+
+1. Signer 读取待签署文件。
+2. Signer 计算 Hash。
+3. UI 展示最终内容。
+4. 用户确认。
+5. Signer 执行签名。
+
+必须确保这五步之间不会发生内容替换。
+
+优先采用：
+
+- 只读文件句柄。
+- 文件内容快照。
+- 完整文件 Hash。
+- 文件数量和总字节数核验。
+- 锁定待签署内容。
+- 最终签名绑定实际快照。
+- 完成后重新验证输出。
+
+不能仅仅先计算 Hash，然后重新打开原始路径读取内容进行签名。
+
+必须保证：
+
+**用户看到的内容，就是最终实际签署的内容。**
+
+## 3.3 证书验证
+
+至少检查：
+
+- DER SHA256 Pin。
+- Subject。
+- Issuer。
+- Serial Number。
+- 有效期。
+- Key Usage。
+- EKU。
+- Public Key Algorithm。
+- Signature Algorithm。
+- CMS SignerInfo。
+- 签名验证结果。
+- 私钥与公开证书匹配关系。
+
+LOCAL_QUALIFICATION 只能使用用户独立确认的本地信任锚。
+
+不得因为证书是本机生成的就自动信任。
+
+不得把 Subject 名称相同视为证书相同。
+
+实际信任必须绑定 DER SHA256 Pin。
+
+## 3.4 签名算法
+
+检查：
+
+- 是否使用 SHA-256 或更强的批准算法。
+- 是否拒绝 MD5。
+- 是否拒绝 SHA-1。
+- 是否拒绝弱密钥。
+- 是否拒绝不支持的算法。
+- 是否正确验证 CMS。
+- 是否存在算法降级。
+- 是否存在证书替换。
+
+具体算法必须记录在签名合同中。
+
+不能依赖默认算法而不记录实际结果。
+
+---
+
+# 四、P0：独立 Signer 的运行环境
+
+Signer 应该运行在与 Codex 开发环境隔离的签名环境中。
+
+建议优先：
+
+1. 独立 Windows 设备。
+2. 独立 Windows 用户和登录会话。
+3. 用户控制的 CNG / TPM 密钥。
+4. 不允许 Agent 访问私钥。
+5. 不允许 Codex 控制签名桌面。
+6. 不允许自动化代理静默调用签名功能。
+
+不必强制购买 TPM 硬件。
+
+如果当前设备没有 TPM，也可以研究软件 CNG Key Storage Provider，但必须明确其安全边界。
+
+如果选择软件密钥，不能声称它具备 TPM 的硬件隔离能力。
+
+## 重要要求
+
+Signer 的独立性不只是文件分开。
+
+还包括：
+
+- 私钥访问主体独立。
+- 签名桌面独立。
+- 用户确认独立。
+- 最终待签署内容独立核对。
+
+如果这些条件不能满足，必须标记 INCONCLUSIVE。
+
+---
+
+# 五、P0：本地证书准备流程
+
+本轮需要准备一套清晰的用户操作流程。
+
+但不要擅自创建证书或导入信任。
+
+## 5.1 证书方案
+
+优先支持：
+
+- Windows CNG Key Storage Provider。
+- TPM-backed CNG（设备支持时）。
+- 用户独立控制的 CurrentUser My。
+- 不可导出私钥。
+- SHA256 证书指纹。
+- 明确证书有效期。
+
+如果创建脚本需要修改 CurrentUser My，必须在 UI 中清楚展示。
+
+不得自动导入 Root 或 Trusted Publishers。
+
+## 5.2 用户操作界面
+
+Signer 应显示：
+
+- 证书名称。
+- Subject。
+- Issuer。
+- Serial Number。
+- DER SHA256 Pin。
+- 有效期。
+- Key Provider。
+- Key 是否可导出。
+- Key 是否需要交互确认。
+- LOCAL_QUALIFICATION 模式。
+
+用户必须能够独立核对证书指纹。
+
+不得仅显示一个证书名称然后要求用户点击确认。
+
+## 5.3 不需要商业证书
+
+本地资格签发不要求购买商业代码签名证书。
+
+但必须明确：
+
+- 本地资格证书只用于指定设备的资格部署。
+- 不能冒充商业 CA。
+- 不能自动用于生产发布。
+- 不能自动获得 Windows 公共信任。
+- 不能绕过 Authenticode 或企业发布策略。
+
+---
+
+# 六、P0：两阶段签名流程验证
+
+Q4.1 已经设计两阶段签名。
+
+本轮必须实际完成完整代码级验证。
+
+## 阶段一：Qualification Plan
+
+输入：
+
+- 冻结候选。
+- 用户公开证书。
+- 用户独立确认的 DER SHA256 Pin。
+- 新的输出目录。
+
+Signer 必须展示：
+
+- Host。
+- Machine ID。
+- Operator SID。
+- Service SID。
+- Epoch。
+- 有效期限。
+- 安装文件数量。
+- 安装总字节数。
+- 安装清单 SHA256。
+- 资格计划 SHA256。
+- 具体系统变更。
+- 权限范围。
+- 真实权限全部 false。
+
+用户确认后签署：
+
+`qualification-plan.json`
+
+输出：
+
+- qualification-plan.json。
+- qualification-plan.p7s。
+- signing-result.json。
+
+此步骤不批准部署。
+
+## 阶段二：Deployment Approval
+
+以已经签署的 Qualification Plan 为输入。
+
+重新验证：
+
+- 全部文件 Hash。
+- 资格计划 CMS。
+- DER Pin。
+- Host。
+- Operator。
+- Service SID。
+- Epoch。
+- 有效期。
+- 安装范围。
+
+展示完整最终部署批准内容。
+
+用户独立确认后签署：
+
+`deployment-approval.json`
+
+输出：
+
+- deployment-approval.json。
+- deployment-approval.p7s。
+- signing-result.json。
+
+必须继续：
+
+`start_service=false`
+
+不允许签名过程自动启动服务。
+
+## 阶段三：只读 Verifier
+
+执行：
+
+`SIGNED_LOCAL_VERIFIED_ONLY`
+
+验证：
+
+- 两份 CMS。
+- 证书 Pin。
+- 文件清单。
+- 资格计划。
+- 部署批准。
+- Epoch。
+- Host。
+- Operator。
+- Service SID。
+- 有效期。
+- 权限限制。
+
+Verifier 只读。
+
+不得安装软件。
+
+不得导入证书信任。
+
+不得创建服务。
+
+不得导入真实 API Key。
+
+不得连接 Provider。
+
+---
+
+# 七、P0：签名与生产权限严格分离
+
+必须证明：
+
+LOCAL_QUALIFICATION 签名不能修改为：
+
+- PRODUCTION_RELEASE。
+- real_import=true。
+- live_provider=true。
+- production_release=true。
+- real_ledger_migration=true。
+- start_service=true。
+
+任何字段变化都必须导致验证失败。
+
+不能因为部署申请签名成功，就认为所有生产资格自动通过。
+
+不能将本地资格证书加入生产信任链。
+
+不能让 Codex 通过修改 JSON 将资格模式升级。
+
+---
+
+# 八、P1：重新生成最终部署候选
+
+用户选择证书和独立确认 DER SHA256 Pin 后，才能生成新的候选。
+
+当前 Q4.1 候选不得直接签署。
+
+必须重新生成：
+
+- 新 deployment ID。
+- 新 Epoch。
+- 新 UTC 有效期限。
+- 新 installation manifest。
+- 新 qualification plan。
+- 新 deployment approval。
+- 新 config Hash。
+- 新 launcher plan Hash。
+- 新 Signer Hash。
+- 新 Verifier Hash。
+- 新 SHA256SUMS。
+
+重新核对全部194项安装文件。
+
+如果文件有变化：
+
+- 重新构建。
+- 重新测试。
+- 重新审查。
+- 重新冻结全部 Hash。
+
+不能沿用旧候选的签名或 Hash。
+
+Signer 和 Verifier 虽然不属于194项安装载荷，也必须绑定到签署计划。
+
+---
+
+# 九、P1：独立测试
+
+必须测试：
+
+1. 正确证书。
+2. 错误证书。
+3. DER Pin 不匹配。
+4. 证书替换。
+5. 证书过期。
+6. 私钥不存在。
+7. 私钥不可用。
+8. 私钥与证书不匹配。
+9. 用户取消。
+10. 用户拒绝签名。
+11. 签名过程中断。
+12. 文件被替换。
+13. 文件内容改变。
+14. 文件数量改变。
+15. 文件总字节数改变。
+16. 安装清单改变。
+17. Qualification Plan 改变。
+18. Deployment Approval 改变。
+19. Host 不匹配。
+20. Operator SID 不匹配。
+21. Service SID 不匹配。
+22. Epoch 不匹配。
+23. 有效期过期。
+24. LOCAL 模式被修改为 PRODUCTION。
+25. start_service 被修改为 true。
+26. real_import 被修改为 true。
+27. live_provider 被修改为 true。
+28. CMS 重放。
+29. 输出目录已有文件。
+30. 异常半成品恢复。
+
+必须保留原始证据。
+
+模拟签名测试与真实 CNG/TPM 签名分开报告。
+
+不能把模拟通过称为真实签名通过。
+
+---
+
+# 十、P1：最终部署审批材料
+
+完成独立审查和用户签名流程准备后，生成新的精确部署申请。
+
+必须明确：
+
+- 签发者。
+- 证书 DER Pin。
+- 证书用途。
+- 签名时间。
+- 安装清单 Hash。
+- Qualification Plan Hash。
+- Deployment Approval Hash。
+- 主机。
+- Machine ID。
+- Operator SID。
+- Service SID。
+- Epoch。
+- 有效期。
+- 安装范围。
+- 具体 ACL 变更。
+- 服务注册内容。
+- 回滚范围。
+- 是否启动服务。
+
+当前阶段仍然：
+
+- 只允许 LOCAL_QUALIFICATION。
+- 只允许合成凭证。
+- 只允许合成账本。
+- 只允许 Synthetic Provider。
+- 不允许真实 Key。
+- 不允许真实 Provider。
+- 不允许真实费用。
+- 不允许正式生产部署。
+
+部署本身仍然需要用户独立批准。
+
+---
+
+# 十一、严格执行边界
+
+本轮可以执行：
+
+- 源码审查。
+- Signer 修复。
+- 构建。
+- 模拟签名测试。
+- CMS 验证。
+- Hash 验证。
+- 只读系统预检。
+- 部署材料准备。
+
+未经用户明确批准，不得：
+
+- 创建本地证书。
+- 创建 CNG / TPM 私钥。
+- 导入证书信任。
+- 修改 CurrentUser My。
+- 修改 Root Store。
+- 修改 Trusted Publishers。
+- 创建 Windows Service。
+- 创建账户。
+- 修改 ACL。
+- 安装程序。
+- 启动 UAC 部署程序。
+- 使用私钥签名。
+- 执行部署。
+- 启动真实服务。
+
+用户选择证书、创建私钥、签署资格计划、签署部署批准和批准实际安装，是不同操作。
+
+Codex 不得替代用户执行。
+
+---
+
+# 十二、交付物
+
+建立：
+
+`AgentNexus-M1.8.3-Q4.2`
+
+至少包含：
+
+1. Q4.2 总体报告。
+2. Signer 独立安全审查。
+3. Signer 源码修改。
+4. Signer 最终构建。
+5. CNG / TPM 方案。
+6. 私钥安全边界报告。
+7. CMS 合同审查。
+8. DER Pin 验证报告。
+9. TOCTOU 审查。
+10. 两阶段签名测试。
+11. Verifier 测试。
+12. 签名异常测试。
+13. 独立复核报告。
+14. 新候选准备说明。
+15. 用户操作说明。
+16. 最终部署审批申请。
+17. SHA256 清单。
+18. 最终验收报告。
+
+---
+
+# 十三、最终验收原则
+
+分别裁定：
+
+**A. Signer**
+
+- SOURCE_AUDITED。
+- BINARY_BUILT。
+- INDEPENDENT_REVIEWED。
+- UI_VERIFIED。
+- PRIVATE_KEY_BOUNDARY_VERIFIED。
+
+**B. Certificate**
+
+- CERTIFICATE_SELECTED。
+- DER_PIN_VERIFIED。
+- CNG_KEY_CREATED。
+- PRIVATE_KEY_NON_EXPORTABLE。
+- USER_INTERACTION_REQUIRED。
+- ACTUAL_SIGNATURE_VERIFIED。
+
+**C. Qualification Plan**
+
+- PLAN_FROZEN。
+- PLAN_REVIEWED。
+- PLAN_SIGNED。
+- CMS_VERIFIED。
+
+**D. Deployment Approval**
+
+- APPROVAL_FROZEN。
+- APPROVAL_REVIEWED。
+- APPROVAL_SIGNED。
+- CMS_VERIFIED。
+
+**E. Deployment**
+
+本轮必须保持：
+
+- INSTALLATION_APPROVED=false。
+- SERVICE_STARTED=false。
+- REAL_KEY_IMPORTED=false。
+- LIVE_PROVIDER=false。
+
+如果用户尚未提供证书，Signer 仍然可以完成源码审查、模拟测试和用户操作准备，但不能宣称真实签名通过。
+
+如果真实 CNG/TPM 未运行，标记 NOT_RUN。
+
+如果用户没有批准系统变更，部署继续 NO-GO。
+
+---
+
+# 十四、执行要求
+
+由 Codex 主执行。
+
+可以安排独立子 Agent：
+
+- Signer 源码安全审查。
+- CMS / DER Pin 合同审查。
+- TOCTOU 和文件完整性审查。
+- Windows CNG / TPM 技术审查。
+
+主 Agent 负责统一结果和最终验收。
+
+不要为了完成本轮而增加无关安全模块。
+
+优先修复实际发现的问题。
+
+保留所有历史失败。
+
+不自动 Commit / Push。
+
+不修改正式科研项目。
+
+不读取用户私钥。
+
+不自行创建证书。
+
+不自行签名。
+
+不自行批准部署。
+
+**现在开始执行 Q4.2。先完成 Signer 独立审查、修复和离线测试，再准备用户独立签发所需的最终候选。**
+
+最终目标是让用户能够亲自控制本地签发私钥，清楚审阅签署内容，独立完成资格计划与部署批准签名，同时确保 Codex 无法代替用户完成这些授权操作。

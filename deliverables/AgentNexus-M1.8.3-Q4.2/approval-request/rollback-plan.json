@@ -1,0 +1,11 @@
+{
+  "schema": "agentnexus.q42.rollback-preparation.v1",
+  "status": "PREPARED_ONLY_NOT_EXECUTED",
+  "deployment_id": null,
+  "final_installation_manifest_sha256": null,
+  "system_changes_executed": false,
+  "service_started": false,
+  "separate_precise_user_approval_required": true,
+  "preserve": ["consumed installation receipt", "partial program and data roots", "Vault", "Ledger with consistent WAL/SHM", "audit", "all signed and unsigned evidence"],
+  "forbidden": ["automatic uninstall", "delete data or receipt", "reset ledger or budget", "replay SENT/UNKNOWN", "automatic retry", "fallback to same-SID vault", "automatic restart"]
+}

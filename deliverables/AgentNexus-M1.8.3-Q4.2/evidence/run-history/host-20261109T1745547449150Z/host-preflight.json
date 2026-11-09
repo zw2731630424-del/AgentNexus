@@ -1,0 +1,99 @@
+{
+  "schema": "agentnexus.q41.host-preflight.v1",
+  "observed_at_utc": "2026-11-09T17:45:56.5214092Z",
+  "host": "DESKTOP-OSWALD",
+  "machine_id": "a013cd5e924eb5db1ba67eb28c65379f81b2d73f2cbd42fdb6645eb202681fe4",
+  "os": {
+    "display_version": "25H2",
+    "ubr": 9711,
+    "build": "26200"
+  },
+  "operator": {
+    "administrator_enabled": false,
+    "native_token": {
+      "observations": [
+        {
+          "pid": 58360,
+          "image": "C:\\Program Files\\WindowsApps\\OpenAI.CodexPrimaryRuntime.v26-1104-709-0_26.1104.709.0_x64__3k8sg7r9htsxt\\dependencies\\native\\powershell\\pwsh.exe",
+          "start_id": "01dd70722b0dff7b",
+          "sid": "S-1-5-21-2532670394-1554971530-4095700938-1001",
+          "session_id": 1,
+          "elevated": false,
+          "integrity": 4096,
+          "appcontainer": true,
+          "logon_id": "0000000000173046"
+        }
+      ],
+      "read_only": true,
+      "os_qualification": "NOT_RUN"
+    },
+    "sid": "S-1-5-21-2532670394-1554971530-4095700938-1001",
+    "observer_exit": 0
+  },
+  "service_query": {
+    "raw": [
+      "[SC] EnumQueryServicesStatus:OpenService FAILED 1060:",
+      "",
+      "The specified service does not exist as an installed service.",
+      ""
+    ],
+    "exit_code": 1060,
+    "showsid_raw": [
+      "",
+      "NAME: AgentNexusCredential ",
+      "SERVICE SID: S-1-5-80-8808145-1723257024-8982472-3705063417-1094825873",
+      "STATUS: Inactive"
+    ],
+    "showsid_exit": 0
+  },
+  "targets": [
+    {
+      "path": "C:\\Program Files\\AgentNexus",
+      "exists": false
+    },
+    {
+      "path": "C:\\ProgramData\\AgentNexusCredential",
+      "exists": false
+    }
+  ],
+  "parent_acls": [
+    {
+      "path": "C:\\",
+      "owner": "S-1-5-80-956008885-3418522649-1831038044-1853292631-2271478464",
+      "sddl": "O:S-1-5-80-956008885-3418522649-1831038044-1853292631-2271478464G:S-1-5-80-956008885-3418522649-1831038044-1853292631-2271478464D:PAI(A;;LC;;;AU)(A;OICIIO;SDGXGWGR;;;AU)(A;OICI;FA;;;SY)(A;OICI;FA;;;BA)(A;OICI;0x1200a9;;;BU)(A;;0x1000a1;;;S-1-15-3-65536-1888954469-739942743-1668119174-2468466756-4239452838-1296943325-355587736-700089176)",
+      "attributes": "Hidden, System, Directory",
+      "audit_sacl_or_mic_read": false
+    },
+    {
+      "path": "C:\\Program Files",
+      "owner": "S-1-5-80-956008885-3418522649-1831038044-1853292631-2271478464",
+      "sddl": "O:S-1-5-80-956008885-3418522649-1831038044-1853292631-2271478464G:S-1-5-80-956008885-3418522649-1831038044-1853292631-2271478464D:PAI(A;OICIIO;GA;;;CO)(A;OICIIO;GA;;;SY)(A;;0x1301bf;;;SY)(A;OICIIO;GA;;;BA)(A;;0x1301bf;;;BA)(A;OICIIO;GXGR;;;BU)(A;;0x1200a9;;;BU)(A;CIIO;GA;;;S-1-5-80-956008885-3418522649-1831038044-1853292631-2271478464)(A;;FA;;;S-1-5-80-956008885-3418522649-1831038044-1853292631-2271478464)(A;;0x1200a9;;;AC)(A;OICIIO;GXGR;;;AC)(A;;0x1200a9;;;S-1-15-2-2)(A;OICIIO;GXGR;;;S-1-15-2-2)",
+      "attributes": "ReadOnly, Directory",
+      "audit_sacl_or_mic_read": false
+    },
+    {
+      "path": "C:\\ProgramData",
+      "owner": "S-1-5-18",
+      "sddl": "O:SYG:SYD:PAI(A;OICIIO;GA;;;CO)(A;OICI;FA;;;SY)(A;OICI;FA;;;BA)(A;OICI;0x1200a9;;;BU)(A;CI;DCLCRPCR;;;BU)",
+      "attributes": "Hidden, Directory, NotContentIndexed",
+      "audit_sacl_or_mic_read": false
+    }
+  ],
+  "public_certificates_count": 2,
+  "tpm": {
+    "status": "INCONCLUSIVE",
+    "reason": "PropertyNotFoundException",
+    "actual_key_generation": "NOT_RUN",
+    "trusted_user_presence": "NOT_RUN"
+  },
+  "pipes": [],
+  "pipe_observation": "NAME_ENUMERATION_ONLY",
+  "pipe_connected": false,
+  "certificate_store_modified": false,
+  "private_key_opened": false,
+  "system_changes": false,
+  "service_started": false,
+  "real_import": false,
+  "live_provider": false,
+  "os_qualification": "NOT_RUN"
+}

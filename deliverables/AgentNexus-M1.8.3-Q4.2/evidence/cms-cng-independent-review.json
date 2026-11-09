@@ -1,0 +1,1425 @@
+{
+  "schema": "agentnexus.q42.cms-cng-independent-review.v1",
+  "status": "PASS_SCOPED_STATIC_PUBLIC_PREPARATION_AND_EXISTING_SIMULATED_CMS",
+  "decision": "TOOLKIT_CODE_AND_PUBLIC_EVIDENCE_REVIEWED_NO_USER_SIGNING_OR_INSTALLATION_AUTHORITY",
+  "checked_at_utc": "2026-11-09T17:28:05.160964+00:00",
+  "reviewer": "Independent CMS/CNG review sub-agent; no recursive delegation",
+  "review_target_manifest": "evidence/review-targets.json",
+  "review_target_manifest_sha256": "a24e37cc0350c320364088e649f12f7ff7708d520e054428a8248ad07e5222f6",
+  "targets": [
+    {
+      "path": "source/native/qualification-signer/QualificationSigner.cs",
+      "sha256": "6f480ab40343fafc51b4d3ae72adb5910be1eb654a622caa4f03f07e6abc48e8",
+      "actual_sha256": "6f480ab40343fafc51b4d3ae72adb5910be1eb654a622caa4f03f07e6abc48e8",
+      "match": true
+    },
+    {
+      "path": "source/native/qualification-signer/SigningContracts.cs",
+      "sha256": "310302cb47c0039890533ca7fe1de7b02345bc0cb253b098cbe4fcc8c48b3709",
+      "actual_sha256": "310302cb47c0039890533ca7fe1de7b02345bc0cb253b098cbe4fcc8c48b3709",
+      "match": true
+    },
+    {
+      "path": "source/native/qualification-signer/Verifier.cs",
+      "sha256": "52ece3729da283847a564ad198a4ad1c16ed925a4882e0cd3e2ea77c5bca6667",
+      "actual_sha256": "52ece3729da283847a564ad198a4ad1c16ed925a4882e0cd3e2ea77c5bca6667",
+      "match": true
+    },
+    {
+      "path": "source/native/credential-service/Common.cs",
+      "sha256": "6b3a79c768bf172f18cf6c023fc6c8ff2cdbc90465b155caa0b0be4122063d47",
+      "actual_sha256": "6b3a79c768bf172f18cf6c023fc6c8ff2cdbc90465b155caa0b0be4122063d47",
+      "match": true
+    },
+    {
+      "path": "source/native/qualification-signer/user-create-certificate.ps1",
+      "sha256": "568dbcfcf8db83db10c7ce6028c1189ab9b3fb6239483bffdb4b9d882f1a461e",
+      "actual_sha256": "568dbcfcf8db83db10c7ce6028c1189ab9b3fb6239483bffdb4b9d882f1a461e",
+      "match": true
+    },
+    {
+      "path": "source/native/qualification-signer/ContractHarness.cs",
+      "sha256": "7c01805c6d52d716bc003a12c70c634cf86fb1c44f5548440e425bb2607a9207",
+      "actual_sha256": "7c01805c6d52d716bc003a12c70c634cf86fb1c44f5548440e425bb2607a9207",
+      "match": true
+    },
+    {
+      "path": "source/tools/agentnexus/install-q41-qualification.ps1",
+      "sha256": "deb40c5479d3b7c4fa711c1729fd1b1711fbdcb0f1aa9d49631b395f0d6e32a9",
+      "actual_sha256": "deb40c5479d3b7c4fa711c1729fd1b1711fbdcb0f1aa9d49631b395f0d6e32a9",
+      "match": true
+    },
+    {
+      "path": "tools/freeze.py",
+      "sha256": "39e6ecd1c16794fb60822c68859d62534bf838a7a29cc2a1456c073515588684",
+      "actual_sha256": "39e6ecd1c16794fb60822c68859d62534bf838a7a29cc2a1456c073515588684",
+      "match": true
+    },
+    {
+      "path": "tools/local_files.py",
+      "sha256": "d421479c9a3b4bc517122c136dc67c9c1ccd480af436203caedcf0cd0daf063c",
+      "actual_sha256": "d421479c9a3b4bc517122c136dc67c9c1ccd480af436203caedcf0cd0daf063c",
+      "match": true
+    },
+    {
+      "path": "tools/test-preparation.py",
+      "sha256": "19c639747131b38f181d95d33b49e7cfd9858ea078e0e61176ab9c1e74c1ab64",
+      "actual_sha256": "19c639747131b38f181d95d33b49e7cfd9858ea078e0e61176ab9c1e74c1ab64",
+      "match": true
+    },
+    {
+      "path": "tools/test-signing.py",
+      "sha256": "f459159e4290e57772c8bc321d2e98397f9741ddca651b7b35fe76413020bf51",
+      "actual_sha256": "f459159e4290e57772c8bc321d2e98397f9741ddca651b7b35fe76413020bf51",
+      "match": true
+    },
+    {
+      "path": "tools/sign-fixtures.ps1",
+      "sha256": "1b58e62397279ad5eebbb1656bf7ef651ded353fcbf15a85d44d983ae75b5e11",
+      "actual_sha256": "1b58e62397279ad5eebbb1656bf7ef651ded353fcbf15a85d44d983ae75b5e11",
+      "match": true
+    },
+    {
+      "path": "tools/read-only-checks.ps1",
+      "sha256": "0950342f66aa3c631ae894968e44ad3971bf554c2a8c272c18e6b2349e205e3d",
+      "actual_sha256": "0950342f66aa3c631ae894968e44ad3971bf554c2a8c272c18e6b2349e205e3d",
+      "match": true
+    },
+    {
+      "path": "evidence/signing-tests.json",
+      "sha256": "23e2a9be9ef2bf84b5fa8b7ad52899069955fde71831de1cd05540f1b5f07d78",
+      "actual_sha256": "23e2a9be9ef2bf84b5fa8b7ad52899069955fde71831de1cd05540f1b5f07d78",
+      "match": true
+    },
+    {
+      "path": "evidence/preparation-tests.json",
+      "sha256": "0848446974ee8facee63cf2864e747521d441b507ce1c11d1981f6105320001e",
+      "actual_sha256": "0848446974ee8facee63cf2864e747521d441b507ce1c11d1981f6105320001e",
+      "match": true
+    },
+    {
+      "path": "evidence/read-only-checks.json",
+      "sha256": "5b4841c36989c791add0fe407b3de05574700ab466efde293a8b224eee6701a6",
+      "actual_sha256": "5b4841c36989c791add0fe407b3de05574700ab466efde293a8b224eee6701a6",
+      "match": true
+    },
+    {
+      "path": "evidence/build.json",
+      "sha256": "443c23ea3aa6902f5a303094bbb3c57533418e824ad6975cbfecb939387b4982",
+      "actual_sha256": "443c23ea3aa6902f5a303094bbb3c57533418e824ad6975cbfecb939387b4982",
+      "match": true
+    },
+    {
+      "path": "signer/AgentNexus.Qualification.Signer.exe",
+      "sha256": "6668d6a16739a31fea0d3c474bfc6f17a2bd8e0eb7760b7a8f2cb9728a23ce9b",
+      "actual_sha256": "6668d6a16739a31fea0d3c474bfc6f17a2bd8e0eb7760b7a8f2cb9728a23ce9b",
+      "match": true
+    },
+    {
+      "path": "signer/AgentNexus.Qualification.Verifier.exe",
+      "sha256": "5963e6f7200ef6b5e4f57632e1f6e5833d7c95b9dd71292e87f43de8893fccd2",
+      "actual_sha256": "5963e6f7200ef6b5e4f57632e1f6e5833d7c95b9dd71292e87f43de8893fccd2",
+      "match": true
+    }
+  ],
+  "open_blocking_findings": [],
+  "closed_findings": [
+    {
+      "id": "Q42-CMS-01",
+      "status": "CLOSED_STATIC",
+      "title": "Production code-signing chain purpose",
+      "locations": [
+        "source/native/qualification-signer/SigningContracts.cs:139-146"
+      ],
+      "evidence": "Leaf codeSigning EKU and chain ApplicationPolicy codeSigning are required; Offline revocation and NoFlag retained.",
+      "limit": "No trusted production certificate chain or revocation qualification was executed."
+    },
+    {
+      "id": "Q42-CMS-02",
+      "status": "CLOSED_STATIC_AND_SIMULATED_EVIDENCE",
+      "title": "Detached CMS and counter-signatures",
+      "locations": [
+        "source/native/credential-service/Common.cs:605-616",
+        "source/native/qualification-signer/SigningContracts.cs:150-160"
+      ],
+      "evidence": "Raw detached structure plus exactly one signer and no counter-signers; local digest and signature OID allowlists applied.",
+      "limit": "Production chain execution remains unqualified."
+    },
+    {
+      "id": "Q42-CMS-03",
+      "status": "CLOSED_STATIC_AND_PUBLIC_METADATA_VERIFICATION",
+      "title": "Metadata private-key access scope",
+      "locations": [
+        "source/native/qualification-signer/SigningContracts.cs:163-171",
+        "source/native/qualification-signer/SigningContracts.cs:458-462"
+      ],
+      "evidence": "Field renamed private_key_accessed_by_metadata_inspection; public certificate metadata check on current verifier returned that scoped field.",
+      "limit": "This field is not an assertion that the signing tool never accesses a private key."
+    },
+    {
+      "id": "Q42-CMS-04",
+      "status": "CLOSED_STATIC_AND_SIMULATED_EVIDENCE",
+      "title": "Preparation transaction gate",
+      "locations": [
+        "source/native/qualification-signer/SigningContracts.cs:361-371",
+        "source/native/qualification-signer/SigningContracts.cs:419-423",
+        "tools/freeze.py:154-163"
+      ],
+      "evidence": "Incomplete marker rejects; complete marker binds deployment ID, epoch and manifest; freeze publishes complete last. Interrupted and missing-complete negative cases pass.",
+      "limit": "The reviewer did not execute freeze or create a new candidate."
+    },
+    {
+      "id": "Q42-CMS-05",
+      "priority": "P2",
+      "status": "CLOSED_STATIC_PUBLIC_PREPARATION_AND_INDEPENDENT_READ_ONLY_VERIFICATION",
+      "title": "Preparation file identity and same-byte verification",
+      "locations": [
+        "tools/local_files.py:28-116",
+        "tools/freeze.py:24-72",
+        "tools/freeze.py:78-164"
+      ],
+      "evidence": "PublicFiles pins directories root-first with access 0x81/share 1, opens leaves without following reparse points, snapshots all validated input bytes, loads the same verifier PE byte array by reflection, exclusively creates and holds output files, verifies output set/length/hash and publishes the ID/epoch/manifest complete marker. Fourteen preparation tests and all 475 prepared files/474 checksum entries read back; current verifier independently inspects the 194-file unsigned fixture and rejects signed verification.",
+      "limit": "Public-data simulation and bounded file-system checks; no real user certificate, CNG operation, installation or production qualification."
+    },
+    {
+      "id": "Q42-CMS-06",
+      "status": "CLOSED_STATIC_SIMULATED_EVIDENCE_AND_PUBLIC_GATE_VERIFICATION",
+      "title": "Public preview rejects PFX before construction",
+      "locations": [
+        "source/native/qualification-signer/SigningContracts.cs:174-180",
+        "source/native/qualification-signer/QualificationSigner.cs:167-170",
+        "tools/freeze.py:30-37"
+      ],
+      "evidence": "Shared PublicCertificate checks content type Cert before constructing X509Certificate2, then requires exact RawData and no private key. Preview, verifier and preparation reuse it. Exact DER and keyless PKCS12 tests pass; current verifier independently rejects the existing keyless public PKCS12 with PUBLIC_DER_ONLY_NO_PFX.",
+      "limit": "No private-key-bearing PFX was read, imported or created by this reviewer."
+    }
+  ],
+  "certificate_and_cms_policy": {
+    "local_epoch": 5,
+    "retained_plan_schema": "agentnexus.windows-qualification.v1",
+    "retained_approval_schema": "agentnexus.q41.deployment-approval.v1",
+    "trust_anchor": "Independently checked exact public certificate DER SHA256; Subject alone is not trust.",
+    "identity_binding": "Exact Subject checked; Issuer and serial are exposed as metadata and are also fixed by the complete DER pin.",
+    "local_public_key_oid": "1.2.840.113549.1.1.1",
+    "local_rsa_min_bits": 3072,
+    "local_certificate_signature_oids": [
+      "1.2.840.113549.1.1.11",
+      "1.2.840.113549.1.1.12",
+      "1.2.840.113549.1.1.13"
+    ],
+    "local_key_usage": "DigitalSignature only",
+    "local_eku_only": "1.3.6.1.5.5.7.3.36",
+    "ca_allowed": false,
+    "local_cms_digest_oid": "2.16.840.1.101.3.4.2.1",
+    "local_cms_signature_oids": [
+      "1.2.840.113549.1.1.1",
+      "1.2.840.113549.1.1.11"
+    ],
+    "local_cms_signers": 1,
+    "local_cms_countersigners": 0,
+    "detached_required": true,
+    "certificate_covers_plan_window": true,
+    "max_plan_validity_seconds": 604800,
+    "binding": "machine ID, operator/service SID, host, epoch, times, deployment ID, full payload manifest/config/policy/changes, installer/verifier/signer hashes, count/bytes; approval also binds raw plan and CMS.",
+    "production": "Local EKU rejected even for legacy configs; codeSigning leaf EKU, codeSigning ApplicationPolicy and Windows chain with Offline revocation/NoFlag required.",
+    "authenticode_assurance": "NOT_GRANTED_BY_CMS",
+    "public_certificate_gate": "Before X509Certificate2 construction: require Cert content type and bounded size; after construction require exact RawData and no private-key association."
+  },
+  "cng_assessment": {
+    "public_load": "Read-only My-store selection, certificate metadata and provider association; no GetRSAPrivateKey in this phase.",
+    "attribute_access": "Separate explicit consent before CngKey.Open; Silent does not make the returned handle metadata-only.",
+    "required_properties": [
+      "User-scoped RSA signing key",
+      "ExportPolicy.None",
+      "ForceHighProtection UI policy",
+      "Reviewed Microsoft KSP"
+    ],
+    "final_signing": "Separate final Yes precedes GetRSAPrivateKey; current policy and public modulus/exponent checked, then certificate-associated Framework CMS is verified against exact DER pin.",
+    "same_handle_assurance": "NOT_CLAIMED",
+    "actual_per_signature_prompt": "NOT_RUN",
+    "actual_tpm_key_attestation": "NOT_RUN",
+    "same_sid_resistance": "INCONCLUSIVE",
+    "isolation_requirement": "Independent signing device/security principal inaccessible to the agent; another desktop/session of the same SID is insufficient.",
+    "creator_script": "Statically reviewed only. Creation plus subsequent private-key-associated metadata access requires explicit consent; no key export/trust import/automatic cleanup or retry. Public executable bootstrap hashes and Assembly.Load use the same byte array. Method selection now uses the same case-insensitive behavior as ValidateSet; both requested provider choices retain their meaning.",
+    "trusted_timestamp": "NOT_GRANTED; local signing time only"
+  },
+  "build_evidence": {
+    "verification": "Recorded compiler log hashes and all six current PE hashes independently read back; no rebuild by this reviewer.",
+    "report_sha256": "443c23ea3aa6902f5a303094bbb3c57533418e824ad6975cbfecb939387b4982",
+    "run": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\build-20261109T171614423815Z",
+    "stages": [
+      {
+        "name": "service",
+        "binary_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\payload\\AgentNexusCredential.exe",
+        "binary_sha256": "78b86e6fc02d5dda5ef277d4f98424a5c71177a107fe0efc1ec3375275ddd62f",
+        "recorded_sha256": "78b86e6fc02d5dda5ef277d4f98424a5c71177a107fe0efc1ec3375275ddd62f",
+        "match": true,
+        "exit_code": 0,
+        "logs": [
+          {
+            "stream": "stdout",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "match": true
+          },
+          {
+            "stream": "stderr",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "match": true
+          }
+        ]
+      },
+      {
+        "name": "client",
+        "binary_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\payload\\pipe-client.exe",
+        "binary_sha256": "55c852a9e0657223a16ae666e5d12b8b0e119a5c451c9b3e9590b10f47685a6e",
+        "recorded_sha256": "55c852a9e0657223a16ae666e5d12b8b0e119a5c451c9b3e9590b10f47685a6e",
+        "match": true,
+        "exit_code": 0,
+        "logs": [
+          {
+            "stream": "stdout",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "match": true
+          },
+          {
+            "stream": "stderr",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "match": true
+          }
+        ]
+      },
+      {
+        "name": "helper",
+        "binary_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\payload\\trusted-credential-helper.exe",
+        "binary_sha256": "05011f89edde9805cb0c6b09eaf21a69dabd2488d944bf1f359cc2fbde0969a7",
+        "recorded_sha256": "05011f89edde9805cb0c6b09eaf21a69dabd2488d944bf1f359cc2fbde0969a7",
+        "match": true,
+        "exit_code": 0,
+        "logs": [
+          {
+            "stream": "stdout",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "match": true
+          },
+          {
+            "stream": "stderr",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "match": true
+          }
+        ]
+      },
+      {
+        "name": "launcher",
+        "binary_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\payload\\credential-launcher.exe",
+        "binary_sha256": "2df63ebf05a3c5ce6ff1e70ec1c6685ed63a64de831d66a2f2d2b23a6a0510a6",
+        "recorded_sha256": "2df63ebf05a3c5ce6ff1e70ec1c6685ed63a64de831d66a2f2d2b23a6a0510a6",
+        "match": true,
+        "exit_code": 0,
+        "logs": [
+          {
+            "stream": "stdout",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "match": true
+          },
+          {
+            "stream": "stderr",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "match": true
+          }
+        ]
+      },
+      {
+        "name": "verifier",
+        "binary_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\signer\\AgentNexus.Qualification.Verifier.exe",
+        "binary_sha256": "5963e6f7200ef6b5e4f57632e1f6e5833d7c95b9dd71292e87f43de8893fccd2",
+        "recorded_sha256": "5963e6f7200ef6b5e4f57632e1f6e5833d7c95b9dd71292e87f43de8893fccd2",
+        "match": true,
+        "exit_code": 0,
+        "logs": [
+          {
+            "stream": "stdout",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "match": true
+          },
+          {
+            "stream": "stderr",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "match": true
+          }
+        ]
+      },
+      {
+        "name": "signer",
+        "binary_path": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\signer\\AgentNexus.Qualification.Signer.exe",
+        "binary_sha256": "6668d6a16739a31fea0d3c474bfc6f17a2bd8e0eb7760b7a8f2cb9728a23ce9b",
+        "recorded_sha256": "6668d6a16739a31fea0d3c474bfc6f17a2bd8e0eb7760b7a8f2cb9728a23ce9b",
+        "match": true,
+        "exit_code": 0,
+        "logs": [
+          {
+            "stream": "stdout",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "match": true
+          },
+          {
+            "stream": "stderr",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "match": true
+          }
+        ]
+      }
+    ]
+  },
+  "simulated_signing_evidence": {
+    "status": "PASS",
+    "assurance": "SIMULATED",
+    "tests": 107,
+    "passed": 107,
+    "failed": 0,
+    "run": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\signing-tests-20261109T171616717426Z",
+    "case_files_verified": 321,
+    "case_rows": [
+      {
+        "id": "01-correct-simulated-local-certificate",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "09-operator-sid",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "10-host-machine",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "11-service-sid",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "12-old-epoch",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "14-scope-expanded",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "15-real-import",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "16-live-provider",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "17-production-release",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "18-real-ledger",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "flag-string",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "wrong-file-count",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "wrong-total-bytes",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "missing-plan-confirmation",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "loose-date-format",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "expired-plan",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "future-plan",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "q41-epoch-replay",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "local-mode-to-production",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "wrong-target-host-name",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "13-validity-mismatch",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "plan-does-not-approve-deployment",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "missing-deploy-confirmation",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "unapproved-service-start",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "cross-host-approval",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "same-reference-not-independent",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "certificate-shorter-than-plan",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "preparation-interrupted",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "preparation-marker-missing",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "06-signature-tamper",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "07-manifest-changed",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "08-plan-changed",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "20-payload-changed",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "21-dependency-replaced",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "22-unsigned-deploy",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "missing-completion-marker",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "installer-replaced",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "approval-content-changed",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "payload-file-added",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "cms-replay-other-plan",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "02-wrong-certificate",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "03-wrong-der-pin",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "04-certificate-replaced",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "05-expired-certificate",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "code",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "weak",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "sha1",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "attached-same",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "attached-other",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "multiple-signers",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "md5",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "sha384",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "counter-signature",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "local-cert-cannot-production",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "untrusted-ca-cannot-production",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "19-old-signature-replay",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "old-epoch-without-receipt",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "23-missing-confirmation",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "missing-isolation",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "missing-host-review",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "duplicate-json",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "case-alias-json",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "escaped-duplicate-json",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "held-dependency-mutation",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "runtime-detached-valid",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "runtime-certificate-window-denied",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "export-plan",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "export-approval",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "exported-bundle-reverified",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "24-signer-abnormal-process-exit",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "24b-interrupted-output-refused",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "private-key-absent-public-certificate",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "public-der-accepts-exact-cert",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "public-der-rejects-keyless-pkcs12-before-construction",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "private-public-key-mismatch",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "user-cancel",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "user-refuses-signature",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "simulated-private-key-unavailable",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "deny-path-unc",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "deny-path-device",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "deny-path-drive-relative",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "deny-path-root-relative",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "deny-path-ads",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "atomic-output-write",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "atomic-output-rename",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "atomic-output-extra-file",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "atomic-output-extra-directory",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "output-existing-directory",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "empty-directory-write-handle-denied",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "snapshot-return-clone",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "cms-signature-oid-rsa",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "cms-signature-oid-rsa-sha256",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "cms-signature-oid-pss",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "cms-signature-oid-unknown",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "cms-signature-oid-truncated",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "certificate-signature-sha1",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "certificate-signature-md5",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "certificate-signature-unsupported",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "publication-exit-after-first-file",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "publication-verify-after-first-file",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "publication-exit-after-input-copy",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "publication-verify-after-input-copy",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "publication-exit-before-marker",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "publication-verify-before-marker",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "publication-exit-after-marker",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "publication-verify-after-marker",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      },
+      {
+        "id": "added-after-review",
+        "record_match": true,
+        "three_original_and_copy_hashes_match": true
+      }
+    ],
+    "report_sha256": "23e2a9be9ef2bf84b5fa8b7ad52899069955fde71831de1cd05540f1b5f07d78",
+    "verification": "All 107 recorded cases and their 321 input/stdout/stderr originals/delivered copies checked. No signing fixture generator or full test suite rerun by this reviewer.",
+    "oid_test_interpretation": "cms-signature-oid-pss and unknown assert parser output UNSUPPORTED. Their ACCEPTED harness status means the expected-value assertion succeeded, not that those CMS algorithms are permitted."
+  },
+  "regression_evidence": {
+    "status": "PASS",
+    "run": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\regression-20261109T172344873713Z",
+    "counts": {
+      "tests": 229,
+      "pass": 224,
+      "fail": 0,
+      "skipped": 5
+    },
+    "stages": [
+      {
+        "name": "strict-typecheck",
+        "exit_code": 0,
+        "logs": [
+          {
+            "stream": "stdout",
+            "sha256": "f2f1340877f8fa76f4dc290b51caf5580548734d7f3ec659d23ab77ec9396bca",
+            "copy_sha256": "f2f1340877f8fa76f4dc290b51caf5580548734d7f3ec659d23ab77ec9396bca",
+            "match": true
+          },
+          {
+            "stream": "stderr",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "copy_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "match": true
+          }
+        ]
+      },
+      {
+        "name": "affected-regression",
+        "exit_code": 0,
+        "logs": [
+          {
+            "stream": "stdout",
+            "sha256": "9be7b0f96c66ac720ddbee4283618a32812880c27c4bd4bc83d049fbe1604a8f",
+            "copy_sha256": "9be7b0f96c66ac720ddbee4283618a32812880c27c4bd4bc83d049fbe1604a8f",
+            "match": true
+          },
+          {
+            "stream": "stderr",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "copy_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "match": true
+          }
+        ]
+      }
+    ],
+    "report_sha256": "f3328550fbf458e092af92f583e08c08ac15f74bedbb2334e26874a84296d689",
+    "verification": "Final original/delivered logs and TAP counts checked; regression not rerun by this reviewer."
+  },
+  "independent_read_only_execution": {
+    "checked_at_utc": "2026-11-09T17:28:05.160964+00:00",
+    "verifier_sha256": "5963e6f7200ef6b5e4f57632e1f6e5833d7c95b9dd71292e87f43de8893fccd2",
+    "checks": [
+      {
+        "name": "describe",
+        "arguments": [
+          "--describe"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "exit_matches": true,
+        "stdout_utf8": "{\"signature_policy\":{\"schema\":\"agentnexus.q41.signature-policy.v1\",\"signing_mode\":\"LOCAL_QUALIFICATION\",\"certificate_eku\":\"1.3.6.1.5.5.7.3.36\",\"rsa_min_bits\":3072,\"cms_digest\":\"SHA256\",\"cms_signature\":\"RSA_PKCS1_V1_5\",\"certificate_signature_oids\":[\"1.2.840.113549.1.1.11\",\"1.2.840.113549.1.1.12\",\"1.2.840.113549.1.1.13\"],\"certificate_trust\":\"INDEPENDENT_USER_DER_SHA256_PIN\",\"max_validity_seconds\":604800,\"policy_epoch\":5,\"authenticode_required\":false,\"authenticode_assurance\":\"NOT_GRANTED_BY_CMS\",\"production_allowed\":false},\"system_changes\":{\"schema\":\"agentnexus.q41.system-changes.v1\",\"changes\":[\"Create only AgentNexusCredential own-process demand Windows Service; no arguments; Session 0\",\"Use only NT SERVICE\\\\AgentNexusCredential virtual service account; sidtype unrestricted; no custom account or login/debug privilege\",\"Service SCM DACL D:P(A;;GA;;;SY)(A;;GA;;;BA)(A;;CCLC;;;AU)\",\"Create C:\\\\Program Files\\\\AgentNexus; protected BA owner; SYSTEM/BA FullControl; service/Users ReadAndExecute; exact manifest files only\",\"Create C:\\\\ProgramData\\\\AgentNexusCredential; protected BA owner; SYSTEM/BA FullControl; service ReadAndExecute; no ordinary-user access\",\"Only engine, qualification, temp state subtrees grant service FullControl; config, signatures, receipts and plans remain admin-write only\",\"Create protected C:\\\\ProgramData\\\\AgentNexusCredential\\\\installation-receipt.json BEFORE SCM creation; consume epoch 5 once even on failure; preserve the data root\",\"Fixed High pipe \\\\\\\\.\\\\pipe\\\\AgentNexus.Credential.v1 and Medium pipe \\\\\\\\.\\\\pipe\\\\AgentNexus.Daily.v1 only when separately approved service start occurs\",\"Fixed service EXE --daily-runtime; retained handle/private inherited stdio/kill-on-close Job; fixed Launcher and UAC Helper only on later user action\",\"Synthetic Vault, Synthetic Token Ledger and Synthetic Provider only; all real import/live/production/REAL ledger migration permissions false\",\"Install stopped only; start_service=false; service start, readiness, failure stop and 70 OS tests require a subsequent precise approval\",\"No firewall, drivers, Ubuntu, AppContainer, shell exposure, certificate trust import, data deletion, ledger reset, commit or push\"]},\"service_sid\":\"S-1-5-80-8808145-1723257024-8982472-3705063417-1094825873\"}",
+        "stderr_utf8": "",
+        "stdout_raw_sha256": "479a601ea3ba8ba092a879f62ac73f0b266876aee12a53ed18f58c8403792c9e",
+        "stderr_raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "name": "public-simulated-certificate",
+        "arguments": [
+          "--public-certificate",
+          "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\signing-tests-20261109T171616717426Z\\SIMULATED-local-public.cer",
+          "33d213f88bafa8bddb748ba0cbe5f653b2d61a8d0c2450576a0595a6962be0ba"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "exit_matches": true,
+        "stdout_utf8": "{\"certificate_name\":\"SIMULATED AgentNexus Q41 Test Only\",\"subject\":\"CN=SIMULATED AgentNexus Q41 Test Only\",\"issuer\":\"CN=SIMULATED AgentNexus Q41 Test Only\",\"serial_number\":\"28376584E6C0346B\",\"der_sha256\":\"33d213f88bafa8bddb748ba0cbe5f653b2d61a8d0c2450576a0595a6962be0ba\",\"not_before_utc\":\"2026-10-30T17:16:18.0000000Z\",\"not_after_utc\":\"2026-12-09T17:16:18.0000000Z\",\"public_key_algorithm\":\"1.2.840.113549.1.1.1\",\"public_key_bits\":3072,\"certificate_signature_algorithm\":\"1.2.840.113549.1.1.11\",\"key_usage\":\"DigitalSignature\",\"eku\":[\"1.3.6.1.5.5.7.3.36\"],\"purpose\":\"1.3.6.1.5.5.7.3.36\",\"private_key_accessed_by_metadata_inspection\":false,\"trusted_automatically\":false}",
+        "stderr_utf8": "",
+        "stdout_raw_sha256": "89f08a2edd4a07c47e6dedfeaf4496521b5ec7a9c59dd62f44a64a5f13524034",
+        "stderr_raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "name": "reject-public-keyless-pkcs12",
+        "arguments": [
+          "--public-certificate",
+          "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\signing-tests-20261109T171616717426Z\\SIMULATED-keyless-pkcs12.bin",
+          "33d213f88bafa8bddb748ba0cbe5f653b2d61a8d0c2450576a0595a6962be0ba"
+        ],
+        "exit_code": 21,
+        "expected_exit_code": 21,
+        "exit_matches": true,
+        "stdout_utf8": "",
+        "stderr_utf8": "PUBLIC_DER_ONLY_NO_PFX",
+        "stdout_raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_raw_sha256": "5b5b0d0ba1ea4d08d9b2c7a8e2427623998f03df607b823a03497942e1e96979"
+      },
+      {
+        "name": "verify-clean-exported-simulated-bundle",
+        "arguments": [
+          "--verify",
+          "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\signing-tests-20261109T171616717426Z\\exported-approval",
+          "33d213f88bafa8bddb748ba0cbe5f653b2d61a8d0c2450576a0595a6962be0ba"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "exit_matches": true,
+        "stdout_utf8": "{\"status\":\"SIGNED_LOCAL_VERIFIED_ONLY\",\"installation_manifest_sha256\":\"aad3b30a84207ca9779126f1de597a0bad5f9eeb30f8f0629fbfd176d8f59488\",\"system_changes\":false,\"deployment_executed\":false,\"production_qualified\":false}",
+        "stderr_utf8": "",
+        "stdout_raw_sha256": "1b32df62320ed479b9a5ceac0e40d44aa03b2a4358092e081d8a88c6e9a6c4dc",
+        "stderr_raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "name": "inspect-existing-public-prepared-194",
+        "arguments": [
+          "--inspect",
+          "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\preparation-tests-20261109T172208502390Z\\SIMULATED-194-files-NOT-USER-AUTHORITY"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "exit_matches": true,
+        "stdout_utf8": "{\"status\":\"UNSIGNED_CANDIDATE_INSPECTED_NO_GO\",\"files\":194,\"bytes\":468592646,\"system_changes\":false,\"approved\":false,\"actual_signature_check\":\"NOT_REQUESTED\"}",
+        "stderr_utf8": "",
+        "stdout_raw_sha256": "2b1f3539eb5699103d2e86e448b286d9631aca95233e2f9186cb0f7d4def2c4c",
+        "stderr_raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "name": "unsigned-public-prepared-194-refused",
+        "arguments": [
+          "--verify",
+          "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\preparation-tests-20261109T172208502390Z\\SIMULATED-194-files-NOT-USER-AUTHORITY",
+          "33d213f88bafa8bddb748ba0cbe5f653b2d61a8d0c2450576a0595a6962be0ba"
+        ],
+        "exit_code": 21,
+        "expected_exit_code": 21,
+        "exit_matches": true,
+        "stdout_utf8": "",
+        "stderr_utf8": "USER_CONFIRMATION_REQUIRED",
+        "stdout_raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_raw_sha256": "aea3f2440b088e91d2e3e53454347c4a0c382f50e40917abd91035b3d0748e2a"
+      },
+      {
+        "name": "toolkit-staging-refused",
+        "arguments": [
+          "--inspect",
+          "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2"
+        ],
+        "exit_code": 21,
+        "expected_exit_code": 21,
+        "exit_matches": true,
+        "stdout_utf8": "",
+        "stderr_utf8": "DirectoryNotFoundException",
+        "stdout_raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_raw_sha256": "86ac688faaf7e2e9647ed15995421ba05a6454c26fe33b13b9514c9fdf37436a"
+      }
+    ],
+    "public_verification_only": true,
+    "created_candidate": false,
+    "created_signature": false,
+    "certificate_store_accessed": false,
+    "private_key_accessed": false,
+    "system_changes": false,
+    "fixture_note": "All DER/CMS/prepared inputs are pre-existing SIMULATED fixtures. The 194-file prepared snapshot has no user certificate authority or CMS; native inspect is unsigned NO-GO only."
+  },
+  "historical_reference_verification": {
+    "files": 12,
+    "all_match_q41_approval": true,
+    "rows": [
+      {
+        "path": "candidate/service-config.json",
+        "sha256": "8d5a310188b78de00771574785bc3fd9b6c58b84d78aca6cecd60a534ef64e19",
+        "matches_q41_approval": true
+      },
+      {
+        "path": "certificate-pin.json",
+        "sha256": "f9e7bcbec3e6c93d433be53bfc439bf2d352a197eb4046d095076ae99cd1b847",
+        "matches_q41_approval": true
+      },
+      {
+        "path": "deployment-approval.json",
+        "sha256": "a440d1d48ddbbd3e421c5438e5a0944f6b6ada1a09af901a3423581e4c447270",
+        "matches_q41_approval": true
+      },
+      {
+        "path": "deployment-request.json",
+        "sha256": "118826b5ae955471decd89774705ab0d1547d3e56b9f2c4bdbdc3a543e0bd706",
+        "matches_q41_approval": true
+      },
+      {
+        "path": "deployment-request.md",
+        "sha256": "30f4ba9b8c5e11cc544963c02f10d60530524e389954ca790ca39ce836f6be3f",
+        "matches_q41_approval": true
+      },
+      {
+        "path": "installation-manifest-status.json",
+        "sha256": "22cb2c1778cadc7b51af24a11085e908bc3d68c6994a8c523b471f085fd2519e",
+        "matches_q41_approval": true
+      },
+      {
+        "path": "installation-manifest.json",
+        "sha256": "31d1ea7fd3487a9843b753c1000418c693b32627d615070bd2038fcf5677931f",
+        "matches_q41_approval": true
+      },
+      {
+        "path": "qualification-plan.json",
+        "sha256": "d932f2c06ea72606707ec56b2ac347a0278e0a34118fbb80ec274bfab8e20ade",
+        "matches_q41_approval": true
+      },
+      {
+        "path": "rollback-plan.json",
+        "sha256": "dfef91c412664cfa2cc07721b55664c6d1f69ece1b61d6154187f59af3d40839",
+        "matches_q41_approval": true
+      },
+      {
+        "path": "signature-policy.json",
+        "sha256": "bdac27ed42fd135c08f2116e23c8c5ccd7df8d16b3ff8ae3fb0d6d1bc2727a86",
+        "matches_q41_approval": true
+      },
+      {
+        "path": "signer-certificate.json",
+        "sha256": "ec35982c0adb4ff144841a36f420bdddd3e05ea4d0eed1bb6dd455a94c34e719",
+        "matches_q41_approval": true
+      },
+      {
+        "path": "system-changes.json",
+        "sha256": "877122c7f987e22418c36abde2d0be3616ce83b8588eeea6047730f64a195ab0",
+        "matches_q41_approval": true
+      }
+    ]
+  },
+  "toolkit_scope": {
+    "approval_directory_present": false,
+    "preparation_complete_present": false,
+    "payload_staging_files": 194,
+    "actual_user_194_file_candidate": "ABSENT",
+    "actual_user_certificate_pin": null,
+    "actual_user_certificate_selected": false,
+    "existing_simulated_194_file_candidate": "PRESENT_IN_RUNTIME_ONLY_PUBLIC_UNSIGNED_NO_USER_AUTHORITY",
+    "historical_q41_reference": "Templates/history only; not a signable Q4.2 candidate.",
+    "freeze_requirement": "Public DER + independent pin + target identity + new local output; full input snapshot validated against toolkit checksums before use; exact verifier PE and public DER byte arrays reused for shared reflection validation; new ID/epoch 5 and exactly 194 payload files, user confirmation/approval/real permissions false; exclusive held output and readback; complete marker last.",
+    "freeze_filesystem_assurance": "Q42-CMS-05_CLOSED_IN_SCOPED_REVIEW",
+    "freeze_executed_by_reviewer": false,
+    "future_user_candidate_requires_fresh_verification": true
+  },
+  "limits": [
+    "No real certificate or private key created, selected or accessed by this reviewer; no user certificate-store enumeration or mutation.",
+    "No Signer/creator signing path, signing fixture generator, preparation function, installation, service operation, ACL/UAC change or real provider request executed by this reviewer.",
+    "Existing public CMS fixtures and the separately prepared unsigned 194-file fixture are SIMULATED evidence. Their acceptance does not establish user certificate authority or grant installation permission.",
+    "No real CNG/TPM behavior, per-signature provider consent, same-SID resistance, key attestation, production chain/revocation or Windows OS qualification measured.",
+    "Matching recorded build outputs does not constitute an independently reproduced source-to-binary build.",
+    "The review binds these 19 target hashes and named evidence; it does not preapprove a later final SHA256SUMS or future user certificate-bound candidate."
+  ],
+  "official_sources": [
+    {
+      "title": "CngExportPolicies",
+      "url": "https://learn.microsoft.com/en-us/dotnet/api/system.security.cryptography.cngexportpolicies?view=net-10.0",
+      "supports": "None limits key export; it does not establish application authorization."
+    },
+    {
+      "title": "NCRYPT_UI_POLICY",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/ncrypt/ns-ncrypt-ncrypt_ui_policy",
+      "supports": "Strong UI policy flags are separate from export policy."
+    },
+    {
+      "title": "X509PrivateKeyProtection",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/certenroll/ne-certenroll-x509privatekeyprotection",
+      "supports": "Strong protection behavior depends on the KSP or CSP."
+    },
+    {
+      "title": "SignedCms.ComputeSignature",
+      "url": "https://learn.microsoft.com/en-us/dotnet/api/system.security.cryptography.pkcs.signedcms.computesignature?view=netframework-4.8.1",
+      "supports": "In .NET Framework silent is unused; a PIN prompt appears if required by the provider."
+    },
+    {
+      "title": "NCryptOpenKey",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/ncrypt/nf-ncrypt-ncryptopenkey",
+      "supports": "Current-user key scope and silent UI flags do not restrict a handle to metadata-only operations."
+    },
+    {
+      "title": "How Windows uses the TPM",
+      "url": "https://learn.microsoft.com/en-us/windows/security/hardware-security/tpm/how-windows-uses-the-tpm",
+      "supports": "Hardware protects key material while the OS can request cryptographic operations."
+    },
+    {
+      "title": "X509ChainPolicy.ApplicationPolicy",
+      "url": "https://learn.microsoft.com/en-us/dotnet/api/system.security.cryptography.x509certificates.x509chainpolicy.applicationpolicy?view=net-7.0",
+      "supports": "The requested application/EKU collection is empty by default and must be populated for code signing."
+    }
+  ],
+  "writes_authorized": [
+    "reports/cms-cng-independent-review.md",
+    "evidence/cms-cng-independent-review.json"
+  ],
+  "reviewer_operations": {
+    "source_changes": false,
+    "new_signature": false,
+    "certificate_or_key_creation": false,
+    "certificate_store_access": false,
+    "private_key_access": false,
+    "installation_or_service_changes": false,
+    "acl_or_uac_changes": false,
+    "real_key_or_provider_use": false,
+    "created_candidate": false
+  },
+  "preparation_evidence": {
+    "report_sha256": "0848446974ee8facee63cf2864e747521d441b507ce1c11d1981f6105320001e",
+    "summary": {
+      "status": "PASS",
+      "run": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\preparation-tests-20261109T172208502390Z",
+      "assurance": "SIMULATED_PUBLIC_PREPARATION_ONLY",
+      "cases": [
+        {
+          "id": "path-0",
+          "status": "PASS",
+          "assurance": "SIMULATED_PUBLIC_DATA_OR_FILESYSTEM",
+          "detail": "LOCAL_ABSOLUTE_PATH_REQUIRED"
+        },
+        {
+          "id": "path-1",
+          "status": "PASS",
+          "assurance": "SIMULATED_PUBLIC_DATA_OR_FILESYSTEM",
+          "detail": "LOCAL_ABSOLUTE_PATH_REQUIRED"
+        },
+        {
+          "id": "path-2",
+          "status": "PASS",
+          "assurance": "SIMULATED_PUBLIC_DATA_OR_FILESYSTEM",
+          "detail": "LOCAL_ABSOLUTE_PATH_REQUIRED"
+        },
+        {
+          "id": "path-3",
+          "status": "PASS",
+          "assurance": "SIMULATED_PUBLIC_DATA_OR_FILESYSTEM",
+          "detail": "LOCAL_ABSOLUTE_PATH_REQUIRED"
+        },
+        {
+          "id": "empty-directory-write-denied",
+          "status": "PASS",
+          "assurance": "SIMULATED_PUBLIC_DATA_OR_FILESYSTEM",
+          "detail": "Win32 sharing violation 32 while pinned"
+        },
+        {
+          "id": "output-overwrite-denied",
+          "status": "PASS",
+          "assurance": "SIMULATED_PUBLIC_DATA_OR_FILESYSTEM",
+          "detail": "held CreateNew read/write handle shares read only"
+        },
+        {
+          "id": "output-rename-denied",
+          "status": "PASS",
+          "assurance": "SIMULATED_PUBLIC_DATA_OR_FILESYSTEM",
+          "detail": "pinned directory identity"
+        },
+        {
+          "id": "extra-directory-denied",
+          "status": "PASS",
+          "assurance": "SIMULATED_PUBLIC_DATA_OR_FILESYSTEM",
+          "detail": "OUTPUT_EXTRA_DIRECTORY"
+        },
+        {
+          "id": "shared-contract-public-snapshot",
+          "status": "PASS",
+          "assurance": "SIMULATED_PUBLIC_DATA_OR_FILESYSTEM",
+          "detail": "exact byte[] verifier and DER; no path execution or store"
+        },
+        {
+          "id": "prepare-public-pkcs12-denied",
+          "status": "PASS",
+          "assurance": "SIMULATED_PUBLIC_DATA_OR_FILESYSTEM",
+          "detail": "shared PublicCertificate gate"
+        },
+        {
+          "id": "invalid-pin-before-output",
+          "status": "PASS",
+          "assurance": "SIMULATED_PUBLIC_DATA_OR_FILESYSTEM",
+          "detail": "no directory created"
+        },
+        {
+          "id": "prepare-194-new-unsigned",
+          "status": "PASS",
+          "assurance": "SIMULATED_PUBLIC_DATA_OR_FILESYSTEM",
+          "detail": "all payload bytes and complete new SHA256SUMS match; no signatures"
+        },
+        {
+          "id": "native-candidate-contract",
+          "status": "PASS",
+          "assurance": "SIMULATED_PUBLIC_DATA_OR_FILESYSTEM",
+          "detail": "actual prepared 194-file snapshot accepted only as UNSIGNED / NO-GO"
+        },
+        {
+          "id": "unsigned-cannot-be-signed-verified",
+          "status": "PASS",
+          "assurance": "SIMULATED_PUBLIC_DATA_OR_FILESYSTEM",
+          "detail": "missing plan confirmation/CMS refuses actual signed verification"
+        }
+      ],
+      "tests": 14,
+      "payload_files": 194,
+      "payload_bytes": 468592646,
+      "actual_user_certificate_selected": false,
+      "actual_user_pin_verified": false,
+      "actual_cng_signature": "NOT_RUN",
+      "certificate_store_modified": false,
+      "private_key_opened": false,
+      "installation_approved": false,
+      "system_changes": false
+    },
+    "original_and_copy_files": [
+      {
+        "path": "inspect.stderr.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "delivered_copy_matches": true
+      },
+      {
+        "path": "inspect.stdout.log",
+        "sha256": "2b1f3539eb5699103d2e86e448b286d9631aca95233e2f9186cb0f7d4def2c4c",
+        "delivered_copy_matches": true
+      },
+      {
+        "path": "result.json",
+        "sha256": "0848446974ee8facee63cf2864e747521d441b507ce1c11d1981f6105320001e",
+        "delivered_copy_matches": true
+      },
+      {
+        "path": "simulation-context.json",
+        "sha256": "9c8d510b641d0ebdb08c5c9394533cc5b146126cd55e6646bfc0fd65c53fe704",
+        "delivered_copy_matches": true
+      },
+      {
+        "path": "target-identity.json",
+        "sha256": "3014b1db680f1641a462cce5d377eb8688e7112cca9e22a6c3fb477a9b614534",
+        "delivered_copy_matches": true
+      },
+      {
+        "path": "verify-unsigned.stderr.log",
+        "sha256": "aea3f2440b088e91d2e3e53454347c4a0c382f50e40917abd91035b3d0748e2a",
+        "delivered_copy_matches": true
+      },
+      {
+        "path": "verify-unsigned.stdout.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "delivered_copy_matches": true
+      }
+    ],
+    "prepared_directory": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\preparation-tests-20261109T172208502390Z\\SIMULATED-194-files-NOT-USER-AUTHORITY",
+    "prepared_public_file_manifest_sha256": "e4a66c7aaf3e0a59b04eec6a831ff2259429b4275e2097e55c231bb3920604c4",
+    "prepared_full_file_count": 475,
+    "prepared_full_manifest_match": true,
+    "payload_files": 194,
+    "payload_bytes": 468592646,
+    "payload_match": true,
+    "sha256sums_entries": 474,
+    "sha256sums_match": true,
+    "complete_marker_match": true,
+    "plan_user_confirmed": false,
+    "deployment_approved": false,
+    "cms_present": [
+      false,
+      false
+    ],
+    "verification": "Source and existing public preparation artifacts reviewed only. All 475 files in the prepared-public-file-manifest and all 474 SHA256SUMS entries independently hashed; the 194-file payload closure, lengths, totals and complete marker match. Preparation was not rerun by this reviewer."
+  },
+  "public_script_readonly_evidence": {
+    "report_sha256": "5b4841c36989c791add0fe407b3de05574700ab466efde293a8b224eee6701a6",
+    "summary": {
+      "status": "PASS",
+      "run": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.2\\readonly-20261109T1718511009331Z",
+      "creation_script_parsed_only": true,
+      "public_loader_snapshot_load": true,
+      "wrong_tool_hash_denied": true,
+      "unc_rejected_before_io": true,
+      "atomic_public_output_reflection_verified": true,
+      "automatic_signing_args_rejected": true,
+      "identity_exit": 0,
+      "certificate_creation_script_executed": false,
+      "certificate_store_accessed": false,
+      "private_key_opened": false,
+      "actual_signature": "NOT_RUN",
+      "system_changes": false
+    },
+    "original_files": [
+      {
+        "path": "identity.stdout.json",
+        "sha256": "d7131a8ddb8458c269bb54d053e933b273584db607bea520e12eae49afcfc0b7",
+        "copy_present": true,
+        "copy_matches": true
+      },
+      {
+        "path": "public-loader.cs",
+        "sha256": "77b0c70adb521b6f1a0a6292610685a1a6bc9ed4d2f97792d70c89a0c096f6ac",
+        "copy_present": true,
+        "copy_matches": true
+      },
+      {
+        "path": "result.json",
+        "sha256": "5b4841c36989c791add0fe407b3de05574700ab466efde293a8b224eee6701a6",
+        "copy_present": true,
+        "copy_matches": true
+      }
+    ],
+    "verification": "Recorded read-only bootstrap/script checks and original/delivered file hashes audited; creator script body was not executed by this reviewer."
+  }
+}
+
