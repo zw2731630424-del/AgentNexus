@@ -1,0 +1,65 @@
+{
+  "schema": "agentnexus.q1.preapproval-acceptance.v1",
+  "phase": "READ_ONLY_PREFLIGHT_AND_APPROVAL_PACKAGE",
+  "deployment_readiness": "NO_GO",
+  "approval_status": "AWAITING_USER_REVIEW_NOT_APPROVAL_READY",
+  "production_vault": "BLOCKED",
+  "actual_service_isolation": "NOT_RUN",
+  "historical_same_sid_decryption": "FAIL_RETAINED",
+  "source_integrity": "PASS",
+  "source_sha256": "108e724d0b5796f472d5eb46a9088c556f04084c4bca0dad9bceb9a691d0090a",
+  "q1_os_tests_executed": 0,
+  "q1_os_tests_not_run": 32,
+  "independent_post_deployment_review": "NOT_RUN",
+  "rollback_os_exercise": "NOT_RUN",
+  "real_api_keys": 0,
+  "real_provider_requests": 0,
+  "real_tokens": 0,
+  "real_cost_usd": 0,
+  "inherited_token_authorization": 100000000,
+  "additional_real_budget": 0,
+  "system_mutations_executed": false,
+  "blockers": [
+    {
+      "id": "Q1-P0-UI",
+      "severity": "P0",
+      "status": "OPEN",
+      "finding": "User confirmed UI option 1. Frozen Medium UI cannot use High/elevated pipe client; installed profile is also protected from Medium writes. Short-lived helper and normal Gateway authorization path are absent.",
+      "closure": "UI preference is resolved: normal main UI plus UAC and a short-lived trusted credential-entry window. Complete the narrowly scoped design/implementation and independent validation, then freeze and review the resulting candidate. This selection does not approve system deployment; do not elevate the whole UI or weaken service IPC."
+    },
+    {
+      "id": "Q1-P0-SIGNER",
+      "severity": "P0",
+      "status": "OPEN",
+      "finding": "No explicitly approved external signer public DER SHA256 pin or exact detached CMS qualification plan is available.",
+      "closure": "Select externally controlled signer, publish public DER/pin and private-key custody/revocation procedure; bind final payload, host, SID, epoch, approved reference and <=7-day validity. No self-issued PASS."
+    },
+    {
+      "id": "Q1-P0-PAYLOAD",
+      "severity": "P0",
+      "status": "OPEN",
+      "finding": "111 available candidate install mappings are exact; trusted UI helper/launcher and complete Electron runtime selection are absent. Actual loaded-module closure does not exist before service start.",
+      "closure": "Freeze complete application/runtime payload after UI decision, update manifests and platform dependency baseline; collect actual modules after approved start and stop qualification on any unbound module."
+    },
+    {
+      "id": "Q1-P0-IDENTITY",
+      "severity": "P0_QUALIFICATION",
+      "status": "OPEN",
+      "finding": "No approved usable ordinary second-SID logon is available. Enabled Codex sandbox accounts are host-managed and are not assigned to this task.",
+      "closure": "Provide an already authorized ordinary test identity through its normal login workflow within approved scope, or retain different-SID tests NOT_RUN. No account creation/password reset/host-account reuse is authorized."
+    }
+  ],
+  "ui_decision": {
+    "status": "CONFIRMED_BY_USER",
+    "selected_option": 1,
+    "confirmed_on": "2026-11-09",
+    "timezone": "Asia/Shanghai",
+    "user_reply": "选1",
+    "main_ui": "Normal non-elevated launch",
+    "credential_entry": "Add Key in the original UI initiates UAC and a short-lived trusted credential-entry window",
+    "whole_ui_elevation_allowed": false,
+    "system_deployment_approved_by_this_selection": false,
+    "implementation_status": "NOT_IMPLEMENTED",
+    "os_qualification": "NOT_RUN"
+  }
+}

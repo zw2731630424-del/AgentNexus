@@ -1,0 +1,89 @@
+{
+  "schema": "agentnexus.windows-qualification.v1",
+  "status": "BLOCKED",
+  "decision": "NOT_RUN",
+  "scope": "WINDOWS_BOUNDARY_ONLY",
+  "machine_id": "a013cd5e924eb5db1ba67eb28c65379f81b2d73f2cbd42fdb6645eb202681fe4",
+  "service_sid": "S-1-5-80-8808145-1723257024-8982472-3705063417-1094825873",
+  "policy_epoch": 1,
+  "qualification_test_approval_ref": "",
+  "issued_at_utc": null,
+  "expires_at_utc": null,
+  "service_sha256": "06a7cda4ed06172c2ba5612b6e661d42d569978c7851ff31d6dd8c1e7a11b754",
+  "client_sha256": "224a451717beb8cce345364a214673afee1cd1bd683a6616c9adb07a65f80029",
+  "node_sha256": "3331e1ffe19874215472217c5e94f5a0c6d8e18c4ac7111d3937aa0ad5e9b4a5",
+  "engine_sha256": "8a75b003c2a756d02279a705d071d6cc0ca1d0150a3bc1ae0a6e43dc8b2c2df6",
+  "application_manifest_sha256": "56319bcd54f4506b1ccc8798ec2a9e68ce10cc4e3463721aa2d628b674b28dd4",
+  "real_import_enabled": false,
+  "real_import_approval_ref": "",
+  "live_enabled": false,
+  "live_approval_ref": "",
+  "tests": [
+    {
+      "name": "service_account_isolation",
+      "observed_result": "NOT_RUN",
+      "evidence_file": "service-account-isolation.json",
+      "evidence_sha256": null
+    },
+    {
+      "name": "protected_install_acl",
+      "observed_result": "NOT_RUN",
+      "evidence_file": "protected-install-acl.json",
+      "evidence_sha256": null
+    },
+    {
+      "name": "pipe_dacl_remote_reject",
+      "observed_result": "NOT_RUN",
+      "evidence_file": "pipe-dacl-remote-reject.json",
+      "evidence_sha256": null
+    },
+    {
+      "name": "medium_integrity_rejection",
+      "observed_result": "NOT_RUN",
+      "evidence_file": "medium-integrity-rejection.json",
+      "evidence_sha256": null
+    },
+    {
+      "name": "server_impersonation_rejection",
+      "observed_result": "NOT_RUN",
+      "evidence_file": "server-impersonation-rejection.json",
+      "evidence_sha256": null
+    },
+    {
+      "name": "same_sid_dpapi_denial",
+      "observed_result": "NOT_RUN",
+      "evidence_file": "same-sid-dpapi-denial.json",
+      "evidence_sha256": null
+    },
+    {
+      "name": "import_ticket_single_use",
+      "observed_result": "NOT_RUN",
+      "evidence_file": "import-ticket-single-use.json",
+      "evidence_sha256": null
+    },
+    {
+      "name": "confirmation_queue_disconnect",
+      "observed_result": "NOT_RUN",
+      "evidence_file": "confirmation-queue-disconnect.json",
+      "evidence_sha256": null
+    },
+    {
+      "name": "crash_recovery_no_replay",
+      "observed_result": "NOT_RUN",
+      "evidence_file": "crash-recovery-no-replay.json",
+      "evidence_sha256": null
+    },
+    {
+      "name": "audit_no_plaintext",
+      "observed_result": "NOT_RUN",
+      "evidence_file": "audit-no-plaintext.json",
+      "evidence_sha256": null
+    },
+    {
+      "name": "negative_host_or_binary",
+      "observed_result": "NOT_RUN",
+      "evidence_file": "negative-host-or-binary.json",
+      "evidence_sha256": null
+    }
+  ]
+}

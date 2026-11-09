@@ -1,0 +1,209 @@
+{
+  "schema": "agentnexus.q1.deployment-review.v1",
+  "revision": 2,
+  "review_package_status": "FINAL_FOR_OBSERVED_ENVIRONMENT_NO_GO",
+  "scope": "QUALIFICATION_ONLY",
+  "ui_decision": {
+    "status": "CONFIRMED_BY_USER",
+    "selected_option": 1,
+    "confirmed_on": "2026-11-09",
+    "timezone": "Asia/Shanghai",
+    "user_reply": "选1",
+    "main_ui": "Normal non-elevated launch",
+    "credential_entry": "Add Key in the original UI initiates UAC and a short-lived trusted credential-entry window",
+    "whole_ui_elevation_allowed": false,
+    "system_deployment_approved_by_this_selection": false,
+    "implementation_status": "NOT_IMPLEMENTED",
+    "os_qualification": "NOT_RUN"
+  },
+  "deployment_approved": false,
+  "approval_ref": null,
+  "installation_authorized": false,
+  "start_authorized": false,
+  "automatic_execution_on_approval": false,
+  "execution_gate": "STOP: resolve all installation blockers, regenerate and obtain explicit approval of the exact final change set before any OS mutation.",
+  "machine_id_sha256": "a013cd5e924eb5db1ba67eb28c65379f81b2d73f2cbd42fdb6645eb202681fe4",
+  "baseline_head": "69ad728ed74e5bd7979dcebecdb07d94260b9089",
+  "baseline_source_sha256": "108e724d0b5796f472d5eb46a9088c556f04084c4bca0dad9bceb9a691d0090a",
+  "service": {
+    "name": "AgentNexusCredential",
+    "identity": "NT SERVICE\\AgentNexusCredential",
+    "precomputed_sid": "S-1-5-80-8808145-1723257024-8982472-3705063417-1094825873",
+    "observed_sid_state": "Inactive, unresolved; not an active token",
+    "sid_type": "UNRESTRICTED",
+    "sid_type_value": 1,
+    "type": "WIN32_OWN_PROCESS",
+    "type_value": 16,
+    "start": "DEMAND_START",
+    "start_value": 3,
+    "interactive": false,
+    "binary_path": "\"C:\\Program Files\\AgentNexus\\AgentNexusCredential.exe\"",
+    "arguments": [],
+    "failure_actions": "NONE; manual recovery only",
+    "required_privileges": [
+      "SeChangeNotifyPrivilege"
+    ],
+    "privilege_policy": "Do not grant SeDebug/SeTcb/SeAssignPrimaryToken/SeLoadDriver/Backup/Restore/TakeOwnership. Identification-level named-pipe token inspection should not require granting SeImpersonate; validate actual token and operations after start, halt instead of widening privileges.",
+    "logon_rights_proposed_for_only_service_sid": [
+      "SeServiceLogonRight"
+    ],
+    "deny_logon_rights_proposed_for_only_service_sid": [
+      "SeDenyInteractiveLogonRight",
+      "SeDenyRemoteInteractiveLogonRight"
+    ],
+    "actual_token": null,
+    "actual_process_tree": []
+  },
+  "operator": {
+    "proposed_sid": "S-1-5-21-2532670394-1554971530-4095700938-1001",
+    "is_only_candidate_not_user_confirmation": true,
+    "current_integrity": "MEDIUM",
+    "required_by_frozen_service": "HIGH/ELEVATED/NON_APPCONTAINER",
+    "whole_ui_elevation_allowed": false
+  },
+  "proposed_directories": [
+    "C:\\Program Files\\AgentNexus",
+    "C:\\Program Files\\AgentNexus\\app",
+    "C:\\ProgramData\\AgentNexusCredential",
+    "C:\\ProgramData\\AgentNexusCredential\\qualification",
+    "C:\\ProgramData\\AgentNexusCredential\\temp"
+  ],
+  "directories_not_provisioned": [
+    "C:\\ProgramData\\AgentNexusCredential\\engine",
+    "C:\\ProgramData\\AgentNexusCredential\\desktop"
+  ],
+  "implicit_os_profile_effect": "SCM may initialize the virtual-account service profile and DPAPI master-key state at first service logon. Exact profile path/ACL must be observed; no profile creation/deletion by this package. Retain all resulting data on rollback.",
+  "program_manifest": "approval/installation-manifest.json",
+  "application_manifest": "approval/app-manifest.json",
+  "security_descriptors": "approval/security-descriptors.json",
+  "service_configuration_candidate": "approval/service-config.candidate.json",
+  "qualification_candidate": "approval/qualification.candidate.UNSIGNED.json",
+  "cms": {
+    "authority_certificate_sha256": null,
+    "private_key_created_or_accessed": false,
+    "certificate_store_changes": false,
+    "signed_plan_exists": false,
+    "maximum_validity_days": 7,
+    "allowed_signed_runtime_status": "QUALIFICATION_ONLY",
+    "decision": "NOT_RUN",
+    "real_import_enabled": false,
+    "live_enabled": false,
+    "must_not_sign_os_pass": true
+  },
+  "named_pipe": {
+    "path": "\\\\.\\pipe\\AgentNexus.Credential.v1",
+    "persistent_registration": false,
+    "created_only_by_approved_service_start": true,
+    "instances": 4,
+    "first_instance_flag": true,
+    "remote_rejection_flag": true,
+    "message_limit_bytes": 1048576,
+    "actual_sddl": null
+  },
+  "expected_process_tree": {
+    "session_0": "services.exe -> AgentNexusCredential.exe -> fixed node.exe + fixed engine.js -> AgentNexusCredential.exe --attest-engine OR WindowsPowerShell powershell.exe -NoLogo -NoProfile -NonInteractive -File fixed app/dist/src/agentnexus/model-runtime/dpapi.ps1 -Operation Protect|Unprotect",
+    "session_1": "Not finalized: normal Medium UI, proposed short-lived helper and non-elevated Gateway request path require design closure.",
+    "job": "private kill-on-close, active process limit 6; no breakaway; only explicit anonymous stdin/out/err inherited"
+  },
+  "synthetic_credentials": {
+    "prefix": "synthetic-test-AgentNexus-M183-Q1-",
+    "minimum_bytes": 24,
+    "maximum_bytes": 4096,
+    "generated_now": false,
+    "real_import_enabled": false,
+    "live_enabled": false,
+    "fixture_only": true,
+    "store_root": "C:\\ProgramData\\AgentNexusCredential\\qualification"
+  },
+  "budget": {
+    "inherited_authorization_tokens": 100000000,
+    "tokens_include": "input + output",
+    "new_real_authorization": 0,
+    "production_ledger_modified": false,
+    "production_ledger_created": false,
+    "qualification_ledger": "SIMULATED counter only; not another real 100M grant; never promote it to engine"
+  },
+  "executable_system_change_set": [],
+  "proposed_order_after_new_explicit_approval": [
+    "Recheck HEAD, every candidate hash, OS version, parents, absent roots/service/pipe, signer pin and operator; halt on drift.",
+    "Atomically create only approved absent program/data roots with final ACLs; no adoption of pre-existing user-owned or reparse objects.",
+    "Copy only approved manifest files; compare source/destination SHA256 and signatures; record each operation.",
+    "Provision protected configuration and externally signed qualification-only plan, not a production PASS; do not create engine or a real ledger.",
+    "Register one own-process demand-start virtual-account service; set SID type 1, explicit service-object DACL, privilege allowlist and exact service-only logon/deny rights. No other accounts.",
+    "Start manually only after validation; capture actual service/Node/helper tokens, profile, module hashes, object DACL/ML and Job/handle tree. Stop on any mismatch.",
+    "Run only independently identified synthetic OS tests; any failure/inconclusive remains BLOCKED.",
+    "Exercise approved stop/unregister rollback without deleting files/ACLs/accounts/data, and arrange independent review."
+  ],
+  "verification_contracts": [
+    "tests/windows-attack-tests.json",
+    "tests/windows-qualification.json",
+    "reports/rollback-validation.md"
+  ],
+  "rollback": {
+    "allowed_after_approved_deployment": [
+      "Stop exact named service",
+      "Confirm exact pinned service/Node/helper process instances exited and pipe closed",
+      "Remove only the newly approved SCM registration if approved for rollback"
+    ],
+    "retain": [
+      "Vault",
+      "qualification ledger",
+      "original REAL ledger",
+      "Audit",
+      "program files",
+      "ACLs",
+      "service profile and DPAPI state",
+      "LSA rights pending separate removal approval"
+    ],
+    "delete_files_accounts_or_acls": false,
+    "recursive_delete": false,
+    "reset_budget": false
+  },
+  "prohibited": [
+    "real keys",
+    "DeepSeek/OpenAI/GLM API requests",
+    "real token use or cost",
+    "other/research projects",
+    "commit/push/hooks",
+    "firewall/AppContainer/driver/Ubuntu changes",
+    "arbitrary shell or alternate vault/egress/policy bypass"
+  ],
+  "blockers": [
+    {
+      "id": "Q1-P0-UI",
+      "severity": "P0",
+      "status": "OPEN",
+      "finding": "User confirmed UI option 1. Frozen Medium UI cannot use High/elevated pipe client; installed profile is also protected from Medium writes. Short-lived helper and normal Gateway authorization path are absent.",
+      "closure": "UI preference is resolved: normal main UI plus UAC and a short-lived trusted credential-entry window. Complete the narrowly scoped design/implementation and independent validation, then freeze and review the resulting candidate. This selection does not approve system deployment; do not elevate the whole UI or weaken service IPC."
+    },
+    {
+      "id": "Q1-P0-SIGNER",
+      "severity": "P0",
+      "status": "OPEN",
+      "finding": "No explicitly approved external signer public DER SHA256 pin or exact detached CMS qualification plan is available.",
+      "closure": "Select externally controlled signer, publish public DER/pin and private-key custody/revocation procedure; bind final payload, host, SID, epoch, approved reference and <=7-day validity. No self-issued PASS."
+    },
+    {
+      "id": "Q1-P0-PAYLOAD",
+      "severity": "P0",
+      "status": "OPEN",
+      "finding": "111 available candidate install mappings are exact; trusted UI helper/launcher and complete Electron runtime selection are absent. Actual loaded-module closure does not exist before service start.",
+      "closure": "Freeze complete application/runtime payload after UI decision, update manifests and platform dependency baseline; collect actual modules after approved start and stop qualification on any unbound module."
+    },
+    {
+      "id": "Q1-P0-IDENTITY",
+      "severity": "P0_QUALIFICATION",
+      "status": "OPEN",
+      "finding": "No approved usable ordinary second-SID logon is available. Enabled Codex sandbox accounts are host-managed and are not assigned to this task.",
+      "closure": "Provide an already authorized ordinary test identity through its normal login workflow within approved scope, or retain different-SID tests NOT_RUN. No account creation/password reset/host-account reuse is authorized."
+    }
+  ],
+  "unexecuted_observations": [
+    "Actual Service SID activation/token/privileges/IL",
+    "Actual service process/module/DPAPI profile tree",
+    "Installed file/data ACL and access denials",
+    "Pipe DACL/High label/remote/squatting tests",
+    "All Q1 service OS attack and lifecycle evidence",
+    "Executed rollback and independent post-deployment review"
+  ]
+}

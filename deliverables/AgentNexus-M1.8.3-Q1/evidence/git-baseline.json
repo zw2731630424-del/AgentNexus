@@ -1,0 +1,59 @@
+{
+  "head": {
+    "args": [
+      "rev-parse",
+      "HEAD"
+    ],
+    "exit_code": 0,
+    "stdout": "69ad728ed74e5bd7979dcebecdb07d94260b9089\n",
+    "stderr": ""
+  },
+  "initial_worktree_observation": "First task query before Q1 creation returned an empty git status --short; HEAD 69ad728ed74e5bd7979dcebecdb07d94260b9089",
+  "worktree_at_inventory": {
+    "args": [
+      "status",
+      "--porcelain=v1",
+      "--untracked-files=all"
+    ],
+    "exit_code": 0,
+    "stdout": "?? deliverables/AgentNexus-M1.8.3-Q1/evidence/historical-preservation.before.json\n?? deliverables/AgentNexus-M1.8.3-Q1/evidence/m183-published-checksums.json\n?? deliverables/AgentNexus-M1.8.3-Q1/evidence/preflight-host-medium/actual-acl-sddl.json\n?? deliverables/AgentNexus-M1.8.3-Q1/evidence/preflight-host-medium/actual-process-tokens.json\n?? deliverables/AgentNexus-M1.8.3-Q1/evidence/preflight-host-medium/collection-complete.json\n?? deliverables/AgentNexus-M1.8.3-Q1/evidence/preflight-host-medium/native-command-results.json\n?? deliverables/AgentNexus-M1.8.3-Q1/evidence/preflight-host-medium/preflight.json\n?? deliverables/AgentNexus-M1.8.3-Q1/evidence/preflight-host-medium/runtime-candidates.json\n?? deliverables/AgentNexus-M1.8.3-Q1/evidence/preflight-host-medium/sc-qc.txt\n?? deliverables/AgentNexus-M1.8.3-Q1/evidence/preflight-host-medium/sc-qfailure.txt\n?? deliverables/AgentNexus-M1.8.3-Q1/evidence/preflight-host-medium/sc-qfailureflag.txt\n?? deliverables/AgentNexus-M1.8.3-Q1/evidence/preflight-host-medium/sc-qprivs.txt\n?? deliverables/AgentNexus-M1.8.3-Q1/evidence/preflight-host-medium/sc-qsidtype.txt\n?? deliverables/AgentNexus-M1.8.3-Q1/evidence/preflight-host-medium/sc-queryex.txt\n?? deliverables/AgentNexus-M1.8.3-Q1/evidence/preflight-host-medium/sc-sdshow.txt\n?? deliverables/AgentNexus-M1.8.3-Q1/evidence/preflight-host-medium/sc-showsid.txt\n?? deliverables/AgentNexus-M1.8.3-Q1/evidence/preflight-host-medium/whoami-all.txt\n?? deliverables/AgentNexus-M1.8.3-Q1/evidence/preflight-sandbox/actual-acl-sddl.json\n?? deliverables/AgentNexus-M1.8.3-Q1/evidence/preflight-sandbox/actual-process-tokens.json\n?? deliverables/AgentNexus-M1.8.3-Q1/evidence/preflight-sandbox/collection-complete.json\n?? deliverables/AgentNexus-M1.8.3-Q1/evidence/preflight-sandbox/native-command-results.json\n?? deliverables/AgentNexus-M1.8.3-Q1/evidence/preflight-sandbox/preflight.json\n?? deliverables/AgentNexus-M1.8.3-Q1/evidence/preflight-sandbox/runtime-candidates.json\n?? deliverables/AgentNexus-M1.8.3-Q1/evidence/preflight-sandbox/sc-qc.txt\n?? deliverables/AgentNexus-M1.8.3-Q1/evidence/preflight-sandbox/sc-qfailure.txt\n?? deliverables/AgentNexus-M1.8.3-Q1/evidence/preflight-sandbox/sc-qfailureflag.txt\n?? deliverables/AgentNexus-M1.8.3-Q1/evidence/preflight-sandbox/sc-qprivs.txt\n?? deliverables/AgentNexus-M1.8.3-Q1/evidence/preflight-sandbox/sc-qsidtype.txt\n?? deliverables/AgentNexus-M1.8.3-Q1/evidence/preflight-sandbox/sc-queryex.txt\n?? deliverables/AgentNexus-M1.8.3-Q1/evidence/preflight-sandbox/sc-sdshow.txt\n?? deliverables/AgentNexus-M1.8.3-Q1/evidence/preflight-sandbox/sc-showsid.txt\n?? deliverables/AgentNexus-M1.8.3-Q1/evidence/preflight-sandbox/whoami-all.txt\n?? deliverables/AgentNexus-M1.8.3-Q1/evidence/source-verification.json\n?? deliverables/AgentNexus-M1.8.3-Q1/tools/collect-preflight.ps1\n?? deliverables/AgentNexus-M1.8.3-Q1/tools/prepare-package.py\n?? deliverables/AgentNexus-M1.8.3-Q1/tools/verify-build.mjs\n",
+    "stderr": ""
+  },
+  "tracked_diff": {
+    "args": [
+      "diff",
+      "--name-status"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "staged_diff": {
+    "args": [
+      "diff",
+      "--cached",
+      "--name-status"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "rule_files": [
+    {
+      "path": "AGENTS.md",
+      "bytes": 2587,
+      "sha256": "a868b01052ea5613300e6973fd1c65917ba2f10b01eea025214b513432cd4694"
+    },
+    {
+      "path": ".workflow-kit/governance/policy.json",
+      "bytes": 7919,
+      "sha256": "ea91359de90e74cbb554f93ac2dae82509f93f5bcc05c65bf22384aba4dd4d83"
+    },
+    {
+      "path": ".workflow-kit/governance/baseline.json",
+      "bytes": 757,
+      "sha256": "dde12816841f48122d8b919032df93bf1c7ad232d3789ddcf471a00293312345"
+    }
+  ],
+  "project_rules_index_exists": false
+}

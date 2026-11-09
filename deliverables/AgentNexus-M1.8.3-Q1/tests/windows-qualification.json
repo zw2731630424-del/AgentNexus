@@ -1,0 +1,195 @@
+{
+  "schema": "agentnexus.q1.qualification.v1",
+  "status": "BLOCKED",
+  "production_vault": "BLOCKED",
+  "scope": "QUALIFICATION_ONLY",
+  "criteria": [
+    {
+      "id": "Q1-CVQ-01",
+      "criterion": "原 UI 添加合成凭证",
+      "status": "NOT_RUN",
+      "related_test_ids": [
+        "Q1-OS-01"
+      ],
+      "additional_blocker": "Q1-P0-UI 未关闭",
+      "actual_evidence": []
+    },
+    {
+      "id": "Q1-CVQ-02",
+      "criterion": "无需 JSON/环境变量认证",
+      "status": "NOT_RUN",
+      "related_test_ids": [
+        "Q1-OS-01"
+      ],
+      "additional_blocker": "Q1-P0-UI 未关闭",
+      "actual_evidence": []
+    },
+    {
+      "id": "Q1-CVQ-03",
+      "criterion": "普通 Renderer 不读取已存 Key",
+      "status": "NOT_RUN",
+      "related_test_ids": [
+        "Q1-OS-10",
+        "Q1-OS-31",
+        "Q1-OS-32"
+      ],
+      "additional_blocker": null,
+      "actual_evidence": []
+    },
+    {
+      "id": "Q1-CVQ-04",
+      "criterion": "普通 Agent 不读取 Key",
+      "status": "NOT_RUN",
+      "related_test_ids": [
+        "Q1-OS-10",
+        "Q1-OS-31"
+      ],
+      "additional_blocker": null,
+      "actual_evidence": []
+    },
+    {
+      "id": "Q1-CVQ-05",
+      "criterion": "Subagent 不读取 Key",
+      "status": "NOT_RUN",
+      "related_test_ids": [
+        "Q1-OS-10",
+        "Q1-OS-31"
+      ],
+      "additional_blocker": null,
+      "actual_evidence": []
+    },
+    {
+      "id": "Q1-CVQ-06",
+      "criterion": "同 SID 普通进程不能独立解密",
+      "status": "NOT_RUN",
+      "related_test_ids": [
+        "Q1-OS-02",
+        "Q1-OS-03"
+      ],
+      "additional_blocker": null,
+      "actual_evidence": []
+    },
+    {
+      "id": "Q1-CVQ-07",
+      "criterion": "同 SID 不能伪造可信请求",
+      "status": "NOT_RUN",
+      "related_test_ids": [
+        "Q1-OS-04",
+        "Q1-OS-05",
+        "Q1-OS-06",
+        "Q1-OS-13",
+        "Q1-OS-14"
+      ],
+      "additional_blocker": null,
+      "actual_evidence": []
+    },
+    {
+      "id": "Q1-CVQ-08",
+      "criterion": "服务独占已存凭证使用能力",
+      "status": "NOT_RUN",
+      "related_test_ids": [
+        "Q1-OS-01",
+        "Q1-OS-07",
+        "Q1-OS-08",
+        "Q1-OS-09",
+        "Q1-OS-10",
+        "Q1-OS-26",
+        "Q1-OS-31"
+      ],
+      "additional_blocker": null,
+      "actual_evidence": []
+    },
+    {
+      "id": "Q1-CVQ-09",
+      "criterion": "Model Gateway 经可信服务使用凭证",
+      "status": "NOT_RUN",
+      "related_test_ids": [
+        "Q1-OS-01",
+        "Q1-OS-26",
+        "Q1-OS-27"
+      ],
+      "additional_blocker": "Medium Gateway 信任路径尚未解决",
+      "actual_evidence": []
+    },
+    {
+      "id": "Q1-CVQ-10",
+      "criterion": "Data Egress 在发送前执行",
+      "status": "NOT_RUN",
+      "related_test_ids": [
+        "Q1-OS-30"
+      ],
+      "additional_blocker": null,
+      "actual_evidence": []
+    },
+    {
+      "id": "Q1-CVQ-11",
+      "criterion": "唯一 1 亿 Token Owner 可恢复",
+      "status": "NOT_RUN",
+      "related_test_ids": [
+        "Q1-OS-24",
+        "Q1-OS-27",
+        "Q1-OS-28",
+        "Q1-OS-29"
+      ],
+      "additional_blocker": null,
+      "actual_evidence": []
+    }
+  ],
+  "native_signature_test_names": [
+    {
+      "name": "service_account_isolation",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "name": "protected_install_acl",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "name": "pipe_dacl_remote_reject",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "name": "medium_integrity_rejection",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "name": "server_impersonation_rejection",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "name": "same_sid_dpapi_denial",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "name": "import_ticket_single_use",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "name": "confirmation_queue_disconnect",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "name": "crash_recovery_no_replay",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "name": "audit_no_plaintext",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "name": "negative_host_or_binary",
+      "status": "NOT_RUN",
+      "evidence": null
+    }
+  ]
+}

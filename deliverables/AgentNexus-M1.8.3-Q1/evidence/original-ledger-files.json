@@ -1,0 +1,70 @@
+{
+  "schema": "agentnexus.q1.historical-runtime-file-observation.v1",
+  "checked_at_utc": "2026-11-08T22:53:34.944808+00:00",
+  "root_basis": "Default path from historical Provider UI main.mjs; actual process environment/root not read or assumed",
+  "sqlite_connection_opened": false,
+  "db_checkpoint_backup_or_write": false,
+  "vault_decrypted": false,
+  "current_budget_contents_read": false,
+  "files": [
+    {
+      "path": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-Model-Provider-UI\\desktop-data\\host\\kernel.sqlite",
+      "exists": true,
+      "sha256": "cefa9977cd3d21a9cc34c3a23ac089fa9d71c684c2b5aa52633905f09b47f2a1",
+      "bytes": 446464,
+      "mtime_ns": 1794146508863686200,
+      "stable_during_read": true,
+      "status": "READ_ONLY_FINGERPRINT_NOT_CONSISTENT_SQLITE_SNAPSHOT"
+    },
+    {
+      "path": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-Model-Provider-UI\\desktop-data\\host\\kernel.sqlite-wal",
+      "exists": true,
+      "sha256": "903d6610d10ebaea9d0f473d11badec36f0b6b3564b66ba48487a308e47b5f48",
+      "bytes": 655112,
+      "mtime_ns": 1794146523196478600,
+      "stable_during_read": true,
+      "status": "READ_ONLY_FINGERPRINT_NOT_CONSISTENT_SQLITE_SNAPSHOT"
+    },
+    {
+      "path": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-Model-Provider-UI\\desktop-data\\host\\kernel.sqlite-shm",
+      "exists": true,
+      "sha256": "ab4b0e957b530d225c9bb05873b4bc8bfe440c1929e3da5ff39e9f1e3a51b812",
+      "bytes": 32768,
+      "mtime_ns": 1794146523066624700,
+      "stable_during_read": true,
+      "status": "READ_ONLY_FINGERPRINT_NOT_CONSISTENT_SQLITE_SNAPSHOT"
+    },
+    {
+      "path": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-Model-Provider-UI\\desktop-data\\synthetic-vault\\vault.sqlite",
+      "exists": true,
+      "sha256": "1c14244ae95fadf56b04c32216a811a1f089c6145fdb380ae127bdf46f44c0a4",
+      "bytes": 53248,
+      "mtime_ns": 1794146508868194500,
+      "stable_during_read": true,
+      "status": "READ_ONLY_FINGERPRINT_NOT_CONSISTENT_SQLITE_SNAPSHOT"
+    },
+    {
+      "path": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-Model-Provider-UI\\desktop-data\\synthetic-vault\\vault.sqlite-wal",
+      "exists": true,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "mtime_ns": 1794146523032430700,
+      "stable_during_read": true,
+      "status": "READ_ONLY_FINGERPRINT_NOT_CONSISTENT_SQLITE_SNAPSHOT"
+    },
+    {
+      "path": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-Model-Provider-UI\\desktop-data\\synthetic-vault\\vault.sqlite-shm",
+      "exists": true,
+      "sha256": "fd4c9fda9cd3f9ae7c962b0ddf37232294d55580e1aa165aa06129b8549389eb",
+      "bytes": 32768,
+      "mtime_ns": 1794146523032430700,
+      "stable_during_read": true,
+      "status": "READ_ONLY_FINGERPRINT_NOT_CONSISTENT_SQLITE_SNAPSHOT"
+    }
+  ],
+  "limitations": [
+    "Already-running historical UI may legitimately modify these live files.",
+    "Separate file hashes are not a consistent snapshot and cannot prove global budget uniqueness.",
+    "Published immutable baseline preservation is recorded separately."
+  ]
+}
