@@ -1,0 +1,57 @@
+{
+  "schema": "agentnexus.q41.independent-review-decision.v1",
+  "observed_at_utc": "2026-11-09T15:26:06.766355+00:00",
+  "review_status": "COMPLETE_FOR_UNSIGNED_PREDEPLOY_PREPARATION",
+  "deployment_decision": "NO-GO",
+  "candidate_signature_status": "UNSIGNED",
+  "installation_manifest_sha256": "31d1ea7fd3487a9843b753c1000418c693b32627d615070bd2038fcf5677931f",
+  "report_sha256": "8c4adcd03f89fbd6d8fa99753a5ddf3feb73ed5c960370a2a5d1611824f49827",
+  "evidence_audit_sha256": "a5abe076a7de221cb0941ff4e395be2bfe00b528484fe89d5d9154d1d0a22bd8",
+  "independent_readonly_final_sha256": "748cc266b332f9d687b1f180098a2d8f042980f39b112af4ac6e247ecd8d4f63",
+  "closed_findings": [
+    {
+      "id": "Q41-IR-01",
+      "priority": "P2",
+      "status": "CLOSED_STATIC_AND_SIMULATED",
+      "subject": "Certificate lifetime and human/provider/export wait time guards",
+      "evidence": [
+        "certificate-shorter-than-plan",
+        "runtime-detached-valid",
+        "runtime-certificate-window-denied",
+        "final Signer/Verifier/Export time guards"
+      ]
+    }
+  ],
+  "open_implementation_findings": [],
+  "signing_tests": {
+    "cases": 60,
+    "status": "PASS",
+    "assurance": "SIMULATED",
+    "rerun_by_reviewer": false,
+    "run": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.1\\signing-tests-20261109T151908617334Z"
+  },
+  "source_files_verified": 264,
+  "payload_files_verified": 194,
+  "payload_total_bytes": 468553232,
+  "raw_archive_files_verified": 998,
+  "actual_user_signing": "NOT_RUN",
+  "actual_user_certificate_pin": null,
+  "actual_user_private_key_accessed": false,
+  "actual_same_sid_key_isolation": "INCONCLUSIVE",
+  "actual_apply": "NOT_RUN",
+  "windows_os_tests": {
+    "PASS": 0,
+    "NOT_RUN": 70
+  },
+  "production_evidence_categories": {
+    "PASS": 0,
+    "NOT_RUN": 19
+  },
+  "signed_os_production_qualification": "BLOCKED",
+  "governance_full_check_rerun_by_reviewer": false,
+  "governance_observed_status": "PASS",
+  "final_sha256sums_review": "NOT_REVIEWED_NOT_YET_FROZEN_AT_REPORT_TIME",
+  "system_changes": false,
+  "real_key_or_provider": false,
+  "no_deployment_authority_granted": true
+}

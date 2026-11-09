@@ -1,0 +1,596 @@
+# AgentNexus M1.8.3-Q4.1
+# Local Qualification Signing & Deployment Approval
+
+**项目：** AgentNexus  
+**执行者：** Codex  
+**基线：** M1.8.3-Q4  
+**任务性质：** 本地资格签发机制、部署审批合同调整、签名验证和 Windows 资格部署准备。
+
+---
+
+# 一、本轮战略目标
+
+AgentNexus M1.8.3-Q4 已完成：
+
+- Windows 部署只读预检。
+- 194项基线安装载荷清单。
+- 完整部署范围。
+- Credential Service 部署方案。
+- Virtual Service Account 方案。
+- High / Medium IPC 部署方案。
+- Helper / Launcher 部署方案。
+- Runtime 隔离方案。
+- 原70项 Windows OS 测试映射。
+- 19类生产资格证据。
+- 回滚方案。
+- 部署审批材料。
+
+当前状态：
+
+- UNSIGNED。
+- NO-GO。
+- 未安装 Windows Service。
+- 未创建服务账户。
+- 未修改 ACL。
+- 未启动 UAC 部署程序。
+- 真实 API Key：0。
+- 真实 Provider 请求：0。
+- 真实费用：$0。
+
+当前阻断原因：
+
+Q3 部署合同要求外部签发者、证书 DER SHA256 Pin、资格计划 CMS 签名和部署批准 CMS 签名。
+
+用户目前没有准备商业级外部签发者或证书。
+
+## 本轮核心目标
+
+**为 AgentNexus 增加独立的本地资格签发模式，使用户能够在自己的 Windows 电脑上批准本地 QUALIFICATION_ONLY 部署，而不必先购买商业代码签名证书。**
+
+同时必须：
+
+1. 保留正式生产发布签名模式。
+2. 将本地资格签发与生产发布签发严格分离。
+3. 私钥由用户控制。
+4. Codex 不得持有或读取用户的签名私钥。
+5. 不允许 Codex 自行签署、自行批准和自行部署。
+6. 不允许本地资格签名自动获得真实 Key 导入或 Provider 请求权限。
+
+本轮不重新开发 Credential Service、Runtime、Helper、IPC 或 Model Gateway。
+
+---
+
+# 二、Phase 0：完整读取 Q4 基线
+
+首先阅读：
+
+1. Q4 README。
+2. Q4 acceptance-report.md。
+3. Q4 deployment-report.md。
+4. approval/deployment-request.md。
+5. approval/installation-manifest.json。
+6. approval/installation-manifest-status.json。
+7. reports/signatures-and-certificates.md。
+8. reports/deployment-approval.md。
+9. reports/deployment-runbook.md。
+10. reports/independent-security-review.md。
+11. reports/rollback-record.md。
+12. Q3 完整部署合同。
+13. Q3 installation manifest。
+14. Q3 源码 Hash。
+15. Q3 Helper / Service / Runtime / IPC 设计。
+16. 历史治理规则和 ADR。
+
+核实：
+
+- 当前 HEAD。
+- 工作树。
+- Q4 原始交付 Hash。
+- Q3 194项载荷文件。
+- 当前安装清单是否为最终状态。
+- CMS 签名验证实现。
+- DER SHA256 Pin 实现。
+- Authenticode 与 CMS 是否被混为一谈。
+- 当前安装器的默认拒绝逻辑。
+- 当前部署批准字段。
+- 当前资格计划字段。
+
+保留 Q3 和 Q4 全部历史证据。
+
+不得覆盖 UNSIGNED / NO-GO 原始记录。
+
+---
+
+# 三、P0：重新划分两种签发模式
+
+当前必须明确区分：
+
+## 3.1 LOCAL_QUALIFICATION
+
+用途：
+
+仅用于用户自己的 Windows 电脑进行本地资格部署和 OS 安全验证。
+
+允许：
+
+- 安装资格测试用 Credential Service。
+- 创建必要的 Virtual Service Account。
+- 设置经过批准的 ACL。
+- 启动合成资格服务。
+- 使用合成 Vault。
+- 使用合成 Key。
+- 使用 Synthetic Provider。
+- 执行真实 Windows OS 攻击测试。
+- 验证 UAC Helper。
+- 验证 Runtime。
+- 验证 High / Medium IPC。
+- 验证崩溃恢复。
+
+必须限制：
+
+- 单一指定机器。
+- 指定 Operator SID。
+- 指定 Service SID。
+- 固定安装清单 Hash。
+- 固定资格计划 Hash。
+- 明确 Epoch。
+- 明确有效期。
+- 明确系统变更范围。
+
+以下必须固定为：
+
+- real_import = false。
+- live_provider = false。
+- production_release = false。
+- real_ledger_migration = false。
+
+LOCAL_QUALIFICATION 不能自动升级为生产资格。
+
+## 3.2 PRODUCTION_RELEASE
+
+用于未来正式生产发布。
+
+保留：
+
+- 正式受信任签发者。
+- 正式证书。
+- 正式代码签名。
+- 正式部署批准。
+- 完整生产发布验证。
+
+不能因为本地资格签名通过，就默认生产发布签名已经满足。
+
+两个模式必须具有不同的签名策略、验证规则和权限边界。
+
+---
+
+# 四、P0：本地资格签发证书方案
+
+用户目前没有商业级签发证书。
+
+本轮研究并实现用户自主控制的本地资格签发机制。
+
+## 4.1 本地资格证书
+
+研究 Windows 支持的本地证书和密钥管理方案：
+
+- Windows Certificate Store。
+- CNG Key Storage Provider。
+- TPM-backed Key（如果当前设备支持）。
+- 不可导出私钥。
+- 用户确认或交互式密钥使用保护。
+- 独立离线签名工具。
+
+优先采用：
+
+**用户持有私钥，Codex 只接触公开证书和签名结果。**
+
+私钥不得：
+
+- 放入 Git 仓库。
+- 放入 AgentNexus 普通配置目录。
+- 放入普通 Credential Vault。
+- 通过聊天发送。
+- 传递给 Codex。
+- 传递给 Development Agent。
+- 写入日志。
+- 写入部署包。
+- 作为环境变量传递。
+
+## 4.2 重要安全区别
+
+自签名证书本身不自动可信。
+
+只有用户明确将某个证书的 DER SHA256 Pin 作为本地资格签发信任锚，并通过独立方式确认该指纹，验证器才可以接受它。
+
+不能因为证书是本机生成的，就自动信任。
+
+不能让 Codex 自行生成证书，然后把它自己的证书自动加入信任列表。
+
+不能把本地证书称为商业 CA 证书。
+
+## 4.3 私钥使用
+
+设计独立的本地签名流程。
+
+用户必须能够查看待签署的具体内容：
+
+- 安装清单 SHA256。
+- 资格计划 SHA256。
+- 主机标识。
+- Operator SID。
+- Service SID。
+- Epoch。
+- 有效期。
+- 具体系统变更。
+- 合成资格范围。
+- real_import。
+- live_provider。
+- real_ledger_migration。
+
+用户明确确认后才能签名。
+
+不能只显示一个没有内容的“Approve”按钮。
+
+优先研究要求用户交互确认的签名方式。
+
+仅设置 NonExportable 不足以证明同 SID 恶意进程无法调用私钥。
+
+必须如实记录本地签名密钥的安全边界和剩余风险。
+
+如果当前 Windows 环境无法实现可信用户确认，提出离线签名方案，不得伪装成高保证签名。
+
+---
+
+# 五、P0：独立本地签名工具
+
+实现：
+
+`AgentNexus Qualification Signer`
+
+该工具独立于 Codex 开发运行时。
+
+功能：
+
+1. 读取待签署的资格计划。
+2. 读取安装清单。
+3. 验证所有文件 Hash。
+4. 验证主机身份。
+5. 验证 Operator SID。
+6. 验证 Service SID。
+7. 验证 Epoch。
+8. 验证有效期。
+9. 展示所有实际系统变更。
+10. 展示资格模式。
+11. 展示真实请求权限。
+12. 用户明确确认。
+13. 使用用户控制的私钥签名。
+14. 输出签名文件。
+15. 输出证书 DER SHA256。
+16. 输出签名验证报告。
+
+## 禁止行为
+
+- 不允许无用户确认自动签名。
+- 不允许后台静默签名。
+- 不允许 Agent 修改已批准的内容。
+- 不允许签名后替换安装文件。
+- 不允许修改部署范围。
+- 不允许把签名结果用于其他主机。
+- 不允许将过期签名重新使用。
+- 不允许重放旧 Epoch。
+- 不允许生产权限通过本地资格签名获得。
+
+签名工具只负责用户批准的精确内容。
+
+Codex 可以准备待签署文件，但不能替代用户批准。
+
+---
+
+# 六、P0：签名合同与部署验证器调整
+
+现有 Q4 部署合同必须扩展为两种明确模式。
+
+## LOCAL_QUALIFICATION 验证
+
+必须检查：
+
+- 证书 DER SHA256。
+- 证书用途。
+- 签名者身份。
+- 资格计划签名。
+- 部署批准签名。
+- 主机身份。
+- Operator SID。
+- Service SID。
+- 安装清单 Hash。
+- 文件数量。
+- 文件总字节数。
+- Epoch。
+- 有效期。
+- 资格范围。
+- 所有安全限制。
+
+任意字段不匹配必须拒绝。
+
+签名不完整必须拒绝。
+
+签名过期必须拒绝。
+
+安装清单改变必须拒绝。
+
+## PRODUCTION_RELEASE 验证
+
+继续执行原来的正式生产签发合同。
+
+LOCAL_QUALIFICATION 的证书不能作为生产签发者。
+
+不能为了兼容新模式而降低原生产验证器的要求。
+
+## 签名类型必须分离
+
+明确区分：
+
+1. CMS Qualification Plan Signature。
+2. CMS Deployment Approval Signature。
+3. Authenticode Executable Signature。
+4. Certificate DER SHA256 Pin。
+
+这些不是同一个东西。
+
+不能因为 CMS 审批签名通过，就宣称所有二进制都获得了 Authenticode 信任。
+
+如果某项签名属于 Windows 部署或运行时策略要求，单独记录其目的和验证条件。
+
+---
+
+# 七、P0：部署审批必须保持独立
+
+本地资格签发不能让 Codex 自行部署。
+
+完整流程：
+
+```text
+Codex 完成部署候选
+        |
+        v
+冻结文件 Hash
+        |
+        v
+生成资格计划
+        |
+        v
+生成部署申请
+        |
+        v
+用户审阅实际系统变更
+        |
+        v
+用户本地签名
+        |
+        v
+验证签名和 Hash
+        |
+        v
+用户单独批准实际部署
+        |
+        v
+QUALIFICATION_ONLY 安装
+```
+
+必须明确：
+
+**签署资格计划，不等于批准部署。**
+
+**批准部署，不等于批准真实 Key 导入。**
+
+**批准真实 Key 导入，不等于批准真实 Provider 请求。**
+
+这三个授权必须独立。
+
+---
+
+# 八、P0：保持 Q4 的安全部署范围
+
+本地资格部署仅允许：
+
+- 一个 AgentNexusCredential Windows Service。
+- 一个 Virtual Service Account。
+- 指定安装目录。
+- 指定 ProgramData 目录。
+- 固定 High 管理 Pipe。
+- 固定 Daily Medium Pipe。
+- Trusted Helper。
+- Launcher。
+- Native Runtime。
+- Synthetic Vault。
+- Synthetic Token Ledger。
+- Synthetic Provider。
+
+不得：
+
+- 导入真实 API Key。
+- 连接 DeepSeek。
+- 连接 OpenAI。
+- 连接 GLM。
+- 产生真实 Token 消耗。
+- 产生真实模型费用。
+- 迁移 REAL Token Ledger。
+- 修改 Ubuntu。
+- 修改防火墙。
+- 安装驱动。
+- 修改 AppContainer。
+- 开放任意 Shell。
+- 自动 Commit / Push。
+
+本轮已有1亿 Token 授权保持不变，但不产生真实模型请求。
+
+---
+
+# 九、P1：签名与部署安全测试
+
+必须测试：
+
+1. 正确本地证书。
+2. 错误证书。
+3. 错误 DER SHA256 Pin。
+4. 证书被替换。
+5. 证书过期。
+6. 签名文件被篡改。
+7. 安装清单被修改。
+8. 资格计划被修改。
+9. Operator SID 不匹配。
+10. Host 不匹配。
+11. Service SID 不匹配。
+12. Epoch 不匹配。
+13. 有效期不匹配。
+14. 资格范围扩大。
+15. real_import 被设置为 true。
+16. live_provider 被设置为 true。
+17. production_release 被设置为 true。
+18. real_ledger_migration 被设置为 true。
+19. 旧签名重放。
+20. 安装文件 Hash 改变。
+21. 签名后替换依赖。
+22. 未签名部署申请。
+23. 缺少用户确认。
+24. 签名工具异常退出。
+
+所有测试必须保留原始证据。
+
+模拟证书测试不能冒充真实本地签名资格。
+
+---
+
+# 十、P1：部署材料重新冻结
+
+本轮完成后重新生成：
+
+- installation-manifest.json。
+- installation-manifest-status.json。
+- qualification-plan.json。
+- deployment-approval.json。
+- signature-policy.json。
+- signer-certificate.json。
+- certificate-pin.json。
+- SHA256SUMS。
+- rollback-plan.json。
+
+必须记录：
+
+- 文件数量。
+- 总字节数。
+- 所有文件 Hash。
+- 实际证书指纹。
+- 签名策略。
+- 有效期。
+- 资格范围。
+- 授权边界。
+
+如果签名改变二进制字节，必须重新生成全部相关 Hash。
+
+不能沿用签名前的旧清单。
+
+---
+
+# 十一、部署前最终交付
+
+本轮先完成本地资格签发机制及部署准备。
+
+交付：
+
+1. Q4.1 总体设计。
+2. LOCAL_QUALIFICATION 合同。
+3. PRODUCTION_RELEASE 合同。
+4. 本地资格证书设计。
+5. 独立 Signer 源码。
+6. Signer UI。
+7. 私钥保护说明。
+8. CMS 签名实现。
+9. 证书 Pin 验证。
+10. 部署验证器修改。
+11. 完整测试。
+12. 独立安全审查。
+13. 最终安装清单。
+14. 回滚材料。
+15. 部署审批材料。
+16. SHA256 清单。
+17. 最终验收报告。
+
+---
+
+# 十二、部署权限纪律
+
+本轮可以完成：
+
+- 代码开发。
+- 构建。
+- 模拟签名测试。
+- 验证器测试。
+- 只读系统检查。
+- 部署材料准备。
+
+但未经用户明确批准，不得：
+
+- 生成并信任本地证书。
+- 导入证书到 Windows 信任存储。
+- 修改证书存储。
+- 创建 Windows Service。
+- 创建账户。
+- 修改 ACL。
+- 安装程序。
+- 启动提升程序。
+- 启动真实服务。
+
+完成本地签名工具后，先让用户审阅其操作范围，再由用户自行确认签发方式。
+
+真实部署仍需单独批准。
+
+---
+
+# 十三、最终验收原则
+
+本轮必须证明：
+
+1. 本地资格签发与生产发布签发已经分离。
+2. 不需要购买商业证书即可准备本地资格签名。
+3. 用户控制签名私钥。
+4. Codex 无法读取签名私钥。
+5. Codex 不能自行批准部署。
+6. 签名严格绑定主机、Operator、Service、Epoch 和安装清单。
+7. 资格签名不能用于生产发布。
+8. 真实系统变更仍然需要用户独立批准。
+9. 安装器继续默认拒绝未批准部署。
+10. 原 Q4 的所有安全门禁保持。
+11. 真实 API Key 导入继续 BLOCKED。
+12. 真实 DeepSeek 请求继续 BLOCKED。
+
+严格区分：
+
+PASS / FAIL / NOT_RUN / BLOCKED / SIMULATED / INCONCLUSIVE。
+
+---
+
+# 十四、执行要求
+
+由 Codex 负责实现。
+
+先读取 Q4 全部签名、部署和安全合同。
+
+优先复用现有 CMS 验证器、安装器和部署材料。
+
+不要重新开发一套与现有合同不兼容的签名体系。
+
+不要为了完成本地资格模式而削弱生产发布模式。
+
+不要仅仅增加配置开关。
+
+必须真正完成签名工具、验证器、合同和测试。
+
+**最终目标：让用户能够在不购买商业证书的情况下，自主批准 AgentNexus 在自己的 Windows 电脑上进行合成资格部署，同时保留完整的独立审批和生产安全边界。**
+
+现在开始执行 M1.8.3-Q4.1。
+
+先完成代码、测试和只读预检，最后提交精确部署申请。
+
+在用户明确批准之前，不执行任何证书信任导入或 Windows 系统变更。

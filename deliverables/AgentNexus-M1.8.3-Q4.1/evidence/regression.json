@@ -1,0 +1,57 @@
+{
+  "schema": "agentnexus.q41.regression.v1",
+  "status": "PASS",
+  "run": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.1\\regression-20261109T145503689815Z",
+  "stages": [
+    {
+      "name": "strict-typecheck",
+      "command": [
+        "D:\\Nodejs\\node.EXE",
+        "tools/agentnexus/typecheck-m15.mjs"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "f2f1340877f8fa76f4dc290b51caf5580548734d7f3ec659d23ab77ec9396bca",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "affected-regression",
+      "command": [
+        "D:\\Nodejs\\node.EXE",
+        "--test",
+        "--test-reporter=tap",
+        "--test-concurrency=1",
+        "tests/agentnexus/m18-vault.test.ts",
+        "tests/agentnexus/m18-ledger.test.ts",
+        "tests/agentnexus/m18-gateway.test.ts",
+        "tests/agentnexus/m18-secret-boundary.test.ts",
+        "tests/agentnexus/m18-authorization.test.ts",
+        "tests/agentnexus/m18-protocol.test.ts",
+        "tests/agentnexus/m18-review-fixes.test.ts",
+        "tests/agentnexus/m181-control.test.ts",
+        "tests/agentnexus/m181-adapter.test.ts",
+        "tests/agentnexus/m182-egress.test.ts",
+        "tests/agentnexus/m183-service.test.ts",
+        "tests/agentnexus/q2-daily.test.ts",
+        "tests/agentnexus/q3-stack.test.ts",
+        "tests/desktop/isolated.test.ts",
+        "tests/desktop/q2-trusted-entry.test.ts",
+        "tests/desktop/q3-helper-launch.test.ts",
+        "tests/desktop/service.test.ts"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "58aa7fbe864b1a8e38cbc9b6f1b7c53d15cd4e14a2e5165590f3dd96044fa5f6",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "counts": {
+    "tests": 229,
+    "pass": 224,
+    "fail": 0,
+    "skipped": 5
+  },
+  "source_unchanged": true,
+  "os_qualification": "NOT_RUN",
+  "system_changes": false,
+  "real_key": false,
+  "live_provider": false
+}

@@ -1,0 +1,94 @@
+{
+  "status": "PASS",
+  "run": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q4.1\\readonly-final-20261109T152531603925Z",
+  "checks": [
+    {
+      "name": "authenticode-pe",
+      "command": [
+        "C:\\Program Files\\WindowsApps\\OpenAI.CodexPrimaryRuntime.v26-1104-709-0_26.1104.709.0_x64__3k8sg7r9htsxt\\dependencies\\native\\powershell\\pwsh.EXE",
+        "-NoProfile",
+        "-Command",
+        "$rows=@(); foreach($p in Get-ChildItem -LiteralPath 'I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.1\\payload' -Recurse -File | Where-Object {$_.Extension -in @('.exe','.dll')}) { $s=Get-AuthenticodeSignature -LiteralPath $p.FullName;$rows+=@{path=$p.FullName;sha256=(Get-FileHash -LiteralPath $p.FullName -Algorithm SHA256).Hash.ToLowerInvariant();status=$s.Status.ToString();cms_grants_authenticode=$false} };$rows | ConvertTo-Json -Depth 5"
+      ],
+      "exit_code": 0,
+      "expected_exit": 0,
+      "status": "PASS",
+      "stdout_sha256": "3f3f0fda47256e3d748c79dd5517ab77224b61e82a326e176c023165c82f3be8",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "powershell-ast",
+      "command": [
+        "C:\\Program Files\\WindowsApps\\OpenAI.CodexPrimaryRuntime.v26-1104-709-0_26.1104.709.0_x64__3k8sg7r9htsxt\\dependencies\\native\\powershell\\pwsh.EXE",
+        "-NoProfile",
+        "-Command",
+        "$rows=@();foreach($p in Get-ChildItem -LiteralPath 'I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.1\\source' -Filter '*.ps1' -Recurse -File){$errors=$null;$tokens=$null;[void][Management.Automation.Language.Parser]::ParseFile($p.FullName,[ref]$tokens,[ref]$errors);$rows+=@{path=$p.FullName;sha256=(Get-FileHash -LiteralPath $p.FullName -Algorithm SHA256).Hash.ToLowerInvariant();errors=@($errors | ForEach-Object {$_.ErrorId})}};$rows | ConvertTo-Json -Depth 5;if(@($rows | Where-Object {$_.errors.Count}).Count){exit 1}"
+      ],
+      "exit_code": 0,
+      "expected_exit": 0,
+      "status": "PASS",
+      "stdout_sha256": "3cd0aa630b8df5cd42a1d6cb08701efa0a340a549ebdd3efb613ca0294aec720",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "default-installer",
+      "command": [
+        "C:\\Program Files\\WindowsApps\\OpenAI.CodexPrimaryRuntime.v26-1104-709-0_26.1104.709.0_x64__3k8sg7r9htsxt\\dependencies\\native\\powershell\\pwsh.EXE",
+        "-NoProfile",
+        "-File",
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.1\\source\\tools\\agentnexus\\install-q41-qualification.ps1",
+        "-BundleRoot",
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.1"
+      ],
+      "exit_code": 0,
+      "expected_exit": 0,
+      "status": "PASS",
+      "stdout_sha256": "c59d4ab21a80a118dfe7fd3f011aea2cedc48146f9d1a8199ba36c4e892e3fe0",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "unsigned-strict-refusal",
+      "command": [
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.1\\signer\\AgentNexus.Qualification.Verifier.exe",
+        "--verify",
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.1",
+        "0000000000000000000000000000000000000000000000000000000000000000"
+      ],
+      "exit_code": 21,
+      "expected_exit": 21,
+      "status": "PASS",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "aea3f2440b088e91d2e3e53454347c4a0c382f50e40917abd91035b3d0748e2a"
+    },
+    {
+      "name": "signer-no-automatic-approval",
+      "command": [
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.1\\signer\\AgentNexus.Qualification.Signer.exe",
+        "--approve",
+        "--force"
+      ],
+      "exit_code": 21,
+      "expected_exit": 21,
+      "status": "PASS",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "signer-preview",
+      "command": [
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.1\\signer\\AgentNexus.Qualification.Signer.exe",
+        "--render-preview",
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.1",
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.1\\evidence\\signer-preview.png"
+      ],
+      "exit_code": 0,
+      "expected_exit": 0,
+      "status": "PASS",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "system_changes": false,
+  "actual_apply": "NOT_RUN",
+  "private_key_accessed": false
+}

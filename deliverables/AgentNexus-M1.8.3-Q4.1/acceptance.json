@@ -1,0 +1,108 @@
+{
+  "schema": "agentnexus.q41.acceptance.v1",
+  "implementation": "PASS",
+  "signing_tests": {
+    "status": "PASS",
+    "assurance": "SIMULATED",
+    "tests": 60,
+    "passed": 60,
+    "failed": 0
+  },
+  "regression": {
+    "tests": 229,
+    "pass": 224,
+    "fail": 0,
+    "skipped": 5
+  },
+  "status": "UNSIGNED",
+  "deployment_decision": "NO-GO",
+  "actual_user_signing": "NOT_RUN",
+  "trusted_same_sid_key_isolation": "INCONCLUSIVE",
+  "os_qualification": "BLOCKED",
+  "windows_os_tests": {
+    "PASS": 0,
+    "NOT_RUN": 70
+  },
+  "qualification_categories": {
+    "PASS": 0,
+    "NOT_RUN": 19
+  },
+  "actual_certificate_pin": null,
+  "criteria": [
+    {
+      "id": 1,
+      "requirement": "本地资格与生产发布分离",
+      "status": "PASS",
+      "assurance": "CODE_AND_SIMULATED"
+    },
+    {
+      "id": 2,
+      "requirement": "无需商业证书即可准备本地签名",
+      "status": "PASS",
+      "assurance": "PREPARATION_PATH_ONLY"
+    },
+    {
+      "id": 3,
+      "requirement": "用户控制实际签名私钥",
+      "status": "NOT_RUN",
+      "reason": "用户须先选择独立签名环境并自行创建证书"
+    },
+    {
+      "id": 4,
+      "requirement": "Codex无法读取用户私钥的实际OS隔离证明",
+      "status": "INCONCLUSIVE",
+      "reason": "未访问用户密钥；同SID任意恶意进程的密钥使用隔离/可信在场未建立"
+    },
+    {
+      "id": 5,
+      "requirement": "独立用户确认与实际部署再次批准",
+      "status": "PASS",
+      "assurance": "IMPLEMENTED_NOT_ACTUAL_SIGNING_OR_APPLY"
+    },
+    {
+      "id": 6,
+      "requirement": "Host/Operator/Service/Epoch/清单绑定",
+      "status": "PASS",
+      "assurance": "SIMULATED"
+    },
+    {
+      "id": 7,
+      "requirement": "本地签名不得用于生产",
+      "status": "PASS",
+      "assurance": "SIMULATED"
+    },
+    {
+      "id": 8,
+      "requirement": "真实系统变更独立批准",
+      "status": "PASS",
+      "assurance": "PREPARED_NO_SYSTEM_CHANGES"
+    },
+    {
+      "id": 9,
+      "requirement": "安装器默认拒绝未批准部署",
+      "status": "PASS",
+      "assurance": "READ_ONLY_AND_SIMULATED_VERIFIER"
+    },
+    {
+      "id": 10,
+      "requirement": "Q4门禁/历史保留",
+      "status": "PASS",
+      "assurance": "OS_70_AND_EVIDENCE_19_NOT_RUN"
+    },
+    {
+      "id": 11,
+      "requirement": "真实API Key导入",
+      "status": "BLOCKED"
+    },
+    {
+      "id": 12,
+      "requirement": "真实DeepSeek请求",
+      "status": "BLOCKED"
+    }
+  ],
+  "real_api_keys": 0,
+  "real_provider_requests": 0,
+  "real_cost_usd": 0,
+  "system_changes": false,
+  "commit_or_push": false
+}

@@ -1,0 +1,17 @@
+{
+  "schema": "agentnexus.q41.rollback-plan.v1",
+  "deployment_id": "ce334811-6ef2-41f8-9ef9-27c097ae826a",
+  "installation_manifest_sha256": "31d1ea7fd3487a9843b753c1000418c693b32627d615070bd2038fcf5677931f",
+  "system_changes_executed": false,
+  "install_stopped_only": true,
+  "failure": "Preserve the consumed receipt, partial installation, Vault, Ledger incl. consistent WAL/SHM, audit and all approval material; do not retry automatically.",
+  "stop_or_remove_approval": "SEPARATE_PRECISE_USER_APPROVAL_REQUIRED",
+  "forbidden": [
+    "delete data",
+    "remove receipt",
+    "reset ledger/budget",
+    "replay SENT/UNKNOWN",
+    "fallback to same-SID vault",
+    "automatic uninstall"
+  ]
+}

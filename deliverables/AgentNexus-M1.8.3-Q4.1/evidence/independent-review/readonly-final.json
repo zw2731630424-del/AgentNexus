@@ -1,0 +1,54 @@
+{
+  "schema": "agentnexus.q41.independent-readonly-final.v1",
+  "observed_at_utc": "2026-11-09T15:23:14.732039+00:00",
+  "status": "PASS",
+  "checks": [
+    {
+      "name": "default-installer-final",
+      "command": [
+        "C:\\Program Files\\WindowsApps\\OpenAI.CodexPrimaryRuntime.v26-1104-709-0_26.1104.709.0_x64__3k8sg7r9htsxt\\dependencies\\native\\powershell\\pwsh.EXE",
+        "-NoProfile",
+        "-File",
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.1\\source\\tools\\agentnexus\\install-q41-qualification.ps1",
+        "-BundleRoot",
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.1"
+      ],
+      "exit_code": 0,
+      "expected_exit": 0,
+      "status": "PASS",
+      "stdout_sha256": "c59d4ab21a80a118dfe7fd3f011aea2cedc48146f9d1a8199ba36c4e892e3fe0",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "unsigned-verifier-final",
+      "command": [
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.1\\signer\\AgentNexus.Qualification.Verifier.exe",
+        "--verify",
+        "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.1",
+        "0000000000000000000000000000000000000000000000000000000000000000"
+      ],
+      "exit_code": 21,
+      "expected_exit": 21,
+      "status": "PASS",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "aea3f2440b088e91d2e3e53454347c4a0c382f50e40917abd91035b3d0748e2a"
+    },
+    {
+      "name": "authenticode-final-public-file-inspection",
+      "exit_code": 0,
+      "status": "PASS",
+      "file_count": 14,
+      "stdout_sha256": "d0c860a0492eded481b1676bd391e0d0d3ccc9bd7a0aa0e6bfcd287398f65259",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "inspected_signature_status_counts": {
+    "NotSigned": 12,
+    "Valid": 2
+  },
+  "actual_apply": "NOT_RUN",
+  "actual_user_signing": "NOT_RUN",
+  "os_qualification": "NOT_RUN",
+  "system_changes": false,
+  "current_manifest_sha256": "31d1ea7fd3487a9843b753c1000418c693b32627d615070bd2038fcf5677931f"
+}
