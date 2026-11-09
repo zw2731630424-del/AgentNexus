@@ -1,0 +1,46 @@
+{
+  "schema": 1,
+  "scope": "M1.8.3-Q2_TRUSTED_CREDENTIAL_HELPER_CODE_AND_OFFLINE_TESTS_ONLY",
+  "code_review": {
+    "fixed_helper_path": "C:\\Program Files\\AgentNexus\\trusted-credential-helper.exe",
+    "manifest_execution_level": "asInvoker",
+    "requires_operator_elevated_high_token_in_normal_entry": true,
+    "uses_common_full_deployment_hash_and_signed_qualification_gate": true,
+    "secret_cli_stdin_env_url_or_generic_pipe_client": false,
+    "final_confirmation_created_by_helper": true,
+    "password_hidden_by_default": true,
+    "reveal_timeout_seconds": 15,
+    "window_lifetime_seconds": 180,
+    "transaction_ticket_seconds_max": 30,
+    "ticket_same_channel_prepare_save_cancel": true,
+    "automatic_reconnect_retry_or_replay": false,
+    "normal_stdout_stderr_contains_payload": false,
+    "mutable_owned_byte_arrays_best_effort_clear": true,
+    "process_thread_token_object_protection_implemented": false,
+    "complete_managed_string_erasure_claimed": false
+  },
+  "qualification": {
+    "trusted_input_ui": "NOT_RUN",
+    "uac": "NOT_RUN",
+    "service_identity_and_pipe_os_boundary": "NOT_RUN",
+    "same_sid_memory_read_denial": "BLOCKED",
+    "trusted_memory_isolation": "BLOCKED",
+    "clipboard_history_and_dump_denial": "NOT_RUN",
+    "real_key_entry": "NOT_RUN",
+    "network": "NOT_RUN"
+  },
+  "forbidden_actions_performed": {
+    "elevated_helper_or_launcher_start": false,
+    "service_install_or_start": false,
+    "account_acl_or_firewall_change": false,
+    "appcontainer_or_ubuntu": false,
+    "real_key_or_network_request": false
+  },
+  "limits": [
+    "High integrity does not itself deny PROCESS_VM_READ.",
+    "CLR strings, base64 and JSON copies and native edit buffers cannot be guaranteed erased.",
+    "Clipboard/history/sync, screenshots, dump and privileged debugging remain outside proven protection.",
+    "Normal desktop windows are not proof of a secure input desktop.",
+    "Cancellation or process failure after mutation starts remains uncertain and must not auto-retry."
+  ]
+}

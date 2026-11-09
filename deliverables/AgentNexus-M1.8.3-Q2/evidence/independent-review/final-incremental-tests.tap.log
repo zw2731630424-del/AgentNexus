@@ -1,0 +1,286 @@
+TAP version 13
+# Subtest: Q2 ordinary Host remains IPC_BLOCKED with no child launch, UAC or downgrade
+ok 1 - Q2 ordinary Host remains IPC_BLOCKED with no child launch, UAC or downgrade
+  ---
+  duration_ms: 3.0529
+  type: 'test'
+  ...
+# Subtest: Q2 forged production boundary cannot enable fixture runtime authority
+ok 2 - Q2 forged production boundary cannot enable fixture runtime authority
+  ---
+  duration_ms: 0.204
+  type: 'test'
+  ...
+# Subtest: Q2 caller IDs and labels create no runtime authority or egress consent
+ok 3 - Q2 caller IDs and labels create no runtime authority or egress consent
+  ---
+  duration_ms: 600.2931
+  type: 'test'
+  ...
+# Subtest: Q2 exact service grant completes once and all roles use one ledger owner
+ok 4 - Q2 exact service grant completes once and all roles use one ledger owner
+  ---
+  duration_ms: 2104.1383
+  type: 'test'
+  ...
+# Subtest: Q2 grant captured from another channel or runtime is unusable
+ok 5 - Q2 grant captured from another channel or runtime is unusable
+  ---
+  duration_ms: 534.1374
+  type: 'test'
+  ...
+# Subtest: Q2 exact grant rejects forged task, agent, project and runtime Subject
+ok 6 - Q2 exact grant rejects forged task, agent, project and runtime Subject
+  ---
+  duration_ms: 1059.0275
+  type: 'test'
+  ...
+# Subtest: Q2 grant cannot change operation, nonce, epoch, token reservation or quota
+ok 7 - Q2 grant cannot change operation, nonce, epoch, token reservation or quota
+  ---
+  duration_ms: 1047.4989
+  type: 'test'
+  ...
+# Subtest: Q2 body, context, arbitrary URL/method/header/provider/model changes never reach Transport
+ok 8 - Q2 body, context, arbitrary URL/method/header/provider/model changes never reach Transport
+  ---
+  duration_ms: 615.7838
+  type: 'test'
+  ...
+# Subtest: Q2 self labelled PUBLIC and unreviewed complete request content fail final egress
+ok 9 - Q2 self labelled PUBLIC and unreviewed complete request content fail final egress
+  ---
+  duration_ms: 518.0221
+  type: 'test'
+  ...
+# Subtest: Q2 revoked egress decision fences the original daily grant before send
+ok 10 - Q2 revoked egress decision fences the original daily grant before send
+  ---
+  duration_ms: 532.3895
+  type: 'test'
+  ...
+# Subtest: Q2 expired grant and too short runtime lifetime are denied
+ok 11 - Q2 expired grant and too short runtime lifetime are denied
+  ---
+  duration_ms: 525.7781
+  type: 'test'
+  ...
+# Subtest: Q2 grant consumption rolls back together with insufficient four level budget
+ok 12 - Q2 grant consumption rolls back together with insufficient four level budget
+  ---
+  duration_ms: 1036.8413
+  type: 'test'
+  ...
+# Subtest: Q2 legacy broker cannot bypass a daily grant on the same request
+ok 13 - Q2 legacy broker cannot bypass a daily grant on the same request
+  ---
+  duration_ms: 1020.6157
+  type: 'test'
+  ...
+# Subtest: Q2 duplicate in flight grant cannot replace original cancellation ownership
+ok 14 - Q2 duplicate in flight grant cannot replace original cancellation ownership
+  ---
+  duration_ms: 1017.2199
+  type: 'test'
+  ...
+# Subtest: Q2 disconnect revokes unsent grants and never restores spent quota
+ok 15 - Q2 disconnect revokes unsent grants and never restores spent quota
+  ---
+  duration_ms: 1012.55
+  type: 'test'
+  ...
+# Subtest: Q2 explicit cancellation revokes a prepared unsent grant on its own channel
+ok 16 - Q2 explicit cancellation revokes a prepared unsent grant on its own channel
+  ---
+  duration_ms: 529.1666
+  type: 'test'
+  ...
+# Subtest: Q2 restart revokes outstanding grants and preserves consumed grants and ledger
+ok 17 - Q2 restart revokes outstanding grants and preserves consumed grants and ledger
+  ---
+  duration_ms: 1528.314
+  type: 'test'
+  ...
+# Subtest: Q2 credential ticket cancel has channel/operation ownership and no save fallback
+ok 18 - Q2 credential ticket cancel has channel/operation ownership and no save fallback
+  ---
+  duration_ms: 537.1068
+  type: 'test'
+  ...
+# Subtest: Q2 ticket expiry and cancellation during encryption prevent credential commit
+ok 19 - Q2 ticket expiry and cancellation during encryption prevent credential commit
+  ---
+  duration_ms: 1111.8659
+  type: 'test'
+  ...
+# Subtest: Q2 a second rotation of the same superseded key is rejected without replacing its pool
+ok 20 - Q2 a second rotation of the same superseded key is rejected without replacing its pool
+  ---
+  duration_ms: 1072.6245
+  type: 'test'
+  ...
+# Subtest: Q2 inherited process daily streaming is SIMULATED and cannot expose secrets or arbitrary methods
+ok 21 - Q2 inherited process daily streaming is SIMULATED and cannot expose secrets or arbitrary methods
+  ---
+  duration_ms: 1182.7455
+  type: 'test'
+  ...
+# Subtest: Q2 independent synthetic service process crash retains UNKNOWN and rejects retry
+ok 22 - Q2 independent synthetic service process crash retains UNKNOWN and rejects retry
+  ---
+  duration_ms: 1920.569
+  type: 'test'
+  ...
+# Subtest: Q2 strict intent rejects payload expansion, endpoint/method injection and newline identifiers
+ok 23 - Q2 strict intent rejects payload expansion, endpoint/method injection and newline identifiers
+  ---
+  duration_ms: 1.4375
+  type: 'test'
+  ...
+# Subtest: Q2 REAL Host denies legacy credential.save before reading any payload field
+ok 24 - Q2 REAL Host denies legacy credential.save before reading any payload field
+  ---
+  duration_ms: 728.1636
+  type: 'test'
+  ...
+# Subtest: Q2 ADD succeeds only through trusted port and never implies Provider connected
+ok 25 - Q2 ADD succeeds only through trusted port and never implies Provider connected
+  ---
+  duration_ms: 347.6091
+  type: 'test'
+  ...
+# Subtest: Q2 state, scope and delete management use helper intents and preserve service metadata
+ok 26 - Q2 state, scope and delete management use helper intents and preserve service metadata
+  ---
+  duration_ms: 369.5444
+  type: 'test'
+  ...
+# Subtest: Q2 unavailable service still permits ADD intent and missing port is IPC_BLOCKED
+ok 27 - Q2 unavailable service still permits ADD intent and missing port is IPC_BLOCKED
+  ---
+  duration_ms: 687.152
+  type: 'test'
+  ...
+# Subtest: Q2 legacy labels and empty scope do not prevent revoke management
+ok 28 - Q2 legacy labels and empty scope do not prevent revoke management
+  ---
+  duration_ms: 352.7696
+  type: 'test'
+  ...
+# Subtest: Q2 ordinary requests cannot configure service budgets or reach dispatch
+ok 29 - Q2 ordinary requests cannot configure service budgets or reach dispatch
+  ---
+  duration_ms: 335.1559
+  type: 'test'
+  ...
+# Subtest: Q2 cancellation and untrusted exit output remain INCONCLUSIVE even if metadata changes
+ok 30 - Q2 cancellation and untrusted exit output remain INCONCLUSIVE even if metadata changes
+  ---
+  duration_ms: 341.6681
+  type: 'test'
+  ...
+# Subtest: Q2 Electron launch adapter uses fixed exe and finite argv, no stdin or process output
+ok 31 - Q2 Electron launch adapter uses fixed exe and finite argv, no stdin or process output
+  ---
+  duration_ms: 2.612
+  type: 'test'
+  ...
+# Subtest: Q2 production Renderer and Host contain no credential input or ordinary service secret structure
+ok 32 - Q2 production Renderer and Host contain no credential input or ordinary service secret structure
+  ---
+  duration_ms: 1.0946
+  type: 'test'
+  ...
+# Subtest: DESKTOP provider CRUD, strict revision, unsupported protocols and model wire IDs
+ok 33 - DESKTOP provider CRUD, strict revision, unsupported protocols and model wire IDs
+  ---
+  duration_ms: 479.5023
+  type: 'test'
+  ...
+# Subtest: DESKTOP credential add, zeroization, no read API, rotation, disable, revoke and audit safety
+ok 34 - DESKTOP credential add, zeroization, no read API, rotation, disable, revoke and audit safety
+  ---
+  duration_ms: 546.6174
+  type: 'test'
+  ...
+# Subtest: DESKTOP credential protector failure never reports success and clears submitted bytes
+ok 35 - DESKTOP credential protector failure never reports success and clears submitted bytes
+  ---
+  duration_ms: 400.7684
+  type: 'test'
+  ...
+# Subtest: DESKTOP synthetic connection uses Gateway and ledger but never marks CONNECTED; LIVE never sends
+ok 36 - DESKTOP synthetic connection uses Gateway and ledger but never marks CONNECTED; LIVE never sends
+  ---
+  duration_ms: 718.4579
+  type: 'test'
+  ...
+# Subtest: DESKTOP Agent bindings, task override, reset, favorites/defaults and pre-send failover execute Model Router
+ok 37 - DESKTOP Agent bindings, task override, reset, favorites/defaults and pre-send failover execute Model Router
+  ---
+  duration_ms: 1050.1707
+  type: 'test'
+  ...
+# Subtest: DESKTOP all Keys and Providers share platform usage; per-Agent budget cannot be expanded by adding Keys
+ok 38 - DESKTOP all Keys and Providers share platform usage; per-Agent budget cannot be expanded by adding Keys
+  ---
+  duration_ms: 763.2491
+  type: 'test'
+  ...
+# Subtest: DESKTOP UNKNOWN holds survive rotation and Host reopen and never auto-replay
+ok 39 - DESKTOP UNKNOWN holds survive rotation and Host reopen and never auto-replay
+  ---
+  duration_ms: 695.6718
+  type: 'test'
+  ...
+# Subtest: DESKTOP multiple scoped Agent requests occupy separate pool Keys concurrently
+ok 40 - DESKTOP multiple scoped Agent requests occupy separate pool Keys concurrently
+  ---
+  duration_ms: 647.811
+  type: 'test'
+  ...
+# Subtest: DESKTOP IPC contract denies claimed roles, unknown fields, revoked sessions, real Transport and secret metadata
+ok 41 - DESKTOP IPC contract denies claimed roles, unknown fields, revoked sessions, real Transport and secret metadata
+  ---
+  duration_ms: 396.2365
+  type: 'test'
+  ...
+# Subtest: DESKTOP connection error taxonomy does not infer success from configuration
+ok 42 - DESKTOP connection error taxonomy does not infer success from configuration
+  ---
+  duration_ms: 0.2492
+  type: 'test'
+  ...
+# Subtest: DESKTOP provider permission denial remains UNAUTHORIZED through actual Gateway path
+ok 43 - DESKTOP provider permission denial remains UNAUTHORIZED through actual Gateway path
+  ---
+  duration_ms: 486.4568
+  type: 'test'
+  ...
+# Subtest: DESKTOP runtime shares four slots across all facades and close cannot partially close an active Vault
+ok 44 - DESKTOP runtime shares four slots across all facades and close cannot partially close an active Vault
+  ---
+  duration_ms: 1094.1875
+  type: 'test'
+  ...
+# Subtest: DESKTOP acknowledged not-sent primary RPM failure uses fallback without replaying a sent request
+ok 45 - DESKTOP acknowledged not-sent primary RPM failure uses fallback without replaying a sent request
+  ---
+  duration_ms: 802.7165
+  type: 'test'
+  ...
+# Subtest: DESKTOP deadline is displayed as TIMEOUT while retaining unknown usage and no replay
+ok 46 - DESKTOP deadline is displayed as TIMEOUT while retaining unknown usage and no replay
+  ---
+  duration_ms: 552.8908
+  type: 'test'
+  ...
+1..46
+# tests 46
+# suites 0
+# pass 46
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 32016.3472

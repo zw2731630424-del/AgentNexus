@@ -1,0 +1,205 @@
+{
+  "schema": "agentnexus.q2.acceptance.v1",
+  "q2_complete": false,
+  "qualification": "BLOCKED",
+  "deployment": "NO_GO",
+  "source_files": 242,
+  "source_set_sha256": "82097622ac84a60b16bc2b896df0f64857d3ae0af0aecc2ada2a921c9334ad7c",
+  "verification": {
+    "status": "PASS",
+    "summary": [
+      "# tests 217",
+      "# pass 215",
+      "# fail 0",
+      "# cancelled 0",
+      "# skipped 2",
+      "# duration_ms 85767.3739"
+    ],
+    "source_unchanged": true
+  },
+  "channel_a": {
+    "implementation": "COMPILED_OFFLINE_TESTED",
+    "os_qualification": "BLOCKED",
+    "blockers": [
+      "No real UAC/Service test",
+      "Helper process/thread/token/loader memory boundary incomplete"
+    ]
+  },
+  "channel_b": {
+    "implementation": "EXACT_GRANT_PROTOCOL_SIMULATED",
+    "production": "BLOCKED",
+    "native_runtime_authenticator": "NOT_IMPLEMENTED",
+    "medium_listener": "NOT_IMPLEMENTED"
+  },
+  "historical_same_sid_decryption": "ISOLATION_FAIL_RETAINED",
+  "os_attack_pass_count": 0,
+  "os_attack_not_run_count": 70,
+  "real_keys": 0,
+  "real_provider_requests": 0,
+  "real_tokens": 0,
+  "real_cost_usd": 0,
+  "system_changes_executed": false,
+  "criteria": [
+    {
+      "id": 1,
+      "criterion": "正常启动无需管理员",
+      "qualification": "BLOCKED",
+      "code_or_simulation": "IMPLEMENTED_OR_SIMULATED_ONLY",
+      "reason": "NO_APPROVED_DEPLOYED_SERVICE_OR_REAL_OS_EVIDENCE"
+    },
+    {
+      "id": 2,
+      "criterion": "Add Key 才触发一次 UAC",
+      "qualification": "BLOCKED",
+      "code_or_simulation": "IMPLEMENTED_OR_SIMULATED_ONLY",
+      "reason": "NO_APPROVED_DEPLOYED_SERVICE_OR_REAL_OS_EVIDENCE"
+    },
+    {
+      "id": 3,
+      "criterion": "独立可信窗口接收 Key",
+      "qualification": "BLOCKED",
+      "code_or_simulation": "IMPLEMENTED_OR_SIMULATED_ONLY",
+      "reason": "NO_APPROVED_DEPLOYED_SERVICE_OR_REAL_OS_EVIDENCE"
+    },
+    {
+      "id": 4,
+      "criterion": "明文不经 Renderer",
+      "qualification": "BLOCKED",
+      "code_or_simulation": "IMPLEMENTED_OR_SIMULATED_ONLY",
+      "reason": "NO_APPROVED_DEPLOYED_SERVICE_OR_REAL_OS_EVIDENCE"
+    },
+    {
+      "id": 5,
+      "criterion": "明文不进入普通 Host",
+      "qualification": "BLOCKED",
+      "code_or_simulation": "IMPLEMENTED_OR_SIMULATED_ONLY",
+      "reason": "NO_APPROVED_DEPLOYED_SERVICE_OR_REAL_OS_EVIDENCE"
+    },
+    {
+      "id": 6,
+      "criterion": "服务保存凭证",
+      "qualification": "BLOCKED",
+      "code_or_simulation": "IMPLEMENTED_OR_SIMULATED_ONLY",
+      "reason": "NO_APPROVED_DEPLOYED_SERVICE_OR_REAL_OS_EVIDENCE"
+    },
+    {
+      "id": 7,
+      "criterion": "完成后 Helper 退出",
+      "qualification": "BLOCKED",
+      "code_or_simulation": "IMPLEMENTED_OR_SIMULATED_ONLY",
+      "reason": "NO_APPROVED_DEPLOYED_SERVICE_OR_REAL_OS_EVIDENCE"
+    },
+    {
+      "id": 8,
+      "criterion": "无已保存 Key 读回接口",
+      "qualification": "BLOCKED",
+      "code_or_simulation": "IMPLEMENTED_OR_SIMULATED_ONLY",
+      "reason": "NO_APPROVED_DEPLOYED_SERVICE_OR_REAL_OS_EVIDENCE"
+    },
+    {
+      "id": 9,
+      "criterion": "普通权限发起日常请求",
+      "qualification": "BLOCKED",
+      "code_or_simulation": "NOT_IMPLEMENTED",
+      "reason": "PRODUCTION_DAILY_NATIVE_ORIGIN_CHAIN_MISSING"
+    },
+    {
+      "id": 10,
+      "criterion": "日常成功调用不触发 UAC",
+      "qualification": "BLOCKED",
+      "code_or_simulation": "NOT_IMPLEMENTED",
+      "reason": "PRODUCTION_DAILY_NATIVE_ORIGIN_CHAIN_MISSING"
+    },
+    {
+      "id": 11,
+      "criterion": "Subagent 精确授权",
+      "qualification": "BLOCKED",
+      "code_or_simulation": "IMPLEMENTED_OR_SIMULATED_ONLY",
+      "reason": "PRODUCTION_DAILY_NATIVE_ORIGIN_CHAIN_MISSING"
+    },
+    {
+      "id": 12,
+      "criterion": "Reviewer 精确授权",
+      "qualification": "BLOCKED",
+      "code_or_simulation": "IMPLEMENTED_OR_SIMULATED_ONLY",
+      "reason": "PRODUCTION_DAILY_NATIVE_ORIGIN_CHAIN_MISSING"
+    },
+    {
+      "id": 13,
+      "criterion": "Agent 无 Key",
+      "qualification": "BLOCKED",
+      "code_or_simulation": "IMPLEMENTED_OR_SIMULATED_ONLY",
+      "reason": "PRODUCTION_DAILY_NATIVE_ORIGIN_CHAIN_MISSING"
+    },
+    {
+      "id": 14,
+      "criterion": "同 SID 无法伪造可信请求",
+      "qualification": "BLOCKED",
+      "code_or_simulation": "NOT_IMPLEMENTED",
+      "reason": "PRODUCTION_DAILY_NATIVE_ORIGIN_CHAIN_MISSING"
+    },
+    {
+      "id": 15,
+      "criterion": "不可重放",
+      "qualification": "BLOCKED",
+      "code_or_simulation": "IMPLEMENTED_OR_SIMULATED_ONLY",
+      "reason": "PRODUCTION_DAILY_NATIVE_ORIGIN_CHAIN_MISSING"
+    },
+    {
+      "id": 16,
+      "criterion": "无任意 HTTP 代理",
+      "qualification": "BLOCKED",
+      "code_or_simulation": "IMPLEMENTED_OR_SIMULATED_ONLY",
+      "reason": "PRODUCTION_DAILY_NATIVE_ORIGIN_CHAIN_MISSING"
+    },
+    {
+      "id": 17,
+      "criterion": "最终 Data Egress",
+      "qualification": "BLOCKED",
+      "code_or_simulation": "IMPLEMENTED_OR_SIMULATED_ONLY",
+      "reason": "PRODUCTION_DAILY_NATIVE_ORIGIN_CHAIN_MISSING"
+    },
+    {
+      "id": 18,
+      "criterion": "唯一可信 Token Owner",
+      "qualification": "BLOCKED",
+      "code_or_simulation": "IMPLEMENTED_OR_SIMULATED_ONLY",
+      "reason": "PRODUCTION_DAILY_NATIVE_ORIGIN_CHAIN_MISSING"
+    },
+    {
+      "id": 19,
+      "criterion": "真实处理同 SID 解密反例",
+      "qualification": "BLOCKED",
+      "code_or_simulation": "IMPLEMENTED_OR_SIMULATED_ONLY",
+      "reason": "NO_APPROVED_DEPLOYED_SERVICE_OR_REAL_OS_EVIDENCE"
+    },
+    {
+      "id": 20,
+      "criterion": "真实 OS 身份验证",
+      "qualification": "BLOCKED",
+      "code_or_simulation": "NOT_IMPLEMENTED",
+      "reason": "NO_APPROVED_DEPLOYED_SERVICE_OR_REAL_OS_EVIDENCE"
+    },
+    {
+      "id": 21,
+      "criterion": "崩溃无未授权降级",
+      "qualification": "BLOCKED",
+      "code_or_simulation": "IMPLEMENTED_OR_SIMULATED_ONLY",
+      "reason": "NO_APPROVED_DEPLOYED_SERVICE_OR_REAL_OS_EVIDENCE"
+    },
+    {
+      "id": 22,
+      "criterion": "恢复不重置预算",
+      "qualification": "BLOCKED",
+      "code_or_simulation": "IMPLEMENTED_OR_SIMULATED_ONLY",
+      "reason": "NO_APPROVED_DEPLOYED_SERVICE_OR_REAL_OS_EVIDENCE"
+    },
+    {
+      "id": 23,
+      "criterion": "管理和请求可追溯",
+      "qualification": "BLOCKED",
+      "code_or_simulation": "IMPLEMENTED_OR_SIMULATED_ONLY",
+      "reason": "NO_APPROVED_DEPLOYED_SERVICE_OR_REAL_OS_EVIDENCE"
+    }
+  ]
+}

@@ -1,0 +1,214 @@
+TAP version 13
+# Subtest: INDEPENDENT synthetic: ordinary desktop connector stays BLOCKED without launching UAC/native client
+ok 1 - INDEPENDENT synthetic: ordinary desktop connector stays BLOCKED without launching UAC/native client
+  ---
+  duration_ms: 2.8401
+  type: 'test'
+  ...
+# Subtest: INDEPENDENT synthetic: no production Daily factory accepts native_verified JSON
+ok 2 - INDEPENDENT synthetic: no production Daily factory accepts native_verified JSON
+  ---
+  duration_ms: 0.1647
+  type: 'test'
+  ...
+# Subtest: INDEPENDENT synthetic: fake same-subject channel and extra native claims cannot prepare a grant
+ok 3 - INDEPENDENT synthetic: fake same-subject channel and extra native claims cannot prepare a grant
+  ---
+  duration_ms: 492.4063
+  type: 'test'
+  ...
+# Subtest: INDEPENDENT synthetic: stolen grant on another registered channel fails without burning the genuine grant
+ok 4 - INDEPENDENT synthetic: stolen grant on another registered channel fails without burning the genuine grant
+  ---
+  duration_ms: 1006.9114
+  type: 'test'
+  ...
+# Subtest: INDEPENDENT synthetic: all major grant mutations reject before send and leave the exact original usable
+ok 5 - INDEPENDENT synthetic: all major grant mutations reject before send and leave the exact original usable
+  ---
+  duration_ms: 1058.7597
+  type: 'test'
+  ...
+# Subtest: INDEPENDENT synthetic: exact grant blocks subject, headers, URL, body, context, and token-plan tampering
+ok 6 - INDEPENDENT synthetic: exact grant blocks subject, headers, URL, body, context, and token-plan tampering
+  ---
+  duration_ms: 481.512
+  type: 'test'
+  ...
+# Subtest: INDEPENDENT synthetic: raw legacy broker execute cannot bypass an issued Daily grant
+ok 7 - INDEPENDENT synthetic: raw legacy broker execute cannot bypass an issued Daily grant
+  ---
+  duration_ms: 993.6674
+  type: 'test'
+  ...
+# Subtest: INDEPENDENT synthetic: concurrent copies of a grant cause one send and one durable consumption
+ok 8 - INDEPENDENT synthetic: concurrent copies of a grant cause one send and one durable consumption
+  ---
+  duration_ms: 1001.7962
+  type: 'test'
+  ...
+# Subtest: INDEPENDENT synthetic: disconnect and same-channel Runtime replacement revoke old grants
+ok 9 - INDEPENDENT synthetic: disconnect and same-channel Runtime replacement revoke old grants
+  ---
+  duration_ms: 487.0538
+  type: 'test'
+  ...
+# Subtest: INDEPENDENT synthetic: store recovery revokes issued grants; a new Runtime cannot revive them
+ok 10 - INDEPENDENT synthetic: store recovery revokes issued grants; a new Runtime cannot revive them
+  ---
+  duration_ms: 973.8839
+  type: 'test'
+  ...
+# Subtest: INDEPENDENT synthetic: Daily and legacy share the same committed task and global budget
+ok 11 - INDEPENDENT synthetic: Daily and legacy share the same committed task and global budget
+  ---
+  duration_ms: 982.8684
+  type: 'test'
+  ...
+# Subtest: INDEPENDENT synthetic: missing provider usage preserves UNKNOWN and blocks both Daily and legacy retry
+ok 12 - INDEPENDENT synthetic: missing provider usage preserves UNKNOWN and blocks both Daily and legacy retry
+  ---
+  duration_ms: 966.4477
+  type: 'test'
+  ...
+# Subtest: INDEPENDENT synthetic: cancel an issued, not-yet-sent grant prevents later send
+ok 13 - INDEPENDENT synthetic: cancel an issued, not-yet-sent grant prevents later send
+  ---
+  duration_ms: 524.39
+  type: 'test'
+  ...
+# Subtest: INDEPENDENT synthetic: expired import ticket never saves a key, and expiry is not an OS isolation result
+ok 14 - INDEPENDENT synthetic: expired import ticket never saves a key, and expiry is not an OS isolation result
+  ---
+  duration_ms: 465.5839
+  type: 'test'
+  ...
+# Subtest: Q2 ordinary Host remains IPC_BLOCKED with no child launch, UAC or downgrade
+ok 15 - Q2 ordinary Host remains IPC_BLOCKED with no child launch, UAC or downgrade
+  ---
+  duration_ms: 2.3533
+  type: 'test'
+  ...
+# Subtest: Q2 forged production boundary cannot enable fixture runtime authority
+ok 16 - Q2 forged production boundary cannot enable fixture runtime authority
+  ---
+  duration_ms: 0.1739
+  type: 'test'
+  ...
+# Subtest: Q2 caller IDs and labels create no runtime authority or egress consent
+ok 17 - Q2 caller IDs and labels create no runtime authority or egress consent
+  ---
+  duration_ms: 524.2549
+  type: 'test'
+  ...
+# Subtest: Q2 exact service grant completes once and all roles use one ledger owner
+ok 18 - Q2 exact service grant completes once and all roles use one ledger owner
+  ---
+  duration_ms: 1899.4965
+  type: 'test'
+  ...
+# Subtest: Q2 grant captured from another channel or runtime is unusable
+ok 19 - Q2 grant captured from another channel or runtime is unusable
+  ---
+  duration_ms: 481.8751
+  type: 'test'
+  ...
+# Subtest: Q2 exact grant rejects forged task, agent, project and runtime Subject
+ok 20 - Q2 exact grant rejects forged task, agent, project and runtime Subject
+  ---
+  duration_ms: 923.5708
+  type: 'test'
+  ...
+# Subtest: Q2 grant cannot change operation, nonce, epoch, token reservation or quota
+ok 21 - Q2 grant cannot change operation, nonce, epoch, token reservation or quota
+  ---
+  duration_ms: 972.9722
+  type: 'test'
+  ...
+# Subtest: Q2 body, context, arbitrary URL/method/header/provider/model changes never reach Transport
+ok 22 - Q2 body, context, arbitrary URL/method/header/provider/model changes never reach Transport
+  ---
+  duration_ms: 493.1898
+  type: 'test'
+  ...
+# Subtest: Q2 self labelled PUBLIC and unreviewed complete request content fail final egress
+ok 23 - Q2 self labelled PUBLIC and unreviewed complete request content fail final egress
+  ---
+  duration_ms: 525.9062
+  type: 'test'
+  ...
+# Subtest: Q2 revoked egress decision fences the original daily grant before send
+ok 24 - Q2 revoked egress decision fences the original daily grant before send
+  ---
+  duration_ms: 485.3725
+  type: 'test'
+  ...
+# Subtest: Q2 expired grant and too short runtime lifetime are denied
+ok 25 - Q2 expired grant and too short runtime lifetime are denied
+  ---
+  duration_ms: 484.8496
+  type: 'test'
+  ...
+# Subtest: Q2 grant consumption rolls back together with insufficient four level budget
+ok 26 - Q2 grant consumption rolls back together with insufficient four level budget
+  ---
+  duration_ms: 930.2265
+  type: 'test'
+  ...
+# Subtest: Q2 legacy broker cannot bypass a daily grant on the same request
+ok 27 - Q2 legacy broker cannot bypass a daily grant on the same request
+  ---
+  duration_ms: 967.0816
+  type: 'test'
+  ...
+# Subtest: Q2 duplicate in flight grant cannot replace original cancellation ownership
+ok 28 - Q2 duplicate in flight grant cannot replace original cancellation ownership
+  ---
+  duration_ms: 997.0759
+  type: 'test'
+  ...
+# Subtest: Q2 disconnect revokes unsent grants and never restores spent quota
+ok 29 - Q2 disconnect revokes unsent grants and never restores spent quota
+  ---
+  duration_ms: 953.2026
+  type: 'test'
+  ...
+# Subtest: Q2 explicit cancellation revokes a prepared unsent grant on its own channel
+ok 30 - Q2 explicit cancellation revokes a prepared unsent grant on its own channel
+  ---
+  duration_ms: 482.8966
+  type: 'test'
+  ...
+# Subtest: Q2 restart revokes outstanding grants and preserves consumed grants and ledger
+ok 31 - Q2 restart revokes outstanding grants and preserves consumed grants and ledger
+  ---
+  duration_ms: 1428.7569
+  type: 'test'
+  ...
+# Subtest: Q2 credential ticket cancel has channel/operation ownership and no save fallback
+ok 32 - Q2 credential ticket cancel has channel/operation ownership and no save fallback
+  ---
+  duration_ms: 473.9506
+  type: 'test'
+  ...
+# Subtest: Q2 inherited process daily streaming is SIMULATED and cannot expose secrets or arbitrary methods
+ok 33 - Q2 inherited process daily streaming is SIMULATED and cannot expose secrets or arbitrary methods
+  ---
+  duration_ms: 1141.6449
+  type: 'test'
+  ...
+# Subtest: Q2 independent synthetic service process crash retains UNKNOWN and rejects retry
+ok 34 - Q2 independent synthetic service process crash retains UNKNOWN and rejects retry
+  ---
+  duration_ms: 1806.8902
+  type: 'test'
+  ...
+1..34
+# tests 34
+# suites 0
+# pass 34
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 25747.4285

@@ -1,0 +1,176 @@
+{
+  "schema": "agentnexus.q2.readonly-preflight.v1",
+  "checked_at_utc": "2026-11-09T05:12:49.6537503Z",
+  "timezone": "Asia/Shanghai",
+  "scope": "QUALIFICATION_ONLY",
+  "system_mutations_executed": false,
+  "os": {
+    "status": "INCONCLUSIVE",
+    "error": "无法从客户端中访问 CIM 资源。",
+    "error_id": "Microsoft.Management.Infrastructure.CimException,Microsoft.Management.Infrastructure.CimCmdlets.GetCimInstanceCommand"
+  },
+  "registry_version": {
+    "status": "OBSERVED",
+    "value": {
+      "ProductName": "Windows 10 Pro",
+      "DisplayVersion": "25H2",
+      "CurrentBuild": "26200",
+      "CurrentBuildNumber": "26200",
+      "UBR": 9711,
+      "EditionID": "Professional",
+      "InstallationType": "Client"
+    }
+  },
+  "uac": {
+    "status": "OBSERVED",
+    "value": {
+      "EnableLUA": 1,
+      "ConsentPromptBehaviorAdmin": 5,
+      "ConsentPromptBehaviorUser": 3,
+      "PromptOnSecureDesktop": 1,
+      "EnableSecureUIAPaths": 1,
+      "ValidateAdminCodeSignatures": 0,
+      "EnableUIADesktopToggle": 0
+    }
+  },
+  "collector_token": {
+    "status": "OBSERVED",
+    "value": {
+      "pid": 28748,
+      "user_sid": "S-1-5-21-2532670394-1554971530-4095700938-1001",
+      "integrity_sid": "S-1-16-4096",
+      "elevated": false,
+      "elevation_type": 3,
+      "session_id": 1,
+      "is_appcontainer": true,
+      "token_type": 1,
+      "ui_access": false,
+      "groups": [
+        {
+          "sid": "S-1-16-4096",
+          "attributes": 96
+        },
+        {
+          "sid": "S-1-1-0",
+          "attributes": 7
+        },
+        {
+          "sid": "S-1-5-114",
+          "attributes": 16
+        },
+        {
+          "sid": "S-1-5-32-544",
+          "attributes": 16
+        },
+        {
+          "sid": "S-1-5-32-559",
+          "attributes": 7
+        },
+        {
+          "sid": "S-1-5-32-545",
+          "attributes": 7
+        },
+        {
+          "sid": "S-1-5-4",
+          "attributes": 7
+        },
+        {
+          "sid": "S-1-2-1",
+          "attributes": 7
+        },
+        {
+          "sid": "S-1-5-11",
+          "attributes": 7
+        },
+        {
+          "sid": "S-1-5-15",
+          "attributes": 7
+        },
+        {
+          "sid": "S-1-11-96-3623454863-58364-18864-2661722203-1597581903-406174337-3155394438-103789623-1016169784-3561975564",
+          "attributes": 7
+        },
+        {
+          "sid": "S-1-5-113",
+          "attributes": 7
+        },
+        {
+          "sid": "S-1-5-5-0-1518588",
+          "attributes": 3221225479
+        },
+        {
+          "sid": "S-1-2-0",
+          "attributes": 7
+        },
+        {
+          "sid": "S-1-5-64-36",
+          "attributes": 7
+        }
+      ],
+      "privileges": [
+        {
+          "name": "SeChangeNotifyPrivilege",
+          "attributes": 3,
+          "enabled": true
+        },
+        {
+          "name": "SeIncreaseWorkingSetPrivilege",
+          "attributes": 0,
+          "enabled": false
+        }
+      ]
+    }
+  },
+  "machine_id_sha256": {
+    "status": "OBSERVED",
+    "value": "a013cd5e924eb5db1ba67eb28c65379f81b2d73f2cbd42fdb6645eb202681fe4"
+  },
+  "local_accounts": {
+    "status": "INCONCLUSIVE",
+    "error": "Object reference not set to an instance of an object.",
+    "error_id": "System.NullReferenceException,Microsoft.PowerShell.Commands.GetLocalUserCommand"
+  },
+  "target_service": {
+    "status": "INCONCLUSIVE",
+    "error": "无法从客户端中访问 CIM 资源。",
+    "error_id": "Microsoft.Management.Infrastructure.CimException,Microsoft.Management.Infrastructure.CimCmdlets.GetCimInstanceCommand"
+  },
+  "target_sid_resolution": {
+    "status": "INCONCLUSIVE",
+    "error": "Exception calling \"Translate\" with \"1\" argument(s): \"Some or all identity references could not be translated.\"",
+    "error_id": "IdentityNotMappedException"
+  },
+  "target_sid_precomputed": "S-1-5-80-8808145-1723257024-8982472-3705063417-1094825873",
+  "account_rights": {
+    "status": "OBSERVED",
+    "value": {
+      "sid": "S-1-5-80-8808145-1723257024-8982472-3705063417-1094825873",
+      "open_win32_error": 0,
+      "query_win32_error": 2,
+      "ntstatus_hex": "c0000034",
+      "explicit_rights": [],
+      "status": "INCONCLUSIVE",
+      "effective_service_logon_verified": false
+    }
+  },
+  "named_pipe_inventory": {
+    "status": "OBSERVED",
+    "value": null
+  },
+  "service_token": "NOT_RUN_SERVICE_ABSENT",
+  "service_process_tree": "NOT_RUN_SERVICE_ABSENT",
+  "actual_pipe_security": "NOT_RUN_PIPE_ABSENT",
+  "qualification": "BLOCKED",
+  "real_keys_imported": 0,
+  "provider_requests_sent": 0,
+  "real_tokens": 0,
+  "real_cost_usd": 0,
+  "named_pipe_connected": false,
+  "limitations": [
+    "Read-only observations do not prove denied access.",
+    "No service token can be observed before an approved service start.",
+    "Existing sandbox accounts are inventory only, not approved test identities.",
+    "Actual loaded-module closure requires an approved running service.",
+    "LSA explicit rights do not establish effective logon rights without actual service token/groups."
+  ]
+}

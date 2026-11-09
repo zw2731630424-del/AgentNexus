@@ -1,0 +1,226 @@
+{
+  "schema": "agentnexus.q2.independent-reviewed-files.v1",
+  "as_of_utc": "2026-11-09T05:30:32.379106+00:00",
+  "base": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q2\\source",
+  "review_type": "SOURCE_AND_PURE_SYNTHETIC_ONLY",
+  "file_count": 33,
+  "files": [
+    {
+      "path": "src/agentnexus/credential-service/daily-contracts.ts",
+      "bytes": 1079,
+      "sha256": "e8cea745848b0809e879a549470f3772a3c2fb4a384d3d98b8ad8c6b29f9fc3d",
+      "review_depth": "full"
+    },
+    {
+      "path": "src/agentnexus/credential-service/daily-gateway.ts",
+      "bytes": 7843,
+      "sha256": "73a60f8fe6801868a4d8391b5a67c18415dd55cdde63d4371a8810f6e4546cb5",
+      "review_depth": "full"
+    },
+    {
+      "path": "src/agentnexus/credential-service/store.ts",
+      "bytes": 20188,
+      "sha256": "0343e86e7560499853b3a0314ced864cbdad3cf13a71597664a072ca83a8bd1a",
+      "review_depth": "full"
+    },
+    {
+      "path": "src/agentnexus/credential-service/broker.ts",
+      "bytes": 32763,
+      "sha256": "70dd5e8f569e3cb2e14ba23980b6fb6105f0ea5b1d2a8a4ebd1aa43c2e5d3954",
+      "review_depth": "full; Q2 deltas and egress/send/credential fences"
+    },
+    {
+      "path": "src/agentnexus/credential-service/engine.ts",
+      "bytes": 10890,
+      "sha256": "5edba6fc90b9ae36600635a526b9e804a24070fdbceadb203c2736dce5d59a96",
+      "review_depth": "full"
+    },
+    {
+      "path": "src/agentnexus/credential-service/client.ts",
+      "bytes": 10281,
+      "sha256": "c9a105b4c5030206a588412eb4554c64af8bc8e805e35f0269d79e355f0154ed",
+      "review_depth": "full"
+    },
+    {
+      "path": "src/agentnexus/credential-service/contracts.ts",
+      "bytes": 2241,
+      "sha256": "eec261297f65a5902554390a77e915242a0a91a976a63f538d7d404a386f2b3f",
+      "review_depth": "full"
+    },
+    {
+      "path": "src/agentnexus/credential-service/boundary.ts",
+      "bytes": 3658,
+      "sha256": "79492afcd33dda516fd03fb8288f9ad2110df5c6c5d2d40ef2b4e88e2dd5b7ba",
+      "review_depth": "full; reused native attestation path"
+    },
+    {
+      "path": "src/agentnexus/desktop/service.ts",
+      "bytes": 49784,
+      "sha256": "b998cff31b37f443b06fa4e600b73a5d5f8e81313fd6f94346fe9f6528cacb39",
+      "review_depth": "Q2 deltas and management/request callers"
+    },
+    {
+      "path": "src/agentnexus/desktop/contracts.ts",
+      "bytes": 4346,
+      "sha256": "3cb1bacafc556b6bf86c21c0b4f3d715243ee6cee611628cdcd2e6df3dbf4c2a",
+      "review_depth": "Q2 deltas and intent validation helpers"
+    },
+    {
+      "path": "src/agentnexus/desktop/trusted-entry.ts",
+      "bytes": 3683,
+      "sha256": "f042acd08838178313a4c7d1c336aaddbc057f1ba2e4e7bd3327fcaf6f06b3bd",
+      "review_depth": "full"
+    },
+    {
+      "path": "src/agentnexus/desktop/synthetic-credential-fixture.ts",
+      "bytes": 4183,
+      "sha256": "626cd7d0d2a72c78097fc9e363b1eb97db43ff0e273ae063741ff6d78e05497a",
+      "review_depth": "full"
+    },
+    {
+      "path": "desktop/main.mjs",
+      "bytes": 5694,
+      "sha256": "ac62b274d4f4a4bdf5302beb25b53b50d36dd35a840394338ede7bfc82d7b612",
+      "review_depth": "full"
+    },
+    {
+      "path": "desktop/preload.cjs",
+      "bytes": 661,
+      "sha256": "6d767d7f092d2ab290b240b44e5299ddc171547a42d12d05ffef6423173c13b8",
+      "review_depth": "full"
+    },
+    {
+      "path": "desktop/trusted-entry.mjs",
+      "bytes": 2230,
+      "sha256": "a7b1f2b50ae8e66355c51be52b41a37d9beee0aa89b711850980438d79626bda",
+      "review_depth": "full"
+    },
+    {
+      "path": "desktop/renderer/app.js",
+      "bytes": 46938,
+      "sha256": "386ebf2a9032a71ac19b2527a858de0b50756681b2ff962b4f293841b4f983e3",
+      "review_depth": "Q2 deltas and status/usage/credential flows"
+    },
+    {
+      "path": "native/credential-service/Common.cs",
+      "bytes": 63554,
+      "sha256": "86868110c56bc36ab39c67a9b57c220a53dd10bdffd95d6852528015bf166fc1",
+      "review_depth": "Q2 deltas; token, identity, deployment, qualification and Frames paths"
+    },
+    {
+      "path": "native/credential-service/CredentialService.cs",
+      "bytes": 24507,
+      "sha256": "0070b3ee187bb66e348c34f1bfdd5e2d254f01a50c2f5b0bd9dd1403db8cce76",
+      "review_depth": "Q2 deltas; complete high pipe creation and native method routing"
+    },
+    {
+      "path": "native/credential-service/service-config.template.json",
+      "bytes": 829,
+      "sha256": "d5faf3d1c3be8452f06dbb3ddc892afd2bcccea761c1e32bb880531df85d31a2",
+      "review_depth": "full"
+    },
+    {
+      "path": "native/credential-service/qualification.template.json",
+      "bytes": 3690,
+      "sha256": "ec968b0cce71746919b13162f49f169358fe88a36afe67f401861b9692706087",
+      "review_depth": "full"
+    },
+    {
+      "path": "native/credential-helper/HelperIntent.cs",
+      "bytes": 8024,
+      "sha256": "e1cda683fc201cee30efae291bb67824dfa92b446352de892e855b8f61eede4b",
+      "review_depth": "full"
+    },
+    {
+      "path": "native/credential-helper/HelperProtocol.cs",
+      "bytes": 13541,
+      "sha256": "2e17c0ceed5ee110631604a5d9947edb3d405b54248d45593fbd3c7c1e2c414e",
+      "review_depth": "full"
+    },
+    {
+      "path": "native/credential-helper/TrustedCredentialHelper.cs",
+      "bytes": 20060,
+      "sha256": "86813827f5a627fa7e71f6b75fe95616d0cfd6233625d99340648bcc213b9833",
+      "review_depth": "full; no actual UI execution"
+    },
+    {
+      "path": "native/credential-helper/HelperTests.cs",
+      "bytes": 16390,
+      "sha256": "b157ecbdf04fe4e1ed4430ed7fc42c931e676a24ed53b5b7a76582e94c4698bd",
+      "review_depth": "full"
+    },
+    {
+      "path": "native/credential-helper/helper.manifest",
+      "bytes": 758,
+      "sha256": "7d44a791cce3d52e483158637618d6802dc195313c750e7b96027796ba7cebef",
+      "review_depth": "full"
+    },
+    {
+      "path": "native/credential-helper/build.ps1",
+      "bytes": 6482,
+      "sha256": "0e231e3d7a2f1b192130d35c6c70737363acbc260597e7f7ba0311a9ffea7e47",
+      "review_depth": "full; independent tests do not launch normal mode"
+    },
+    {
+      "path": "native/credential-launcher/CredentialLauncher.cs",
+      "bytes": 9677,
+      "sha256": "de56ecdb8df197d05fc888a243a35125f0d09817f3a1b67ee9a4ae5805228706",
+      "review_depth": "full"
+    },
+    {
+      "path": "native/credential-launcher/launcher.manifest",
+      "bytes": 394,
+      "sha256": "ea2238bc54336cd7ff69ba2e840e675f12f6f1b71f97c72906f1826bad386fb4",
+      "review_depth": "full"
+    },
+    {
+      "path": "native/credential-launcher/build.ps1",
+      "bytes": 2984,
+      "sha256": "a2aaa6e7fba979786fefe7895c840d5e07c20f26705535c6db2b444cf6505b81",
+      "review_depth": "full"
+    },
+    {
+      "path": "tests/agentnexus/q2-daily.test.ts",
+      "bytes": 19688,
+      "sha256": "eecd88fd1fef0e1ee74874d18270901458daea640d44889d1047663ae989d37d",
+      "review_depth": "full; independent execution"
+    },
+    {
+      "path": "tests/desktop/q2-trusted-entry.test.ts",
+      "bytes": 14343,
+      "sha256": "4f52a96c0d1595ce4293f1cdac5978bb785a8a1252af88256ee38a1d6ab0f21f",
+      "review_depth": "full; independent execution"
+    },
+    {
+      "path": "tests/desktop/service.test.ts",
+      "bytes": 18909,
+      "sha256": "89a3a957c4954c5a5ece82ccac22057bd2bfc6cd9810b415bba8685b43bcae2b",
+      "review_depth": "execution and relevant fixture changes; no full legacy audit"
+    },
+    {
+      "path": "src/agentnexus/harness/contracts.ts",
+      "bytes": 2537,
+      "sha256": "fae11a6e1a11ea1cd1e737ce1320b344a17c974baba4f7d33402fff84c8dfc39",
+      "review_depth": "subject/snapshot/identity functions"
+    }
+  ],
+  "native_runtime_source_chain": "NOT_IMPLEMENTED_NOT_DEPLOYED",
+  "windows_isolation_qualification": "BLOCKED",
+  "real_keys_and_provider_requests": "NOT_RUN",
+  "final_incremental_checks": "PASS_PURE_AND_SYNTHETIC_ONLY",
+  "hash_rechecked_after_tests": true,
+  "changed_after_capture": [],
+  "finalized_at_utc": "2026-11-09T05:35:23.769830+00:00",
+  "independent_fixture_files": [
+    {
+      "base": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q2",
+      "path": "evidence/independent-review/adversarial-protocol.test.mjs",
+      "sha256": "181ea4542b88ca6447084fbd2bbdec8684626fec00cf6e3c1dcdff63327f725e",
+      "product_source": false,
+      "change": "stateBase only; moved temp SQLite to Q2 runtime",
+      "latest_validation": "14/14 PASS",
+      "evidence": "evidence/independent-review/runtime-state-attacks.tap.log"
+    }
+  ],
+  "fixture_runtime_recheck_at_utc": "2026-11-09T05:41:30.930514+00:00"
+}

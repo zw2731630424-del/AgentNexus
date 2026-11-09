@@ -1,0 +1,81 @@
+{
+  "schema": 1,
+  "suite": "HELPER_ACTUAL_BROKER_SNAPSHOT_AND_CANONICAL",
+  "result": "PASS",
+  "synthetic_only": true,
+  "real_key_used": false,
+  "network_used": false,
+  "node_version": "v24.15.0",
+  "broker_source_sha256": "70dd5e8f569e3cb2e14ba23980b6fb6105f0ea5b1d2a8a4ebd1aa43c2e5d3954",
+  "canonical_metadata_sha256": "da2cdc3fe84c0f0537f166ef792f8340ccc68b3cf9eda46e346900493a6a3509",
+  "snapshot": {
+    "qualification": {
+      "live": "BLOCKED",
+      "credential_service": "BLOCKED",
+      "real_key_entry": false,
+      "synthetic_key_entry": true,
+      "mode": "SIMULATED",
+      "reason": "SYNTHETIC_PROCESS_ONLY_NO_OS_QUALIFICATION"
+    },
+    "keys": [],
+    "usage": {
+      "global": {
+        "id": "m181-deepseek",
+        "owner": "CREDENTIAL_SERVICE",
+        "assurance": "SIMULATED",
+        "limit": 100000000,
+        "used": 0,
+        "held": 0,
+        "remaining_tokens": 100000000,
+        "unknown": 0,
+        "requests": 0,
+        "state": "OPEN"
+      },
+      "real": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "cached_tokens": null,
+        "reasoning_tokens": null,
+        "requests": 0,
+        "failed_requests": 0,
+        "estimated_cost_micros": 0,
+        "actual_cost_micros": null
+      },
+      "simulated": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "cached_tokens": null,
+        "reasoning_tokens": null,
+        "requests": 0,
+        "failed_requests": 0,
+        "estimated_cost_micros": 0,
+        "actual_cost_micros": null
+      },
+      "simulated_budget": {
+        "limits": {
+          "tokens": 100000000
+        },
+        "used": {
+          "tokens": 0
+        },
+        "held": {
+          "tokens": 0
+        }
+      },
+      "by_provider": [],
+      "by_model": [],
+      "by_agent": [],
+      "by_task": [],
+      "records": []
+    },
+    "policy_epoch": 1,
+    "service_instance": "403dd4d4-a774-454f-9e8f-db09752d69e3",
+    "daily_gateway": {
+      "status": "BLOCKED",
+      "reason": "DAILY_NATIVE_RUNTIME_AUTHENTICATION_NOT_IMPLEMENTED",
+      "medium_listener_created": false,
+      "uac_required": false,
+      "synthetic_protocol_available": true
+    }
+  }
+}

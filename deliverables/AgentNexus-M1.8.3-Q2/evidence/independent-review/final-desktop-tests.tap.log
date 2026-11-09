@@ -1,0 +1,70 @@
+TAP version 13
+# Subtest: Q2 strict intent rejects payload expansion, endpoint/method injection and newline identifiers
+ok 1 - Q2 strict intent rejects payload expansion, endpoint/method injection and newline identifiers
+  ---
+  duration_ms: 1.5522
+  type: 'test'
+  ...
+# Subtest: Q2 REAL Host denies legacy credential.save before reading any payload field
+ok 2 - Q2 REAL Host denies legacy credential.save before reading any payload field
+  ---
+  duration_ms: 719.4038
+  type: 'test'
+  ...
+# Subtest: Q2 ADD succeeds only through trusted port and never implies Provider connected
+ok 3 - Q2 ADD succeeds only through trusted port and never implies Provider connected
+  ---
+  duration_ms: 349.9265
+  type: 'test'
+  ...
+# Subtest: Q2 state, scope and delete management use helper intents and preserve service metadata
+ok 4 - Q2 state, scope and delete management use helper intents and preserve service metadata
+  ---
+  duration_ms: 365.1744
+  type: 'test'
+  ...
+# Subtest: Q2 unavailable service still permits ADD intent and missing port is IPC_BLOCKED
+ok 5 - Q2 unavailable service still permits ADD intent and missing port is IPC_BLOCKED
+  ---
+  duration_ms: 719.7895
+  type: 'test'
+  ...
+# Subtest: Q2 legacy labels and empty scope do not prevent revoke management
+ok 6 - Q2 legacy labels and empty scope do not prevent revoke management
+  ---
+  duration_ms: 368.9668
+  type: 'test'
+  ...
+# Subtest: Q2 ordinary requests cannot configure service budgets or reach dispatch
+ok 7 - Q2 ordinary requests cannot configure service budgets or reach dispatch
+  ---
+  duration_ms: 424.0433
+  type: 'test'
+  ...
+# Subtest: Q2 cancellation and untrusted exit output remain INCONCLUSIVE even if metadata changes
+ok 8 - Q2 cancellation and untrusted exit output remain INCONCLUSIVE even if metadata changes
+  ---
+  duration_ms: 412.1559
+  type: 'test'
+  ...
+# Subtest: Q2 Electron launch adapter uses fixed exe and finite argv, no stdin or process output
+ok 9 - Q2 Electron launch adapter uses fixed exe and finite argv, no stdin or process output
+  ---
+  duration_ms: 3.196
+  type: 'test'
+  ...
+# Subtest: Q2 production Renderer and Host contain no credential input or ordinary service secret structure
+ok 10 - Q2 production Renderer and Host contain no credential input or ordinary service secret structure
+  ---
+  duration_ms: 1.6612
+  type: 'test'
+  ...
+1..10
+# tests 10
+# suites 0
+# pass 10
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 3646.1076

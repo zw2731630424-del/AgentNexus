@@ -1,0 +1,78 @@
+{
+  "schema": "agentnexus.q2.ui-synthetic.v1",
+  "evidence_class": "SYNTHETIC_LOGIC_AND_COMPILATION_ONLY",
+  "source_root": "deliverables/AgentNexus-M1.8.3-Q2/source",
+  "desktop_tests": {
+    "command": "node --test tests/desktop/service.test.ts tests/desktop/isolated.test.ts tests/desktop/q2-trusted-entry.test.ts",
+    "exit_code": 0,
+    "tests": 32,
+    "passed": 32,
+    "failed": 0,
+    "skipped": 0,
+    "log": ".workflow-kit/runtime/AgentNexus-M1.8.3-Q2/ui-desktop-tests.log",
+    "log_sha256": "a267823856a2a954a838f22d66bc5f97da8390ba04e3c0f80d8f577eee95b65d"
+  },
+  "typecheck": {
+    "command": "node tools/agentnexus/typecheck-m15.mjs",
+    "exit_code": 0,
+    "node": "24.15.0",
+    "typescript": "5.9.3",
+    "node_types": "24.10.1"
+  },
+  "minimal_environment_followup": {
+    "command": "node --test tests/desktop/q2-trusted-entry.test.ts",
+    "exit_code": 0,
+    "tests": 10,
+    "passed": 10,
+    "failed": 0,
+    "skipped": 0,
+    "typescript_exit_code": 0,
+    "launch_adapter_syntax_exit_code": 0,
+    "scope": "fixed SystemRoot/WINDIR spawn parameters only; actual runas environment NOT_RUN"
+  },
+  "final_intent_followup": {
+    "command": "node --test tests/desktop/q2-trusted-entry.test.ts",
+    "exit_code": 0,
+    "tests": 10,
+    "passed": 10,
+    "failed": 0,
+    "skipped": 0,
+    "typescript_exit_code": 0,
+    "scope": "minimal environment plus UTF-16 name parity; no source writes after this verification",
+    "log": ".workflow-kit/runtime/AgentNexus-M1.8.3-Q2/ui-final-intent-tests.log",
+    "log_sha256": "a67b596c2455d1da99c3b5274af15b39585d83a6e216e7dd63cc10986231565e"
+  },
+  "javascript_syntax": {
+    "files": ["desktop/main.mjs", "desktop/preload.cjs", "desktop/trusted-entry.mjs", "desktop/renderer/app.js"],
+    "exit_code": 0
+  },
+  "native_launcher": {
+    "command": "native/credential-launcher/build.ps1",
+    "compiler": "C:\\Windows\\Microsoft.NET\\Framework64\\v4.0.30319\\csc.exe",
+    "compiler_version": "4.8.9221.0 built by: NET481REL1LAST_25H2",
+    "compilation_exit_code": 0,
+    "self_test_passed": 21,
+    "self_test_failed": 0,
+    "build_report": ".workflow-kit/runtime/AgentNexus-M1.8.3-Q2/native-launcher/build-report.json",
+    "binary_sha256": "bbf2c1a0e657844bb39f586cc9471c50242825d4e438053d1da5c698b1f78c1e",
+    "windows_boundary_qualified": false,
+    "uac_invoked": false
+  },
+  "asserted_logic": [
+    "renderer has no password input or Key-byte submission",
+    "REAL Host denies legacy credential.save before payload access",
+    "only exact finite non-secret intent reaches helper port",
+    "ordinary requests cannot configure service budgets",
+    "management uses helper and fixed CLI allowlist",
+    "missing fixed helper/launcher files do not spawn launcher",
+    "launcher spawn receives only fixed SystemRoot and WINDIR environment",
+    "save completion never implies Provider connection",
+    "cancelled or unknown result stays INCONCLUSIVE",
+    "unavailable snapshot retains metadata and unknown counters",
+    "profile uses ordinary appData AgentNexus directory"
+  ],
+  "not_run": ["Electron native window", "WinForms native window", "UAC", "installation", "service start or management", "accounts or ACL changes", "firewall", "AppContainer", "Ubuntu", "real credentials", "external network"],
+  "production_daily_runtime": "IPC_BLOCKED",
+  "os_qualification": "BLOCKED",
+  "original_m183_modified": false
+}

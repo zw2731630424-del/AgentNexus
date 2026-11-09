@@ -1,0 +1,80 @@
+{
+  "schema": "agentnexus.q2.publication.v1",
+  "authorization": "全部保存提交推送",
+  "recorded_at_utc": "2026-11-09T07:15:16.110454+00:00",
+  "client_date": "2026-11-09",
+  "client_timezone": "Asia/Shanghai",
+  "target": "https://github.com/zw2731630424-del/AgentNexus.git",
+  "branch": "main",
+  "base_head": "e0604475b03d3d9ba6558601fe07b10d900cc262",
+  "status": "COMMIT_AND_PUSH_AUTHORIZED",
+  "scope": [
+    "deliverables/AgentNexus-M1.8.3-Q2/",
+    ".workflow-kit/tasks/AgentNexus-M1.8.3-Q2/"
+  ],
+  "source_set_sha256": "82097622ac84a60b16bc2b896df0f64857d3ae0af0aecc2ada2a921c9334ad7c",
+  "source_files": 242,
+  "includes": "完整Q2源码、源码ZIP、自有native二进制、编译payload、原始测试/只读预检证据、独立审查、BLOCKED验收、NO-GO审批、回滚及SHA256",
+  "local_only": [
+    ".workflow-kit/runtime/",
+    "node_modules/",
+    "source/dist/",
+    "__pycache__/",
+    "运行数据库与依赖缓存"
+  ],
+  "preserved_prepublication_delivery": {
+    "readme": "evidence/README.before-publication.txt",
+    "readme_sha256": "3fde6894d13da9d3dc7f36976b2d6c6f2ac8b02690e96b8252f43eada61e8173",
+    "manifest": "evidence/SHA256SUMS.before-publication.txt",
+    "manifest_sha256": "d877fd8abcbb5fcdef042c1aacdb7bbdd9eeae473889a631a98401485cb8930b"
+  },
+  "system_deployment_authorized": false,
+  "real_key_or_api_authorized": false,
+  "q2_complete": false,
+  "production": "BLOCKED",
+  "channel_a": "COMPILED_OFFLINE_TESTED_OS_BLOCKED",
+  "channel_b": "EXACT_GRANT_PROTOCOL_SIMULATED_PRODUCTION_NATIVE_CHAIN_NOT_IMPLEMENTED",
+  "real_key_imports": 0,
+  "real_provider_requests": 0,
+  "real_tokens": 0,
+  "real_model_fees": 0,
+  "global_token_authorization": 100000000,
+  "additional_real_budget": 0,
+  "verification_command": "python -X utf8 deliverables/AgentNexus-M1.8.3-Q2/build-tools/verify-publication.py --staged",
+  "implementation_history": "此前未commit/push属于实施阶段事实；本次明确授权Git发布，不授权系统部署、真实Key或LIVE。",
+  "commit_binding": "由实际Git提交及远端核对回执绑定，避免自引用提交号",
+  "validation": {
+    "prepublication_manifest": "500/500 PASS",
+    "historical_preservation": "468/468 PASS",
+    "source_hash_unchanged": true,
+    "staged_blob_verification": "506/506 PASS before publication validation metadata; final staged-byte check required before commit",
+    "credential_pattern_matches": 0,
+    "whitespace": {
+      "default_findings": 49599,
+      "cr_at_eol_findings": 32,
+      "cr_at_eol_paths": {
+        "deliverables/AgentNexus-M1.8.3-Q2/evidence/preflight-host-medium/sc-qc.txt": 1,
+        "deliverables/AgentNexus-M1.8.3-Q2/evidence/preflight-host-medium/sc-qfailure.txt": 1,
+        "deliverables/AgentNexus-M1.8.3-Q2/evidence/preflight-host-medium/sc-qfailureflag.txt": 1,
+        "deliverables/AgentNexus-M1.8.3-Q2/evidence/preflight-host-medium/sc-qprivs.txt": 1,
+        "deliverables/AgentNexus-M1.8.3-Q2/evidence/preflight-host-medium/sc-qsidtype.txt": 1,
+        "deliverables/AgentNexus-M1.8.3-Q2/evidence/preflight-host-medium/sc-queryex.txt": 1,
+        "deliverables/AgentNexus-M1.8.3-Q2/evidence/preflight-host-medium/sc-sdshow.txt": 1,
+        "deliverables/AgentNexus-M1.8.3-Q2/evidence/preflight-host-medium/sc-showsid.txt": 1,
+        "deliverables/AgentNexus-M1.8.3-Q2/evidence/preflight-host-medium/whoami-all.txt": 8,
+        "deliverables/AgentNexus-M1.8.3-Q2/evidence/preflight-sandbox/sc-qc.txt": 1,
+        "deliverables/AgentNexus-M1.8.3-Q2/evidence/preflight-sandbox/sc-qfailure.txt": 1,
+        "deliverables/AgentNexus-M1.8.3-Q2/evidence/preflight-sandbox/sc-qfailureflag.txt": 1,
+        "deliverables/AgentNexus-M1.8.3-Q2/evidence/preflight-sandbox/sc-qprivs.txt": 1,
+        "deliverables/AgentNexus-M1.8.3-Q2/evidence/preflight-sandbox/sc-qsidtype.txt": 1,
+        "deliverables/AgentNexus-M1.8.3-Q2/evidence/preflight-sandbox/sc-queryex.txt": 1,
+        "deliverables/AgentNexus-M1.8.3-Q2/evidence/preflight-sandbox/sc-sdshow.txt": 1,
+        "deliverables/AgentNexus-M1.8.3-Q2/evidence/preflight-sandbox/sc-showsid.txt": 1,
+        "deliverables/AgentNexus-M1.8.3-Q2/evidence/preflight-sandbox/whoami-all.txt": 7,
+        "deliverables/AgentNexus-M1.8.3-Q2/source/src/agentnexus/model-runtime/gateway.ts": 1
+      },
+      "disposition": "Preserve frozen Windows raw output/alignment and unchanged baseline model-runtime/gateway.ts trailing whitespace. Do not rewrite evidence/source bytes for a Git publication."
+    },
+    "full_staged_governance_receipt": ".workflow-kit/runtime/AgentNexus-M1.8.3-Q2/publication/govern-staged.json"
+  }
+}

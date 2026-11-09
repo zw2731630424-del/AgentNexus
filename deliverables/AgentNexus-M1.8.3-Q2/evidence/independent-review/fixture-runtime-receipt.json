@@ -1,0 +1,38 @@
+{
+  "schema": "agentnexus.q2.independent-fixture-runtime-receipt.v1",
+  "at_utc": "2026-11-09T05:41:30.929531+00:00",
+  "scope": "Independent fixture stateBase and evidence only; no product source mutation",
+  "fixture_path": "evidence/independent-review/adversarial-protocol.test.mjs",
+  "fixture_sha256": "181ea4542b88ca6447084fbd2bbdec8684626fec00cf6e3c1dcdff63327f725e",
+  "runtime_state_base": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M1.8.3-Q2\\independent-review-state",
+  "migration_manifest": "evidence/independent-review/state-runtime-migration.json",
+  "migration_manifest_sha256": "a65d4285d5f9fb0afc4e91756cc2e71828ab8215fc1e7962e8c18a709473956d",
+  "migrated_files": 48,
+  "migrated_file_hashes_verified": true,
+  "overwritten_files": 0,
+  "deleted_files": 0,
+  "deliverable_state_directory_remaining": false,
+  "deliverable_database_files": [],
+  "test": {
+    "command": "node --test --test-concurrency=1 --test-reporter=tap I:/AI_AgentNexus/deliverables/AgentNexus-M1.8.3-Q2/evidence/independent-review/adversarial-protocol.test.mjs",
+    "exit_code": 0,
+    "tests": 14,
+    "pass": 14,
+    "fail": 0,
+    "evidence": "evidence/independent-review/runtime-state-attacks.tap.log",
+    "evidence_sha256": "e96d2ced686077bb23f5e79e058ea0c24df333bfe116ad8e43a7d07eea067d3c",
+    "windows_isolation_qualification": false
+  },
+  "snapshot_recheck": {
+    "pass": 4,
+    "fail": 0,
+    "evidence": "evidence/independent-review/runtime-state-snapshot-contract-result.json",
+    "reason": "The 14 tests regenerated the synthetic snapshot; the existing pure probe was rerun against that exact new snapshot"
+  },
+  "reviewed_product_source_files": 33,
+  "reviewed_product_source_hash_changes": [],
+  "full_product_regression_rerun": false,
+  "production_qualification": "BLOCKED",
+  "target_os_tests_pass": 0,
+  "target_os_tests_not_run": 70
+}

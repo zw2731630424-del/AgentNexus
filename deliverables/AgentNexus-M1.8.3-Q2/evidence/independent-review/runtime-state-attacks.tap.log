@@ -1,0 +1,94 @@
+TAP version 13
+# Subtest: INDEPENDENT synthetic: ordinary desktop connector stays BLOCKED without launching UAC/native client
+ok 1 - INDEPENDENT synthetic: ordinary desktop connector stays BLOCKED without launching UAC/native client
+  ---
+  duration_ms: 2.6666
+  type: 'test'
+  ...
+# Subtest: INDEPENDENT synthetic: no production Daily factory accepts native_verified JSON
+ok 2 - INDEPENDENT synthetic: no production Daily factory accepts native_verified JSON
+  ---
+  duration_ms: 0.1572
+  type: 'test'
+  ...
+# Subtest: INDEPENDENT synthetic: fake same-subject channel and extra native claims cannot prepare a grant
+ok 3 - INDEPENDENT synthetic: fake same-subject channel and extra native claims cannot prepare a grant
+  ---
+  duration_ms: 512.2483
+  type: 'test'
+  ...
+# Subtest: INDEPENDENT synthetic: stolen grant on another registered channel fails without burning the genuine grant
+ok 4 - INDEPENDENT synthetic: stolen grant on another registered channel fails without burning the genuine grant
+  ---
+  duration_ms: 959.2159
+  type: 'test'
+  ...
+# Subtest: INDEPENDENT synthetic: all major grant mutations reject before send and leave the exact original usable
+ok 5 - INDEPENDENT synthetic: all major grant mutations reject before send and leave the exact original usable
+  ---
+  duration_ms: 1038.2582
+  type: 'test'
+  ...
+# Subtest: INDEPENDENT synthetic: exact grant blocks subject, headers, URL, body, context, and token-plan tampering
+ok 6 - INDEPENDENT synthetic: exact grant blocks subject, headers, URL, body, context, and token-plan tampering
+  ---
+  duration_ms: 494.9185
+  type: 'test'
+  ...
+# Subtest: INDEPENDENT synthetic: raw legacy broker execute cannot bypass an issued Daily grant
+ok 7 - INDEPENDENT synthetic: raw legacy broker execute cannot bypass an issued Daily grant
+  ---
+  duration_ms: 931.8877
+  type: 'test'
+  ...
+# Subtest: INDEPENDENT synthetic: concurrent copies of a grant cause one send and one durable consumption
+ok 8 - INDEPENDENT synthetic: concurrent copies of a grant cause one send and one durable consumption
+  ---
+  duration_ms: 930.6413
+  type: 'test'
+  ...
+# Subtest: INDEPENDENT synthetic: disconnect and same-channel Runtime replacement revoke old grants
+ok 9 - INDEPENDENT synthetic: disconnect and same-channel Runtime replacement revoke old grants
+  ---
+  duration_ms: 487.4976
+  type: 'test'
+  ...
+# Subtest: INDEPENDENT synthetic: store recovery revokes issued grants; a new Runtime cannot revive them
+ok 10 - INDEPENDENT synthetic: store recovery revokes issued grants; a new Runtime cannot revive them
+  ---
+  duration_ms: 921.5377
+  type: 'test'
+  ...
+# Subtest: INDEPENDENT synthetic: Daily and legacy share the same committed task and global budget
+ok 11 - INDEPENDENT synthetic: Daily and legacy share the same committed task and global budget
+  ---
+  duration_ms: 1030.1191
+  type: 'test'
+  ...
+# Subtest: INDEPENDENT synthetic: missing provider usage preserves UNKNOWN and blocks both Daily and legacy retry
+ok 12 - INDEPENDENT synthetic: missing provider usage preserves UNKNOWN and blocks both Daily and legacy retry
+  ---
+  duration_ms: 962.1515
+  type: 'test'
+  ...
+# Subtest: INDEPENDENT synthetic: cancel an issued, not-yet-sent grant prevents later send
+ok 13 - INDEPENDENT synthetic: cancel an issued, not-yet-sent grant prevents later send
+  ---
+  duration_ms: 493.3942
+  type: 'test'
+  ...
+# Subtest: INDEPENDENT synthetic: expired import ticket never saves a key, and expiry is not an OS isolation result
+ok 14 - INDEPENDENT synthetic: expired import ticket never saves a key, and expiry is not an OS isolation result
+  ---
+  duration_ms: 475.6116
+  type: 'test'
+  ...
+1..14
+# tests 14
+# suites 0
+# pass 14
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 9406.5563

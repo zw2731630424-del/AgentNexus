@@ -1,0 +1,157 @@
+{
+  "schema": "agentnexus.q2.independent-test-runs.v1",
+  "as_of_utc": "2026-11-09T05:16:06.496360+00:00",
+  "status": "FINAL_PURE_SYNTHETIC_REVIEW_COMPLETE_PRODUCTION_BLOCKED",
+  "node": "24.15.0",
+  "cwd": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q2\\source",
+  "runs": [
+    {
+      "name": "independent-adversarial-protocol",
+      "command": "node --test --test-concurrency=1 --test-reporter=tap I:/AI_AgentNexus/deliverables/AgentNexus-M1.8.3-Q2/evidence/independent-review/adversarial-protocol.test.mjs",
+      "exit_code": 0,
+      "tests": 14,
+      "pass": 14,
+      "fail": 0,
+      "skipped": 0,
+      "evidence": "independent-attacks.tap.log",
+      "classification": "PURE_AND_SYNTHETIC_ONLY",
+      "stage": "HISTORICAL_BEFORE_FINAL_SOURCE_STABILIZATION"
+    },
+    {
+      "name": "candidate-daily-suite",
+      "command": "node --test --test-concurrency=1 --test-reporter=tap tests/agentnexus/q2-daily.test.ts",
+      "exit_code": 0,
+      "tests": 20,
+      "pass": 20,
+      "fail": 0,
+      "skipped": 0,
+      "evidence": "candidate-daily.tap.log",
+      "classification": "PURE_AND_SYNTHETIC_ONLY",
+      "stage": "HISTORICAL_BEFORE_FINAL_SOURCE_STABILIZATION"
+    },
+    {
+      "name": "final-core-independent-and-candidate",
+      "command": "node --test --test-concurrency=1 --test-reporter=tap I:/AI_AgentNexus/deliverables/AgentNexus-M1.8.3-Q2/evidence/independent-review/adversarial-protocol.test.mjs tests/agentnexus/q2-daily.test.ts",
+      "exit_code": 0,
+      "tests": 34,
+      "pass": 34,
+      "fail": 0,
+      "skipped": 0,
+      "evidence": "final-core-tests.tap.log",
+      "stage": "IMPLEMENTATION_STABLE_Q2_TEST_FILE_LATER_EXTENDED_BY_TWO_CASES",
+      "classification": "PURE_AND_SYNTHETIC_ONLY"
+    },
+    {
+      "name": "final-daily-desktop-and-service",
+      "command": "node --test --test-concurrency=1 --test-reporter=tap tests/agentnexus/q2-daily.test.ts tests/desktop/service.test.ts tests/desktop/q2-trusted-entry.test.ts",
+      "exit_code": 0,
+      "tests": 46,
+      "pass": 46,
+      "fail": 0,
+      "skipped": 0,
+      "evidence": "final-incremental-tests.tap.log",
+      "stage": "FINAL_DAILY22_DESKTOP10_LEGACY14; DESKTOP_LATER_GOT_FIXED_ENV_AND_NAME_CHECK_INCREMENT",
+      "classification": "PURE_AND_SYNTHETIC_ONLY"
+    },
+    {
+      "name": "final-desktop-env-and-name-increment",
+      "command": "node --test --test-concurrency=1 --test-reporter=tap tests/desktop/q2-trusted-entry.test.ts",
+      "exit_code": 0,
+      "tests": 10,
+      "pass": 10,
+      "fail": 0,
+      "skipped": 0,
+      "evidence": "final-desktop-tests.tap.log",
+      "stage": "FINAL_DESKTOP_SOURCE",
+      "classification": "PURE_AND_SYNTHETIC_ONLY"
+    },
+    {
+      "name": "native-independent-compilation-and-pure-tests",
+      "command": "I:/AI_AgentNexus/deliverables/AgentNexus-M1.8.3-Q2/evidence/independent-review/run-native-pure-review.ps1",
+      "exit_code": 0,
+      "suite_pass": {
+        "helper_historical": 111,
+        "launcher_final": 21,
+        "service_final": 40
+      },
+      "evidence": "native-pure-review-results.json",
+      "stage": "HELPER_LATER_EXTENDED; LAUNCHER_AND_SERVICE_SOURCE_UNCHANGED",
+      "classification": "PURE_ONLY_NO_NORMAL_ENTRY"
+    },
+    {
+      "name": "helper-final-selection-increment",
+      "command": "I:/AI_AgentNexus/deliverables/AgentNexus-M1.8.3-Q2/evidence/independent-review/run-native-pure-review.ps1 -HelperOnly",
+      "exit_code": 0,
+      "tests": 117,
+      "pass": 117,
+      "fail": 0,
+      "evidence": "native-helper-final-review-results.json",
+      "stage": "FINAL_HELPER_SOURCE",
+      "classification": "PURE_ONLY_NO_UI_TOKEN_PIPE_UAC_NETWORK"
+    },
+    {
+      "name": "cross-language-actual-synthetic-snapshot",
+      "command": "I:/AI_AgentNexus/deliverables/AgentNexus-M1.8.3-Q2/evidence/independent-review/snapshot-contract-probe.exe I:/AI_AgentNexus/deliverables/AgentNexus-M1.8.3-Q2/evidence/independent-review/protocol-compatibility-snapshot.json",
+      "compile": "System csc.exe C#5 x64 console target; /main:AgentNexus.CredentialBoundary.SnapshotContractProbe; sources Common.cs, HelperIntent.cs, HelperProtocol.cs, TrustedCredentialHelper.cs, HelperTests.cs, SnapshotContractProbe.cs; helper asInvoker manifest; System.Core/Security/Web.Extensions/Windows.Forms/Drawing references",
+      "exit_code": 0,
+      "tests": 4,
+      "pass": 4,
+      "fail": 0,
+      "evidence": "snapshot-contract-result.json",
+      "stage": "FINAL_HELPER_WITH_ACTUAL_BROKER_JSON",
+      "classification": "PURE_ONLY_NO_UI_TOKEN_PIPE_UAC_NETWORK"
+    },
+    {
+      "name": "final-independent-fixture-runtime-location",
+      "command": "node --test --test-concurrency=1 --test-reporter=tap I:/AI_AgentNexus/deliverables/AgentNexus-M1.8.3-Q2/evidence/independent-review/adversarial-protocol.test.mjs",
+      "exit_code": 0,
+      "tests": 14,
+      "pass": 14,
+      "fail": 0,
+      "skipped": 0,
+      "fixture_sha256": "181ea4542b88ca6447084fbd2bbdec8684626fec00cf6e3c1dcdff63327f725e",
+      "evidence": "runtime-state-attacks.tap.log",
+      "stage": "FINAL_FIXTURE_STATEBASE_IN_Q2_RUNTIME_PRODUCT_SOURCE_UNCHANGED",
+      "classification": "PURE_AND_SYNTHETIC_ONLY"
+    },
+    {
+      "name": "runtime-state-snapshot-contract-recheck",
+      "command": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q2\\evidence\\independent-review\\snapshot-contract-probe.exe I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q2\\evidence\\independent-review\\protocol-compatibility-snapshot.json",
+      "exit_code": 0,
+      "tests": 4,
+      "pass": 4,
+      "fail": 0,
+      "evidence": "runtime-state-snapshot-contract-result.json",
+      "snapshot_sha256": "414edf5048befb7a956b4945c496d47adfc21e56a2fe929ea3924866134fdc8b",
+      "stage": "ACTUAL_REGENERATED_SYNTHETIC_SNAPSHOT",
+      "classification": "PURE_ONLY_NO_UI_TOKEN_PIPE_UAC_NETWORK"
+    }
+  ],
+  "source_hash_capture": {
+    "before": "daily-candidate-before-tests.json",
+    "after": "daily-candidate-after-tests.json",
+    "changed_during_window": [
+      "src/agentnexus/credential-service/broker.ts",
+      "src/agentnexus/credential-service/client.ts"
+    ],
+    "final_stable_hash_run_pending": false,
+    "final": "reviewed-file-hashes.json",
+    "final_core_before": "final-core-before-tests.json",
+    "final_core_after": "final-core-after-tests.json",
+    "final_note": "Seven core implementation files did not change during final core test window. The q2-daily test file was extended by two cases, then all 22 were rerun and passed. Desktop and Helper final increments were separately rerun. All 33 final reviewed hashes rechecked unchanged."
+  },
+  "real_windows_isolation": {
+    "tests_passed": 0,
+    "tests_not_run": 70,
+    "qualification": "BLOCKED",
+    "reason": "NO_DEPLOYED_TARGET_OR_NATIVE_DAILY_AUTHENTICATOR; SYSTEM_DEPLOYMENT_NOT_APPROVED",
+    "owned_benign_target_attack_validation_authorized": true
+  },
+  "real_keys": "NOT_RUN",
+  "real_provider_requests": "NOT_RUN",
+  "prohibited_actions_performed": [],
+  "finalized_at_utc": "2026-11-09T05:41:30.930514+00:00",
+  "native_builds_are_production_deployments": false,
+  "historical_runs_retained": true,
+  "fixture_runtime_receipt": "fixture-runtime-receipt.json"
+}
