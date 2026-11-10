@@ -1,5 +1,7 @@
 # AgentNexus
 
+最新 M2.0 候选位于 [AgentNexus-M2.0](deliverables/AgentNexus-M2.0/README.md)：本地开发模式、Security Center、测试证据和完整交付包。根目录代码与下列 M1.3 说明保留为历史基线；M2.0 从其 source 目录启动。
+
 AgentNexus v0.4 的原生 Harness 研究与受限本地内核，当前版本 `0.4.0-m1.3`。
 
 M1.3 增加 Runtime Identity/Trusted IPC 协议状态机、审计 SDK、资源隔离恢复和 Windows 原语探针。完整 OS 部署和独立执行 Broker 仍 **BLOCKED**；PROCESS/EXTERNAL_EFFECT 不开放。平台真实证据、独立审查与系统部署授权清单见 [M1.3 交付](deliverables/AgentNexus-M1.3/README.md)。

@@ -1,0 +1,925 @@
+# AgentNexus M2.0 — Adaptive Security Architecture
+# 自适应安全架构与可选安全能力体系
+
+**项目：** AgentNexus  
+**执行者：** Codex  
+**基线：** M1.8.3-Q4.2  
+**任务类型：** 安全架构调整、运行模式设计、功能开关体系、桌面 UI 集成、现有安全模块整合。
+
+---
+
+# 一、本轮战略目标
+
+AgentNexus 最初的目标是构建一套专门服务于长期软件研发的多 Agent Harness。
+
+目前已经完成大量基础设施：
+
+- Native Agent Runtime。
+- Resident Agent。
+- Development Agent。
+- Development Subagent。
+- Background Reviewer。
+- Coordinator。
+- Message Bus。
+- Task Scheduler。
+- Context Assembly。
+- Workflow Runtime。
+- Credential Vault。
+- Model Gateway。
+- Provider Adapter。
+- Model Router。
+- Key Pool。
+- Token / Cost Ledger。
+- Data Egress。
+- Policy-as-Code。
+- Tool Gateway。
+- Audit Trail。
+- Electron Desktop UI。
+- Trusted Credential Helper。
+- Credential Service。
+- Trusted Runtime。
+- Daily IPC。
+- Qualification Signer。
+
+但是，最近的开发逐渐出现一个问题：
+
+为了实现最高等级的安全隔离，AgentNexus 的部署流程变得过于复杂。
+
+包括：
+
+- 独立 Windows Service。
+- Virtual Service Account。
+- TPM_CNG。
+- 独立签名电脑。
+- CMS 双阶段签名。
+- 独立凭证录入窗口。
+- High / Medium IPC。
+- 多阶段部署审批。
+- 大量 OS 资格测试。
+
+这些能力有价值，但不应该全部成为个人使用 AgentNexus 的强制前置条件。
+
+用户明确要求：
+
+**安全能力应当由用户根据实际使用场景选择性启用。**
+
+本轮核心目标：
+
+建立一套统一的 Adaptive Security Architecture，让用户可以在简单日常开发和高级安全部署之间自由选择。
+
+不推倒现有架构。
+
+不删除已经完成的安全模块。
+
+不把原来的最高安全等级强制施加给所有用户。
+
+---
+
+# 二、总体架构：两种安全模式
+
+正式建立两种主要运行模式。
+
+## 2.1 LOCAL_DEVELOPMENT_MODE
+
+<badge>默认模式</badge>
+
+面向个人开发者，在自己的 Windows 电脑上使用 AgentNexus。
+
+目标：
+
+- 简单安装。
+- 简单配置。
+- UI 直接添加 API Key。
+- 正常使用不需要反复 UAC。
+- 不要求 TPM 证书。
+- 不要求独立签名电脑。
+- 不要求 CMS 双阶段部署审批。
+- 不要求部署独立 Credential Service。
+- 保留必要的凭证保护和操作控制。
+- 可以快速进入真实多 Agent 研发。
+
+建议架构：
+
+```text
+AgentNexus Desktop
+        |
+        v
+Development Agent
+        |
+        v
+Agent Runtime
+        |
+        v
+Model Gateway
+        |
+        +-- Provider Adapter
+        +-- Model Router
+        +-- Key Pool
+        +-- Token Ledger
+        |
+        v
+OS Credential Storage
+        |
+        v
+DeepSeek / GPT / GLM
+```
+
+凭证存储优先采用 Windows Credential Manager 或适合当前平台的原生凭证存储。
+
+不要求为普通个人使用强制部署独立 Windows Service。
+
+但必须明确：
+
+Windows Credential Manager / DPAPI 可以保护凭证静态存储，不等于能够抵御同 SID 恶意进程。
+
+LOCAL_DEVELOPMENT_MODE 的威胁模型应明确区分：
+
+- 意外泄漏。
+- 普通 Agent 错误读取。
+- Prompt 泄漏。
+- 日志泄漏。
+- 项目文件泄漏。
+- 恶意同 SID 进程。
+- 管理员级恶意进程。
+
+不应宣称本地模式具备尚未验证的进程级隔离。
+
+## 2.2 HARDENED_DEPLOYMENT_MODE
+
+<badge color="info">高级安全模式，可选启用</badge>
+
+面向更高风险环境、正式部署和未来多人使用。
+
+复用现有 M1.8.3 的安全架构：
+
+- 独立 Credential Service。
+- Virtual Service Account。
+- Trusted Credential Helper。
+- Trusted Runtime。
+- High / Medium IPC。
+- 精确 Daily Grant。
+- 同 SID 攻击防护。
+- 更严格的 OS 身份隔离。
+- Data Egress。
+- 全局 Token Ledger。
+- TPM / CNG。
+- Qualification Signer。
+- CMS 双阶段审批。
+- 独立部署审批。
+- 完整 OS 资格验证。
+
+该模式不要求所有用户必须使用 TPM。
+
+根据部署环境和风险等级，允许用户选择适合的凭证与签名方案。
+
+但如果某项功能被标记为生产资格必需，就必须完成对应验证后才能宣称资格通过。
+
+## 2.3 两种模式的区别
+
+| 功能 | Local Development | Hardened Deployment |
+|---|---|---|
+| UI 添加 API Key | 支持 | 支持 |
+| Windows Credential Manager | 支持 | 可选 |
+| 独立 Credential Service | 不强制 | 启用 |
+| 独立 Windows 身份 | 不强制 | 按设计要求 |
+| TPM / CNG | 不强制 | 可选或按资格合同要求 |
+| CMS 双阶段签名 | 不要求 | 支持 |
+| 独立签名电脑 | 不要求 | 支持 |
+| Policy-as-Code | 可配置 | 支持严格执行 |
+| Data Egress | 可配置 | 严格执行 |
+| 操作审计 | 可配置 | 严格执行 |
+| 高风险操作审批 | 可配置 | 严格执行 |
+| OS 进程隔离 | 基础防护 | 严格资格验证 |
+| 日常 UAC | 不需要 | 仅必要管理操作需要 |
+
+两种模式使用相同的 Agent Runtime、Model Gateway、Provider Adapter 和 Agent 系统。
+
+不能为了两种安全模式复制两套 Harness。
+
+---
+
+# 三、P0：建立统一 Security Profile
+
+不能通过散落在代码中的 if/else 控制安全模式。
+
+必须建立统一 Security Profile。
+
+例如：
+
+```json
+{
+  "securityProfile": {
+    "mode": "LOCAL_DEVELOPMENT_MODE",
+    "version": 1,
+
+    "credentials": {
+      "enabled": true,
+      "osCredentialStorage": true,
+      "isolatedCredentialService": false,
+      "secretRedaction": true
+    },
+
+    "policy": {
+      "enabled": true,
+      "enforcement": "ENFORCED",
+      "approvalRequired": true
+    },
+
+    "dataEgress": {
+      "enabled": true,
+      "defaultDecision": "DENY"
+    },
+
+    "audit": {
+      "enabled": true,
+      "recordCommands": true,
+      "recordToolCalls": true,
+      "recordProviderCalls": true
+    },
+
+    "sandbox": {
+      "enabled": false
+    },
+
+    "deploymentSigning": {
+      "enabled": false
+    }
+  }
+}
+```
+
+以上仅为结构示意。
+
+最终字段以实际功能和现有合同为准。
+
+## 3.1 配置要求
+
+- 配置版本化。
+- 配置有明确 Schema。
+- 支持迁移。
+- 支持导入和导出。
+- 支持恢复默认设置。
+- 支持功能开关。
+- 支持运行状态显示。
+- 支持配置变更审计。
+- 不允许 Agent 自行修改安全 Profile。
+- 不允许普通 Task 通过 Prompt 改变安全配置。
+
+配置由 Host 和可信管理 UI 管理。
+
+## 3.2 配置变更
+
+每次安全配置变化必须记录：
+
+- 修改时间。
+- 修改主体。
+- 修改前状态。
+- 修改后状态。
+- 影响功能。
+- 风险提示。
+- 是否需要重启。
+- 是否需要重新授权。
+
+运行中的 Agent 不得擅自修改自己的安全等级。
+
+---
+
+# 四、P0：安全功能独立开关
+
+用户要求不仅能够切换整体模式，也能够单独启用或关闭安全功能。
+
+因此需要建立独立 Feature Toggle Registry。
+
+至少包括：
+
+## 4.1 Credential Security
+
+- OS Credential Storage。
+- Isolated Credential Service。
+- Credential Helper。
+- Credential Access Restriction。
+- Secret Redaction。
+- Credential Audit。
+
+## 4.2 Policy Security
+
+- Policy Engine。
+- Policy Enforcement。
+- Default Deny。
+- Tool Permission Check。
+- Resource Authorization。
+- Approval Workflow。
+
+Policy Enforcement 支持：
+
+- OFF。
+- ADVISORY。
+- ENFORCED。
+
+用户可以根据实际需要调整。
+
+关闭 Enforcement 时，系统必须明确显示风险，不能继续显示为强制策略保护状态。
+
+## 4.3 Data Security
+
+- Data Classification。
+- Data Egress。
+- Secret Scanning。
+- Context Provenance。
+- File Access Control。
+
+## 4.4 Execution Security
+
+- Sandbox。
+- Restricted Process。
+- Command Validation。
+- Shell Approval。
+- File Write Approval。
+- Network Access Restriction。
+- Resource Limits。
+
+## 4.5 Audit Security
+
+- Command Audit。
+- Tool Audit。
+- File Modification Audit。
+- Provider Request Audit。
+- Agent Message Audit。
+- Policy Decision Audit。
+
+## 4.6 Deployment Security
+
+- Credential Service。
+- TPM / CNG。
+- Qualification Signer。
+- CMS Qualification Signature。
+- CMS Deployment Approval。
+- OS Qualification。
+- Runtime Isolation。
+
+## 4.7 功能开关原则
+
+所有已有安全功能必须有明确状态：
+
+- ENABLED。
+- DISABLED。
+- BLOCKED。
+- NOT_AVAILABLE。
+- NOT_QUALIFIED。
+
+不能把 BLOCKED 当成 DISABLED。
+
+不能把 SIMULATED 当成 ENABLED。
+
+不能把 NOT_RUN 当成 PASS。
+
+用户关闭某项功能后，相关功能必须真正停止工作，而不是只隐藏 UI。
+
+用户重新启用后，必须重新验证依赖和运行状态。
+
+---
+
+# 五、P0：安全依赖与组合规则
+
+功能可以独立开关，但必须建立依赖图。
+
+例如：
+
+```text
+Credential Service
+       |
+       v
+Credential Vault
+       |
+       v
+Model Gateway
+       |
+       v
+Provider Adapter
+```
+
+关闭 Credential Service 时，Local 模式可以选择 OS Credential Storage。
+
+Hardened 模式不能自动退回 Local 凭证存储并继续宣称 Hardened。
+
+再例如：
+
+```text
+Policy Engine
+      |
+      v
+Policy Enforcement
+      |
+      v
+Tool Gateway
+      |
+      v
+External Side Effect
+```
+
+关闭 Policy Enforcement 后，不能继续显示 ENFORCED。
+
+系统必须明确告知：
+
+- 哪些功能被关闭。
+- 哪些依赖受到影响。
+- 哪些操作将不再受程序策略限制。
+- 是否需要重启。
+- 是否需要用户确认。
+
+禁止隐式降级。
+
+禁止静默切换安全模式。
+
+禁止把失败的高级功能伪装成低安全模式成功。
+
+---
+
+# 六、P0：Windows 本地凭证管理简化
+
+用户希望获得类似 ZCode、OpenCode 的使用体验。
+
+在 LOCAL_DEVELOPMENT_MODE 下：
+
+1. 打开 AgentNexus。
+2. Settings。
+3. Model Providers。
+4. 选择 DeepSeek。
+5. 输入 API Key。
+6. 点击保存。
+7. 测试连接。
+8. 选择模型。
+9. 分配给 Agent。
+
+不要求：
+
+- TPM 证书。
+- 独立签名电脑。
+- CMS 签名。
+- 独立 Credential Service 部署。
+- 每次模型调用 UAC。
+
+凭证存储：
+
+- 优先使用 Windows Credential Manager。
+- 其他平台使用对应 OS 凭证存储。
+- 不把明文 Key 写入普通配置。
+- 不把 Key 放进 Prompt。
+- 不把 Key 放进 Context Archive。
+- 不把 Key 放进普通日志。
+- 不把 Key 传递给 Subagent。
+- 不把 Key 作为普通环境变量暴露给执行代码。
+
+Model Gateway 在必要时短暂使用凭证完成认证。
+
+普通 Agent 只能请求模型调用，不能直接读取凭证。
+
+如果用户关闭严格凭证保护，必须明确记录实际安全边界，不能宣称密钥仍然具备相同保护。
+
+注意：Local 模式不宣称能够抵御同 SID 恶意进程。
+
+Hardened 模式继续使用独立 Credential Service。
+
+---
+
+# 七、P0：Policy-as-Code 保留，但允许用户选择执行强度
+
+用户此前明确要求：
+
+不能只靠 Prompt 让模型遵守规则。
+
+关键规则必须由程序执行。
+
+本轮继续保留 Policy-as-Code。
+
+但是不同用户可以选择不同执行强度。
+
+### ENFORCED
+
+- 默认拒绝。
+- 精确授权。
+- 所有副作用经过检查。
+- 未授权操作阻断。
+- 高风险操作审批。
+- 失败关闭。
+
+### ADVISORY
+
+- 规则继续计算。
+- 显示风险。
+- 提供建议。
+- 根据配置决定是否需要用户确认。
+
+### OFF
+
+- 关闭 AgentNexus 的 Policy Enforcement。
+- 明确显示当前处于非强制执行模式。
+- 保留 Host 操作系统本身的权限边界。
+- 不得将普通操作系统权限误称为 AgentNexus Policy 保护。
+
+用户可以重新开启 ENFORCED。
+
+切换模式需要 UI 明确确认。
+
+不能让 Agent 自己切换 Policy Enforcement。
+
+不能因为 OFF 就修改或删除原始 Policy 文件。
+
+---
+
+# 八、P0：保留全局 Token 和费用控制
+
+用户已经授权最多100,000,000输入与输出 Token。
+
+这一授权继续保留。
+
+Token Ledger 必须继续作为统一预算系统。
+
+用户可以选择：
+
+- 全局预算限制。
+- Project 预算。
+- Agent 预算。
+- Task 预算。
+- Provider 预算。
+- Key Pool 预算。
+- 费用上限。
+- 速率限制。
+
+这些预算控制可以独立配置。
+
+但必须保证：
+
+不同 API Key 不会自动获得独立的额外全局授权额度。
+
+关闭费用展示不等于关闭真实账本。
+
+关闭预算限制后必须明确标记，不能伪装为预算保护仍然有效。
+
+---
+
+# 九、P0：Data Egress 改为可配置安全模块
+
+Data Egress 继续支持：
+
+- PUBLIC。
+- SYNTHETIC。
+- INTERNAL。
+- CONFIDENTIAL。
+- SECRET。
+
+支持：
+
+- 强制检查。
+- 风险提示。
+- 用户审批。
+- 按 Provider 设置。
+- 按 Project 设置。
+- 按 Agent 设置。
+
+用户可以选择是否启用 AgentNexus 的 Data Egress 强制执行。
+
+但是：
+
+- 关闭后明确显示未受该模块强制保护。
+- 不得把关闭状态记录为通过。
+- 不得伪造准入记录。
+- 不得让 Agent 自行修改用户的安全设置。
+- 必须保留实际请求记录，至少不能把密钥和敏感正文写进审计日志。
+
+Hardened 模式默认严格执行。
+
+Local 模式默认启用基础检查，用户可以调整。
+
+---
+
+# 十、P0：部署签名和 TPM 不再是日常前置条件
+
+这是本轮最重要的简化。
+
+LOCAL_DEVELOPMENT_MODE：
+
+- 不要求 TPM_CNG。
+- 不要求本地签名证书。
+- 不要求独立签名设备。
+- 不要求 CMS 双阶段签名。
+- 不要求 Qualification Signer。
+- 不要求独立 Windows Service 部署。
+- 不要求正式部署资格。
+
+HARDENED_DEPLOYMENT_MODE：
+
+- 保留 Q4.1 / Q4.2 签名体系。
+- 保留独立 Credential Service。
+- 保留更严格的 OS 资格。
+- 按实际风险启用 TPM/CNG。
+- 保留独立审批。
+
+Q4.1、Q4.2 的历史交付、源代码、失败证据和签名工具必须保留。
+
+不得删除。
+
+不得将原有 BLOCKED 修改为 PASS。
+
+不得因为新增 Local 模式而修改历史资格结果。
+
+本轮仅建立新的运行模式和配置体系。
+
+---
+
+# 十一、P1：桌面 UI 安全中心
+
+在 AgentNexus Desktop 中增加：
+
+`Settings → Security Center`
+
+界面需要清晰、简洁。
+
+建议结构：
+
+```text
+Security Center
+
+Security Profile
+
+(●) Local Development Mode
+( ) Hardened Deployment Mode
+
+--------------------------------
+
+Credential Security
+[ON] OS Credential Storage
+[OFF] Isolated Credential Service
+[ON] Secret Redaction
+
+Policy Security
+[ON] Policy Engine
+[ON] Policy Enforcement
+
+Enforcement Level
+[OFF] [ADVISORY] [ENFORCED]
+
+Data Security
+[ON] Data Classification
+[ON] Data Egress
+
+Execution Security
+[OFF] Sandbox
+[ON] Command Validation
+[ON] Command Audit
+
+Deployment Security
+[OFF] TPM / CNG
+[OFF] CMS Deployment Signing
+```
+
+实际状态由后端提供。
+
+不能仅仅改变前端开关。
+
+每项功能必须与实际 Feature Registry 和后端实现绑定。
+
+### 风险提示
+
+当用户关闭高风险功能时：
+
+- 展示影响。
+- 展示受影响的 Agent 和工具。
+- 展示具体风险。
+- 需要用户明确确认。
+- 写入 Audit。
+
+不要每次打开软件都弹出大量安全警告。
+
+只在真正发生配置变化时提示。
+
+---
+
+# 十二、P1：模式切换与配置迁移
+
+必须支持：
+
+LOCAL_DEVELOPMENT_MODE → HARDENED_DEPLOYMENT_MODE。
+
+HARDENED_DEPLOYMENT_MODE → LOCAL_DEVELOPMENT_MODE。
+
+但切换不能自动：
+
+- 删除凭证。
+- 重置 Token Ledger。
+- 删除 Audit。
+- 清空 Context Archive。
+- 修改正式科研项目。
+- 覆盖历史部署记录。
+
+切换时生成迁移计划：
+
+- 当前功能状态。
+- 目标功能状态。
+- 需要启用的模块。
+- 需要关闭的模块。
+- 不兼容配置。
+- 需要重启的服务。
+- 需要重新验证的安全条件。
+
+如果 Hardened 模式的资格不完整，不能显示为完整 Hardened PASS。
+
+切回 Local 模式也不能自动卸载服务、删除账户或修改 ACL。
+
+系统级变更仍需用户明确批准。
+
+---
+
+# 十三、P1：复用现有成果，禁止大规模重写
+
+本轮必须优先复用：
+
+- M1.8 Credential Vault。
+- Model Gateway。
+- Provider Adapter。
+- Model Router。
+- Key Pool。
+- Token Ledger。
+- Data Egress。
+- Policy Engine。
+- Tool Gateway。
+- Audit。
+- Trusted Helper。
+- Credential Service。
+- Runtime。
+- Signer。
+
+不得因为新增两种安全模式就复制两套 Agent Runtime。
+
+不得复制两套 Model Gateway。
+
+不得复制两套 Provider Registry。
+
+不得复制两套 Token Ledger。
+
+通过配置、接口适配和 Feature Registry 实现不同模式。
+
+对于暂时无法适配的功能，明确标记 BLOCKED 或 NOT_AVAILABLE。
+
+不允许用 Mock 伪装成真实功能。
+
+---
+
+# 十四、P1：测试与验收
+
+必须测试：
+
+## Local Development Mode
+
+- 无 TPM 证书启动。
+- 无独立 Windows Service 启动。
+- UI 添加 API Key。
+- OS Credential Storage。
+- Provider 连接。
+- Model Selector。
+- Agent 模型绑定。
+- Token 预算。
+- Data Egress。
+- Policy。
+- 命令审计。
+- 多 Agent 协作。
+- Runtime 恢复。
+
+## Hardened Deployment Mode
+
+- Credential Service 状态。
+- TPM/CNG。
+- Signer。
+- CMS。
+- OS 身份。
+- IPC。
+- 同 SID 隔离。
+- Data Egress。
+- Policy Enforcement。
+- 审计。
+- 资格状态。
+
+## Feature Toggle
+
+- 开启。
+- 关闭。
+- 配置持久化。
+- 重启恢复。
+- 模式切换。
+- 依赖检测。
+- 非法组合拒绝。
+- Agent 越权修改拒绝。
+- UI 与后端状态一致。
+- 风险确认。
+- 审计记录。
+
+测试必须区分：
+
+PASS / FAIL / BLOCKED / NOT_RUN / SIMULATED / INCONCLUSIVE。
+
+不能把未运行的 Hardened 功能标记为 PASS。
+
+---
+
+# 十五、执行边界
+
+本轮允许：
+
+- 架构调整。
+- Feature Registry。
+- Security Profile。
+- UI。
+- 配置迁移。
+- 后端模式适配。
+- 离线测试。
+- 合成端到端测试。
+
+未经用户批准，不得：
+
+- 创建 Windows 账户。
+- 创建 Windows Service。
+- 修改 ACL。
+- 导入证书。
+- 创建 TPM 密钥。
+- 执行 UAC 安装。
+- 启动 Credential Service。
+- 迁移 REAL Token Ledger。
+- 导入真实 API Key。
+- 调用真实 Provider。
+- 修改 Ubuntu。
+- 修改其他科研项目。
+
+不自动 Commit / Push。
+
+保留 Q4.2 所有历史文件和原始状态。
+
+原100,000,000 Token 授权不重置，也不自动构成真实 Provider 调用许可。
+
+---
+
+# 十六、交付物
+
+建立：
+
+`AgentNexus-M2.0`
+
+至少包含：
+
+1. Adaptive Security Architecture。
+2. LOCAL_DEVELOPMENT_MODE 合同。
+3. HARDENED_DEPLOYMENT_MODE 合同。
+4. Security Profile Schema。
+5. Feature Toggle Registry。
+6. Security Dependency Graph。
+7. Policy Enforcement 模式合同。
+8. Credential Storage 适配器。
+9. Data Egress 配置合同。
+10. Security Center UI。
+11. 模式切换与迁移机制。
+12. 后端实际开关集成。
+13. 测试与原始证据。
+14. 独立审查。
+15. 完整 SHA256。
+16. 最终验收报告。
+
+---
+
+# 十七、最终验收标准
+
+必须能够证明：
+
+1. AgentNexus 可以在 LOCAL_DEVELOPMENT_MODE 下运行。
+2. 不需要 TPM 证书。
+3. 不需要独立签名设备。
+4. 不需要 CMS 部署审批。
+5. 不需要强制安装独立 Credential Service。
+6. 用户可以直接在 UI 添加 API Key。
+7. 普通权限下可以调用 Synthetic Provider。
+8. 原有 Agent Runtime 可以正常工作。
+9. 用户可以单独启用安全功能。
+10. 用户可以单独关闭安全功能。
+11. Policy Enforcement 支持 OFF / ADVISORY / ENFORCED。
+12. UI 和后端状态一致。
+13. 功能依赖能够正确处理。
+14. 安全配置不会被 Agent 自行修改。
+15. Hardened 模式仍然保留原有严格安全能力。
+16. 两种模式共享同一套核心 Agent Runtime 和 Model Gateway。
+17. 历史交付和失败证据完整保留。
+
+本轮不要求 Hardened 模式全部完成真实 OS 资格。
+
+但必须明确报告哪些能力已经实现、哪些仍然 BLOCKED。
+
+**最终目标：让个人用户能够简单使用 AgentNexus，同时保留在未来需要时启用高级安全机制的能力。**
+
+现在开始执行 M2.0。
+
+不要继续扩展 TPM/CMS 签名体系。
+
+不要重新开发现有 Harness 内核。
+
+优先完成 Local Development Mode 的实际运行能力、Security Center 和统一 Feature Toggle。
+
+先交付真正可用的本地开发模式，再继续完善 Hardened 模式的集成。
+
+最终提交代码、测试证据、独立审查和完整交付包。

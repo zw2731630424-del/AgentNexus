@@ -1,0 +1,109 @@
+{
+  "schema": "agentnexus/security-dependencies/1",
+  "nodes": [
+    "credentials.osStorage",
+    "credentials.isolatedService",
+    "credentials.helper",
+    "credentials.accessRestriction",
+    "credentials.secretRedaction",
+    "credentials.audit",
+    "policy.engine",
+    "policy.enforcement",
+    "policy.defaultDeny",
+    "policy.toolPermission",
+    "policy.resourceAuthorization",
+    "policy.approval",
+    "data.classification",
+    "data.egress",
+    "data.secretScanning",
+    "data.provenance",
+    "data.fileAccess",
+    "execution.sandbox",
+    "execution.restrictedProcess",
+    "execution.commandValidation",
+    "execution.shellApproval",
+    "execution.fileWriteApproval",
+    "execution.networkRestriction",
+    "execution.resourceLimits",
+    "audit.commands",
+    "audit.tools",
+    "audit.files",
+    "audit.providers",
+    "audit.messages",
+    "audit.policy",
+    "deployment.credentialService",
+    "deployment.tpmCng",
+    "deployment.signer",
+    "deployment.cmsQualification",
+    "deployment.cmsApproval",
+    "deployment.osQualification",
+    "deployment.runtimeIsolation",
+    "budget.global",
+    "budget.project",
+    "budget.agent",
+    "budget.task",
+    "budget.provider",
+    "budget.keyPool",
+    "budget.cost",
+    "budget.rate",
+    "budget.costDisplay"
+  ],
+  "edges": [
+    {
+      "from": "credentials.isolatedService",
+      "to": "credentials.helper"
+    },
+    {
+      "from": "policy.engine",
+      "to": "policy.enforcement"
+    },
+    {
+      "from": "policy.engine",
+      "to": "policy.defaultDeny"
+    },
+    {
+      "from": "data.classification",
+      "to": "data.egress"
+    },
+    {
+      "from": "deployment.runtimeIsolation",
+      "to": "execution.sandbox"
+    },
+    {
+      "from": "deployment.osQualification",
+      "to": "execution.restrictedProcess"
+    },
+    {
+      "from": "execution.sandbox",
+      "to": "execution.shellApproval"
+    },
+    {
+      "from": "policy.approval",
+      "to": "execution.fileWriteApproval"
+    },
+    {
+      "from": "deployment.osQualification",
+      "to": "execution.resourceLimits"
+    },
+    {
+      "from": "credentials.isolatedService",
+      "to": "deployment.credentialService"
+    },
+    {
+      "from": "deployment.signer",
+      "to": "deployment.cmsQualification"
+    },
+    {
+      "from": "deployment.signer",
+      "to": "deployment.cmsApproval"
+    },
+    {
+      "from": "credentials.isolatedService",
+      "to": "deployment.runtimeIsolation"
+    },
+    {
+      "from": "deployment.osQualification",
+      "to": "deployment.runtimeIsolation"
+    }
+  ]
+}

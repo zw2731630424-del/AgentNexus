@@ -1,0 +1,209 @@
+{
+  "schema": "agentnexus/m20/acceptance/1",
+  "recorded_at": "2026-11-09T21:05:45.842192+00:00",
+  "local_delivery": "ACCEPTED_WITH_EXPLICIT_LIMITATIONS",
+  "hardened_deployment": "BLOCKED",
+  "live_provider_validation": "NOT_RUN",
+  "real_credentials_imported": 0,
+  "real_provider_requests": 0,
+  "real_ledger_migrations": 0,
+  "windows_accounts_created": 0,
+  "windows_services_created_or_started": 0,
+  "acl_changes": 0,
+  "certificates_imported": 0,
+  "tpm_keys_created": 0,
+  "uac_installations": 0,
+  "commit": false,
+  "push": false,
+  "requirements": [
+    {
+      "id": 1,
+      "requirement": "Local模式可运行",
+      "status": "PASS",
+      "scope": "ACTUAL_LOCAL_HOST_AND_ELECTRON",
+      "evidence": "32/32 Local回归及11步实际桌面流程"
+    },
+    {
+      "id": 2,
+      "requirement": "无需TPM证书",
+      "status": "PASS",
+      "scope": "LOCAL_BOOT_WITHOUT_TPM",
+      "evidence": "Local默认deployment.tpmCng=false，实际启动完成"
+    },
+    {
+      "id": 3,
+      "requirement": "无需独立签名设备",
+      "status": "PASS",
+      "scope": "LOCAL_BOOT_WITHOUT_SIGNER",
+      "evidence": "没有调用Signer，实际普通用户启动"
+    },
+    {
+      "id": 4,
+      "requirement": "无需CMS部署审批",
+      "status": "PASS",
+      "scope": "LOCAL_BOOT_WITHOUT_CMS",
+      "evidence": "deployment签名默认关闭，无新CMS"
+    },
+    {
+      "id": 5,
+      "requirement": "无需强装Credential Service",
+      "status": "PASS",
+      "scope": "LOCAL_BOOT_WITHOUT_SERVICE",
+      "evidence": "credential_service=NOT_REQUIRED，未创建/启动Windows服务"
+    },
+    {
+      "id": 6,
+      "requirement": "UI直接添加API Key",
+      "status": "PASS",
+      "scope": "REAL_CREDMAN_WITH_SYNTHETIC_BYTES",
+      "evidence": "UI密码表单保存合成值到实际Windows Credential Manager"
+    },
+    {
+      "id": 7,
+      "requirement": "普通权限调用Synthetic Provider",
+      "status": "PASS",
+      "scope": "ACTUAL_MEDIUM_ELECTRON_SYNTHETIC_PROVIDER",
+      "evidence": "Main token integrity8192/elevated=false；Gateway结算且无网络"
+    },
+    {
+      "id": 8,
+      "requirement": "原Agent Runtime工作",
+      "status": "PASS",
+      "scope": "EXISTING_RUNTIME_GATEWAY_REUSE",
+      "evidence": "原openHarness/Router/Adapter/Ledger；8角色、3 Agent并发、UI模型绑定/会话"
+    },
+    {
+      "id": 9,
+      "requirement": "可启用独立安全功能",
+      "status": "PASS",
+      "scope": "IMPLEMENTED_LOCAL_CONTROLS",
+      "evidence": "Policy/Validator/审计/预算/外发等使用方绑定，依赖重新计算"
+    },
+    {
+      "id": 10,
+      "requirement": "可关闭独立安全功能",
+      "status": "PASS",
+      "scope": "IMPLEMENTED_LOCAL_CONTROLS",
+      "evidence": "真实PDP/Validator/附加审计/预算/费用展示开关；固定边界另列"
+    },
+    {
+      "id": 11,
+      "requirement": "Policy OFF/ADVISORY/ENFORCED",
+      "status": "PASS",
+      "scope": "REAL_TOOL_GATEWAY_WITH_SYNTHETIC_EFFECTS",
+      "evidence": "ENFORCED阻断、ADVISORY计算、OFF不计算，再开启恢复阻断"
+    },
+    {
+      "id": 12,
+      "requirement": "UI与后端一致",
+      "status": "PASS",
+      "scope": "ACTUAL_ELECTRON_AND_IPC",
+      "evidence": "变更计划、显式确认、后端snapshot、重启恢复和成本OFF均实测"
+    },
+    {
+      "id": 13,
+      "requirement": "依赖组合正确处理",
+      "status": "PASS",
+      "scope": "SCHEMA_RESOLUTION_AND_MIGRATION",
+      "evidence": "非法组合拒绝、资格未取得显式BLOCKED/NOT_QUALIFIED、无静默回退"
+    },
+    {
+      "id": 14,
+      "requirement": "Agent不能修改Profile",
+      "status": "PASS",
+      "scope": "CAPABILITY_AND_INPUT_BOUNDARY",
+      "evidence": "Agent只拿complete；伪造role/未知字段/管理tool和credential.read拒绝"
+    },
+    {
+      "id": 15,
+      "requirement": "保留严格Hardened能力",
+      "status": "PASS",
+      "scope": "SOURCE_RETENTION_NOT_PRODUCTION_PASS",
+      "evidence": "既有服务/Helper/Runtime/Signer/CMS保留，未绑定功能明确阻断"
+    },
+    {
+      "id": 16,
+      "requirement": "两模式共用Runtime/Gateway",
+      "status": "PASS",
+      "scope": "CODE_AND_INDEPENDENT_REVIEW",
+      "evidence": "一个openHarness、UnifiedModelGateway、Provider Registry和统一账本实现"
+    },
+    {
+      "id": 17,
+      "requirement": "保留历史交付和失败证据",
+      "status": "PASS",
+      "scope": "SHA256_ALL_HISTORICAL_FILES",
+      "evidence": "Q4.1与Q4.2全部7295文件逐字节Hash/数量一致；早期本轮失败亦保留"
+    }
+  ],
+  "verification": {
+    "focused": {
+      "path": "evidence/verification/2026-11-09T21-10-09-346Z-53600/results.json",
+      "pass": 32,
+      "fail": 0,
+      "skip": 0
+    },
+    "independent_targeted": {
+      "pass": 64,
+      "fail": 0
+    },
+    "independent_vault": {
+      "pass": 20,
+      "fail": 0,
+      "scope": "SYNTHETIC_OFFLINE"
+    },
+    "independent_probes": {
+      "groups": 5,
+      "status": "PASS"
+    },
+    "electron": {
+      "path": "evidence/desktop-e2e/run-fukypu/results.json",
+      "steps_pass": 11,
+      "steps_fail": 0,
+      "source_tree_sha256": "ac57c46408b911a5cf73aeb2c9815c6d5ac7faa4b119c812a82f2313e16333b9",
+      "rerun_after_final_incremental_change": false,
+      "applicability": "Local runtime/UI behavior unchanged; final increment only refines unavailable Hardened disable status/risk wording."
+    },
+    "broad_regression": {
+      "path": "evidence/verification/2026-11-09T20-28-37-968Z-26960/results.json",
+      "pass": 782,
+      "fail": 3,
+      "skip": 20,
+      "status": "FAIL"
+    },
+    "baseline_comparison": {
+      "path": "evidence/baseline-comparison/2026-11-09T20-45-14-918Z/results.json",
+      "baseline": {
+        "pass": 1,
+        "fail": 2
+      },
+      "candidate": {
+        "pass": 1,
+        "fail": 2
+      }
+    },
+    "independent_incremental": {
+      "pass": 16,
+      "fail": 0,
+      "scope": "Final three-file Hardened unbound-disable status/risk wording increment"
+    }
+  },
+  "limitations": [
+    "Hardened OS/process/service qualification and Remote Profile budget binding are not complete; dispatch remains BLOCKED.",
+    "Exact per-request Data Egress approval UI is not implemented; APPROVAL scopes block.",
+    "Non-Windows credential adapters are NOT_AVAILABLE.",
+    "Local is not same-SID or administrator process isolation.",
+    "Three original broad-regression failures are retained; scoped delivery success does not rewrite them.",
+    "Pinned third-party desktop dependencies are referenced or restored from the lockfile; binaries are not redistributed."
+  ],
+  "independent_final_source_tree_sha256": "90fc4f36f6d3798dc0163d81eb1647b4930c30c79fc26d24fdc5ebe9e0619f0b",
+  "governance": "PASS",
+  "source_review_consistency": "PASS",
+  "historical_integrity": {
+    "status": "PASS",
+    "checked_files": 7295,
+    "changed": 0,
+    "missing": 0,
+    "added": 0
+  }
+}

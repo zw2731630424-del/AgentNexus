@@ -1,0 +1,202 @@
+TAP version 13
+# Subtest: M20 legacy bootstrap preserves strict mode and never resets or migrates old accounting
+ok 1 - M20 legacy bootstrap preserves strict mode and never resets or migrates old accounting
+  ---
+  duration_ms: 32.9722
+  type: 'test'
+  ...
+# Subtest: M20 pending secret metadata is rejected before credential intent audit is created
+ok 2 - M20 pending secret metadata is rejected before credential intent audit is created
+  ---
+  duration_ms: 437.3041
+  type: 'test'
+  ...
+# Subtest: M20 lost OS-delete acknowledgement, expiry and guard quarantine keep a recoverable terminal tombstone
+ok 3 - M20 lost OS-delete acknowledgement, expiry and guard quarantine keep a recoverable terminal tombstone
+  ---
+  duration_ms: 155.9834
+  type: 'test'
+  ...
+# Subtest: M20 disabled OS storage performs no secret reads and blocks metadata/prompt persistence until protection returns
+ok 4 - M20 disabled OS storage performs no secret reads and blocks metadata/prompt persistence until protection returns
+  ---
+  duration_ms: 419.7237
+  type: 'test'
+  ...
+# Subtest: M20 schema: Local defaults need no service, TPM, signer or CMS; Hardened never silently falls back
+ok 5 - M20 schema: Local defaults need no service, TPM, signer or CMS; Hardened never silently falls back
+  ---
+  duration_ms: 2.0821
+  type: 'test'
+  ...
+# Subtest: M20 schema: strict fields, unsupported versions, fixed secret boundary and invalid combinations rejected
+ok 6 - M20 schema: strict fields, unsupported versions, fixed secret boundary and invalid combinations rejected
+  ---
+  duration_ms: 0.9645
+  type: 'test'
+  ...
+# Subtest: M20 registry: all categories resolve; simulated storage never becomes enabled or qualified
+ok 7 - M20 registry: all categories resolve; simulated storage never becomes enabled or qualified
+  ---
+  duration_ms: 0.2374
+  type: 'test'
+  ...
+# Subtest: M20 version migration is explicit and only migrates configuration
+ok 8 - M20 version migration is explicit and only migrates configuration
+  ---
+  duration_ms: 0.9497
+  type: 'test'
+  ...
+# Subtest: M20 plans: exact confirmation, hash binding, one-use and concurrent revision fence
+ok 9 - M20 plans: exact confirmation, hash binding, one-use and concurrent revision fence
+  ---
+  duration_ms: 25.4015
+  type: 'test'
+  ...
+# Subtest: M20 mode migration waits for restart; reopening revalidates and Hardened stays blocked
+ok 10 - M20 mode migration waits for restart; reopening revalidates and Hardened stays blocked
+  ---
+  duration_ms: 27.8548
+  type: 'test'
+  ...
+# Subtest: M20 audit: disabling optional command audit stops its producer; configuration audit remains
+ok 11 - M20 audit: disabling optional command audit stops its producer; configuration audit remains
+  ---
+  duration_ms: 13.5454
+  type: 'test'
+  ...
+# Subtest: M20 audit chain detects persisted edits; it does not claim administrator tamper resistance
+ok 12 - M20 audit chain detects persisted edits; it does not claim administrator tamper resistance
+  ---
+  duration_ms: 17.4943
+  type: 'test'
+  ...
+# Subtest: M20 Data Egress: actual deny, advisory and disabled outcomes; no fabricated admission
+ok 13 - M20 Data Egress: actual deny, advisory and disabled outcomes; no fabricated admission
+  ---
+  duration_ms: 20.7944
+  type: 'test'
+  ...
+# Subtest: M20 generic secret scan really switches off and on independently of known-key boundary
+ok 14 - M20 generic secret scan really switches off and on independently of known-key boundary
+  ---
+  duration_ms: 27.1406
+  type: 'test'
+  ...
+# Subtest: M20 actual Tool Gateway: ENFORCED blocks, ADVISORY computes, OFF does not evaluate; Agent cannot edit Profile
+ok 15 - M20 actual Tool Gateway: ENFORCED blocks, ADVISORY computes, OFF does not evaluate; Agent cannot edit Profile
+  ---
+  duration_ms: 231.7141
+  type: 'test'
+  ...
+# Subtest: M20 actual validation switch stops validator; optional local write approval is configurable; sandbox owner stays blocked
+ok 16 - M20 actual validation switch stops validator; optional local write approval is configurable; sandbox owner stays blocked
+  ---
+  duration_ms: 222.9055
+  type: 'test'
+  ...
+# Subtest: M20 native Windows Credential Manager: synthetic bytes roundtrip, namespace isolation and deletion
+ok 17 - M20 native Windows Credential Manager: synthetic bytes roundtrip, namespace isolation and deletion
+  ---
+  duration_ms: 1898.0582
+  type: 'test'
+  ...
+# Subtest: M20 actual Local Desktop: no TPM/service, direct entry, Gateway, budgets, Agents, persistence and mode migration
+ok 18 - M20 actual Local Desktop: no TPM/service, direct entry, Gateway, budgets, Agents, persistence and mode migration
+  ---
+  duration_ms: 8520.0476
+  type: 'test'
+  ...
+# Subtest: DESKTOP provider CRUD, strict revision, unsupported protocols and model wire IDs
+ok 19 - DESKTOP provider CRUD, strict revision, unsupported protocols and model wire IDs
+  ---
+  duration_ms: 657.428
+  type: 'test'
+  ...
+# Subtest: DESKTOP credential add, zeroization, no read API, rotation, disable, revoke and audit safety
+ok 20 - DESKTOP credential add, zeroization, no read API, rotation, disable, revoke and audit safety
+  ---
+  duration_ms: 571.6445
+  type: 'test'
+  ...
+# Subtest: DESKTOP credential protector failure never reports success and clears submitted bytes
+ok 21 - DESKTOP credential protector failure never reports success and clears submitted bytes
+  ---
+  duration_ms: 411.6736
+  type: 'test'
+  ...
+# Subtest: DESKTOP synthetic connection uses Gateway and ledger but never marks CONNECTED; LIVE never sends
+ok 22 - DESKTOP synthetic connection uses Gateway and ledger but never marks CONNECTED; LIVE never sends
+  ---
+  duration_ms: 675.7604
+  type: 'test'
+  ...
+# Subtest: DESKTOP Agent bindings, task override, reset, favorites/defaults and pre-send failover execute Model Router
+ok 23 - DESKTOP Agent bindings, task override, reset, favorites/defaults and pre-send failover execute Model Router
+  ---
+  duration_ms: 1598.6251
+  type: 'test'
+  ...
+# Subtest: DESKTOP all Keys and Providers share platform usage; per-Agent budget cannot be expanded by adding Keys
+ok 24 - DESKTOP all Keys and Providers share platform usage; per-Agent budget cannot be expanded by adding Keys
+  ---
+  duration_ms: 1559.788
+  type: 'test'
+  ...
+# Subtest: DESKTOP UNKNOWN holds survive rotation and Host reopen and never auto-replay
+ok 25 - DESKTOP UNKNOWN holds survive rotation and Host reopen and never auto-replay
+  ---
+  duration_ms: 1420.0294
+  type: 'test'
+  ...
+# Subtest: DESKTOP multiple scoped Agent requests occupy separate pool Keys concurrently
+ok 26 - DESKTOP multiple scoped Agent requests occupy separate pool Keys concurrently
+  ---
+  duration_ms: 1206.0989
+  type: 'test'
+  ...
+# Subtest: DESKTOP IPC contract denies claimed roles, unknown fields, revoked sessions, real Transport and secret metadata
+ok 27 - DESKTOP IPC contract denies claimed roles, unknown fields, revoked sessions, real Transport and secret metadata
+  ---
+  duration_ms: 770.9139
+  type: 'test'
+  ...
+# Subtest: DESKTOP connection error taxonomy does not infer success from configuration
+ok 28 - DESKTOP connection error taxonomy does not infer success from configuration
+  ---
+  duration_ms: 0.3432
+  type: 'test'
+  ...
+# Subtest: DESKTOP provider permission denial remains UNAUTHORIZED through actual Gateway path
+ok 29 - DESKTOP provider permission denial remains UNAUTHORIZED through actual Gateway path
+  ---
+  duration_ms: 990.7023
+  type: 'test'
+  ...
+# Subtest: DESKTOP runtime shares four slots across all facades and close cannot partially close an active Vault
+ok 30 - DESKTOP runtime shares four slots across all facades and close cannot partially close an active Vault
+  ---
+  duration_ms: 2115.0687
+  type: 'test'
+  ...
+# Subtest: DESKTOP acknowledged not-sent primary RPM failure uses fallback without replaying a sent request
+ok 31 - DESKTOP acknowledged not-sent primary RPM failure uses fallback without replaying a sent request
+  ---
+  duration_ms: 1454.9419
+  type: 'test'
+  ...
+# Subtest: DESKTOP deadline is displayed as TIMEOUT while retaining unknown usage and no replay
+ok 32 - DESKTOP deadline is displayed as TIMEOUT while retaining unknown usage and no replay
+  ---
+  duration_ms: 1045.4274
+  type: 'test'
+  ...
+1..32
+# tests 32
+# suites 0
+# pass 32
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 27568.9135

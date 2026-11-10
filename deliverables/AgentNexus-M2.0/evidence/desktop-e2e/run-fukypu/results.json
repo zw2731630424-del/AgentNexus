@@ -1,0 +1,87 @@
+{
+  "schema": "agentnexus/m20/desktop-e2e/1",
+  "output": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M2.0\\desktop-e2e\\run-fukypu",
+  "started_at": "2026-11-09T20:57:24.142Z",
+  "status": "PASS",
+  "scope": "ACTUAL_ELECTRON_UI_CURRENT_USER_CREDMAN_SYNTHETIC_PROVIDER",
+  "real_keys": 0,
+  "real_provider_requests": 0,
+  "windows_services_created": 0,
+  "uac_installations": 0,
+  "steps": [
+    {
+      "name": "Local boots without service, TPM, CMS or native helper window",
+      "status": "PASS",
+      "elapsed_ms": 856
+    },
+    {
+      "name": "Electron runs with ordinary Medium integrity and no elevation",
+      "status": "PASS",
+      "elapsed_ms": 238
+    },
+    {
+      "name": "UI creates Provider and Model",
+      "status": "PASS",
+      "elapsed_ms": 2242
+    },
+    {
+      "name": "UI API Key saves into real Windows Credential Manager",
+      "status": "PASS",
+      "elapsed_ms": 8071
+    },
+    {
+      "name": "UI Synthetic connection uses original Gateway and ledger",
+      "status": "PASS",
+      "elapsed_ms": 1167
+    },
+    {
+      "name": "UI Model Selector binds Development Agent and sends Synthetic chat",
+      "status": "PASS",
+      "elapsed_ms": 12229
+    },
+    {
+      "name": "Security Center backend status and explicit risk confirmation",
+      "status": "PASS",
+      "elapsed_ms": 10731
+    },
+    {
+      "name": "Cost display off hides fees while ledger remains",
+      "status": "PASS",
+      "elapsed_ms": 112
+    },
+    {
+      "name": "Profile export and restart persistence",
+      "status": "PASS",
+      "elapsed_ms": 13498
+    },
+    {
+      "name": "Re-enable ENFORCED and keep Hardened migration as a blocked preview",
+      "status": "PASS",
+      "elapsed_ms": 10452
+    },
+    {
+      "name": "UI cannot read keys or inject claimed management roles",
+      "status": "PASS",
+      "elapsed_ms": 11
+    }
+  ],
+  "screenshots": [
+    "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M2.0\\desktop-e2e\\run-fukypu\\01-local-key-saved.png",
+    "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M2.0\\desktop-e2e\\run-fukypu\\02-agent-synthetic-chat.png",
+    "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M2.0\\desktop-e2e\\run-fukypu\\03-risk-review.png",
+    "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M2.0\\desktop-e2e\\run-fukypu\\04-security-center.png",
+    "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M2.0\\desktop-e2e\\run-fukypu\\05-hardened-blocked-plan.png"
+  ],
+  "process_observation": {
+    "observations": [
+      {
+        "pid": 54856,
+        "elevated": false,
+        "integrity": 8192
+      }
+    ],
+    "read_only": true,
+    "os_qualification": "NOT_RUN"
+  },
+  "finished_at": "2026-11-09T20:58:26.101Z"
+}

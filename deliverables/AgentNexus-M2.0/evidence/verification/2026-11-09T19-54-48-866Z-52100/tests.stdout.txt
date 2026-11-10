@@ -1,0 +1,210 @@
+TAP version 13
+# Subtest: M20 schema: Local defaults need no service, TPM, signer or CMS; Hardened never silently falls back
+ok 1 - M20 schema: Local defaults need no service, TPM, signer or CMS; Hardened never silently falls back
+  ---
+  duration_ms: 1.8359
+  type: 'test'
+  ...
+# Subtest: M20 schema: strict fields, unsupported versions, fixed secret boundary and invalid combinations rejected
+ok 2 - M20 schema: strict fields, unsupported versions, fixed secret boundary and invalid combinations rejected
+  ---
+  duration_ms: 0.9245
+  type: 'test'
+  ...
+# Subtest: M20 registry: all categories resolve; simulated storage never becomes enabled or qualified
+ok 3 - M20 registry: all categories resolve; simulated storage never becomes enabled or qualified
+  ---
+  duration_ms: 0.2219
+  type: 'test'
+  ...
+# Subtest: M20 version migration is explicit and only migrates configuration
+ok 4 - M20 version migration is explicit and only migrates configuration
+  ---
+  duration_ms: 0.8993
+  type: 'test'
+  ...
+# Subtest: M20 plans: exact confirmation, hash binding, one-use and concurrent revision fence
+ok 5 - M20 plans: exact confirmation, hash binding, one-use and concurrent revision fence
+  ---
+  duration_ms: 27.2456
+  type: 'test'
+  ...
+# Subtest: M20 mode migration waits for restart; reopening revalidates and Hardened stays blocked
+ok 6 - M20 mode migration waits for restart; reopening revalidates and Hardened stays blocked
+  ---
+  duration_ms: 30.7362
+  type: 'test'
+  ...
+# Subtest: M20 audit: disabling optional command audit stops its producer; configuration audit remains
+ok 7 - M20 audit: disabling optional command audit stops its producer; configuration audit remains
+  ---
+  duration_ms: 14.5119
+  type: 'test'
+  ...
+# Subtest: M20 audit chain detects persisted edits; it does not claim administrator tamper resistance
+ok 8 - M20 audit chain detects persisted edits; it does not claim administrator tamper resistance
+  ---
+  duration_ms: 20.3163
+  type: 'test'
+  ...
+# Subtest: M20 Data Egress: actual deny, advisory and disabled outcomes; no fabricated admission
+ok 9 - M20 Data Egress: actual deny, advisory and disabled outcomes; no fabricated admission
+  ---
+  duration_ms: 23.2487
+  type: 'test'
+  ...
+# Subtest: M20 generic secret scan really switches off and on independently of known-key boundary
+ok 10 - M20 generic secret scan really switches off and on independently of known-key boundary
+  ---
+  duration_ms: 19.8798
+  type: 'test'
+  ...
+# Subtest: M20 actual Tool Gateway: ENFORCED blocks, ADVISORY computes, OFF does not evaluate; Agent cannot edit Profile
+ok 11 - M20 actual Tool Gateway: ENFORCED blocks, ADVISORY computes, OFF does not evaluate; Agent cannot edit Profile
+  ---
+  duration_ms: 238.2371
+  type: 'test'
+  ...
+# Subtest: M20 actual validation switch stops validator; optional local write approval is configurable; sandbox owner stays blocked
+not ok 12 - M20 actual validation switch stops validator; optional local write approval is configurable; sandbox owner stays blocked
+  ---
+  duration_ms: 50.4311
+  type: 'test'
+  location: 'I:\\AI_AgentNexus\\deliverables\\AgentNexus-M2.0\\source\\tests\\agentnexus\\m20-security.test.ts:101:1'
+  failureType: 'testCodeFailure'
+  error: 'SIDE_EFFECT_POLICY_REQUIRED'
+  code: 'SIDE_EFFECT_POLICY_REQUIRED'
+  name: 'NexusError'
+  stack: |-
+    invariant (file:///I:/AI_AgentNexus/deliverables/AgentNexus-M2.0/source/src/agentnexus/types.ts:44:18)
+    ToolGateway.register (file:///I:/AI_AgentNexus/deliverables/AgentNexus-M2.0/source/src/agentnexus/gateway.ts:57:7)
+    Object.registerTool (file:///I:/AI_AgentNexus/deliverables/AgentNexus-M2.0/source/src/agentnexus/host.ts:154:61)
+    TestContext.<anonymous> (file:///I:/AI_AgentNexus/deliverables/AgentNexus-M2.0/source/tests/agentnexus/m20-security.test.ts:105:23)
+    async Test.run (node:internal/test_runner/test:1208:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:831:7)
+  ...
+# Subtest: M20 native Windows Credential Manager: synthetic bytes roundtrip, namespace isolation and deletion
+not ok 13 - M20 native Windows Credential Manager: synthetic bytes roundtrip, namespace isolation and deletion
+  ---
+  duration_ms: 904.3995
+  type: 'test'
+  location: 'I:\\AI_AgentNexus\\deliverables\\AgentNexus-M2.0\\source\\tests\\desktop\\m20-local.test.ts:10:1'
+  failureType: 'testCodeFailure'
+  error: 'SECURITY_OS_STORAGE_FAILED'
+  code: 'SECURITY_OS_STORAGE_FAILED'
+  stack: |-
+    ChildProcess.<anonymous> (file:///I:/AI_AgentNexus/deliverables/AgentNexus-M2.0/source/src/agentnexus/security/os-credentials.ts:37:211)
+    ChildProcess.emit (node:events:509:28)
+    maybeClose (node:internal/child_process:1124:16)
+    ChildProcess._handle.onexit (node:internal/child_process:306:5)
+  ...
+# Subtest: M20 actual Local Desktop: no TPM/service, direct entry, Gateway, budgets, Agents, persistence and mode migration
+not ok 14 - M20 actual Local Desktop: no TPM/service, direct entry, Gateway, budgets, Agents, persistence and mode migration
+  ---
+  duration_ms: 1079.4372
+  type: 'test'
+  location: 'I:\\AI_AgentNexus\\deliverables\\AgentNexus-M2.0\\source\\tests\\desktop\\m20-local.test.ts:15:1'
+  failureType: 'testCodeFailure'
+  error: 'CREDENTIAL_SAVE_FAILED'
+  code: 'CREDENTIAL_SAVE_FAILED'
+  name: 'DesktopError'
+  stack: |-
+    saveSyntheticFixture (file:///I:/AI_AgentNexus/deliverables/AgentNexus-M2.0/source/src/agentnexus/desktop/synthetic-credential-fixture.ts:48:53)
+    async Object.invoke (file:///I:/AI_AgentNexus/deliverables/AgentNexus-M2.0/source/src/agentnexus/desktop/service.ts:467:34)
+    async TestContext.<anonymous> (file:///I:/AI_AgentNexus/deliverables/AgentNexus-M2.0/source/tests/desktop/m20-local.test.ts:22:17)
+    async Test.run (node:internal/test_runner/test:1208:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:831:7)
+  ...
+# Subtest: DESKTOP provider CRUD, strict revision, unsupported protocols and model wire IDs
+ok 15 - DESKTOP provider CRUD, strict revision, unsupported protocols and model wire IDs
+  ---
+  duration_ms: 478.7489
+  type: 'test'
+  ...
+# Subtest: DESKTOP credential add, zeroization, no read API, rotation, disable, revoke and audit safety
+ok 16 - DESKTOP credential add, zeroization, no read API, rotation, disable, revoke and audit safety
+  ---
+  duration_ms: 573.971
+  type: 'test'
+  ...
+# Subtest: DESKTOP credential protector failure never reports success and clears submitted bytes
+ok 17 - DESKTOP credential protector failure never reports success and clears submitted bytes
+  ---
+  duration_ms: 392.3471
+  type: 'test'
+  ...
+# Subtest: DESKTOP synthetic connection uses Gateway and ledger but never marks CONNECTED; LIVE never sends
+ok 18 - DESKTOP synthetic connection uses Gateway and ledger but never marks CONNECTED; LIVE never sends
+  ---
+  duration_ms: 709.8387
+  type: 'test'
+  ...
+# Subtest: DESKTOP Agent bindings, task override, reset, favorites/defaults and pre-send failover execute Model Router
+ok 19 - DESKTOP Agent bindings, task override, reset, favorites/defaults and pre-send failover execute Model Router
+  ---
+  duration_ms: 1147.2295
+  type: 'test'
+  ...
+# Subtest: DESKTOP all Keys and Providers share platform usage; per-Agent budget cannot be expanded by adding Keys
+ok 20 - DESKTOP all Keys and Providers share platform usage; per-Agent budget cannot be expanded by adding Keys
+  ---
+  duration_ms: 1152.0573
+  type: 'test'
+  ...
+# Subtest: DESKTOP UNKNOWN holds survive rotation and Host reopen and never auto-replay
+ok 21 - DESKTOP UNKNOWN holds survive rotation and Host reopen and never auto-replay
+  ---
+  duration_ms: 974.4912
+  type: 'test'
+  ...
+# Subtest: DESKTOP multiple scoped Agent requests occupy separate pool Keys concurrently
+ok 22 - DESKTOP multiple scoped Agent requests occupy separate pool Keys concurrently
+  ---
+  duration_ms: 825.5956
+  type: 'test'
+  ...
+# Subtest: DESKTOP IPC contract denies claimed roles, unknown fields, revoked sessions, real Transport and secret metadata
+ok 23 - DESKTOP IPC contract denies claimed roles, unknown fields, revoked sessions, real Transport and secret metadata
+  ---
+  duration_ms: 435.8885
+  type: 'test'
+  ...
+# Subtest: DESKTOP connection error taxonomy does not infer success from configuration
+ok 24 - DESKTOP connection error taxonomy does not infer success from configuration
+  ---
+  duration_ms: 0.2354
+  type: 'test'
+  ...
+# Subtest: DESKTOP provider permission denial remains UNAUTHORIZED through actual Gateway path
+ok 25 - DESKTOP provider permission denial remains UNAUTHORIZED through actual Gateway path
+  ---
+  duration_ms: 659.1258
+  type: 'test'
+  ...
+# Subtest: DESKTOP runtime shares four slots across all facades and close cannot partially close an active Vault
+ok 26 - DESKTOP runtime shares four slots across all facades and close cannot partially close an active Vault
+  ---
+  duration_ms: 1424.4908
+  type: 'test'
+  ...
+# Subtest: DESKTOP acknowledged not-sent primary RPM failure uses fallback without replaying a sent request
+ok 27 - DESKTOP acknowledged not-sent primary RPM failure uses fallback without replaying a sent request
+  ---
+  duration_ms: 875.5508
+  type: 'test'
+  ...
+# Subtest: DESKTOP deadline is displayed as TIMEOUT while retaining unknown usage and no replay
+ok 28 - DESKTOP deadline is displayed as TIMEOUT while retaining unknown usage and no replay
+  ---
+  duration_ms: 639.4111
+  type: 'test'
+  ...
+1..28
+# tests 28
+# suites 0
+# pass 25
+# fail 3
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 13416.534

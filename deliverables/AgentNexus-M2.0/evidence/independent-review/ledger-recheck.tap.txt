@@ -1,0 +1,94 @@
+TAP version 13
+# Subtest: M18 LEDGER composite Task budget identities cannot alias through colon-containing IDs
+ok 1 - M18 LEDGER composite Task budget identities cannot alias through colon-containing IDs
+  ---
+  duration_ms: 1.0728
+  type: 'test'
+  ...
+# Subtest: M18 LEDGER real SQLite four-level admission is atomic under competing reservations
+ok 2 - M18 LEDGER real SQLite four-level admission is atomic under competing reservations
+  ---
+  duration_ms: 84.0871
+  type: 'test'
+  ...
+# Subtest: M18 LEDGER each independently exhausted scope rejects without partial holds
+ok 3 - M18 LEDGER each independently exhausted scope rejects without partial holds
+  ---
+  duration_ms: 219.5294
+  type: 'test'
+  ...
+# Subtest: M18 LEDGER sibling agents share project allowance and separate projects share platform allowance
+ok 4 - M18 LEDGER sibling agents share project allowance and separate projects share platform allowance
+  ---
+  duration_ms: 94.7314
+  type: 'test'
+  ...
+# Subtest: M18 LEDGER a missing level, forged admin, injected fields and static reason violations fail before mutation
+ok 5 - M18 LEDGER a missing level, forged admin, injected fields and static reason violations fail before mutation
+  ---
+  duration_ms: 58.1517
+  type: 'test'
+  ...
+# Subtest: M18 LEDGER request idempotency binds the complete subject, context, model, assurance and estimates
+ok 6 - M18 LEDGER request idempotency binds the complete subject, context, model, assurance and estimates
+  ---
+  duration_ms: 54.7179
+  type: 'test'
+  ...
+# Subtest: M18 LEDGER proven-not-sent releases once; durable SENT and UNKNOWN cannot be replayed or released
+ok 7 - M18 LEDGER proven-not-sent releases once; durable SENT and UNKNOWN cannot be replayed or released
+  ---
+  duration_ms: 67.831
+  type: 'test'
+  ...
+# Subtest: M18 LEDGER provider actual usage settles all scopes once and reasoning remains inside output tokens
+ok 8 - M18 LEDGER provider actual usage settles all scopes once and reasoning remains inside output tokens
+  ---
+  duration_ms: 56.3501
+  type: 'test'
+  ...
+# Subtest: M18 LEDGER REAL and SIMULATED limits and receipts are isolated, including HTTP rejection estimates
+ok 9 - M18 LEDGER REAL and SIMULATED limits and receipts are isolated, including HTTP rejection estimates
+  ---
+  duration_ms: 78.8582
+  type: 'test'
+  ...
+# Subtest: M18 LEDGER estimated tokens and fees remain separate from actual usage and retain uncertain allowance
+ok 10 - M18 LEDGER estimated tokens and fees remain separate from actual usage and retain uncertain allowance
+  ---
+  duration_ms: 51.5466
+  type: 'test'
+  ...
+# Subtest: M18 LEDGER actual overshoot is retained as UNKNOWN with all observed usage and no accounting rollback
+ok 11 - M18 LEDGER actual overshoot is retained as UNKNOWN with all observed usage and no accounting rollback
+  ---
+  duration_ms: 70.722
+  type: 'test'
+  ...
+# Subtest: M18 LEDGER invalid reasoning, attempt counts, numeric overflow and non-provider real usage never settle
+ok 12 - M18 LEDGER invalid reasoning, attempt counts, numeric overflow and non-provider real usage never settle
+  ---
+  duration_ms: 55.643
+  type: 'test'
+  ...
+# Subtest: M18 LEDGER SQLite close/reopen recovery quarantines every unresolved request without calls or released holds
+ok 13 - M18 LEDGER SQLite close/reopen recovery quarantines every unresolved request without calls or released holds
+  ---
+  duration_ms: 108.9005
+  type: 'test'
+  ...
+# Subtest: M18 LEDGER failed durable reservation ACK performs zero send transitions and keeps all committed holds
+ok 14 - M18 LEDGER failed durable reservation ACK performs zero send transitions and keeps all committed holds
+  ---
+  duration_ms: 49.2233
+  type: 'test'
+  ...
+1..14
+# tests 14
+# suites 0
+# pass 14
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1221.7819

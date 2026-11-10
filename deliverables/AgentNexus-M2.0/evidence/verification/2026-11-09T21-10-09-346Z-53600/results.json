@@ -1,0 +1,54 @@
+{
+  "schema": "agentnexus/m20/verification/1",
+  "output": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M2.0\\verification\\2026-11-09T21-10-09-346Z-53600",
+  "source": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M2.0\\source",
+  "started_at": "2026-11-09T21:10:09.725Z",
+  "scope": "REAL_LOCAL_HOST_NATIVE_CREDMAN_AND_SYNTHETIC_PROVIDER_ONLY",
+  "real_credentials": 0,
+  "real_provider_requests": 0,
+  "os_hardened_qualification": "NOT_RUN",
+  "stages": [
+    {
+      "name": "typecheck",
+      "command": [
+        "D:\\Nodejs\\node.exe",
+        "tools/agentnexus/typecheck-m15.mjs"
+      ],
+      "exit_code": 0,
+      "status": "PASS",
+      "elapsed_ms": 5012
+    },
+    {
+      "name": "build",
+      "command": [
+        "D:\\Nodejs\\node.exe",
+        "tools/agentnexus/build-desktop.mjs"
+      ],
+      "exit_code": 0,
+      "status": "PASS",
+      "elapsed_ms": 1220
+    },
+    {
+      "name": "tests",
+      "command": [
+        "D:\\Nodejs\\node.exe",
+        "--test",
+        "--test-concurrency=1",
+        "--test-reporter=tap",
+        "tests/agentnexus/m20-security.test.ts",
+        "tests/agentnexus/m20-recovery.test.ts",
+        "tests/desktop/m20-local.test.ts",
+        "tests/desktop/service.test.ts"
+      ],
+      "exit_code": 0,
+      "status": "PASS",
+      "elapsed_ms": 35910,
+      "tests": 32,
+      "pass": 32,
+      "fail": 0,
+      "skipped": 0
+    }
+  ],
+  "finished_at": "2026-11-09T21:10:51.875Z",
+  "status": "PASS"
+}

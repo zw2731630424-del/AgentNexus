@@ -1,0 +1,34 @@
+✔ M20 schema: Local defaults need no service, TPM, signer or CMS; Hardened never silently falls back (1.9809ms)
+✔ M20 schema: strict fields, unsupported versions, fixed secret boundary and invalid combinations rejected (0.9128ms)
+✔ M20 registry: all categories resolve; simulated storage never becomes enabled or qualified (0.2374ms)
+✔ M20 version migration is explicit and only migrates configuration (0.9203ms)
+✔ M20 plans: exact confirmation, hash binding, one-use and concurrent revision fence (24.1807ms)
+✔ M20 mode migration waits for restart; reopening revalidates and Hardened stays blocked (26.7338ms)
+✔ M20 audit: disabling optional command audit stops its producer; configuration audit remains (13.1126ms)
+✔ M20 audit chain detects persisted edits; it does not claim administrator tamper resistance (16.37ms)
+✔ M20 Data Egress: actual deny, advisory and disabled outcomes; no fabricated admission (21.1385ms)
+✔ M20 generic secret scan really switches off and on independently of known-key boundary (18.0764ms)
+✔ M20 actual Tool Gateway: ENFORCED blocks, ADVISORY computes, OFF does not evaluate; Agent cannot edit Profile (224.0098ms)
+✖ M20 actual validation switch stops validator; optional local write approval is configurable; sandbox owner stays blocked (43.1439ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 11
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 567.9352
+
+✖ failing tests:
+
+test at tests\agentnexus\m20-security.test.ts:101:1
+✖ M20 actual validation switch stops validator; optional local write approval is configurable; sandbox owner stays blocked (43.1439ms)
+  Error [NexusError]: WRITER_RESOURCE_REQUIRED
+      at invariant (file:///I:/AI_AgentNexus/deliverables/AgentNexus-M2.0/source/src/agentnexus/types.ts:44:18)
+      at ToolGateway.register (file:///I:/AI_AgentNexus/deliverables/AgentNexus-M2.0/source/src/agentnexus/gateway.ts:58:7)
+      at Object.registerTool (file:///I:/AI_AgentNexus/deliverables/AgentNexus-M2.0/source/src/agentnexus/host.ts:154:61)
+      at TestContext.<anonymous> (file:///I:/AI_AgentNexus/deliverables/AgentNexus-M2.0/source/tests/agentnexus/m20-security.test.ts:105:23)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    code: 'WRITER_RESOURCE_REQUIRED'
+  }

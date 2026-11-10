@@ -1,0 +1,61 @@
+{
+  "schema": "agentnexus/m20/desktop-e2e/1",
+  "output": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M2.0\\desktop-e2e\\run-H034Ve",
+  "started_at": "2026-11-09T20:48:58.296Z",
+  "status": "FAIL",
+  "scope": "ACTUAL_ELECTRON_UI_CURRENT_USER_CREDMAN_SYNTHETIC_PROVIDER",
+  "real_keys": 0,
+  "real_provider_requests": 0,
+  "windows_services_created": 0,
+  "uac_installations": 0,
+  "steps": [
+    {
+      "name": "Local boots without service, TPM, CMS or native helper window",
+      "status": "PASS",
+      "elapsed_ms": 819
+    },
+    {
+      "name": "Electron runs with ordinary Medium integrity and no elevation",
+      "status": "PASS",
+      "elapsed_ms": 209
+    },
+    {
+      "name": "UI creates Provider and Model",
+      "status": "PASS",
+      "elapsed_ms": 2197
+    },
+    {
+      "name": "UI API Key saves into real Windows Credential Manager",
+      "status": "PASS",
+      "elapsed_ms": 12609
+    },
+    {
+      "name": "UI Synthetic connection uses original Gateway and ledger",
+      "status": "PASS",
+      "elapsed_ms": 916
+    },
+    {
+      "name": "UI Model Selector binds Development Agent and sends Synthetic chat",
+      "status": "FAIL",
+      "error": "page.screenshot: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m    - disabled all CSS animations\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n",
+      "elapsed_ms": 40074
+    }
+  ],
+  "screenshots": [
+    "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M2.0\\desktop-e2e\\run-H034Ve\\01-local-key-saved.png",
+    "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M2.0\\desktop-e2e\\run-H034Ve\\failure.png"
+  ],
+  "process_observation": {
+    "observations": [
+      {
+        "pid": 45076,
+        "elevated": false,
+        "integrity": 8192
+      }
+    ],
+    "read_only": true,
+    "os_qualification": "NOT_RUN"
+  },
+  "failure": "page.screenshot: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m    - disabled all CSS animations\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n",
+  "finished_at": "2026-11-09T20:49:58.255Z"
+}

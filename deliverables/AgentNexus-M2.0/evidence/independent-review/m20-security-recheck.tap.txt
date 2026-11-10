@@ -1,0 +1,82 @@
+TAP version 13
+# Subtest: M20 schema: Local defaults need no service, TPM, signer or CMS; Hardened never silently falls back
+ok 1 - M20 schema: Local defaults need no service, TPM, signer or CMS; Hardened never silently falls back
+  ---
+  duration_ms: 1.7823
+  type: 'test'
+  ...
+# Subtest: M20 schema: strict fields, unsupported versions, fixed secret boundary and invalid combinations rejected
+ok 2 - M20 schema: strict fields, unsupported versions, fixed secret boundary and invalid combinations rejected
+  ---
+  duration_ms: 0.8876
+  type: 'test'
+  ...
+# Subtest: M20 registry: all categories resolve; simulated storage never becomes enabled or qualified
+ok 3 - M20 registry: all categories resolve; simulated storage never becomes enabled or qualified
+  ---
+  duration_ms: 0.2202
+  type: 'test'
+  ...
+# Subtest: M20 version migration is explicit and only migrates configuration
+ok 4 - M20 version migration is explicit and only migrates configuration
+  ---
+  duration_ms: 0.8868
+  type: 'test'
+  ...
+# Subtest: M20 plans: exact confirmation, hash binding, one-use and concurrent revision fence
+ok 5 - M20 plans: exact confirmation, hash binding, one-use and concurrent revision fence
+  ---
+  duration_ms: 25.7833
+  type: 'test'
+  ...
+# Subtest: M20 mode migration waits for restart; reopening revalidates and Hardened stays blocked
+ok 6 - M20 mode migration waits for restart; reopening revalidates and Hardened stays blocked
+  ---
+  duration_ms: 29.6397
+  type: 'test'
+  ...
+# Subtest: M20 audit: disabling optional command audit stops its producer; configuration audit remains
+ok 7 - M20 audit: disabling optional command audit stops its producer; configuration audit remains
+  ---
+  duration_ms: 13.4518
+  type: 'test'
+  ...
+# Subtest: M20 audit chain detects persisted edits; it does not claim administrator tamper resistance
+ok 8 - M20 audit chain detects persisted edits; it does not claim administrator tamper resistance
+  ---
+  duration_ms: 19.7512
+  type: 'test'
+  ...
+# Subtest: M20 Data Egress: actual deny, advisory and disabled outcomes; no fabricated admission
+ok 9 - M20 Data Egress: actual deny, advisory and disabled outcomes; no fabricated admission
+  ---
+  duration_ms: 21.4048
+  type: 'test'
+  ...
+# Subtest: M20 generic secret scan really switches off and on independently of known-key boundary
+ok 10 - M20 generic secret scan really switches off and on independently of known-key boundary
+  ---
+  duration_ms: 19.5801
+  type: 'test'
+  ...
+# Subtest: M20 actual Tool Gateway: ENFORCED blocks, ADVISORY computes, OFF does not evaluate; Agent cannot edit Profile
+ok 11 - M20 actual Tool Gateway: ENFORCED blocks, ADVISORY computes, OFF does not evaluate; Agent cannot edit Profile
+  ---
+  duration_ms: 234.9636
+  type: 'test'
+  ...
+# Subtest: M20 actual validation switch stops validator; optional local write approval is configurable; sandbox owner stays blocked
+ok 12 - M20 actual validation switch stops validator; optional local write approval is configurable; sandbox owner stays blocked
+  ---
+  duration_ms: 230.9872
+  type: 'test'
+  ...
+1..12
+# tests 12
+# suites 0
+# pass 12
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 775.9076

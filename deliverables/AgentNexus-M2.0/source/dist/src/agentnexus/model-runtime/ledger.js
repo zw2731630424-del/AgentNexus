@@ -1,0 +1,299 @@
+import { canonical, invariant, now, sha256 } from '../types.js';
+import { hostSubject, identifier, snapshot, subject as validateSubject } from '../harness/contracts.js';
+export const MODEL_USAGE_LIMITS = Object.freeze({ records: 4096, budgets: 4096, attempts: 3 });
+export const MODEL_USAGE_REASONS = Object.freeze([
+    'PROVEN_NOT_SENT', 'KNOWN_NOT_SENT', 'CANCELLED_BEFORE_SEND', 'CANCELLED_AFTER_SEND',
+    'TRANSPORT_UNKNOWN', 'PROVIDER_UNKNOWN', 'USAGE_UNAVAILABLE', 'MALFORMED_RESPONSE',
+    'AUTH_REJECTED', 'RATE_LIMIT_REJECTED', 'REQUEST_FAILED', 'HOST_RESTART', 'USAGE_OVERRUN',
+]);
+const USAGE = 'MODEL18_USAGE', BUDGET = 'MODEL18_BUDGET';
+const SCOPES = ['AGENT', 'TASK', 'PROJECT', 'PLATFORM', 'PROVIDER', 'KEY_POOL'];
+const AMOUNTS = ['tokens', 'requests', 'cost_micros'];
+const zero = () => ({ tokens: 0, requests: 0, cost_micros: 0 });
+function fields(value, allowed, required = allowed) {
+    invariant(value !== null && typeof value === 'object' && !Array.isArray(value) &&
+        Object.keys(value).every(key => allowed.includes(key)) && required.every(key => Object.hasOwn(value, key)), 'MODEL18_LEDGER_SCHEMA');
+}
+function natural(value, maximum = Number.MAX_SAFE_INTEGER) {
+    invariant(Number.isSafeInteger(value) && Number(value) >= 0 && Number(value) <= maximum, 'MODEL18_LEDGER_AMOUNT');
+}
+function add(a, b) { const result = a + b; natural(result); return result; }
+function amounts(a, b, direction = 1) {
+    const next = zero();
+    for (const key of AMOUNTS) {
+        next[key] = a[key] + direction * b[key];
+        natural(next[key]);
+    }
+    return next;
+}
+function assurance(value) {
+    invariant(value === 'SIMULATED' || value === 'REAL', 'MODEL18_LEDGER_ASSURANCE');
+}
+function actor(value) {
+    const owned = snapshot(value);
+    fields(owned, ['agent_id', 'project_id', 'task_id', 'session_id',
+        'runtime_instance_id', 'agent_type', 'model_binding', 'resource_budget_id', 'policy_scope']);
+    validateSubject(owned);
+    return owned;
+}
+function scopeId(scope, id) {
+    invariant(SCOPES.includes(scope), 'MODEL18_LEDGER_SCOPE');
+    invariant(typeof id === 'string' && /^[A-Za-z0-9_.:-]+$/.test(id) && id.length <= (scope === 'TASK' ? 257 : 128), 'MODEL18_LEDGER_SCOPE');
+    invariant(scope !== 'PLATFORM' || id === 'platform', 'MODEL18_LEDGER_SCOPE');
+}
+function budgetId(scope, id, kind) {
+    return sha256(canonical({ scope, id, assurance: kind }));
+}
+export function modelTaskBudgetId(s) { return sha256(canonical({ project_id: s.project_id, task_id: s.task_id })); }
+function scopeBindings(s) {
+    return [['AGENT', s.agent_id], ['TASK', modelTaskBudgetId(s)], ['PROJECT', s.project_id], ['PLATFORM', 'platform']];
+}
+function reasonCode(reason) {
+    invariant(typeof reason === 'string' && reason.length <= 96 && /^[A-Z][A-Z0-9_]*$/.test(reason) &&
+        MODEL_USAGE_REASONS.includes(reason), 'MODEL18_LEDGER_REASON');
+    return reason;
+}
+function exceeds(a, b) { return AMOUNTS.some(key => a[key] > b[key]); }
+/** Host-only model accounting owner. REAL/SIMULATED ledgers never qualify OS resource enforcement. */
+export class ModelUsageLedger {
+    #state;
+    #controls;
+    constructor(state, admin, controls) { state.checkAdmin(admin); this.#state = state; this.#controls = controls; }
+    #check(admin) { this.#state.checkAdmin(admin); }
+    #record(id, owner) {
+        identifier(id);
+        const row = this.#state.get(USAGE, id);
+        invariant(row, 'MODEL18_LEDGER_UNKNOWN');
+        if (owner)
+            invariant(canonical(owner) === canonical(row.subject), 'MODEL18_LEDGER_SUBJECT');
+        return row;
+    }
+    #budgets(s, kind, provider) {
+        const bindings = scopeBindings(s);
+        if (this.#controls?.additionalScopes) {
+            invariant(provider, 'MODEL18_PROVIDER_BUDGET_REQUIRED');
+            bindings.push(['PROVIDER', provider], ['KEY_POOL', provider]);
+        }
+        return bindings.map(([scope, id]) => {
+            const row = this.#state.get(BUDGET, budgetId(scope, id, kind));
+            invariant(row && row.scope === scope && row.id === id && row.assurance === kind, 'MODEL18_LEDGER_BUDGET_REQUIRED');
+            return row;
+        });
+    }
+    #saveBudget(old, changes) {
+        const next = { ...old, ...changes, revision: old.revision + 1 };
+        this.#state.update(BUDGET, old.entity_id, old.revision, next.overdrawn ? 'OVERDRAWN' : 'CONFIGURED', next);
+    }
+    #save(old, changes) {
+        const next = { ...old, ...changes, revision: old.revision + 1 };
+        this.#state.update(USAGE, old.request_id, old.revision, next.state, next);
+        return snapshot(next);
+    }
+    async configure(admin, input) {
+        this.#check(admin);
+        const p = snapshot(input);
+        fields(p, ['scope', 'id', 'assurance', ...AMOUNTS]);
+        scopeId(p.scope, p.id);
+        assurance(p.assurance);
+        for (const key of AMOUNTS)
+            natural(p[key]);
+        const id = budgetId(p.scope, p.id, p.assurance), limits = { tokens: p.tokens, requests: p.requests, cost_micros: p.cost_micros };
+        await this.#state.change(hostSubject(this.#state.boot_id), 'MODEL18_BUDGET_CONFIGURED', () => {
+            const old = this.#state.get(BUDGET, id);
+            if (old) {
+                if (canonical(old.limits) === canonical(limits))
+                    return;
+                for (const amount of AMOUNTS)
+                    if (!this.#controls || this.#controls.enforce(p.scope, amount))
+                        invariant(old.used[amount] + old.held[amount] <= limits[amount], 'MODEL18_LEDGER_BUDGET_BELOW_COMMITTED');
+                this.#saveBudget(old, { limits, overdrawn: Object.values(old.overrun).some(n => n > 0) || exceeds(amounts(old.used, old.held), limits) });
+            }
+            else {
+                invariant(this.#state.count(BUDGET) < MODEL_USAGE_LIMITS.budgets, 'MODEL18_LEDGER_CAPACITY');
+                const row = { entity_id: id, revision: 0, scope: p.scope, id: p.id, assurance: p.assurance,
+                    limits, used: zero(), held: zero(), estimated: zero(), overrun: zero(), overdrawn: false };
+                this.#state.insert(BUDGET, id, hostSubject(this.#state.boot_id), 'CONFIGURED', row);
+            }
+        }, { scope: p.scope, scope_id: p.id, assurance: p.assurance, limits }, id);
+        return this.totals(admin, p.scope, p.id, p.assurance);
+    }
+    async reserve(admin, subject, input) {
+        this.#check(admin);
+        const s = actor(subject), p = snapshot(input);
+        const required = ['request_id', 'input_tokens', 'output_tokens', 'cost_micros', 'assurance', 'context_hash', 'provider_id', 'model_id'];
+        fields(p, [...required, 'requests'], required);
+        identifier(p.request_id);
+        identifier(p.provider_id);
+        identifier(p.model_id);
+        assurance(p.assurance);
+        invariant(/^[a-f0-9]{64}$/.test(p.context_hash), 'MODEL18_LEDGER_CONTEXT');
+        natural(p.input_tokens);
+        natural(p.output_tokens);
+        natural(p.cost_micros);
+        const requests = p.requests ?? 1;
+        natural(requests, MODEL_USAGE_LIMITS.attempts);
+        invariant(requests > 0, 'MODEL18_LEDGER_AMOUNT');
+        const reserved = { tokens: add(p.input_tokens, p.output_tokens), requests, cost_micros: p.cost_micros };
+        const requestHash = sha256(canonical({ subject: s, ...p, requests }));
+        return this.#state.change(s, 'MODEL18_USAGE_RESERVED', () => {
+            const old = this.#state.get(USAGE, p.request_id);
+            if (old) {
+                invariant(old.request_hash === requestHash && canonical(old.subject) === canonical(s), 'MODEL18_LEDGER_REQUEST_CONFLICT');
+                return old.request_id;
+            }
+            invariant(this.#state.count(USAGE) < MODEL_USAGE_LIMITS.records, 'MODEL18_LEDGER_CAPACITY');
+            const budgets = this.#budgets(s, p.assurance, p.provider_id);
+            for (const row of budgets) {
+                invariant(this.#controls || !row.overdrawn, 'MODEL18_LEDGER_BUDGET_EXHAUSTED');
+                if (this.#controls && row.overdrawn)
+                    for (const amount of AMOUNTS)
+                        if (this.#controls.enforce(row.scope, amount))
+                            invariant(row.overrun[amount] === 0, 'MODEL18_LEDGER_BUDGET_EXHAUSTED');
+                const total = amounts(amounts(row.used, row.held), reserved);
+                for (const amount of AMOUNTS)
+                    if (!this.#controls || this.#controls.enforce(row.scope, amount))
+                        invariant(total[amount] <= row.limits[amount], 'MODEL18_LEDGER_BUDGET_EXHAUSTED');
+            }
+            for (const row of budgets)
+                this.#saveBudget(row, { held: amounts(row.held, reserved) });
+            const row = { request_id: p.request_id, revision: 0, subject: s, assurance: p.assurance,
+                state: 'RESERVED', request_hash: requestHash, context_hash: p.context_hash, provider_id: p.provider_id, model_id: p.model_id,
+                input_tokens: p.input_tokens, output_tokens: p.output_tokens, reserved, held: reserved,
+                usage: null, usage_hash: null, overrun: zero(), key_handle_id: null, reason: 'RESERVED', created_at: now(), sent_at: null, completed_at: null };
+            this.#state.insert(USAGE, p.request_id, s, 'RESERVED', row);
+            return p.request_id;
+        }, { request_id: p.request_id, provider_id: p.provider_id, model_id: p.model_id, context_hash: p.context_hash, assurance: p.assurance, reserved }, p.request_id);
+    }
+    async markSent(admin, subject, id, input) {
+        this.#check(admin);
+        const s = actor(subject), p = snapshot(input);
+        fields(p, ['key_handle_id']);
+        identifier(p.key_handle_id);
+        this.#record(id, s);
+        return this.#state.change(s, 'MODEL18_USAGE_SENT', () => {
+            const old = this.#record(id, s);
+            if (old.state === 'SENT') {
+                invariant(old.key_handle_id === p.key_handle_id, 'MODEL18_LEDGER_REQUEST_CONFLICT');
+                return old;
+            }
+            invariant(old.state === 'RESERVED', 'MODEL18_LEDGER_STATE');
+            return this.#save(old, { state: 'SENT', key_handle_id: p.key_handle_id, sent_at: now(), reason: 'SENT' });
+        }, { request_id: id, key_handle_id: p.key_handle_id }, id);
+    }
+    async settle(admin, subject, id, input) {
+        this.#check(admin);
+        const s = actor(subject), p = snapshot(input);
+        const required = ['input_tokens', 'output_tokens', 'reasoning_tokens', 'cost_micros', 'usage_source', 'elapsed_ms', 'provider_request_id', 'retries'];
+        fields(p, [...required, 'requests', 'cache_hit_tokens', 'cache_miss_tokens', 'cost_source', 'response_complete'], required);
+        for (const key of ['input_tokens', 'output_tokens', 'cost_micros', 'elapsed_ms', 'retries'])
+            natural(p[key]);
+        natural(p.retries, MODEL_USAGE_LIMITS.attempts - 1);
+        invariant(p.reasoning_tokens === null || (Number.isSafeInteger(p.reasoning_tokens) && p.reasoning_tokens >= 0 && p.reasoning_tokens <= p.output_tokens), 'MODEL18_LEDGER_REASONING');
+        for (const key of ['cache_hit_tokens', 'cache_miss_tokens'])
+            if (p[key] != null) {
+                natural(p[key]);
+                invariant(p[key] <= p.input_tokens, 'MODEL181_LEDGER_CACHE');
+            }
+        if (p.cache_hit_tokens != null && p.cache_miss_tokens != null)
+            invariant(p.cache_hit_tokens + p.cache_miss_tokens === p.input_tokens, 'MODEL181_LEDGER_CACHE');
+        invariant(p.cost_source === undefined || ['RATE_ESTIMATE', 'SYNTHETIC'].includes(p.cost_source), 'MODEL181_LEDGER_COST_SOURCE');
+        invariant(p.response_complete === undefined || typeof p.response_complete === 'boolean', 'MODEL181_LEDGER_COMPLETE');
+        invariant(['SIMULATED', 'PROVIDER', 'ESTIMATED'].includes(p.usage_source), 'MODEL18_LEDGER_USAGE_SOURCE');
+        if (p.provider_request_id !== null)
+            invariant(typeof p.provider_request_id === 'string' && /^[A-Za-z0-9_.:/-]{1,128}$/.test(p.provider_request_id), 'MODEL18_LEDGER_PROVIDER_REQUEST');
+        const requests = p.requests ?? p.retries + 1;
+        natural(requests, MODEL_USAGE_LIMITS.attempts);
+        invariant(requests >= 1 && requests === p.retries + 1, 'MODEL18_LEDGER_ATTEMPTS');
+        const usage = { ...p, requests, estimated: p.usage_source === 'ESTIMATED' }, usageHash = sha256(canonical(usage));
+        const observed = { tokens: add(p.input_tokens, p.output_tokens), requests, cost_micros: p.cost_micros };
+        this.#record(id, s);
+        return this.#state.change(s, 'MODEL18_USAGE_OBSERVED', () => {
+            const old = this.#record(id, s);
+            if (old.usage_hash) {
+                invariant(old.usage_hash === usageHash, 'MODEL18_LEDGER_USAGE_CONFLICT');
+                return old;
+            }
+            invariant(old.state === 'SENT', 'MODEL18_LEDGER_STATE');
+            invariant(requests <= old.reserved.requests, 'MODEL18_LEDGER_ATTEMPTS');
+            invariant(old.assurance === 'SIMULATED' ? p.usage_source === 'SIMULATED' : p.usage_source !== 'SIMULATED', 'MODEL18_LEDGER_USAGE_SOURCE');
+            const estimated = usage.estimated, overrun = zero();
+            for (const key of AMOUNTS)
+                overrun[key] = Math.max(0, observed[key] - old.reserved[key]);
+            const exceeded = exceeds(observed, old.reserved), retained = estimated || exceeded || p.response_complete === false;
+            // An estimated receipt only establishes the HTTP attempt count. Unproven token/fee holds remain owned.
+            const held = estimated ? { ...old.held, requests: old.held.requests - requests } : retained ? old.held : zero();
+            const charged = estimated ? { tokens: 0, requests, cost_micros: 0 } : observed;
+            for (const row of this.#budgets(s, old.assurance, old.provider_id)) {
+                const used = amounts(row.used, charged), nextHeld = amounts(amounts(row.held, old.held, -1), held);
+                this.#saveBudget(row, { used, held: nextHeld,
+                    estimated: estimated ? amounts(row.estimated, { ...observed, requests: 0 }) : row.estimated,
+                    overrun: amounts(row.overrun, overrun), overdrawn: row.overdrawn || exceeded || exceeds(amounts(used, nextHeld), row.limits) });
+            }
+            // Overruns retain the original hold conservatively even though actual usage is recorded; explicit owner reconciliation is required.
+            return this.#save(old, { state: retained ? 'UNKNOWN' : 'SETTLED', held, usage, usage_hash: usageHash, overrun,
+                reason: exceeded ? 'USAGE_OVERRUN' : estimated ? 'USAGE_UNAVAILABLE' : 'SETTLED', completed_at: now() });
+        }, { request_id: id, usage_source: usage.usage_source, estimated: usage.estimated, input_tokens: p.input_tokens,
+            output_tokens: p.output_tokens, reasoning_tokens: p.reasoning_tokens, cost_micros: p.cost_micros, requests,
+            cache_hit_tokens: p.cache_hit_tokens ?? null, cache_miss_tokens: p.cache_miss_tokens ?? null, cost_source: p.cost_source ?? (p.usage_source === 'SIMULATED' ? 'SYNTHETIC' : 'RATE_ESTIMATE'),
+            elapsed_ms: p.elapsed_ms, provider_request_id: p.provider_request_id, retries: p.retries }, id);
+    }
+    async notSent(admin, subject, id, reason) {
+        this.#check(admin);
+        const s = actor(subject), code = reasonCode(reason);
+        this.#record(id, s);
+        return this.#state.change(s, 'MODEL18_USAGE_NOT_SENT', () => {
+            const old = this.#record(id, s);
+            if (old.state === 'NOT_SENT')
+                return old;
+            invariant(old.state === 'RESERVED' && old.sent_at === null, 'MODEL18_LEDGER_ALREADY_SENT');
+            for (const row of this.#budgets(s, old.assurance, old.provider_id))
+                this.#saveBudget(row, { held: amounts(row.held, old.held, -1) });
+            return this.#save(old, { state: 'NOT_SENT', held: zero(), reason: code, completed_at: now() });
+        }, { request_id: id, reason: code }, id);
+    }
+    async unknown(admin, subject, id, reason) {
+        this.#check(admin);
+        const s = actor(subject), code = reasonCode(reason);
+        this.#record(id, s);
+        return this.#state.change(s, 'MODEL18_USAGE_UNKNOWN', () => {
+            const old = this.#record(id, s);
+            if (old.state === 'UNKNOWN')
+                return old;
+            invariant(old.state === 'RESERVED' || old.state === 'SENT', 'MODEL18_LEDGER_STATE');
+            return this.#save(old, { state: 'UNKNOWN', reason: code, completed_at: now() });
+        }, { request_id: id, reason: code, automatic_retry: false, capacity_released: false }, id);
+    }
+    async recover(admin) {
+        this.#check(admin);
+        let after, count = 0;
+        for (;;) {
+            const page = this.#state.list(USAGE, { ...(after ? { after } : {}), limit: 100 });
+            if (!page.length)
+                break;
+            for (const row of page)
+                if (row.state === 'RESERVED' || row.state === 'SENT') {
+                    const changed = await this.#state.change(hostSubject(this.#state.boot_id), 'MODEL18_USAGE_RECOVERED', () => {
+                        const current = this.#record(row.request_id);
+                        if (current.state !== 'RESERVED' && current.state !== 'SENT')
+                            return false;
+                        this.#save(current, { state: 'UNKNOWN', reason: 'HOST_RESTART', completed_at: now() });
+                        return true;
+                    }, { request_id: row.request_id, reason: 'HOST_RESTART', automatic_retry: false, capacity_released: false }, row.request_id);
+                    if (changed)
+                        count++;
+                }
+            after = page.at(-1).request_id;
+        }
+        return count;
+    }
+    inspect(admin, id) { this.#check(admin); return this.#record(id); }
+    totals(admin, scope, id, kind) {
+        this.#check(admin);
+        scopeId(scope, id);
+        assurance(kind);
+        const row = this.#state.get(BUDGET, budgetId(scope, id, kind));
+        invariant(row, 'MODEL18_LEDGER_BUDGET_REQUIRED');
+        const { entity_id: _entity, revision: _revision, ...metadata } = row;
+        return snapshot(metadata);
+    }
+}

@@ -1,0 +1,396 @@
+TAP version 13
+# Subtest: AT/Context/Artifact: real invocation produces separate hash-linked facts and byte-exact output
+ok 1 - AT/Context/Artifact: real invocation produces separate hash-linked facts and byte-exact output
+  ---
+  duration_ms: 209.9965
+  type: 'test'
+  ...
+# Subtest: P.MODE+Gateway: same safe synthetic operation blocked/enforced, would-deny, and unevaluated
+ok 2 - P.MODE+Gateway: same safe synthetic operation blocked/enforced, would-deny, and unevaluated
+  ---
+  duration_ms: 232.941
+  type: 'test'
+  ...
+# Subtest: P.SANDBOX: DISABLED does not admit arbitrary execution or close independent protection
+ok 3 - P.SANDBOX: DISABLED does not admit arbitrary execution or close independent protection
+  ---
+  duration_ms: 98.5637
+  type: 'test'
+  ...
+# Subtest: P.IDENTITY: facade has no administration and JSON admin/mode flags cannot elevate
+ok 4 - P.IDENTITY: facade has no administration and JSON admin/mode flags cannot elevate
+  ---
+  duration_ms: 67.4084
+  type: 'test'
+  ...
+# Subtest: P.APPROVAL_REPLAY: exact approval executes once; altered intent and replay denied
+ok 5 - P.APPROVAL_REPLAY: exact approval executes once; altered intent and replay denied
+  ---
+  duration_ms: 171.065
+  type: 'test'
+  ...
+# Subtest: P.DB_ATOMIC: 16 concurrent duplicate requests invoke a real handler at most once
+ok 6 - P.DB_ATOMIC: 16 concurrent duplicate requests invoke a real handler at most once
+  ---
+  duration_ms: 197.4541
+  type: 'test'
+  ...
+# Subtest: P.WORKSPACE_WRITER: concurrent distinct calls cannot overwrite active resource; modes cannot change mid-action
+ok 7 - P.WORKSPACE_WRITER: concurrent distinct calls cannot overwrite active resource; modes cannot change mid-action
+  ---
+  duration_ms: 165.0134
+  type: 'test'
+  ...
+# Subtest: AT-IOFAIL-before: actual SQLite readonly persistence failure prevents handler execution
+ok 8 - AT-IOFAIL-before: actual SQLite readonly persistence failure prevents handler execution
+  ---
+  duration_ms: 136.9079
+  type: 'test'
+  ...
+# Subtest: AT-IOFAIL-after: actual effect with unrecordable result keeps claim and never replays
+ok 9 - AT-IOFAIL-after: actual effect with unrecordable result keeps claim and never replays
+  ---
+  duration_ms: 130.1139
+  type: 'test'
+  ...
+# Subtest: P.TIMEOUT: timeout retains owned lease until actual handler settlement and never resets claim
+ok 10 - P.TIMEOUT: timeout retains owned lease until actual handler settlement and never resets claim
+  ---
+  duration_ms: 126.274
+  type: 'test'
+  ...
+# Subtest: AT-REPLAY: reconstruction is readonly and session scope does not grant peer context
+ok 11 - AT-REPLAY: reconstruction is readonly and session scope does not grant peer context
+  ---
+  duration_ms: 120.1073
+  type: 'test'
+  ...
+# Subtest: P.IDENTITY-revocation: old facade cannot read or close a replacement session
+ok 12 - P.IDENTITY-revocation: old facade cannot read or close a replacement session
+  ---
+  duration_ms: 160.3743
+  type: 'test'
+  ...
+# Subtest: P.IDENTITY-close-race: close revokes facade before its first asynchronous cleanup
+ok 13 - P.IDENTITY-close-race: close revokes facade before its first asynchronous cleanup
+  ---
+  duration_ms: 115.7882
+  type: 'test'
+  ...
+# Subtest: P.TIMEOUT-clock: handler deadline uses elapsed time under a wall-clock rollback
+ok 14 - P.TIMEOUT-clock: handler deadline uses elapsed time under a wall-clock rollback
+  ---
+  duration_ms: 112.2133
+  type: 'test'
+  ...
+# Subtest: P.MODE-START: a bypass expiring during a real delayed durability barrier cannot execute
+ok 15 - P.MODE-START: a bypass expiring during a real delayed durability barrier cannot execute
+  ---
+  duration_ms: 486.6209
+  type: 'test'
+  ...
+# Subtest: DI integration: malformed code remains FAIL, checks OFF are BYPASSED, raw/audit continue
+ok 16 - DI integration: malformed code remains FAIL, checks OFF are BYPASSED, raw/audit continue
+  ---
+  duration_ms: 170.7902
+  type: 'test'
+  ...
+# Subtest: Tool OFF rejects invocation, diagnostics log OFF does not silence core audit, oversized request is bounded
+ok 17 - Tool OFF rejects invocation, diagnostics log OFF does not silence core audit, oversized request is bounded
+  ---
+  duration_ms: 74.7317
+  type: 'test'
+  ...
+# Subtest: P.ARG_BINDING: mutation by schema or caller cannot replace the authorized snapshot
+ok 18 - P.ARG_BINDING: mutation by schema or caller cannot replace the authorized snapshot
+  ---
+  duration_ms: 106.985
+  type: 'test'
+  ...
+# Subtest: DI command checking keeps argv preview as data and cannot execute Git/Python
+ok 19 - DI command checking keeps argv preview as data and cannot execute Git/Python
+  ---
+  duration_ms: 220.645
+  type: 'test'
+  ...
+# Subtest: M18 GATEWAY native Loop uses encrypted synthetic credentials, Tool Gateway and exact source archive
+ok 20 - M18 GATEWAY native Loop uses encrypted synthetic credentials, Tool Gateway and exact source archive
+  ---
+  duration_ms: 711.7818
+  type: 'test'
+  ...
+# Subtest: M18 GATEWAY durable terminal dedup and conflicting input never make a second request
+ok 21 - M18 GATEWAY durable terminal dedup and conflicting input never make a second request
+  ---
+  duration_ms: 270.8649
+  type: 'test'
+  ...
+# Subtest: M18 GATEWAY caller mutation while reconstructing cannot alter validated output bound or fingerprint
+ok 22 - M18 GATEWAY caller mutation while reconstructing cannot alter validated output bound or fingerprint
+  ---
+  duration_ms: 257.6536
+  type: 'test'
+  ...
+# Subtest: M18 GATEWAY incomplete/disconnected/overbudget streams keep key and four-level holds without retry
+    # Subtest: partial
+    ok 1 - partial
+      ---
+      duration_ms: 259.1222
+      type: 'test'
+      ...
+    # Subtest: no-usage
+    ok 2 - no-usage
+      ---
+      duration_ms: 261.4688
+      type: 'test'
+      ...
+    # Subtest: overrun
+    ok 3 - overrun
+      ---
+      duration_ms: 265.4724
+      type: 'test'
+      ...
+    # Subtest: invalid-json
+    ok 4 - invalid-json
+      ---
+      duration_ms: 261.1473
+      type: 'test'
+      ...
+    1..4
+ok 23 - M18 GATEWAY incomplete/disconnected/overbudget streams keep key and four-level holds without retry
+  ---
+  duration_ms: 1048.0222
+  type: 'test'
+  ...
+# Subtest: M18 GATEWAY sent timeout returns bounded UNKNOWN and aborts the original stream
+ok 24 - M18 GATEWAY sent timeout returns bounded UNKNOWN and aborts the original stream
+  ---
+  duration_ms: 266.2674
+  type: 'test'
+  ...
+# Subtest: M18 GATEWAY pre-send cancellation and atomic budget denial never touch Provider transport
+ok 25 - M18 GATEWAY pre-send cancellation and atomic budget denial never touch Provider transport
+  ---
+  duration_ms: 210.6596
+  type: 'test'
+  ...
+# Subtest: M18 GATEWAY independently scoped concurrent Agent requests cannot overconsume one Key
+ok 26 - M18 GATEWAY independently scoped concurrent Agent requests cannot overconsume one Key
+  ---
+  duration_ms: 639.8955
+  type: 'test'
+  ...
+# Subtest: M18 GATEWAY model RPM, role routing and reasoned upgrade limits remain independent of permissions
+ok 27 - M18 GATEWAY model RPM, role routing and reasoned upgrade limits remain independent of permissions
+  ---
+  duration_ms: 1211.2344
+  type: 'test'
+  ...
+# Subtest: M18 GATEWAY echoed secret and hostile error text never reach Archive/Audit/results
+    # Subtest: echo
+    ok 1 - echo
+      ---
+      duration_ms: 610.4637
+      type: 'test'
+      ...
+    # Subtest: error
+    ok 2 - error
+      ---
+      duration_ms: 569.4906
+      type: 'test'
+      ...
+    1..2
+ok 28 - M18 GATEWAY echoed secret and hostile error text never reach Archive/Audit/results
+  ---
+  duration_ms: 1180.7475
+  type: 'test'
+  ...
+# Subtest: M18 LEDGER composite Task budget identities cannot alias through colon-containing IDs
+ok 29 - M18 LEDGER composite Task budget identities cannot alias through colon-containing IDs
+  ---
+  duration_ms: 1.1322
+  type: 'test'
+  ...
+# Subtest: M18 LEDGER real SQLite four-level admission is atomic under competing reservations
+ok 30 - M18 LEDGER real SQLite four-level admission is atomic under competing reservations
+  ---
+  duration_ms: 77.4091
+  type: 'test'
+  ...
+# Subtest: M18 LEDGER each independently exhausted scope rejects without partial holds
+ok 31 - M18 LEDGER each independently exhausted scope rejects without partial holds
+  ---
+  duration_ms: 206.9125
+  type: 'test'
+  ...
+# Subtest: M18 LEDGER sibling agents share project allowance and separate projects share platform allowance
+ok 32 - M18 LEDGER sibling agents share project allowance and separate projects share platform allowance
+  ---
+  duration_ms: 93.5859
+  type: 'test'
+  ...
+# Subtest: M18 LEDGER a missing level, forged admin, injected fields and static reason violations fail before mutation
+ok 33 - M18 LEDGER a missing level, forged admin, injected fields and static reason violations fail before mutation
+  ---
+  duration_ms: 58.2944
+  type: 'test'
+  ...
+# Subtest: M18 LEDGER request idempotency binds the complete subject, context, model, assurance and estimates
+ok 34 - M18 LEDGER request idempotency binds the complete subject, context, model, assurance and estimates
+  ---
+  duration_ms: 51.591
+  type: 'test'
+  ...
+# Subtest: M18 LEDGER proven-not-sent releases once; durable SENT and UNKNOWN cannot be replayed or released
+ok 35 - M18 LEDGER proven-not-sent releases once; durable SENT and UNKNOWN cannot be replayed or released
+  ---
+  duration_ms: 65.8658
+  type: 'test'
+  ...
+# Subtest: M18 LEDGER provider actual usage settles all scopes once and reasoning remains inside output tokens
+ok 36 - M18 LEDGER provider actual usage settles all scopes once and reasoning remains inside output tokens
+  ---
+  duration_ms: 58.971
+  type: 'test'
+  ...
+# Subtest: M18 LEDGER REAL and SIMULATED limits and receipts are isolated, including HTTP rejection estimates
+ok 37 - M18 LEDGER REAL and SIMULATED limits and receipts are isolated, including HTTP rejection estimates
+  ---
+  duration_ms: 74.1835
+  type: 'test'
+  ...
+# Subtest: M18 LEDGER estimated tokens and fees remain separate from actual usage and retain uncertain allowance
+ok 38 - M18 LEDGER estimated tokens and fees remain separate from actual usage and retain uncertain allowance
+  ---
+  duration_ms: 52.7033
+  type: 'test'
+  ...
+# Subtest: M18 LEDGER actual overshoot is retained as UNKNOWN with all observed usage and no accounting rollback
+ok 39 - M18 LEDGER actual overshoot is retained as UNKNOWN with all observed usage and no accounting rollback
+  ---
+  duration_ms: 67.9636
+  type: 'test'
+  ...
+# Subtest: M18 LEDGER invalid reasoning, attempt counts, numeric overflow and non-provider real usage never settle
+ok 40 - M18 LEDGER invalid reasoning, attempt counts, numeric overflow and non-provider real usage never settle
+  ---
+  duration_ms: 51.77
+  type: 'test'
+  ...
+# Subtest: M18 LEDGER SQLite close/reopen recovery quarantines every unresolved request without calls or released holds
+ok 41 - M18 LEDGER SQLite close/reopen recovery quarantines every unresolved request without calls or released holds
+  ---
+  duration_ms: 104.8464
+  type: 'test'
+  ...
+# Subtest: M18 LEDGER failed durable reservation ACK performs zero send transitions and keeps all committed holds
+ok 42 - M18 LEDGER failed durable reservation ACK performs zero send transitions and keeps all committed holds
+  ---
+  duration_ms: 51.3144
+  type: 'test'
+  ...
+# Subtest: M20 legacy bootstrap preserves strict mode and never resets or migrates old accounting
+ok 43 - M20 legacy bootstrap preserves strict mode and never resets or migrates old accounting
+  ---
+  duration_ms: 37.308
+  type: 'test'
+  ...
+# Subtest: M20 pending secret metadata is rejected before credential intent audit is created
+ok 44 - M20 pending secret metadata is rejected before credential intent audit is created
+  ---
+  duration_ms: 410.0291
+  type: 'test'
+  ...
+# Subtest: M20 lost OS-delete acknowledgement, expiry and guard quarantine keep a recoverable terminal tombstone
+ok 45 - M20 lost OS-delete acknowledgement, expiry and guard quarantine keep a recoverable terminal tombstone
+  ---
+  duration_ms: 170.6486
+  type: 'test'
+  ...
+# Subtest: M20 disabled OS storage performs no secret reads and blocks metadata/prompt persistence until protection returns
+ok 46 - M20 disabled OS storage performs no secret reads and blocks metadata/prompt persistence until protection returns
+  ---
+  duration_ms: 416.6038
+  type: 'test'
+  ...
+# Subtest: M20 schema: Local defaults need no service, TPM, signer or CMS; Hardened never silently falls back
+ok 47 - M20 schema: Local defaults need no service, TPM, signer or CMS; Hardened never silently falls back
+  ---
+  duration_ms: 1.8541
+  type: 'test'
+  ...
+# Subtest: M20 schema: strict fields, unsupported versions, fixed secret boundary and invalid combinations rejected
+ok 48 - M20 schema: strict fields, unsupported versions, fixed secret boundary and invalid combinations rejected
+  ---
+  duration_ms: 1.1327
+  type: 'test'
+  ...
+# Subtest: M20 registry: all categories resolve; simulated storage never becomes enabled or qualified
+ok 49 - M20 registry: all categories resolve; simulated storage never becomes enabled or qualified
+  ---
+  duration_ms: 0.2257
+  type: 'test'
+  ...
+# Subtest: M20 version migration is explicit and only migrates configuration
+ok 50 - M20 version migration is explicit and only migrates configuration
+  ---
+  duration_ms: 0.9087
+  type: 'test'
+  ...
+# Subtest: M20 plans: exact confirmation, hash binding, one-use and concurrent revision fence
+ok 51 - M20 plans: exact confirmation, hash binding, one-use and concurrent revision fence
+  ---
+  duration_ms: 26.8327
+  type: 'test'
+  ...
+# Subtest: M20 mode migration waits for restart; reopening revalidates and Hardened stays blocked
+ok 52 - M20 mode migration waits for restart; reopening revalidates and Hardened stays blocked
+  ---
+  duration_ms: 31.1628
+  type: 'test'
+  ...
+# Subtest: M20 audit: disabling optional command audit stops its producer; configuration audit remains
+ok 53 - M20 audit: disabling optional command audit stops its producer; configuration audit remains
+  ---
+  duration_ms: 14.3958
+  type: 'test'
+  ...
+# Subtest: M20 audit chain detects persisted edits; it does not claim administrator tamper resistance
+ok 54 - M20 audit chain detects persisted edits; it does not claim administrator tamper resistance
+  ---
+  duration_ms: 21.4125
+  type: 'test'
+  ...
+# Subtest: M20 Data Egress: actual deny, advisory and disabled outcomes; no fabricated admission
+ok 55 - M20 Data Egress: actual deny, advisory and disabled outcomes; no fabricated admission
+  ---
+  duration_ms: 23.6947
+  type: 'test'
+  ...
+# Subtest: M20 generic secret scan really switches off and on independently of known-key boundary
+ok 56 - M20 generic secret scan really switches off and on independently of known-key boundary
+  ---
+  duration_ms: 21.9297
+  type: 'test'
+  ...
+# Subtest: M20 actual Tool Gateway: ENFORCED blocks, ADVISORY computes, OFF does not evaluate; Agent cannot edit Profile
+ok 57 - M20 actual Tool Gateway: ENFORCED blocks, ADVISORY computes, OFF does not evaluate; Agent cannot edit Profile
+  ---
+  duration_ms: 244.7086
+  type: 'test'
+  ...
+# Subtest: M20 actual validation switch stops validator; optional local write approval is configurable; sandbox owner stays blocked
+ok 58 - M20 actual validation switch stops validator; optional local write approval is configurable; sandbox owner stays blocked
+  ---
+  duration_ms: 256.6422
+  type: 'test'
+  ...
+1..58
+# tests 64
+# suites 0
+# pass 64
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 12771.2807

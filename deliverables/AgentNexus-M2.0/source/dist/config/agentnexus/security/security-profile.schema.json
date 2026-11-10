@@ -1,0 +1,825 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agentnexus.local/schemas/security-profile-v1.json",
+  "title": "AgentNexus Security Profile v1",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "version": {
+      "const": 1
+    },
+    "mode": {
+      "enum": [
+        "LOCAL_DEVELOPMENT_MODE",
+        "HARDENED_DEPLOYMENT_MODE"
+      ]
+    },
+    "features": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "credentials.osStorage": {
+          "type": "boolean"
+        },
+        "credentials.isolatedService": {
+          "type": "boolean"
+        },
+        "credentials.helper": {
+          "type": "boolean"
+        },
+        "credentials.accessRestriction": {
+          "const": true
+        },
+        "credentials.secretRedaction": {
+          "const": true
+        },
+        "credentials.audit": {
+          "type": "boolean"
+        },
+        "policy.engine": {
+          "type": "boolean"
+        },
+        "policy.enforcement": {
+          "type": "boolean"
+        },
+        "policy.defaultDeny": {
+          "type": "boolean"
+        },
+        "policy.toolPermission": {
+          "const": true
+        },
+        "policy.resourceAuthorization": {
+          "const": true
+        },
+        "policy.approval": {
+          "type": "boolean"
+        },
+        "data.classification": {
+          "type": "boolean"
+        },
+        "data.egress": {
+          "type": "boolean"
+        },
+        "data.secretScanning": {
+          "type": "boolean"
+        },
+        "data.provenance": {
+          "const": true
+        },
+        "data.fileAccess": {
+          "const": true
+        },
+        "execution.sandbox": {
+          "type": "boolean"
+        },
+        "execution.restrictedProcess": {
+          "type": "boolean"
+        },
+        "execution.commandValidation": {
+          "type": "boolean"
+        },
+        "execution.shellApproval": {
+          "type": "boolean"
+        },
+        "execution.fileWriteApproval": {
+          "type": "boolean"
+        },
+        "execution.networkRestriction": {
+          "type": "boolean"
+        },
+        "execution.resourceLimits": {
+          "type": "boolean"
+        },
+        "audit.commands": {
+          "type": "boolean"
+        },
+        "audit.tools": {
+          "type": "boolean"
+        },
+        "audit.files": {
+          "type": "boolean"
+        },
+        "audit.providers": {
+          "type": "boolean"
+        },
+        "audit.messages": {
+          "type": "boolean"
+        },
+        "audit.policy": {
+          "type": "boolean"
+        },
+        "deployment.credentialService": {
+          "type": "boolean"
+        },
+        "deployment.tpmCng": {
+          "type": "boolean"
+        },
+        "deployment.signer": {
+          "type": "boolean"
+        },
+        "deployment.cmsQualification": {
+          "type": "boolean"
+        },
+        "deployment.cmsApproval": {
+          "type": "boolean"
+        },
+        "deployment.osQualification": {
+          "type": "boolean"
+        },
+        "deployment.runtimeIsolation": {
+          "type": "boolean"
+        },
+        "budget.global": {
+          "type": "boolean"
+        },
+        "budget.project": {
+          "type": "boolean"
+        },
+        "budget.agent": {
+          "type": "boolean"
+        },
+        "budget.task": {
+          "type": "boolean"
+        },
+        "budget.provider": {
+          "type": "boolean"
+        },
+        "budget.keyPool": {
+          "type": "boolean"
+        },
+        "budget.cost": {
+          "type": "boolean"
+        },
+        "budget.rate": {
+          "type": "boolean"
+        },
+        "budget.costDisplay": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "credentials.osStorage",
+        "credentials.isolatedService",
+        "credentials.helper",
+        "credentials.accessRestriction",
+        "credentials.secretRedaction",
+        "credentials.audit",
+        "policy.engine",
+        "policy.enforcement",
+        "policy.defaultDeny",
+        "policy.toolPermission",
+        "policy.resourceAuthorization",
+        "policy.approval",
+        "data.classification",
+        "data.egress",
+        "data.secretScanning",
+        "data.provenance",
+        "data.fileAccess",
+        "execution.sandbox",
+        "execution.restrictedProcess",
+        "execution.commandValidation",
+        "execution.shellApproval",
+        "execution.fileWriteApproval",
+        "execution.networkRestriction",
+        "execution.resourceLimits",
+        "audit.commands",
+        "audit.tools",
+        "audit.files",
+        "audit.providers",
+        "audit.messages",
+        "audit.policy",
+        "deployment.credentialService",
+        "deployment.tpmCng",
+        "deployment.signer",
+        "deployment.cmsQualification",
+        "deployment.cmsApproval",
+        "deployment.osQualification",
+        "deployment.runtimeIsolation",
+        "budget.global",
+        "budget.project",
+        "budget.agent",
+        "budget.task",
+        "budget.provider",
+        "budget.keyPool",
+        "budget.cost",
+        "budget.rate",
+        "budget.costDisplay"
+      ]
+    },
+    "policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "enforcement": {
+          "enum": [
+            "OFF",
+            "ADVISORY",
+            "ENFORCED"
+          ]
+        },
+        "advisoryConfirmation": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "enforcement",
+        "advisoryConfirmation"
+      ]
+    },
+    "dataEgress": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "enforcement": {
+          "enum": [
+            "OFF",
+            "ADVISORY",
+            "ENFORCED"
+          ]
+        },
+        "classification": {
+          "enum": [
+            "PUBLIC",
+            "SYNTHETIC",
+            "INTERNAL",
+            "CONFIDENTIAL",
+            "SECRET"
+          ]
+        },
+        "defaultDecision": {
+          "enum": [
+            "ALLOW",
+            "DENY"
+          ]
+        },
+        "scopes": {
+          "type": "array",
+          "maxItems": 128,
+          "uniqueItems": true,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "scope": {
+                "enum": [
+                  "PROVIDER",
+                  "PROJECT",
+                  "AGENT"
+                ]
+              },
+              "id": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9_.:-]{1,128}$"
+              },
+              "classification": {
+                "enum": [
+                  "PUBLIC",
+                  "SYNTHETIC",
+                  "INTERNAL",
+                  "CONFIDENTIAL",
+                  "SECRET"
+                ]
+              },
+              "decision": {
+                "enum": [
+                  "ALLOW",
+                  "DENY",
+                  "APPROVAL"
+                ]
+              }
+            },
+            "required": [
+              "scope",
+              "id",
+              "classification",
+              "decision"
+            ]
+          }
+        }
+      },
+      "required": [
+        "enforcement",
+        "classification",
+        "defaultDecision",
+        "scopes"
+      ]
+    },
+    "budgets": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "globalTokens": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100000000
+        },
+        "projectTokens": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100000000
+        },
+        "providerTokens": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100000000
+        },
+        "keyPoolTokens": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100000000
+        },
+        "costMicros": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 9007199254740991
+        },
+        "requestsPerMinute": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 1000000
+        }
+      },
+      "required": [
+        "globalTokens",
+        "projectTokens",
+        "providerTokens",
+        "keyPoolTokens",
+        "costMicros",
+        "requestsPerMinute"
+      ]
+    }
+  },
+  "required": [
+    "version",
+    "mode",
+    "features",
+    "policy",
+    "dataEgress",
+    "budgets"
+  ],
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "features": {
+            "properties": {
+              "policy.enforcement": {
+                "const": true
+              }
+            },
+            "required": [
+              "policy.enforcement"
+            ]
+          }
+        },
+        "required": [
+          "features"
+        ]
+      },
+      "then": {
+        "properties": {
+          "policy": {
+            "properties": {
+              "enforcement": {
+                "enum": [
+                  "ADVISORY",
+                  "ENFORCED"
+                ]
+              }
+            },
+            "required": [
+              "enforcement"
+            ]
+          }
+        },
+        "required": [
+          "policy"
+        ]
+      },
+      "else": {
+        "properties": {
+          "policy": {
+            "properties": {
+              "enforcement": {
+                "const": "OFF"
+              }
+            },
+            "required": [
+              "enforcement"
+            ]
+          }
+        },
+        "required": [
+          "policy"
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "features": {
+            "properties": {
+              "policy.engine": {
+                "const": false
+              }
+            },
+            "required": [
+              "policy.engine"
+            ]
+          }
+        },
+        "required": [
+          "features"
+        ]
+      },
+      "then": {
+        "properties": {
+          "policy": {
+            "properties": {
+              "enforcement": {
+                "const": "OFF"
+              }
+            },
+            "required": [
+              "enforcement"
+            ]
+          }
+        },
+        "required": [
+          "policy"
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "features": {
+            "properties": {
+              "data.egress": {
+                "const": true
+              }
+            },
+            "required": [
+              "data.egress"
+            ]
+          }
+        },
+        "required": [
+          "features"
+        ]
+      },
+      "then": {
+        "allOf": [
+          {
+            "properties": {
+              "features": {
+                "properties": {
+                  "data.classification": {
+                    "const": true
+                  }
+                },
+                "required": [
+                  "data.classification"
+                ]
+              }
+            },
+            "required": [
+              "features"
+            ]
+          },
+          {
+            "properties": {
+              "dataEgress": {
+                "properties": {
+                  "enforcement": {
+                    "enum": [
+                      "ADVISORY",
+                      "ENFORCED"
+                    ]
+                  }
+                },
+                "required": [
+                  "enforcement"
+                ]
+              }
+            },
+            "required": [
+              "dataEgress"
+            ]
+          }
+        ]
+      },
+      "else": {
+        "properties": {
+          "dataEgress": {
+            "properties": {
+              "enforcement": {
+                "const": "OFF"
+              }
+            },
+            "required": [
+              "enforcement"
+            ]
+          }
+        },
+        "required": [
+          "dataEgress"
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "features": {
+            "properties": {
+              "policy.approval": {
+                "const": true
+              }
+            },
+            "required": [
+              "policy.approval"
+            ]
+          }
+        },
+        "required": [
+          "features"
+        ]
+      },
+      "then": {
+        "properties": {
+          "features": {
+            "properties": {
+              "execution.fileWriteApproval": {
+                "const": true
+              }
+            },
+            "required": [
+              "execution.fileWriteApproval"
+            ]
+          }
+        },
+        "required": [
+          "features"
+        ]
+      },
+      "else": {
+        "properties": {
+          "features": {
+            "properties": {
+              "execution.fileWriteApproval": {
+                "const": false
+              }
+            },
+            "required": [
+              "execution.fileWriteApproval"
+            ]
+          }
+        },
+        "required": [
+          "features"
+        ]
+      }
+    },
+    {
+      "not": {
+        "properties": {
+          "features": {
+            "properties": {
+              "credentials.osStorage": {
+                "const": true
+              },
+              "credentials.isolatedService": {
+                "const": true
+              }
+            },
+            "required": [
+              "credentials.osStorage",
+              "credentials.isolatedService"
+            ]
+          }
+        },
+        "required": [
+          "features"
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "mode": {
+            "const": "HARDENED_DEPLOYMENT_MODE"
+          }
+        }
+      },
+      "then": {
+        "allOf": [
+          {
+            "properties": {
+              "features": {
+                "properties": {
+                  "credentials.isolatedService": {
+                    "const": true
+                  }
+                },
+                "required": [
+                  "credentials.isolatedService"
+                ]
+              }
+            },
+            "required": [
+              "features"
+            ]
+          },
+          {
+            "properties": {
+              "features": {
+                "properties": {
+                  "credentials.osStorage": {
+                    "const": false
+                  }
+                },
+                "required": [
+                  "credentials.osStorage"
+                ]
+              }
+            },
+            "required": [
+              "features"
+            ]
+          },
+          {
+            "properties": {
+              "policy": {
+                "properties": {
+                  "enforcement": {
+                    "const": "ENFORCED"
+                  }
+                },
+                "required": [
+                  "enforcement"
+                ]
+              }
+            },
+            "required": [
+              "policy"
+            ]
+          },
+          {
+            "properties": {
+              "dataEgress": {
+                "properties": {
+                  "enforcement": {
+                    "const": "ENFORCED"
+                  }
+                },
+                "required": [
+                  "enforcement"
+                ]
+              }
+            },
+            "required": [
+              "dataEgress"
+            ]
+          },
+          {
+            "properties": {
+              "features": {
+                "properties": {
+                  "deployment.osQualification": {
+                    "const": true
+                  }
+                },
+                "required": [
+                  "deployment.osQualification"
+                ]
+              }
+            },
+            "required": [
+              "features"
+            ]
+          },
+          {
+            "properties": {
+              "features": {
+                "properties": {
+                  "deployment.runtimeIsolation": {
+                    "const": true
+                  }
+                },
+                "required": [
+                  "deployment.runtimeIsolation"
+                ]
+              }
+            },
+            "required": [
+              "features"
+            ]
+          },
+          {
+            "properties": {
+              "features": {
+                "properties": {
+                  "policy.defaultDeny": {
+                    "const": true
+                  }
+                },
+                "required": [
+                  "policy.defaultDeny"
+                ]
+              }
+            },
+            "required": [
+              "features"
+            ]
+          },
+          {
+            "properties": {
+              "features": {
+                "properties": {
+                  "policy.approval": {
+                    "const": true
+                  }
+                },
+                "required": [
+                  "policy.approval"
+                ]
+              }
+            },
+            "required": [
+              "features"
+            ]
+          },
+          {
+            "properties": {
+              "features": {
+                "properties": {
+                  "audit.commands": {
+                    "const": true
+                  }
+                },
+                "required": [
+                  "audit.commands"
+                ]
+              }
+            },
+            "required": [
+              "features"
+            ]
+          },
+          {
+            "properties": {
+              "features": {
+                "properties": {
+                  "audit.tools": {
+                    "const": true
+                  }
+                },
+                "required": [
+                  "audit.tools"
+                ]
+              }
+            },
+            "required": [
+              "features"
+            ]
+          },
+          {
+            "properties": {
+              "features": {
+                "properties": {
+                  "audit.providers": {
+                    "const": true
+                  }
+                },
+                "required": [
+                  "audit.providers"
+                ]
+              }
+            },
+            "required": [
+              "features"
+            ]
+          },
+          {
+            "properties": {
+              "features": {
+                "properties": {
+                  "audit.policy": {
+                    "const": true
+                  }
+                },
+                "required": [
+                  "audit.policy"
+                ]
+              }
+            },
+            "required": [
+              "features"
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "$comment": "Runtime semantic validation additionally rejects duplicate (scope,id), profile over 65536 bytes, unknown feature IDs, unavailable guard text changes and unapproved/stale changes. Version 0 migration is explicit via trusted import."
+}

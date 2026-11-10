@@ -1,0 +1,878 @@
+{
+  "schema": "agentnexus/m20/independent-review/1",
+  "generated_at": "2026-11-09T21:13:48.359Z",
+  "status": "LOCAL_SCOPE_VERIFIED_WITH_EXPLICIT_LIMITATIONS",
+  "conclusion": "基础快照的独立测试 84/84 与 5 组离线探针通过；最后 3 文件一致性增量另行重跑 16/16 并验证状态与风险文案通过。相关缺陷均修复或通过明确阻断缓解；Local 授权范围可接受，此结论不表示全量测试或 Hardened/OS 资格通过。",
+  "reviewer": {
+    "role": "Independent safety and integration reviewer",
+    "product_source_modified": false,
+    "recursive_delegation": false
+  },
+  "environment": {
+    "platform": "win32",
+    "node": "v24.15.0",
+    "executable": "D:\\Nodejs\\node.exe",
+    "cwd": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M2.0\\source\\"
+  },
+  "source": {
+    "candidate": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M2.0\\source\\",
+    "baseline": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\source",
+    "source_tree_sha256": "90fc4f36f6d3798dc0163d81eb1647b4930c30c79fc26d24fdc5ebe9e0619f0b",
+    "core_test_before_sha256": "3f75bb9ec4332cb607c04ae554f30b3167e7ff3e7350e9e1aa0406dfd2bb4bc2",
+    "core_test_after_sha256": "3f75bb9ec4332cb607c04ae554f30b3167e7ff3e7350e9e1aa0406dfd2bb4bc2",
+    "unchanged_during_core_tests": true,
+    "first_review_final_sha256": "ac57c46408b911a5cf73aeb2c9815c6d5ac7faa4b119c812a82f2313e16333b9",
+    "allowed_post_test_delta": [
+      {
+        "path": "tools/agentnexus/m20-desktop-e2e.mjs",
+        "before_sha256": "c4639f3a16f877cdbe6072eaefdd53ded49211d2f15ef42c043cff521c9a36b8",
+        "after_sha256": "27125861987721fddccd22e3824403d135e6771fe40fba5f3d88699afc347e60"
+      }
+    ],
+    "final_incremental_delta": [
+      {
+        "path": "src/agentnexus/security/controller.ts",
+        "before_sha256": "ff1e22d2e45f8c42ce00e7e74b9115a92f4714d247e8d26b7aba18f35fb8f1e4",
+        "after_sha256": "7f1050451ac41b8334b5a507d9017885b58c714f8811053283e16cba67223bd3"
+      },
+      {
+        "path": "src/agentnexus/security/profile.ts",
+        "before_sha256": "4b6c752acd5465aee51a0e451e88eb40df36224999bf03ba8dbd17b3087b895b",
+        "after_sha256": "4e87a6ddb4408c8e1218bc2911cbde69f2112809786c1048f1c9e7915aba173c"
+      },
+      {
+        "path": "tests/agentnexus/m20-security.test.ts",
+        "before_sha256": "efd5d658b52f0eb8a1691717d563bdcd0513bd0ab7ac08470e1b4ea6028a6604",
+        "after_sha256": "1eb411069184a2c2d6e144b24b653d720e94c8646ef013f60e94ce84b9315a7d"
+      }
+    ],
+    "incremental_test_before_sha256": "90fc4f36f6d3798dc0163d81eb1647b4930c30c79fc26d24fdc5ebe9e0619f0b",
+    "incremental_test_after_sha256": "90fc4f36f6d3798dc0163d81eb1647b4930c30c79fc26d24fdc5ebe9e0619f0b",
+    "unchanged_during_incremental_tests": true,
+    "unrelated_sources_unchanged": true,
+    "delta_review": "Base-run followup only changed the E2E test tool. Final incremental review changed exactly profile.ts, controller.ts and m20-security.test.ts: unbound remote desired=false remains BLOCKED and risk text does not acknowledge disable. Relevant 16 tests and a direct risk-text/status probe reran; unrelated suites were not rerun.",
+    "file_count": 283,
+    "method": "SHA256 of sorted path + NUL + per-file SHA256 + LF",
+    "excluded": [
+      "dist/",
+      "node_modules/",
+      ".git/",
+      "__pycache__/"
+    ],
+    "manifest": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M2.0\\independent-review\\source-manifest-final.json",
+    "manifest_sha256": "6893fd841bcc20b5051af2694cd061168426f4ea662ec2d1b26c95e3e7072964",
+    "reviewed_files": [
+      {
+        "path": "src/agentnexus/security/profile.ts",
+        "bytes": 14241,
+        "sha256": "4e87a6ddb4408c8e1218bc2911cbde69f2112809786c1048f1c9e7915aba173c"
+      },
+      {
+        "path": "src/agentnexus/security/controller.ts",
+        "bytes": 14672,
+        "sha256": "7f1050451ac41b8334b5a507d9017885b58c714f8811053283e16cba67223bd3"
+      },
+      {
+        "path": "src/agentnexus/security/os-credentials.ts",
+        "bytes": 4378,
+        "sha256": "07d8058963a51ed9274c35cb44a4aee34376b1c432cca09d6d0a839a9d714316"
+      },
+      {
+        "path": "src/agentnexus/security/wincred.ps1",
+        "bytes": 3779,
+        "sha256": "85c5a27141226f7c1313b82a07f2f8209d18c29f440ec49a561b108b6e5f15d5"
+      },
+      {
+        "path": "src/agentnexus/security/local-transport.ts",
+        "bytes": 3202,
+        "sha256": "eb1d412840cce4d742900c535b0ed20ef1b8d6dd2016bd07c8a365cf78fe70d1"
+      },
+      {
+        "path": "src/agentnexus/desktop/service.ts",
+        "bytes": 61695,
+        "sha256": "68d5d8f9da9b8058175266fb6b8c102878511020f6a2b54e3c2b40c422a7bbbb"
+      },
+      {
+        "path": "src/agentnexus/desktop/synthetic-credential-fixture.ts",
+        "bytes": 4850,
+        "sha256": "3747b929ee15919fb37beccd347a999619d69b67a8a4cb847c8e0d2dccf68535"
+      },
+      {
+        "path": "src/agentnexus/model-runtime/vault.ts",
+        "bytes": 44784,
+        "sha256": "4a040e322b53e6345cc38c31df412dd8c1b3e8f3f97c1b2c9d49ece92fc12e6d"
+      },
+      {
+        "path": "src/agentnexus/model-runtime/gateway.ts",
+        "bytes": 25903,
+        "sha256": "6336c8c7ec297809ff6828bddde60cd68f38266b2740d1936117eee82fb366d7"
+      },
+      {
+        "path": "src/agentnexus/model-runtime/ledger.ts",
+        "bytes": 20154,
+        "sha256": "550bb262dfcf31980d8b807eb2a12585a23dfbc8ee067f82191c1748c8025d44"
+      },
+      {
+        "path": "src/agentnexus/model-runtime/campaign.ts",
+        "bytes": 9581,
+        "sha256": "a5dc50b421095acde5f7dbb506b715ab81d391d2d482fbb0684994d67ed3b77f"
+      },
+      {
+        "path": "src/agentnexus/model-runtime/transport.ts",
+        "bytes": 12903,
+        "sha256": "0bf624ca603644592a8c6160cca8b9dfa718e9c940720dcb6717ddbaa9aff128"
+      },
+      {
+        "path": "src/agentnexus/policy.ts",
+        "bytes": 18745,
+        "sha256": "6f44c4fb12fa8069304a2b46ff04f4285db32e7e6f7bb47d6bb4c50401e4deca"
+      },
+      {
+        "path": "src/agentnexus/gateway.ts",
+        "bytes": 25396,
+        "sha256": "dbd04f9ee13a593d8d83baec5965d1e5cc0e2e8d60335566775784cd626953ae"
+      },
+      {
+        "path": "src/agentnexus/harness/index.ts",
+        "bytes": 33708,
+        "sha256": "b68d45cb277a961f90483c2db3f2631d2f51e6647cb17942171e3c647f5eeffb"
+      },
+      {
+        "path": "src/agentnexus/harness/messages.ts",
+        "bytes": 29783,
+        "sha256": "8dfb52b20d4ecce466efe7069899eeee87c0902db33a9666acab2c98d8208821"
+      },
+      {
+        "path": "desktop/main.mjs",
+        "bytes": 7742,
+        "sha256": "a6eccd481a92f198591a0a9b29d3b793dacb90c13416a98b35565bf69b0fd842"
+      },
+      {
+        "path": "desktop/preload.cjs",
+        "bytes": 1290,
+        "sha256": "2373f38e779eb7bc13cd6ba352d48f7c1665dadd9b562865f32e5f285f013c23"
+      },
+      {
+        "path": "desktop/sender.mjs",
+        "bytes": 230,
+        "sha256": "b6169254d2dd8ff6a9e57baa45c224c3c917a2001fd95b4ed24408e3c1333e73"
+      },
+      {
+        "path": "desktop/renderer/security.js",
+        "bytes": 8863,
+        "sha256": "8c532f77731a3349ae1737d1a069ce45c14c2f5e64aaca582afd037050d5ae54"
+      },
+      {
+        "path": "desktop/renderer/app.js",
+        "bytes": 52896,
+        "sha256": "b0e3b6b45a55845819b7f89c531705010c00d73a189fb03de85dd0cf88dc7caf"
+      },
+      {
+        "path": "tests/agentnexus/m20-security.test.ts",
+        "bytes": 13102,
+        "sha256": "1eb411069184a2c2d6e144b24b653d720e94c8646ef013f60e94ce84b9315a7d"
+      },
+      {
+        "path": "tests/agentnexus/m20-recovery.test.ts",
+        "bytes": 6652,
+        "sha256": "a5f571b3f7ae201754be8cfe035653ded7fcfb4c47f05d8e1acac0a9a7519312"
+      },
+      {
+        "path": "tests/desktop/m20-local.test.ts",
+        "bytes": 7154,
+        "sha256": "db783682d66c40c7f7bdc203e61691a602045fdd3893ef9d33ac7a0459bf675a"
+      },
+      {
+        "path": "tools/agentnexus/m20-desktop-e2e.mjs",
+        "bytes": 13228,
+        "sha256": "27125861987721fddccd22e3824403d135e6771fe40fba5f3d88699afc347e60"
+      },
+      {
+        "path": "README.md",
+        "bytes": 1224,
+        "sha256": "0c4b54fedb23fada4d87c75116903f646607d55adf2c0c5f346d85006257d4f5"
+      }
+    ]
+  },
+  "independent_verification": {
+    "attribution": "84 tests and 5 probe groups belong to the preserved base snapshot; incremental 16 tests overlap prior coverage and are reported separately, not as 100 distinct tests.",
+    "tests": 84,
+    "pass": 84,
+    "fail": 0,
+    "probe_groups": 5,
+    "probe_groups_pass": 5,
+    "incremental_validation": {
+      "tests": 16,
+      "pass": 16,
+      "fail": 0,
+      "skipped": 0,
+      "evidence": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M2.0\\independent-review\\hardening-status-delta.tap.txt",
+      "sha256": "16086e4ba1359fc5b2373dc025d47357d7900f8efeff8d016dea356e6f8cd5a1",
+      "source_tree_sha256": "90fc4f36f6d3798dc0163d81eb1647b4930c30c79fc26d24fdc5ebe9e0619f0b",
+      "risk_probe": {
+        "status": "PASS",
+        "scope": "SYNTHETIC_PROFILE_RESOLUTION_AND_PLAN_TEXT_ONLY",
+        "root": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M2.0\\independent-review\\hardening-status-risk-0yPBG1",
+        "realProviderRequests": 0,
+        "osQualification": "NOT_RUN",
+        "hardenedDesired": false,
+        "hardenedStatus": "BLOCKED",
+        "risk": "budget.global: requested disable is BLOCKED; existing owner controls are not acknowledged as disabled",
+        "localDisabledStatus": "DISABLED"
+      }
+    },
+    "real_keys": 0,
+    "real_provider_requests": 0,
+    "hardened_os_qualification": "NOT_RUN",
+    "commands": [
+      {
+        "id": "SOURCE_BEFORE",
+        "command": "node I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M2.0\\independent-review\\capture-source-manifest.mjs source-manifest-before-final-tests.json"
+      },
+      {
+        "id": "TARGETED",
+        "environment": {
+          "AGENTNEXUS_TEST_DATA_ROOT": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M2.0\\independent-review\\final-targeted-data"
+        },
+        "command": "node --test --test-concurrency=1 --test-reporter=tap tests/agentnexus/m20-security.test.ts tests/agentnexus/m20-recovery.test.ts tests/agentnexus/m18-ledger.test.ts tests/agentnexus/m18-gateway.test.ts tests/agentnexus/gateway.test.ts",
+        "result": {
+          "tests": 64,
+          "pass": 64,
+          "fail": 0,
+          "skipped": 0,
+          "evidence": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M2.0\\independent-review\\final-targeted.tap.txt",
+          "sha256": "f7eb1eb458ef2d490643a5a05557d278d34aa11841059d654611e96eba988efa"
+        }
+      },
+      {
+        "id": "VAULT_SYNTHETIC",
+        "environment": {
+          "AGENTNEXUS_TEST_DATA_ROOT": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M2.0\\independent-review\\final-vault-data"
+        },
+        "command": "node --test --test-concurrency=1 --test-reporter=tap --test-skip-pattern='DPAPI|refuses wrong' tests/agentnexus/m18-vault.test.ts",
+        "excluded_by_name": [
+          "DPAPI",
+          "refuses wrong"
+        ],
+        "result": {
+          "tests": 20,
+          "pass": 20,
+          "fail": 0,
+          "skipped": 0,
+          "evidence": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M2.0\\independent-review\\final-vault.tap.txt",
+          "sha256": "0c581f791f5e8c8fbb8bcc91763f72b34f00e0c7ee07f2160f8df08bdf8c0ba5"
+        }
+      },
+      {
+        "id": "INDEPENDENT_PROBES",
+        "command": "node I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M2.0\\independent-review\\independent-probes.mjs",
+        "result": {
+          "groups": 5,
+          "pass": 5,
+          "fail": 0
+        }
+      },
+      {
+        "id": "SOURCE_AFTER",
+        "command": "node I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M2.0\\independent-review\\capture-source-manifest.mjs source-manifest-final.json"
+      },
+      {
+        "id": "FINAL_INCREMENTAL",
+        "environment": {
+          "AGENTNEXUS_TEST_DATA_ROOT": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M2.0\\independent-review\\hardening-status-delta-data"
+        },
+        "command": "node --test --test-concurrency=1 --test-reporter=tap tests/agentnexus/m20-security.test.ts tests/agentnexus/m20-recovery.test.ts",
+        "result": {
+          "tests": 16,
+          "pass": 16,
+          "fail": 0,
+          "skipped": 0,
+          "evidence": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M2.0\\independent-review\\hardening-status-delta.tap.txt",
+          "sha256": "16086e4ba1359fc5b2373dc025d47357d7900f8efeff8d016dea356e6f8cd5a1"
+        }
+      },
+      {
+        "id": "FINAL_STATUS_RISK_PROBE",
+        "command": "node I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M2.0\\independent-review\\hardening-status-risk-probe.mjs",
+        "result": {
+          "status": "PASS",
+          "scope": "SYNTHETIC_PROFILE_RESOLUTION_AND_PLAN_TEXT_ONLY",
+          "root": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M2.0\\independent-review\\hardening-status-risk-0yPBG1",
+          "realProviderRequests": 0,
+          "osQualification": "NOT_RUN",
+          "hardenedDesired": false,
+          "hardenedStatus": "BLOCKED",
+          "risk": "budget.global: requested disable is BLOCKED; existing owner controls are not acknowledged as disabled",
+          "localDisabledStatus": "DISABLED"
+        }
+      }
+    ],
+    "probes": {
+      "schema": "agentnexus/independent-probes/1",
+      "timestamp": "2026-11-09T20:49:40.988Z",
+      "realProviderRequests": 0,
+      "realKeys": 0,
+      "osProtectionQualification": "NOT_RUN",
+      "findings": [
+        {
+          "probe": "newly_submitted_secret_audit",
+          "assurance": "SYNTHETIC_OFFLINE_ONLY",
+          "root": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M2.0\\independent-review\\pending-secret-recheck-PLqtq9",
+          "saveError": "CREDENTIAL_SAVE_FAILED",
+          "intentCount": 0,
+          "intentContainsSubmittedSecret": false,
+          "status": "PASS"
+        },
+        {
+          "probe": "delete_success_ack_lost",
+          "assurance": "SYNTHETIC_FAULT_INJECTION_ONLY_NO_OS_PROTECTION_CLAIM",
+          "root": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M2.0\\independent-review\\delete-failure-recheck-mgijCK",
+          "deletionError": "SYNTHETIC_DELETE_ACK_LOST",
+          "storedReferences": 0,
+          "opened": true,
+          "status": "PASS"
+        },
+        {
+          "probe": "pending_delete_expiry_and_guard",
+          "assurance": "SYNTHETIC_FAULT_INJECTION_ONLY_NO_OS_PROTECTION_CLAIM",
+          "root": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M2.0\\independent-review\\delete-expiry-recheck-1NMli1",
+          "pendingState": "DELETING",
+          "afterGuardState": "DELETING",
+          "opened": true,
+          "status": "PASS"
+        },
+        {
+          "probe": "storage_disabled_known_redaction",
+          "assurance": "SYNTHETIC_OFFLINE_ONLY_NOT_OS_PROTECTION_EVIDENCE",
+          "root": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M2.0\\independent-review\\storage-off-redaction-recheck-mtUZyD",
+          "unprotectCalls": 0,
+          "saveError": "SECURITY_SECRET_BOUNDARY_UNAVAILABLE",
+          "promptError": "SECURITY_CREDENTIAL_BACKEND_BLOCKED",
+          "capturedPromptRows": 0,
+          "redactionStatus": "BLOCKED",
+          "auditContainsExistingSecret": false,
+          "status": "PASS"
+        },
+        {
+          "probe": "local_https_admission",
+          "assurance": "SYNTHETIC_ADMISSION_METADATA_ONLY_NOT_OS_OR_NETWORK_QUALIFICATION",
+          "root": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M2.0\\independent-review\\local-admission-recheck-LugNjO",
+          "checks": [
+            "endpoint_restriction_on",
+            "endpoint_restriction_off_actual_preflight",
+            "https_always_required",
+            "configured_price_required",
+            "envelope_tamper_rejected",
+            "profile_revision_rejected"
+          ],
+          "transportSendRejectionCalls": 2,
+          "networkRequestsStarted": 0,
+          "status": "PASS"
+        }
+      ]
+    },
+    "evidence_root": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M2.0\\independent-review"
+  },
+  "findings": [
+    {
+      "id": "IR-01",
+      "severity": "P1",
+      "title": "新提交 Key 在导入校验之前写入凭证意图审计",
+      "discovery": "SYNTHETIC_OFFLINE_REPRODUCED",
+      "status": "FIXED_AND_RETESTED",
+      "files": [
+        "src/agentnexus/desktop/synthetic-credential-fixture.ts"
+      ],
+      "original_evidence": "pending-secret-probe.json",
+      "final_probe": "newly_submitted_secret_audit",
+      "resolution": "导入前对 Provider、scope、label、rotate_id 等完整 metadata 扫描新提交 Secret；最终意图审计行数为 0。"
+    },
+    {
+      "id": "IR-02",
+      "severity": "P2",
+      "title": "OS 删除已成功但 ACK 丢失导致 Vault 重开失败；删除态可被过期或隔离覆盖",
+      "discovery": "SYNTHETIC_FAULT_INJECTION_REPRODUCED",
+      "status": "FIXED_AND_RETESTED",
+      "files": [
+        "src/agentnexus/model-runtime/vault.ts"
+      ],
+      "original_evidence": [
+        "delete-failure-probe.json",
+        "delete-expiry-probe.json",
+        "delete-guard-probe.json"
+      ],
+      "final_probe": [
+        "delete_success_ack_lost",
+        "pending_delete_expiry_and_guard"
+      ],
+      "resolution": "先持久化 DELETING；重开跳过待删除引用；expiry、setState、guard quarantine 不复活删除态，可重试删除。"
+    },
+    {
+      "id": "IR-03",
+      "severity": "P1",
+      "title": "关闭 OS Storage 后空 Guard 仍声称固定防泄漏生效，并允许秘密进入 metadata",
+      "discovery": "SYNTHETIC_OFFLINE_REPRODUCED",
+      "status": "FIXED_AND_RETESTED",
+      "files": [
+        "src/agentnexus/security/profile.ts",
+        "src/agentnexus/security/controller.ts",
+        "src/agentnexus/desktop/service.ts",
+        "src/agentnexus/model-runtime/vault.ts"
+      ],
+      "original_evidence": [
+        "storage-off-redaction-probe.json",
+        "storage-off-profile-probe.json"
+      ],
+      "final_probe": "storage_disabled_known_redaction",
+      "resolution": "metadata-only 不读取 OS Secret；防泄漏显示 BLOCKED，任意文本 metadata 写入与 Agent prompt capture 前阻断；无 Guard 时不允许添加自由文本 scope。"
+    },
+    {
+      "id": "IR-04",
+      "severity": "P2",
+      "title": "可配置预算改动丢失既有 overdrawn 隔离；自动 configure 可清除标记",
+      "discovery": "EXISTING_REGRESSION_TEST_REPRODUCED_AND_STATIC_REVIEW",
+      "status": "FIXED_AND_RETESTED",
+      "files": [
+        "src/agentnexus/model-runtime/ledger.ts"
+      ],
+      "original_evidence": "integration-regression.tap.txt",
+      "final_evidence": "final-targeted.tap.txt",
+      "resolution": "无可选 controls 时保持旧 overdrawn 阻断；启用维度的 overrun 继续阻断；相同 limits 不重置标记，修改 limits 保留 overrun。"
+    },
+    {
+      "id": "IR-05",
+      "severity": "P2",
+      "title": "远程 Broker 先返回导致新准入钩子被绕过，Remote Profile 控制未绑定",
+      "discovery": "STATIC_CONTROL_FLOW_CONFIRMED",
+      "status": "MITIGATED_BY_BLOCKING_UNBOUND_HARDENED_PATH",
+      "files": [
+        "src/agentnexus/model-runtime/gateway.ts",
+        "src/agentnexus/security/profile.ts",
+        "src/agentnexus/security/controller.ts",
+        "src/agentnexus/desktop/service.ts"
+      ],
+      "resolution": "beforeDispatch 已移至 Broker 分支前；未绑定 Hardened Budget Controls 无论 desired=true/false 均显示 BLOCKED；preview 明确 requested disable 未获 owner acknowledgement，不再声称 will stop。整体 Hardened 派发阻断，完整 Remote Profile 绑定仍未完成。"
+    },
+    {
+      "id": "IR-06",
+      "severity": "P2",
+      "title": "原生 Helper 队列等待后未重查 poison 可在未确认终止后继续派发",
+      "discovery": "STATIC_REVIEW_ONLY",
+      "status": "STATIC_FIX_VERIFIED",
+      "files": [
+        "src/agentnexus/security/os-credentials.ts"
+      ],
+      "resolution": "取得队列 slot 后再次检查 poison，已排队项在 restart-required 状态拒绝；本审查未把该静态检查当作原生终止资格测试。"
+    },
+    {
+      "id": "IR-07",
+      "severity": "P2",
+      "title": "部分注册开关只有配置状态，缺少使用方绑定",
+      "discovery": "STATIC_REFERENCE_SEARCH_CONFIRMED",
+      "status": "LOCAL_BINDINGS_VERIFIED_REMOTE_LIMITATIONS_RETAINED",
+      "files": [
+        "desktop/renderer/app.js",
+        "src/agentnexus/harness/index.ts",
+        "src/agentnexus/harness/messages.ts",
+        "src/agentnexus/desktop/service.ts",
+        "src/agentnexus/security/local-transport.ts"
+      ],
+      "final_probe": "local_https_admission",
+      "resolution": "Local 的 costDisplay、消息/凭证附加审计、requestsPerMinute、Key rate control 与 endpoint restriction 已绑定使用方；其中 endpoint 控制另有离线正反向准入验证。远程未绑定项保持 BLOCKED。"
+    }
+  ],
+  "open_confirmed_m20_bugs": [],
+  "primary_agent_evidence": {
+    "attribution": "Raw artifacts read by reviewer; execution performed by primary agent, not reclassified as independent execution.",
+    "targeted": {
+      "path": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M2.0\\verification\\2026-11-09T21-10-09-346Z-53600\\results.json",
+      "results": {
+        "schema": "agentnexus/m20/verification/1",
+        "output": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M2.0\\verification\\2026-11-09T21-10-09-346Z-53600",
+        "source": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M2.0\\source",
+        "started_at": "2026-11-09T21:10:09.725Z",
+        "scope": "REAL_LOCAL_HOST_NATIVE_CREDMAN_AND_SYNTHETIC_PROVIDER_ONLY",
+        "real_credentials": 0,
+        "real_provider_requests": 0,
+        "os_hardened_qualification": "NOT_RUN",
+        "stages": [
+          {
+            "name": "typecheck",
+            "command": [
+              "D:\\Nodejs\\node.exe",
+              "tools/agentnexus/typecheck-m15.mjs"
+            ],
+            "exit_code": 0,
+            "status": "PASS",
+            "elapsed_ms": 5012
+          },
+          {
+            "name": "build",
+            "command": [
+              "D:\\Nodejs\\node.exe",
+              "tools/agentnexus/build-desktop.mjs"
+            ],
+            "exit_code": 0,
+            "status": "PASS",
+            "elapsed_ms": 1220
+          },
+          {
+            "name": "tests",
+            "command": [
+              "D:\\Nodejs\\node.exe",
+              "--test",
+              "--test-concurrency=1",
+              "--test-reporter=tap",
+              "tests/agentnexus/m20-security.test.ts",
+              "tests/agentnexus/m20-recovery.test.ts",
+              "tests/desktop/m20-local.test.ts",
+              "tests/desktop/service.test.ts"
+            ],
+            "exit_code": 0,
+            "status": "PASS",
+            "elapsed_ms": 35910,
+            "tests": 32,
+            "pass": 32,
+            "fail": 0,
+            "skipped": 0
+          }
+        ],
+        "finished_at": "2026-11-09T21:10:51.875Z",
+        "status": "PASS"
+      }
+    },
+    "full": {
+      "path": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M2.0\\verification\\2026-11-09T20-28-37-968Z-26960\\results.json",
+      "results": {
+        "schema": "agentnexus/m20/verification/1",
+        "output": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M2.0\\verification\\2026-11-09T20-28-37-968Z-26960",
+        "source": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M2.0\\source",
+        "started_at": "2026-11-09T20:28:38.168Z",
+        "scope": "REAL_LOCAL_HOST_NATIVE_CREDMAN_AND_SYNTHETIC_PROVIDER_ONLY",
+        "real_credentials": 0,
+        "real_provider_requests": 0,
+        "os_hardened_qualification": "NOT_RUN",
+        "stages": [
+          {
+            "name": "typecheck",
+            "command": [
+              "D:\\Nodejs\\node.exe",
+              "tools/agentnexus/typecheck-m15.mjs"
+            ],
+            "exit_code": 0,
+            "status": "PASS",
+            "elapsed_ms": 3801
+          },
+          {
+            "name": "build",
+            "command": [
+              "D:\\Nodejs\\node.exe",
+              "tools/agentnexus/build-desktop.mjs"
+            ],
+            "exit_code": 0,
+            "status": "PASS",
+            "elapsed_ms": 1131
+          },
+          {
+            "name": "tests",
+            "command": [
+              "D:\\Nodejs\\node.exe",
+              "--test",
+              "--test-concurrency=1",
+              "--test-reporter=tap",
+              "tests/agentnexus/control.test.ts",
+              "tests/agentnexus/diagnostics.test.ts",
+              "tests/agentnexus/gateway.test.ts",
+              "tests/agentnexus/integrity.test.ts",
+              "tests/agentnexus/m14-adapter.test.ts",
+              "tests/agentnexus/m14-native.test.ts",
+              "tests/agentnexus/m14-production.test.ts",
+              "tests/agentnexus/m15-bootstrap.test.ts",
+              "tests/agentnexus/m15-pipe.test.ts",
+              "tests/agentnexus/m151-boundaries.test.ts",
+              "tests/agentnexus/m151-lifecycle.test.ts",
+              "tests/agentnexus/m151-resources.test.ts",
+              "tests/agentnexus/m16-context.test.ts",
+              "tests/agentnexus/m16-harness.test.ts",
+              "tests/agentnexus/m16-messages.test.ts",
+              "tests/agentnexus/m16-models.test.ts",
+              "tests/agentnexus/m16-resources.test.ts",
+              "tests/agentnexus/m161-artifacts.test.ts",
+              "tests/agentnexus/m161-boundaries.test.ts",
+              "tests/agentnexus/m161-context.test.ts",
+              "tests/agentnexus/m161-gates.test.ts",
+              "tests/agentnexus/m161-harness.test.ts",
+              "tests/agentnexus/m161-message-drafts.test.ts",
+              "tests/agentnexus/m161-messages.test.ts",
+              "tests/agentnexus/m161-rules.test.ts",
+              "tests/agentnexus/m161-storage.test.ts",
+              "tests/agentnexus/m17-checker.test.ts",
+              "tests/agentnexus/m17-development.test.ts",
+              "tests/agentnexus/m17-events.test.ts",
+              "tests/agentnexus/m17-history.test.ts",
+              "tests/agentnexus/m17-models.test.ts",
+              "tests/agentnexus/m17-pilot.test.ts",
+              "tests/agentnexus/m17-quality-budget.test.ts",
+              "tests/agentnexus/m18-authorization.test.ts",
+              "tests/agentnexus/m18-gateway.test.ts",
+              "tests/agentnexus/m18-git-reviewer.test.ts",
+              "tests/agentnexus/m18-ledger.test.ts",
+              "tests/agentnexus/m18-multi-agent.test.ts",
+              "tests/agentnexus/m18-protocol.test.ts",
+              "tests/agentnexus/m18-review-bridge.test.ts",
+              "tests/agentnexus/m18-review-fixes.test.ts",
+              "tests/agentnexus/m18-secret-boundary.test.ts",
+              "tests/agentnexus/m18-vault.test.ts",
+              "tests/agentnexus/m181-adapter.test.ts",
+              "tests/agentnexus/m181-control.test.ts",
+              "tests/agentnexus/m182-egress.test.ts",
+              "tests/agentnexus/m183-service.test.ts",
+              "tests/agentnexus/m20-recovery.test.ts",
+              "tests/agentnexus/m20-security.test.ts",
+              "tests/agentnexus/q2-daily.test.ts",
+              "tests/agentnexus/q3-stack.test.ts",
+              "tests/agentnexus/reconciliation.test.ts",
+              "tests/agentnexus/runtime.test.ts",
+              "tests/agentnexus/security.test.ts",
+              "tests/agentnexus/storage.test.ts",
+              "tests/agentnexus/windows-native.test.ts",
+              "tests/desktop/isolated.test.ts",
+              "tests/desktop/m20-local.test.ts",
+              "tests/desktop/q2-trusted-entry.test.ts",
+              "tests/desktop/q3-helper-launch.test.ts",
+              "tests/desktop/service.test.ts"
+            ],
+            "exit_code": 1,
+            "status": "FAIL",
+            "elapsed_ms": 446769,
+            "tests": 805,
+            "pass": 782,
+            "fail": 3,
+            "skipped": 20
+          }
+        ],
+        "finished_at": "2026-11-09T20:36:09.878Z",
+        "status": "FAIL"
+      }
+    },
+    "baseline_comparison": {
+      "path": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M2.0\\baseline-comparison\\2026-11-09T20-45-14-918Z\\results.json",
+      "results": {
+        "scope": "UNCHANGED_LEGACY_OS_AND_RESOURCE_FIXTURES_ONLY",
+        "output": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M2.0\\baseline-comparison\\2026-11-09T20-45-14-918Z",
+        "real_provider_requests": 0,
+        "comparisons": [
+          {
+            "path": "src/agentnexus/production/service.ts",
+            "baseline_sha256": "4954b7cc8e005d961ee6408dd161046c8337c44dfe3b3439d1a2b289fdc2150d",
+            "candidate_sha256": "4954b7cc8e005d961ee6408dd161046c8337c44dfe3b3439d1a2b289fdc2150d",
+            "unchanged": true
+          },
+          {
+            "path": "src/agentnexus/production/windows-supervisor.ts",
+            "baseline_sha256": "7006732045e8e96f66dba6f68c4367ecf947a353f61a63f0b4992ad86746f724",
+            "candidate_sha256": "7006732045e8e96f66dba6f68c4367ecf947a353f61a63f0b4992ad86746f724",
+            "unchanged": true
+          },
+          {
+            "path": "src/agentnexus/production/qualification.ts",
+            "baseline_sha256": "151529013bfab546831927c4f7f42d3961e268577ab27b5bd7c6de065e187e7f",
+            "candidate_sha256": "151529013bfab546831927c4f7f42d3961e268577ab27b5bd7c6de065e187e7f",
+            "unchanged": true
+          },
+          {
+            "path": "tests/agentnexus/m14-native.test.ts",
+            "baseline_sha256": "4a9994d283d2e5280ab5cefbab701edfb92f12de688ae8474c7280de102681af",
+            "candidate_sha256": "4a9994d283d2e5280ab5cefbab701edfb92f12de688ae8474c7280de102681af",
+            "unchanged": true
+          },
+          {
+            "path": "tests/agentnexus/m14-production.test.ts",
+            "baseline_sha256": "f51c8794d705cefef7caa73b3234791b7dfffb256c92f3f227da0c7eba235d03",
+            "candidate_sha256": "f51c8794d705cefef7caa73b3234791b7dfffb256c92f3f227da0c7eba235d03",
+            "unchanged": true
+          },
+          {
+            "path": "tests/agentnexus/m151-lifecycle.test.ts",
+            "baseline_sha256": "2da7c48040cf0419d872bcfbca5b9dc9e9d9c18407e03ad73ae9a8bb5b324abd",
+            "candidate_sha256": "2da7c48040cf0419d872bcfbca5b9dc9e9d9c18407e03ad73ae9a8bb5b324abd",
+            "unchanged": true
+          }
+        ],
+        "runs": [
+          {
+            "name": "baseline",
+            "source": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M1.8.3-Q4.2\\source",
+            "command": [
+              "D:\\Nodejs\\node.exe",
+              "--test",
+              "--test-concurrency=1",
+              "--test-reporter=tap",
+              "--test-name-pattern=cumulative Job CPU time|uncooperative owners|CREATE_BREAKAWAY_FROM_JOB",
+              "tests/agentnexus/m14-native.test.ts",
+              "tests/agentnexus/m14-production.test.ts",
+              "tests/agentnexus/m151-lifecycle.test.ts"
+            ],
+            "exit_code": 1,
+            "pass": 1,
+            "fail": 2,
+            "status": "FAIL"
+          },
+          {
+            "name": "candidate",
+            "source": "I:\\AI_AgentNexus\\deliverables\\AgentNexus-M2.0\\source",
+            "command": [
+              "D:\\Nodejs\\node.exe",
+              "--test",
+              "--test-concurrency=1",
+              "--test-reporter=tap",
+              "--test-name-pattern=cumulative Job CPU time|uncooperative owners|CREATE_BREAKAWAY_FROM_JOB",
+              "tests/agentnexus/m14-native.test.ts",
+              "tests/agentnexus/m14-production.test.ts",
+              "tests/agentnexus/m151-lifecycle.test.ts"
+            ],
+            "exit_code": 1,
+            "pass": 1,
+            "fail": 2,
+            "status": "FAIL"
+          }
+        ]
+      }
+    },
+    "independent_legacy_hash_comparison": [
+      {
+        "path": "tests/agentnexus/m14-native.test.ts",
+        "candidate_sha256": "4a9994d283d2e5280ab5cefbab701edfb92f12de688ae8474c7280de102681af",
+        "baseline_sha256": "4a9994d283d2e5280ab5cefbab701edfb92f12de688ae8474c7280de102681af",
+        "unchanged": true
+      },
+      {
+        "path": "tests/agentnexus/m14-production.test.ts",
+        "candidate_sha256": "f51c8794d705cefef7caa73b3234791b7dfffb256c92f3f227da0c7eba235d03",
+        "baseline_sha256": "f51c8794d705cefef7caa73b3234791b7dfffb256c92f3f227da0c7eba235d03",
+        "unchanged": true
+      },
+      {
+        "path": "tests/agentnexus/m151-lifecycle.test.ts",
+        "candidate_sha256": "2da7c48040cf0419d872bcfbca5b9dc9e9d9c18407e03ad73ae9a8bb5b324abd",
+        "baseline_sha256": "2da7c48040cf0419d872bcfbca5b9dc9e9d9c18407e03ad73ae9a8bb5b324abd",
+        "unchanged": true
+      },
+      {
+        "path": "src/agentnexus/production/service.ts",
+        "candidate_sha256": "4954b7cc8e005d961ee6408dd161046c8337c44dfe3b3439d1a2b289fdc2150d",
+        "baseline_sha256": "4954b7cc8e005d961ee6408dd161046c8337c44dfe3b3439d1a2b289fdc2150d",
+        "unchanged": true
+      }
+    ],
+    "electron_e2e": {
+      "path": "I:/AI_AgentNexus/.workflow-kit/runtime/AgentNexus-M2.0/desktop-e2e/run-fukypu/results.json",
+      "results": {
+        "schema": "agentnexus/m20/desktop-e2e/1",
+        "output": "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M2.0\\desktop-e2e\\run-fukypu",
+        "started_at": "2026-11-09T20:57:24.142Z",
+        "status": "PASS",
+        "scope": "ACTUAL_ELECTRON_UI_CURRENT_USER_CREDMAN_SYNTHETIC_PROVIDER",
+        "real_keys": 0,
+        "real_provider_requests": 0,
+        "windows_services_created": 0,
+        "uac_installations": 0,
+        "steps": [
+          {
+            "name": "Local boots without service, TPM, CMS or native helper window",
+            "status": "PASS",
+            "elapsed_ms": 856
+          },
+          {
+            "name": "Electron runs with ordinary Medium integrity and no elevation",
+            "status": "PASS",
+            "elapsed_ms": 238
+          },
+          {
+            "name": "UI creates Provider and Model",
+            "status": "PASS",
+            "elapsed_ms": 2242
+          },
+          {
+            "name": "UI API Key saves into real Windows Credential Manager",
+            "status": "PASS",
+            "elapsed_ms": 8071
+          },
+          {
+            "name": "UI Synthetic connection uses original Gateway and ledger",
+            "status": "PASS",
+            "elapsed_ms": 1167
+          },
+          {
+            "name": "UI Model Selector binds Development Agent and sends Synthetic chat",
+            "status": "PASS",
+            "elapsed_ms": 12229
+          },
+          {
+            "name": "Security Center backend status and explicit risk confirmation",
+            "status": "PASS",
+            "elapsed_ms": 10731
+          },
+          {
+            "name": "Cost display off hides fees while ledger remains",
+            "status": "PASS",
+            "elapsed_ms": 112
+          },
+          {
+            "name": "Profile export and restart persistence",
+            "status": "PASS",
+            "elapsed_ms": 13498
+          },
+          {
+            "name": "Re-enable ENFORCED and keep Hardened migration as a blocked preview",
+            "status": "PASS",
+            "elapsed_ms": 10452
+          },
+          {
+            "name": "UI cannot read keys or inject claimed management roles",
+            "status": "PASS",
+            "elapsed_ms": 11
+          }
+        ],
+        "screenshots": [
+          "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M2.0\\desktop-e2e\\run-fukypu\\01-local-key-saved.png",
+          "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M2.0\\desktop-e2e\\run-fukypu\\02-agent-synthetic-chat.png",
+          "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M2.0\\desktop-e2e\\run-fukypu\\03-risk-review.png",
+          "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M2.0\\desktop-e2e\\run-fukypu\\04-security-center.png",
+          "I:\\AI_AgentNexus\\.workflow-kit\\runtime\\AgentNexus-M2.0\\desktop-e2e\\run-fukypu\\05-hardened-blocked-plan.png"
+        ],
+        "process_observation": {
+          "observations": [
+            {
+              "pid": 54856,
+              "elevated": false,
+              "integrity": 8192
+            }
+          ],
+          "read_only": true,
+          "os_qualification": "NOT_RUN"
+        },
+        "finished_at": "2026-11-09T20:58:26.101Z"
+      },
+      "independently_executed": false,
+      "source_tree_sha256": "ac57c46408b911a5cf73aeb2c9815c6d5ac7faa4b119c812a82f2313e16333b9",
+      "rerun_after_final_incremental_change": false,
+      "applicability": "Preserved Local UI run and unapplied blocked Hardened plan only; not a claimed E2E rerun on the final source tree."
+    }
+  },
+  "limitations": [
+    "真实 API Key 和真实 Provider 请求均为 0；Local HTTPS 只验证网络前准入/拒绝，未验证真实 Provider 连通性、费用或账单。",
+    "独立审查员未执行原生 OS Credential Manager/DPAPI 资格测试；主代理的 32/32 定向原始记录包含真实当前用户 CredMan 对合成字节的写读删与 Local Desktop 迁移测试，作为单独来源引用。",
+    "Hardened 整体保持 BLOCKED，OS 身份/隔离、sandbox、TPM/CMS、资源限制资格不是 PASS；Remote Profile Budget Controls 完整绑定仍缺失。",
+    "已存在旧 Host 且无 Profile 时保留严格模式和 UNRESOLVED_LEGACY_LEDGER_NO_MIGRATION；切回 Local 也不自动重建 REAL 100M 授权或放行 REAL。",
+    "完整回归保留 782 PASS / 3 FAIL / 20 SKIP。CPU、uncooperative-owner 和 breakaway 三项原始失败均保留；baseline/candidate 后续对照均 1 PASS / 2 FAIL，不覆盖或抹除原始全量失败。",
+    "Electron 全流程与截图由主代理执行。本审查独立检查了 IPC 来源绑定、preload 白名单、renderer escaping/CSP、UI 到后端的静态绑定及截图工具增量；E2E 结果按原始证据另行归属，不被改记为独立执行。",
+    "Local 仅承诺当前用户凭证静态保护；不承诺抵抗同 SID 或管理员恶意进程。"
+  ],
+  "actions_not_performed_by_reviewer": [
+    "real credential/provider usage",
+    "account or service creation",
+    "ACL/TPM/certificate/UAC changes",
+    "commit/push"
+  ]
+}

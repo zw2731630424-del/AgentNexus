@@ -1,0 +1,467 @@
+{
+  "schema": "agentnexus/security-feature-registry/1",
+  "features": [
+    {
+      "id": "credentials.osStorage",
+      "group": "Credential Security",
+      "name": "OS Credential Storage",
+      "dependencies": [],
+      "local": true,
+      "hardened": false,
+      "implementation": "ACTIVE",
+      "restart": true
+    },
+    {
+      "id": "credentials.isolatedService",
+      "group": "Credential Security",
+      "name": "Isolated Credential Service",
+      "dependencies": [],
+      "local": false,
+      "hardened": true,
+      "implementation": "QUALIFIED",
+      "restart": true
+    },
+    {
+      "id": "credentials.helper",
+      "group": "Credential Security",
+      "name": "Trusted Credential Helper",
+      "dependencies": [
+        "credentials.isolatedService"
+      ],
+      "local": false,
+      "hardened": true,
+      "implementation": "QUALIFIED",
+      "restart": true
+    },
+    {
+      "id": "credentials.accessRestriction",
+      "group": "Credential Security",
+      "name": "Host Credential Capability Boundary",
+      "dependencies": [],
+      "local": true,
+      "hardened": true,
+      "implementation": "ACTIVE",
+      "fixed": true,
+      "reason": "Host-only capability; does not claim same-SID isolation"
+    },
+    {
+      "id": "credentials.secretRedaction",
+      "group": "Credential Security",
+      "name": "Known Secret Leak Prevention",
+      "dependencies": [],
+      "local": true,
+      "hardened": true,
+      "implementation": "ACTIVE",
+      "fixed": true,
+      "reason": "Keys must never enter prompts, archives or logs"
+    },
+    {
+      "id": "credentials.audit",
+      "group": "Credential Security",
+      "name": "Credential Operation Audit",
+      "dependencies": [],
+      "local": true,
+      "hardened": true,
+      "implementation": "ACTIVE"
+    },
+    {
+      "id": "policy.engine",
+      "group": "Policy Security",
+      "name": "Policy Engine",
+      "dependencies": [],
+      "local": true,
+      "hardened": true,
+      "implementation": "ACTIVE"
+    },
+    {
+      "id": "policy.enforcement",
+      "group": "Policy Security",
+      "name": "Policy Enforcement",
+      "dependencies": [
+        "policy.engine"
+      ],
+      "local": true,
+      "hardened": true,
+      "implementation": "ACTIVE"
+    },
+    {
+      "id": "policy.defaultDeny",
+      "group": "Policy Security",
+      "name": "Default Deny for Unmatched Rules",
+      "dependencies": [
+        "policy.engine"
+      ],
+      "local": true,
+      "hardened": true,
+      "implementation": "ACTIVE"
+    },
+    {
+      "id": "policy.toolPermission",
+      "group": "Policy Security",
+      "name": "Tool Capability / Permission Check",
+      "dependencies": [],
+      "local": true,
+      "hardened": true,
+      "implementation": "ACTIVE",
+      "fixed": true
+    },
+    {
+      "id": "policy.resourceAuthorization",
+      "group": "Policy Security",
+      "name": "Exact Resource Authorization",
+      "dependencies": [],
+      "local": true,
+      "hardened": true,
+      "implementation": "ACTIVE",
+      "fixed": true
+    },
+    {
+      "id": "policy.approval",
+      "group": "Policy Security",
+      "name": "Local File Write Approval",
+      "dependencies": [],
+      "local": true,
+      "hardened": true,
+      "implementation": "ACTIVE"
+    },
+    {
+      "id": "data.classification",
+      "group": "Data Security",
+      "name": "Host Data Classification",
+      "dependencies": [],
+      "local": true,
+      "hardened": true,
+      "implementation": "ACTIVE"
+    },
+    {
+      "id": "data.egress",
+      "group": "Data Security",
+      "name": "Data Egress Enforcement",
+      "dependencies": [
+        "data.classification"
+      ],
+      "local": true,
+      "hardened": true,
+      "implementation": "ACTIVE"
+    },
+    {
+      "id": "data.secretScanning",
+      "group": "Data Security",
+      "name": "Generic Secret Pattern Scan",
+      "dependencies": [],
+      "local": true,
+      "hardened": true,
+      "implementation": "ACTIVE"
+    },
+    {
+      "id": "data.provenance",
+      "group": "Data Security",
+      "name": "Context Provenance",
+      "dependencies": [],
+      "local": true,
+      "hardened": true,
+      "implementation": "ACTIVE",
+      "fixed": true
+    },
+    {
+      "id": "data.fileAccess",
+      "group": "Data Security",
+      "name": "File Access Control",
+      "dependencies": [],
+      "local": true,
+      "hardened": true,
+      "implementation": "ACTIVE",
+      "fixed": true
+    },
+    {
+      "id": "execution.sandbox",
+      "group": "Execution Security",
+      "name": "Sandbox",
+      "dependencies": [
+        "deployment.runtimeIsolation"
+      ],
+      "local": false,
+      "hardened": true,
+      "implementation": "QUALIFIED",
+      "restart": true
+    },
+    {
+      "id": "execution.restrictedProcess",
+      "group": "Execution Security",
+      "name": "Restricted Process",
+      "dependencies": [
+        "deployment.osQualification"
+      ],
+      "local": false,
+      "hardened": true,
+      "implementation": "QUALIFIED",
+      "restart": true
+    },
+    {
+      "id": "execution.commandValidation",
+      "group": "Execution Security",
+      "name": "Registered Tool Command Validation",
+      "dependencies": [],
+      "local": true,
+      "hardened": true,
+      "implementation": "ACTIVE"
+    },
+    {
+      "id": "execution.shellApproval",
+      "group": "Execution Security",
+      "name": "Shell Approval",
+      "dependencies": [
+        "execution.sandbox"
+      ],
+      "local": false,
+      "hardened": true,
+      "implementation": "UNAVAILABLE",
+      "reason": "Arbitrary shell remains unavailable; no new execution backend"
+    },
+    {
+      "id": "execution.fileWriteApproval",
+      "group": "Execution Security",
+      "name": "File Write Approval",
+      "dependencies": [
+        "policy.approval"
+      ],
+      "local": true,
+      "hardened": true,
+      "implementation": "ACTIVE"
+    },
+    {
+      "id": "execution.networkRestriction",
+      "group": "Execution Security",
+      "name": "Provider Endpoint Restriction",
+      "dependencies": [],
+      "local": true,
+      "hardened": true,
+      "implementation": "ACTIVE"
+    },
+    {
+      "id": "execution.resourceLimits",
+      "group": "Execution Security",
+      "name": "OS Resource Limits",
+      "dependencies": [
+        "deployment.osQualification"
+      ],
+      "local": false,
+      "hardened": true,
+      "implementation": "QUALIFIED"
+    },
+    {
+      "id": "audit.commands",
+      "group": "Audit Security",
+      "name": "Additional Command Audit",
+      "dependencies": [],
+      "local": true,
+      "hardened": true,
+      "implementation": "ACTIVE"
+    },
+    {
+      "id": "audit.tools",
+      "group": "Audit Security",
+      "name": "Additional Tool Audit",
+      "dependencies": [],
+      "local": true,
+      "hardened": true,
+      "implementation": "ACTIVE"
+    },
+    {
+      "id": "audit.files",
+      "group": "Audit Security",
+      "name": "Additional File Modification Audit",
+      "dependencies": [],
+      "local": true,
+      "hardened": true,
+      "implementation": "ACTIVE"
+    },
+    {
+      "id": "audit.providers",
+      "group": "Audit Security",
+      "name": "Additional Provider Request Audit",
+      "dependencies": [],
+      "local": true,
+      "hardened": true,
+      "implementation": "ACTIVE"
+    },
+    {
+      "id": "audit.messages",
+      "group": "Audit Security",
+      "name": "Additional Agent Message Audit",
+      "dependencies": [],
+      "local": true,
+      "hardened": true,
+      "implementation": "ACTIVE"
+    },
+    {
+      "id": "audit.policy",
+      "group": "Audit Security",
+      "name": "Additional Policy Decision Audit",
+      "dependencies": [],
+      "local": true,
+      "hardened": true,
+      "implementation": "ACTIVE"
+    },
+    {
+      "id": "deployment.credentialService",
+      "group": "Deployment Security",
+      "name": "Credential Service Deployment",
+      "dependencies": [
+        "credentials.isolatedService"
+      ],
+      "local": false,
+      "hardened": true,
+      "implementation": "QUALIFIED",
+      "restart": true
+    },
+    {
+      "id": "deployment.tpmCng",
+      "group": "Deployment Security",
+      "name": "TPM / CNG Signing Key",
+      "dependencies": [],
+      "local": false,
+      "hardened": false,
+      "implementation": "QUALIFIED",
+      "restart": true
+    },
+    {
+      "id": "deployment.signer",
+      "group": "Deployment Security",
+      "name": "Qualification Signer",
+      "dependencies": [],
+      "local": false,
+      "hardened": false,
+      "implementation": "QUALIFIED",
+      "restart": true
+    },
+    {
+      "id": "deployment.cmsQualification",
+      "group": "Deployment Security",
+      "name": "CMS Qualification Signature",
+      "dependencies": [
+        "deployment.signer"
+      ],
+      "local": false,
+      "hardened": false,
+      "implementation": "QUALIFIED",
+      "restart": true
+    },
+    {
+      "id": "deployment.cmsApproval",
+      "group": "Deployment Security",
+      "name": "CMS Deployment Approval",
+      "dependencies": [
+        "deployment.signer"
+      ],
+      "local": false,
+      "hardened": false,
+      "implementation": "QUALIFIED",
+      "restart": true
+    },
+    {
+      "id": "deployment.osQualification",
+      "group": "Deployment Security",
+      "name": "OS Identity Qualification",
+      "dependencies": [],
+      "local": false,
+      "hardened": true,
+      "implementation": "QUALIFIED",
+      "restart": true
+    },
+    {
+      "id": "deployment.runtimeIsolation",
+      "group": "Deployment Security",
+      "name": "Trusted Runtime / Daily IPC Isolation",
+      "dependencies": [
+        "credentials.isolatedService",
+        "deployment.osQualification"
+      ],
+      "local": false,
+      "hardened": true,
+      "implementation": "QUALIFIED",
+      "restart": true
+    },
+    {
+      "id": "budget.global",
+      "group": "Budget Controls",
+      "name": "global Budget Enforcement",
+      "dependencies": [],
+      "local": true,
+      "hardened": true,
+      "implementation": "ACTIVE"
+    },
+    {
+      "id": "budget.project",
+      "group": "Budget Controls",
+      "name": "project Budget Enforcement",
+      "dependencies": [],
+      "local": true,
+      "hardened": true,
+      "implementation": "ACTIVE"
+    },
+    {
+      "id": "budget.agent",
+      "group": "Budget Controls",
+      "name": "agent Budget Enforcement",
+      "dependencies": [],
+      "local": true,
+      "hardened": true,
+      "implementation": "ACTIVE"
+    },
+    {
+      "id": "budget.task",
+      "group": "Budget Controls",
+      "name": "task Budget Enforcement",
+      "dependencies": [],
+      "local": true,
+      "hardened": true,
+      "implementation": "ACTIVE"
+    },
+    {
+      "id": "budget.provider",
+      "group": "Budget Controls",
+      "name": "provider Budget Enforcement",
+      "dependencies": [],
+      "local": true,
+      "hardened": true,
+      "implementation": "ACTIVE"
+    },
+    {
+      "id": "budget.keyPool",
+      "group": "Budget Controls",
+      "name": "keyPool Budget Enforcement",
+      "dependencies": [],
+      "local": true,
+      "hardened": true,
+      "implementation": "ACTIVE"
+    },
+    {
+      "id": "budget.cost",
+      "group": "Budget Controls",
+      "name": "cost Budget Enforcement",
+      "dependencies": [],
+      "local": true,
+      "hardened": true,
+      "implementation": "ACTIVE"
+    },
+    {
+      "id": "budget.rate",
+      "group": "Budget Controls",
+      "name": "rate Budget Enforcement",
+      "dependencies": [],
+      "local": true,
+      "hardened": true,
+      "implementation": "ACTIVE"
+    },
+    {
+      "id": "budget.costDisplay",
+      "group": "Budget Controls",
+      "name": "Cost Display",
+      "dependencies": [],
+      "local": true,
+      "hardened": true,
+      "implementation": "ACTIVE"
+    }
+  ]
+}
